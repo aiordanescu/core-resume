@@ -10,6 +10,7 @@ import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/comp
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 import { useHasUsableAiProvider } from "../integrations/hooks/use-has-usable-ai-provider";
+import { AiLimitsForm } from "./ai-limits";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
@@ -350,6 +351,34 @@ export function WebAccessSection() {
 						)}
 					</>
 				)}
+			</div>
+
+			<div className="border-t border-line">
+				<AiLimitsForm
+					groups={[
+						{
+							legend: <Trans>Time limits</Trans>,
+							description: (
+								<Trans>
+									Raise them when pages are slow to load or your search service needs longer. A web call includes the
+									fallback to the built-in reader.
+								</Trans>
+							),
+							limits: [
+								{
+									name: "webCallTimeoutSeconds",
+									label: <Trans>One web search or page read</Trans>,
+									unit: t`seconds`,
+								},
+								{
+									name: "discoveryTimeoutSeconds",
+									label: <Trans>One scheduled discovery run</Trans>,
+									unit: t`seconds`,
+								},
+							],
+						},
+					]}
+				/>
 			</div>
 
 			<footer className="flex items-start gap-2 border-t border-line bg-bg px-5 py-3 text-xs leading-5 text-ink-2 max-sm:px-4">

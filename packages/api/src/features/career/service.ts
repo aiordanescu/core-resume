@@ -11,7 +11,9 @@ import {
 	careerProfileDataSchema,
 	careerWorkspaceSchema,
 	EMPTY_WORKSPACE,
+	aiLimitsSchema,
 	type CareerWorkspace,
+	type AiLimits,
 	type careerFactInputSchema,
 	type careerStoryInputSchema,
 	type SavedItemData,
@@ -299,6 +301,24 @@ export const careerService = {
 		});
 		return data;
 	},
+	aiLimits: async (userId: string) => {
+		const [row] = await db
+			.select({ aiLimits: tables.careerProfile.aiLimits })
+			.from(tables.careerProfile)
+			.where(eq(tables.careerProfile.userId, userId));
+		return aiLimitsSchema.parse(row?.aiLimits ?? {});
+	},
+	/** Limits are settings, not preferences: saving them never touches `data` or the Knowledge versions. */
+	saveAiLimits: async (userId: string, limits: AiLimits) => {
+		await db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			await tx
+				.insert(tables.careerProfile)
+				.values({ userId, data: careerProfileDataSchema.parse({}), aiLimits: limits })
+				.onConflictDoUpdate({ target: tables.careerProfile.userId, set: { aiLimits: limits } });
+		});
+		return limits;
+	},
 	/** Facts the coach can use for an application (or shared ones). `all` lists every scope, for Knowledge. */
 	facts: async (input: Owned & { query?: string | undefined; all?: boolean | undefined }) => {
 		await requireCareerApplication(input);
@@ -462,8 +482,9 @@ export const careerService = {
 	context: async (input: Owned & { interviewId?: string | null | undefined }) => {
 		const memoryRevision = await memoryVersion(input.userId);
 		const application = await requireCareerApplication(input);
-		const [preferences, facts, stories, [owner]] = await Promise.all([
+		const [preferences, limits, facts, stories, [owner]] = await Promise.all([
 			careerService.profile(input.userId),
+			careerService.aiLimits(input.userId),
 			careerService.facts(input),
 			careerService.stories(input),
 			db.select({ timezone: tables.user.timezone }).from(tables.user).where(eq(tables.user.id, input.userId)),
@@ -593,6 +614,7 @@ export const careerService = {
 			application,
 			interview,
 			profile,
+			limits,
 			facts: activeFacts,
 			stories: usableStories,
 			resume,

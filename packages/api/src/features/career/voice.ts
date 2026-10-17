@@ -16,7 +16,7 @@ import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { aiProvidersService } from "../ai-providers/service";
 import { resolveAiBaseUrl } from "../ai/url-policy";
-import { requireCareerApplication } from "./service";
+import { careerService, requireCareerApplication } from "./service";
 
 const procedure = protectedProcedure.use(aiRequestRateLimit);
 
@@ -97,6 +97,7 @@ export const careerVoiceRouter = {
 		.handler(async ({ context, input }) => {
 			await requireCareerApplication({ userId: context.user.id, applicationId: input.applicationId });
 			const connection = await voiceConnection(context.user.id, input.providerId, "transcription", input.model);
+			const { transcriptionTimeoutSeconds } = await careerService.aiLimits(context.user.id);
 			const model = transcriptionModel(connection, input.model);
 			if (!model) throw new ORPCError("BAD_REQUEST", { message: "Choose a connection that can transcribe speech." });
 			try {
@@ -105,7 +106,7 @@ export const careerVoiceRouter = {
 					model,
 					audio: new Uint8Array(await input.audio.arrayBuffer()),
 					maxRetries: 0,
-					abortSignal: AbortSignal.timeout(60_000),
+					abortSignal: AbortSignal.timeout(transcriptionTimeoutSeconds * 1000),
 					telemetry: { recordInputs: false, recordOutputs: false },
 				});
 				const text = result.text.slice(0, 40_000);
@@ -170,6 +171,7 @@ export const careerVoiceRouter = {
 		.output(z.object({ audio: z.string(), mediaType: z.string() }))
 		.handler(async ({ context, input }) => {
 			const connection = await voiceConnection(context.user.id, input.providerId, "speech", input.model);
+			const { speechTimeoutSeconds } = await careerService.aiLimits(context.user.id);
 			const model = speechModel(connection, input.model);
 			if (!model) throw new ORPCError("BAD_REQUEST", { message: "Choose a connection that can read text aloud." });
 			try {
@@ -179,7 +181,7 @@ export const careerVoiceRouter = {
 					// OpenAI's speech models need a voice; the others have a default one.
 					...(connection.provider === "openai" || input.model.startsWith("openai/") ? { voice: "alloy" } : {}),
 					maxRetries: 0,
-					abortSignal: AbortSignal.timeout(30_000),
+					abortSignal: AbortSignal.timeout(speechTimeoutSeconds * 1000),
 					telemetry: { recordInputs: false, recordOutputs: false },
 				});
 				return { audio: result.audio.base64, mediaType: result.audio.mediaType };

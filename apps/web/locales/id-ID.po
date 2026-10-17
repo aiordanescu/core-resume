@@ -951,6 +951,10 @@ msgstr "Postingan pekerjaan yang ditempel dapat disimpan sebagai lamaran pekerja
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "Pengingat untuk check-in, ditampilkan sebagai langkah berikutnya sampai Anda melakukannya."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "A reply can call the model several times, with tools in between. One call never runs longer than the whole reply."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A role has no description"
 msgstr "Sebuah peran tidak memiliki deskripsi"
@@ -1493,6 +1497,14 @@ msgstr "AI tidak dapat mengisi rinciannya. Postingan pekerjaan dipertahankan; le
 msgid "AI edit"
 msgstr "Sunting AI"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits saved."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "AI providers"
@@ -1750,6 +1762,10 @@ msgstr "Sistem pelacakan pelamar mengubah PDF Anda menjadi teks biasa sebelum ad
 #: src/features/documents/trash-page.tsx
 msgid "Application"
 msgstr "Lamaran"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Application actions"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Application added to your pipeline."
@@ -2424,6 +2440,10 @@ msgstr "Mengubah judul bagian dan kata tanggal saja, bukan konten Anda."
 msgid "Changing it sends a confirmation to the new address. Your username is part of every public link."
 msgstr "Mengubahnya mengirimkan konfirmasi ke alamat baru. Nama pengguna Anda adalah bagian dari setiap tautan publik."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "characters"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/header.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
@@ -2680,9 +2700,14 @@ msgstr "Tertutup"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "Coach"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Coach and Assistant replies"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
@@ -3281,6 +3306,10 @@ msgstr "Tidak dapat memuat file sampel. Coba lagi."
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "Tidak dapat memuat ini. Data tersimpan Anda tidak berubah."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't load your AI limits."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
 msgstr "Tidak dapat menjadikannya default."
@@ -3402,6 +3431,10 @@ msgstr "Tidak dapat menyimpan posisi ini ke Lamaran."
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule."
 msgstr "Tidak dapat menyimpan jadwal ini."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't save your AI limits."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
@@ -3746,6 +3779,13 @@ msgstr "Tarik napas dalam-dalam."
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
 msgstr "Default"
+
+#. placeholder {0}: number.format(DEFAULTS[name])
+#. placeholder {1}: number.format(bounds(name).min)
+#. placeholder {2}: number.format(bounds(name).max)
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Default {0}. From {1} to {2}."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
@@ -4699,10 +4739,26 @@ msgstr "Fakta dilupakan"
 msgid "Fact type"
 msgstr "Jenis fakta"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "facts"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "Fakta"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts shared with each message"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -4918,6 +4974,10 @@ msgstr "Cocok untuk halaman {authored}"
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Fit to one page"
 msgstr "Cocok untuk satu halaman"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first."
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on {authored} pages: {details}"
@@ -5478,6 +5538,10 @@ msgstr "Berapa hari seminggu harus di kantor?"
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "Berapa hari cuti yang didapat?"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
@@ -7719,6 +7783,14 @@ msgstr "Satu kolom"
 msgid "one format"
 msgstr "satu format"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "One scheduled discovery run"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "One web search or page read"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
 msgstr "Hanya izinkan aplikasi yang Anda percayai. Aplikasi ini akan dapat:"
@@ -8687,6 +8759,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "Angkat lembar desain"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "Raise them when pages are slow to load or your search service needs longer. A web call includes the fallback to the built-in reader."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "Ekspor ulang dari tata letak satu kolom, lalu salin teksnya dan periksa apakah terbaca dari atas ke bawah."
@@ -9239,6 +9315,10 @@ msgstr "Setel ulang default desain"
 msgid "Reset Password"
 msgstr "Atur Ulang Kata Sandi"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Reset to defaults"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Atur ulang kata sandi Anda"
@@ -9379,6 +9459,7 @@ msgstr "Diambil {0}. Kesegaran asal tidak diketahui kecuali dilaporkan."
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/save-status.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Retry"
@@ -9579,6 +9660,7 @@ msgstr "Contoh resume ditambahkan. Hapus kapan saja."
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "Simpan"
 
@@ -9912,6 +9994,11 @@ msgstr "Mencari di web"
 #: src/features/assistant/conversation.tsx
 msgid "Searching the web…"
 msgstr "Menelusuri web…"
+
+#: src/features/settings/ai/ai-limits.tsx
+#: src/features/settings/ai/web-access.tsx
+msgid "seconds"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -10789,11 +10876,27 @@ msgstr "Berhenti di {0}"
 msgid "Stopped. No edits were proposed."
 msgstr "Berhenti. Tidak ada pengeditan yang diusulkan."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "stories"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "Cerita"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories shared with each message"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
@@ -11772,6 +11875,30 @@ msgstr "Waktu · {0}"
 msgid "Time · {timeZone}"
 msgstr "Waktu · {timeZone}"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for a whole reply"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one model call"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for reading text aloud"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for turning speech into text"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Time limits"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "Waktu, tautan, siapa, apa yang Anda kirim"
@@ -12523,6 +12650,10 @@ msgstr "Pengunjung dapat mengunduh PDF"
 #: src/features/resume/share/link-tab.tsx
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "Pengunjung memasukkannya sebelum mereka melihat resume. Bagikan hanya dengan orang yang Anda percayai."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Voice"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"

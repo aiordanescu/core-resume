@@ -10,6 +10,7 @@ import { probeWebAccess, readPage, searchWeb } from "./service";
 
 const fixtures = vi.hoisted(() => ({
 	limit: vi.fn(async () => ({ success: true })),
+	webCallTimeoutMs: 20_000,
 	direct: vi.fn(),
 	directHtml: "<h1>Direct posting</h1><p>Work on accessible products.</p>",
 	directLocation: "",
@@ -22,6 +23,7 @@ vi.mock("../../redis", () => ({
 vi.mock("@reactive-resume/env/server", () => ({
 	env: { FLAG_DISABLE_API_RATE_LIMIT: false },
 }));
+vi.mock("./limits", () => ({ webCallTimeoutMs: async () => fixtures.webCallTimeoutMs }));
 vi.mock("node:dns/promises", () => ({ lookup: vi.fn() }));
 vi.mock("node:dns", () => ({ lookup: vi.fn() }));
 vi.mock("node:https", () => ({
@@ -165,6 +167,7 @@ afterAll(async () => {
 	await new Promise<void>((resolve, reject) => server.close((error) => (error ? reject(error) : resolve())));
 });
 beforeEach(() => {
+	fixtures.webCallTimeoutMs = 20_000;
 	vi.stubEnv("NODE_ENV", "test");
 	vi.stubGlobal("fetch", (input: string | URL | Request, options?: RequestInit) => {
 		const url = new globalThis.URL(input instanceof Request ? input.url : input.toString());
@@ -230,6 +233,14 @@ describe.each(PROVIDERS)("%s adapter at shared boundary", (provider) => {
 			});
 	});
 
+	it("gives the search service six seconds less than the account's web call limit", async () => {
+		fixtures.webCallTimeoutMs = 45_000;
+		responseOverride = readResponse(provider, "Posting");
+		await readPage(URL, context(provider));
+		const timeout = { firecrawl: "timeout", tavily: "timeout", exa: "livecrawlTimeout" }[provider];
+		expect(requests[0]?.body[timeout]).toBe(provider === "tavily" ? 39 : 39_000);
+	});
+
 	it("reads page content with truthful source metadata and explicit truncation", async () => {
 		responseOverride = readResponse(provider, "x".repeat(20_001));
 		const result = await readPage(`${URL}#apply`, context(provider));
@@ -247,11 +258,12 @@ describe.each(PROVIDERS)("%s adapter at shared boundary", (provider) => {
 			expect(requests[0]?.body).toMatchObject({
 				text: { maxCharacters: 20_001 },
 				maxAgeHours: 0,
+				livecrawlTimeout: 14_000,
 			});
 			expect(requests[0]?.body).not.toHaveProperty("livecrawl");
 		} else expect(result.providerFetchedAt).toBeUndefined();
 		if (provider === "tavily") {
-			expect(requests[0]?.body).toMatchObject({ format: "markdown" });
+			expect(requests[0]?.body).toMatchObject({ format: "markdown", timeout: 14 });
 			expect(requests[0]?.body).not.toHaveProperty("query");
 			expect(requests[0]?.body).not.toHaveProperty("chunks_per_source");
 		}

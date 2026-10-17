@@ -19,7 +19,12 @@ vi.mock("../../middleware/rate-limit", () => ({
 }));
 vi.mock("@reactive-resume/db/client", () => ({ db: { insert: mocks.insert } }));
 vi.mock("../ai-providers/service", () => ({ aiProvidersService: { getRunnableById: mocks.provider } }));
-vi.mock("./service", () => ({ requireCareerApplication: mocks.requireApplication }));
+vi.mock("./service", () => ({
+	requireCareerApplication: mocks.requireApplication,
+	careerService: {
+		aiLimits: async () => (await import("@reactive-resume/schema/career")).aiLimitsSchema.parse({}),
+	},
+}));
 vi.mock("ai", async (importOriginal) => ({
 	...(await importOriginal<typeof import("ai")>()),
 	transcribe: vi.fn(),

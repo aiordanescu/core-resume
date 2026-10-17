@@ -156,20 +156,21 @@ export async function generateCareer(input: GenerateInput) {
 		while (JSON.stringify(text.slice(0, end)).length > budget && end > 0) end = Math.floor(end * 0.8);
 		return text.slice(0, end);
 	};
+	const { actionFactChars, actionStoryChars } = context.limits;
 	const supporting = new Set(selectedStory?.data.factIds ?? []);
 	const selectedFacts = context.facts.filter((fact) => supporting.has(fact.id));
 	const promptFacts = take(
 		[
 			...selectedFacts.map(({ id, text, category }) => ({
 				id,
-				text: excerpt(text, Math.floor(9000 / selectedFacts.length) - 100),
+				text: excerpt(text, Math.max(100, Math.floor((actionFactChars * 0.9) / selectedFacts.length) - 100)),
 				category,
 			})),
 			...context.facts
 				.filter((fact) => !supporting.has(fact.id))
 				.map(({ id, text, category }) => ({ id, text, category })),
 		],
-		10_000,
+		actionFactChars,
 	);
 	const includedFacts = new Set(promptFacts.map((fact) => fact.id));
 	const preferredStory = selectedStory
@@ -190,7 +191,7 @@ export async function generateCareer(input: GenerateInput) {
 				.filter((story) => story.id !== selectedStory?.id && story.data.factIds.every((id) => includedFacts.has(id)))
 				.map(({ id, data }) => ({ id, ...data, factIds: undefined, applicationId: undefined })),
 		],
-		10_000,
+		actionStoryChars,
 	);
 	const schema = outputs[task.task];
 	const prompt = JSON.stringify({
@@ -216,7 +217,10 @@ export async function generateCareer(input: GenerateInput) {
 		input: task.task === "reply" ? { message } : taskInput,
 		contextMayBeExcerpted: true,
 	});
-	const generationSignal = AbortSignal.any([AbortSignal.timeout(120_000), ...(input.signal ? [input.signal] : [])]);
+	const generationSignal = AbortSignal.any([
+		AbortSignal.timeout(context.limits.actionTimeoutSeconds * 1000),
+		...(input.signal ? [input.signal] : []),
+	]);
 	const output = await generateJson(
 		model,
 		{

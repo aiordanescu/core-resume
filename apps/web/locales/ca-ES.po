@@ -951,6 +951,10 @@ msgstr "Una publicació de feina enganxada es pot desar després com a sol·lici
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "Un recordatori per registrar-se, que es mostra com a pas següent fins que ho feu."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "A reply can call the model several times, with tools in between. One call never runs longer than the whole reply."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A role has no description"
 msgstr "Un rol no té descripció"
@@ -1493,6 +1497,14 @@ msgstr "La IA no va poder omplir els detalls. Es conserva l'oferta de feina; com
 msgid "AI edit"
 msgstr "Edició AI"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits saved."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "AI providers"
@@ -1750,6 +1762,10 @@ msgstr "Els sistemes de seguiment de sol·licitants converteixen el vostre PDF e
 #: src/features/documents/trash-page.tsx
 msgid "Application"
 msgstr "Candidatura"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Application actions"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Application added to your pipeline."
@@ -2424,6 +2440,10 @@ msgstr "Canvia només els títols de les seccions i les paraules de la data, no 
 msgid "Changing it sends a confirmation to the new address. Your username is part of every public link."
 msgstr "En canviar-lo, s'envia una confirmació a la nova adreça. El vostre nom d'usuari forma part de cada enllaç públic."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "characters"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/header.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
@@ -2680,9 +2700,14 @@ msgstr "Tancat"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "Orientador"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Coach and Assistant replies"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
@@ -3281,6 +3306,10 @@ msgstr "No s'ha pogut carregar el fitxer de mostra. Torna-ho a provar."
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "No s'ha pogut carregar. Les dades desades no han canviat."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't load your AI limits."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
 msgstr "No s'ha pogut definir com a predeterminat."
@@ -3402,6 +3431,10 @@ msgstr "No s'ha pogut desar aquest lloc a Candidatures."
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule."
 msgstr "No s'ha pogut desar aquesta programació."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't save your AI limits."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
@@ -3746,6 +3779,13 @@ msgstr "Respireu fondo."
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
 msgstr "Predeterminat"
+
+#. placeholder {0}: number.format(DEFAULTS[name])
+#. placeholder {1}: number.format(bounds(name).min)
+#. placeholder {2}: number.format(bounds(name).max)
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Default {0}. From {1} to {2}."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
@@ -4699,10 +4739,26 @@ msgstr "S'ha oblidat el fet"
 msgid "Fact type"
 msgstr "Tipus de fet"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "facts"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "Fets"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts shared with each message"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -4918,6 +4974,10 @@ msgstr "Ajust a les pàgines {authored}"
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Fit to one page"
 msgstr "Ajust a una pàgina"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first."
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on {authored} pages: {details}"
@@ -5478,6 +5538,10 @@ msgstr "Quants dies a la setmana cal anar a l'oficina?"
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "Quants dies de vacances inclou?"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
@@ -7719,6 +7783,14 @@ msgstr "Una columna"
 msgid "one format"
 msgstr "un format"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "One scheduled discovery run"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "One web search or page read"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
 msgstr "Autoritza només les aplicacions en què confiïs. Aquesta aplicació podrà:"
@@ -8687,6 +8759,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "Aixeca el full de disseny"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "Raise them when pages are slow to load or your search service needs longer. A web call includes the fallback to the built-in reader."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "Torna a exportar des d'un disseny d'una sola columna i després copia el text i comprova que es llegeix de dalt a baix."
@@ -9239,6 +9315,10 @@ msgstr "Restableix els valors predeterminats del disseny"
 msgid "Reset Password"
 msgstr "Restableix la contrasenya"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Reset to defaults"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Restableix la contrasenya"
@@ -9379,6 +9459,7 @@ msgstr "S'ha recuperat {0}. La frescor de l'origen es desconeix tret que s'infor
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/save-status.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Retry"
@@ -9579,6 +9660,7 @@ msgstr "S'ha afegit un currículum de mostra. Suprimeix-lo en qualsevol moment."
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "Desa"
 
@@ -9912,6 +9994,11 @@ msgstr "Cercant al web"
 #: src/features/assistant/conversation.tsx
 msgid "Searching the web…"
 msgstr "Cercant al web..."
+
+#: src/features/settings/ai/ai-limits.tsx
+#: src/features/settings/ai/web-access.tsx
+msgid "seconds"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -10789,11 +10876,27 @@ msgstr "Aturat a {0}"
 msgid "Stopped. No edits were proposed."
 msgstr "Parat. No es van proposar modificacions."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "stories"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "Històries"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories shared with each message"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
@@ -11772,6 +11875,30 @@ msgstr "Hora · {0}"
 msgid "Time · {timeZone}"
 msgstr "Hora · {timeZone}"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for a whole reply"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one model call"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for reading text aloud"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for turning speech into text"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Time limits"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "Hora, enllaç, participants, què heu enviat"
@@ -12523,6 +12650,10 @@ msgstr "Els visitants poden descarregar el PDF"
 #: src/features/resume/share/link-tab.tsx
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "Els visitants hi entren abans de veure el currículum. Comparteix-ho només amb persones de confiança."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Voice"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"

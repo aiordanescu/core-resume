@@ -951,6 +951,10 @@ msgstr "ഒട്ടിച്ച ജോലി പോസ്റ്റിംഗ് 
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "ചെക്ക് ഇൻ ചെയ്യാനുള്ള ഒരു ഓർമ്മപ്പെടുത്തൽ, നിങ്ങൾ ചെയ്യുന്നത് വരെ അടുത്ത ഘട്ടമായി കാണിക്കുന്നു."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "A reply can call the model several times, with tools in between. One call never runs longer than the whole reply."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A role has no description"
 msgstr "ഒരു വേഷത്തിന് വിവരണമില്ല"
@@ -1493,6 +1497,14 @@ msgstr "വിശദാംശങ്ങൾ പൂരിപ്പിക്കാ�
 msgid "AI edit"
 msgstr "AI എഡിറ്റ്"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits saved."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "AI providers"
@@ -1750,6 +1762,10 @@ msgstr "അപേക്ഷക ട്രാക്കിംഗ് സിസ്റ�
 #: src/features/documents/trash-page.tsx
 msgid "Application"
 msgstr "അപേക്ഷ"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Application actions"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Application added to your pipeline."
@@ -2424,6 +2440,10 @@ msgstr "വിഭാഗ ശീർഷകങ്ങളും തീയതി വാ
 msgid "Changing it sends a confirmation to the new address. Your username is part of every public link."
 msgstr "ഇത് മാറ്റുന്നത് പുതിയ വിലാസത്തിലേക്ക് ഒരു സ്ഥിരീകരണം അയയ്ക്കുന്നു. നിങ്ങളുടെ ഉപയോക്തൃനാമം എല്ലാ പൊതു ലിങ്കുകളുടെയും ഭാഗമാണ്."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "characters"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/header.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
@@ -2680,9 +2700,14 @@ msgstr "അടച്ചു"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "കോച്ച്"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Coach and Assistant replies"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
@@ -3281,6 +3306,10 @@ msgstr "സാമ്പിൾ ഫയൽ ലോഡ് ചെയ്യാനായ
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "ഇത് ലോഡ് ചെയ്യാനായില്ല. നിങ്ങൾ സംരക്ഷിച്ച ഡാറ്റയ്ക്ക് മാറ്റമില്ല."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't load your AI limits."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
 msgstr "ഡിഫോൾട്ട് ആക്കാനായില്ല."
@@ -3402,6 +3431,10 @@ msgstr "ഈ റോൾ അപേക്ഷകളിലേക്ക് സേവ്
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule."
 msgstr "ഈ ഷെഡ്യൂൾ സേവ് ചെയ്യാനായില്ല."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't save your AI limits."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
@@ -3746,6 +3779,13 @@ msgstr "ദീർഘമായി ശ്വസിക്കുക."
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
 msgstr "ഡിഫോൾട്ട്"
+
+#. placeholder {0}: number.format(DEFAULTS[name])
+#. placeholder {1}: number.format(bounds(name).min)
+#. placeholder {2}: number.format(bounds(name).max)
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Default {0}. From {1} to {2}."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
@@ -4699,10 +4739,26 @@ msgstr "വസ്തുത മറന്നു"
 msgid "Fact type"
 msgstr "വസ്തുതയുടെ തരം"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "facts"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "വസ്തുതകൾ"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts shared with each message"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -4918,6 +4974,10 @@ msgstr "{authored} പേജുകൾക്ക് അനുയോജ്യം"
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Fit to one page"
 msgstr "ഒരു പേജിലേക്ക് യോജിപ്പിക്കുക"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first."
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on {authored} pages: {details}"
@@ -5478,6 +5538,10 @@ msgstr "ആഴ്ചയിൽ എത്ര ദിവസം ഓഫീസിൽ �
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "എത്ര ദിവസത്തെ അവധി ലഭിക്കും?"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
@@ -7719,6 +7783,14 @@ msgstr "ഒരു കോളം"
 msgid "one format"
 msgstr "ഒരേ ഫോർമാറ്റ്"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "One scheduled discovery run"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "One web search or page read"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
 msgstr "നിങ്ങൾ വിശ്വസിക്കുന്ന ആപ്ലിക്കേഷനുകൾ മാത്രം അനുവദിക്കുക. ഈ അപ്ലിക്കേഷന് ഇനിപ്പറയുന്നവ ചെയ്യാൻ കഴിയും:"
@@ -8687,6 +8759,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "ഡിസൈൻ ഷീറ്റ് ഉയർത്തുക"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "Raise them when pages are slow to load or your search service needs longer. A web call includes the fallback to the built-in reader."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "ഒറ്റ-കോളം ലേഔട്ടിൽ നിന്ന് വീണ്ടും എക്സ്പോർട്ട് ചെയ്ത്, ടെക്സ്റ്റ് പകർത്തി അത് മുകളിൽ നിന്ന് താഴേക്ക് വായിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക."
@@ -9239,6 +9315,10 @@ msgstr "ഡിസൈൻ ഡിഫോൾട്ടുകൾ പുനഃസജ്�
 msgid "Reset Password"
 msgstr "പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യുക"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Reset to defaults"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യുക"
@@ -9379,6 +9459,7 @@ msgstr "{0} വീണ്ടെടുത്തു. റിപ്പോർട്ട
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/save-status.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Retry"
@@ -9579,6 +9660,7 @@ msgstr "സാമ്പിൾ റെസ്യൂമെ ചേർത്തു. �
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "സേവ് ചെയ്യുക"
 
@@ -9912,6 +9994,11 @@ msgstr "വെബിൽ തിരയുന്നു"
 #: src/features/assistant/conversation.tsx
 msgid "Searching the web…"
 msgstr "വെബിൽ തിരയുന്നു..."
+
+#: src/features/settings/ai/ai-limits.tsx
+#: src/features/settings/ai/web-access.tsx
+msgid "seconds"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -10789,11 +10876,27 @@ msgstr "{0}-ൽ നിർത്തി"
 msgid "Stopped. No edits were proposed."
 msgstr "നിർത്തി. തിരുത്തലുകളൊന്നും നിർദ്ദേശിച്ചിട്ടില്ല."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "stories"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "കഥകൾ"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories shared with each message"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
@@ -11772,6 +11875,30 @@ msgstr "സമയം · {0}"
 msgid "Time · {timeZone}"
 msgstr "സമയം · {timeZone}"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for a whole reply"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one model call"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for reading text aloud"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for turning speech into text"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Time limits"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "സമയം, ലിങ്ക്, ആരെ കാണും, നിങ്ങൾ അയച്ചത്"
@@ -12523,6 +12650,10 @@ msgstr "സന്ദർശകർക്ക് PDF ഡൗൺലോഡ് ചെയ
 #: src/features/resume/share/link-tab.tsx
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "സന്ദർശകർ റെസ്യൂമെ കാണുന്നതിന് മുമ്പ് അതിൽ പ്രവേശിക്കുന്നു. നിങ്ങൾ വിശ്വസിക്കുന്ന ആളുകളുമായി മാത്രം ഇത് പങ്കിടുക."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Voice"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"

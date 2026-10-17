@@ -32,7 +32,7 @@ const contentsSchema = z.object({
 		.max(100),
 	statuses: z.array(z.object({ id: z.string(), status: z.string() })).optional(),
 });
-export async function readExa(url: string, { connection, signal }: ProviderRequest) {
+export async function readExa(url: string, { connection, signal, serviceTimeoutMs }: ProviderRequest) {
 	const response = parseResponse(
 		contentsSchema,
 		await postJson(
@@ -44,7 +44,7 @@ export async function readExa(url: string, { connection, signal }: ProviderReque
 				urls: [url],
 				text: { maxCharacters: MAX_CONTENT_CHARS + 1 },
 				maxAgeHours: 0,
-				livecrawlTimeout: 14_000,
+				livecrawlTimeout: serviceTimeoutMs,
 			},
 			signal,
 		),

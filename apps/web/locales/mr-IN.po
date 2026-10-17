@@ -951,6 +951,10 @@ msgstr "पेस्ट केलेले जॉब पोस्टिंग �
 msgid "A reminder to check in, shown as the next step until you do."
 msgstr "चेक इन करण्यासाठी एक स्मरणपत्र, जोपर्यंत तुम्ही करत नाही तोपर्यंत पुढील पायरी म्हणून दाखवले जाते."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "A reply can call the model several times, with tools in between. One call never runs longer than the whole reply."
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "A role has no description"
 msgstr "भूमिकेचे वर्णन नसते"
@@ -1493,6 +1497,14 @@ msgstr "AI तपशील भरू शकले नाही. जॉब पो
 msgid "AI edit"
 msgstr "AI संपादन"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "AI limits saved."
+msgstr ""
+
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "AI providers"
@@ -1750,6 +1762,10 @@ msgstr "अर्जदार ट्रॅकिंग सिस्टम तु
 #: src/features/documents/trash-page.tsx
 msgid "Application"
 msgstr "अर्ज"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Application actions"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Application added to your pipeline."
@@ -2424,6 +2440,10 @@ msgstr "केवळ विभाग शीर्षके आणि तार�
 msgid "Changing it sends a confirmation to the new address. Your username is part of every public link."
 msgstr "ते बदलल्याने नवीन पत्त्यावर पुष्टीकरण पाठवले जाते. तुमचे वापरकर्ता नाव प्रत्येक सार्वजनिक दुव्याचा भाग आहे."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "characters"
+msgstr ""
+
 #: src/features/homepage/check.tsx
 #: src/features/homepage/header.tsx
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
@@ -2680,9 +2700,14 @@ msgstr "बंद"
 
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Coach"
 msgstr "कोच"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Coach and Assistant replies"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
@@ -3281,6 +3306,10 @@ msgstr "नमुना फाइल लोड करू शकलो नाह�
 msgid "Couldn't load this. Your saved data hasn't changed."
 msgstr "हे लोड करता आले नाही. तुमचा जतन केलेला डेटा बदललेला नाही."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't load your AI limits."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't make it the default."
 msgstr "ते डीफॉल्ट करता आले नाही."
@@ -3402,6 +3431,10 @@ msgstr "ही भूमिका अर्जांमध्ये जतन �
 #: src/features/career/schedule-sheet.tsx
 msgid "Couldn't save this schedule."
 msgstr "हे वेळापत्रक जतन करता आले नाही."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Couldn't save your AI limits."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Couldn't save your changes. Please try again."
@@ -3746,6 +3779,13 @@ msgstr "दीर्घ श्वास घ्या."
 #: src/features/settings/ai/providers.tsx
 msgid "Default"
 msgstr "डीफॉल्ट"
+
+#. placeholder {0}: number.format(DEFAULTS[name])
+#. placeholder {1}: number.format(bounds(name).min)
+#. placeholder {2}: number.format(bounds(name).max)
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Default {0}. From {1} to {2}."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Degree"
@@ -4699,10 +4739,26 @@ msgstr "तथ्य विसरले"
 msgid "Fact type"
 msgstr "तथ्याचा प्रकार"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "facts"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "तथ्ये"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Facts shared with each message"
+msgstr ""
 
 #: src/features/career/coach.tsx
 msgid "Facts, stories and preferences that are switched on in Knowledge"
@@ -4918,6 +4974,10 @@ msgstr "{authored} पृष्ठांवर फिट"
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Fit to one page"
 msgstr "एका पानावर बसवा"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first."
+msgstr ""
 
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on {authored} pages: {details}"
@@ -5478,6 +5538,10 @@ msgstr "आठवड्यातून किती दिवस ऑफिसम
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "त्यासोबत किती दिवसांची रजा मिळते?"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "How often"
@@ -7719,6 +7783,14 @@ msgstr "एक स्तंभ"
 msgid "one format"
 msgstr "एकच स्वरूप"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "One scheduled discovery run"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "One web search or page read"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Only allow applications you trust. This application will be able to:"
 msgstr "फक्त तुम्हाला विश्वास असलेल्या अनुप्रयोगांना परवानगी द्या. हा अनुप्रयोग सक्षम असेल:"
@@ -8687,6 +8759,10 @@ msgstr "R"
 msgid "Raise the design sheet"
 msgstr "डिझाइन शीट वाढवा"
 
+#: src/features/settings/ai/web-access.tsx
+msgid "Raise them when pages are slow to load or your search service needs longer. A web call includes the fallback to the built-in reader."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Re-export from a single-column layout, then copy the text out and check it reads top to bottom."
 msgstr "एकल-स्तंभ मांडणीतून पुन्हा निर्यात करा, नंतर मजकूर कॉपी करून तो वरपासून खालपर्यंत वाचला जातो का ते तपासा."
@@ -9239,6 +9315,10 @@ msgstr "डिझाइन डीफॉल्ट रीसेट करा"
 msgid "Reset Password"
 msgstr "पासवर्ड रीसेट करा"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Reset to defaults"
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "तुमचा पासवर्ड रीसेट करा"
@@ -9379,6 +9459,7 @@ msgstr "{0} पुनर्प्राप्त केले. अहवाल �
 #: src/features/career/knowledge/preferences.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/save-status.tsx
+#: src/features/settings/ai/ai-limits.tsx
 #: src/routes/builder/letter/-components/letter-bar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Retry"
@@ -9579,6 +9660,7 @@ msgstr "नमुना सारांश जोडला. ते कधीह�
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
+#: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "जतन करा"
 
@@ -9912,6 +9994,11 @@ msgstr "वेबवर शोधत आहे"
 #: src/features/assistant/conversation.tsx
 msgid "Searching the web…"
 msgstr "वेबवर शोधत आहे..."
+
+#: src/features/settings/ai/ai-limits.tsx
+#: src/features/settings/ai/web-access.tsx
+msgid "seconds"
+msgstr ""
 
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Secret copied to clipboard."
@@ -10789,11 +10876,27 @@ msgstr "{0} वर थांबवले"
 msgid "Stopped. No edits were proposed."
 msgstr "थांबला. कोणतेही संपादन प्रस्तावित नव्हते."
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "stories"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "कथा"
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories in one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories returned by one knowledge search"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Stories shared with each message"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
@@ -11772,6 +11875,30 @@ msgstr "वेळ · {0}"
 msgid "Time · {timeZone}"
 msgstr "वेळ · {timeZone}"
 
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for a whole reply"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one model call"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for one request"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for reading text aloud"
+msgstr ""
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Time limit for turning speech into text"
+msgstr ""
+
+#: src/features/settings/ai/web-access.tsx
+msgid "Time limits"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Time, link, who, what you sent"
 msgstr "वेळ, लिंक, कोण, तुम्ही काय पाठवले"
@@ -12523,6 +12650,10 @@ msgstr "अभ्यागत PDF डाउनलोड करू शकता�
 #: src/features/resume/share/link-tab.tsx
 msgid "Visitors enter it before they see the resume. Share it only with people you trust."
 msgstr "अभ्यागत रेझ्युमे पाहण्यापूर्वी त्यात प्रवेश करतात. तुमचा विश्वास असलेल्या लोकांसोबतच ते शेअर करा."
+
+#: src/features/settings/ai/ai-limits.tsx
+msgid "Voice"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Voice settings"

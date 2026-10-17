@@ -9,9 +9,10 @@ import { env } from "@reactive-resume/env/server";
 import { rateLimitConfig } from "@reactive-resume/utils/rate-limit";
 import { createRateLimiter } from "../../redis";
 import { abortable, assertPublicTarget, htmlToText, readBuiltinPage } from "./builtin";
-import { WEB_ACCESS_DEADLINE_MS, WebAccessError } from "./contracts";
+import { WebAccessError } from "./contracts";
 import { readExa, searchExa } from "./exa";
 import { readFirecrawl, searchFirecrawl } from "./firecrawl";
+import { webCallTimeoutMs } from "./limits";
 import { readTavily, searchTavily } from "./tavily";
 import { pageContent, safeFailure } from "./transport";
 
@@ -24,8 +25,10 @@ async function consume(userId: string, signal: AbortSignal) {
 	if (!success) throw new WebAccessError("rate-limit");
 }
 
-const deadline = (signal?: AbortSignal) =>
-	AbortSignal.any([...(signal ? [signal] : []), AbortSignal.timeout(WEB_ACCESS_DEADLINE_MS)]);
+// Settings → AI & developer → Web access. Search services get 6 seconds less, so their own timeout reports first.
+const deadline = (timeoutMs: number, signal?: AbortSignal) =>
+	AbortSignal.any([...(signal ? [signal] : []), AbortSignal.timeout(timeoutMs)]);
+const serviceTimeout = (timeoutMs: number) => Math.max(1_000, timeoutMs - 6_000);
 
 async function externalSearch(query: string, options: ProviderRequest) {
 	try {
@@ -68,7 +71,8 @@ function log(operation: "search" | "read", provider: string, started: number, ou
 }
 
 export async function searchWeb(query: string, context: WebAccessContext) {
-	const signal = deadline(context.signal);
+	const timeoutMs = await webCallTimeoutMs(context.userId);
+	const signal = deadline(timeoutMs, context.signal);
 	const started = Date.now();
 	const provider = context.connection?.provider ?? "builtin";
 	try {
@@ -79,6 +83,7 @@ export async function searchWeb(query: string, context: WebAccessContext) {
 		const results = await externalSearch(input, {
 			connection: context.connection,
 			signal,
+			serviceTimeoutMs: serviceTimeout(timeoutMs),
 		});
 		signal.throwIfAborted();
 		log("search", provider, started, "success");
@@ -96,7 +101,8 @@ export async function searchWeb(query: string, context: WebAccessContext) {
 
 /** One deadline covers DNS, the selected provider, and the direct fallback. Cancellation never falls back. */
 export async function readPage(input: string, context: WebAccessContext): Promise<ReadPageResult> {
-	const signal = deadline(context.signal);
+	const timeoutMs = await webCallTimeoutMs(context.userId);
+	const signal = deadline(timeoutMs, context.signal);
 	const started = Date.now();
 	const provider = context.connection?.provider ?? "builtin";
 	let fallback: WebAccessFailure | undefined;
@@ -105,13 +111,14 @@ export async function readPage(input: string, context: WebAccessContext): Promis
 		const url = await assertPublicTarget(input, signal);
 		if (context.connection) {
 			// Reserve five seconds of the same overall budget for the direct reader.
-			const externalBudget = Math.max(1, WEB_ACCESS_DEADLINE_MS - (Date.now() - started) - 5_000);
+			const externalBudget = Math.max(1, timeoutMs - (Date.now() - started) - 5_000);
 			const externalSignal = AbortSignal.any([signal, AbortSignal.timeout(externalBudget)]);
 			try {
 				// Remote services must independently protect their own redirects and DNS lookups.
 				const page = await externalRead(url.toString(), {
 					connection: context.connection,
 					signal: externalSignal,
+					serviceTimeoutMs: serviceTimeout(timeoutMs),
 				});
 				if (page.resolvedUrl) await assertPublicTarget(page.resolvedUrl, externalSignal);
 				const content = pageContent(page.content);
@@ -161,15 +168,17 @@ export async function probeWebAccess(
 	connection: WebAccessConnection,
 	context: { userId: string; signal?: AbortSignal | undefined },
 ) {
-	const signal = deadline(context.signal);
+	const timeoutMs = await webCallTimeoutMs(context.userId);
+	const signal = deadline(timeoutMs, context.signal);
+	const serviceTimeoutMs = serviceTimeout(timeoutMs);
 	await consume(context.userId, signal);
 	const probe = async (operation: "search" | "read") => {
 		const started = Date.now();
 		try {
-			if (operation === "search") await externalSearch("example domain", { connection, signal });
+			if (operation === "search") await externalSearch("example domain", { connection, signal, serviceTimeoutMs });
 			else {
 				const url = await assertPublicTarget("https://example.com/", signal);
-				const page = await externalRead(url.toString(), { connection, signal });
+				const page = await externalRead(url.toString(), { connection, signal, serviceTimeoutMs });
 				pageContent(page.content);
 				if (page.resolvedUrl) await assertPublicTarget(page.resolvedUrl, signal);
 			}

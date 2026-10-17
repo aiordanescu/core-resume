@@ -1,0 +1,1 @@
+ALTER TABLE "career_profile" ADD COLUMN "ai_limits" jsonb;

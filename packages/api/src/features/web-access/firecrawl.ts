@@ -32,7 +32,13 @@ export async function readFirecrawl(url: string, options: ProviderRequest) {
 		z.object({ success: z.literal(true), data: scrapeSchema }),
 		await request(
 			"scrape",
-			{ url, formats: ["markdown", "rawHtml"], onlyMainContent: true, skipTlsVerification: false, timeout: 14_000 },
+			{
+				url,
+				formats: ["markdown", "rawHtml"],
+				onlyMainContent: true,
+				skipTlsVerification: false,
+				timeout: options.serviceTimeoutMs,
+			},
 			options,
 		),
 	);
@@ -54,7 +60,7 @@ const itemSchema = z.object({
 export async function searchFirecrawl(query: string, options: ProviderRequest) {
 	const { data: result } = parseResponse(
 		z.object({ success: z.literal(true), data: searchSchema }),
-		await request("search", { query, sources: ["web"], limit: 5, timeout: 14_000 }, options),
+		await request("search", { query, sources: ["web"], limit: 5, timeout: options.serviceTimeoutMs }, options),
 	);
 	return normalizeSearch(
 		result.web.flatMap((value) => {

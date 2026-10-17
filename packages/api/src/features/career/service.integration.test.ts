@@ -8,7 +8,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as tables from "@reactive-resume/db/schema";
 import { copyCoverLetterStyle } from "@reactive-resume/resume/cover-letter";
-import { careerProfileDataSchema, savedItemDataSchema } from "@reactive-resume/schema/career";
+import { careerProfileDataSchema, aiLimitsSchema, savedItemDataSchema } from "@reactive-resume/schema/career";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 
 const fixture = vi.hoisted(() => ({
@@ -813,6 +813,57 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		expect(context.stories).toEqual([]);
 		expect(JSON.stringify(context)).not.toContain(secret);
 		expect(await service.stories({ userId: "alice" })).toMatchObject([{ data: { result: secret, factIds: [] } }]);
+	});
+
+	it("keeps AI limits per account and apart from preferences", async () => {
+		const defaults = aiLimitsSchema.parse({});
+		expect(await service.aiLimits("alice")).toEqual(defaults);
+		expect(defaults).toMatchObject({
+			actionTimeoutSeconds: 120,
+			replyStepTimeoutSeconds: 120,
+			replyTimeoutSeconds: 240,
+			discoveryTimeoutSeconds: 90,
+			webCallTimeoutSeconds: 20,
+			transcriptionTimeoutSeconds: 60,
+			speechTimeoutSeconds: 30,
+		});
+		const limits = aiLimitsSchema.parse({ coachFacts: 120, actionFactChars: 60_000 });
+		// Saving limits before any preferences creates the profile with default preferences.
+		await service.saveAiLimits("alice", limits);
+		expect(await service.profile("alice")).toEqual(careerProfileDataSchema.parse({}));
+		await service.saveProfile("alice", careerProfileDataSchema.parse({ priorities: "Autonomy" }));
+		expect(await service.aiLimits("alice")).toEqual(limits);
+		expect(await service.aiLimits("bob")).toEqual(defaults);
+		const context = await service.context({ userId: "alice" });
+		expect(context.limits).toEqual(limits);
+		expect(context.profile).not.toHaveProperty("coachFacts");
+		await service.saveAiLimits("alice", defaults);
+		expect(await service.profile("alice")).toMatchObject({ priorities: "Autonomy" });
+	});
+
+	it("shares only as many facts and stories with the coach as the limits allow", async () => {
+		const facts = [];
+		for (const text of ["I lead incident reviews.", "I mentor engineers.", "I run the on-call rota."])
+			facts.push(await fact("alice", text));
+		await service.saveStory("alice", story([facts[0]?.id ?? ""]));
+		await service.saveStory("alice", { ...story([facts[1]?.id ?? ""]), title: "Mentoring" });
+		const { buildCareerInstructions } = await import("./tools");
+		const shared = async () => {
+			const context = await service.context({ userId: "alice" });
+			const instructions = buildCareerInstructions({
+				context,
+				shareApplication: false,
+				shareMemory: true,
+				tab: undefined,
+			});
+			return {
+				facts: context.facts.filter((item) => instructions.includes(item.text)).length,
+				stories: context.stories.filter((item) => instructions.includes(item.data.title)).length,
+			};
+		};
+		expect(await shared()).toEqual({ facts: 3, stories: 2 });
+		await service.saveAiLimits("alice", aiLimitsSchema.parse({ coachFacts: 1, coachStories: 0 }));
+		expect(await shared()).toEqual({ facts: 1, stories: 0 });
 	});
 
 	it("preserves independent workspace saves and rejects stale writes to the same key", async () => {

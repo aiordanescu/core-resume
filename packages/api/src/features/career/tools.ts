@@ -62,7 +62,11 @@ export function buildCareerInstructions(
 			? { application: context.application, resume: context.resume, letter: context.letter }
 			: {}),
 		...(input.shareMemory
-			? { preferences: context.profile, facts: context.facts.slice(0, 30), stories: context.stories.slice(0, 8) }
+			? {
+					preferences: context.profile,
+					facts: context.facts.slice(0, context.limits.coachFacts),
+					stories: context.stories.slice(0, context.limits.coachStories),
+				}
 			: {}),
 		// Saved offers the user chose to compare: terms in their own currency and pay period.
 		...(input.offers?.length
@@ -103,14 +107,14 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 			execute: async ({ query }) => {
 				const facts = boundedItems(
 					(await careerService.facts({ ...scope, query })).filter((fact) => fact.status === "active").map(modelFact),
-					12_000,
+					input.context.limits.searchFactChars,
 				);
 				const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
 				const matches = input.context.stories.filter(
 					(story) =>
 						!terms.length || terms.some((term) => JSON.stringify(story.data).toLocaleLowerCase().includes(term)),
 				);
-				const stories = boundedItems(matches, 16_000);
+				const stories = boundedItems(matches, input.context.limits.searchStoryChars);
 				const truncated = facts.truncated || stories.truncated;
 				return {
 					facts: facts.items,
