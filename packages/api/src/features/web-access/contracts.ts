@@ -56,6 +56,6 @@ export class WebAccessError extends Error {
 export const MAX_PAGE_BYTES = 2_000_000;
 export const MAX_CONTENT_CHARS = 20_000;
 export const MAX_SEARCH_RESULTS = 5;
-export const WEB_ACCESS_DEADLINE_MS = 20_000;
 
-export type ProviderRequest = { connection: WebAccessConnection; signal: AbortSignal };
+/** `serviceTimeoutMs` is what the search service itself may spend, inside the caller's own deadline. */
+export type ProviderRequest = { connection: WebAccessConnection; signal: AbortSignal; serviceTimeoutMs: number };

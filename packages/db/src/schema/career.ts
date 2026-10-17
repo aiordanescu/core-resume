@@ -4,6 +4,7 @@ import type {
 	CareerSource,
 	CareerStoryData,
 	CareerWorkspace,
+	AiLimits,
 	SavedItemData,
 } from "@reactive-resume/schema/career";
 import * as pg from "drizzle-orm/pg-core";
@@ -36,6 +37,8 @@ export const careerProfile = pg.pgTable("career_profile", {
 		.primaryKey()
 		.references(() => user.id, { onDelete: "cascade" }),
 	data: pg.jsonb("data").notNull().$type<CareerProfileData>(),
+	/** Kept apart from `data`, which the coach reads as preferences. Null means the defaults. */
+	aiLimits: pg.jsonb("ai_limits").$type<Partial<AiLimits>>(),
 	updatedAt: pg
 		.timestamp("updated_at", { withTimezone: true })
 		.notNull()

@@ -150,8 +150,8 @@ type Posting = Awaited<ReturnType<typeof readOpenPosting>>;
  * never read again. Untracked roles are rechecked weekly so saved descriptions do not remain stale forever.
  */
 async function discover(userId: string, query: string) {
-	const connection = await webAccessService.resolve(userId);
-	const signal = AbortSignal.timeout(90_000);
+	const [connection, limits] = await Promise.all([webAccessService.resolve(userId), careerService.aiLimits(userId)]);
+	const signal = AbortSignal.timeout(limits.discoveryTimeoutSeconds * 1000);
 	const hits = await searchJobPostings(query, { userId, connection, signal });
 	const found = new Map<string, (typeof hits)[number]>();
 	for (const hit of hits) {
@@ -323,6 +323,7 @@ async function execute(job: typeof tables.careerJob.$inferSelect) {
 			.select({ id: tables.careerArtifact.id })
 			.from(tables.careerArtifact)
 			.where(eq(tables.careerArtifact.jobId, job.id));
+		// The action's own time limit (Settings → AI limits) ends it, well inside this job's lease.
 		if (!saved)
 			await generateCareer({
 				userId: job.userId,
@@ -332,7 +333,6 @@ async function execute(job: typeof tables.careerJob.$inferSelect) {
 				...(schedule.aiProviderId ? { providerId: schedule.aiProviderId } : {}),
 				jobId: job.id,
 				jobLease: job.lease,
-				signal: AbortSignal.timeout(120_000),
 			});
 	}
 	await db.transaction(async (tx) => {

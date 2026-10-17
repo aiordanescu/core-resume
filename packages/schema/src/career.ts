@@ -49,6 +49,41 @@ export const careerProfileDataSchema = z.object({
 });
 export type CareerProfileData = z.infer<typeof careerProfileDataSchema>;
 
+/**
+ * How much Knowledge each AI request may carry and how long it may run (Settings → AI & developer → AI limits). The
+ * defaults keep a whole prompt within small-context providers and suit fast hosted models; larger or slower models can
+ * be given more. Budgets are JSON characters, counts are items, times are seconds.
+ */
+export const aiLimitsSchema = z.object({
+	/** Coach: switched-on facts shared up front with every message. */
+	coachFacts: z.number().int().min(0).max(1000).default(30),
+	/** Coach: usable stories shared up front with every message. */
+	coachStories: z.number().int().min(0).max(200).default(8),
+	/** Coach: facts returned by one knowledge search. */
+	searchFactChars: z.number().int().min(2000).max(1_000_000).default(12_000),
+	/** Coach: stories returned by one knowledge search. */
+	searchStoryChars: z.number().int().min(2000).max(1_000_000).default(16_000),
+	/** Fit, Apply, Prepare and the other application actions: facts in one request. */
+	actionFactChars: z.number().int().min(2000).max(1_000_000).default(10_000),
+	/** Fit, Apply, Prepare and the other application actions: stories in one request. */
+	actionStoryChars: z.number().int().min(2000).max(1_000_000).default(10_000),
+	/** Fit, Apply, Prepare and the other application actions, including scheduled preparation. */
+	actionTimeoutSeconds: z.number().int().min(30).max(900).default(120),
+	/** Coach and Assistant: one model call within a reply. Never more than the whole reply's limit. */
+	replyStepTimeoutSeconds: z.number().int().min(30).max(840).default(120),
+	/** Coach and Assistant: a whole reply, tools included. Stays under the 15-minute stale-run cleanup. */
+	replyTimeoutSeconds: z.number().int().min(60).max(840).default(240),
+	/** One scheduled discovery run: its search plus reading every posting found. Inside the job's 16-minute lease. */
+	discoveryTimeoutSeconds: z.number().int().min(30).max(900).default(90),
+	/** One web search or page read, fallback to the built-in reader included. Search services get 6 seconds less. */
+	webCallTimeoutSeconds: z.number().int().min(10).max(120).default(20),
+	/** Turning one voice answer into text. */
+	transcriptionTimeoutSeconds: z.number().int().min(10).max(600).default(60),
+	/** Reading one text aloud. */
+	speechTimeoutSeconds: z.number().int().min(10).max(300).default(30),
+});
+export type AiLimits = z.infer<typeof aiLimitsSchema>;
+
 export const careerFactInputSchema = careerScopeSchema.extend({
 	text: z.string().trim().min(1).max(2000),
 	category: factCategorySchema,

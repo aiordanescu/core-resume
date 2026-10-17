@@ -13,7 +13,7 @@ import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { useEffect, useEffectEvent, useId, useRef, useState } from "react";
 import z from "zod";
 import { agentWebSources } from "@reactive-resume/ai/tools/agent-tool-contracts";
-import { careerSourceSchema, factCategorySchema } from "@reactive-resume/schema/career";
+import { careerSourceSchema, factCategorySchema, aiLimitsSchema } from "@reactive-resume/schema/career";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { IconButton } from "@reactive-resume/ui/components/icon-button";
@@ -73,10 +73,13 @@ const outputsOf = (message: UIMessage, tool: string) =>
 /** "Demo AI connection": the provider label, naming it a connection once. */
 export const connectionName = (label: string) => (/connection$/i.test(label) ? label : t`${label} connection`);
 
+const DEFAULT_LIMITS = aiLimitsSchema.parse({});
+
 /** Shared and switched-on facts and stories the coach sees in this scope (global coach: shared only). */
 export function useCoachKnowledge(applicationId: string | null) {
 	const facts = useQuery(orpc.career.facts.queryOptions({ input: { applicationId: null, all: true } }));
 	const stories = useQuery(orpc.career.stories.queryOptions({ input: { applicationId } }));
+	const limits = useQuery(orpc.career.aiLimits.queryOptions()).data ?? DEFAULT_LIMITS;
 	const all = facts.data ?? [];
 	// Same order and filters as the server's career context, so the recorded ids are what was sent.
 	const active = all.filter(
@@ -104,14 +107,16 @@ export function useCoachKnowledge(applicationId: string | null) {
 		active,
 		stories: usable,
 		allStories: stories.data ?? [],
+		// What goes with a message up front, within Settings → AI & developer → AI limits.
+		shared: { facts: active.slice(0, limits.coachFacts), stories: usable.slice(0, limits.coachStories) },
 	};
 }
 type Knowledge = ReturnType<typeof useCoachKnowledge>;
 
 const usedFor = (knowledge: Knowledge, context: MessageContext): Used => ({
 	context: {
-		facts: context.memory ? knowledge.active.slice(0, 30).map((fact) => fact.id) : [],
-		stories: context.memory ? knowledge.stories.slice(0, 8).map((story) => story.id) : [],
+		facts: context.memory ? knowledge.shared.facts.map((fact) => fact.id) : [],
+		stories: context.memory ? knowledge.shared.stories.map((story) => story.id) : [],
 		preferences: context.memory === true,
 		applications: context.application === true,
 		offers: context.offerIds ?? [],

@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/react/macro";
+import { AiLimitsSection } from "./ai-limits";
 import { ApiKeysSection } from "./api-keys";
 import { ConnectedAppsSection } from "./connected-apps";
 import { McpSection } from "./mcp";
@@ -19,6 +20,7 @@ export function AiDeveloperSettings() {
 			</header>
 			<ProvidersSection />
 			<WebAccessSection />
+			<AiLimitsSection />
 			<ApiKeysSection />
 			<ConnectedAppsSection />
 			<McpSection />

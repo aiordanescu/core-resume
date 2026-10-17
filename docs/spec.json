@@ -38667,6 +38667,397 @@
 				]
 			}
 		},
+		"/career/ai-limits": {
+			"get": {
+				"operationId": "getAiLimits",
+				"summary": "Get AI limits",
+				"description": "How much Knowledge each AI request may carry and how long it may run: facts and stories the coach shares up front, what one coach knowledge search returns, the fact and story budgets of Fit, Apply, Prepare and the other application actions, and the time limits of those actions and of Coach and Assistant replies. Unset limits come back as their defaults.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"coachFacts": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 1000,
+											"default": 30
+										},
+										"coachStories": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 200,
+											"default": 8
+										},
+										"searchFactChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 12000
+										},
+										"searchStoryChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 16000
+										},
+										"actionFactChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 10000
+										},
+										"actionStoryChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 10000
+										},
+										"actionTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 900,
+											"default": 120
+										},
+										"replyStepTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 840,
+											"default": 120
+										},
+										"replyTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 60,
+											"maximum": 840,
+											"default": 240
+										},
+										"discoveryTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 900,
+											"default": 90
+										},
+										"webCallTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 120,
+											"default": 20
+										},
+										"transcriptionTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 600,
+											"default": 60
+										},
+										"speechTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 300,
+											"default": 30
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/ai-limits\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "saveAiLimits",
+				"summary": "Save AI limits",
+				"description": "Replaces every AI limit; omitted ones go back to their defaults. Character budgets are JSON characters and times are seconds. Larger Knowledge limits send more of your Knowledge to your AI provider and need a model with a larger context window; longer time limits suit slower models.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"coachFacts": {
+										"type": "integer",
+										"minimum": 0,
+										"maximum": 1000,
+										"default": 30
+									},
+									"coachStories": {
+										"type": "integer",
+										"minimum": 0,
+										"maximum": 200,
+										"default": 8
+									},
+									"searchFactChars": {
+										"type": "integer",
+										"minimum": 2000,
+										"maximum": 1000000,
+										"default": 12000
+									},
+									"searchStoryChars": {
+										"type": "integer",
+										"minimum": 2000,
+										"maximum": 1000000,
+										"default": 16000
+									},
+									"actionFactChars": {
+										"type": "integer",
+										"minimum": 2000,
+										"maximum": 1000000,
+										"default": 10000
+									},
+									"actionStoryChars": {
+										"type": "integer",
+										"minimum": 2000,
+										"maximum": 1000000,
+										"default": 10000
+									},
+									"actionTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 30,
+										"maximum": 900,
+										"default": 120
+									},
+									"replyStepTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 30,
+										"maximum": 840,
+										"default": 120
+									},
+									"replyTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 60,
+										"maximum": 840,
+										"default": 240
+									},
+									"discoveryTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 30,
+										"maximum": 900,
+										"default": 90
+									},
+									"webCallTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 10,
+										"maximum": 120,
+										"default": 20
+									},
+									"transcriptionTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 10,
+										"maximum": 600,
+										"default": 60
+									},
+									"speechTimeoutSeconds": {
+										"type": "integer",
+										"minimum": 10,
+										"maximum": 300,
+										"default": 30
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"coachFacts": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 1000,
+											"default": 30
+										},
+										"coachStories": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 200,
+											"default": 8
+										},
+										"searchFactChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 12000
+										},
+										"searchStoryChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 16000
+										},
+										"actionFactChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 10000
+										},
+										"actionStoryChars": {
+											"type": "integer",
+											"minimum": 2000,
+											"maximum": 1000000,
+											"default": 10000
+										},
+										"actionTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 900,
+											"default": 120
+										},
+										"replyStepTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 840,
+											"default": 120
+										},
+										"replyTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 60,
+											"maximum": 840,
+											"default": 240
+										},
+										"discoveryTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 30,
+											"maximum": 900,
+											"default": 90
+										},
+										"webCallTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 120,
+											"default": 20
+										},
+										"transcriptionTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 600,
+											"default": 60
+										},
+										"speechTimeoutSeconds": {
+											"type": "integer",
+											"minimum": 10,
+											"maximum": 300,
+											"default": 30
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/career/ai-limits\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			}
+		},
 		"/career/facts": {
 			"get": {
 				"operationId": "listCareerFacts",

@@ -7,6 +7,7 @@ import {
 	careerStoryInputSchema,
 	careerWorkspaceSchema,
 	generateTaskSchema,
+	aiLimitsSchema,
 } from "@reactive-resume/schema/career";
 import { protectedProcedure } from "../../context";
 import {
@@ -143,6 +144,32 @@ export const careerRouter = {
 		.input(careerProfileDataSchema)
 		.output(careerProfileDataSchema)
 		.handler(({ context, input }) => careerService.saveProfile(context.user.id, input)),
+	aiLimits: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/career/ai-limits",
+			tags: ["Career"],
+			operationId: "getAiLimits",
+			summary: "Get AI limits",
+			description:
+				"How much Knowledge each AI request may carry and how long it may run: facts and stories the coach shares up front, what one coach knowledge search returns, the fact and story budgets of Fit, Apply, Prepare and the other application actions, and the time limits of those actions and of Coach and Assistant replies. Unset limits come back as their defaults.",
+		})
+		.input(z.object({}).optional())
+		.output(aiLimitsSchema)
+		.handler(({ context }) => careerService.aiLimits(context.user.id)),
+	saveAiLimits: protectedProcedure
+		.route({
+			method: "PUT",
+			path: "/career/ai-limits",
+			tags: ["Career"],
+			operationId: "saveAiLimits",
+			summary: "Save AI limits",
+			description:
+				"Replaces every AI limit; omitted ones go back to their defaults. Character budgets are JSON characters and times are seconds. Larger Knowledge limits send more of your Knowledge to your AI provider and need a model with a larger context window; longer time limits suit slower models.",
+		})
+		.input(aiLimitsSchema)
+		.output(aiLimitsSchema)
+		.handler(({ context, input }) => careerService.saveAiLimits(context.user.id, input)),
 	facts: protectedProcedure
 		.route({
 			method: "GET",

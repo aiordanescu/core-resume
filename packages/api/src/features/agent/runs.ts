@@ -7,7 +7,8 @@ type AgentRunStateDb = Pick<typeof db, "update">;
 type AgentRunReaperDb = Pick<typeof db, "select" | "update">;
 
 // Deliberately TTL-only (no controller-map heuristic) so reaping stays multi-replica-safe. The TTL
-// exceeds the 4-minute run wall clock, so a live run always dies by its own timeout first.
+// exceeds the longest reply time limit (14 minutes, Settings → AI limits), so a live run always dies by its own
+// timeout first.
 export const STALE_AGENT_RUN_TTL_MS = 15 * 60_000;
 
 type StaleRunThreadFields = {

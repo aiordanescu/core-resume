@@ -54,9 +54,6 @@ import { buildAgentInstructions, buildAgentTools } from "./tools";
 const MAX_AGENT_STEPS = 30;
 const MAX_AGENT_OUTPUT_TOKENS = 8_192;
 const MAX_AGENT_MODEL_RETRIES = 2;
-const AGENT_STEP_TIMEOUT_MS = 120_000;
-// Reserve the final minute of the five-minute request budget for persistence and cleanup.
-const AGENT_RUN_TIMEOUT_MS = 240_000;
 const AGENT_TIMEOUT_MESSAGE = "Time limit reached. Your progress is saved. Ask me to continue.";
 const MAX_ATTACHMENTS_PER_MESSAGE = 10;
 const MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024;
@@ -766,6 +763,7 @@ function createAgent(input: {
 	model: ReturnType<typeof getModel>;
 	connection: WebAccessConnection | null;
 	signal: AbortSignal;
+	stepTimeoutMs: number;
 }) {
 	// One greppable JSON line per tool execution.
 	const timedToolHandler =
@@ -881,7 +879,7 @@ function createAgent(input: {
 		stopWhen: isStepCount(MAX_AGENT_STEPS),
 		maxOutputTokens: MAX_AGENT_OUTPUT_TOKENS,
 		maxRetries: MAX_AGENT_MODEL_RETRIES,
-		timeout: { stepMs: AGENT_STEP_TIMEOUT_MS },
+		timeout: { stepMs: input.stepTimeoutMs },
 		// Runs before every loop step, so an older document snapshot never outlives a newer read.
 		prepareStep: ({ messages }) => {
 			const pruned = pruneAgentModelContext(messages);
@@ -1198,7 +1196,7 @@ export const agentService = {
 					? null
 					: await findPosting(input.userId, document.id, loaded, input.context?.applicationId);
 
-			const [runnableProvider, attachments] = await Promise.all([
+			const [runnableProvider, attachments, limits] = await Promise.all([
 				aiProvidersService.getRunnableById({
 					id: thread.aiProviderId,
 					userId: input.userId,
@@ -1208,7 +1206,12 @@ export const agentService = {
 					threadId: input.threadId,
 					userId: input.userId,
 				}),
+				careerService.aiLimits(input.userId),
 			]);
+			// Settings → AI limits. The default reply limit leaves the last minute of a five-minute serverless request
+			// for persistence and cleanup; one model call never outlasts the whole reply.
+			const runTimeoutMs = limits.replyTimeoutSeconds * 1000;
+			const stepTimeoutMs = Math.min(limits.replyStepTimeoutSeconds * 1000, runTimeoutMs);
 			const runId = generateId();
 			const streamId = generateId();
 			const controller = new AbortController();
@@ -1228,7 +1231,7 @@ export const agentService = {
 			// Whole-run wall clock. Must abort with an AbortError (see abortReason) — never AbortSignal.timeout().
 			activeRunTimeouts.set(
 				runId,
-				setTimeout(() => controller.abort(abortReason("RUN_TIMEOUT")), AGENT_RUN_TIMEOUT_MS),
+				setTimeout(() => controller.abort(abortReason("RUN_TIMEOUT")), runTimeoutMs),
 			);
 
 			// Row + message the run streams into. A continuation reuses the existing assistant
@@ -1378,6 +1381,7 @@ export const agentService = {
 					posting,
 					connection,
 					signal: controller.signal,
+					stepTimeoutMs,
 					provider: {
 						provider: runnableProvider.provider,
 						model: runnableProvider.model,

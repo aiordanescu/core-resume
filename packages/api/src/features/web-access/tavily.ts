@@ -54,7 +54,7 @@ const extractSchema = z.object({
 		.max(100),
 	failed_results: z.array(z.object({ url: z.string(), error: z.string().optional() })).optional(),
 });
-export async function readTavily(url: string, { connection, signal }: ProviderRequest) {
+export async function readTavily(url: string, { connection, signal, serviceTimeoutMs }: ProviderRequest) {
 	const response = parseResponse(
 		extractSchema,
 		await postJson(
@@ -67,7 +67,7 @@ export async function readTavily(url: string, { connection, signal }: ProviderRe
 				format: "markdown",
 				extract_depth: "advanced",
 				include_images: false,
-				timeout: 14,
+				timeout: Math.max(1, Math.round(serviceTimeoutMs / 1000)),
 				// Omit query/chunks_per_source: relevance reranking can silently omit posting paragraphs.
 			},
 			signal,

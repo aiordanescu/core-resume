@@ -167,7 +167,9 @@ vi.mock("../cover-letters/service", () => ({
 }));
 // These document lifecycle tests do not exercise career context or its persistence graph.
 vi.mock("../career/service", () => ({
-	careerService: {},
+	careerService: {
+		aiLimits: async () => (await import("@reactive-resume/schema/career")).aiLimitsSchema.parse({}),
+	},
 	requireCareerApplication: vi.fn(),
 }));
 vi.mock("../career/tools", () => ({
