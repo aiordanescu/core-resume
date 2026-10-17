@@ -53,6 +53,8 @@ You can switch back. Reactive Resume keeps working with the extra columns: its s
 
 The `upstream` branch mirrors Reactive Resume, and `main` merges it at each release. Fork changes stay additive and keep Reactive Resume's internal names, so new releases arrive quickly. Changes that suit every Reactive Resume user may be offered upstream.
 
+Found a bug or have an idea? [Open an issue](https://github.com/aiordanescu/overreactive-resume/issues). If it also happens in Reactive Resume itself, report it [upstream](https://github.com/reactive-resume/reactive-resume/issues) too.
+
 ## Credits and license
 
 Reactive Resume is created by [Amruth Pillai](https://github.com/AmruthPillai) and its contributors, and nearly all of this project is their work. If it's useful to you, consider [supporting Reactive Resume](https://opencollective.com/reactive-resume).
