@@ -1,7 +1,7 @@
 import type { AIProvider } from "@reactive-resume/ai/types";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
@@ -10,16 +10,17 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Label } from "@reactive-resume/ui/components/label";
 import { cn } from "@reactive-resume/utils/style";
+import { modelSuggestionsQuery, modelsDevProviderIds, suggestedModel } from "@/features/settings/ai/catalog";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { client, orpc } from "@/libs/orpc/client";
 
-type Choice = { provider: AIProvider; label: string; model: string; needsBaseURL?: boolean };
+type Choice = { provider: AIProvider; label: string; needsBaseURL?: boolean };
 
 // Provider names are brands and stay untranslated.
 const CHOICES: Choice[] = [
-	{ provider: "openai", label: "OpenAI", model: "gpt-4.1" },
-	{ provider: "anthropic", label: "Anthropic", model: "claude-3-5-sonnet-latest" },
-	{ provider: "openai-compatible", label: "OpenAI-compatible", model: "", needsBaseURL: true },
+	{ provider: "openai", label: "OpenAI" },
+	{ provider: "anthropic", label: "Anthropic" },
+	{ provider: "openai-compatible", label: "OpenAI-compatible", needsBaseURL: true },
 ];
 
 /**
@@ -88,7 +89,13 @@ function ConnectForm({ choice }: { choice: Choice }) {
 	const id = useId();
 	const queryClient = useQueryClient();
 	const [apiKey, setApiKey] = useState("");
-	const [model, setModel] = useState(choice.model);
+	// The newest models.dev suggestion until it's edited, as in Settings; blank if it doesn't load.
+	const { data: catalog } = useQuery({
+		...modelSuggestionsQuery,
+		enabled: modelsDevProviderIds[choice.provider] !== null,
+	});
+	const [typedModel, setModel] = useState<string | null>(null);
+	const model = typedModel ?? suggestedModel(catalog, choice.provider);
 	const [baseURL, setBaseURL] = useState("");
 	const [failure, setFailure] = useState<string | null>(null);
 
