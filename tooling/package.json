@@ -10,6 +10,7 @@
 		"test:ci": "vitest run --reporter=default --reporter=github-actions --reporter=json --reporter=junit --outputFile.json=reports/vitest-results.json --outputFile.junit=reports/vitest-junit.xml --passWithNoTests",
 		"typecheck": "tsgo --noEmit",
 		"pdf:translations": "tsx locales/generate.ts",
+		"locales:english": "tsx locales/english.ts",
 		"icons:pdf": "tsx icons/phosphor-pdf.ts"
 	},
 	"dependencies": {
