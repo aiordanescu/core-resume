@@ -3412,6 +3412,10 @@ msgstr "Δεν ήταν δυνατή η αποθήκευση της ανάρτη
 msgid "Couldn't save the provider."
 msgstr "Δεν ήταν δυνατή η αποθήκευση του παρόχου."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "Δεν ήταν δυνατή η αποθήκευση της ιστορίας."
@@ -4558,6 +4562,12 @@ msgstr "Εισαγάγετε μια έγκυρη διεύθυνση email."
 msgid "Enter a web address, like example.com"
 msgstr "Εισαγάγετε μια διεύθυνση ιστού, όπως το παράδειγμα.com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "Εισαγάγετε οποιοδήποτε αναγνωριστικό μοντέλου που υποστηρίζεται από το τελικό σημείο σας."
@@ -5530,6 +5540,10 @@ msgstr "Πόσο μακριά φτάνουν οι αιτήσεις εργασί�
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "Πώς καθορίζεται το μπόνους και πόσο από αυτό καταβλήθηκε πέρυσι;"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "Προβολή σελίδας"
 msgid "page."
 msgstr "σελίδα."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Χαρτί"
@@ -9420,6 +9442,10 @@ msgstr "λεπτομέρειες βιογραφικού"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "Αρχείο βιογραφικού"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "Νήματα"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "Σύμπτυξη"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

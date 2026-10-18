@@ -25,6 +25,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { useConversationConnection } from "./chat";
 import { Composer, Conversation } from "./conversation";
 import { ProviderSetup } from "./provider-setup";
+import { useResumePages } from "@/features/resume/editor/design/fit";
 import { useEditorStore } from "@/features/resume/editor/store";
 import { formatVersionTime } from "@/features/resume/share/format";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
@@ -355,7 +356,7 @@ function Notice({ children }: { children: ReactNode }) {
 
 type Suggestion = { icon: IconName; label: string; hint: string };
 
-function suggestionsFor(document: AssistantDocument, prepare: boolean): Suggestion[] {
+function suggestionsFor(document: AssistantDocument, prepare: boolean, pages: number): Suggestion[] {
 	const tailor: Suggestion[] = document.posting
 		? [
 				{
@@ -392,7 +393,7 @@ function suggestionsFor(document: AssistantDocument, prepare: boolean): Suggesti
 		{ icon: "scissors", label: t`Find weak bullets`, hint: t`Checks every bullet for action and result` },
 		{
 			icon: "arrows-in-line-vertical",
-			label: t`Tighten to one page`,
+			label: pages === 1 ? t`Tighten to one page` : t`Tighten to ${pages} pages`,
 			hint: t`Suggests cuts, never deletes on its own`,
 		},
 		{ icon: "text-align-left", label: t`Draft a summary`, hint: t`From your experience entries` },
@@ -404,6 +405,7 @@ type EmptyStateProps = { document: AssistantDocument; disabled: boolean; onPick:
 function EmptyState({ document, disabled, onPick }: EmptyStateProps) {
 	const kind = document.kind === "letter" ? t`letter` : t`resume`;
 	const prepare = useEditorStore((state) => state.assistantSuggestions === "prepare");
+	const pages = useResumePages();
 
 	return (
 		<div className="grid min-h-0 flex-1 content-start gap-4 overflow-y-auto p-4">
@@ -428,7 +430,7 @@ function EmptyState({ document, disabled, onPick }: EmptyStateProps) {
 				)}
 			</div>
 			<ul className="grid gap-1">
-				{suggestionsFor(document, prepare).map((suggestion, index) => (
+				{suggestionsFor(document, prepare, pages).map((suggestion, index) => (
 					<li key={suggestion.label} style={stagger(index)} className={ENTER_CLASS}>
 						<button
 							type="button"

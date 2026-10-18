@@ -3412,6 +3412,10 @@ msgstr "চাকরির পোস্টিং সেভ করা যায�
 msgid "Couldn't save the provider."
 msgstr "প্রদানকারীকে সংরক্ষণ করা যায়নি।"
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "গল্পটি সংরক্ষণ করা যায়নি।"
@@ -4558,6 +4562,12 @@ msgstr "একটি বৈধ ইমেল ঠিকানা লিখুন."
 msgid "Enter a web address, like example.com"
 msgstr "একটি ওয়েব ঠিকানা লিখুন, যেমন .com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "আপনার এন্ডপয়েন্ট দ্বারা সমর্থিত যেকোন মডেল আইডি লিখুন।"
@@ -5530,6 +5540,10 @@ msgstr "চাকরির আবেদন কতদূর পর্যন্ত
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "বোনাস কীভাবে নির্ধারিত হয়, এবং গত বছর এর কতটা দেওয়া হয়েছিল?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "পেজ ভিউ"
 msgid "page."
 msgstr "পাতায়।"
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "কাগজ"
@@ -9420,6 +9442,10 @@ msgstr "সারসংকলন বিবরণ"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "জীবনবৃত্তান্ত ফাইল"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "থ্রেড"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "আঁটসাঁট করুন"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

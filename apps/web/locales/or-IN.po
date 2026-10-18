@@ -3412,6 +3412,10 @@ msgstr "ଚାକିରି ପୋଷ୍ଟିଂ ସଞ୍ଚୟ କରିପା
 msgid "Couldn't save the provider."
 msgstr "ପ୍ରଦାନକାରୀଙ୍କୁ ସଞ୍ଚୟ କରିପାରିଲା ନାହିଁ |"
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "କାହାଣୀ ସେଭ୍ କରିହେଲା ନାହିଁ।"
@@ -4558,6 +4562,12 @@ msgstr "ଏକ ବ valid ଧ ଇମେଲ୍ ଠିକଣା ପ୍ରବେଶ 
 msgid "Enter a web address, like example.com"
 msgstr "ଉଦାହରଣ .com ପରି ଏକ ୱେବ୍ ଠିକଣା ପ୍ରବେଶ କରନ୍ତୁ |"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "ଆପଣଙ୍କର ଶେଷ ପଏଣ୍ଟ ଦ୍ୱାରା ସମର୍ଥିତ ଯେକ any ଣସି ମଡେଲ୍ ID ପ୍ରବେଶ କରନ୍ତୁ |"
@@ -5530,6 +5540,10 @@ msgstr "ଚାକିରି ଆବେଦନଗୁଡ଼ିକ କେତେ ଦୂ
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "ବୋନସ୍ କିପରି ସ୍ଥିର ହୁଏ, ଏବଂ ଗତ ବର୍ଷ ଏଥିରୁ କେତେ ଦିଆଯାଇଥିଲା?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "ପୃଷ୍ଠା ଦୃଶ୍ୟ |"
 msgid "page."
 msgstr "ପୃଷ୍ଠାରେ।"
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "କାଗଜ |"
@@ -9420,6 +9442,10 @@ msgstr "ରେଜୁମ୍ ବିବରଣୀ"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "ରେଜୁମେ ଫାଇଲ୍"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "ଥ୍ରେଡ୍‌ଗୁଡ଼ିକ"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "ସଂକ୍ଷିପ୍ତ କରନ୍ତୁ"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

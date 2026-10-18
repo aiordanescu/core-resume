@@ -14,7 +14,7 @@ import { useCurrentBuilderResumeSelector, useResumeData } from "@/features/resum
 import { CheckPageLayer, PageViewToggle } from "@/features/resume/editor/check/page-layer";
 import { ParserView } from "@/features/resume/editor/check/parser-view";
 import { CanvasStatusPill, usePageScale, ZoomBar } from "@/features/resume/editor/chrome";
-import { measureOverflow, runFit } from "@/features/resume/editor/design/fit";
+import { measureOverflow, runFit, useResumePages } from "@/features/resume/editor/design/fit";
 import { PageOverlay } from "@/features/resume/editor/page-overlay";
 import { markProposals, pendingProposals } from "@/features/resume/editor/proposals/proposals";
 import { useEditorStore } from "@/features/resume/editor/store";
@@ -44,6 +44,7 @@ export function PageCanvas() {
 	const sheetOpen = useEditorStore((state) => state.shareTab !== null);
 	const resumeId = useCurrentBuilderResumeSelector((resume) => resume.id);
 	const rendered = useEditorStore((state) => state.rendered);
+	const resumePages = useResumePages();
 	const setRendered = useEditorStore((state) => state.setRendered);
 	const breakpoint = useBreakpoint();
 	const [mode] = useEditorMode();
@@ -72,7 +73,7 @@ export function PageCanvas() {
 			: data && marked.length > 0
 				? markProposals(data, marked)
 				: undefined;
-	const overflow = data && !previewTemplate && !viewing ? measureOverflow(data, rendered) : null;
+	const overflow = data && !previewTemplate && !viewing ? measureOverflow(data, rendered, resumePages) : null;
 	// Desktop: the page moves 120px aside so it stays visible beside the Share & export sheet.
 	const shifted = sheetOpen && (breakpoint === "desktop" || breakpoint === "wide");
 
@@ -202,8 +203,8 @@ function ResumePageCaption(props: ResumePageCaptionProps) {
 		);
 	}
 
-	// Content past the authored pages: a dashed warn line at the page boundary.
-	if (overflow && pageNumber > overflow.authored) {
+	// Content past the target pages: a dashed warn line at the page boundary.
+	if (overflow && pageNumber > overflow.target) {
 		return (
 			<figcaption className="relative mb-2.5 border-t-[1.5px] border-dashed border-warn">
 				<span className="absolute end-0 -top-2.5 rounded bg-sunken px-1.5 text-[11px] font-semibold text-warn-text">
@@ -220,12 +221,15 @@ function ResumePageCaption(props: ResumePageCaptionProps) {
 	);
 }
 
-type OverflowChipProps = { authored: number; lines: number | null };
+type OverflowChipProps = { target: number; lines: number | null };
 
 /** "Runs onto page 2 by about 6 lines" with Fit, which tightens the design until it fits (one undo step). */
-function OverflowChip({ authored, lines }: OverflowChipProps) {
+function OverflowChip({ target, lines }: OverflowChipProps) {
 	const [fitting, setFitting] = useState(false);
-	const next = authored + 1;
+	const resumePages = useResumePages();
+	const next = target + 1;
+	// Named for the translated message ids, which predate the account's resume length.
+	const authored = target;
 
 	return (
 		<span className="flex min-h-8 items-center gap-2 rounded-lg bg-warn-soft py-1 ps-3 pe-1.5 text-[13px] text-warn-text">
@@ -244,7 +248,7 @@ function OverflowChip({ authored, lines }: OverflowChipProps) {
 				disabled={fitting}
 				onClick={() => {
 					setFitting(true);
-					void runFit().finally(() => setFitting(false));
+					void runFit(resumePages).finally(() => setFitting(false));
 				}}
 				className="h-6 rounded-md bg-surface px-2.5 text-xs font-semibold whitespace-nowrap text-ink shadow-e1 disabled:opacity-60"
 			>

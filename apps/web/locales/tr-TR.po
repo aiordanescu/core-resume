@@ -3412,6 +3412,10 @@ msgstr "İş ilanı kaydedilemedi."
 msgid "Couldn't save the provider."
 msgstr "Sağlayıcı kaydedilemedi."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "Hikaye kaydedilemedi."
@@ -4558,6 +4562,12 @@ msgstr "Geçerli bir e-posta adresi girin."
 msgid "Enter a web address, like example.com"
 msgstr "Örnek.com gibi bir web adresi girin"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "Uç noktanız tarafından desteklenen herhangi bir model kimliğini girin."
@@ -5530,6 +5540,10 @@ msgstr "İş başvuruları nereye kadar gidiyor"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "Prim nasıl belirleniyor ve geçen yıl ne kadarı ödendi?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "Sayfa görünümü"
 msgid "page."
 msgstr "sayfada."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Kağıt"
@@ -9420,6 +9442,10 @@ msgstr "özgeçmiş ayrıntıları"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "Özgeçmiş dosyası"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "Konular"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "Sıkılaştır"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

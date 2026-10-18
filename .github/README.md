@@ -16,13 +16,13 @@ It grew out of a real job search: hundreds of career facts, dozens of applicatio
 | How long AI may run        | Fixed: 120 s per application action, 240 s per coach or assistant reply, 120 s per model call                                                            | Set per account, up to 15 minutes for an action and 14 for a reply                       |
 | Web access and discovery   | Fixed: 20 s per web search or page read, 90 s per scheduled discovery run                                                                                | Set per account in **Web access → Time limits**                                          |
 | Voice                      | Fixed: 60 s to transcribe, 30 s to read aloud                                                                                                            | Set per account                                                                          |
+| Resume length              | One page, unless you add pages to each resume's layout and move sections onto them by hand                                                               | Set per account in **Settings → Preferences**, 1 to 99 pages; content flows onto them    |
 
 Defaults match Reactive Resume, so nothing changes until you raise a limit. [FORK.md](../FORK.md) lists every change, with its status upstream.
 
 On the way:
 
 - Knowledge ranked by relevance to the job, instead of newest first.
-- Fit a resume to a set number of pages, not only one.
 - Deeper job discovery: more searches, more results, and filters.
 
 ## Getting started

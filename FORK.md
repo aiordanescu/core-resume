@@ -30,6 +30,7 @@ A change offered upstream gets its own branch cut from `upstream`, so the upstre
 
 ## Fork changes
 
-| Change                                                                                                                                                                                                 | Since      | Status    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------- |
-| **AI limits.** Per-user Knowledge budgets and time limits for Coach, Assistant, application actions, web access, discovery and voice, in Settings → AI & developer. Column `career_profile.ai_limits`. | 2026-10-17 | Fork only |
+| Change                                                                                                                                                                                                                                                     | Since      | Status    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------- |
+| **AI limits.** Per-user Knowledge budgets and time limits for Coach, Assistant, application actions, web access, discovery and voice, in Settings → AI & developer. Column `career_profile.ai_limits`.                                                     | 2026-10-17 | Fork only |
+| **Resume length.** A per-user number of pages (1 to 99, default 1) in Settings → Preferences. The editor's overflow warning, Fit and the assistant's tighten suggestion aim at it, or at the layout's pages if there are more. Column `user.resume_pages`. | 2026-10-17 | Fork only |

@@ -3,7 +3,9 @@ import type { PageMap } from "@reactive-resume/pdf/page-map";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import type { WritableDraft } from "immer";
 import { t } from "@lingui/core/macro";
+import { useRouteContext } from "@tanstack/react-router";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { RESUME_PAGES } from "@reactive-resume/utils/resume-pages";
 import { useEditorStore } from "../store";
 import { applyDensity, applyMargins, applyTextSize, fitToPages, matchDensity, matchMargins } from "./presets";
 import { useResumeStore } from "@/features/resume/builder/draft";
@@ -36,15 +38,30 @@ function applyStep(metadata: WritableDraft<ResumeData["metadata"]>, step: FitSte
 const densityLabel = () => ({ compact: t`Compact`, normal: t`Normal`, roomy: t`Roomy` });
 const marginsLabel = () => ({ narrow: t`narrow margins`, normal: t`normal margins`, wide: t`wide margins` });
 
-/** How far the content runs past the authored pages, in lines of body text, from the page map on screen. */
-export function measureOverflow(data: ResumeData, rendered: { pageCount: number; pageMap: PageMap | undefined }) {
-	const authored = Math.max(1, data.metadata.layout.pages.length);
-	if (rendered.pageCount <= authored) return null;
+/** The account's resume length (Settings → Preferences): how many pages a resume may run to. */
+export function useResumePages() {
+	const { session } = useRouteContext({ strict: false });
+	return session?.user.resumePages ?? RESUME_PAGES.default;
+}
+
+/** The pages a resume should fit on: its authored layout pages, or the account's resume length if that's more. */
+export function targetPages(data: ResumeData, resumePages: number) {
+	return Math.max(1, data.metadata.layout.pages.length, resumePages);
+}
+
+/** How far the content runs past the target pages, in lines of body text, from the page map on screen. */
+export function measureOverflow(
+	data: ResumeData,
+	rendered: { pageCount: number; pageMap: PageMap | undefined },
+	resumePages: number,
+) {
+	const target = targetPages(data, resumePages);
+	if (rendered.pageCount <= target) return null;
 
 	// The extent of the content on each spill page (positions are per page), summed.
 	const extents = new Map<number, { top: number; bottom: number }>();
 	for (const node of rendered.pageMap?.nodes ?? []) {
-		if (node.page < authored) continue;
+		if (node.page < target) continue;
 		const extent = extents.get(node.page);
 		extents.set(node.page, {
 			top: Math.min(extent?.top ?? node.y, node.y),
@@ -54,18 +71,18 @@ export function measureOverflow(data: ResumeData, rendered: { pageCount: number;
 	const height = [...extents.values()].reduce((sum, extent) => sum + extent.bottom - extent.top, 0);
 	const lineHeight = data.metadata.typography.body.fontSize * data.metadata.typography.body.lineHeight;
 	const lines = height > 0 && lineHeight > 0 ? Math.max(1, Math.round(height / lineHeight)) : null;
-	return { authored, pageCount: rendered.pageCount, lines };
+	return { target, pageCount: rendered.pageCount, lines };
 }
 
 /**
- * Fit to the authored pages: tightens density, then margins, then size (never below 9 pt), waiting for the page
+ * Fit to the target pages: tightens density, then margins, then size (never below 9 pt), waiting for the page
  * to re-render after each step. The whole run is one undo step.
  */
-export async function runFit() {
+export async function runFit(resumePages: number) {
 	const { resume, updateResumeData, undo } = useResumeStore.getState();
 	if (!resume) return;
 	const { metadata } = resume.data;
-	const authored = Math.max(1, metadata.layout.pages.length);
+	const target = targetPages(resume.data, resumePages);
 	const key = `design.fit:${Date.now()}`;
 	let version = useEditorStore.getState().rendered.version;
 	let applied = false;
@@ -79,7 +96,7 @@ export async function runFit() {
 		},
 		async () => {
 			if (applied) await waitForRender(version);
-			return useEditorStore.getState().rendered.pageCount <= authored;
+			return useEditorStore.getState().rendered.pageCount <= target;
 		},
 	);
 
@@ -96,6 +113,8 @@ export async function runFit() {
 	if (!applied) return;
 
 	const { density, margins, size } = result.state;
+	// Named for the translated message ids, which predate the account's resume length.
+	const authored = target;
 	const details = [density ? densityLabel()[density] : null, margins ? marginsLabel()[margins] : null, t`${size} pt`]
 		.filter(Boolean)
 		.join(", ");

@@ -3412,6 +3412,10 @@ msgstr "求人情報を保存できませんでした。"
 msgid "Couldn't save the provider."
 msgstr "プロバイダーを保存できませんでした。"
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "ストーリーを保存できませんでした。"
@@ -4558,6 +4562,12 @@ msgstr "有効なメールアドレスを入力してください。"
 msgid "Enter a web address, like example.com"
 msgstr "example.com のような Web アドレスを入力します。"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "エンドポイントでサポートされているモデル ID を入力します。"
@@ -5530,6 +5540,10 @@ msgstr "求人応募はどこまで届くのか"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "ボーナスはどのように決まり、昨年はどのくらい支給されましたか？"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "ページビュー"
 msgid "page."
 msgstr "ページに。"
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "紙"
@@ -9420,6 +9442,10 @@ msgstr "履歴書の詳細"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "履歴書ファイル"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "スレッド"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "簡潔にする"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

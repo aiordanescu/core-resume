@@ -3412,6 +3412,10 @@ msgstr "មិនអាចរក្សាទុកការប្រកាសក
 msgid "Couldn't save the provider."
 msgstr "មិនអាចរក្សាទុកអ្នកផ្តល់សេវាបានទេ។"
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "មិនអាចរក្សាទុករឿងបានទេ។"
@@ -4558,6 +4562,12 @@ msgstr "បញ្ចូលអាសយដ្ឋានអ៊ីមែលត្រ
 msgid "Enter a web address, like example.com"
 msgstr "បញ្ចូលអាសយដ្ឋានគេហទំព័រ ដូចជាឧទាហរណ៍.com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "បញ្ចូលលេខសម្គាល់គំរូណាមួយដែលគាំទ្រដោយចំណុចបញ្ចប់របស់អ្នក។"
@@ -5530,6 +5540,10 @@ msgstr "តើពាក្យសុំការងារទទួលបានប
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "តើប្រាក់រង្វាន់ត្រូវបានកំណត់យ៉ាងដូចម្តេច ហើយឆ្នាំមុនបានបើកប៉ុន្មាន?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "ទិដ្ឋភាពទំព័រ"
 msgid "page."
 msgstr "តែមួយ។"
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "ក្រដាស"
@@ -9420,6 +9442,10 @@ msgstr "ប្រវត្តិរូបសង្ខេប"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "ឯកសារប្រវត្តិរូបសង្ខេប"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "ខ្សែស្រឡាយ"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "បង្រួម"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

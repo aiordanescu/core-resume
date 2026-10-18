@@ -21,6 +21,7 @@ import { ResetPasswordEmail, VerifyEmail, VerifyEmailChange } from "@reactive-re
 import { sendEmail } from "@reactive-resume/email/transport";
 import { env } from "@reactive-resume/env/server";
 import { rateLimitConfig } from "@reactive-resume/utils/rate-limit";
+import { RESUME_PAGES, resumePagesSchema } from "@reactive-resume/utils/resume-pages";
 import { generateId, toUsername } from "@reactive-resume/utils/string";
 import { timezoneSchema } from "@reactive-resume/utils/timezone";
 import { isAllowedOAuthRedirectUri } from "@reactive-resume/utils/url-security.node";
@@ -328,6 +329,12 @@ const getAuthConfig = () => {
 					required: false,
 					defaultValue: "UTC",
 					validator: { input: timezoneSchema },
+				},
+				resumePages: {
+					type: "number",
+					required: false,
+					defaultValue: RESUME_PAGES.default,
+					validator: { input: resumePagesSchema },
 				},
 			},
 		},

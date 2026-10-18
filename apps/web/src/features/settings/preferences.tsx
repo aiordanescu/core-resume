@@ -10,6 +10,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
+import { ResumeLengthSection } from "./resume-length";
 import { SettingsSection } from "./section";
 import { Combobox } from "@/components/ui/combobox";
 import { LocaleCombobox } from "@/features/locale/combobox";
@@ -61,6 +62,8 @@ export function PreferencesSettings() {
 			<SettingsSection title={<Trans>Timezone</Trans>}>
 				<TimezoneSetting id={timezoneId} />
 			</SettingsSection>
+
+			<ResumeLengthSection />
 		</>
 	);
 }

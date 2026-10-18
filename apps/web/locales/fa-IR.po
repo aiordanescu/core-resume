@@ -3412,6 +3412,10 @@ msgstr "پست شغل ذخیره نشد."
 msgid "Couldn't save the provider."
 msgstr "ارائه دهنده ذخیره نشد."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "داستان ذخیره نشد."
@@ -4558,6 +4562,12 @@ msgstr "یک آدرس ایمیل معتبر وارد کنید."
 msgid "Enter a web address, like example.com"
 msgstr "یک آدرس وب مانند مثال.com وارد کنید"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "هر شناسه مدلی را که توسط نقطه پایانی شما پشتیبانی می شود وارد کنید."
@@ -5530,6 +5540,10 @@ msgstr "درخواست های شغلی تا کجا پیش می روند"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "پاداش چگونه تعیین می‌شود و سال گذشته چه مقدار از آن پرداخت شد؟"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "نمای صفحه"
 msgid "page."
 msgstr "صفحه."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "کاغذ"
@@ -9420,6 +9442,10 @@ msgstr "جزئیات رزومه"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "فایل رزومه"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "موضوعات"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "فشرده‌سازی"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"
