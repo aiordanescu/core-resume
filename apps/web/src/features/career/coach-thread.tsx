@@ -21,6 +21,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/com
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
+import { coachQuery, rankByRelevance, storyText } from "@reactive-resume/utils/relevance";
 import { cn } from "@reactive-resume/utils/style";
 import { useSessionDraft } from "./hooks";
 import { Eyebrow, MemoryProposal, useCareerTime, useNow, withUndo, Working, workingSteps } from "./shared";
@@ -80,6 +81,10 @@ export function useCoachKnowledge(applicationId: string | null) {
 	const facts = useQuery(orpc.career.facts.queryOptions({ input: { applicationId: null, all: true } }));
 	const stories = useQuery(orpc.career.stories.queryOptions({ input: { applicationId } }));
 	const limits = useQuery(orpc.career.aiLimits.queryOptions()).data ?? DEFAULT_LIMITS;
+	const application = useQuery({
+		...orpc.applications.getById.queryOptions({ input: { id: applicationId ?? "" } }),
+		enabled: applicationId !== null,
+	});
 	const all = facts.data ?? [];
 	// Same order and filters as the server's career context, so the recorded ids are what was sent.
 	const active = all.filter(
@@ -96,7 +101,7 @@ export function useCoachKnowledge(applicationId: string | null) {
 			),
 	);
 	return {
-		loaded: facts.isSuccess && stories.isSuccess,
+		loaded: facts.isSuccess && stories.isSuccess && (applicationId === null || application.isSuccess),
 		isPending: facts.isPending || stories.isPending,
 		isError: facts.isError || stories.isError,
 		retry: () => {
@@ -107,22 +112,32 @@ export function useCoachKnowledge(applicationId: string | null) {
 		active,
 		stories: usable,
 		allStories: stories.data ?? [],
-		// What goes with a message up front, within Settings → AI & developer → AI limits.
-		shared: { facts: active.slice(0, limits.coachFacts), stories: usable.slice(0, limits.coachStories) },
+		// What goes with a message up front: the most relevant to it (and to the posting, when the application is
+		// shared), within Settings → AI & developer → AI limits. Same query and ranking as the server (career/tools.ts).
+		sharedFor: (message: string, withApplication: boolean) => {
+			const query = coachQuery(message, withApplication ? application.data : null);
+			return {
+				facts: rankByRelevance(active, (fact) => fact.text, query).slice(0, limits.coachFacts),
+				stories: rankByRelevance(usable, (story) => storyText(story.data), query).slice(0, limits.coachStories),
+			};
+		},
 	};
 }
 type Knowledge = ReturnType<typeof useCoachKnowledge>;
 
-const usedFor = (knowledge: Knowledge, context: MessageContext): Used => ({
-	context: {
-		facts: context.memory ? knowledge.shared.facts.map((fact) => fact.id) : [],
-		stories: context.memory ? knowledge.shared.stories.map((story) => story.id) : [],
-		preferences: context.memory === true,
-		applications: context.application === true,
-		offers: context.offerIds ?? [],
-		web: context.web === true,
-	},
-});
+const usedFor = (knowledge: Knowledge, context: MessageContext, text: string): Used => {
+	const shared = knowledge.sharedFor(text, context.application !== false);
+	return {
+		context: {
+			facts: context.memory ? shared.facts.map((fact) => fact.id) : [],
+			stories: context.memory ? shared.stories.map((story) => story.id) : [],
+			preferences: context.memory === true,
+			applications: context.application === true,
+			offers: context.offerIds ?? [],
+			web: context.web === true,
+		},
+	};
+};
 
 // ---- Conversations, listed on Career → Coach and in the workspace sheet ----
 
@@ -235,7 +250,7 @@ export function CoachThread(props: CoachThreadProps) {
 		setStarting(true);
 		try {
 			const id = await ensureThread();
-			setPrompt({ text, attachments, used: usedFor(knowledge, props.context) });
+			setPrompt({ text, attachments, used: usedFor(knowledge, props.context, text) });
 			draft.current = null;
 			props.onThreadCreated(id, text);
 			return true;
@@ -379,7 +394,7 @@ function ChatView(props: ChatViewProps) {
 		if (streaming || readOnly) return false;
 		clearError();
 		setStopped(false);
-		deliver({ text, attachments, used: usedFor(knowledge, props.context) });
+		deliver({ text, attachments, used: usedFor(knowledge, props.context, text) });
 		return true;
 	};
 

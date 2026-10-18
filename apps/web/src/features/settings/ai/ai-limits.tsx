@@ -66,7 +66,11 @@ export function AiLimitsSection() {
 					},
 					{
 						legend: <Trans>Application actions</Trans>,
-						description: <Trans>Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first.</Trans>,
+						description: (
+							<Trans>
+								Fit, Apply, Prepare, Practise, Debrief and Messages. Facts that best match the posting go in first.
+							</Trans>
+						),
 						limits: [
 							{ name: "actionFactChars", label: <Trans>Facts in one request</Trans>, unit: characters },
 							{ name: "actionStoryChars", label: <Trans>Stories in one request</Trans>, unit: characters },

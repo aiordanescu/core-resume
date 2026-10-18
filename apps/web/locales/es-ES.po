@@ -4986,7 +4986,7 @@ msgid "Fit to one page"
 msgstr "Ajustar a una página"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Newest facts go in first."
+msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Facts that best match the posting go in first."
 msgstr ""
 
 #: src/features/resume/editor/design/fit.ts

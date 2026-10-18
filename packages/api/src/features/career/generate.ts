@@ -2,6 +2,7 @@ import type { GenerateTask, SavedItemData } from "@reactive-resume/schema/career
 import { ORPCError } from "@orpc/client";
 import z from "zod";
 import { careerWorkspaceSchema, savedItemDataSchema } from "@reactive-resume/schema/career";
+import { rankByRelevance, storyText } from "@reactive-resume/utils/relevance";
 import { aiProvidersService } from "../ai-providers/service";
 import { getModel } from "../ai/service";
 import { generateJson } from "../applications/ai";
@@ -97,6 +98,16 @@ type GenerateInput = {
 };
 
 /** One structured AI write for a workspace tab. Saves the result, except a drafted or tightened answer. */
+/** Every string inside a value, for ranking: field names and ids add nothing a fact could match. */
+const textValues = (value: unknown): string[] =>
+	typeof value === "string"
+		? [value]
+		: Array.isArray(value)
+			? value.flatMap(textValues)
+			: value && typeof value === "object"
+				? Object.values(value).flatMap(textValues)
+				: [];
+
 export async function generateCareer(input: GenerateInput) {
 	const { task } = input;
 	const interviewId = "interviewId" in task ? task.interviewId : null;
@@ -157,6 +168,15 @@ export async function generateCareer(input: GenerateInput) {
 		return text.slice(0, end);
 	};
 	const { actionFactChars, actionStoryChars } = context.limits;
+	// Knowledge goes in by relevance to the posting and this task, not by age; what doesn't match still fills the rest.
+	const query = [
+		application.role,
+		application.jobDescription,
+		...(application.requirements ?? []),
+		application.notes,
+		...textValues(context.interview),
+		...textValues(task.task === "reply" ? { message } : taskInput),
+	].join("\n");
 	const supporting = new Set(selectedStory?.data.factIds ?? []);
 	const selectedFacts = context.facts.filter((fact) => supporting.has(fact.id));
 	const promptFacts = take(
@@ -166,9 +186,11 @@ export async function generateCareer(input: GenerateInput) {
 				text: excerpt(text, Math.max(100, Math.floor((actionFactChars * 0.9) / selectedFacts.length) - 100)),
 				category,
 			})),
-			...context.facts
-				.filter((fact) => !supporting.has(fact.id))
-				.map(({ id, text, category }) => ({ id, text, category })),
+			...rankByRelevance(
+				context.facts.filter((fact) => !supporting.has(fact.id)),
+				(fact) => fact.text,
+				query,
+			).map(({ id, text, category }) => ({ id, text, category })),
 		],
 		actionFactChars,
 	);
@@ -187,9 +209,13 @@ export async function generateCareer(input: GenerateInput) {
 	const promptStories = take(
 		[
 			...(preferredStory ? [preferredStory] : []),
-			...context.stories
-				.filter((story) => story.id !== selectedStory?.id && story.data.factIds.every((id) => includedFacts.has(id)))
-				.map(({ id, data }) => ({ id, ...data, factIds: undefined, applicationId: undefined })),
+			...rankByRelevance(
+				context.stories.filter(
+					(story) => story.id !== selectedStory?.id && story.data.factIds.every((id) => includedFacts.has(id)),
+				),
+				(story) => storyText(story.data),
+				query,
+			).map(({ id, data }) => ({ id, ...data, factIds: undefined, applicationId: undefined })),
 		],
 		actionStoryChars,
 	);

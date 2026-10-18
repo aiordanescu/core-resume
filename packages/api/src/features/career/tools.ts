@@ -6,6 +6,7 @@ import { careerSystemPromptTemplate } from "@reactive-resume/ai/prompts";
 import { db } from "@reactive-resume/db/client";
 import { application, careerArtifact } from "@reactive-resume/db/schema";
 import { careerStoryInputSchema, factCategorySchema } from "@reactive-resume/schema/career";
+import { coachQuery, rankByRelevance, relevanceScores, storyText, terms } from "@reactive-resume/utils/relevance";
 import { careerService, modelFact } from "./service";
 
 type CareerToolsInput = {
@@ -15,6 +16,8 @@ type CareerToolsInput = {
 	shareMemory: boolean;
 	tab: WorkspaceTab | undefined;
 	sourceMessageId: string | undefined;
+	/** The message being answered; the facts and stories shared up front are the ones most relevant to it. */
+	query?: string | undefined;
 };
 
 const TABS: Record<WorkspaceTab, string> = {
@@ -34,6 +37,17 @@ const MEMORY = {
 	off: "Don't remember facts; the user switched memory off.",
 };
 
+/** Search results: only items sharing terms with the query, best match first. A query of only stopwords lists all. */
+function search<T>(items: T[], text: (item: T) => string, query: string) {
+	if (terms(query).length === 0) return items;
+	const scores = relevanceScores(items, text, query);
+	return items
+		.map((item, index) => ({ item, score: scores[index] ?? 0 }))
+		.filter(({ score }) => score > 0)
+		.sort((a, b) => b.score - a.score)
+		.map(({ item }) => item);
+}
+
 /** Tool responses cannot rely on history compaction: the latest turn must fit by itself. */
 function boundedItems<T>(items: T[], budget: number) {
 	let remaining = budget;
@@ -48,12 +62,14 @@ function boundedItems<T>(items: T[], budget: number) {
 }
 
 export function buildCareerInstructions(
-	input: Pick<CareerToolsInput, "context" | "shareApplication" | "shareMemory" | "tab"> & {
+	input: Pick<CareerToolsInput, "context" | "shareApplication" | "shareMemory" | "tab" | "query"> & {
 		offers?: Array<{ application: { company: string; role: string } | null; data: unknown }>;
 	},
 ) {
 	const { context } = input;
 	const company = context.application?.company;
+	// The web app records what a message shared from the same query (coach-thread.tsx), so keep the two in step.
+	const query = coachQuery(input.query ?? "", input.shareApplication ? context.application : null);
 	const task = context.application
 		? `Help with this one application (${context.application.role} at ${company}). ${input.tab ? `The user is ${TABS[input.tab]}.` : ""}`
 		: "Help with the whole search, across applications. Use list_opportunities to compare them.";
@@ -64,8 +80,11 @@ export function buildCareerInstructions(
 		...(input.shareMemory
 			? {
 					preferences: context.profile,
-					facts: context.facts.slice(0, context.limits.coachFacts),
-					stories: context.stories.slice(0, context.limits.coachStories),
+					facts: rankByRelevance(context.facts, (fact) => fact.text, query).slice(0, context.limits.coachFacts),
+					stories: rankByRelevance(context.stories, (story) => storyText(story.data), query).slice(
+						0,
+						context.limits.coachStories,
+					),
 				}
 			: {}),
 		// Saved offers the user chose to compare: terms in their own currency and pay period.
@@ -102,19 +121,19 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 		});
 	if (input.shareMemory) {
 		tools.search_career_knowledge = tool({
-			description: "Find switched-on facts and STARR stories. Facts private to another application never appear.",
+			description:
+				"Find switched-on facts and STARR stories by keyword, best match first; any word in the query can match. Facts private to another application never appear.",
 			inputSchema: z.object({ query: z.string().max(500) }),
 			execute: async ({ query }) => {
+				const active = (await careerService.facts(scope)).filter((fact) => fact.status === "active").map(modelFact);
 				const facts = boundedItems(
-					(await careerService.facts({ ...scope, query })).filter((fact) => fact.status === "active").map(modelFact),
+					search(active, (fact) => fact.text, query),
 					input.context.limits.searchFactChars,
 				);
-				const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-				const matches = input.context.stories.filter(
-					(story) =>
-						!terms.length || terms.some((term) => JSON.stringify(story.data).toLocaleLowerCase().includes(term)),
+				const stories = boundedItems(
+					search(input.context.stories, (story) => storyText(story.data), query),
+					input.context.limits.searchStoryChars,
 				);
-				const stories = boundedItems(matches, input.context.limits.searchStoryChars);
 				const truncated = facts.truncated || stories.truncated;
 				return {
 					facts: facts.items,

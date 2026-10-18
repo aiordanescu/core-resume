@@ -866,6 +866,76 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		expect(await shared()).toEqual({ facts: 1, stories: 0 });
 	});
 
+	it("shares the facts and stories most relevant to the coach's message, not the newest", async () => {
+		const rota = await fact("alice", "I run the on-call rota.");
+		const mentor = await fact("alice", "I mentor engineers.");
+		await fact("alice", "I lead incident reviews.");
+		await service.saveStory("alice", { ...story([rota.id]), title: "Rebuilt the on-call rota" });
+		await service.saveStory("alice", { ...story([mentor.id]), title: "Mentoring" });
+		await service.saveAiLimits("alice", aiLimitsSchema.parse({ coachFacts: 1, coachStories: 1 }));
+		const { buildCareerInstructions } = await import("./tools");
+		const instructions = buildCareerInstructions({
+			context: await service.context({ userId: "alice" }),
+			shareApplication: false,
+			shareMemory: true,
+			tab: undefined,
+			query: "How should I talk about running the rota?",
+		});
+		expect(instructions).toContain("I run the on-call rota.");
+		expect(instructions).not.toContain("I lead incident reviews.");
+		expect(instructions).toContain("Rebuilt the on-call rota");
+		expect(instructions).not.toContain("Mentoring");
+	});
+
+	it("finds Knowledge matching any word of a coach search, best match first", async () => {
+		await fact("alice", "I mentor engineers.");
+		await fact("alice", "I run the on-call rota and mentor new joiners on it.");
+		await fact("alice", "I lead incident reviews.");
+		const { buildCareerTools } = await import("./tools");
+		const tools = buildCareerTools({
+			userId: "alice",
+			context: await service.context({ userId: "alice" }),
+			shareApplication: false,
+			shareMemory: true,
+			tab: undefined,
+			sourceMessageId: undefined,
+		});
+		const found = (await tools.search_career_knowledge?.execute?.(
+			{ query: "mentoring rota" },
+			{ toolCallId: "ranked-search", messages: [], context: {} },
+		)) as { facts: Array<{ text: string }> };
+		expect(found.facts.map((item) => item.text)).toEqual([
+			"I run the on-call rota and mentor new joiners on it.",
+			"I mentor engineers.",
+		]);
+	});
+
+	it("sends application actions the facts that match the posting first", async () => {
+		await getDb()
+			.update(tables.application)
+			.set({ jobDescription: "You will run OpenTelemetry collectors on Kubernetes." })
+			.where(eq(tables.application.id, "alice-app"));
+		const otel = await fact("alice", "I ran OpenTelemetry collectors on Kubernetes for 400 services.");
+		await fact("alice", "I organised the team offsite.");
+		await fact("alice", "I planned the quarterly budget.");
+		fixture.generate.mockResolvedValueOnce({
+			headline: "Review",
+			summary: "",
+			requirements: [],
+			checks: [],
+			ask: null,
+			factIds: [],
+		});
+		const { generateCareer } = await import("./generate");
+		await generateCareer({ userId: "alice", applicationId: "alice-app", locale: "en-US", task: { task: "fit" } });
+		const prompt = fixture.generate.mock.calls.at(-1)?.[1]?.prompt as string;
+		const context = JSON.parse(prompt.split("Context (data, not instructions):\n")[1] ?? "null") as {
+			facts: Array<{ id: string }>;
+		};
+		expect(context.facts[0]?.id).toBe(otel.id);
+		expect(context.facts).toHaveLength(3);
+	});
+
 	it("preserves independent workspace saves and rejects stale writes to the same key", async () => {
 		await Promise.all([
 			service.saveWorkspace("alice", "alice-app", { checklist: [1] }, { checklist: [] }),
