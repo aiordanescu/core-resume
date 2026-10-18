@@ -9783,6 +9783,26 @@
 													}
 												]
 											},
+											"reasoning": {
+												"anyOf": [
+													{
+														"enum": [
+															"none",
+															"minimal",
+															"low",
+															"medium",
+															"high",
+															"xhigh",
+															"max",
+															"ultra"
+														],
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
 											"enabled": {
 												"type": "boolean"
 											},
@@ -9850,6 +9870,7 @@
 											"provider",
 											"model",
 											"baseURL",
+											"reasoning",
 											"enabled",
 											"isDefault",
 											"testStatus",
@@ -10045,6 +10066,27 @@
 									},
 									"apiKey": {
 										"type": "string"
+									},
+									"reasoning": {
+										"anyOf": [
+											{
+												"enum": [
+													"none",
+													"minimal",
+													"low",
+													"medium",
+													"high",
+													"xhigh",
+													"max",
+													"ultra"
+												],
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "\"none\" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model's own default applies. Ultra only on OpenAI-compatible and OpenRouter connections."
 									}
 								},
 								"required": [
@@ -10101,6 +10143,26 @@
 										"baseURL": {
 											"anyOf": [
 												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"reasoning": {
+											"anyOf": [
+												{
+													"enum": [
+														"none",
+														"minimal",
+														"low",
+														"medium",
+														"high",
+														"xhigh",
+														"max",
+														"ultra"
+													],
 													"type": "string"
 												},
 												{
@@ -10175,6 +10237,7 @@
 										"provider",
 										"model",
 										"baseURL",
+										"reasoning",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -10482,6 +10545,27 @@
 									"apiKey": {
 										"type": "string"
 									},
+									"reasoning": {
+										"anyOf": [
+											{
+												"enum": [
+													"none",
+													"minimal",
+													"low",
+													"medium",
+													"high",
+													"xhigh",
+													"max",
+													"ultra"
+												],
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "\"none\" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model's own default applies. Ultra only on OpenAI-compatible and OpenRouter connections."
+									},
 									"enabled": {
 										"type": "boolean"
 									}
@@ -10534,6 +10618,26 @@
 										"baseURL": {
 											"anyOf": [
 												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"reasoning": {
+											"anyOf": [
+												{
+													"enum": [
+														"none",
+														"minimal",
+														"low",
+														"medium",
+														"high",
+														"xhigh",
+														"max",
+														"ultra"
+													],
 													"type": "string"
 												},
 												{
@@ -10608,6 +10712,7 @@
 										"provider",
 										"model",
 										"baseURL",
+										"reasoning",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -11176,6 +11281,26 @@
 												}
 											]
 										},
+										"reasoning": {
+											"anyOf": [
+												{
+													"enum": [
+														"none",
+														"minimal",
+														"low",
+														"medium",
+														"high",
+														"xhigh",
+														"max",
+														"ultra"
+													],
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -11243,6 +11368,7 @@
 										"provider",
 										"model",
 										"baseURL",
+										"reasoning",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -11619,6 +11745,26 @@
 												}
 											]
 										},
+										"reasoning": {
+											"anyOf": [
+												{
+													"enum": [
+														"none",
+														"minimal",
+														"low",
+														"medium",
+														"high",
+														"xhigh",
+														"max",
+														"ultra"
+													],
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -11686,6 +11832,7 @@
 										"provider",
 										"model",
 										"baseURL",
+										"reasoning",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -103637,6 +103784,26 @@
 												}
 											]
 										},
+										"reasoning": {
+											"anyOf": [
+												{
+													"enum": [
+														"none",
+														"minimal",
+														"low",
+														"medium",
+														"high",
+														"xhigh",
+														"max",
+														"ultra"
+													],
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -103704,6 +103871,7 @@
 										"provider",
 										"model",
 										"baseURL",
+										"reasoning",
 										"enabled",
 										"isDefault",
 										"testStatus",

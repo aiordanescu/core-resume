@@ -4465,6 +4465,10 @@ msgstr "தலையங்கம்"
 msgid "Education"
 msgstr "கல்வி"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "ஏற்றுமதி செய்யப்பட்ட PDF: {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "ஏற்றுமதி செய்யப்பட்ட pipeline-flow.png"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "இந்தக் கணக்கு காப்பகத்தைப் பிரித்தெடுத்து, அதன் ரெஸ்யூம்கள் அல்லது கடிதங்கள் கோப்புறையிலிருந்து JSON கோப்பை இறக்குமதி செய்யவும்."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "உண்மைகள்"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "புகைப்படத்தை மறை"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "உயர்"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "உங்கள் அங்கீகார செயலியை அணுக முடியவில்லையா?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "குறைந்த"
 
@@ -6835,6 +6845,10 @@ msgstr "ரெஸ்யூமே பொருத்துதல்"
 msgid "Matching your facts"
 msgstr "உங்கள் உண்மைகளைப் பொருத்துகிறது"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "பிறகு பார்க்கலாம்"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "முதல் பதிலுக்கான இடைநிலை"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "நடுத்தர"
 
@@ -6884,6 +6899,10 @@ msgstr "செய்திகள் · Fieldnote-இல் உள்ள Sam-க�
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "மைக்ரோஃபோன் தடுக்கப்பட்டுள்ளது. உங்கள் உலாவி அமைப்புகளில் அனுமதிக்கவும், அல்லது உங்கள் பதிலைத் தட்டச்சு செய்யவும்."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "குறைந்தபட்ச அடிப்படைச் சம்பளம்"
@@ -6909,6 +6928,10 @@ msgstr "கலப்பு வடிவம்"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "மாதிரி"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "ஒடியா"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "ஆஃப்"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "தயார்"
 msgid "Reason"
 msgstr "காரணம்"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "நினைவிலிருந்து"
@@ -10113,6 +10144,10 @@ msgstr "அனுப்புநரின் விவரங்கள் கட�
 msgid "Sending password reset email..."
 msgstr "கடவுச்சொல் மீட்டமைப்பு மின்னஞ்சலை அனுப்பிக் கொண்டிருக்கிறது..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "இந்த விண்ணப்பத்தையும் (வேலை அறிவிப்பு, குறிப்புகள், நேர்காணல் விவரங்கள்) இயக்கப்பட்ட அறிவுத் தளத்தையும் {label}-க்கு அனுப்பும்."
@@ -10174,6 +10209,10 @@ msgstr "மூத்த தயாரிப்பு வடிவமைப்ப�
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "அனுப்பப்பட்டது"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "கதைகள்"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "இன்றைய உங்கள் நேர்காணலை அவர்கள் உறுதிப்படுத்தியுள்ளனர்"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "சிந்திக்கிறது"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "நேரம் · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "மொழிபெயர்"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "செயலியை மொழிபெயர்க்கவும்"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "எழுத்துரு வடிவமைப்பு"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "உக்ரேனியன்"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

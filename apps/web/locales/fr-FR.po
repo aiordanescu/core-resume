@@ -4465,6 +4465,10 @@ msgstr "Éditorial"
 msgid "Education"
 msgstr "Formation"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "PDF exporté : {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png exporté"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "Extrayez cette archive de compte, puis importez un fichier JSON depuis son dossier CV ou lettres."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "Faits"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "Cacher la photo"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "Haut"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "Vous avez perdu l'accès à votre authentificateur ?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "Faible"
 
@@ -6835,6 +6845,10 @@ msgstr "Correspondant au CV"
 msgid "Matching your facts"
 msgstr "Rapprochement de vos faits"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "Plus tard"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "médiane à la première réponse"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "Moyen"
 
@@ -6884,6 +6899,10 @@ msgstr "Messages · Réponse à Sam, de Fieldnote"
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "Micro bloqué. Autorisez-le dans les paramètres du navigateur, ou saisissez votre réponse."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "Salaire de base minimum"
@@ -6909,6 +6928,10 @@ msgstr "format mixte"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "Modèle"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "Odia"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "Désactivé"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "Prêt"
 msgid "Reason"
 msgstr "Raison"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "Rapportée"
@@ -10113,6 +10144,10 @@ msgstr "Détails de l'expéditeur copiés dans la lettre"
 msgid "Sending password reset email..."
 msgstr "Envoi de l'e-mail de réinitialisation du mot de passe..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "Envoie cette candidature (annonce, notes, détails de l'entretien) et les Connaissances activées à {label}."
@@ -10174,6 +10209,10 @@ msgstr "Concepteur de produits senior"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "Envoyé"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "Récits"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "Ils ont confirmé votre entretien pour aujourd'hui"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "Réflexion en cours"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "Heure · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "Traduire"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "Traduire l'application"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "Typographie"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "Ukrainien"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

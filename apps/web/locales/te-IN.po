@@ -4465,6 +4465,10 @@ msgstr "సంపాదకీయం"
 msgid "Education"
 msgstr "విద్య"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "PDF: {0} ఎగుమతి చేయబడింది"
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png ఎగుమతి చేయబడింది"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "ఈ ఖాతా ఆర్కైవ్‌ను సంగ్రహించి, ఆపై దాని రెజ్యూమ్‌లు లేదా అక్షరాల ఫోల్డర్ నుండి JSON ఫైల్‌ను దిగుమతి చేయండి."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "వాస్తవాలు"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "ఫోటోను దాచండి"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "అధిక"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "మీరు మీ ఆథెంటికేటర్‌ను కోల్పోయారా?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "తక్కువ"
 
@@ -6835,6 +6845,10 @@ msgstr "రెజ్యూమేతో సరిపోలుతోంది"
 msgid "Matching your facts"
 msgstr "మీ వాస్తవాలను సరిపోలుస్తోంది"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "తర్వాత చూద్దాం"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "మొదటి ప్రత్యుత్తరానికి మధ్యస్థం"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "మధ్యస్థం"
 
@@ -6884,6 +6899,10 @@ msgstr "సందేశాలు · Fieldnoteలోని Samకి ప్రత
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "మైక్రోఫోన్ బ్లాక్ చేయబడింది. మీ బ్రౌజర్ సెట్టింగులలో అనుమతించండి, లేదా మీ సమాధానాన్ని టైప్ చేయండి."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "కనీస మూల వేతనం"
@@ -6909,6 +6928,10 @@ msgstr "మిశ్రమ ఆకృతి"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "మోడల్"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "ఒడియా"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "ఆఫ్"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "సిద్ధంగా ఉంది"
 msgid "Reason"
 msgstr "కారణం"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "గుర్తుచేసుకున్నది"
@@ -10113,6 +10144,10 @@ msgstr "పంపినవారి వివరాలు లేఖలో కా
 msgid "Sending password reset email..."
 msgstr "పాస్‌వర్డ్ రీసెట్ ఇమెయిల్‌ను పంపుతున్నాము..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "ఈ దరఖాస్తును (ఉద్యోగ ప్రకటన, నోట్స్, ఇంటర్వ్యూ వివరాలు), ఆన్ చేసిన నాలెడ్జ్‌ను {label}కి పంపుతుంది."
@@ -10174,6 +10209,10 @@ msgstr "సీనియర్ ప్రొడక్ట్ డిజైనర్"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "పంపబడింది"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "కథలు"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "ఈరోజు మీ ఇంటర్వ్యూను వారు నిర్ధారించారు"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "ఆలోచిస్తోంది"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "సమయం · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "అనువదించు"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "యాప్‌ను అనువదించండి"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "టైపోగ్రఫీ"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "యుక్రేనియన్"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

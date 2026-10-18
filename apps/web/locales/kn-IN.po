@@ -4465,6 +4465,10 @@ msgstr "ಸಂಪಾದಕೀಯ"
 msgid "Education"
 msgstr "ಶಿಕ್ಷಣ"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "ರಫ್ತು ಮಾಡಲಾಗಿದೆ PDF: {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png ರಫ್ತು ಮಾಡಲಾಗಿದೆ"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "ಈ ಖಾತೆ ಆರ್ಕೈವ್ ಅನ್ನು ಹೊರತೆಗೆಯಿರಿ, ನಂತರ ಅದರ ರೆಸ್ಯೂಮ್‌ಗಳು ಅಥವಾ ಅಕ್ಷರಗಳ ಫೋಲ್ಡರ್‌ನಿಂದ JSON ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "ಸಂಗತಿಗಳು"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "ಫೋಟೋವನ್ನು ಮರೆಮಾಡಿ"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "ಹೆಚ್ಚು"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "ನಿಮ್ಮ ದೃಢೀಕರಣ ವ್ಯವಸ್ಥೆಗೆ ಪ್ರವೇಶ ಕಳೆದುಕೊಂಡಿರಾ?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "ಕಡಿಮೆ"
 
@@ -6835,6 +6845,10 @@ msgstr "ರೆಸ್ಯೂಮೆಗೆ ಹೊಂದಾಣಿಕೆಯಾಗು�
 msgid "Matching your facts"
 msgstr "ನಿಮ್ಮ ಸಂಗತಿಗಳನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "ಬಹುಶಃ ನಂತರ"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "ಮೊದಲ ಪ್ರತ್ಯುತ್ತರಕ್ಕೆ ಸರಾಸರಿ"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "ಮಧ್ಯಮ"
 
@@ -6884,6 +6899,10 @@ msgstr "ಸಂದೇಶಗಳು · Fieldnote ನ Sam ಅವರಿಗೆ ಪ್�
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "ಮೈಕ್ರೊಫೋನ್ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಬ್ರೌಸರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಅದನ್ನು ಅನುಮತಿಸಿ, ಅಥವಾ ನಿಮ್ಮ ಉತ್ತರವನ್ನು ಟೈಪ್ ಮಾಡಿ."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "ಕನಿಷ್ಠ ಮೂಲ ವೇತನ"
@@ -6909,6 +6928,10 @@ msgstr "ಮಿಶ್ರ ಸ್ವರೂಪ"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "ಮಾದರಿ"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "ಒಡಿಯಾ"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "ಆಫ್"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "ಸಿದ್ಧವಾಗಿದೆ"
 msgid "Reason"
 msgstr "ಕಾರಣ"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "ನೆನಪಿಸಿಕೊಂಡದ್ದು"
@@ -10113,6 +10144,10 @@ msgstr "ಕಳುಹಿಸುವವರ ವಿವರಗಳನ್ನು ಪತ್�
 msgid "Sending password reset email..."
 msgstr "ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "ಈ ಅರ್ಜಿಯನ್ನು (ಉದ್ಯೋಗ ಜಾಹೀರಾತು, ಟಿಪ್ಪಣಿಗಳು, ಸಂದರ್ಶನದ ವಿವರಗಳು) ಮತ್ತು ಆನ್ ಮಾಡಿರುವ ಜ್ಞಾನವನ್ನು {label} ಗೆ ಕಳುಹಿಸುತ್ತದೆ."
@@ -10174,6 +10209,10 @@ msgstr "ಹಿರಿಯ ಉತ್ಪನ್ನ ವಿನ್ಯಾಸಕ"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "ಕಳುಹಿಸಲಾಗಿದೆ"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "ಕಥೆಗಳು"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "ಅವರು ಇಂದಿನ ನಿಮ್ಮ ಸಂದರ್ಶನವನ್ನು ದೃಢೀಕರಿಸಿದ್ದಾರೆ"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "ಯೋಚಿಸಲಾಗುತ್ತಿದೆ"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "ಸಮಯ · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "ಅನುವಾದಿಸಿ"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "ಆ್ಯಪ್ ಅನುವಾದಿಸಿ"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "ಮುದ್ರಣಕಲೆ"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "ಉಕ್ರೇನಿಯನ್"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

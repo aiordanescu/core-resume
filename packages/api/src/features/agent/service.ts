@@ -1395,6 +1395,7 @@ export const agentService = {
 						model: runnableProvider.model,
 						apiKey: runnableProvider.apiKey,
 						baseURL: runnableProvider.baseURL ?? "",
+						reasoning: runnableProvider.reasoning,
 					}),
 				});
 

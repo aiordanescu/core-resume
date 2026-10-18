@@ -44,6 +44,7 @@ describe.skipIf(!process.env.INTEGRATIONS_TEST_DATABASE_URL)("integration creden
 			"20260513181752_bent_human_cannonball",
 			"20261001042749_v6_release",
 			"20261007205051_career_platform",
+			"20261018064831_ai_provider_reasoning",
 		]) {
 			const sql = await readFile(new URL(`../../../../../migrations/${name}/migration.sql`, import.meta.url), "utf8");
 			// The fixture owns the AI tables and web credentials, not the rest of the later upgrades.

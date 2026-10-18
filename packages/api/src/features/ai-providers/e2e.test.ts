@@ -152,3 +152,51 @@ describe("POST /ai-providers/{id}/test — end to end", () => {
 		});
 	});
 });
+
+describe("a connection's reasoning setting", () => {
+	beforeEach(() => {
+		seedProvider({ provider: "openai-compatible", model: "local-model", enabled: true, testStatus: "success" });
+	});
+
+	it("is saved, needs a fresh test, and goes with the test request", async () => {
+		const updated = await client.update({ id: "provider-1", reasoning: "none" });
+		expect(updated).toMatchObject({ reasoning: "none", enabled: false, testStatus: "untested" });
+
+		let sent: Record<string, unknown> = {};
+		vi.stubGlobal(
+			"fetch",
+			vi.fn((_input: unknown, init?: { body?: unknown }) => {
+				sent = JSON.parse(String(init?.body ?? "{}")) as Record<string, unknown>;
+				return new Response(
+					JSON.stringify({
+						id: "chatcmpl-test",
+						object: "chat.completion",
+						created: 1,
+						model: "local-model",
+						choices: [{ index: 0, message: { role: "assistant", content: "1" }, finish_reason: "stop" }],
+						usage: { prompt_tokens: 1, completion_tokens: 1, total_tokens: 2 },
+					}),
+					{ headers: { "Content-Type": "application/json" } },
+				);
+			}),
+		);
+		const tested = await client.test({ id: "provider-1" });
+		expect(tested).toMatchObject({ reasoning: "none", testStatus: "success", enabled: true });
+		expect(sent).toMatchObject({ reasoning_effort: "none" });
+	});
+
+	it("keeps Model default untouched when other fields change", async () => {
+		const updated = await client.update({ id: "provider-1", label: "Renamed" });
+		expect(updated).toMatchObject({ reasoning: null, enabled: true, testStatus: "success" });
+	});
+
+	it("only allows Ultra where it can be sent as-is", async () => {
+		await expect(client.update({ id: "provider-1", reasoning: "ultra" })).resolves.toMatchObject({
+			reasoning: "ultra",
+		});
+		seedProvider({ provider: "openai" });
+		await expect(client.update({ id: "provider-1", reasoning: "ultra" })).rejects.toMatchObject({
+			code: "BAD_REQUEST",
+		});
+	});
+});

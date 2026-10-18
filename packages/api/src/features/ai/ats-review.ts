@@ -92,6 +92,7 @@ type AtsReviewServiceInput = AtsReviewInput & {
 	model: string;
 	apiKey: string;
 	baseURL: string;
+	reasoning?: Parameters<typeof getModel>[0]["reasoning"];
 };
 
 function renderFindings(findings: AtsReviewInput["findings"]): string {

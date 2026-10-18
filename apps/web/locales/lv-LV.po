@@ -4465,6 +4465,10 @@ msgstr "Redakcija"
 msgid "Education"
 msgstr "Izglītība"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "Eksportēts PDF: {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png eksportēts"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "Izņemiet šo konta arhīvu, pēc tam importējiet JSON failu no tā CV vai vēstuļu mapes."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "Fakti"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "Paslēpt fotoattēlu"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "Augsts"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "Zaudējāt piekļuvi autentifikatoram?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "Zems"
 
@@ -6835,6 +6845,10 @@ msgstr "Atbilstība CV"
 msgid "Matching your facts"
 msgstr "Salīdzina ar jūsu faktiem"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "Varbūt vēlāk"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "mediāna līdz pirmajai atbildei"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "Vidēja"
 
@@ -6884,6 +6899,10 @@ msgstr "Ziņojumi · Atbilde Sam no Fieldnote"
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "Mikrofons ir bloķēts. Atļaujiet to pārlūkprogrammas iestatījumos vai ievadiet atbildi."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "Minimālā pamatalga"
@@ -6909,6 +6928,10 @@ msgstr "jaukts formāts"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "Modelis"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "Odiju"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "Izslēgts"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "Gatavs"
 msgid "Reason"
 msgstr "Iemesls"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "Atcerēts"
@@ -10113,6 +10144,10 @@ msgstr "Sūtītāja dati ir iekopēti vēstulē"
 msgid "Sending password reset email..."
 msgstr "Nosūta paroles atiestatīšanas e-pastu..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "Nosūta šo pieteikumu (sludinājumu, piezīmes, intervijas informāciju) un ieslēgtās Zināšanas uz {label}."
@@ -10174,6 +10209,10 @@ msgstr "Vecākais produktu dizainers"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "Nosūtīts"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "Stāsti"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "Viņi apstiprināja jūsu šodienas interviju"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "Domā"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "Laiks · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "Tulkot"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "Tulkojiet lietotni"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "Tipogrāfija"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "Ukraiņu"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

@@ -4465,6 +4465,10 @@ msgstr "افتتاحية"
 msgid "Education"
 msgstr "التعليم"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "تصدير PDF: {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "تم تصدير ملف pipeline-flow.png"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "قم باستخراج أرشيف الحساب هذا، ثم قم باستيراد ملف JSON من مجلد السيرة الذاتية أو الرسائل الخاص به."
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "الحقائق"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "إخفاء الصورة"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "عالي"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "هل فقدت إمكانية الوصول إلى تطبيق المصادقة؟"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "قليل"
 
@@ -6835,6 +6845,10 @@ msgstr "مطابقة السيرة الذاتية"
 msgid "Matching your facts"
 msgstr "جارٍ مطابقة حقائقك"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "ربما لاحقًا"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "متوسط ​​الرد الأول"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "واسطة"
 
@@ -6884,6 +6899,10 @@ msgstr "الرسائل · الرد على Sam في Fieldnote"
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "الميكروفون محظور. اسمح به في إعدادات متصفحك، أو اكتب إجابتك."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "الحد الأدنى للراتب الأساسي"
@@ -6909,6 +6928,10 @@ msgstr "تنسيق مختلط"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "النموذج"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "الأودية"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "عن"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "مستعد"
 msgid "Reason"
 msgstr "سبب"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "من الذاكرة"
@@ -10113,6 +10144,10 @@ msgstr "تم نسخ تفاصيل المرسل في الرسالة"
 msgid "Sending password reset email..."
 msgstr "جاري إرسال رسالة إعادة تعيين كلمة المرور..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "يرسل هذا الطلب (إعلان الوظيفة، الملاحظات، تفاصيل المقابلة) والمعرفة المفعّلة إلى {label}."
@@ -10174,6 +10209,10 @@ msgstr "كبير مصممي المنتجات"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "مرسل"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "القصص"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "أكّدوا مقابلتك لليوم"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "جارٍ التفكير"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "الوقت · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "يترجم"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "ترجم التطبيق"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "الطباعة"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "الأوكرانية"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"
