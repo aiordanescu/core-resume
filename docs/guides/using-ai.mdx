@@ -12,7 +12,7 @@ without entering your own key. The steps below apply when personal providers are
 ## Before you start
 
 - Get an API key from your provider's dashboard. You pay the provider directly for what you use. A local Ollama server can connect without a key.
-- Know which model you want to use, such as `gpt-4.1` or `claude-3-5-sonnet-latest`. Reactive Resume suggests a default for each provider, but your account may not have access to every model.
+- Know which model you want to use. Reactive Resume suggests the newest one for each provider, but your account may not have access to every model.
 
 ## Add a provider
 
@@ -24,7 +24,7 @@ without entering your own key. The steps below apply when personal providers are
     Under **AI providers**, select **Add provider** (the dashed button below your saved providers).
   </Step>
   <Step title="Choose the provider and fill in the fields">
-    Pick your provider from the **Provider** list. Reactive Resume fills in that provider's usual **Model** and **Base URL** for you. Paste your key into **API key**, and change the model if you want a different one.
+    Pick your provider from the **Provider** list. Reactive Resume fills in that provider's **Base URL**, and the newest **Model** listed for it on [models.dev](https://models.dev/) (blank if the list doesn't load). Paste your key into **API key**, and change the model if you want a different one.
 
     <Frame caption="The Add provider dialog">
       <img src="/images/guides/using-ai/add-provider-dialog.webp" alt="Add provider dialog with Provider set to OpenAI, a hidden API key, Model gpt-4.1, Name Personal OpenAI and the default OpenAI base URL" />
@@ -62,24 +62,24 @@ Reactive Resume translates the setting for each provider: an effort for OpenAI, 
 
 ### Supported providers
 
-| Provider          | Default model                                       | Default base URL                                   |
-| ----------------- | --------------------------------------------------- | -------------------------------------------------- |
-| OpenAI            | `gpt-4.1`                                           | `https://api.openai.com/v1`                        |
-| Anthropic Claude  | `claude-3-5-sonnet-latest`                          | `https://api.anthropic.com/v1`                     |
-| Google Gemini     | `gemini-2.0-flash`                                  | `https://generativelanguage.googleapis.com/v1beta` |
-| Vercel AI Gateway | `openai/gpt-4.1`                                    | `https://ai-gateway.vercel.sh/v3/ai`               |
-| OpenRouter        | `openai/gpt-4.1`                                    | `https://openrouter.ai/api/v1`                     |
-| Mistral AI        | `mistral-large-latest`                              | `https://api.mistral.ai/v1`                        |
-| Cohere            | `command-a-03-2025`                                 | `https://api.cohere.com/v2`                        |
-| xAI Grok          | `grok-4`                                            | `https://api.x.ai/v1`                              |
-| Groq              | `llama-3.3-70b-versatile`                           | `https://api.groq.com/openai/v1`                   |
-| DeepSeek          | `deepseek-chat`                                     | `https://api.deepseek.com/v1`                      |
-| Together.ai       | `meta-llama/Meta-Llama-3.3-70B-Instruct-Turbo`      | `https://api.together.xyz/v1`                      |
-| Fireworks         | `accounts/fireworks/models/llama-v3p3-70b-instruct` | `https://api.fireworks.ai/inference/v1`            |
-| Cerebras          | `llama3.3-70b`                                      | `https://api.cerebras.ai/v1`                       |
-| Perplexity        | `sonar-pro`                                         | `https://api.perplexity.ai`                        |
-| Ollama            | `llama3.1`                                          | `https://ollama.com/api`                           |
-| OpenAI-compatible | none, enter your own                                | none, enter your own                               |
+| Provider          | Model filled in          | Default base URL                                   |
+| ----------------- | ------------------------ | -------------------------------------------------- |
+| OpenAI            | newest `gpt-` model      | `https://api.openai.com/v1`                        |
+| Anthropic Claude  | newest `claude-` model   | `https://api.anthropic.com/v1`                     |
+| Google Gemini     | newest `gemini-` model   | `https://generativelanguage.googleapis.com/v1beta` |
+| Vercel AI Gateway | newest model             | `https://ai-gateway.vercel.sh/v3/ai`               |
+| OpenRouter        | newest model             | `https://openrouter.ai/api/v1`                     |
+| Mistral AI        | newest `mistral-` model  | `https://api.mistral.ai/v1`                        |
+| Cohere            | newest `command-` model  | `https://api.cohere.com/v2`                        |
+| xAI Grok          | newest `grok-` model     | `https://api.x.ai/v1`                              |
+| Groq              | newest model             | `https://api.groq.com/openai/v1`                   |
+| DeepSeek          | newest model             | `https://api.deepseek.com/v1`                      |
+| Together.ai       | newest model             | `https://api.together.xyz/v1`                      |
+| Fireworks         | newest model             | `https://api.fireworks.ai/inference/v1`            |
+| Cerebras          | newest model             | `https://api.cerebras.ai/v1`                       |
+| Perplexity        | newest `sonar-pro` model | `https://api.perplexity.ai`                        |
+| Ollama            | newest model             | `https://ollama.com/api`                           |
+| OpenAI-compatible | none, enter your own     | none, enter your own                               |
 
 Choose **OpenAI-compatible** for any other service that speaks the OpenAI API, such as a company gateway or LiteLLM. It needs both a model and a base URL.
 

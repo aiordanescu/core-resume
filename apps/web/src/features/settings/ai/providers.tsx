@@ -26,11 +26,12 @@ import { cn } from "@reactive-resume/utils/style";
 import {
 	describeTest,
 	keyEnding,
-	loadModelSuggestions,
 	modelsDevProviderIds,
+	modelSuggestionsQuery,
 	providerDefaults,
 	providerLabel,
 	providerOptions,
+	suggestedModel,
 } from "./catalog";
 import { effortsFor, ReasoningField, reasoningSummary } from "./reasoning";
 import { Combobox } from "@/components/ui/combobox";
@@ -327,13 +328,7 @@ function ProviderFieldsForm({ provider, value, onChange, keyOptional }: Provider
 		data: catalog,
 		isPending: loadingModels,
 		isError: modelsUnavailable,
-	} = useQuery({
-		queryKey: ["models.dev"],
-		queryFn: ({ signal }) => loadModelSuggestions(signal),
-		enabled: catalogId !== null,
-		staleTime: 60 * 60 * 1000,
-		retry: false,
-	});
+	} = useQuery({ ...modelSuggestionsQuery, enabled: catalogId !== null });
 	const models = catalogId ? (catalog?.[catalogId] ?? []) : [];
 
 	return (
@@ -366,7 +361,7 @@ function ProviderFieldsForm({ provider, value, onChange, keyOptional }: Provider
 					list={`${id}-models`}
 					aria-describedby={`${id}-model-hint`}
 					value={value.model}
-					placeholder={defaults.model || "gpt-4.1"}
+					placeholder={models[0]?.id}
 					onChange={(event) => set({ model: event.target.value })}
 					{...secretInputProps}
 				/>
@@ -441,16 +436,23 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 	const [fields, setFields] = useState<ProviderFields>({
 		label: "",
 		apiKey: "",
+		model: "",
 		reasoning: null,
 		...providerDefaults("openai"),
 	});
+	// The model shows the newest suggestion from models.dev until it's edited, so a catalog that loads late still fills
+	// it in. Blank when the suggestions don't load.
+	const { data: catalog } = useQuery({ ...modelSuggestionsQuery, enabled: open });
+	const [modelEdited, setModelEdited] = useState(false);
+	const model = modelEdited ? fields.model : suggestedModel(catalog, provider);
 	const [failure, setFailure] = useState<string | null>(null);
 	const create = useMutation(orpc.aiProviders.create.mutationOptions({ meta: { noInvalidate: true } }));
 	const test = useMutation(orpc.aiProviders.test.mutationOptions({ meta: { noInvalidate: true } }));
 
 	const reset = () => {
 		setProvider("openai");
-		setFields({ label: "", apiKey: "", reasoning: null, ...providerDefaults("openai") });
+		setFields({ label: "", apiKey: "", model: "", reasoning: null, ...providerDefaults("openai") });
+		setModelEdited(false);
 		setFailure(null);
 	};
 
@@ -459,7 +461,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 		const input = {
 			label: fields.label.trim() || providerLabel(provider),
 			provider,
-			model: fields.model.trim(),
+			model: model.trim(),
 			baseURL: fields.baseURL.trim(),
 			apiKey: fields.apiKey.trim(),
 			reasoning: fields.reasoning,
@@ -490,7 +492,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 	};
 
 	const pending = create.isPending || test.isPending;
-	const ready = Boolean((provider === "ollama" || fields.apiKey.trim()) && fields.model.trim());
+	const ready = Boolean((provider === "ollama" || fields.apiKey.trim()) && model.trim());
 
 	return (
 		<Dialog
@@ -537,6 +539,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 							onValueChange={(next) => {
 								if (!next) return;
 								setProvider(next);
+								setModelEdited(false);
 								setFields((current) => ({
 									...current,
 									...providerDefaults(next),
@@ -545,7 +548,14 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 							}}
 						/>
 					</div>
-					<ProviderFieldsForm provider={provider} value={fields} onChange={setFields} />
+					<ProviderFieldsForm
+						provider={provider}
+						value={{ ...fields, model }}
+						onChange={(next) => {
+							if (next.model !== model) setModelEdited(true);
+							setFields(next);
+						}}
+					/>
 					{failure && (
 						<p role="alert" className="text-sm text-danger-text">
 							{failure}

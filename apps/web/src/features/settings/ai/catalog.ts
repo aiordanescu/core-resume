@@ -64,7 +64,11 @@ export async function loadModelSuggestions(signal: AbortSignal) {
 	);
 }
 
-export type AIProviderOption = ComboboxOption<AIProvider> & { defaultBaseURL: string; defaultModel: string };
+export type AIProviderOption = ComboboxOption<AIProvider> & {
+	defaultBaseURL: string;
+	/** The ID prefix of the provider's main chat models, so the prefill skips specialised ones (translation, research). */
+	modelFamily?: string;
+};
 
 // Provider labels are brand names and stay untranslated on purpose, so every locale shows the
 // vendor's own spelling instead of a literal translation (e.g. "Google Gemini", not "谷歌双子座").
@@ -74,122 +78,131 @@ export const providerOptions: AIProviderOption[] = [
 		label: "OpenAI",
 		keywords: ["openai", "gpt", "chatgpt"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.openai,
-		defaultModel: "gpt-4.1",
+		modelFamily: "gpt-",
 	},
 	{
 		value: "anthropic",
 		label: "Anthropic Claude",
 		keywords: ["anthropic", "claude", "ai"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.anthropic,
-		defaultModel: "claude-3-5-sonnet-latest",
+		modelFamily: "claude-",
 	},
 	{
 		value: "gemini",
 		label: "Google Gemini",
 		keywords: ["gemini", "google"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.gemini,
-		defaultModel: "gemini-2.0-flash",
+		modelFamily: "gemini-",
 	},
 	{
 		value: "vercel-ai-gateway",
 		label: "Vercel AI Gateway",
 		keywords: ["vercel", "gateway", "ai"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS["vercel-ai-gateway"],
-		defaultModel: "openai/gpt-4.1",
 	},
 	{
 		value: "openrouter",
 		label: "OpenRouter",
 		keywords: ["openrouter", "router"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.openrouter,
-		defaultModel: "openai/gpt-4.1",
 	},
 	{
 		value: "mistral",
 		label: "Mistral AI",
 		keywords: ["mistral", "magistral"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.mistral,
-		defaultModel: "mistral-large-latest",
+		modelFamily: "mistral-",
 	},
 	{
 		value: "cohere",
 		label: "Cohere",
 		keywords: ["cohere", "command"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.cohere,
-		defaultModel: "command-a-03-2025",
+		modelFamily: "command-",
 	},
 	{
 		value: "xai",
 		label: "xAI Grok",
 		keywords: ["xai", "grok"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.xai,
-		defaultModel: "grok-4",
+		modelFamily: "grok-",
 	},
 	{
 		value: "groq",
 		label: "Groq",
 		keywords: ["groq", "llama"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.groq,
-		defaultModel: "llama-3.3-70b-versatile",
 	},
 	{
 		value: "deepseek",
 		label: "DeepSeek",
 		keywords: ["deepseek"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.deepseek,
-		defaultModel: "deepseek-chat",
 	},
 	{
 		value: "togetherai",
 		label: "Together.ai",
 		keywords: ["together", "togetherai", "llama"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.togetherai,
-		defaultModel: "meta-llama/Meta-Llama-3.3-70B-Instruct-Turbo",
 	},
 	{
 		value: "fireworks",
 		label: "Fireworks",
 		keywords: ["fireworks", "llama", "deepseek"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.fireworks,
-		defaultModel: "accounts/fireworks/models/llama-v3p3-70b-instruct",
 	},
 	{
 		value: "cerebras",
 		label: "Cerebras",
 		keywords: ["cerebras", "llama"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.cerebras,
-		defaultModel: "llama3.3-70b",
 	},
 	{
 		value: "perplexity",
 		label: "Perplexity",
 		keywords: ["perplexity", "sonar"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.perplexity,
-		defaultModel: "sonar-pro",
+		modelFamily: "sonar-pro",
 	},
 	{
 		value: "ollama",
 		label: "Ollama",
 		keywords: ["ollama", "cloud"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS.ollama,
-		defaultModel: "llama3.1",
 	},
 	{
 		value: "openai-compatible",
 		label: "OpenAI-compatible",
 		keywords: ["compatible", "custom", "gateway"],
 		defaultBaseURL: AI_PROVIDER_DEFAULT_BASE_URLS["openai-compatible"],
-		defaultModel: "",
 	},
 ];
 
-// Prefill Base URL + Model from the provider's known defaults when the provider changes.
+// Prefill Base URL from the provider's known default when the provider changes. The model comes from suggestedModel.
 export function providerDefaults(provider: AIProvider) {
 	const option = providerOptions.find((entry) => entry.value === provider);
-	return {
-		baseURL: option?.defaultBaseURL ?? AI_PROVIDER_DEFAULT_BASE_URLS[provider] ?? "",
-		model: option?.defaultModel ?? "",
-	};
+	return { baseURL: option?.defaultBaseURL ?? AI_PROVIDER_DEFAULT_BASE_URLS[provider] ?? "" };
+}
+
+export type ModelSuggestions = Awaited<ReturnType<typeof loadModelSuggestions>>;
+
+export const modelSuggestionsQuery = {
+	queryKey: ["models.dev"],
+	queryFn: ({ signal }: { signal: AbortSignal }) => loadModelSuggestions(signal),
+	staleTime: 60 * 60 * 1000,
+	retry: false,
+} as const;
+
+/**
+ * The model to prefill for a new provider: the newest suggestion in its model family, or the newest of all when the
+ * family has none. Empty when the provider has no catalog or the suggestions didn't load.
+ */
+export function suggestedModel(catalog: ModelSuggestions | undefined, provider: AIProvider) {
+	const catalogId = modelsDevProviderIds[provider];
+	const models = (catalogId && catalog?.[catalogId]) || [];
+	const family = providerOptions.find((option) => option.value === provider)?.modelFamily;
+	const inFamily = family ? models.filter((model) => model.id.startsWith(family)) : [];
+	return (inFamily[0] ?? models[0])?.id ?? "";
 }
 
 export function providerLabel(provider: AIProvider) {
