@@ -47,6 +47,11 @@ vi.mock("@/features/settings/integrations/hooks/use-has-usable-ai-provider", () 
 }));
 vi.mock("@/dialogs/store", () => ({ useDialogStore: () => vi.fn() }));
 vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: vi.fn() } }));
+// The next step reads the account's reminder settings from the router context; these render without a router.
+vi.mock("@tanstack/react-router", async (importOriginal) => ({
+	...(await importOriginal<typeof import("@tanstack/react-router")>()),
+	useRouteContext: () => ({}),
+}));
 
 import { AddApplicationDialog } from "./add-application-dialog";
 import { ApplicationBoard } from "./board";

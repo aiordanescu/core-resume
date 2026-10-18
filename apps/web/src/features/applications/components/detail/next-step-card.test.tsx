@@ -12,6 +12,11 @@ vi.mock("@/libs/orpc/client", () => ({
 	orpc: { applications: { update: { mutationOptions: () => ({ mutationFn: update }) } } },
 }));
 vi.mock("../../use-application-actions", () => ({ useInvalidateApplications: () => vi.fn() }));
+// The next step reads the account's reminder settings from the router context; these render without a router.
+vi.mock("@tanstack/react-router", async (importOriginal) => ({
+	...(await importOriginal<typeof import("@tanstack/react-router")>()),
+	useRouteContext: () => ({}),
+}));
 
 const { NextStepCard } = await import("./next-step-card");
 

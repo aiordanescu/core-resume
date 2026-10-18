@@ -34,7 +34,7 @@ import { ApplicationNotes } from "@/features/applications/components/application
 import { InterviewDialog } from "@/features/applications/components/interview-dialog";
 import { buildIcs } from "@/features/applications/ics";
 import { formatDuration, interviewKindOf, isInterview } from "@/features/applications/interviews";
-import { describeNextStep, getNextStep } from "@/features/applications/next-step";
+import { describeNextStep, getNextStep, useNoReplyDays } from "@/features/applications/next-step";
 import { getStageLabel, PIPELINE } from "@/features/applications/stages";
 import { D1, EASE } from "@/libs/motion";
 import { orpc } from "@/libs/orpc/client";
@@ -471,7 +471,8 @@ function ContextColumn({ application, interview, now, onEdit }: ContextColumnPro
 		...orpc.documents.list.queryOptions({ input: { trashed: true } }),
 		enabled: hasSentVersion,
 	});
-	const step = getNextStep(application, now);
+	const noReplyDays = useNoReplyDays();
+	const step = getNextStep(application, { now, noReplyDays });
 	const text = describeNextStep(step, application, i18n.locale);
 	const upcoming = step.kind === "interview" ? step.interview : interview;
 	const soon = upcoming ? minutesUntil(new Date(upcoming.at), now) <= 60 : false;

@@ -21,6 +21,7 @@ import { ResetPasswordEmail, VerifyEmail, VerifyEmailChange } from "@reactive-re
 import { sendEmail } from "@reactive-resume/email/transport";
 import { env } from "@reactive-resume/env/server";
 import { rateLimitConfig } from "@reactive-resume/utils/rate-limit";
+import { NO_REPLY_DAYS, noReplyDaysSchema } from "@reactive-resume/utils/reminders";
 import { RESUME_PAGES, resumePagesSchema } from "@reactive-resume/utils/resume-pages";
 import { generateId, toUsername } from "@reactive-resume/utils/string";
 import { timezoneSchema } from "@reactive-resume/utils/timezone";
@@ -335,6 +336,17 @@ const getAuthConfig = () => {
 					required: false,
 					defaultValue: RESUME_PAGES.default,
 					validator: { input: resumePagesSchema },
+				},
+				noReplyDays: {
+					type: "number",
+					required: false,
+					defaultValue: NO_REPLY_DAYS.default,
+					validator: { input: noReplyDaysSchema },
+				},
+				interviewReminders: {
+					type: "boolean",
+					required: false,
+					defaultValue: true,
 				},
 			},
 		},

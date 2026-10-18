@@ -27,6 +27,10 @@ export const user = pg.pgTable(
 		timezone: pg.text("timezone").notNull().default("UTC"),
 		/** How many pages a resume may run to before the editor flags overflow (Settings → Preferences). */
 		resumePages: pg.integer("resume_pages").notNull().default(1),
+		/** Days at Applied without a reply before a follow-up is suggested; 0 turns it off (Settings → Preferences). */
+		noReplyDays: pg.integer("no_reply_days").notNull().default(10),
+		/** Whether Career → Today shows the next interview (Settings → Preferences). */
+		interviewReminders: pg.boolean("interview_reminders").notNull().default(true),
 		lastActiveAt: pg.timestamp("last_active_at", { withTimezone: true }),
 		role: pg.text("role").default("user"),
 		banned: pg.boolean("banned").default(false),

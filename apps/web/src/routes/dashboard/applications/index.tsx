@@ -27,7 +27,7 @@ import { ExportApplicationsSheet } from "@/features/applications/components/expo
 import { ImportApplicationsSheet } from "@/features/applications/components/import-applications-sheet";
 import { ApplicationInsights, InsightsSkeleton } from "@/features/applications/components/insights-view";
 import { ApplicationList } from "@/features/applications/components/list-view";
-import { getNextStep } from "@/features/applications/next-step";
+import { getNextStep, useNoReplyDays } from "@/features/applications/next-step";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { ENTER_CLASS } from "@/libs/motion";
 
@@ -307,17 +307,19 @@ function readDismissed(): string[] {
 }
 
 /**
- * The follow-up nudge: the application waiting longest without a reply (10+ days since applying). Dismissing it is
- * remembered on this device; it doesn't come back for that application.
+ * The follow-up nudge: the application waiting longest without a reply (by default 10+ days since applying; set or
+ * turned off in Settings → Preferences). Dismissing it is remembered on this device; it doesn't come back for that
+ * application.
  */
 function FollowUpNudge({ applications, onOpen }: { applications: Application[]; onOpen: (id: string) => void }) {
 	const [dismissed, setDismissed] = useState(readDismissed);
+	const noReplyDays = useNoReplyDays();
 
 	const dismissedIds = new Set(dismissed);
 	const waiting = applications
 		.filter((application) => !dismissedIds.has(application.id))
 		.flatMap((application) => {
-			const step = getNextStep(application);
+			const step = getNextStep(application, { noReplyDays });
 			return step.kind === "no-reply" ? [{ application, days: step.days }] : [];
 		})
 		.sort((a, b) => b.days - a.days)[0];

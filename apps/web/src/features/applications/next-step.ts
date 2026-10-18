@@ -2,13 +2,12 @@ import type { Application } from "./types";
 import type { InterviewTimelineEntry } from "@reactive-resume/schema/applications/data";
 import type { IconName } from "@reactive-resume/ui/components/icon";
 import { plural, t } from "@lingui/core/macro";
+import { useRouteContext } from "@tanstack/react-router";
+import { NO_REPLY_DAYS } from "@reactive-resume/utils/reminders";
 import { interviewKindOf, isInterview } from "./interviews";
 import { getClosedReasonLabel } from "./stages";
 
 const DAY_MS = 86_400_000;
-
-/** Days without a reply after applying before a follow-up is suggested. */
-const FOLLOW_UP_AFTER_DAYS = 10;
 
 type NextStepSource = Pick<Application, "status" | "activity" | "followUpAt" | "followUpNote" | "appliedAt">;
 
@@ -38,7 +37,22 @@ const daysBetween = (from: Date, to: Date) => Math.max(0, Math.floor((to.getTime
 export const daysInStage = (application: Pick<Application, "status" | "activity" | "appliedAt">, now = new Date()) =>
 	daysBetween(stageSince(application), now);
 
-export function getNextStep(application: NextStepSource, now = new Date()): NextStep {
+/** The account's days without a reply before a follow-up is suggested (Settings → Preferences); 0 means never. */
+export function useNoReplyDays() {
+	const { session } = useRouteContext({ strict: false });
+	return session?.user.noReplyDays ?? NO_REPLY_DAYS.default;
+}
+
+type NextStepOptions = {
+	now?: Date;
+	/** Days at Applied before "no reply" is suggested; 0 never suggests it. Pass `useNoReplyDays()`. */
+	noReplyDays?: number;
+};
+
+export function getNextStep(
+	application: NextStepSource,
+	{ now = new Date(), noReplyDays = NO_REPLY_DAYS.default }: NextStepOptions = {},
+): NextStep {
 	if (application.status === "closed") return { kind: "closed" };
 
 	const upcoming = application.activity
@@ -56,7 +70,7 @@ export function getNextStep(application: NextStepSource, now = new Date()): Next
 	if (application.status === "saved") return { kind: "not-applied" };
 
 	const days = daysInStage(application, now);
-	if (application.status === "applied" && days >= FOLLOW_UP_AFTER_DAYS) return { kind: "no-reply", days };
+	if (application.status === "applied" && noReplyDays > 0 && days >= noReplyDays) return { kind: "no-reply", days };
 	return { kind: "waiting", days };
 }
 

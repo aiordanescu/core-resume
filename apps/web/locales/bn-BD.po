@@ -3412,6 +3412,10 @@ msgstr "চাকরির পোস্টিং সেভ করা যায�
 msgid "Couldn't save the provider."
 msgstr "প্রদানকারীকে সংরক্ষণ করা যায়নি।"
 
+#: src/features/settings/reminders.tsx
+msgid "Couldn't save the reminders."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Couldn't save the resume length."
 msgstr ""
@@ -3756,6 +3760,10 @@ msgstr "তারিখগুলি একটি বিন্যাস ব্য
 #: src/features/resume/editor/check/issues.ts
 msgid "Dates won't be read"
 msgstr "তারিখ পড়া হবে না"
+
+#: src/features/settings/reminders.tsx
+msgid "Days without a reply"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Dear {name},"
@@ -4572,6 +4580,11 @@ msgstr "একটি ওয়েব ঠিকানা লিখুন, যে�
 msgid "Enter a whole number from {0} to {1}."
 msgstr ""
 
+#. placeholder {0}: NO_REPLY_DAYS.max
+#: src/features/settings/reminders.tsx
+msgid "Enter a whole number of days from 1 to {0}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "আপনার এন্ডপয়েন্ট দ্বারা সমর্থিত যেকোন মডেল আইডি লিখুন।"
@@ -5058,9 +5071,17 @@ msgstr "ফলোআপ"
 msgid "Follow-up date"
 msgstr "ফলো-আপ তারিখ"
 
+#: src/features/settings/reminders.tsx
+msgid "Follow-up dates you set yourself still show. Career schedules have their own switches in Career → Today."
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Follow-up note"
 msgstr "পরবর্তী নোট"
+
+#: src/features/settings/reminders.tsx
+msgid "Follow-up nudges"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Follow-up reminder"
@@ -7271,6 +7292,10 @@ msgstr "নতুন বিভাগ"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind-এ নতুন টিমগুলো সেটআপে আটকে যাচ্ছিল; বেশিরভাগই শেষ করতে পারত না।"
 
+#: src/features/settings/reminders.tsx
+msgid "Next interview"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
 msgstr "পরবর্তী সংখ্যা"
@@ -9185,6 +9210,10 @@ msgstr "আমাকে মনে করিয়ে দিন"
 msgid "Remind me on"
 msgstr "যেদিন মনে করিয়ে দেবে"
 
+#: src/features/settings/reminders.tsx
+msgid "Reminders"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Reminders appear here. Email copies are optional and need a verified address."
 msgstr "রিমাইন্ডার এখানে দেখা যায়। ইমেইল কপি ঐচ্ছিক এবং এর জন্য যাচাই করা ঠিকানা লাগে।"
@@ -10413,6 +10442,10 @@ msgstr "আপনার টাইমজোনে দেখানো হয়।
 #: src/features/documents/document-actions.tsx
 msgid "Shows the tags they all share. Tags you add go on every document; tags you remove come off every one. Locked documents are left as they are."
 msgstr "সবগুলোতে থাকা অভিন্ন ট্যাগগুলো দেখায়। আপনি যে ট্যাগ যোগ করবেন তা প্রতিটি নথিতে যুক্ত হবে; যে ট্যাগ সরাবেন তা প্রতিটি থেকে সরে যাবে। তালাবদ্ধ নথিগুলো যেমন আছে তেমনই থাকবে।"
+
+#: src/features/settings/reminders.tsx
+msgid "Shows your next interview, with a countdown, at the top of Career → Today."
+msgstr ""
 
 #. Layout editor column label for the secondary sidebar area
 #: src/features/homepage/sheet.tsx
@@ -12986,6 +13019,10 @@ msgstr "এটা কি জন্য?"
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "What's working"
 msgstr "কি কাজ করছে"
+
+#: src/features/settings/reminders.tsx
+msgid "When an application has been at Applied with no reply for the days below, Applications suggests a short follow-up and its next step turns amber."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "When do they need your answer?"

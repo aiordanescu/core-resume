@@ -5,7 +5,7 @@ import type { Ref } from "react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Link, useRouter } from "@tanstack/react-router";
+import { Link, useRouteContext, useRouter } from "@tanstack/react-router";
 import { AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -40,6 +40,9 @@ type TodayPageProps = { schedule: string | undefined; onScheduleChange: (schedul
  */
 export function TodayPage({ schedule, onScheduleChange }: TodayPageProps) {
 	const now = useNow();
+	// Settings → Preferences → Reminders can hide the next-interview card.
+	const { session } = useRouteContext({ strict: false });
+	const interviewReminders = session?.user.interviewReminders ?? true;
 	const rolesRef = useRef<HTMLElement>(null);
 	// Deleted schedules stay hidden locally until the Undo toast closes; any mutation refetches every query.
 	const [deleted, setDeleted] = useState<string[]>([]);
@@ -81,7 +84,7 @@ export function TodayPage({ schedule, onScheduleChange }: TodayPageProps) {
 				/>
 			</div>
 			<div className="contents lg:flex lg:flex-col lg:gap-[18px]">
-				<ComingUp now={now} className="order-1 lg:order-none" />
+				{interviewReminders && <ComingUp now={now} className="order-1 lg:order-none" />}
 				<Schedules deleted={deleted} onOpenSchedule={onScheduleChange} className="order-4 lg:order-none" />
 			</div>
 			<ScheduleSheet schedule={schedule} onScheduleChange={onScheduleChange} onDelete={deleteSchedule} />
