@@ -3412,6 +3412,10 @@ msgstr "Impossible d'enregistrer l'offre d'emploi."
 msgid "Couldn't save the provider."
 msgstr "Impossible d'enregistrer le fournisseur."
 
+#: src/features/settings/reminders.tsx
+msgid "Couldn't save the reminders."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Couldn't save the resume length."
 msgstr ""
@@ -3756,6 +3760,10 @@ msgstr "Les dates utilisent un seul format"
 #: src/features/resume/editor/check/issues.ts
 msgid "Dates won't be read"
 msgstr "Les dates ne seront pas lues"
+
+#: src/features/settings/reminders.tsx
+msgid "Days without a reply"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Dear {name},"
@@ -4572,6 +4580,11 @@ msgstr "Entrez une adresse Web, comme l'exemple .com"
 msgid "Enter a whole number from {0} to {1}."
 msgstr ""
 
+#. placeholder {0}: NO_REPLY_DAYS.max
+#: src/features/settings/reminders.tsx
+msgid "Enter a whole number of days from 1 to {0}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "Saisissez n’importe quel ID de modèle pris en charge par votre point de terminaison."
@@ -5058,9 +5071,17 @@ msgstr "Relance"
 msgid "Follow-up date"
 msgstr "Date de relance"
 
+#: src/features/settings/reminders.tsx
+msgid "Follow-up dates you set yourself still show. Career schedules have their own switches in Career → Today."
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Follow-up note"
 msgstr "Note de relance"
+
+#: src/features/settings/reminders.tsx
+msgid "Follow-up nudges"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Follow-up reminder"
@@ -7271,6 +7292,10 @@ msgstr "Nouvelle rubrique"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Les nouvelles équipes de Northwind bloquaient à la configuration ; la plupart n'allaient jamais au bout."
 
+#: src/features/settings/reminders.tsx
+msgid "Next interview"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
 msgstr "Prochain numéro"
@@ -9185,6 +9210,10 @@ msgstr "Me le rappeler"
 msgid "Remind me on"
 msgstr "Me le rappeler le"
 
+#: src/features/settings/reminders.tsx
+msgid "Reminders"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Reminders appear here. Email copies are optional and need a verified address."
 msgstr "Les rappels apparaissent ici. Les copies par e-mail sont facultatives et nécessitent une adresse vérifiée."
@@ -10413,6 +10442,10 @@ msgstr "Affiché dans votre fuseau horaire."
 #: src/features/documents/document-actions.tsx
 msgid "Shows the tags they all share. Tags you add go on every document; tags you remove come off every one. Locked documents are left as they are."
 msgstr "Affiche les mots-clés qu’ils ont tous en commun. Les mots-clés que vous ajoutez s’appliquent à chaque document ; ceux que vous retirez sont retirés de tous. Les documents verrouillés restent inchangés."
+
+#: src/features/settings/reminders.tsx
+msgid "Shows your next interview, with a countdown, at the top of Career → Today."
+msgstr ""
 
 #. Layout editor column label for the secondary sidebar area
 #: src/features/homepage/sheet.tsx
@@ -12986,6 +13019,10 @@ msgstr "C'est pour quoi ?"
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "What's working"
 msgstr "Qu'est-ce qui fonctionne"
+
+#: src/features/settings/reminders.tsx
+msgid "When an application has been at Applied with no reply for the days below, Applications suggests a short follow-up and its next step turns amber."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "When do they need your answer?"

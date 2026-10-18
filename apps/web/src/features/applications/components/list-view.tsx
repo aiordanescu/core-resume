@@ -20,7 +20,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/com
 import { toast } from "@reactive-resume/ui/components/toast";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
 import { cn } from "@reactive-resume/utils/style";
-import { describeNextStep, getNextStep } from "../next-step";
+import { describeNextStep, getNextStep, useNoReplyDays } from "../next-step";
 import { CLOSED_REASONS, getClosedReasonLabel, getStageColor, getStageLabel, LIST_ORDER, PIPELINE } from "../stages";
 import { useInvalidateApplications } from "../use-application-actions";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -223,7 +223,8 @@ type ApplicationRowProps = {
 
 function ApplicationRow({ application, phone, selected, checked, onCheck, onOpen }: ApplicationRowProps) {
 	const { i18n } = useLingui();
-	const next = describeNextStep(getNextStep(application), application, i18n.locale);
+	const noReplyDays = useNoReplyDays();
+	const next = describeNextStep(getNextStep(application, { noReplyDays }), application, i18n.locale);
 	const sent = application.status !== "saved";
 	const tone = next.tone === "warn" ? "text-warn-text" : next.tone === "muted" ? "text-ink-3" : "text-ink-2";
 

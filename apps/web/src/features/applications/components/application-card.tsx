@@ -2,7 +2,7 @@ import type { Application } from "../types";
 import { useLingui } from "@lingui/react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
-import { describeNextStep, getNextStep } from "../next-step";
+import { describeNextStep, getNextStep, useNoReplyDays } from "../next-step";
 import { ApplicationActionsMenu } from "./application-actions-menu";
 
 type ApplicationCardProps = {
@@ -16,7 +16,8 @@ type ApplicationCardProps = {
 /** A board card: the company's initial, role and company, and the next step (warn when it's overdue). */
 export function ApplicationCard({ application, onClick, withMenu = false, dragging = false }: ApplicationCardProps) {
 	const { i18n } = useLingui();
-	const next = describeNextStep(getNextStep(application), application, i18n.locale);
+	const noReplyDays = useNoReplyDays();
+	const next = describeNextStep(getNextStep(application, { noReplyDays }), application, i18n.locale);
 
 	return (
 		<div

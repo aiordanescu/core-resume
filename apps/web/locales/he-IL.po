@@ -3412,6 +3412,10 @@ msgstr "לא ניתן היה לשמור את פרסום המשרה."
 msgid "Couldn't save the provider."
 msgstr "לא ניתן היה לשמור את הספק."
 
+#: src/features/settings/reminders.tsx
+msgid "Couldn't save the reminders."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Couldn't save the resume length."
 msgstr ""
@@ -3756,6 +3760,10 @@ msgstr "תאריכים משתמשים בפורמט אחד"
 #: src/features/resume/editor/check/issues.ts
 msgid "Dates won't be read"
 msgstr "תאריכים לא יקראו"
+
+#: src/features/settings/reminders.tsx
+msgid "Days without a reply"
+msgstr ""
 
 #: src/features/letters/compose.ts
 msgid "Dear {name},"
@@ -4572,6 +4580,11 @@ msgstr "הזן כתובת אינטרנט, כמו example.com"
 msgid "Enter a whole number from {0} to {1}."
 msgstr ""
 
+#. placeholder {0}: NO_REPLY_DAYS.max
+#: src/features/settings/reminders.tsx
+msgid "Enter a whole number of days from 1 to {0}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "הזן כל מזהה דגם שנתמך על ידי נקודת הקצה שלך."
@@ -5058,9 +5071,17 @@ msgstr "מעקב"
 msgid "Follow-up date"
 msgstr "תאריך מעקב"
 
+#: src/features/settings/reminders.tsx
+msgid "Follow-up dates you set yourself still show. Career schedules have their own switches in Career → Today."
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Follow-up note"
 msgstr "הערת מעקב"
+
+#: src/features/settings/reminders.tsx
+msgid "Follow-up nudges"
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Follow-up reminder"
@@ -7271,6 +7292,10 @@ msgstr "מדור חדש"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "צוותים חדשים ב-Northwind נתקעו בהגדרה; רובם לא סיימו אותה."
 
+#: src/features/settings/reminders.tsx
+msgid "Next interview"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Next issue"
 msgstr "הגיליון הבא"
@@ -9185,6 +9210,10 @@ msgstr "הזכר לי"
 msgid "Remind me on"
 msgstr "הזכר לי בתאריך"
 
+#: src/features/settings/reminders.tsx
+msgid "Reminders"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Reminders appear here. Email copies are optional and need a verified address."
 msgstr "תזכורות מופיעות כאן. עותקים בדוא״ל הם אופציונליים ודורשים כתובת מאומתת."
@@ -10413,6 +10442,10 @@ msgstr "מוצג באזור הזמן שלך."
 #: src/features/documents/document-actions.tsx
 msgid "Shows the tags they all share. Tags you add go on every document; tags you remove come off every one. Locked documents are left as they are."
 msgstr "מציג את התגיות המשותפות לכולם. תגיות שתוסיף יתווספו לכל מסמך; תגיות שתסיר יוסרו מכולם. מסמכים נעולים יישארו כפי שהם."
+
+#: src/features/settings/reminders.tsx
+msgid "Shows your next interview, with a countdown, at the top of Career → Today."
+msgstr ""
 
 #. Layout editor column label for the secondary sidebar area
 #: src/features/homepage/sheet.tsx
@@ -12986,6 +13019,10 @@ msgstr "בשביל מה זה?"
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "What's working"
 msgstr "מה עובד"
+
+#: src/features/settings/reminders.tsx
+msgid "When an application has been at Applied with no reply for the days below, Applications suggests a short follow-up and its next step turns amber."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "When do they need your answer?"

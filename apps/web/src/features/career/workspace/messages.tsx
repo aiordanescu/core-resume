@@ -24,7 +24,7 @@ import {
 import { formatMoney } from "../offer-compare";
 import { Swap, useCareerTime, withUndo, Working, workingSteps } from "../shared";
 import { AiNotice } from "./fit";
-import { describeNextStep, getNextStep } from "@/features/applications/next-step";
+import { describeNextStep, getNextStep, useNoReplyDays } from "@/features/applications/next-step";
 import { getStageLabel } from "@/features/applications/stages";
 import { useInvalidateApplications } from "@/features/applications/use-application-actions";
 import { orpc } from "@/libs/orpc/client";
@@ -211,8 +211,10 @@ function ProposalCard({ reply, application, now, readOnly }: ProposalCardProps) 
 	const selected = applied ? applied.changes : ticked;
 
 	const contact = application.contacts[0]?.name.split(" ")[0];
+	const noReplyDays = useNoReplyDays();
 	const current =
-		application.followUpNote || describeNextStep(getNextStep(application, now), application, i18n.locale).title;
+		application.followUpNote ||
+		describeNextStep(getNextStep(application, { now, noReplyDays }), application, i18n.locale).title;
 
 	const describe = (change: (typeof changes)[number]) => {
 		switch (change.type) {

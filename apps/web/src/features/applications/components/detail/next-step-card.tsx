@@ -28,7 +28,7 @@ import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
 import { buildIcs } from "../../ics";
 import { dayKey } from "../../interviews";
-import { describeNextStep, getNextStep } from "../../next-step";
+import { describeNextStep, getNextStep, useNoReplyDays } from "../../next-step";
 import { useInvalidateApplications } from "../../use-application-actions";
 import { orpc } from "@/libs/orpc/client";
 
@@ -44,7 +44,8 @@ type NextStepCardProps = {
 export function NextStepCard({ application, onScheduleInterview }: NextStepCardProps) {
 	const { i18n } = useLingui();
 	const [followUpOpen, setFollowUpOpen] = useState(false);
-	const step = getNextStep(application);
+	const noReplyDays = useNoReplyDays();
+	const step = getNextStep(application, { noReplyDays });
 	const text = describeNextStep(step, application, i18n.locale);
 
 	const addToCalendar = () => {

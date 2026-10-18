@@ -11,6 +11,7 @@
 		"./monorepo.node": "./src/monorepo.node.ts",
 		"./rate-limit": "./src/rate-limit.ts",
 		"./relevance": "./src/relevance.ts",
+		"./reminders": "./src/reminders.ts",
 		"./resume-pages": "./src/resume-pages.ts",
 		"./string": "./src/string.ts",
 		"./style": "./src/style.ts",

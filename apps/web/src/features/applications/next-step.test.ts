@@ -37,14 +37,21 @@ describe("getNextStep", () => {
 				followUpAt: day(1),
 				activity: [interview(day(-2), "past"), interview(day(5), "later"), interview(day(2), "soon")],
 			}),
-			NOW,
+			{ now: NOW },
 		);
 		expect(step).toMatchObject({ kind: "interview", interview: { id: "soon" } });
 	});
 
 	it("suggests a follow-up after ten days without a reply, and counts the wait before that", () => {
-		expect(getNextStep(application(), NOW)).toEqual({ kind: "waiting", days: 3 });
+		expect(getNextStep(application(), { now: NOW })).toEqual({ kind: "waiting", days: 3 });
 		const quiet = application({ activity: [{ id: "s1", type: "stage", stage: "applied", at: day(-12) }] });
-		expect(getNextStep(quiet, NOW)).toEqual({ kind: "no-reply", days: 12 });
+		expect(getNextStep(quiet, { now: NOW })).toEqual({ kind: "no-reply", days: 12 });
+	});
+
+	it("uses the account's number of days, and never suggests a follow-up at 0", () => {
+		const quiet = application({ activity: [{ id: "s1", type: "stage", stage: "applied", at: day(-12) }] });
+		expect(getNextStep(quiet, { now: NOW, noReplyDays: 14 })).toEqual({ kind: "waiting", days: 12 });
+		expect(getNextStep(quiet, { now: NOW, noReplyDays: 5 })).toEqual({ kind: "no-reply", days: 12 });
+		expect(getNextStep(quiet, { now: NOW, noReplyDays: 0 })).toEqual({ kind: "waiting", days: 12 });
 	});
 });
