@@ -743,6 +743,7 @@ function createAgent(input: {
 		offers: Awaited<ReturnType<typeof careerService.savedItems>>;
 		sourceMessageId: string | undefined;
 		allowedSources: Set<string>;
+		query: string;
 	};
 	userId: string;
 	threadId: string;
@@ -1371,6 +1372,7 @@ export const agentService = {
 											)
 										: [],
 									sourceMessageId,
+									query: messageText(input.message),
 									allowedSources: new Set([
 										...messages.flatMap((message) => agentWebSources(message).map((source) => source.url)),
 										...(messageText(input.message).match(/https?:\/\/[^\s<>")]+/g) ?? []),
