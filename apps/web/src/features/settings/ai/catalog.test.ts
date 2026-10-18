@@ -1,5 +1,6 @@
+import type { ModelSuggestions } from "./catalog";
 import { expect, it, vi } from "vitest";
-import { loadModelSuggestions } from "./catalog";
+import { loadModelSuggestions, suggestedModel } from "./catalog";
 
 it("suggests current text models with provider-specific IDs and tolerates incomplete catalog entries", async () => {
 	const model = {
@@ -46,4 +47,27 @@ it("suggests current text models with provider-specific IDs and tolerates incomp
 	} finally {
 		fetchCatalog.mockRestore();
 	}
+});
+
+it("prefills the newest model in the provider's family, the newest overall without one, and nothing otherwise", () => {
+	const entry = (id: string) => ({
+		id,
+		name: id,
+		modalities: { input: ["text"], output: ["text"] },
+		limit: { context: 128000, output: 8192 },
+	});
+	// Newest first, as loadModelSuggestions sorts them.
+	const catalog: ModelSuggestions = {
+		cohere: [entry("north-small-translate"), entry("command-a-plus"), entry("command-a")],
+		openrouter: [entry("deepseek/deepseek-flash"), entry("openai/gpt-example")],
+		xai: [entry("aurora-image-text")],
+		anthropic: [],
+	};
+
+	expect(suggestedModel(catalog, "cohere")).toBe("command-a-plus");
+	expect(suggestedModel(catalog, "openrouter")).toBe("deepseek/deepseek-flash");
+	expect(suggestedModel(catalog, "xai")).toBe("aurora-image-text");
+	expect(suggestedModel(catalog, "anthropic")).toBe("");
+	expect(suggestedModel(catalog, "openai-compatible")).toBe("");
+	expect(suggestedModel(undefined, "openai")).toBe("");
 });
