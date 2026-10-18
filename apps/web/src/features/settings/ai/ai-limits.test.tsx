@@ -65,7 +65,7 @@ describe("AI limits", () => {
 	it("won't save a limit outside its range, and Reset puts the defaults back", async () => {
 		api.get.mockResolvedValue({ ...defaults, actionFactChars: 50_000 });
 		renderSection();
-		const budget = await screen.findByLabelText("Facts in one request");
+		const budget = await screen.findByLabelText("Facts in each action");
 		expect((budget as HTMLInputElement).value).toBe("50000");
 
 		fireEvent.change(budget, { target: { value: "500" } });
@@ -80,8 +80,12 @@ describe("AI limits", () => {
 
 	it("saves a longer time limit for application actions and replies", async () => {
 		renderSection();
-		fireEvent.change(await screen.findByLabelText("Time limit for one request"), { target: { value: "600" } });
-		fireEvent.change(screen.getByLabelText("Time limit for a whole reply"), { target: { value: "720" } });
+		fireEvent.change(await screen.findByLabelText("Time limit for Fit, Apply and other actions"), {
+			target: { value: "600" },
+		});
+		fireEvent.change(screen.getByLabelText("Time limit for a whole Coach or Assistant reply"), {
+			target: { value: "720" },
+		});
 		fireEvent.click(screen.getByRole("button", { name: "Save" }));
 		await waitFor(() =>
 			expect(api.save.mock.calls[0]?.[0]).toEqual({ ...defaults, actionTimeoutSeconds: 600, replyTimeoutSeconds: 720 }),

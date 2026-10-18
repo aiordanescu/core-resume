@@ -59,6 +59,7 @@ export const aiProvidersRouter = {
 					model: input.model,
 					...(input.baseURL !== undefined ? { baseURL: input.baseURL } : {}),
 					apiKey: input.apiKey,
+					...(input.reasoning !== undefined ? { reasoning: input.reasoning } : {}),
 				});
 			} catch (error) {
 				if (isInvalidAiBaseUrl(error)) throwInvalidProviderConfig();
@@ -94,6 +95,7 @@ export const aiProvidersRouter = {
 					...(input.model !== undefined ? { model: input.model } : {}),
 					...(input.baseURL !== undefined ? { baseURL: input.baseURL } : {}),
 					...(input.apiKey !== undefined ? { apiKey: input.apiKey } : {}),
+					...(input.reasoning !== undefined ? { reasoning: input.reasoning } : {}),
 					...(input.enabled !== undefined ? { enabled: input.enabled } : {}),
 				});
 			} catch (error) {

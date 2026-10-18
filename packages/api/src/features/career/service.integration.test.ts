@@ -910,6 +910,19 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		]);
 	});
 
+	it("explains an action that reaches its time limit instead of failing as a server error", async () => {
+		fixture.generate.mockRejectedValueOnce(
+			new DOMException("The operation was aborted due to timeout", "TimeoutError"),
+		);
+		const { generateCareer } = await import("./generate");
+		await expect(
+			generateCareer({ userId: "alice", applicationId: "alice-app", locale: "en-US", task: { task: "fit" } }),
+		).rejects.toMatchObject({
+			code: "GATEWAY_TIMEOUT",
+			message: expect.stringContaining("within the 120-second time limit"),
+		});
+	});
+
 	it("sends application actions the facts that match the posting first", async () => {
 		await getDb()
 			.update(tables.application)

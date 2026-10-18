@@ -1,4 +1,5 @@
 import type { RouterOutput } from "@/libs/orpc/client";
+import type { AiReasoning } from "@reactive-resume/ai/reasoning";
 import type { AIProvider } from "@reactive-resume/ai/types";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
@@ -31,6 +32,7 @@ import {
 	providerLabel,
 	providerOptions,
 } from "./catalog";
+import { effortsFor, ReasoningField, reasoningSummary } from "./reasoning";
 import { Combobox } from "@/components/ui/combobox";
 import { useClosingValue } from "@/hooks/use-closing-value";
 import { useConfirm } from "@/hooks/use-confirm";
@@ -257,7 +259,10 @@ function ProviderRow({ provider, isDefault, onMakeDefault, makingDefault, onEdit
 							</span>
 						)}
 					</span>
-					<span className="text-xs break-all text-ink-2">{provider.model}</span>
+					<span className="text-xs break-all text-ink-2">
+						{provider.model}
+						{provider.reasoning && <> · {reasoningSummary(provider.reasoning)}</>}
+					</span>
 					<span className="text-xs text-ink-3">
 						<Trans>Key ends in {keyEnding(provider.apiKeyPreview)}</Trans>
 					</span>
@@ -299,7 +304,11 @@ function ProviderRow({ provider, isDefault, onMakeDefault, makingDefault, onEdit
 	);
 }
 
-type ProviderFields = { label: string; model: string; baseURL: string; apiKey: string };
+type ProviderFields = { label: string; model: string; baseURL: string; apiKey: string; reasoning: AiReasoning | null };
+
+/** Ultra doesn't carry over to a provider that can't be sent it; the highest standard effort takes its place. */
+const reasoningFor = (provider: AIProvider, reasoning: AiReasoning | null) =>
+	reasoning && reasoning !== "none" && !effortsFor(provider).includes(reasoning) ? "max" : reasoning;
 
 type ProviderFieldsProps = {
 	provider: AIProvider;
@@ -417,6 +426,7 @@ function ProviderFieldsForm({ provider, value, onChange, keyOptional }: Provider
 					{...secretInputProps}
 				/>
 			</div>
+			<ReasoningField provider={provider} value={value.reasoning} onChange={(reasoning) => set({ reasoning })} />
 		</div>
 	);
 }
@@ -428,14 +438,19 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 	const id = useId();
 	const queryClient = useQueryClient();
 	const [provider, setProvider] = useState<AIProvider>("openai");
-	const [fields, setFields] = useState<ProviderFields>({ label: "", apiKey: "", ...providerDefaults("openai") });
+	const [fields, setFields] = useState<ProviderFields>({
+		label: "",
+		apiKey: "",
+		reasoning: null,
+		...providerDefaults("openai"),
+	});
 	const [failure, setFailure] = useState<string | null>(null);
 	const create = useMutation(orpc.aiProviders.create.mutationOptions({ meta: { noInvalidate: true } }));
 	const test = useMutation(orpc.aiProviders.test.mutationOptions({ meta: { noInvalidate: true } }));
 
 	const reset = () => {
 		setProvider("openai");
-		setFields({ label: "", apiKey: "", ...providerDefaults("openai") });
+		setFields({ label: "", apiKey: "", reasoning: null, ...providerDefaults("openai") });
 		setFailure(null);
 	};
 
@@ -447,6 +462,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 			model: fields.model.trim(),
 			baseURL: fields.baseURL.trim(),
 			apiKey: fields.apiKey.trim(),
+			reasoning: fields.reasoning,
 		};
 		let tested: Awaited<ReturnType<typeof test.mutateAsync>> | undefined;
 		try {
@@ -521,7 +537,11 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 							onValueChange={(next) => {
 								if (!next) return;
 								setProvider(next);
-								setFields((current) => ({ ...current, ...providerDefaults(next) }));
+								setFields((current) => ({
+									...current,
+									...providerDefaults(next),
+									reasoning: reasoningFor(next, current.reasoning),
+								}));
 							}}
 						/>
 					</div>
@@ -571,6 +591,7 @@ function EditProviderForm({ provider, onClose }: EditProviderFormProps) {
 		model: provider.model,
 		baseURL: provider.baseURL ?? AI_PROVIDER_DEFAULT_BASE_URLS[provider.provider] ?? "",
 		apiKey: "",
+		reasoning: provider.reasoning,
 	});
 	const [failure, setFailure] = useState<string | null>(null);
 	const invalidate = () => queryClient.invalidateQueries({ queryKey: orpc.aiProviders.list.key() });
@@ -585,6 +606,7 @@ function EditProviderForm({ provider, onClose }: EditProviderFormProps) {
 			? { baseURL: fields.baseURL.trim() }
 			: {}),
 		...(fields.apiKey.trim() ? { apiKey: fields.apiKey.trim() } : {}),
+		...(fields.reasoning !== provider.reasoning ? { reasoning: fields.reasoning } : {}),
 	};
 	const changed = Object.keys(changes).length > 0;
 
@@ -593,7 +615,7 @@ function EditProviderForm({ provider, onClose }: EditProviderFormProps) {
 		let result: Awaited<ReturnType<typeof test.run>> | undefined;
 		try {
 			await update.mutateAsync({ id: provider.id, ...changes });
-			// A new model, key or address needs a fresh test before the app uses it.
+			// A new model, key, address or reasoning setting needs a fresh test before the app uses it.
 			result = await test.run(provider.id);
 		} catch (error) {
 			setFailure(getOrpcErrorMessage(error, { fallback: t`Couldn't save the provider.` }));

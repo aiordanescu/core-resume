@@ -97,18 +97,18 @@ After you correct, switch off or forget a fact, older interview debriefs remain 
 
 Every AI request carries only part of your switched-on Knowledge, so the whole request fits your model, and each request has a time limit. **Settings → AI & developer → AI limits** sets both:
 
-| Limit                                        | Default           | Used by                                                                               |
-| -------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------- |
-| **Facts shared with each message**           | 30 facts          | Coach, sent with every message while Knowledge is on.                                 |
-| **Stories shared with each message**         | 8 stories         | Coach, the same way.                                                                  |
-| **Facts returned by one knowledge search**   | 12,000 characters | Coach, when it searches your Knowledge for a question.                                |
-| **Stories returned by one knowledge search** | 16,000 characters | Coach, the same way.                                                                  |
-| **Facts in one request**                     | 10,000 characters | Fit, Apply, Prepare, Practise, Debrief and Messages.                                  |
-| **Stories in one request**                   | 10,000 characters | The same application actions.                                                         |
-| **Time limit for one request**               | 120 seconds       | The same application actions, including scheduled preparation.                        |
-| **Time limit for a whole reply**             | 240 seconds       | Coach and Assistant replies, tools included.                                          |
-| **Time limit for one model call**            | 120 seconds       | Each model call within a Coach or Assistant reply; never longer than the whole reply. |
-| **Time limit for turning speech into text**  | 60 seconds        | Voice answers in Practise.                                                            |
-| **Time limit for reading text aloud**        | 30 seconds        | Questions read aloud in Practise.                                                     |
+| Limit                                               | Default           | Used by                                                                               |
+| --------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------- |
+| **Facts shared with each message**                  | 30 facts          | Coach, sent with every message while Knowledge is on.                                 |
+| **Stories shared with each message**                | 8 stories         | Coach, the same way.                                                                  |
+| **Facts returned by one knowledge search**          | 12,000 characters | Coach, when it searches your Knowledge for a question.                                |
+| **Stories returned by one knowledge search**        | 16,000 characters | Coach, the same way.                                                                  |
+| **Facts in each action**                            | 10,000 characters | Fit, Apply, Prepare, Practise, Debrief and Messages.                                  |
+| **Stories in each action**                          | 10,000 characters | The same application actions.                                                         |
+| **Time limit for Fit, Apply and other actions**     | 120 seconds       | The same application actions, including scheduled preparation.                        |
+| **Time limit for a whole Coach or Assistant reply** | 240 seconds       | Coach and Assistant replies, tools included.                                          |
+| **Time limit for each model call in a reply**       | 120 seconds       | Each model call within a Coach or Assistant reply; never longer than the whole reply. |
+| **Time limit for turning speech into text**         | 60 seconds        | Voice answers in Practise.                                                            |
+| **Time limit for reading text aloud**               | 30 seconds        | Questions read aloud in Practise.                                                     |
 
 The facts and stories that best match go in first: in application actions, the ones that match the posting and the task, such as the form question or the recruiter's message; in Coach, the ones that match your message, and the posting too when the application is shared. Matching is by shared words, counting different forms of a word as one (migrated, migration) and rare words like a tool's name more than common ones. Facts that match nothing still fill any space left, newest first, so a fact worded differently from the posting can still go in. A knowledge search finds facts and stories containing any of its words, best match first. In application actions, a story goes in only when every fact behind it does. The defaults suit fast models with small context windows; raise them when your model can read more or needs more time. Larger Knowledge limits send more of your Knowledge to your AI provider, and each request takes longer and costs more. A reply that reaches its time limit keeps what it wrote so far and asks you to continue. **Reset to defaults** puts every limit back. Time limits for web searches, page reads and scheduled discovery runs are under **Web access** on the same page.

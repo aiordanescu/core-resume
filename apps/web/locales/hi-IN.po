@@ -4465,6 +4465,10 @@ msgstr "संपादकीय"
 msgid "Education"
 msgstr "शिक्षा"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4729,6 +4733,10 @@ msgstr "निर्यातित PDF: {0}"
 msgid "Exported pipeline-flow.png"
 msgstr "pipeline-flow.png निर्यात किया गया"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr "इस खाते का संग्रह निकालें, फिर इसके बायोडाटा या अक्षर फ़ोल्डर से एक JSON फ़ाइल आयात करें।"
@@ -4759,7 +4767,7 @@ msgid "Facts"
 msgstr "तथ्य"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5485,6 +5493,7 @@ msgid "Hide the photo"
 msgstr "फ़ोटो छिपाएँ"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr "उच्च"
 
@@ -6668,6 +6677,7 @@ msgid "Lost access to your authenticator?"
 msgstr "अपने ऑथेंटिकेटर तक पहुँच खो दी?"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr "कम"
 
@@ -6835,6 +6845,10 @@ msgstr "बायोडाटा का मिलान"
 msgid "Matching your facts"
 msgstr "आपके तथ्यों का मिलान कर रहा है"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr "शायद बाद में"
@@ -6852,6 +6866,7 @@ msgid "median to first reply"
 msgstr "पहले उत्तर का माध्यिका"
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr "मध्यम"
 
@@ -6884,6 +6899,10 @@ msgstr "संदेश · Fieldnote में Sam को उत्तर"
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr "माइक्रोफ़ोन ब्लॉक है। अपने ब्राउज़र की सेटिंग्स में इसकी अनुमति दें, या अपना जवाब टाइप करें।"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr "न्यूनतम मूल वेतन"
@@ -6909,6 +6928,10 @@ msgstr "मिश्रित स्वरूप"
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
 msgstr "मॉडल"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Model for {label}"
@@ -7732,6 +7755,10 @@ msgstr "ओड़िया"
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
 msgstr "बंद"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Off: the coach won’t see it or claim it."
@@ -8993,6 +9020,10 @@ msgstr "तैयार"
 msgid "Reason"
 msgstr "कारण"
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr "याद से"
@@ -10113,6 +10144,10 @@ msgstr "प्रेषक का विवरण पत्र में कॉ�
 msgid "Sending password reset email..."
 msgstr "पासवर्ड रीसेट ईमेल भेजा जा रहा है..."
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr "यह आवेदन (पोस्टिंग, टिप्पणियाँ, साक्षात्कार विवरण) और चालू ज्ञानकोश {label} को भेजता है।"
@@ -10174,6 +10209,10 @@ msgstr "वरिष्ठ उत्पाद डिजाइनर"
 #: src/features/resume/share/format.ts
 msgid "Sent"
 msgstr "भेजा"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #. placeholder {0}: version.name
 #: src/features/resume/share/format.ts
@@ -10913,7 +10952,7 @@ msgid "Stories"
 msgstr "कहानियाँ"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11648,8 +11687,18 @@ msgid "They’ve confirmed your interview for today"
 msgstr "उन्होंने आज के लिए आपके साक्षात्कार की पुष्टि कर दी है"
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
 msgstr "सोच रहा है"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
@@ -11906,15 +11955,15 @@ msgid "Time · {timeZone}"
 msgstr "समय · {timeZone}"
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12027,6 +12076,10 @@ msgstr "अनुवाद"
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "ऐप का अनुवाद करें"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
@@ -12219,6 +12272,10 @@ msgstr "टाइपोग्राफी"
 #: src/libs/locale.ts
 msgid "Ukrainian"
 msgstr "यूक्रेनी"
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Underline"

@@ -39,6 +39,7 @@ type ImproveServiceInput = ImproveInput & {
 	model: string;
 	apiKey: string;
 	baseURL: string;
+	reasoning?: Parameters<typeof getModel>[0]["reasoning"];
 };
 
 function buildUserPrompt(input: ImproveInput): string {

@@ -6,6 +6,7 @@
 	"exports": {
 		"./types": "./src/types.ts",
 		"./prompts": "./src/prompts.ts",
+		"./reasoning": "./src/reasoning.ts",
 		"./tools/agent-tool-contracts": "./src/tools/agent-tool-contracts.ts",
 		"./tools/resume-tool-contracts": "./src/tools/resume-tool-contracts.ts",
 		"./resume/extraction-template": "./src/resume/extraction-template.ts",

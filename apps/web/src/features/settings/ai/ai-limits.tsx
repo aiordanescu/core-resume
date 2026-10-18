@@ -72,9 +72,13 @@ export function AiLimitsSection() {
 							</Trans>
 						),
 						limits: [
-							{ name: "actionFactChars", label: <Trans>Facts in one request</Trans>, unit: characters },
-							{ name: "actionStoryChars", label: <Trans>Stories in one request</Trans>, unit: characters },
-							{ name: "actionTimeoutSeconds", label: <Trans>Time limit for one request</Trans>, unit: seconds },
+							{ name: "actionFactChars", label: <Trans>Facts in each action</Trans>, unit: characters },
+							{ name: "actionStoryChars", label: <Trans>Stories in each action</Trans>, unit: characters },
+							{
+								name: "actionTimeoutSeconds",
+								label: <Trans>Time limit for Fit, Apply and other actions</Trans>,
+								unit: seconds,
+							},
 						],
 					},
 					{
@@ -86,8 +90,16 @@ export function AiLimitsSection() {
 							</Trans>
 						),
 						limits: [
-							{ name: "replyTimeoutSeconds", label: <Trans>Time limit for a whole reply</Trans>, unit: seconds },
-							{ name: "replyStepTimeoutSeconds", label: <Trans>Time limit for one model call</Trans>, unit: seconds },
+							{
+								name: "replyTimeoutSeconds",
+								label: <Trans>Time limit for a whole Coach or Assistant reply</Trans>,
+								unit: seconds,
+							},
+							{
+								name: "replyStepTimeoutSeconds",
+								label: <Trans>Time limit for each model call in a reply</Trans>,
+								unit: seconds,
+							},
 						],
 					},
 					{

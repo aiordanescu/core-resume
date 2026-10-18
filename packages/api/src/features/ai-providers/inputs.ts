@@ -1,4 +1,5 @@
 import z from "zod";
+import { acceptsCustomReasoning, aiReasoningSchema } from "@reactive-resume/ai/reasoning";
 import { aiProviderSchema } from "@reactive-resume/ai/types";
 
 const providerFields = z.object({
@@ -7,12 +8,25 @@ const providerFields = z.object({
 	model: z.string().trim().min(1),
 	baseURL: z.string().trim().optional(),
 	apiKey: z.string().trim(),
+	reasoning: aiReasoningSchema
+		.nullable()
+		.optional()
+		.describe(
+			'"none" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model\'s own default applies. Ultra only on OpenAI-compatible and OpenRouter connections.',
+		),
 });
 
-export const providerInput = providerFields.refine((input) => input.provider === "ollama" || input.apiKey.length > 0, {
-	message: "An API key is required for this provider.",
-	path: ["apiKey"],
-});
+export const ULTRA_UNSUPPORTED = "Ultra effort is only available for OpenAI-compatible and OpenRouter connections.";
+
+export const providerInput = providerFields
+	.refine((input) => input.provider === "ollama" || input.apiKey.length > 0, {
+		message: "An API key is required for this provider.",
+		path: ["apiKey"],
+	})
+	.refine((input) => input.reasoning !== "ultra" || acceptsCustomReasoning(input.provider), {
+		message: ULTRA_UNSUPPORTED,
+		path: ["reasoning"],
+	});
 
 export const updateProviderInput = providerFields
 	.partial()

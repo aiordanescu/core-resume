@@ -1,6 +1,8 @@
+import type { AiReasoning } from "@reactive-resume/ai/reasoning";
 import type { AIProvider } from "@reactive-resume/ai/types";
 import { ORPCError } from "@orpc/client";
 import { and, asc, desc, eq, ne, sql } from "drizzle-orm";
+import { acceptsCustomReasoning, aiReasoningSchema } from "@reactive-resume/ai/reasoning";
 import { aiProviderSchema } from "@reactive-resume/ai/types";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
@@ -8,6 +10,7 @@ import { env } from "@reactive-resume/env/server";
 import { assertCredentialEncryptionConfigured, decryptCredential, encryptCredential } from "../ai/credentials";
 import { testConnection } from "../ai/service";
 import { resolveAiBaseUrl } from "../ai/url-policy";
+import { ULTRA_UNSUPPORTED } from "./inputs";
 
 type AiProviderRecord = typeof schema.aiProvider.$inferSelect;
 
@@ -18,6 +21,7 @@ export type AiProviderResponse = {
 	provider: AIProvider;
 	model: string;
 	baseURL: string | null;
+	reasoning: AiReasoning | null;
 	enabled: boolean;
 	isDefault: boolean;
 	testStatus: string;
@@ -37,6 +41,7 @@ type CreateAiProviderInput = {
 	model: string;
 	baseURL?: string | null;
 	apiKey: string;
+	reasoning?: AiReasoning | null;
 };
 
 type UpdateAiProviderInput = {
@@ -47,6 +52,7 @@ type UpdateAiProviderInput = {
 	model?: string;
 	baseURL?: string | null;
 	apiKey?: string;
+	reasoning?: AiReasoning | null;
 	enabled?: boolean;
 };
 
@@ -60,6 +66,7 @@ function toResponse(row: AiProviderRecord): AiProviderResponse {
 		provider,
 		model: row.model,
 		baseURL: row.baseUrl,
+		reasoning: storedReasoning(row.reasoning),
 		enabled: row.enabled,
 		isDefault: row.isDefault,
 		testStatus: row.testStatus,
@@ -73,6 +80,9 @@ function toResponse(row: AiProviderRecord): AiProviderResponse {
 		updatedAt: row.updatedAt,
 	};
 }
+
+/** An unknown stored value (say, a level a later version dropped) falls back to sending nothing. */
+const storedReasoning = (value: string | null) => aiReasoningSchema.nullable().catch(null).parse(value);
 
 function normalizeBaseUrl(input: { provider: AIProvider; baseURL?: string | null }) {
 	const trimmed = input.baseURL?.trim() ?? "";
@@ -212,6 +222,7 @@ export const aiProvidersService = {
 				provider: input.provider,
 				model: input.model.trim(),
 				baseUrl: normalizeBaseUrl(input),
+				reasoning: input.reasoning ?? null,
 				...encrypted,
 			})
 			.returning();
@@ -232,10 +243,15 @@ export const aiProvidersService = {
 		const credentialChanged = !!nextApiKey;
 		const nextBaseUrl =
 			input.baseURL !== undefined ? normalizeBaseUrl({ provider, baseURL: input.baseURL }) : existing.baseUrl;
+		const reasoning = input.reasoning !== undefined ? input.reasoning : storedReasoning(existing.reasoning);
+		if (reasoning === "ultra" && !acceptsCustomReasoning(provider))
+			throw new ORPCError("BAD_REQUEST", { message: ULTRA_UNSUPPORTED });
 		const providerChanged = input.provider !== undefined && input.provider !== existing.provider;
 		const modelChanged = input.model !== undefined && input.model.trim() !== existing.model;
 		const baseUrlChanged = input.baseURL !== undefined && nextBaseUrl !== existing.baseUrl;
-		const runtimeChanged = credentialChanged || providerChanged || modelChanged || baseUrlChanged;
+		// A model can refuse a reasoning setting, so a new one needs a fresh test too.
+		const reasoningChanged = input.reasoning !== undefined && input.reasoning !== existing.reasoning;
+		const runtimeChanged = credentialChanged || providerChanged || modelChanged || baseUrlChanged || reasoningChanged;
 
 		if (input.enabled === true && existing.testStatus !== "success" && !runtimeChanged) {
 			throw new ORPCError("BAD_REQUEST", { message: "AI provider must be tested successfully before enabling." });
@@ -248,6 +264,7 @@ export const aiProvidersService = {
 				...(input.provider !== undefined ? { provider: input.provider } : {}),
 				...(input.model !== undefined ? { model: input.model.trim() } : {}),
 				...(input.baseURL !== undefined ? { baseUrl: nextBaseUrl } : {}),
+				...(input.reasoning !== undefined ? { reasoning: input.reasoning } : {}),
 				...(input.enabled !== undefined && !runtimeChanged ? { enabled: input.enabled } : {}),
 				...(runtimeChanged ? { enabled: false, testStatus: "untested", lastTestedAt: null, testError: null } : {}),
 				...encrypted,
@@ -282,6 +299,7 @@ export const aiProvidersService = {
 				model: provider.model,
 				apiKey,
 				baseURL: provider.baseUrl ?? "",
+				reasoning: storedReasoning(provider.reasoning),
 			});
 
 			// A provider that answers "no" is a completed test, not a failed request: it comes back as

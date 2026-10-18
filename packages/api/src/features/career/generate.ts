@@ -139,6 +139,7 @@ export async function generateCareer(input: GenerateInput) {
 		model: provider.model,
 		apiKey: provider.apiKey,
 		...(provider.baseURL ? { baseURL: provider.baseURL } : {}),
+		reasoning: provider.reasoning,
 	});
 
 	const { task: _name, ...taskInput } = task;
@@ -255,7 +256,14 @@ export async function generateCareer(input: GenerateInput) {
 		},
 		schema,
 		generationSignal,
-	);
+	).catch((error: unknown) => {
+		// Reaching the action time limit is not a server fault: say which limit, and what to change. A cancelled request
+		// aborts with an AbortError, so only the time limit raises a TimeoutError here.
+		if (!(error instanceof DOMException) || error.name !== "TimeoutError") throw error;
+		throw new ORPCError("GATEWAY_TIMEOUT", {
+			message: `The AI didn't finish within the ${context.limits.actionTimeoutSeconds}-second time limit. Raise "Time limit for Fit, Apply and other actions" in Settings → AI & developer → AI limits, or set a lower reasoning effort on the AI connection.`,
+		});
+	});
 
 	generationSignal.throwIfAborted();
 	const known = new Set(promptFacts.map((fact) => fact.id));

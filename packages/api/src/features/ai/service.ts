@@ -1,6 +1,7 @@
+import type { AiReasoning } from "@reactive-resume/ai/reasoning";
 import type { AIProvider } from "@reactive-resume/ai/types";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
-import type { ModelMessage } from "ai";
+import type { LanguageModel, ModelMessage } from "ai";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createCerebras } from "@ai-sdk/cerebras";
 import { createCohere } from "@ai-sdk/cohere";
@@ -14,7 +15,7 @@ import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { createPerplexity } from "@ai-sdk/perplexity";
 import { createTogetherAI } from "@ai-sdk/togetherai";
 import { createXai } from "@ai-sdk/xai";
-import { APICallError, createGateway, generateText, LoadAPIKeyError, NoSuchModelError } from "ai";
+import { APICallError, createGateway, generateText, LoadAPIKeyError, NoSuchModelError, wrapLanguageModel } from "ai";
 import { strFromU8, unzipSync } from "fflate";
 import { createOllama } from "ollama-ai-provider-v2";
 import { match } from "ts-pattern";
@@ -25,6 +26,7 @@ import {
 	pdfParserSystemPrompt,
 	pdfParserUserPrompt,
 } from "@reactive-resume/ai/prompts";
+import { aiReasoningSchema } from "@reactive-resume/ai/reasoning";
 import { buildAiExtractionTemplate } from "@reactive-resume/ai/resume/extraction-template";
 import { sanitizeAndParseResumeJson } from "@reactive-resume/ai/resume/sanitize";
 import { AI_PROVIDER_DEFAULT_BASE_URLS, AI_PROVIDER_DISPLAY_NAMES, aiProviderSchema } from "@reactive-resume/ai/types";
@@ -67,11 +69,14 @@ type GetModelInput = {
 	model: string;
 	apiKey: string;
 	baseURL?: string;
+	/** The connection's reasoning setting; null or absent sends nothing (Model default). */
+	reasoning?: AiReasoning | null | undefined;
 };
 
 const MAX_AI_FILE_BYTES = 10 * 1024 * 1024; // 10MB
 const MAX_AI_FILE_BASE64_CHARS = Math.ceil((MAX_AI_FILE_BYTES * 4) / 3) + 4;
 const TEST_CONNECTION_MAX_OUTPUT_TOKENS = 128;
+const TEST_CONNECTION_REASONING_MAX_OUTPUT_TOKENS = 4096;
 
 // AbortSignal.timeout stores the delay as a 32-bit signed integer.
 const MAX_ABORT_SIGNAL_TIMEOUT_MS = 2_147_483_647;
@@ -87,7 +92,37 @@ const TEST_CONNECTION_TIMEOUT_MS = z.coerce
 	.parse(process.env.AI_TEST_TIMEOUT_MS?.trim() || undefined);
 const DOCX_DOCUMENT_XML_PATH = "word/document.xml";
 
+/**
+ * Sends the connection's reasoning setting with every call: the AI SDK translates the standard levels for each
+ * provider; Ultra, which it doesn't list, goes to OpenAI-compatible servers as-is as `reasoning_effort`.
+ */
+function withReasoning<T extends Exclude<LanguageModel, string>>(input: GetModelInput, model: T) {
+	const { reasoning, provider } = input;
+	if (!reasoning) return model;
+	return wrapLanguageModel({
+		model,
+		middleware: {
+			transformParams: ({ params }) =>
+				Promise.resolve(
+					reasoning === "ultra"
+						? {
+								...params,
+								providerOptions: {
+									...params.providerOptions,
+									[provider]: { ...params.providerOptions?.[provider], reasoningEffort: reasoning },
+								},
+							}
+						: { ...params, reasoning },
+				),
+		},
+	});
+}
+
 export function getModel(input: GetModelInput) {
+	return withReasoning(input, createModel(input));
+}
+
+function createModel(input: GetModelInput) {
 	const { provider, model, apiKey } = input;
 	const baseURL = resolveAiBaseUrl(input);
 
@@ -125,7 +160,10 @@ export function getAgentModel(input: GetModelInput) {
 	if (!isDirectOpenAIProvider(input)) return getModel(input);
 
 	// Direct OpenAI assistants use Responses for reasoning with function tools.
-	return createOpenAI({ apiKey: input.apiKey, baseURL: resolveAiBaseUrl(input) }).responses(input.model);
+	return withReasoning(
+		input,
+		createOpenAI({ apiKey: input.apiKey, baseURL: resolveAiBaseUrl(input) }).responses(input.model),
+	);
 }
 
 const aiCredentialsSchema = z.object({
@@ -133,6 +171,7 @@ const aiCredentialsSchema = z.object({
 	model: z.string().trim().min(1),
 	apiKey: z.string().trim().min(1),
 	baseURL: z.string().optional().default(""),
+	reasoning: aiReasoningSchema.nullable().optional(),
 });
 
 export const fileInputSchema = z.object({
@@ -247,7 +286,11 @@ export async function testConnection(input: TestConnectionInput): Promise<TestCo
 	try {
 		result = await generateText({
 			model,
-			maxOutputTokens: TEST_CONNECTION_MAX_OUTPUT_TOKENS,
+			// Thinking spends tokens before the answer, so a connection set to an effort gets room for it.
+			maxOutputTokens:
+				input.reasoning && input.reasoning !== "none"
+					? TEST_CONNECTION_REASONING_MAX_OUTPUT_TOKENS
+					: TEST_CONNECTION_MAX_OUTPUT_TOKENS,
 			// A connection test must not silently multiply its own wait by retrying behind the user.
 			maxRetries: 0,
 			abortSignal: AbortSignal.timeout(TEST_CONNECTION_TIMEOUT_MS),

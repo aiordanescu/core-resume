@@ -4460,6 +4460,10 @@ msgstr ""
 msgid "Education"
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Effort"
+msgstr ""
+
 #: src/features/resume/editor/check/parser-view.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/settings/account/profile.tsx
@@ -4724,6 +4728,10 @@ msgstr ""
 msgid "Exported pipeline-flow.png"
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Extra high"
+msgstr ""
+
 #: src/features/resume/import/read-file.ts
 msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
 msgstr ""
@@ -4754,7 +4762,7 @@ msgid "Facts"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Facts in one request"
+msgid "Facts in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -5480,6 +5488,7 @@ msgid "Hide the photo"
 msgstr ""
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "High"
 msgstr ""
 
@@ -6663,6 +6672,7 @@ msgid "Lost access to your authenticator?"
 msgstr ""
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Low"
 msgstr ""
 
@@ -6830,6 +6840,10 @@ msgstr ""
 msgid "Matching your facts"
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Max"
+msgstr ""
+
 #: src/components/ui/donation-toast.tsx
 msgid "Maybe later"
 msgstr ""
@@ -6847,6 +6861,7 @@ msgid "median to first reply"
 msgstr ""
 
 #: src/features/resume/editor/check/writing-tab.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Medium"
 msgstr ""
 
@@ -6879,6 +6894,10 @@ msgstr ""
 msgid "Microphone blocked. Allow it in your browser settings, or type your answer."
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Minimal"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Minimum base salary"
 msgstr ""
@@ -6903,6 +6922,10 @@ msgstr ""
 #: src/features/assistant/provider-setup.tsx
 #: src/features/settings/ai/providers.tsx
 msgid "Model"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Model default"
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
@@ -7726,6 +7749,10 @@ msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Off"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Off answers straight away. On thinks first, at the effort below."
 msgstr ""
 
 #: src/features/homepage/remember.tsx
@@ -8988,6 +9015,10 @@ msgstr ""
 msgid "Reason"
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Reasoning"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Recalled"
 msgstr ""
@@ -10108,6 +10139,10 @@ msgstr ""
 msgid "Sending password reset email..."
 msgstr ""
 
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sends nothing, so the model or server decides how much it thinks. Some think at their highest effort when nothing is sent, which makes every request slower."
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Sends this application (posting, notes, interview details) and Knowledge that's switched on to {label}."
 msgstr ""
@@ -10168,6 +10203,10 @@ msgstr ""
 #: src/features/applications/components/list-view.tsx
 #: src/features/resume/share/format.ts
 msgid "Sent"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Sent as reasoning_effort, or none for thinking off. Ultra goes as-is, for servers that accept it. A model that doesn't support a setting fails its test."
 msgstr ""
 
 #. placeholder {0}: version.name
@@ -10908,7 +10947,7 @@ msgid "Stories"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Stories in one request"
+msgid "Stories in each action"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -11643,7 +11682,17 @@ msgid "They’ve confirmed your interview for today"
 msgstr ""
 
 #: src/features/career/shared.tsx
+#: src/features/settings/ai/reasoning.tsx
 msgid "Thinking"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking off"
+msgstr ""
+
+#. placeholder {0}: effortLabel(reasoning)
+#: src/features/settings/ai/reasoning.tsx
+msgid "Thinking: {0}"
 msgstr ""
 
 #: src/features/assistant/conversation.tsx
@@ -11901,15 +11950,15 @@ msgid "Time · {timeZone}"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for a whole reply"
+msgid "Time limit for a whole Coach or Assistant reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one model call"
+msgid "Time limit for each model call in a reply"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
-msgid "Time limit for one request"
+msgid "Time limit for Fit, Apply and other actions"
 msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
@@ -12021,6 +12070,10 @@ msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Translated for this provider. A model that doesn't support a setting fails its test."
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -12213,6 +12266,10 @@ msgstr ""
 
 #: src/libs/locale.ts
 msgid "Ukrainian"
+msgstr ""
+
+#: src/features/settings/ai/reasoning.tsx
+msgid "Ultra"
 msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx

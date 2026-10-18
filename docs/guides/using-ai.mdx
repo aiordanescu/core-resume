@@ -40,13 +40,25 @@ If the test fails, the dialog shows the provider's own error message, such as an
 
 ### The fields
 
-| Field        | What to enter                                                                                                                                            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Provider** | The company or service that runs the model.                                                                                                              |
-| **API key**  | The key from your provider's dashboard. Required except for Ollama, where you can leave it empty for a local server that doesn't require authentication. |
-| **Model**    | The model name exactly as your provider writes it. Required.                                                                                             |
-| **Name**     | A label you'll recognize, such as "Work OpenAI". If you leave it empty, the provider's name is used.                                                     |
-| **Base URL** | The address requests go to. Leave the default unless you use a gateway, a proxy or an OpenAI-compatible service.                                         |
+| Field         | What to enter                                                                                                                                            |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Provider**  | The company or service that runs the model.                                                                                                              |
+| **API key**   | The key from your provider's dashboard. Required except for Ollama, where you can leave it empty for a local server that doesn't require authentication. |
+| **Model**     | The model name exactly as your provider writes it. Required.                                                                                             |
+| **Name**      | A label you'll recognize, such as "Work OpenAI". If you leave it empty, the provider's name is used.                                                     |
+| **Base URL**  | The address requests go to. Leave the default unless you use a gateway, a proxy or an OpenAI-compatible service.                                         |
+| **Reasoning** | How much the model thinks before it answers. See [Choose how much the model thinks](#choose-how-much-the-model-thinks).                                  |
+
+### Choose how much the model thinks
+
+**Reasoning** applies to everything that uses the connection: Fit, Apply and the other application actions, Coach and Assistant replies, scheduled interview preparation, resume import and the other AI features.
+
+- **Model default** sends nothing, so the model or its server decides. Every connection starts here. Some models and servers think at their highest effort when nothing is sent, which makes each request much slower; if requests reach their time limit, set an effort instead.
+- **Thinking** off answers straight away. It's the fastest choice, and the model doesn't reason first.
+- **Effort**, with thinking on, sets how hard it thinks: **Minimal**, **Low**, **Medium**, **High**, **Extra high** or **Max**. Higher efforts can give better answers to harder questions, and take longer.
+- **Ultra** is offered for OpenAI-compatible and OpenRouter connections only. It's sent as-is, for servers that accept it.
+
+Reactive Resume translates the setting for each provider: an effort for OpenAI, OpenRouter and OpenAI-compatible servers, a thinking budget or level for Anthropic and Gemini, and thinking on or off for Ollama, which has no effort levels. A model may not support every setting; saving tests the connection with it, so you find out straight away. The connection's row shows the setting, for example "Thinking: High". To use different settings for different work, add the same model twice, for example a fast connection with thinking off and a careful one with **High**.
 
 ### Supported providers
 
@@ -97,7 +109,7 @@ Select **Edit** on a provider's row.
   />
 </Frame>
 
-- **Change the key, model, name or base URL**, then select **Save and test**. Leave **API key** empty to keep the saved key. Changing the key, model or base URL turns the provider off until the new test passes.
+- **Change the key, model, name, base URL or reasoning**, then select **Save and test**. Leave **API key** empty to keep the saved key. Changing the key, model, base URL or reasoning turns the provider off until the new test passes.
 - **Turn it on or off** with **Use this provider**. Only a provider that passed its test can be turned on. A provider that is off stays saved but isn't offered anywhere in the app.
 - **Delete it** with **Delete provider**, then confirm. The provider and its stored key are removed.
 

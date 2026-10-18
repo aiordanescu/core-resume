@@ -66,6 +66,7 @@ export const aiRouter = {
 					model: provider.model,
 					apiKey: provider.apiKey,
 					baseURL: provider.baseURL ?? "",
+					reasoning: provider.reasoning,
 					file: input.file,
 				});
 			} catch (error) {
@@ -105,6 +106,7 @@ export const aiRouter = {
 					model: provider.model,
 					apiKey: provider.apiKey,
 					baseURL: provider.baseURL ?? "",
+					reasoning: provider.reasoning,
 					mediaType: input.mediaType,
 					file: input.file,
 				});
@@ -138,6 +140,7 @@ export const aiRouter = {
 					model: provider.model,
 					apiKey: provider.apiKey,
 					baseURL: provider.baseURL ?? "",
+					reasoning: provider.reasoning,
 				});
 			} catch (error) {
 				rethrowAiError(error, "Invalid ATS review structure");
@@ -169,6 +172,7 @@ export const aiRouter = {
 					model: provider.model,
 					apiKey: provider.apiKey,
 					baseURL: provider.baseURL ?? "",
+					reasoning: provider.reasoning,
 				});
 			} catch (error) {
 				rethrowAiError(error, "Invalid suggestion structure");

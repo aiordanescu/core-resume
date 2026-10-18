@@ -38,6 +38,7 @@ async function resolveModel(userId: string) {
 		model: provider.model,
 		apiKey: provider.apiKey,
 		...(provider.baseURL ? { baseURL: provider.baseURL } : {}),
+		reasoning: provider.reasoning,
 	});
 }
 
@@ -259,6 +260,7 @@ export const aiRouter = {
 					model: provider.model,
 					apiKey: provider.apiKey,
 					...(provider.baseURL ? { baseURL: provider.baseURL } : {}),
+					reasoning: provider.reasoning,
 				});
 				const fields = await generateJson(
 					model,
