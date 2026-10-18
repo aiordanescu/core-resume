@@ -3412,6 +3412,10 @@ msgstr "ఉద్యోగ పోస్టింగ్‌ని సేవ్ చ
 msgid "Couldn't save the provider."
 msgstr "ప్రొవైడర్‌ని సేవ్ చేయడం సాధ్యపడలేదు."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "కథను సేవ్ చేయడం సాధ్యపడలేదు."
@@ -4558,6 +4562,12 @@ msgstr "చెల్లుబాటు అయ్యే ఇమెయిల్ చ
 msgid "Enter a web address, like example.com"
 msgstr "ఉదాహరణకు.com వంటి వెబ్ చిరునామాను నమోదు చేయండి"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "మీ ఎండ్ పాయింట్ ద్వారా మద్దతిచ్చే ఏదైనా మోడల్ IDని నమోదు చేయండి."
@@ -5530,6 +5540,10 @@ msgstr "ఉద్యోగ దరఖాస్తులు ఎంత వరకు
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "బోనస్ ఎలా నిర్ణయించబడుతుంది, గత సంవత్సరం అందులో ఎంత చెల్లించారు?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "పేజీ వీక్షణ"
 msgid "page."
 msgstr "పేజీలో."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "పేపర్"
@@ -9420,6 +9442,10 @@ msgstr "రెజ్యూమే వివరాలు"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "రెజ్యూమే ఫైల్"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "థ్రెడ్లు"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "కుదించు"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

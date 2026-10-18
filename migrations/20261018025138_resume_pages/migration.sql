@@ -1,0 +1,1 @@
+ALTER TABLE "user" ADD COLUMN "resume_pages" integer DEFAULT 1 NOT NULL;

@@ -20,7 +20,11 @@ vi.mock("@tanstack/react-query", async (importOriginal) => ({
 		options.queryKey[0] === "threads" ? { data: mocks.threads, isPending: false } : {},
 	useQueryClient: () => ({ invalidateQueries: mocks.invalidate }),
 }));
-vi.mock("@tanstack/react-router", () => ({ useNavigate: () => vi.fn(), Link: () => null }));
+vi.mock("@tanstack/react-router", () => ({
+	useNavigate: () => vi.fn(),
+	useRouteContext: () => ({ session: null }),
+	Link: () => null,
+}));
 vi.mock("@/features/resume/editor/store", () => ({
 	useEditorStore: Object.assign(
 		(select: (state: unknown) => unknown) =>

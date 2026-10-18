@@ -3407,6 +3407,10 @@ msgstr "Couldn't save the posting."
 msgid "Couldn't save the provider."
 msgstr "Couldn't save the provider."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr "Couldn't save the resume length."
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "Couldn't save the story."
@@ -4553,6 +4557,12 @@ msgstr "Enter a valid email address."
 msgid "Enter a web address, like example.com"
 msgstr "Enter a web address, like example.com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr "Enter a whole number from {0} to {1}."
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "Enter any model ID supported by your endpoint."
@@ -5525,6 +5535,10 @@ msgstr "How far applications get"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "How is the bonus decided, and how much of it was paid out last year?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8082,6 +8096,14 @@ msgstr "Page view"
 msgid "page."
 msgstr "page."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr "pages"
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr "Pages per resume"
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Paper"
@@ -9415,6 +9437,10 @@ msgstr "Resume details"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "Resume file"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr "Resume length"
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11852,6 +11878,10 @@ msgstr "Threads"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "Tighten"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr "Tighten to {pages} pages"
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

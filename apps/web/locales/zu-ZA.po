@@ -3407,6 +3407,10 @@ msgstr ""
 msgid "Couldn't save the provider."
 msgstr ""
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr ""
@@ -4553,6 +4557,12 @@ msgstr ""
 msgid "Enter a web address, like example.com"
 msgstr ""
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr ""
@@ -5524,6 +5534,10 @@ msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
 msgstr ""
 
 #: src/features/career/offers.tsx
@@ -8082,6 +8096,14 @@ msgstr ""
 msgid "page."
 msgstr ""
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr ""
@@ -9414,6 +9436,10 @@ msgstr ""
 
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
@@ -11851,6 +11877,10 @@ msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
+msgstr ""
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
 msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx

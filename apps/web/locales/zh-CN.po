@@ -3412,6 +3412,10 @@ msgstr "无法保存职位发布。"
 msgid "Couldn't save the provider."
 msgstr "无法保存提供商。"
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "无法保存故事。"
@@ -4558,6 +4562,12 @@ msgstr "请输入有效的电子邮箱地址。"
 msgid "Enter a web address, like example.com"
 msgstr "输入网址，例如示例.com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "输入您的终端支持的任何型号 ID。"
@@ -5530,6 +5540,10 @@ msgstr "工作申请进展如何"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "奖金如何确定？去年实际发放了多少？"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "页面浏览量"
 msgid "page."
 msgstr "纸上。"
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "纸"
@@ -9420,6 +9442,10 @@ msgstr "简历详情"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "简历文件"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "会话"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "精简"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

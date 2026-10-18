@@ -3412,6 +3412,10 @@ msgstr "Tidak dapat menyimpan postingan pekerjaan."
 msgid "Couldn't save the provider."
 msgstr "Tidak dapat menyimpan penyedia."
 
+#: src/features/settings/resume-length.tsx
+msgid "Couldn't save the resume length."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Couldn't save the story."
 msgstr "Tidak dapat menyimpan cerita."
@@ -4558,6 +4562,12 @@ msgstr "Masukkan alamat email yang valid."
 msgid "Enter a web address, like example.com"
 msgstr "Masukkan alamat web, seperti example.com"
 
+#. placeholder {0}: RESUME_PAGES.min
+#. placeholder {1}: RESUME_PAGES.max
+#: src/features/settings/resume-length.tsx
+msgid "Enter a whole number from {0} to {1}."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Enter any model ID supported by your endpoint."
 msgstr "Masukkan ID model apa pun yang didukung oleh titik akhir Anda."
@@ -5530,6 +5540,10 @@ msgstr "Seberapa jauh lamaran pekerjaan didapat"
 #: src/features/career/offers.tsx
 msgid "How is the bonus decided, and how much of it was paid out last year?"
 msgstr "Bagaimana bonus ditentukan, dan berapa yang dibayarkan tahun lalu?"
+
+#: src/features/settings/resume-length.tsx
+msgid "How long your resumes may run. Past this, the editor marks the overflow and Fit tightens the design to fit. A resume laid out on more pages keeps its own length."
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "How many days a week are expected in the office?"
@@ -8087,6 +8101,14 @@ msgstr "Tampilan halaman"
 msgid "page."
 msgstr "halaman."
 
+#: src/features/settings/resume-length.tsx
+msgid "pages"
+msgstr ""
+
+#: src/features/settings/resume-length.tsx
+msgid "Pages per resume"
+msgstr ""
+
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Paper"
 msgstr "Kertas"
@@ -9420,6 +9442,10 @@ msgstr "rincian resume"
 #: src/features/applications/components/detail/sent-documents.tsx
 msgid "Resume file"
 msgstr "File resume"
+
+#: src/features/settings/resume-length.tsx
+msgid "Resume length"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
@@ -11857,6 +11883,10 @@ msgstr "Utas"
 #: src/features/career/workspace/apply.tsx
 msgid "Tighten"
 msgstr "Padatkan"
+
+#: src/features/assistant/assistant-panel.tsx
+msgid "Tighten to {pages} pages"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Tighten to one page"

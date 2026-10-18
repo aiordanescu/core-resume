@@ -25,6 +25,8 @@ export const user = pg.pgTable(
 		twoFactorEnabled: pg.boolean("two_factor_enabled").notNull().default(false),
 		/** Where the user's times are shown (Settings → Preferences); an IANA name. */
 		timezone: pg.text("timezone").notNull().default("UTC"),
+		/** How many pages a resume may run to before the editor flags overflow (Settings → Preferences). */
+		resumePages: pg.integer("resume_pages").notNull().default(1),
 		lastActiveAt: pg.timestamp("last_active_at", { withTimezone: true }),
 		role: pg.text("role").default("user"),
 		banned: pg.boolean("banned").default(false),
