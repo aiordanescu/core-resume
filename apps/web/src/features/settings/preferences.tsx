@@ -10,6 +10,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { cn } from "@reactive-resume/utils/style";
+import { PaletteTiles } from "./palette";
 import { RemindersSection } from "./reminders";
 import { ResumeLengthSection } from "./resume-length";
 import { SettingsSection } from "./section";
@@ -35,6 +36,7 @@ export function PreferencesSettings() {
 		<>
 			<SettingsSection title={<Trans>Appearance</Trans>}>
 				<ThemeTiles />
+				<PaletteTiles />
 				<p className="text-xs text-ink-3">
 					<Trans>Resumes always render on white paper, whatever the theme.</Trans>
 				</p>

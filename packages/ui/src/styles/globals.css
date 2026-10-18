@@ -114,6 +114,81 @@
 	--shadow-page: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 36px -12px oklch(0 0 0 / 0.6);
 }
 
+/*
+ * Cobalt palette (Overreactive Resume, the default): GitHub's Primer neutrals with a blue accent. The tokens above are
+ * the Original palette. `data-palette` on <html> is set before first paint (index.html) and by ThemeProvider.
+ * Danger, warn, the other stages and motion are shared. Info moves to violet so it doesn't read as the accent.
+ */
+:root[data-palette="cobalt"] {
+	--stage-saved: oklch(0.64 0.02 255); /* #8D949C */
+}
+
+:root[data-palette="cobalt"]:not(.dark) {
+	--bg: oklch(0.978 0.003 248); /* #F6F8FA */
+	--surface: oklch(1 0 0); /* #FFFFFF */
+	--raised: oklch(1 0 0); /* #FFFFFF */
+	--sunken: oklch(0.957 0.005 248); /* #EEF1F4 */
+	--line: oklch(0.881 0.013 244); /* #D1D9E0 */
+	--line-2: oklch(0.804 0.017 251); /* #B7C0CA */
+	--ink: oklch(0.254 0.011 254); /* #1F2328 */
+	--ink-2: oklch(0.405 0.018 251); /* #424A53 */
+	--ink-3: oklch(0.495 0.022 251); /* #59636E */
+	--accent: oklch(0.54 0.191 257); /* #0969DA */
+	--accent-hover: oklch(0.476 0.171 258); /* #0757BA */
+	--on-accent: oklch(1 0 0); /* #FFFFFF */
+	--accent-soft: oklch(0.954 0.028 228); /* #DDF4FF */
+	--accent-text: oklch(0.451 0.164 258); /* #0550AE */
+	--info-soft: oklch(0.966 0.025 318); /* #FBEFFF */
+	--info-text: oklch(0.563 0.207 295); /* #8250DF */
+	--hover: oklch(0.254 0.011 254 / 0.05);
+	--press: oklch(0.254 0.011 254 / 0.09);
+	--scrim: oklch(0.2 0.015 255 / 0.32);
+	--scrim-sheet: oklch(0.2 0.015 255 / 0.18);
+
+	--shadow-1: 0 1px 2px oklch(0.2 0.015 255 / 0.07);
+	--shadow-2: 0 1px 2px oklch(0.2 0.015 255 / 0.06), 0 10px 28px -8px oklch(0.2 0.015 255 / 0.18);
+	--shadow-3: 0 2px 6px oklch(0.2 0.015 255 / 0.08), 0 28px 64px -16px oklch(0.2 0.015 255 / 0.3);
+	--shadow-page: 0 1px 2px oklch(0.2 0.015 255 / 0.08), 0 12px 36px -12px oklch(0.2 0.015 255 / 0.25);
+}
+
+:root.dark[data-palette="cobalt"] {
+	--bg: oklch(0.176 0.014 258); /* #0D1117 */
+	--surface: oklch(0.22 0.018 256); /* #151B23 */
+	--raised: oklch(0.253 0.02 255); /* #1C232C */
+	--sunken: oklch(0.104 0.019 248); /* #010409 */
+	--line: oklch(0.33 0.015 252); /* #30363D */
+	--line-2: oklch(0.425 0.017 255); /* #484F58 */
+	--ink: oklch(0.97 0.01 248); /* #F0F6FC */
+	--ink-2: oklch(0.857 0.014 248); /* #C9D1D9 */
+	--ink-3: oklch(0.677 0.016 255); /* #9198A1 */
+	--accent: oklch(0.569 0.202 260); /* #1F6FEB */
+	--accent-hover: oklch(0.514 0.187 260); /* #1A5FD0, darker so white text keeps its contrast */
+	--on-accent: oklch(1 0 0); /* #FFFFFF */
+	--accent-soft: oklch(0.285 0.066 257); /* #132A4A */
+	--accent-text: oklch(0.715 0.152 253); /* #58A6FF */
+	--info-soft: oklch(0.26 0.059 296); /* #271D3D */
+	--info-text: oklch(0.732 0.167 302); /* #BC8CFF */
+}
+
+/* Rich text follows the palette's ink instead of Tailwind's warm stone greys, in both modes. */
+:root[data-palette="cobalt"] .wysiwyg {
+	--tw-prose-body: var(--ink-2);
+	--tw-prose-lead: var(--ink-2);
+	--tw-prose-headings: var(--ink);
+	--tw-prose-bold: var(--ink);
+	--tw-prose-links: var(--ink);
+	--tw-prose-quotes: var(--ink);
+	--tw-prose-code: var(--ink);
+	--tw-prose-kbd: var(--ink);
+	--tw-prose-counters: var(--ink-3);
+	--tw-prose-captions: var(--ink-3);
+	--tw-prose-bullets: var(--line-2);
+	--tw-prose-th-borders: var(--line-2);
+	--tw-prose-hr: var(--line);
+	--tw-prose-quote-borders: var(--line);
+	--tw-prose-td-borders: var(--line);
+}
+
 @media (prefers-reduced-motion: reduce) {
 	:root {
 		--d1: 1ms;

@@ -24,6 +24,7 @@ vi.mock("./orpc/client", () => ({
 
 vi.mock("./theme", () => ({
 	getTheme: () => "system",
+	getPalette: () => "cobalt",
 }));
 
 describe("loadRootContext", () => {

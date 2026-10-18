@@ -71,7 +71,7 @@ export function PageOverlay({ pageIndex, pageMap, onSelect }: PageOverlayProps) 
 						data-section-id={node.kind === "header" ? undefined : node.sectionId}
 						data-item-id={node.kind === "item" ? node.itemId : undefined}
 						className={cn(
-							"absolute cursor-pointer rounded-[4px] outline-[1.5px] transition-[background-color,outline-color] duration-quick outline-solid hover:bg-[oklch(0.5_0.1_150/0.06)]",
+							"absolute cursor-pointer rounded-[4px] outline-[1.5px] transition-[background-color,outline-color] duration-quick outline-solid hover:bg-accent/6",
 							selected ? "outline-accent" : "outline-transparent",
 						)}
 						style={{
@@ -93,7 +93,7 @@ export function PageOverlay({ pageIndex, pageMap, onSelect }: PageOverlayProps) 
 				<div
 					key={`style:${node.key}:${node.y}`}
 					data-slot="style-highlight"
-					className="pointer-events-none absolute rounded-[4px] bg-[oklch(0.5_0.1_150/0.08)] outline-[1.5px] outline-accent transition-opacity duration-quick ease-enter outline-dashed starting:opacity-0"
+					className="pointer-events-none absolute rounded-[4px] bg-accent/8 outline-[1.5px] outline-accent transition-opacity duration-quick ease-enter outline-dashed starting:opacity-0"
 					style={{
 						left: `calc(${(node.x / page.width) * 100}% - 4px)`,
 						top: `calc(${(node.y / page.height) * 100}% - 3px)`,

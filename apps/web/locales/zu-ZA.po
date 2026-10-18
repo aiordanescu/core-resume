@@ -2704,6 +2704,10 @@ msgstr ""
 msgid "Coach and Assistant replies"
 msgstr ""
 
+#: src/libs/theme.ts
+msgid "Cobalt"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
 msgstr ""
@@ -5305,6 +5309,10 @@ msgstr ""
 #: src/features/auth/components/social-auth.tsx
 #: src/features/settings/account/auth-hooks.ts
 msgid "GitHub"
+msgstr ""
+
+#: src/libs/theme.ts
+msgid "GitHub chrome, blue accent"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -8062,6 +8070,10 @@ msgstr ""
 msgid "Organization"
 msgstr ""
 
+#: src/libs/theme.ts
+msgid "Original"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Original page"
 msgstr ""
@@ -8154,6 +8166,10 @@ msgstr ""
 
 #: src/features/settings/resume-length.tsx
 msgid "Pages per resume"
+msgstr ""
+
+#: src/features/settings/palette.tsx
+msgid "Palette"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -12785,6 +12801,10 @@ msgstr ""
 
 #: src/features/applications/next-step.ts
 msgid "Waiting to hear back"
+msgstr ""
+
+#: src/libs/theme.ts
+msgid "Warm paper tones, green accent"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts

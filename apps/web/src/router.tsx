@@ -14,7 +14,7 @@ const supportsTransitionTypes = globalThis.CSS?.supports?.("selector(:active-vie
 export const getRouter = async () => {
 	const queryClient = getQueryClient();
 
-	const { theme, locale, session, flags } = await loadRootContext(queryClient);
+	const { theme, palette, locale, session, flags } = await loadRootContext(queryClient);
 
 	const router = createRouter({
 		routeTree,
@@ -32,7 +32,7 @@ export const getRouter = async () => {
 		defaultErrorComponent: ErrorScreen,
 		defaultPendingComponent: LoadingScreen,
 		defaultNotFoundComponent: NotFoundScreen,
-		context: { orpc, queryClient, theme, locale, session, flags },
+		context: { orpc, queryClient, theme, palette, locale, session, flags },
 	});
 
 	return router;

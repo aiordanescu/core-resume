@@ -3,7 +3,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import { getSession } from "./auth/session";
 import { getLocale, loadLocale } from "./locale";
 import { client } from "./orpc/client";
-import { getTheme } from "./theme";
+import { getPalette, getTheme } from "./theme";
 
 export const sessionQueryKey = ["auth", "session"] as const;
 const flagsQueryKey = ["flags"] as const;
@@ -14,6 +14,7 @@ const flagsQueryKey = ["flags"] as const;
 // calling `router.invalidate()`. Flags come from server env and only change on a restart.
 export async function loadRootContext(queryClient: QueryClient) {
 	const theme = getTheme();
+	const palette = getPalette();
 	const locale = getLocale();
 
 	const sessionPromise = queryClient
@@ -37,5 +38,5 @@ export async function loadRootContext(queryClient: QueryClient) {
 		loadLocale(locale),
 	]);
 
-	return { theme, locale, session, flags };
+	return { theme, palette, locale, session, flags };
 }
