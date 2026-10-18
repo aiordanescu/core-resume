@@ -2709,6 +2709,10 @@ msgstr "教练"
 msgid "Coach and Assistant replies"
 msgstr ""
 
+#: src/libs/theme.ts
+msgid "Cobalt"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
 msgstr "代码"
@@ -5311,6 +5315,10 @@ msgstr "越来越长。尝试“更短”，或者删除最不具体的段落。
 #: src/features/settings/account/auth-hooks.ts
 msgid "GitHub"
 msgstr "GitHub"
+
+#: src/libs/theme.ts
+msgid "GitHub chrome, blue accent"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Give every role a period, such as \"Jan 2020 - Present\", so your timeline can be reconstructed."
@@ -8067,6 +8075,10 @@ msgstr "橙色"
 msgid "Organization"
 msgstr "组织"
 
+#: src/libs/theme.ts
+msgid "Original"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Original page"
 msgstr "原页"
@@ -8159,6 +8171,10 @@ msgstr ""
 
 #: src/features/settings/resume-length.tsx
 msgid "Pages per resume"
+msgstr ""
+
+#: src/features/settings/palette.tsx
+msgid "Palette"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -12791,6 +12807,10 @@ msgstr "等待您处理"
 #: src/features/applications/next-step.ts
 msgid "Waiting to hear back"
 msgstr "等待回音"
+
+#: src/libs/theme.ts
+msgid "Warm paper tones, green accent"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Warning"

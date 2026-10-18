@@ -1,5 +1,5 @@
 import type { orpc } from "@/libs/orpc/client";
-import type { Theme } from "@/libs/theme";
+import type { Palette, Theme } from "@/libs/theme";
 import type { IconProps } from "@phosphor-icons/react";
 import type { FeatureFlags } from "@reactive-resume/api/features/flags";
 import type { AuthSession } from "@reactive-resume/auth/types";
@@ -32,6 +32,7 @@ import { getHomepageMeta } from "@/libs/seo";
 
 type RouterContext = {
 	theme: Theme;
+	palette: Palette;
 	locale: Locale;
 	orpc: typeof orpc;
 	queryClient: QueryClient;
@@ -53,7 +54,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 });
 
 function RootComponent() {
-	const { theme, locale, queryClient, session } = Route.useRouteContext();
+	const { theme, palette, locale, queryClient, session } = Route.useRouteContext();
 	const dir = isRTL(locale) ? "rtl" : "ltr";
 
 	// WebMCP: browser agents can list and open the signed-in user's documents from any page.
@@ -77,7 +78,7 @@ function RootComponent() {
 					<LazyMotion features={domMax}>
 						<I18nProvider i18n={i18n}>
 							<IconContext.Provider value={iconContextValue}>
-								<ThemeProvider theme={theme}>
+								<ThemeProvider theme={theme} palette={palette}>
 									<HotkeysProvider>
 										<DirectionProvider direction={dir}>
 											<TooltipProvider>

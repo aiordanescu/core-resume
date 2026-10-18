@@ -2709,6 +2709,10 @@ msgstr "Coach"
 msgid "Coach and Assistant replies"
 msgstr ""
 
+#: src/libs/theme.ts
+msgid "Cobalt"
+msgstr ""
+
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Code"
 msgstr "Codice"
@@ -5311,6 +5315,10 @@ msgstr "Diventando lungo. Prova \"Più breve\" o taglia il paragrafo meno specif
 #: src/features/settings/account/auth-hooks.ts
 msgid "GitHub"
 msgstr "GitHub"
+
+#: src/libs/theme.ts
+msgid "GitHub chrome, blue accent"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Give every role a period, such as \"Jan 2020 - Present\", so your timeline can be reconstructed."
@@ -8067,6 +8075,10 @@ msgstr "Arancione"
 msgid "Organization"
 msgstr "Organizzazione"
 
+#: src/libs/theme.ts
+msgid "Original"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Original page"
 msgstr "Pagina originale"
@@ -8159,6 +8171,10 @@ msgstr ""
 
 #: src/features/settings/resume-length.tsx
 msgid "Pages per resume"
+msgstr ""
+
+#: src/features/settings/palette.tsx
+msgid "Palette"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -12791,6 +12807,10 @@ msgstr "In attesa di te"
 #: src/features/applications/next-step.ts
 msgid "Waiting to hear back"
 msgstr "In attesa di una risposta"
+
+#: src/libs/theme.ts
+msgid "Warm paper tones, green accent"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Warning"

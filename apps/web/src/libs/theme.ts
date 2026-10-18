@@ -39,3 +39,36 @@ export const getTheme = () => {
 export const setThemeCookie = (theme: Theme) => {
 	Cookies.set(storageKey, theme);
 };
+
+const paletteSchema = z.union([z.literal("cobalt"), z.literal("original")]);
+
+/** The app's colors, applied on top of the light or dark appearance. Original is upstream's. */
+export type Palette = z.infer<typeof paletteSchema>;
+
+const paletteStorageKey = "palette";
+export const defaultPalette: Palette = "cobalt";
+
+export const paletteMap = {
+	cobalt: { name: msg`Cobalt`, description: msg`GitHub chrome, blue accent` },
+	original: { name: msg`Original`, description: msg`Warm paper tones, green accent` },
+} satisfies Record<Palette, { name: MessageDescriptor; description: MessageDescriptor }>;
+
+/** The browser bar color for each palette and appearance, matching `--bg`. index.html starts with Cobalt's. */
+export const paletteThemeColors = {
+	cobalt: { light: "#F6F8FA", dark: "#0D1117" },
+	original: { light: "#F8F7F3", dark: "#100F0C" },
+} satisfies Record<Palette, Record<ResolvedTheme, string>>;
+
+export function isPalette(palette: string): palette is Palette {
+	return paletteSchema.safeParse(palette).success;
+}
+
+export const getPalette = () => {
+	const palette = Cookies.get(paletteStorageKey);
+	if (!palette || !isPalette(palette)) return defaultPalette;
+	return palette;
+};
+
+export const setPaletteCookie = (palette: Palette) => {
+	Cookies.set(paletteStorageKey, palette);
+};

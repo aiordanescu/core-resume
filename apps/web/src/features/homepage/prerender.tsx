@@ -20,6 +20,7 @@ import { AtsCheckerPage } from "@/features/ats-checker/page";
 import { ThemeProvider } from "@/features/theme/provider";
 import { getLocaleMessages } from "@/libs/locale";
 import { getAtsCheckerMeta, getHomepageMeta } from "@/libs/seo";
+import { defaultPalette } from "@/libs/theme";
 import { Header } from "@/routes/_home/-sections/header";
 
 export const locales = localeSchema.options;
@@ -65,7 +66,7 @@ export async function renderPage(name: PrerenderedPage, locale: Locale) {
 			<QueryClientProvider client={new QueryClient()}>
 				<I18nProvider i18n={i18n}>
 					<IconContext.Provider value={iconContextValue}>
-						<ThemeProvider theme="system">
+						<ThemeProvider theme="system" palette={defaultPalette}>
 							<DirectionProvider direction={dir}>{page.render()}</DirectionProvider>
 						</ThemeProvider>
 					</IconContext.Provider>
