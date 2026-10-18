@@ -45,11 +45,11 @@ msgstr "“{value}” ends before it starts."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "“{value}” isn't a form systems recognise, such as Mar 2020 – Present."
-msgstr "“{value}” isn't a form systems recognise, such as Mar 2020 – Present."
+msgstr "“{value}” isn't a form systems recognize, such as Mar 2020 – Present."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "“{value}” isn't a form systems recognise, such as March 2022."
-msgstr "“{value}” isn't a form systems recognise, such as March 2022."
+msgstr "“{value}” isn't a form systems recognize, such as March 2022."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "“{value}” isn't a plain address like name@example.com."
@@ -992,7 +992,7 @@ msgstr "About 90 seconds when spoken"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Accent colour"
-msgstr "Accent colour"
+msgstr "Accent color"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Accent is used for headings, icons and the header band. Body text stays near-black for print and ATS."
@@ -1528,7 +1528,7 @@ msgstr "Alex Morgan"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align centre"
-msgstr "Align centre"
+msgstr "Align center"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Align left"
@@ -3667,7 +3667,7 @@ msgstr "Custom"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Custom colour (hex)"
-msgstr "Custom colour (hex)"
+msgstr "Custom color (hex)"
 
 #. Authentication provider display name in account settings
 #: src/features/settings/account/auth-hooks.ts
@@ -4485,7 +4485,7 @@ msgstr "Email Address"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
-msgstr "Email address won't be recognised"
+msgstr "Email address won't be recognized"
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -4990,7 +4990,7 @@ msgstr "Fit to one page"
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Fit, Apply, Prepare, Practise, Debrief and Messages. Facts that best match the posting go in first."
-msgstr "Fit, Apply, Prepare, Practise, Debrief and Messages. Facts that best match the posting go in first."
+msgstr "Fit, Apply, Prepare, Practice, Debrief and Messages. Facts that best match the posting go in first."
 
 #: src/features/resume/editor/design/fit.ts
 msgid "Fits on {authored} pages: {details}"
@@ -5257,7 +5257,7 @@ msgstr "Get a key at <0>{0}</0>. It's stored encrypted and used only for your re
 
 #: src/features/homepage/prepare.tsx
 msgid "Get a plan for the interview, built from the posting and your own stories. Practise out loud, then write down how it went."
-msgstr "Get a plan for the interview, built from the posting and your own stories. Practise out loud, then write down how it went."
+msgstr "Get a plan for the interview, built from the posting and your own stories. Practice out loud, then write down how it went."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Get feedback"
@@ -5346,7 +5346,7 @@ msgstr "Greeting"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Grey"
-msgstr "Grey"
+msgstr "Gray"
 
 #: src/features/documents/documents-page.tsx
 msgid "Grid"
@@ -5605,7 +5605,7 @@ msgstr "Icon"
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "Icon colour"
-msgstr "Icon colour"
+msgstr "Icon color"
 
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Icon…"
@@ -6728,7 +6728,7 @@ msgstr "Make the visible text and the destination match."
 
 #: src/features/ats-checker/messages.ts
 msgid "Make them visibly larger, bolder or capitalised."
-msgstr "Make them visibly larger, bolder or capitalised."
+msgstr "Make them visibly larger, bolder or capitalized."
 
 #: src/libs/locale.ts
 msgid "Malay"
@@ -7842,7 +7842,7 @@ msgstr "Only if you want it to. Add your own key from OpenAI, Anthropic, Google 
 
 #: src/features/ats-checker/messages.ts
 msgid "Only one recognisable section heading was found."
-msgstr "Only one recognisable section heading was found."
+msgstr "Only one recognizable section heading was found."
 
 #: src/features/resume/share/history-tab.tsx
 msgid "Only one version so far. Every editing session adds one automatically."
@@ -8484,23 +8484,23 @@ msgstr "Practice questions are simulated, not from Fieldnote."
 #: src/features/career/workspace/prepare.tsx
 #: src/features/homepage/prepare.tsx
 msgid "Practise"
-msgstr "Practise"
+msgstr "Practice"
 
 #: src/features/homepage/remember.tsx
 msgid "Practise · Your opening, about 40 seconds aloud"
-msgstr "Practise · Your opening, about 40 seconds aloud"
+msgstr "Practice · Your opening, about 40 seconds aloud"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Practise another question"
-msgstr "Practise another question"
+msgstr "Practice another question"
 
 #: src/features/homepage/prepare.tsx
 msgid "Practise your introduction once. Keep it to about 90 seconds."
-msgstr "Practise your introduction once. Keep it to about 90 seconds."
+msgstr "Practice your introduction once. Keep it to about 90 seconds."
 
 #: src/features/career/workspace/practise.tsx
 msgid "Practising your story: {storyTitle}"
-msgstr "Practising your story: {storyTitle}"
+msgstr "Practicing your story: {storyTitle}"
 
 #: src/features/ats-checker/messages.ts
 msgid "Prefer a single column, or keep the side column to short, self-contained lists."
@@ -10071,7 +10071,7 @@ msgstr "Sections · print order"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Sections use headings systems recognise, and work experience shows."
-msgstr "Sections use headings systems recognise, and work experience shows."
+msgstr "Sections use headings systems recognize, and work experience shows."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "See below"
@@ -10640,7 +10640,7 @@ msgstr "Some systems mishandle images, and photos are discouraged in some countr
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Some systems only recognise links that start with https://. This one reads as plain text: “{value}”."
-msgstr "Some systems only recognise links that start with https://. This one reads as plain text: “{value}”."
+msgstr "Some systems only recognize links that start with https://. This one reads as plain text: “{value}”."
 
 #: src/features/ats-checker/messages.ts
 msgid "Some text falls outside the page."
@@ -11289,7 +11289,7 @@ msgstr "Text Color"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Text colour"
-msgstr "Text colour"
+msgstr "Text color"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Text comes out in the order a person reads it, at a size and spacing that survive."
@@ -12466,7 +12466,7 @@ msgstr "Use a plain international form, such as +1 555 010 1234."
 
 #: src/features/ats-checker/messages.ts
 msgid "Use a recognised form such as \"Jan 2020 - Mar 2022\" or \"2020 - 2022\"."
-msgstr "Use a recognised form such as \"Jan 2020 - Mar 2022\" or \"2020 - 2022\"."
+msgstr "Use a recognized form such as \"Jan 2020 - Mar 2022\" or \"2020 - 2022\"."
 
 #: src/features/ats-checker/messages.ts
 msgid "Use a single column for anything that has to be read in sequence."
@@ -12882,7 +12882,7 @@ msgstr "What goes in it?"
 
 #: src/features/career/coach.tsx
 msgid "What interview answers should I practise?"
-msgstr "What interview answers should I practise?"
+msgstr "What interview answers should I practice?"
 
 #: src/features/career/offers.tsx
 msgid "What is the base salary, and is it negotiable?"
@@ -13155,7 +13155,7 @@ msgstr "Write one about something you did, in five parts. Leave a part blank unt
 
 #: src/features/ats-checker/messages.ts
 msgid "Write the full address so it is recognised as a link."
-msgstr "Write the full address so it is recognised as a link."
+msgstr "Write the full address so it is recognized as a link."
 
 #: src/features/career/workspace/fit.tsx
 msgid "Write what you did."
@@ -13193,7 +13193,7 @@ msgstr "Yes. Every feature is free: all {templates} templates, PDF and Word down
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
-msgstr "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
+msgstr "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practice out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
@@ -13239,7 +13239,7 @@ msgstr "You can keep up to 30 application questions."
 
 #: src/features/auth/pages/error.tsx
 msgid "You cancelled the sign-in before it finished."
-msgstr "You cancelled the sign-in before it finished."
+msgstr "You canceled the sign-in before it finished."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "You don't have a resume to copy yet. Import or create a resume first, then return to copy it for this job."
