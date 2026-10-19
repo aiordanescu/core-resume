@@ -902,10 +902,6 @@ msgstr "이번 라운드를 위한 집중 계획"
 msgid "A font is referenced but not embedded."
 msgstr "폰트가 참조되었지만 임베드되지 않았습니다."
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "6개 제품 팀이 사용하는 공용 디자인 시스템을 구축했�
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "채용 공고, Sam의 메시지, 가장 강력한 스토리 두 개를 바탕으로 만들었습니다."
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "내장 리더"
@@ -2310,6 +2298,10 @@ msgstr "목록 항목 {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "글머리 기호 목록"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "코치가 {0} 건으로 작성한 모든 내용, 최신순."
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "지금까지 수행한 모든 작업이 한 페이지에 표시됩니다."
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

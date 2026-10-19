@@ -902,10 +902,6 @@ msgstr "Bu tur için odaklı bir plan"
 msgid "A font is referenced but not embedded."
 msgstr "Bir yazı tipine başvuruluyor ancak gömülü değil."
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "Altı ürün ekibinin kullandığı ortak bir tasarım sistemi kurdum."
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "İlandan, Sam'in mesajından ve en güçlü iki hikayenizden hazırlandı."
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Dahili okuyucu"
@@ -2310,6 +2298,10 @@ msgstr "liste girişi {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Madde işaretli liste"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "Koçun {0} için yazdığı her şey, en yenisi önce."
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "Yaptığınız her şey tek sayfada."
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

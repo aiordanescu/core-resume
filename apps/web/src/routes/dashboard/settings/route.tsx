@@ -27,7 +27,7 @@ const getProjectLinks = () => [
 	{ href: `${githubUrl}/tree/main/docs`, label: t`Docs` },
 	{ href: githubUrl, label: t`Source` },
 	{ href: `${githubUrl}/issues`, label: t`Report a bug` },
-	{ href: "https://github.com/reactive-resume/reactive-resume", label: t`Built on Reactive Resume` },
+	{ href: "https://github.com/reactive-resume/reactive-resume", label: t`Evolved from Reactive Resume` },
 ];
 
 export const Route = createFileRoute("/dashboard/settings")({ component: RouteComponent });

@@ -902,10 +902,6 @@ msgstr "Un plan concreto para esta ronda"
 msgid "A font is referenced but not embedded."
 msgstr "Se hace referencia a una fuente que no está incrustada."
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "Creé un sistema de diseño compartido que usan seis equipos de producto
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Creado a partir del anuncio, el mensaje de Sam y tus dos mejores historias."
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Lector incorporado"
@@ -2310,6 +2298,10 @@ msgstr "entrada de lista {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Lista con viñetas"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "Todo lo que el coach ha escrito para {0}, de lo más reciente a lo más 
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "Todo lo que has hecho, en una sola página."
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

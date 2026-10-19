@@ -39,7 +39,7 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 	},
 	{
 		id: "upstream",
-		title: t`Built on`,
+		title: t`Evolved from`,
 		links: [
 			{ label: "Reactive Resume", href: upstreamUrl },
 			{ label: t`Its documentation`, href: "https://docs.rxresu.me" },
@@ -78,14 +78,14 @@ export function LandingFooter() {
 					<div className="flex flex-col gap-1 font-ui text-[13px] leading-normal text-ink-3">
 						<p>
 							<Trans>
-								A fork of{" "}
+								By{" "}
 								<a
-									href={upstreamUrl}
+									href="https://www.linkedin.com/in/aiordanescu"
 									className="text-accent-text underline underline-offset-[3px] transition-colors hover:text-accent-hover"
 								>
-									Reactive Resume
-								</a>{" "}
-								by Amruth Pillai.
+									Alex Iordanescu
+								</a>
+								.
 							</Trans>
 						</p>
 						<p>
