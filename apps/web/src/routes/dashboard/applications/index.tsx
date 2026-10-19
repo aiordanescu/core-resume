@@ -31,19 +31,19 @@ import { getNextStep, useNoReplyDays } from "@/features/applications/next-step";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { ENTER_CLASS } from "@/libs/motion";
 
-const VIEWS = ["list", "board", "insights", "calendar"] as const;
+const VIEWS = ["board", "list", "insights", "calendar"] as const;
 type View = (typeof VIEWS)[number];
 
 const searchSchema = z.object({
 	q: z.string().default("").catch(""),
-	view: z.enum(VIEWS).default("list").catch("list"),
+	view: z.enum(VIEWS).default("board").catch("board"),
 	closed: z.boolean().default(false).catch(false),
 	// Deep links: open Add, or one application.
 	create: z.boolean().default(false).catch(false),
 	applicationId: z.string().optional().catch(undefined),
 });
 type Search = z.output<typeof searchSchema>;
-const defaultSearch: Search = { q: "", view: "list", closed: false, create: false };
+const defaultSearch: Search = { q: "", view: "board", closed: false, create: false };
 
 export const Route = createFileRoute("/dashboard/applications/")({
 	component: RouteComponent,
@@ -168,16 +168,16 @@ function RouteComponent() {
 							}}
 						>
 							<TabsList aria-label={t`View`}>
-								<TabsTrigger value="list">
-									<Icon name="rows" size={18} />
-									<Trans>List</Trans>
-								</TabsTrigger>
 								{!phone && (
 									<TabsTrigger value="board">
 										<Icon name="kanban" size={18} />
 										<Trans>Board</Trans>
 									</TabsTrigger>
 								)}
+								<TabsTrigger value="list">
+									<Icon name="rows" size={18} />
+									<Trans>List</Trans>
+								</TabsTrigger>
 								<TabsTrigger value="insights">
 									<Icon name="chart-line-up" size={18} />
 									<Trans>Insights</Trans>
