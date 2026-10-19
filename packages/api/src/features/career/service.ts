@@ -3,7 +3,7 @@ import type z from "zod";
 import { createHash } from "node:crypto";
 import { isDeepStrictEqual } from "node:util";
 import { ORPCError } from "@orpc/client";
-import { and, desc, eq, inArray, isNull, or, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, isNull, ne, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as tables from "@reactive-resume/db/schema";
 import { buildMarkdown } from "@reactive-resume/resume/markdown";
@@ -18,7 +18,7 @@ import {
 	type careerStoryInputSchema,
 	type SavedItemData,
 } from "@reactive-resume/schema/career";
-import { storyHolds } from "@reactive-resume/utils/knowledge";
+import { factPromptChars, groupAncestors, nearestGroupSetting, storyHolds } from "@reactive-resume/utils/knowledge";
 import { generateId } from "@reactive-resume/utils/string";
 import { requestRunCancellation } from "../agent/cancellation";
 import { applicationService, recordSentResume } from "../applications/service";
@@ -33,6 +33,26 @@ const visible = (column: typeof tables.careerFact.applicationId, applicationId?:
 	applicationId ? or(isNull(column), eq(column, applicationId)) : isNull(column);
 const ownedFact = (id: string, userId: string) =>
 	and(eq(tables.careerFact.id, id), eq(tables.careerFact.userId, userId));
+/** Facts in a group, and with `subgroups` in every group under it too. */
+const inFactGroup = (group: string, subgroups = true) =>
+	subgroups
+		? or(eq(tables.careerFact.group, group), sql`starts_with(${tables.careerFact.group}, ${`${group}/`})`)
+		: eq(tables.careerFact.group, group);
+/** Facts a switch can change: not forgotten. */
+const switchable = inArray(tables.careerFact.status, ["active", "excluded"]);
+type FactSwitch = "active" | "excluded";
+
+/** How a new fact in this group starts: as the group, or its nearest parent, was last switched. */
+async function groupStatus(tx: CareerTransaction, userId: string, group: string): Promise<FactSwitch> {
+	const rows = await tx
+		.select({ group: tables.careerFactGroup.group, status: tables.careerFactGroup.status })
+		.from(tables.careerFactGroup)
+		.where(
+			and(eq(tables.careerFactGroup.userId, userId), inArray(tables.careerFactGroup.group, groupAncestors(group))),
+		);
+	const settings = new Map(rows.flatMap((row) => (row.status ? [[row.group, row.status] as const] : [])));
+	return nearestGroupSetting(group, settings) === "excluded" ? "excluded" : "active";
+}
 
 export async function requireCareerApplication(input: Owned & { interviewId?: string | null | undefined }) {
 	if (!input.applicationId) {
@@ -321,7 +341,9 @@ export const careerService = {
 		return limits;
 	},
 	/** Facts the coach can use for an application (or shared ones). `all` lists every scope, for Knowledge. */
-	facts: async (input: Owned & { query?: string | undefined; all?: boolean | undefined }) => {
+	facts: async (
+		input: Owned & { query?: string | undefined; all?: boolean | undefined; group?: string | undefined },
+	) => {
 		await requireCareerApplication(input);
 		const rows = await db
 			.select({ fact: tables.careerFact, company: tables.application.company, ...factUsage })
@@ -335,6 +357,7 @@ export const careerService = {
 					input.query?.trim()
 						? sql`to_tsvector('simple', ${tables.careerFact.text}) @@ plainto_tsquery('simple', ${input.query.trim()})`
 						: undefined,
+					input.group ? inFactGroup(input.group) : undefined,
 				),
 			)
 			.orderBy(desc(tables.careerFact.createdAt), desc(tables.careerFact.id));
@@ -376,10 +399,11 @@ export const careerService = {
 				)
 				.limit(1);
 			if (suppressed) return null;
+			const status = input.group ? await groupStatus(tx, userId, input.group) : "active";
 			// A forgotten source key remains a content-free tombstone; retries cannot recreate the fact.
 			const [fact] = await tx
 				.insert(tables.careerFact)
-				.values({ userId, ...input, sourceKey })
+				.values({ userId, ...input, group: input.group ?? null, status, sourceKey })
 				.onConflictDoNothing()
 				.returning();
 			return fact ?? null;
@@ -390,8 +414,10 @@ export const careerService = {
 		input: {
 			id: string;
 			text?: string | undefined;
-			status?: "active" | "excluded" | undefined;
+			status?: FactSwitch | undefined;
 			share?: boolean | undefined;
+			/** Moves the fact to a group, or out of any with null. Its switch stays as it is. */
+			group?: string | null | undefined;
 		},
 	) => {
 		const updated = await db.transaction(async (tx) => {
@@ -409,6 +435,7 @@ export const careerService = {
 						: {}),
 					...(input.status ? { status: input.status } : {}),
 					...(input.share ? { applicationId: null } : {}),
+					...(input.group !== undefined ? { group: input.group } : {}),
 				})
 				.where(ownedFact(input.id, userId))
 				.returning();
@@ -435,6 +462,113 @@ export const careerService = {
 			await invalidateMemory(userId, id, tx, true);
 		});
 	},
+	/** Switches or regroups many facts at once; forgotten ones are skipped. Returns how many changed. */
+	updateFacts: (
+		userId: string,
+		input: { ids: string[]; status?: FactSwitch | undefined; group?: string | null | undefined },
+	) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			if (input.status === undefined && input.group === undefined) return { updated: 0 };
+			const rows = await tx
+				.update(tables.careerFact)
+				.set({
+					...(input.status ? { status: input.status } : {}),
+					...(input.group !== undefined ? { group: input.group } : {}),
+				})
+				.where(and(eq(tables.careerFact.userId, userId), inArray(tables.careerFact.id, input.ids), switchable))
+				.returning({ id: tables.careerFact.id });
+			if (input.status && rows[0]) await invalidateMemory(userId, rows[0].id, tx);
+			return { updated: rows.length };
+		}),
+	/**
+	 * Every group with facts or settings, plus ungrouped facts (group null): how many facts are switched on and off, the
+	 * size of the shared switched-on ones as actions measure it, and how the group was last switched.
+	 */
+	factGroups: async (userId: string) => {
+		const [facts, settings] = await Promise.all([
+			db
+				.select({
+					id: tables.careerFact.id,
+					text: tables.careerFact.text,
+					category: tables.careerFact.category,
+					status: tables.careerFact.status,
+					applicationId: tables.careerFact.applicationId,
+					group: tables.careerFact.group,
+				})
+				.from(tables.careerFact)
+				.where(and(eq(tables.careerFact.userId, userId), switchable)),
+			db.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId)),
+		]);
+		const groups = new Map<
+			string | null,
+			{
+				group: string | null;
+				status: FactSwitch | null;
+				facts: { active: number; excluded: number };
+				activeChars: number;
+			}
+		>();
+		const entry = (group: string | null) => {
+			let found = groups.get(group);
+			if (!found)
+				groups.set(group, (found = { group, status: null, facts: { active: 0, excluded: 0 }, activeChars: 0 }));
+			return found;
+		};
+		for (const setting of settings)
+			entry(setting.group).status =
+				setting.status === "active" || setting.status === "excluded" ? setting.status : null;
+		for (const fact of facts) {
+			const group = entry(fact.group);
+			if (fact.status === "active") {
+				group.facts.active += 1;
+				if (fact.applicationId === null) group.activeChars += factPromptChars(fact);
+			} else group.facts.excluded += 1;
+		}
+		return [...groups.values()].sort((a, b) =>
+			a.group === null ? 1 : b.group === null ? -1 : a.group.localeCompare(b.group),
+		);
+	},
+	/**
+	 * Switches every fact in a group on or off (with `subgroups`, every group under it too) and remembers it, so facts
+	 * added to the group later start the same way. Subgroups switched with it drop their own setting and follow it.
+	 */
+	setFactGroupStatus: (userId: string, input: { group: string; status: FactSwitch; subgroups: boolean }) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			// Facts already in that state keep their updatedAt, so nothing else counts them as changed.
+			const rows = await tx
+				.update(tables.careerFact)
+				.set({ status: input.status })
+				.where(
+					and(
+						eq(tables.careerFact.userId, userId),
+						inFactGroup(input.group, input.subgroups),
+						switchable,
+						ne(tables.careerFact.status, input.status),
+					),
+				)
+				.returning({ id: tables.careerFact.id });
+			await tx
+				.insert(tables.careerFactGroup)
+				.values({ userId, group: input.group, status: input.status })
+				.onConflictDoUpdate({
+					target: [tables.careerFactGroup.userId, tables.careerFactGroup.group],
+					set: { status: input.status, updatedAt: new Date() },
+				});
+			if (input.subgroups)
+				await tx
+					.update(tables.careerFactGroup)
+					.set({ status: null })
+					.where(
+						and(
+							eq(tables.careerFactGroup.userId, userId),
+							sql`starts_with(${tables.careerFactGroup.group}, ${`${input.group}/`})`,
+						),
+					);
+			if (rows[0]) await invalidateMemory(userId, rows[0].id, tx);
+			return { updated: rows.length };
+		}),
 	stories: async (input: Owned) => {
 		await requireCareerApplication(input);
 		return db
@@ -1050,6 +1184,7 @@ export const careerService = {
 			jobs,
 			transcripts,
 			workspaces,
+			factGroups,
 		] = await Promise.all([
 			careerService.profile(userId),
 			db.select().from(tables.careerFact).where(eq(tables.careerFact.userId, userId)),
@@ -1064,6 +1199,7 @@ export const careerService = {
 			db.select().from(tables.careerJob).where(eq(tables.careerJob.userId, userId)),
 			db.select().from(tables.careerTranscript).where(eq(tables.careerTranscript.userId, userId)),
 			db.select().from(tables.careerWorkspace).where(eq(tables.careerWorkspace.userId, userId)),
+			db.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId)),
 		]);
 		return {
 			profile,
@@ -1079,6 +1215,7 @@ export const careerService = {
 			jobs,
 			transcripts,
 			workspaces,
+			factGroups,
 		};
 	},
 };

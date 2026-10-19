@@ -35,9 +35,17 @@ vi.mock("@/libs/orpc/client", () => {
 	return {
 		orpc: {
 			career: Object.fromEntries(
-				["facts", "stories", "profile", "savedItems", "saveStory", "saveProfile", "saveFact", "updateFact"].map(
-					(name) => [name, endpoint(name)],
-				),
+				[
+					"facts",
+					"stories",
+					"profile",
+					"savedItems",
+					"saveStory",
+					"saveProfile",
+					"saveFact",
+					"updateFact",
+					"factGroups",
+				].map((name) => [name, endpoint(name)]),
 			),
 		},
 		client: { career: { saveProfile: api.saveProfile } },
@@ -314,4 +322,47 @@ it.each([
 			expect.objectContaining({ minBase: { amount, currency: "EUR", period: "year" } }),
 		),
 	);
+});
+
+it("filters facts by group, subgroups included, and adds new facts to the chosen group", async () => {
+	const fact = (id: string, text: string, group: string | null) => ({
+		id,
+		text,
+		group,
+		category: "accomplishment",
+		status: "active",
+		applicationId: null,
+		company: null,
+		usedBy: { stories: 0, savedItems: 0 },
+		revisions: [],
+		source: { kind: "manual", id, quote: text },
+		createdAt: "2026-10-01T00:00:00.000Z",
+		updatedAt: "2026-10-01T00:00:00.000Z",
+	});
+	api.data.facts = [
+		fact("acme", "I ran the Acme migration.", "experience/acme"),
+		fact("globex", "I led Globex incident reviews.", "experience/globex"),
+		fact("loose", "I mentor engineers.", null),
+	];
+	api.saveFact.mockResolvedValue(null);
+	mount(<FactsPage highlight={undefined} />);
+	const select = await screen.findByRole("combobox", { name: "Group" });
+	// The row's group label and the filter's option.
+	expect(screen.getAllByText("experience/acme")).toHaveLength(2);
+
+	fireEvent.change(select, { target: { value: "group:experience" } });
+	expect(screen.getByText("I ran the Acme migration.")).toBeTruthy();
+	expect(screen.getByText("I led Globex incident reviews.")).toBeTruthy();
+	expect(screen.queryByText("I mentor engineers.")).toBeNull();
+
+	fireEvent.change(select, { target: { value: "none" } });
+	expect(screen.getByText("I mentor engineers.")).toBeTruthy();
+	expect(screen.queryByText("I ran the Acme migration.")).toBeNull();
+
+	fireEvent.change(select, { target: { value: "group:experience/acme" } });
+	const input = screen.getByRole("textbox", { name: "New fact" });
+	fireEvent.change(input, { target: { value: "I cut Acme's deploy time in half." } });
+	fireEvent.click(screen.getByRole("button", { name: "Add" }));
+	await waitFor(() => expect(api.saveFact).toHaveBeenCalled());
+	expect(api.saveFact.mock.calls[0]?.[0]).toMatchObject({ group: "experience/acme", applicationId: null });
 });

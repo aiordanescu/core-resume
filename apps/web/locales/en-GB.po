@@ -373,6 +373,13 @@ msgstr "{0} of {1} tailored applications got a reply; {2} of {3} sent with anoth
 msgid "{0} of {1} terms found"
 msgstr "{0} of {1} terms found"
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#. placeholder {2}: number.format(node.activeChars)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · {2} characters"
+msgstr "{0} on · {1} off · {2} characters"
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -741,6 +748,14 @@ msgstr "{type} · {0} days left"
 #: src/features/documents/document-card.tsx
 msgid "{type} · Edited {0}"
 msgstr "{type} · Edited {0}"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
+msgstr "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} on.} other {Switched # facts in {group} on.}}"
+msgstr "{updated, plural, one {Switched # fact in {group} on.} other {Switched # facts in {group} on.}}"
 
 #: src/features/career/offers.tsx
 msgid "{value} a month"
@@ -1115,6 +1130,10 @@ msgstr "Add"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "Add “{0}”"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Add a fact to {group}"
+msgstr "Add a fact to {group}"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
@@ -1584,6 +1603,10 @@ msgstr "All applications (including closed)"
 #: src/features/settings/account/data.tsx
 msgid "All documents and applications as JSON, in one zip"
 msgstr "All documents and applications as JSON, in one zip"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "All groups"
+msgstr "All groups"
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -3536,6 +3559,10 @@ msgstr "Couldn't switch connections."
 msgid "Couldn't switch models."
 msgstr "Couldn't switch models."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't switch that group."
+msgstr "Couldn't switch that group."
+
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
 msgstr "Couldn't transcribe. Your recording is still here."
@@ -5433,6 +5460,22 @@ msgstr "Grey"
 msgid "Grid"
 msgstr "Grid"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Group"
+msgstr "Group"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group for this fact"
+msgstr "Group for this fact"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group, for example experience/acme"
+msgstr "Group, for example experience/acme"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Groups"
+msgstr "Groups"
+
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
 msgstr "Happy to walk you through it on our call."
@@ -7321,6 +7364,10 @@ msgstr "New document"
 msgid "New fact"
 msgstr "New fact"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "new facts start off"
+msgstr "new facts start off"
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New key"
 msgstr "New key"
@@ -7487,6 +7534,14 @@ msgstr "No facts to link yet. Add them in Facts."
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "No facts yet. Add one above."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "No group"
+msgstr "No group"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
+msgstr "No groups yet. Give a fact a group in Facts, or set one through the API."
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
@@ -7675,6 +7730,12 @@ msgstr "not found"
 #: src/features/ats-checker/checker.tsx
 msgid "Not found: {0}"
 msgstr "Not found: {0}"
+
+#. placeholder {0}: number.format(ungrouped.facts.active)
+#. placeholder {1}: number.format(ungrouped.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "Not in a group: {0} on · {1} off"
+msgstr "Not in a group: {0} on · {1} off"
 
 #: src/features/career/offers.tsx
 msgid "Not in either offer yet"
@@ -9345,6 +9406,10 @@ msgstr "Remove field"
 msgid "Remove file"
 msgstr "Remove file"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Remove from group"
+msgstr "Remove from group"
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Remove person {0}"
@@ -9877,6 +9942,10 @@ msgstr "Save correction"
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "Save first, then test search and reading. No test runs automatically."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Save group"
+msgstr "Save group"
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Save interview"
@@ -10475,6 +10544,10 @@ msgstr "Show {title} on the page"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Show again"
 msgstr "Show again"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Show all groups"
+msgstr "Show all groups"
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Show all types"
@@ -11177,6 +11250,28 @@ msgstr "Swap the start and end dates."
 #: src/libs/locale.ts
 msgid "Swedish"
 msgstr "Swedish"
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} off"
+msgstr "Switch {0} off"
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} on"
+msgstr "Switch {0} on"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgstr "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all off"
+msgstr "Switch all off"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all on"
+msgstr "Switch all on"
 
 #: src/features/homepage/remember.tsx
 msgid "Switch it off"

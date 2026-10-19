@@ -115,6 +115,7 @@ export const authRouter = {
 					jobs: z.array(createSelectSchema(schema.careerJob)),
 					transcripts: z.array(createSelectSchema(schema.careerTranscript)),
 					workspaces: z.array(createSelectSchema(schema.careerWorkspace, { data: careerWorkspaceSchema })),
+					factGroups: z.array(createSelectSchema(schema.careerFactGroup)),
 				}),
 			}),
 		)

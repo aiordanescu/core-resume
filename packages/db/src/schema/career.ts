@@ -56,8 +56,34 @@ export const careerFact = pg.pgTable(
 		sourceKey: pg.text("source_key").notNull(),
 		status: pg.text("status").notNull().default("active"),
 		revisions: pg.jsonb("revisions").notNull().$type<Array<{ text: string; at: string }>>().default([]),
+		/** A path such as `experience/acme`, for switching related facts together; null when ungrouped. */
+		group: pg.text("group"),
 	},
-	(t) => [pg.index().on(t.userId, t.applicationId, t.status), pg.uniqueIndex().on(t.userId, t.sourceKey)],
+	(t) => [
+		pg.index().on(t.userId, t.applicationId, t.status),
+		pg.uniqueIndex().on(t.userId, t.sourceKey),
+		pg.index().on(t.userId, t.group),
+	],
+);
+/** Settings of one fact group. A subgroup without its own setting follows its nearest parent. */
+export const careerFactGroup = pg.pgTable(
+	"career_fact_group",
+	{
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		group: pg.text("group").notNull(),
+		/** How the group was last switched, so a fact added to it starts the same way; null starts it switched on. */
+		status: pg.text("status"),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+		updatedAt: pg
+			.timestamp("updated_at", { withTimezone: true })
+			.notNull()
+			.defaultNow()
+			.$onUpdate(() => new Date()),
+	},
+	(t) => [pg.primaryKey({ columns: [t.userId, t.group] })],
 );
 export const careerStory = pg.pgTable(
 	"career_story",

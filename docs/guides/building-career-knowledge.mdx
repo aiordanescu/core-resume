@@ -93,6 +93,14 @@ Linked story text remains yours, but its supporting links are cleared and the st
 
 After you correct, switch off or forget a fact, older interview debriefs remain in **Saved** but are left out of the coach's interview history. New debriefs can use your updated Knowledge.
 
+## Group facts and switch them together
+
+Put related facts in a group, such as one per job or a group for anything you rarely want sent. Select **Group** on a fact and type a name, or pick one already in use. Use slashes for levels: `experience/acme` sits under `experience`. To add facts straight into a group, choose it in the **Group** filter first; new facts you add go into it.
+
+**Career → Knowledge → Curate → Groups** lists every group with how many of its facts are switched on and off and how many characters its switched-on shared facts add to the budget. **Switch all on** and **Switch all off** change every fact in the group and its subgroups at once. A fact added to the group later starts the way the group was last switched, so a group you switched off stays off as it grows. Switching a parent group again also resets any subgroup you switched on its own.
+
+The same controls are in the API and MCP: `GET /career/facts/groups` lists groups, `POST /career/facts/groups/status` switches one (the group goes in the body, since its path can contain slashes), `PATCH /career/facts` switches or regroups many facts by id, and `GET /career/facts?group=` lists one group's facts.
+
 ## Choose how much Knowledge goes with each request
 
 Every AI request carries only part of your switched-on Knowledge, so the whole request fits your model, and each request has a time limit. **Settings → AI & developer → AI limits** sets both:

@@ -2,7 +2,10 @@ import { describe, expect, it } from "vitest";
 import {
 	ACTION_CONTEXT_CHARS,
 	factPromptChars,
+	groupAncestors,
+	inGroup,
 	knowledgeBudget,
+	nearestGroupSetting,
 	promptStory,
 	storyHolds,
 	storyPromptChars,
@@ -83,5 +86,26 @@ describe("knowledgeBudget", () => {
 		expect(budget.tokens.used).toBe(Math.ceil((100 + ACTION_CONTEXT_CHARS) / 4));
 		expect(budget.overContext).toBe(true);
 		expect(knowledgeBudget({ facts, stories: [], limits, contextTokens: null }).overContext).toBe(false);
+	});
+});
+
+describe("groups", () => {
+	it("counts subgroups as part of a group, but not groups that only share a prefix", () => {
+		expect(inGroup("experience/acme", "experience")).toBe(true);
+		expect(inGroup("experience", "experience")).toBe(true);
+		expect(inGroup("experienced", "experience")).toBe(false);
+		expect(inGroup(null, "experience")).toBe(false);
+	});
+
+	it("lists a group's ancestors nearest first and applies the nearest setting", () => {
+		expect(groupAncestors("a/b/c")).toEqual(["a/b/c", "a/b", "a"]);
+		const settings = new Map([
+			["a", "excluded"],
+			["a/b/c", "active"],
+		]);
+		expect(nearestGroupSetting("a/b/c/d", settings)).toBe("active");
+		expect(nearestGroupSetting("a/b", settings)).toBe("excluded");
+		expect(nearestGroupSetting("z", settings)).toBeUndefined();
+		expect(nearestGroupSetting(null, settings)).toBeUndefined();
 	});
 });
