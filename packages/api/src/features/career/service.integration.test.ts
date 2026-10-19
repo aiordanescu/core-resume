@@ -712,7 +712,9 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		// This is the account-deletion database boundary; file removal is outside this database fixture.
 		await getDb().delete(tables.user).where(eq(tables.user.id, "alice"));
 		const remaining = await service.exportData("alice");
-		for (const [key, value] of Object.entries(remaining)) if (key !== "profile") expect(value, key).toEqual([]);
+		for (const [key, value] of Object.entries(remaining))
+			if (key !== "profile" && key !== "review") expect(value, key).toEqual([]);
+		expect(remaining.review).toBeNull();
 		expect(await getDb().select().from(tables.careerProfile).where(eq(tables.careerProfile.userId, "alice"))).toEqual(
 			[],
 		);
