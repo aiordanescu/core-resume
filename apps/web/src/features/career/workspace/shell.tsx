@@ -33,6 +33,7 @@ import { PrepareTab } from "./prepare";
 import { SavedTab } from "./saved";
 import { ApplicationNotes } from "@/features/applications/components/application-notes";
 import { InterviewDialog } from "@/features/applications/components/interview-dialog";
+import { ViewPostingButton } from "@/features/applications/components/posting-dialog";
 import { buildIcs } from "@/features/applications/ics";
 import { formatDuration, interviewKindOf, isInterview } from "@/features/applications/interviews";
 import { describeNextStep, getNextStep, useNoReplyDays } from "@/features/applications/next-step";
@@ -413,19 +414,9 @@ function WorkspaceHeader({ application, onAskCoach }: WorkspaceHeaderProps) {
 						</span>
 						{application.location && <span>· {application.location}</span>}
 						{sent && <span>· {t`Applied ${date(application.appliedAt)}`}</span>}
-						{application.sourceUrl && (
-							<a
-								href={application.sourceUrl}
-								target="_blank"
-								rel="noreferrer"
-								className="underline underline-offset-3 hover:text-ink"
-							>
-								<Trans>View posting</Trans>
-							</a>
-						)}
 					</p>
 				</div>
-				<div className="flex items-center gap-4">
+				<div className="flex flex-wrap items-center gap-x-4 gap-y-2">
 					{application.status !== "closed" && (
 						<div aria-hidden="true" className="hidden gap-1 lg:flex">
 							{PIPELINE.map((stage, index) => (
@@ -436,6 +427,7 @@ function WorkspaceHeader({ application, onAskCoach }: WorkspaceHeaderProps) {
 							))}
 						</div>
 					)}
+					<ViewPostingButton application={application} />
 					{application.status === "offer" && (
 						<Link to="/dashboard/career/offers" className={cn(buttonVariants({ variant: "secondary" }))}>
 							<Icon name="scales" size={18} />

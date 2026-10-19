@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "បិទភ្ជាប់សោរបស់អ្នក។"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "បានបិទភ្ជាប់ការពិពណ៌នា"
 
@@ -9932,7 +9932,7 @@ msgstr "ប្រវត្តិរូបសង្ខេបត្រូវបា
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "បានទាញយក {0} ដោយប្រើ {1} ។ ពេលវេលាទាញយកមិនបង្កើតភាពស្រស់នៃប្រភពដើមទេ។"
 
@@ -12056,7 +12056,7 @@ msgstr "ការប្រកាសការងារស្នើសុំ \"{la
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "ការប្រកាសការងារមិនអាចអានបានទេ។ បំពេញតួនាទី និងក្រុមហ៊ុន។"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ការប្រកាសការងារដែលបានរក្សាទុកជាមួយពាក្យសុំការងារនេះ។"
 
@@ -12405,7 +12405,7 @@ msgstr "ប្រវត្តិរូបសង្ខេបនេះត្រូ
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ការកំណត់​ការចែករំលែក​របស់​ប្រវត្តិរូបសង្ខេប​នេះ​ត្រូវ​បាន​ផ្លាស់ប្តូរ​នៅកន្លែង​ផ្សេង។"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ការពិពណ៌នាដែលបានរក្សាទុកនេះត្រូវបានខ្ទាស់ ឬមិនពេញលេញ។ ពិនិត្យមុនពេលរៀបចំឯកសារ។"
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "មើលពាក្យសុំការងារ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "មើលការប្រកាសការងារ"
 
@@ -13422,7 +13421,7 @@ msgstr "តើប្រាក់ខែគោលប៉ុន្មាន ហើ�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "តើភាគហ៊ុនមានតម្លៃប៉ុន្មានថ្ងៃនេះ៖ តម្លៃអនុវត្ត ការវាយតម្លៃចុងក្រោយ ការទទួលសិទ្ធិ (vesting) និងរយៈពេលអនុវត្ត?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "អ្វីដែលវាស្នើសុំ"
 

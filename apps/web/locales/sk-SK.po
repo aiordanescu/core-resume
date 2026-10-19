@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Prilepte svoj kľúč"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Prilepený popis"
 
@@ -9932,7 +9932,7 @@ msgstr "vytvorené životopisy"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Získané {0} pomocou {1}. Čas načítania neurčuje čerstvosť pôvodu."
 
@@ -12056,7 +12056,7 @@ msgstr "Pracovná ponuka vyžaduje „{label}“. Ak je to pre mňa pravda, zapr
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Pracovnú ponuku sa nepodarilo prečítať. Vyplňte rolu a spoločnosť."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Pracovná ponuka bola uložená s touto žiadosťou o zamestnanie."
 
@@ -12405,7 +12405,7 @@ msgstr "Tento životopis bol aktualizovaný agentom umelej inteligencie."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Nastavenia zdieľania tohto životopisu sa zmenili inde."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Tento uložený popis je orezaný alebo neúplný. Pred prípravou dokumentov skontrolujte."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Zobraziť žiadosť o zamestnanie"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Zobraziť ponuku práce"
 
@@ -13422,7 +13421,7 @@ msgstr "Aký je základný plat a dá sa o ňom vyjednávať?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Akú hodnotu majú akcie dnes: realizačná cena, posledné ocenenie, vesting a lehota na uplatnenie?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Čo žiada"
 

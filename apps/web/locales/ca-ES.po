@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Enganxeu la vostra clau"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Descripció enganxada"
 
@@ -9932,7 +9932,7 @@ msgstr "currículums creats"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "S'ha recuperat {0} mitjançant {1}. El temps de recuperació no estableix la frescor de l'origen."
 
@@ -12056,7 +12056,7 @@ msgstr "L'oferta de feina demana \"{label}\". Si és cert per a mi, introduïu-l
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "No s'ha pogut llegir l'oferta de feina. Ompliu el rol i la companyia."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "L'oferta de feina s'ha desat amb aquesta sol·licitud de feina."
 
@@ -12405,7 +12405,7 @@ msgstr "Aquest currículum ha estat actualitzat per un agent d'IA."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "La configuració de compartició d'aquest currículum ha canviat en altres llocs."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Aquesta descripció desada està retallada o està incompleta. Revisar abans de preparar els documents."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Veure sol·licitud de feina"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Veure la publicació de feina"
 
@@ -13422,7 +13421,7 @@ msgstr "Quin és el salari base i és negociable?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Quant valen avui les accions: preu d'exercici, darrera valoració, consolidació i termini d'exercici?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "El que demana"
 

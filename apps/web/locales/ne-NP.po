@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "आफ्नो कुञ्जी टाँस्नुहोस्"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "टाँसिएको विवरण"
 
@@ -9932,7 +9932,7 @@ msgstr "रिज्युमेहरू सिर्जना गरियो"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} प्रयोग गरेर {0} पुनःप्राप्त गरियो। पुन: प्राप्ति समयले मूल ताजगी स्थापित गर्दैन।"
 
@@ -12056,7 +12056,7 @@ msgstr "जागिर पोस्टिङले \"{label}\" को लाग
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "जागिरको पोस्टिङ पढ्न सकिएन। भूमिका र कम्पनी भर्नुहोस्।"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "जागिरको पोस्टिङ यस जागिर आवेदनको साथ सुरक्षित गरियो।"
 
@@ -12405,7 +12405,7 @@ msgstr "यो बायोडाटा एक एआई एजेन्टद�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "यो रिजुमेको सेयरिङ सेटिङहरू अन्यत्र परिवर्तन गरियो।"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "यो सुरक्षित गरिएको विवरण क्लिप वा अपूर्ण छ। कागजातहरू तयार गर्नु अघि समीक्षा गर्नुहोस्।"
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "जागिरको आवेदन हेर्नुहोस्"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "जागिर पोस्टिङ हेर्नुहोस्"
 
@@ -13422,7 +13421,7 @@ msgstr "आधारभूत तलब कति हो, र के यसम�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "आज इक्विटीको मूल्य कति छ: स्ट्राइक मूल्य, पछिल्लो मूल्याङ्कन, भेस्टिङ र एक्सरसाइज अवधि?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "यसले के माग्छ"
 

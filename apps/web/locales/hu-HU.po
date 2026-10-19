@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Illessze be a kulcsot"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Leírás beillesztve"
 
@@ -9932,7 +9932,7 @@ msgstr "önéletrajzok készültek"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "A {0} letöltve a {1} használatával. A visszakeresési idő nem határozza meg az eredet frissességét."
 
@@ -12056,7 +12056,7 @@ msgstr "Az álláshirdetés „{label}”-t kér. Ha ez igaz rám, írd be az ö
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Az álláshirdetést nem lehetett elolvasni. Töltse ki a szerepet és a társaságot."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Az álláshirdetés ezzel az álláspályázattal mentve."
 
@@ -12405,7 +12405,7 @@ msgstr "Ezt az önéletrajzot egy mesterséges intelligencia által fejlesztett 
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Az önéletrajz megosztási beállításai máshol módosultak."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Ez a mentett leírás kivágott vagy hiányos. A dokumentumok elkészítése előtt tekintse át."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Állásjelentkezés megtekintése"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Álláshirdetés megtekintése"
 
@@ -13422,7 +13421,7 @@ msgstr "Mennyi az alapfizetés, és van-e alku lehetőség?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Mennyit ér ma a részesedés: lehívási ár, legutóbbi cégérték, vesting és lehívási időablak?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Mit kér"
 

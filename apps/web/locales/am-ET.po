@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "ቁልፍህን ለጥፍ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "የተለጠፈ መግለጫ"
 
@@ -9932,7 +9932,7 @@ msgstr "የትምህርት ማስረጃዎች ተፈጥረዋል።"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} በመጠቀም የተገኘ {0}። የመልሶ ማግኛ ጊዜ የመነሻ ትኩስነትን አይመሰርትም።"
 
@@ -12056,7 +12056,7 @@ msgstr "የሥራ ማስታወቂያው \"{label}\" ይጠይቃል። ለእኔ
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "የሥራ ማስታወቂያው ሊነበብ አልቻለም። ሚናውን እና ኩባንያውን ይሙሉ።"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ከዚህ የሥራ ማመልከቻ ጋር የተቀመጠው የሥራ ማስታወቂያ።"
 
@@ -12405,7 +12405,7 @@ msgstr "ይህ የስራ ልምድ በAI ወኪል ተዘምኗል።"
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "የዚህ የስራ ልምድ ማጋሪያ ቅንብሮች በሌላ ቦታ ተቀይረዋል።"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ይህ የተቀመጠ መግለጫ የተቀነጨበ ወይም ያልተጠናቀቀ ነው። ሰነዶችን ከማዘጋጀትዎ በፊት ይከልሱ."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "የሥራ ማመልከቻ ይመልከቱ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "የሥራ ማስታወቂያውን ይመልከቱ"
 
@@ -13422,7 +13421,7 @@ msgstr "መሠረታዊ ደመወዙ ምን ያህል ነው፣ ለድርድር�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "የአክሲዮን ድርሻው ዛሬ ዋጋው ስንት ነው፦ የመግዣ ዋጋ፣ የቅርብ ጊዜ የዋጋ ግምት፣ የባለቤትነት መብት ጊዜ እና የመግዣ መስኮት?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "ምን ይጠይቃል"
 

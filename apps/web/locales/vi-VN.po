@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Dán chìa khóa của bạn"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Đã dán mô tả"
 
@@ -9932,7 +9932,7 @@ msgstr "sơ yếu lý lịch được tạo"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Đã truy xuất {0} bằng {1}. Thời gian truy xuất không quyết định độ tươi của nguồn gốc."
 
@@ -12056,7 +12056,7 @@ msgstr "Tin tuyển dụng yêu cầu “{label}”. Nếu điều đó đúng v
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Không thể đọc được tin tuyển dụng. Điền vào vai trò và công ty."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Tin tuyển dụng được lưu cùng với đơn xin việc này."
 
@@ -12405,7 +12405,7 @@ msgstr "Bản lý lịch này đã được cập nhật bởi một tác nhân 
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Cài đặt chia sẻ sơ yếu lý lịch này đã được thay đổi ở nơi khác."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Mô tả đã lưu này bị cắt bớt hoặc không đầy đủ. Xem xét trước khi chuẩn bị hồ sơ."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Xem đơn xin việc"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Xem tin tuyển dụng"
 
@@ -13422,7 +13421,7 @@ msgstr "Lương cơ bản là bao nhiêu và có thể thương lượng không?
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Cổ phần hiện trị giá bao nhiêu: giá thực hiện, định giá gần nhất, lộ trình nhận cổ phần và thời hạn thực hiện?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Nó yêu cầu cái gì"
 

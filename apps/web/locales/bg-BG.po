@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Поставете вашия ключ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Поставено описание"
 
@@ -9932,7 +9932,7 @@ msgstr "създадени автобиографии"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Извлечено {0} с помощта на {1}. Времето за извличане не установява свежестта на произхода."
 
@@ -12056,7 +12056,7 @@ msgstr "Обявата за работа изисква „{label}“. Ако е
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Обявата за работа не можа да бъде прочетена. Попълнете ролята и компанията."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Обявата за работа е запазена с това заявление за работа."
 
@@ -12405,7 +12405,7 @@ msgstr "Това резюме е актуализирано от агент с �
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Настройките за споделяне на това резюме са променени другаде."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Това запазено описание е изрязано или непълно. Преглед преди подготовка на документи."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Преглед на кандидатурата за работа"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Вижте обявата за работа"
 
@@ -13422,7 +13421,7 @@ msgstr "Каква е основната заплата и подлежи ли �
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Колко струва днес дяловото участие: цена на упражняване, последна оценка, график на придобиване и срок за упражняване?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Какво иска"
 

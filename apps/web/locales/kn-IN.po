@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "ನಿಮ್ಮ ಕೀಲಿಯನ್ನು ಅಂಟಿಸಿ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "ಅಂಟಿಸಿದ ವಿವರಣೆ"
 
@@ -9932,7 +9932,7 @@ msgstr "ರೆಸ್ಯೂಮೆಗಳನ್ನು ರಚಿಸಲಾಗಿದ�
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} ಬಳಸಿಕೊಂಡು {0} ಅನ್ನು ಮರುಪಡೆಯಲಾಗಿದೆ. ಮರುಪಡೆಯುವಿಕೆ ಸಮಯವು ಮೂಲ ತಾಜಾತನವನ್ನು ಸ್ಥಾಪಿಸುವುದಿಲ್ಲ."
 
@@ -12056,7 +12056,7 @@ msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಮಾಡುವಿಕೆಯು \"{
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ಓದಲಾಗಲಿಲ್ಲ. ಪಾತ್ರ ಮತ್ತು ಕಂಪನಿಯನ್ನು ಭರ್ತಿ ಮಾಡಿ."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ಈ ಉದ್ಯೋಗ ಅರ್ಜಿಯೊಂದಿಗೆ ಉಳಿಸಲಾದ ಉದ್ಯೋಗ ಪೋಸ್ಟ್."
 
@@ -12405,7 +12405,7 @@ msgstr "ಈ ರೆಸ್ಯೂಮ್ ಅನ್ನು AI ಏಜೆಂಟ್ ನ�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ಈ ರೆಸ್ಯೂಮ್‌ನ ಹಂಚಿಕೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಬೇರೆಡೆ ಬದಲಾಗಿವೆ."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ಈ ಉಳಿಸಿದ ವಿವರಣೆಯನ್ನು ಕ್ಲಿಪ್ ಮಾಡಲಾಗಿದೆ ಅಥವಾ ಅಪೂರ್ಣವಾಗಿದೆ. ದಾಖಲೆಗಳನ್ನು ಸಿದ್ಧಪಡಿಸುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "ಉದ್ಯೋಗ ಅರ್ಜಿಯನ್ನು ವೀಕ್ಷಿಸಿ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "ಉದ್ಯೋಗ ಪೋಸ್ಟ್ ಅನ್ನು ವೀಕ್ಷಿಸಿ"
 
@@ -13422,7 +13421,7 @@ msgstr "ಮೂಲ ವೇತನ ಎಷ್ಟು, ಮತ್ತು ಅದು ಮಾ
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "ಈಕ್ವಿಟಿಯ ಇಂದಿನ ಮೌಲ್ಯ ಎಷ್ಟು: ಸ್ಟ್ರೈಕ್ ಬೆಲೆ, ಇತ್ತೀಚಿನ ಮೌಲ್ಯಮಾಪನ, ವೆಸ್ಟಿಂಗ್ ಮತ್ತು ಎಕ್ಸರ್ಸೈಸ್ ಅವಧಿ?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "ಅದು ಏನು ಕೇಳುತ್ತದೆ"
 

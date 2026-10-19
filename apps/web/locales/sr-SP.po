@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Налепите свој кључ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Налепљен опис"
 
@@ -9932,7 +9932,7 @@ msgstr "креирани резимеи"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Преузето {0} помоћу {1}. Време преузимања не утврђује свежину порекла."
 
@@ -12056,7 +12056,7 @@ msgstr "Оглас за посао тражи „{label}“. Ако је то т
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Оглас за посао није могао да се прочита. Попуните улогу и друштво."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Оглас за посао је сачуван са овом пријавом за посао."
 
@@ -12405,7 +12405,7 @@ msgstr "Овај животопис је ажурирао вештачки аг�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Подешавања дељења ове биографије су промењена на другом месту."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Овај сачувани опис је исечен или некомплетан. Прегледајте пре припреме докумената."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Погледајте пријаву за посао"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Погледајте оглас за посао"
 
@@ -13422,7 +13421,7 @@ msgstr "Колика је основна плата и да ли је о њој 
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Колико власнички удео вреди данас: цена извршења, последња процена вредности, стицање права и рок за извршење?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Оно што тражи"
 
