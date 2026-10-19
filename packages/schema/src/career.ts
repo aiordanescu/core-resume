@@ -106,6 +106,33 @@ export const factSwitchSchema = z.enum(["active", "excluded"]);
 /** A fact's status as it can be set: switched on or off, or archived (kept, hidden, never sent; switch it to restore). */
 export const factStatusSchema = z.enum(["active", "excluded", "archived"]);
 
+/** What a Knowledge review found: facts that disagree, an older figure next to a newer one, or a claim with nothing behind it. */
+export const knowledgeFindingSchema = z.object({
+	id: z.string(),
+	kind: z.enum(["contradiction", "superseded", "unsupported"]),
+	factIds: z.array(z.string()).min(1).max(4),
+	/** One plain sentence on what's wrong. */
+	note: z.string().max(400),
+	/** For superseded facts: the newer one to keep. */
+	keep: z.string().nullable(),
+	/** fixed when acted on, dismissed when it isn't a problem; null while open. */
+	resolved: z.enum(["fixed", "dismissed"]).nullable(),
+});
+export type KnowledgeFinding = z.infer<typeof knowledgeFindingSchema>;
+
+/** The last Knowledge review: when, on which connection, how much it read, and what it found. */
+export const knowledgeReviewSchema = z.object({
+	at: z.string(),
+	connection: z.string(),
+	/** Facts it read, of those that reach the AI; the rest didn't fit the batches it may send. */
+	reviewed: z.number().int(),
+	total: z.number().int(),
+	/** Application copies of shared facts it removed before reading, which needs no judgment. */
+	cleaned: z.number().int(),
+	findings: z.array(knowledgeFindingSchema),
+});
+export type KnowledgeReview = z.infer<typeof knowledgeReviewSchema>;
+
 /** An application's exception: include a group or fact the AI wouldn't otherwise get, or exclude one it would. */
 export const overrideModeSchema = z.enum(["include", "exclude"]);
 

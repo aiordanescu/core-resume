@@ -6,6 +6,7 @@ import {
 	careerScopeSchema,
 	careerStoryInputSchema,
 	careerWorkspaceSchema,
+	knowledgeReviewSchema,
 	factGroupSchema,
 	factStatusSchema,
 	factSwitchSchema,
@@ -26,6 +27,7 @@ import {
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { generateCareer } from "./generate";
 import { careerJobs } from "./jobs";
+import { knowledgeReview } from "./review";
 import { careerService } from "./service";
 import { careerVoiceRouter } from "./voice";
 
@@ -318,6 +320,42 @@ export const careerRouter = {
 		.input(id.extend({ into: z.string().min(1) }))
 		.output(updatedOutput)
 		.handler(({ context, input }) => careerService.mergeFact(context.user.id, input)),
+	review: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/career/knowledge/review",
+			tags: ["Career"],
+			operationId: "getCareerKnowledgeReview",
+			summary: "Get the last Knowledge review",
+		})
+		.input(z.object({}).optional())
+		.output(knowledgeReviewSchema.nullable())
+		.handler(({ context }) => knowledgeReview.get(context.user.id)),
+	runReview: protectedProcedure
+		.use(aiRequestRateLimit)
+		.route({
+			method: "POST",
+			path: "/career/knowledge/review",
+			tags: ["Career"],
+			operationId: "runCareerKnowledgeReview",
+			summary: "Review Knowledge with AI",
+			description:
+				"First removes application copies of shared facts, which needs no judgment. Then asks the default AI connection to flag facts that contradict each other, older figures a newer fact replaces, and claims with nothing to check them by, among the shared facts that reach the AI; private groups, switched-off and archived facts are never sent. Requests stay within the action budgets and time limit. Replaces the last review.",
+		})
+		.input(z.object({}).optional())
+		.output(knowledgeReviewSchema)
+		.handler(({ context, signal }) => knowledgeReview.run({ userId: context.user.id, ...(signal ? { signal } : {}) })),
+	resolveFinding: protectedProcedure
+		.route({
+			method: "PATCH",
+			path: "/career/knowledge/review/{id}",
+			tags: ["Career"],
+			operationId: "resolveCareerKnowledgeFinding",
+			summary: "Mark a Knowledge review finding fixed or dismissed",
+		})
+		.input(id.extend({ resolved: z.enum(["fixed", "dismissed"]).nullable() }))
+		.output(knowledgeReviewSchema)
+		.handler(({ context, input }) => knowledgeReview.resolve(context.user.id, input)),
 	factGroups: protectedProcedure
 		.route({
 			method: "GET",

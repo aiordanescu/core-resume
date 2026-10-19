@@ -25,8 +25,20 @@ vi.mock("@reactive-resume/db/client", () => ({
 vi.mock("../applications/ai", () => ({ generateJson: fixture.generate }));
 vi.mock("../ai-providers/service", () => ({
 	aiProvidersService: {
-		getRunnableById: async () => ({ id: "fixture", provider: "openai", model: "fixture", apiKey: "synthetic" }),
-		getDefaultRunnable: async () => ({ id: "fixture", provider: "openai", model: "fixture", apiKey: "synthetic" }),
+		getRunnableById: async () => ({
+			id: "fixture",
+			label: "Fixture",
+			provider: "openai",
+			model: "fixture",
+			apiKey: "synthetic",
+		}),
+		getDefaultRunnable: async () => ({
+			id: "fixture",
+			label: "Fixture",
+			provider: "openai",
+			model: "fixture",
+			apiKey: "synthetic",
+		}),
 	},
 }));
 vi.mock("../ai/service", () => ({ getModel: () => ({}) }));
@@ -700,7 +712,9 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		// This is the account-deletion database boundary; file removal is outside this database fixture.
 		await getDb().delete(tables.user).where(eq(tables.user.id, "alice"));
 		const remaining = await service.exportData("alice");
-		for (const [key, value] of Object.entries(remaining)) if (key !== "profile") expect(value, key).toEqual([]);
+		for (const [key, value] of Object.entries(remaining))
+			if (key !== "profile" && key !== "review") expect(value, key).toEqual([]);
+		expect(remaining.review).toBeNull();
 		expect(await getDb().select().from(tables.careerProfile).where(eq(tables.careerProfile.userId, "alice"))).toEqual(
 			[],
 		);
@@ -1087,6 +1101,37 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 				(row) => row.applicationId === "alice-other" && row.status !== "archived",
 			),
 		).toEqual([]);
+	});
+
+	it("reviews only facts the AI may read, stores the findings and settles them one by one", async () => {
+		const { knowledgeReview } = await import("./review");
+		const old = await grouped("alice", "I led a team of 8 in 2023.", "work");
+		const now = await grouped("alice", "I lead a team of 12 since 2025.", "work");
+		await grouped("alice", "I hold an active clearance.", "clearance");
+		await service.saveFactGroup("alice", { group: "clearance", private: true });
+		const off = await fact("alice", "A switched-off fact.");
+		await service.updateFact("alice", { id: off.id, status: "excluded" });
+		fixture.generate.mockResolvedValue({
+			findings: [{ kind: "superseded", factIds: [old.id, now.id], note: "The team grew.", keep: now.id }],
+		});
+
+		const review = await knowledgeReview.run({ userId: "alice" });
+		const prompt = String(fixture.generate.mock.calls[0]?.[1]?.prompt);
+		expect(prompt).toContain("team of 8");
+		expect(prompt).not.toContain("clearance");
+		expect(prompt).not.toContain("switched-off");
+		expect(review).toMatchObject({ reviewed: 2, total: 2, findings: [{ kind: "superseded", keep: now.id }] });
+		expect(await knowledgeReview.get("alice")).toEqual(review);
+		expect(await knowledgeReview.get("bob")).toBeNull();
+
+		const findingId = review.findings[0]?.id ?? "";
+		expect((await knowledgeReview.resolve("alice", { id: findingId, resolved: "fixed" })).findings[0]?.resolved).toBe(
+			"fixed",
+		);
+		await expect(knowledgeReview.resolve("bob", { id: findingId, resolved: "fixed" })).rejects.toMatchObject({
+			code: "NOT_FOUND",
+		});
+		expect((await service.exportData("alice")).review?.findings[0]?.resolved).toBe("fixed");
 	});
 
 	it("keeps AI limits per account and apart from preferences", async () => {

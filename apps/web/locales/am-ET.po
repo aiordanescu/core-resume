@@ -72,6 +72,10 @@ msgstr "\"{written}\" ወደ ችሎታዎች ታክሏል።"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“የኦንቦርዲንግ ዳግም ዲዛይኑን እንዴት ለኩት?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(ራስጌ የለም)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {የመመርመሪያዎን # ምንባብ በማንበ
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {# እውነታ ይታወስ?} other {# እውነታዎች ይታወሱ?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "የአንድ ሞዴል አስተያየት, ፍርድ አይደለም. �
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "ስም እንደ \"ስራ ላፕቶፕ\" ያሉ የይለፍ ቁልፎችን ለመለየት ይረዳዎታል።"
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "ዓረብኛ"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "በማህደር የተቀመጠ (ይዘጋዋል)"
@@ -2647,6 +2664,10 @@ msgstr "{0} በመፈተሽ ላይ"
 msgid "Checking against Knowledge"
 msgstr "ከእውቀት ጋር በማረጋገጥ ላይ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "አቀማመጥ እና ይዘት በመፈተሽ ላይ"
@@ -2957,6 +2978,7 @@ msgstr "የ AI አቅራቢን ያገናኙ"
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "ረዳቱን ለመጠቀም ከላይ ያለውን AI አቅራቢ ያገናኙ። ስራዎችን ማስቀመጥ እና ማዘጋጀት አያስፈልግም."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "ግልባጭ ይቅዱ"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "አስተካክል"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "ቁልፉን መሻር አልተቻለም።"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "ያንን ለውጥ ማስቀመጥ አልተቻለም።"
 
@@ -6353,6 +6380,10 @@ msgstr "ተደጋጋሚ ራስጌዎችን አጭር ያድርጉ፣ ወይም �
 msgid "Keep the evidence precise"
 msgstr "ማስረጃውን ትክክለኛ ያድርጉ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "ፓነሉን ከገጹ አጠገብ ያቆዩት።"
@@ -6436,6 +6467,10 @@ msgstr "እውቀት መጫን አልቻለም። ከመላክዎ በፊት እ�
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "ኮሪያኛ"
@@ -6482,6 +6517,14 @@ msgstr "መጨረሻ የተቀየረው በ{0} ነው።"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "መጨረሻ የተስተካከለው"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "ኖርዌጂያንኛ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "አልተተገበረም"
@@ -7990,6 +8037,10 @@ msgstr "እዚህ ምንም ነገር ዋጋ ሊያስከፍልዎ አይገባ�
 msgid "Nothing is applied for or created until you choose."
 msgstr "እርስዎ እስኪመርጡ ድረስ ምንም ማመልከቻ አይቀርብም ወይም አይፈጠርም።"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "ምንም ነገር ሚናን እንደ ቀጣይ አያመለክትም።"
@@ -8018,6 +8069,10 @@ msgstr "እስካሁን ምንም መርሐ ግብር አልተያዘም።"
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "የሚተገበር ነገር የለም"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "የሚጠየቁ ጥያቄዎች"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "የንድፍ ሉህ ከፍ ያድርጉት"
@@ -9337,6 +9396,10 @@ msgstr "ማንበብ ይሰራል"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "መልስዎን በማንበብ ላይ"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "ይህ የይለፍ ቃል ይወገድ?"
 msgid "Remove this photo?"
 msgstr "ይህ ፎቶ ይወገድ?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "እንደገና በመሞከር ላይ…"
 msgid "Review"
 msgstr "ግምገማ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "ረቂቁን ገምግም"
@@ -9909,6 +9984,10 @@ msgstr "መልሴን ገምግም"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "«መልሴን ገምግም» ጥያቄውን፣ ያሉትን፣ ይህን የሥራ ማስታወቂያ እና እውቀትዎን ወደ {providerName} ይልካል።"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "መልዕክትዎን፣ ይህን ማመልከቻ (የሥራ ማስታ�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "የመመዝገቢያ ጽሁፍዎን ከቁልፍዎ ጋር ወደ {0} · {1} ብቻ ይልካል።"
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "የሪሴምዩ ቅድመ እይታ ሊዘመን አልቻለም። የ�
 msgid "The review couldn't finish. Try again."
 msgstr "ግምገማው መጨረስ አልቻለም። እንደገና ይሞክሩ።"
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "ተመሳሳይ መስመር በእያንዳንዱ ገጽ ላይ ይደጋገማል።"
@@ -12092,6 +12180,10 @@ msgstr "ምንም የማጠቃለያ አንቀጽ የለም።"
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "እነዚህ ሲያመለክቱ የተቀመጡ መልሶች ናቸው።"
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
