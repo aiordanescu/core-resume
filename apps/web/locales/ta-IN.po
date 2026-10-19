@@ -380,6 +380,12 @@ msgstr "{0} சொற்களில் {1} கண்டறியப்பட்
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "ஒரு தேதி வரம்பு பெரும்பாலா
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "ஒரு தேதி படிக்கப்படாது"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "மற்றும் எண்ணுதல்"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "மேலும் ஒவ்வொரு பொது இணைப்பும் நிரந்தரமாக அகற்றப்படும். இதை செயல்தவிர்க்க முடியாது."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "கோப்பை இணைக்க முடியவில்லை.
 msgid "Couldn't change it."
 msgstr "அதை மாற்ற முடியவில்லை."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "வடிவமைப்பை மாற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
@@ -3238,6 +3260,10 @@ msgstr "மின்னஞ்சலை மாற்ற முடியவில�
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "அட்டவணையை மாற்ற முடியவில்லை."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "மேம்படுத்துகிறது…"
 msgid "In good company"
 msgstr "நல்ல நிறுவனத்தில்"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "இரண்டு வரிகள் ஒன்றாக இணையாமல் இருக்க வரி இடைவெளியை அதிகரிக்கவும்."
@@ -6172,6 +6211,11 @@ msgstr "கன்னடம்"
 msgid "Keep"
 msgstr "வைத்துக்கொள்"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "ஒரே ஒரு முகவரியை மட்டும் வைத்திருங்கள்; அப்போது எதைப் பயன்படுத்துவது என்று மென்பொருள் யூகிக்க வேண்டியிருக்காது."
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "அறிவுத் தளத்தை ஏற்ற முடியவில்லை. அனுப்பும் முன் மீண்டும் முயற்சிக்கவும் அல்லது அறிவுத் தளத்தை அணைக்கவும்."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "கொரியன்"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "இணைப்பை அகற்ற அதை காலியாக விடவும்."
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "வெளியே விடுங்கள்"
 
@@ -6428,6 +6477,10 @@ msgstr "ஆன்போர்டிங் மறுவடிவமைப்ப�
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "விட்டு"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "ஒரே நேரத்தில் முதல் {MAX_IMPORT} வ�
 msgid "Only the first pages were checked."
 msgstr "முதல் பக்கங்கள் மட்டுமே சரிபார்க்கப்பட்டன."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "இவற்றை நீங்கள் மட்டுமே பார்க்கிறீர்கள்"
@@ -8800,9 +8857,18 @@ msgstr "அனுப்புவதற்கு முன் படிவத்�
 msgid "Printing is turned off for this resume."
 msgstr "இந்த ரெஸ்யூமிற்கு அச்சிடுதல் முடக்கப்பட்டுள்ளது."
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "தனிப்பட்டது"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "இணைப்புகளை அடிக்கோடிடவும�
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

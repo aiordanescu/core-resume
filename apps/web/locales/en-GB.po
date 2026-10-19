@@ -380,6 +380,12 @@ msgstr "{0} of {1} terms found"
 msgid "{0} on · {1} off · {2} characters"
 msgstr "{0} on · {1} off · {2} characters"
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr "{0} on · {1} off · private, never sent unless an application includes it"
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "A date range is written in a form most software cannot read."
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "A date won't be read"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr "A fact"
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "and counting"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "and every public link are removed permanently. This can't be undone."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr "Another group"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr "Another group…"
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "Couldn't attach the file."
 msgid "Couldn't change it."
 msgstr "Couldn't change it."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr "Couldn't change that group."
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "Couldn't change the design. Try again."
@@ -3238,6 +3260,10 @@ msgstr "Couldn't change the email. Try again."
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "Couldn't change the schedule."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr "Couldn't change this application's Knowledge."
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "Improving…"
 msgid "In good company"
 msgstr "In good company"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr "Include"
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr "Include {0} for this job"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr "Included for this job"
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "Increase line spacing so two lines are not merged into one."
@@ -6172,6 +6211,11 @@ msgstr "Kannada"
 msgid "Keep"
 msgstr "Keep"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr "Keep {0} private"
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "Keep a single address, so software does not have to guess which one to use."
@@ -6304,6 +6348,10 @@ msgstr "Knowledge budget"
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr "Knowledge for this job"
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korean"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "Leave it empty to remove the link."
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "Leave out"
 
@@ -6428,6 +6477,10 @@ msgstr "Led research for the onboarding redesign; activation rose from 31% to 44
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "Left"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr "Left out for this job"
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "Only the first {MAX_IMPORT} rows import at once, leaving out {overflow}.
 msgid "Only the first pages were checked."
 msgstr "Only the first pages were checked."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "Only you see these"
@@ -8800,9 +8857,18 @@ msgstr "Print or export the form to a flat PDF before sending it."
 msgid "Printing is turned off for this resume."
 msgstr "Printing is turned off for this resume."
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Private"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr "Private (parent)"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr "Private, not sent"
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,8 +11328,8 @@ msgid "Switch {0} on"
 msgstr "Switch {0} on"
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
-msgstr "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
+msgstr "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 
 #: src/features/career/knowledge/groups.tsx
 msgid "Switch all off"
@@ -12494,6 +12560,7 @@ msgstr "Underline links"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

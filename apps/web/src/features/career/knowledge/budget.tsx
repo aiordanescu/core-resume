@@ -9,9 +9,10 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
-import { knowledgeBudget, storyHolds } from "@reactive-resume/utils/knowledge";
+import { knowledgeBudget, reachesAi, storyHolds } from "@reactive-resume/utils/knowledge";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
+import { useKnowledgeRules } from "./groups";
 import { contextWindow, modelSuggestionsQuery } from "@/features/settings/ai/catalog";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -27,6 +28,7 @@ export function useKnowledgeBudget() {
 	const facts = useQuery(orpc.career.facts.queryOptions({ input: FACTS_INPUT }));
 	const stories = useQuery(orpc.career.stories.queryOptions({ input: { applicationId: null } }));
 	const limits = useQuery(orpc.career.aiLimits.queryOptions());
+	const knowledge = useKnowledgeRules(null);
 	const { usableProviders } = useHasUsableAiProvider();
 	const catalog = useQuery(modelSuggestionsQuery);
 	// The list is in the server's automatic order, so the first usable connection is the one actions use.
@@ -35,14 +37,18 @@ export function useKnowledgeBudget() {
 	const contextTokens = provider?.contextTokens ?? listed;
 
 	const queries = [facts, stories, limits];
-	if (!facts.data || !stories.data || !limits.data)
+	if (!facts.data || !stories.data || !limits.data || !knowledge.loaded)
 		return {
 			budget: null,
 			provider,
-			isError: queries.some((query) => query.isError),
-			retry: () => queries.forEach((query) => void query.refetch()),
+			isError: queries.some((query) => query.isError) || knowledge.isError,
+			retry: () => {
+				queries.forEach((query) => void query.refetch());
+				knowledge.retry();
+			},
 		} as const;
-	const active = facts.data.filter((fact) => fact.applicationId === null && fact.status === "active");
+	// Private groups never reach the AI outside an application that includes them.
+	const active = facts.data.filter((fact) => fact.applicationId === null && reachesAi(fact, knowledge.rules));
 	const usable = new Map(active.map((fact) => [fact.id, fact]));
 	return {
 		budget: knowledgeBudget({

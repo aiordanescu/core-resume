@@ -8,11 +8,13 @@ import {
 	careerWorkspaceSchema,
 	factGroupSchema,
 	factSwitchSchema,
+	overrideModeSchema,
 	generateTaskSchema,
 	aiLimitsSchema,
 } from "@reactive-resume/schema/career";
 import { protectedProcedure } from "../../context";
 import {
+	careerFactOverrideSchema,
 	careerFactSchema,
 	careerNotificationSchema,
 	careerOpportunitySchema,
@@ -34,6 +36,9 @@ const factGroupOutput = z.object({
 	status: factSwitchSchema
 		.nullable()
 		.describe("How the group was last switched: new facts in it start this way. Null starts them switched on."),
+	private: z
+		.boolean()
+		.describe("Its facts, and its subgroups', never reach the AI unless an application includes the group."),
 	facts: z.object({ active: z.number().int(), excluded: z.number().int() }),
 	activeChars: z
 		.number()
@@ -289,6 +294,61 @@ export const careerRouter = {
 		)
 		.output(updatedOutput)
 		.handler(({ context, input }) => careerService.setFactGroupStatus(context.user.id, input)),
+	saveFactGroup: protectedProcedure
+		.route({
+			method: "PUT",
+			path: "/career/facts/groups",
+			tags: ["Career"],
+			operationId: "saveCareerFactGroup",
+			summary: "Make a career fact group private or not",
+			description:
+				"A private group's facts, subgroups included, never reach the AI provider, whatever their own switches say, unless an application includes the group (see PUT /career/overrides).",
+		})
+		.input(z.object({ group: factGroupSchema, private: z.boolean() }))
+		.output(z.object({ group: z.string(), private: z.boolean() }))
+		.handler(({ context, input }) => careerService.saveFactGroup(context.user.id, input)),
+	overrides: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/career/overrides",
+			tags: ["Career"],
+			operationId: "listCareerFactOverrides",
+			summary: "List an application's Knowledge overrides",
+			description: "The groups and facts this application includes or excludes on top of the global switches.",
+		})
+		.input(applicationInput)
+		.output(z.array(careerFactOverrideSchema))
+		.handler(({ context, input }) => careerService.overrides(context.user.id, input.applicationId)),
+	saveOverride: protectedProcedure
+		.route({
+			method: "PUT",
+			path: "/career/overrides",
+			tags: ["Career"],
+			operationId: "saveCareerFactOverride",
+			summary: "Include or exclude Knowledge for one application",
+			description:
+				"Includes a group (with its subgroups) or a fact for one application, even if it's switched off or private, or excludes one it would otherwise get. Nothing is copied. Give a group or a fact id, not both; a new choice for the same target replaces the old one. An override for a fact wins over one for its group.",
+		})
+		.input(
+			applicationInput.extend({
+				group: factGroupSchema.optional(),
+				factId: z.string().min(1).optional(),
+				mode: overrideModeSchema,
+			}),
+		)
+		.output(careerFactOverrideSchema)
+		.handler(({ context, input }) => careerService.saveOverride(context.user.id, input)),
+	deleteOverride: protectedProcedure
+		.route({
+			method: "DELETE",
+			path: "/career/overrides/{id}",
+			tags: ["Career"],
+			operationId: "deleteCareerFactOverride",
+			summary: "Remove a Knowledge override",
+		})
+		.input(id)
+		.output(z.void())
+		.handler(({ context, input }) => careerService.deleteOverride(context.user.id, input.id)),
 	forgetFact: protectedProcedure
 		.route({
 			method: "DELETE",

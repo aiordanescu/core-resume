@@ -5,18 +5,19 @@ import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const api = vi.hoisted(() => ({ groups: [] as unknown[], setStatus: vi.fn() }));
+const api = vi.hoisted(() => ({ groups: [] as unknown[], setStatus: vi.fn(), savePrivacy: vi.fn() }));
 vi.mock("@/libs/orpc/client", () => {
 	const endpoint = (name: string) => ({
 		key: () => [name],
 		queryOptions: () => ({ queryKey: [name], queryFn: async () => api.groups, retry: false }),
-		mutationOptions: () => ({ mutationFn: api.setStatus }),
+		mutationOptions: () => ({ mutationFn: name === "saveFactGroup" ? api.savePrivacy : api.setStatus }),
 	});
 	return {
 		orpc: {
 			career: {
 				factGroups: endpoint("factGroups"),
 				setFactGroupStatus: endpoint("setFactGroupStatus"),
+				saveFactGroup: endpoint("saveFactGroup"),
 				facts: endpoint("facts"),
 				stories: endpoint("stories"),
 			},
@@ -33,9 +34,11 @@ const entry = (
 	active: number,
 	excluded: number,
 	status: "active" | "excluded" | null = null,
+	isPrivate = false,
 ) => ({
 	group,
 	status,
+	private: isPrivate,
 	facts: { active, excluded },
 	activeChars: active * 100,
 });
@@ -90,5 +93,31 @@ describe("GroupsCard", () => {
 		fireEvent.click(screen.getByRole("button", { name: "Switch experience off" }));
 		await waitFor(() => expect(api.setStatus).toHaveBeenCalled());
 		expect(api.setStatus.mock.calls[0]?.[0]).toEqual({ group: "experience", status: "excluded", subgroups: true });
+	});
+});
+
+describe("private groups", () => {
+	beforeEach(() => {
+		api.savePrivacy.mockReset().mockResolvedValue({});
+		api.groups = [entry("clearance", 1, 17, "excluded", true), entry("clearance/ts", 0, 1), entry("experience", 3, 0)];
+	});
+	afterEach(cleanup);
+
+	it("marks subgroups of a private group private too, and makes a group private", async () => {
+		render(
+			<I18nProvider i18n={i18n}>
+				<QueryClientProvider client={new QueryClient()}>
+					<GroupsCard />
+				</QueryClientProvider>
+			</I18nProvider>,
+		);
+		const subgroup = await screen.findByRole("switch", { name: "Keep clearance/ts private" });
+		expect(subgroup.getAttribute("aria-checked")).toBe("true");
+		expect(subgroup.hasAttribute("disabled") || subgroup.getAttribute("aria-disabled") === "true").toBe(true);
+		expect(screen.getAllByText(/private, never sent unless an application includes it/)).toHaveLength(2);
+
+		fireEvent.click(screen.getByRole("switch", { name: "Keep experience private" }));
+		await waitFor(() => expect(api.savePrivacy).toHaveBeenCalled());
+		expect(api.savePrivacy.mock.calls[0]?.[0]).toEqual({ group: "experience", private: true });
 	});
 });

@@ -36510,6 +36510,9 @@
 																	}
 																]
 															},
+															"private": {
+																"type": "boolean"
+															},
 															"createdAt": {
 																"type": "string",
 																"format": "date-time",
@@ -36525,8 +36528,63 @@
 															"userId",
 															"group",
 															"status",
+															"private",
 															"createdAt",
 															"updatedAt"
+														]
+													}
+												},
+												"factOverrides": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"userId": {
+																"type": "string"
+															},
+															"applicationId": {
+																"type": "string"
+															},
+															"group": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"factId": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"mode": {
+																"type": "string"
+															},
+															"createdAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															}
+														},
+														"required": [
+															"id",
+															"userId",
+															"applicationId",
+															"group",
+															"factId",
+															"mode",
+															"createdAt"
 														]
 													}
 												}
@@ -36545,7 +36603,8 @@
 												"jobs",
 												"transcripts",
 												"workspaces",
-												"factGroups"
+												"factGroups",
+												"factOverrides"
 											]
 										}
 									},
@@ -40239,6 +40298,10 @@
 												],
 												"description": "How the group was last switched: new facts in it start this way. Null starts them switched on."
 											},
+											"private": {
+												"type": "boolean",
+												"description": "Its facts, and its subgroups', never reach the AI unless an application includes the group."
+											},
 											"facts": {
 												"type": "object",
 												"properties": {
@@ -40268,6 +40331,7 @@
 										"required": [
 											"group",
 											"status",
+											"private",
 											"facts",
 											"activeChars"
 										]
@@ -40324,6 +40388,110 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl \"https://rxresu.me/api/openapi/career/facts/groups\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "saveCareerFactGroup",
+				"summary": "Make a career fact group private or not",
+				"description": "A private group's facts, subgroups included, never reach the AI provider, whatever their own switches say, unless an application includes the group (see PUT /career/overrides).",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"group": {
+										"type": "string",
+										"maxLength": 200
+									},
+									"private": {
+										"type": "boolean"
+									}
+								},
+								"required": [
+									"group",
+									"private"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"group": {
+											"type": "string"
+										},
+										"private": {
+											"type": "boolean"
+										}
+									},
+									"required": [
+										"group",
+										"private"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/career/facts/groups\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"group\": \"<string>\",\n  \"private\": true\n}'"
 					}
 				]
 			}
@@ -40438,6 +40606,375 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts/groups/status\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"group\": \"<string>\",\n  \"status\": \"active\"\n}'"
+					}
+				]
+			}
+		},
+		"/career/overrides": {
+			"get": {
+				"operationId": "listCareerFactOverrides",
+				"summary": "List an application's Knowledge overrides",
+				"description": "The groups and facts this application includes or excludes on top of the global switches.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "applicationId",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string"
+											},
+											"userId": {
+												"type": "string"
+											},
+											"applicationId": {
+												"type": "string"
+											},
+											"group": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"factId": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"mode": {
+												"enum": [
+													"include",
+													"exclude"
+												],
+												"type": "string"
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											}
+										},
+										"required": [
+											"id",
+											"userId",
+											"applicationId",
+											"group",
+											"factId",
+											"mode",
+											"createdAt"
+										]
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/overrides?applicationId=<applicationId>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "saveCareerFactOverride",
+				"summary": "Include or exclude Knowledge for one application",
+				"description": "Includes a group (with its subgroups) or a fact for one application, even if it's switched off or private, or excludes one it would otherwise get. Nothing is copied. Give a group or a fact id, not both; a new choice for the same target replaces the old one. An override for a fact wins over one for its group.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"applicationId": {
+										"type": "string",
+										"minLength": 1
+									},
+									"group": {
+										"type": "string",
+										"maxLength": 200
+									},
+									"factId": {
+										"type": "string",
+										"minLength": 1
+									},
+									"mode": {
+										"enum": [
+											"include",
+											"exclude"
+										],
+										"type": "string"
+									}
+								},
+								"required": [
+									"applicationId",
+									"mode"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"userId": {
+											"type": "string"
+										},
+										"applicationId": {
+											"type": "string"
+										},
+										"group": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"factId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"mode": {
+											"enum": [
+												"include",
+												"exclude"
+											],
+											"type": "string"
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"userId",
+										"applicationId",
+										"group",
+										"factId",
+										"mode",
+										"createdAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://rxresu.me/api/openapi/career/overrides\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"applicationId\": \"<string>\",\n  \"mode\": \"include\"\n}'"
+					}
+				]
+			}
+		},
+		"/career/overrides/{id}": {
+			"delete": {
+				"operationId": "deleteCareerFactOverride",
+				"summary": "Remove a Knowledge override",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request DELETE \"https://rxresu.me/api/openapi/career/overrides/<id>\" --header \"x-api-key: <api-key>\""
 					}
 				]
 			}

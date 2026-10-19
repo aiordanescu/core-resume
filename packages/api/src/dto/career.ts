@@ -5,6 +5,7 @@ import {
 	careerNoticeSchema,
 	careerSourceSchema,
 	careerStoryInputSchema,
+	overrideModeSchema,
 	savedItemDataSchema,
 } from "@reactive-resume/schema/career";
 
@@ -18,6 +19,7 @@ export const careerFactSchema = createSelectSchema(tables.careerFact, {
 	usedBy: z.object({ stories: z.number(), savedItems: z.number() }),
 });
 export const careerStorySchema = createSelectSchema(tables.careerStory, { data: careerStoryInputSchema });
+export const careerFactOverrideSchema = createSelectSchema(tables.careerFactOverride, { mode: overrideModeSchema });
 export const savedItemSchema = createSelectSchema(tables.careerArtifact, {
 	data: savedItemDataSchema,
 	evidence: z.object({ factIds: z.array(z.string()), storyIds: z.array(z.string()) }),

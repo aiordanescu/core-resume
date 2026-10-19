@@ -119,3 +119,36 @@ export const nearestGroupSetting = <T>(group: string | null | undefined, setting
 	}
 	return undefined;
 };
+
+/** An application's exception for one group (with its subgroups) or one fact. */
+export type KnowledgeOverride = { group: string | null; factId: string | null; mode: "include" | "exclude" };
+
+/** What decides whether facts reach the AI, beyond their own switch: private groups, and in an application, its overrides. */
+export type KnowledgeRules = { privateGroups: readonly string[]; overrides: readonly KnowledgeOverride[] };
+
+export const NO_RULES: KnowledgeRules = { privateGroups: [], overrides: [] };
+
+/**
+ * Whether a fact reaches the AI. Forgotten and archived facts never do. Otherwise, in order: the application's
+ * override for that fact, then its override for the fact's group or the nearest group above it, then a private group
+ * (never), then the fact's own switch.
+ */
+export function reachesAi(
+	fact: { id: string; status: string; group?: string | null | undefined },
+	rules: KnowledgeRules = NO_RULES,
+) {
+	if (fact.status !== "active" && fact.status !== "excluded") return false;
+	const own = rules.overrides.find((override) => override.factId === fact.id);
+	if (own) return own.mode === "include";
+	const byGroup = new Map(
+		rules.overrides.flatMap((override) => (override.group ? [[override.group, override.mode] as const] : [])),
+	);
+	const mode = nearestGroupSetting(fact.group, byGroup);
+	if (mode) return mode === "include";
+	if (isPrivateGroup(fact.group, rules.privateGroups)) return false;
+	return fact.status === "active";
+}
+
+/** Whether a group, or a group above it, is private. */
+export const isPrivateGroup = (group: string | null | undefined, privateGroups: readonly string[]) =>
+	Boolean(group) && privateGroups.some((entry) => inGroup(group, entry));

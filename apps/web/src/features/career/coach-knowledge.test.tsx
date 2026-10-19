@@ -18,6 +18,8 @@ const fact = (id: string, text: string) => ({
 const data = vi.hoisted(() => ({
 	facts: [] as unknown[],
 	stories: [] as unknown[],
+	groups: [] as unknown[],
+	overrides: [] as unknown[],
 	application: { role: "SRE", jobDescription: "Own the Kubernetes platform.", requirements: [] as string[] },
 }));
 
@@ -31,6 +33,8 @@ vi.mock("@/libs/orpc/client", () => {
 				aiLimits: {
 					queryOptions: () => options("limits", () => aiLimitsSchema.parse({ coachFacts: 1, coachStories: 1 })),
 				},
+				factGroups: { queryOptions: () => options("factGroups", () => data.groups) },
+				overrides: { queryOptions: () => options("overrides", () => data.overrides) },
 			},
 			applications: {
 				getById: { queryOptions: () => options("application", () => data.application) },
@@ -117,5 +121,28 @@ describe("what a coach message shares", () => {
 		await waitFor(() => expect(result.current.loaded).toBe(true));
 
 		expect(result.current.stories.map((item) => item.id)).toEqual(["s-toggled"]);
+	});
+});
+
+describe("what reaches the coach", () => {
+	it("leaves private groups out, unless the application includes them", async () => {
+		data.facts = [
+			{ ...fact("clear", "I hold an active clearance."), group: "clearance" },
+			{ ...fact("off", "Switched off, but in the clearance group."), status: "excluded", group: "clearance" },
+			{ ...fact("k8s", "I run Kubernetes clusters."), group: null },
+		];
+		data.stories = [];
+		data.groups = [
+			{ group: "clearance", status: null, private: true, facts: { active: 1, excluded: 1 }, activeChars: 0 },
+		];
+		data.overrides = [];
+		const global = renderHook(() => useCoachKnowledge(null), { wrapper });
+		await waitFor(() => expect(global.result.current.loaded).toBe(true));
+		expect(global.result.current.active.map((item) => item.id)).toEqual(["k8s"]);
+
+		data.overrides = [{ id: "o1", group: "clearance", factId: null, mode: "include" }];
+		const federal = renderHook(() => useCoachKnowledge("app"), { wrapper });
+		await waitFor(() => expect(federal.result.current.loaded).toBe(true));
+		expect(federal.result.current.active.map((item) => item.id).sort()).toEqual(["clear", "k8s", "off"]);
 	});
 });
