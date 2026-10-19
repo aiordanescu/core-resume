@@ -216,6 +216,25 @@ describe("duplicates", () => {
 		expect(pairs).toContain("a+b");
 		expect(pairs).toContain("a+e");
 		expect(pairs).not.toContain("a+c");
+		// a and e match because e holds all of a's words, not because they're mostly the same.
+		expect(
+			near.find(
+				(pair) =>
+					pair.facts
+						.map((fact) => fact.id)
+						.sort()
+						.join("+") === "a+e",
+			)?.contained,
+		).toBe(true);
+		expect(
+			near.find(
+				(pair) =>
+					pair.facts
+						.map((fact) => fact.id)
+						.sort()
+						.join("+") === "a+b",
+			)?.contained,
+		).toBe(false);
 		expect(near[0]?.similarity).toBeGreaterThanOrEqual(near.at(-1)?.similarity ?? 0);
 	});
 

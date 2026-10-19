@@ -42,6 +42,7 @@ const duplicate = (id: string, text: string, applicationId: string | null = null
 	id,
 	text,
 	applicationId,
+	company: applicationId ? "Acme" : null,
 	status: "active",
 	group: null,
 });
@@ -63,7 +64,7 @@ describe("Duplicates", () => {
 					{ keep: "shared", copies: ["copy-a", "copy-b"] },
 					{ keep: "twin-1", copies: ["twin-2"] },
 				],
-				near: [{ factIds: ["near-1", "near-2"], similarity: 0.82 }],
+				near: [{ factIds: ["near-1", "near-2"], similarity: 0.82, contained: false }],
 				facts: [
 					duplicate("shared", "I led the Acme migration."),
 					duplicate("copy-a", "I led the Acme migration.", "app-a"),
@@ -85,28 +86,38 @@ describe("Duplicates", () => {
 		await waitFor(() => expect(api.clean).toHaveBeenCalled());
 	});
 
-	it("keeps one of a shared pair, and only lets a near duplicate keep a fact that reaches the other's scope", async () => {
+	it("keeps one of a shared set, and says what keeping either side of a near pair does", async () => {
 		mount(<DuplicatesCard />);
 		expect(await screen.findByText("Said 2 times")).toBeTruthy();
-		fireEvent.click(screen.getByRole("button", { name: "Keep one" }));
+		fireEvent.click(screen.getByRole("button", { name: "Keep one, archive 1 copy" }));
 		await waitFor(() => expect(api.merge).toHaveBeenCalledWith({ id: "twin-2", into: "twin-1" }));
 
-		expect(screen.getByText("Nearly the same · 82%")).toBeTruthy();
-		const [keepShared, keepPrivate] = screen.getAllByRole("button", { name: "Keep this one" });
-		// The private one can't absorb a shared fact.
-		expect(keepPrivate?.hasAttribute("disabled")).toBe(true);
-		fireEvent.click(keepShared as HTMLElement);
-		await waitFor(() => expect(api.merge).toHaveBeenCalledWith({ id: "near-2", into: "near-1" }));
+		expect(screen.getByText("Nearly the same words · 82%")).toBeTruthy();
+		expect(screen.getByText("Acme only · switched on")).toBeTruthy();
+		// Either side can be kept; keeping the job's own fact makes it shared, and says so on that side only.
+		const [keepShared, keepPrivate] = screen.getAllByRole("button", { name: "Keep this, archive the other" });
+		expect(keepPrivate?.hasAttribute("disabled")).toBe(false);
+		expect(screen.getAllByText("This one becomes shared, so every application gets it.")).toHaveLength(1);
+		fireEvent.click(keepPrivate as HTMLElement);
+		await waitFor(() => expect(api.merge).toHaveBeenCalledWith({ id: "near-1", into: "near-2" }));
+		expect(keepShared).toBeTruthy();
+	});
+
+	it("says when a pair matched because one fact covers the other", async () => {
+		const [pair] = (api.data.duplicates as { near: { contained: boolean }[] }).near;
+		if (pair) pair.contained = true;
+		mount(<DuplicatesCard />);
+		expect(await screen.findByText("The longer one says almost everything the shorter one does · 82%")).toBeTruthy();
 	});
 
 	it("hides a pair that isn't a duplicate, and remembers it", async () => {
 		mount(<DuplicatesCard />);
-		fireEvent.click(await screen.findByRole("button", { name: "Not the same" }));
-		expect(screen.queryByText("Nearly the same · 82%")).toBeNull();
+		fireEvent.click(await screen.findByRole("button", { name: "Not duplicates, keep both" }));
+		expect(screen.queryByText("Nearly the same words · 82%")).toBeNull();
 		cleanup();
 		mount(<DuplicatesCard />);
 		await screen.findByText("Said 2 times");
-		expect(screen.queryByText("Nearly the same · 82%")).toBeNull();
+		expect(screen.queryByText("Nearly the same words · 82%")).toBeNull();
 	});
 });
 

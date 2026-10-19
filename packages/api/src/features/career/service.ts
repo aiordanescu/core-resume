@@ -880,8 +880,10 @@ export const careerService = {
 				status: tables.careerFact.status,
 				group: tables.careerFact.group,
 				createdAt: tables.careerFact.createdAt,
+				company: tables.application.company,
 			})
 			.from(tables.careerFact)
+			.leftJoin(tables.application, eq(tables.application.id, tables.careerFact.applicationId))
 			.where(and(eq(tables.careerFact.userId, userId), switchable));
 		const { exact, near } = findDuplicates(facts);
 		const involved = new Map<string, (typeof facts)[number]>();
@@ -891,26 +893,28 @@ export const careerService = {
 			for (const fact of cluster) involved.set(fact.id, fact);
 			return [{ keep: keep.id, copies: cluster.filter((fact) => fact.id !== keep.id).map((fact) => fact.id) }];
 		});
-		const pairs = near.map(({ facts: [a, b], similarity }) => {
+		const pairs = near.map(({ facts: [a, b], similarity, contained }) => {
 			involved.set(a.id, a);
 			involved.set(b.id, b);
-			return { factIds: [a.id, b.id], similarity };
+			return { factIds: [a.id, b.id], similarity, contained };
 		});
 		return {
 			exact: sets,
 			near: pairs,
-			facts: [...involved.values()].map(({ id, text, applicationId, status, group }) => ({
+			facts: [...involved.values()].map(({ id, text, applicationId, company, status, group }) => ({
 				id,
 				text,
 				applicationId,
+				company,
 				status,
 				group,
 			})),
 		};
 	},
 	/**
-	 * Folds one fact into another: its stories, saved items and overrides move to the one kept, and it's archived. The
-	 * one kept must be shared, or private to the same application.
+	 * Folds one fact into another: its stories, saved items and overrides move to the one kept, and it's archived. When
+	 * the one kept is private to an application and the other reached more of them, the one kept becomes shared, so no
+	 * application loses the fact; it also takes the other's group if it has none.
 	 */
 	mergeFact: (userId: string, input: { id: string; into: string }) =>
 		db.transaction(async (tx) => {
@@ -925,11 +929,19 @@ export const careerService = {
 			const into = rows.find((row) => row.id === input.into);
 			if (!from || !into || from.status === "forgotten" || into.status === "forgotten" || into.status === "archived")
 				throw new ORPCError("NOT_FOUND");
-			if (into.applicationId !== null && into.applicationId !== from.applicationId)
-				throw new ORPCError("BAD_REQUEST", {
-					message: "Keep the shared fact, or one private to the same application.",
-				});
-			await mergeFacts(tx, userId, from, into);
+			const share = into.applicationId !== null && into.applicationId !== from.applicationId;
+			const group = into.group ?? from.group;
+			const kept =
+				share || group !== into.group
+					? ((
+							await tx
+								.update(tables.careerFact)
+								.set({ ...(share ? { applicationId: null } : {}), group })
+								.where(eq(tables.careerFact.id, into.id))
+								.returning()
+						)[0] ?? into)
+					: into;
+			await mergeFacts(tx, userId, from, kept);
 			await invalidateMemory(userId, from.id, tx);
 			return { updated: 1 };
 		}),

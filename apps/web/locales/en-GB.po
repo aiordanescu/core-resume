@@ -221,6 +221,11 @@ msgstr "{0, plural, one {Found role, company and # requirement. Review the detai
 msgid "{0, plural, one {Import # application} other {Import # applications}}"
 msgstr "{0, plural, one {Import # application} other {Import # applications}}"
 
+#. placeholder {0}: set.copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+msgstr "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+
 #. placeholder {0}: knowledge.active.length
 #: src/features/career/coach.tsx
 msgid "{0, plural, one {Knowledge · # fact} other {Knowledge · # facts}}"
@@ -489,6 +494,7 @@ msgid "{column, plural, one {# column} other {# columns}}"
 msgstr "{column, plural, one {# column} other {# columns}}"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "{company} only"
 msgstr "{company} only"
 
@@ -966,8 +972,8 @@ msgid "A fact changed. Review this story."
 msgstr "A fact changed. Review this story."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
-msgstr "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgid "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
+msgstr "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -6360,10 +6366,6 @@ msgstr "Keep mine"
 msgid "Keep on one page"
 msgstr "Keep on one page"
 
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Keep one"
-msgstr "Keep one"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "Keep private notes about this resume here. Nobody else can see them."
@@ -6397,8 +6399,8 @@ msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Keep them to roughly two lines, so a skim-reader finishes them."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Keep this one"
-msgstr "Keep this one"
+msgid "Keep this, archive the other"
+msgstr "Keep this, archive the other"
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -6412,6 +6414,10 @@ msgstr "Keep together"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Keeps the most specific parts"
 msgstr "Keeps the most specific parts"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keeps the oldest one that's switched on."
+msgstr "Keeps the oldest one that's switched on."
 
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
@@ -7485,10 +7491,9 @@ msgstr "Narrow"
 msgid "narrow margins"
 msgstr "narrow margins"
 
-#. placeholder {0}: Math.round(pair.similarity * 100)
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Nearly the same · {0}%"
-msgstr "Nearly the same · {0}%"
+msgid "Nearly the same words · {percent}%"
+msgstr "Nearly the same words · {percent}%"
 
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
@@ -7919,6 +7924,10 @@ msgstr "Not applied yet"
 msgid "Not connected"
 msgstr "Not connected"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not duplicates, keep both"
+msgstr "Not duplicates, keep both"
+
 #: src/features/career/today.tsx
 msgid "Not for me"
 msgstr "Not for me"
@@ -7991,10 +8000,6 @@ msgstr "Not set up"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "Not sure what to write?"
-
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Not the same"
-msgstr "Not the same"
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -11995,6 +12000,10 @@ msgstr "The letter matches the resume's design again"
 msgid "The line changed since you asked, so it wasn't replaced."
 msgstr "The line changed since you asked, so it wasn't replaced."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "The longer one says almost everything the shorter one does · {percent}%"
+msgstr "The longer one says almost everything the shorter one does · {percent}%"
+
 #: src/features/career/workspace/saved.tsx
 msgid "the message"
 msgstr "the message"
@@ -12339,6 +12348,10 @@ msgstr "This measures how faithfully software can extract this file's text. It d
 #: src/features/applications/components/calendar-view.tsx
 msgid "This month"
 msgstr "This month"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "This one becomes shared, so every application gets it."
+msgstr "This one becomes shared, so every application gets it."
 
 #: src/features/assistant/conversation.tsx
 msgid "This page is clipped or incomplete. Check the original before using it."

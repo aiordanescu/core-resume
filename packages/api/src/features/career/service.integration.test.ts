@@ -1040,10 +1040,19 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 			code: "NOT_FOUND",
 		});
 		await expect(service.mergeFact("bob", { id: kept.id, into: dupe.id })).rejects.toMatchObject({ code: "NOT_FOUND" });
-		const own = await fact("alice", "Something private.", "alice-app");
-		await expect(service.mergeFact("alice", { id: kept.id, into: own.id })).rejects.toMatchObject({
-			code: "BAD_REQUEST",
-		});
+		// Keeping a job's own fact over a shared one makes it shared, with the shared one's group, so no job loses it.
+		await service.updateFact("alice", { id: kept.id, group: "projects" });
+		const own = await fact("alice", "I led the Acme migration of 40 services, in 2024.", "alice-app");
+		await service.mergeFact("alice", { id: kept.id, into: own.id });
+		const after = await service.facts({ userId: "alice", all: true });
+		expect(after.find((row) => row.id === own.id)).toMatchObject({ applicationId: null, group: "projects" });
+		expect(after.find((row) => row.id === kept.id)?.status).toBe("archived");
+		expect(
+			(await service.context({ userId: "alice", applicationId: "alice-other" })).facts.map((row) => row.id),
+		).toEqual([own.id]);
+		expect((await service.stories({ userId: "alice" })).find((row) => row.id === saved.id)?.data.factIds).toEqual([
+			own.id,
+		]);
 	});
 
 	it("folds application copies of shared facts into them, keeping what each application read", async () => {

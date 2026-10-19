@@ -281,12 +281,21 @@ export const careerRouter = {
 		.output(
 			z.object({
 				exact: z.array(z.object({ keep: z.string(), copies: z.array(z.string()) })),
-				near: z.array(z.object({ factIds: z.array(z.string()), similarity: z.number() })),
+				near: z.array(
+					z.object({
+						factIds: z.array(z.string()),
+						similarity: z.number(),
+						contained: z
+							.boolean()
+							.describe("Matched because the longer fact holds nearly all of the shorter one's words."),
+					}),
+				),
 				facts: z.array(
 					z.object({
 						id: z.string(),
 						text: z.string(),
 						applicationId: z.string().nullable(),
+						company: z.string().nullable().describe("The application a private fact belongs to."),
 						status: z.string(),
 						group: z.string().nullable(),
 					}),
@@ -315,7 +324,7 @@ export const careerRouter = {
 			operationId: "mergeCareerFact",
 			summary: "Merge a career fact into another",
 			description:
-				"Moves this fact's stories, saved items and overrides to the fact given as into, then archives this one. The fact kept must be shared or private to the same application, and not archived.",
+				"Keeps the fact given as into and archives this one, which can be restored. This fact's stories, saved items and per-application overrides move to the one kept. If the one kept is private to an application and this one reached more applications, the one kept becomes shared, so no application loses it; it also takes this one's group if it has none. The one kept must not be archived.",
 		})
 		.input(id.extend({ into: z.string().min(1) }))
 		.output(updatedOutput)

@@ -221,6 +221,11 @@ msgstr "{0, plural, one {பதவி, நிறுவனம், # தேவை 
 msgid "{0, plural, one {Import # application} other {Import # applications}}"
 msgstr "{0, plural, one {# வேலை விண்ணப்பத்தை இறக்குமதி செய்யவும்} other {# வேலை விண்ணப்பங்களை இறக்குமதி செய்யவும்}}"
 
+#. placeholder {0}: set.copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #: src/features/career/coach.tsx
 msgid "{0, plural, one {Knowledge · # fact} other {Knowledge · # facts}}"
@@ -489,6 +494,7 @@ msgid "{column, plural, one {# column} other {# columns}}"
 msgstr "{column, plural, one {# நெடுவரிசை} other {# நெடுவரிசைகள்}}"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "{company} only"
 msgstr "{company} மட்டும்"
 
@@ -966,7 +972,7 @@ msgid "A fact changed. Review this story."
 msgstr "ஓர் உண்மை மாறியுள்ளது. இந்தக் கதையை மதிப்பாய்வு செய்யவும்."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgid "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
@@ -6360,10 +6366,6 @@ msgstr "என்னுடையதை வைத்துக்கொள்"
 msgid "Keep on one page"
 msgstr "ஒரு பக்கத்தில் வைத்திருங்கள்"
 
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Keep one"
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "இந்த ரெஸ்யூம் பற்றிய தனிப்பட்ட குறிப்புகளை இங்கே வைத்துக்கொள்ளுங்கள். வேறு யாரும் அவற்றைப் பார்க்க முடியாது."
@@ -6397,7 +6399,7 @@ msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "விரைவாகப் படிப்பவர் அவற்றை முடிக்கும் வகையில், சுமார் இரண்டு வரிகளுக்குள் வைத்திருங்கள்."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Keep this one"
+msgid "Keep this, archive the other"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -6412,6 +6414,10 @@ msgstr "ஒன்றாக வைத்திருங்கள்"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Keeps the most specific parts"
 msgstr "மிகவும் குறிப்பிட்ட பகுதிகளை வைத்திருக்கிறது"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keeps the oldest one that's switched on."
+msgstr ""
 
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
@@ -7485,9 +7491,8 @@ msgstr "குறுகிய"
 msgid "narrow margins"
 msgstr "குறுகிய விளிம்புகள்"
 
-#. placeholder {0}: Math.round(pair.similarity * 100)
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Nearly the same · {0}%"
+msgid "Nearly the same words · {percent}%"
 msgstr ""
 
 #: src/features/settings/ai/providers.tsx
@@ -7919,6 +7924,10 @@ msgstr "இன்னும் விண்ணப்பிக்கவில்�
 msgid "Not connected"
 msgstr "இணைப்பு இல்லை"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not duplicates, keep both"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Not for me"
 msgstr "எனக்கு ஏற்றதல்ல"
@@ -7991,10 +8000,6 @@ msgstr "அமைக்கவில்லை"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "என்ன எழுதுவது என்று தெரியவில்லையா?"
-
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Not the same"
-msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -11995,6 +12000,10 @@ msgstr "கடிதம் மீண்டும் ரெஸ்யூமே வ
 msgid "The line changed since you asked, so it wasn't replaced."
 msgstr "நீங்கள் கேட்டதிலிருந்து வரி மாறிவிட்டது, அதனால் அது மாற்றப்படவில்லை."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "The longer one says almost everything the shorter one does · {percent}%"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "the message"
 msgstr "செய்தி"
@@ -12339,6 +12348,10 @@ msgstr "இந்தக் கோப்பின் உரையை மென்
 #: src/features/applications/components/calendar-view.tsx
 msgid "This month"
 msgstr "இந்த மாதம்"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "This one becomes shared, so every application gets it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "This page is clipped or incomplete. Check the original before using it."
