@@ -205,6 +205,23 @@ export function suggestedModel(catalog: ModelSuggestions | undefined, provider: 
 	return (inFamily[0] ?? models[0])?.id ?? "";
 }
 
+/**
+ * The model's context window in tokens from models.dev, or null when the catalog doesn't list it. A connection without
+ * a catalog of its own (OpenAI-compatible) matches the same model id in any catalog, with or without a vendor prefix.
+ */
+export function contextWindow(catalog: ModelSuggestions | undefined, provider: AIProvider, model: string) {
+	if (!catalog) return null;
+	const catalogId = modelsDevProviderIds[provider];
+	const lists = catalogId ? [catalog[catalogId] ?? []] : Object.values(catalog);
+	const ids = [model, model.split("/").at(-1) ?? model];
+	for (const id of ids)
+		for (const models of lists) {
+			const found = models.find((entry) => entry.id === id);
+			if (found) return found.limit.context;
+		}
+	return null;
+}
+
 export function providerLabel(provider: AIProvider) {
 	return String(providerOptions.find((option) => option.value === provider)?.label ?? provider);
 }

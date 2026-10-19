@@ -128,6 +128,13 @@ msgstr "{0, plural, one {# పత్రం ట్రాష్‌కి తరల
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# సవరణను ఉంచడం సాధ్యపడలేదు: దాని వచనం మార్చబడింది. దీన్ని మళ్లీ చేయమని మళ్లీ అడగండి.} other {# సవరణలు ఉంచడం సాధ్యపడలేదు: వాటి వచనం మార్చబడింది. వాటిని మళ్లీ చేయమని మళ్లీ అడగండి.}}"
 
+#. placeholder {0}: budget.facts.count
+#. placeholder {1}: n(budget.facts.chars)
+#. placeholder {2}: n(budget.facts.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
@@ -167,6 +174,13 @@ msgstr "{0, plural, one {# ఎంచుకోబడింది} other {# ఎం
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# కథ} other {# కథలు}}"
+
+#. placeholder {0}: budget.stories.count
+#. placeholder {1}: n(budget.stories.chars)
+#. placeholder {2}: n(budget.stories.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# usable story} other {# usable stories}} · {1} of {2} characters"
+msgstr ""
 
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-thread.tsx
@@ -416,6 +430,11 @@ msgstr "{0}, మీ ప్రదేశాల్లో ఒకటి కాదు"
 msgid "{0}. Issue resolved."
 msgstr "{0}. సమస్య పరిష్కరించబడింది."
 
+#. placeholder {0}: Math.round((used / budget) * 10) / 10
+#: src/features/career/knowledge/budget.tsx
+msgid "{0}× budget"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 msgid "{accepted} of {0} applied"
@@ -578,6 +597,14 @@ msgstr "{minutes, plural, one {# నిమిషంలో ప్రారంభ�
 #: src/features/career/workspace/shell.tsx
 msgid "{minutes} min"
 msgstr "{minutes} నిమి"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (from models.dev)."
+msgstr ""
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (set by you)."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "{monthCount} interviews"
@@ -1608,6 +1635,12 @@ msgstr "నైపుణ్యాలు, ప్రొఫైల్‌లు మర
 msgid "Amharic"
 msgstr "అంహారిక్"
 
+#. placeholder {0}: n(budget.tokens.used)
+#. placeholder {1}: n(budget.tokens.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "An action sends about {0} tokens with this Knowledge, and up to {1} with full budgets, counting about four characters a token and the posting, notes and documents."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "ఎంబెడ్ చేసిన ఫాంట్‌ను చదవలేకపోయాం."
@@ -2332,6 +2365,7 @@ msgstr "సాఫ్ట్‌వేర్ మీ రెజ్యూమెను 
 #: src/features/applications/components/export-applications-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2364,12 +2398,17 @@ msgstr "కాటలాన్"
 msgid "Certifications"
 msgstr "ప్రామாணపత్రాలు"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "మార్చు"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Change AI limits"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -2844,6 +2883,10 @@ msgstr "సెట్టింగులలో AI ప్రొవైడర్‌�
 msgid "Connect an AI provider in Settings to refresh it automatically."
 msgstr "ఆటోమేటిక్‌గా రిఫ్రెష్ చేయడానికి సెట్టింగులలో AI ప్రొవైడర్‌ను కనెక్ట్ చేయండి."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Connect an AI provider to compare this with its model's context window."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Connect an application"
 msgstr "అప్లికేషన్‌ను కనెక్ట్ చేయండి"
@@ -2935,6 +2978,10 @@ msgstr "విషయం"
 #: src/features/ats-checker/messages.ts
 msgid "Content is laid out in a grid."
 msgstr "కంటెంట్ గ్రిడ్‌లో అమర్చబడింది."
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Context window of {model}"
+msgstr ""
 
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
@@ -3387,6 +3434,10 @@ msgstr "దాన్ని నాలెడ్జ్‌లో సేవ్ చే
 msgid "Couldn't save the application."
 msgstr "ఉద్యోగ దరఖాస్తును సేవ్ చేయడం సాధ్యపడలేదు."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Couldn't save the context window."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Couldn't save the follow-up."
 msgstr "ఫాలో-అప్‌ని సేవ్ చేయడం సాధ్యపడలేదు."
@@ -3643,6 +3694,11 @@ msgstr "క్రాస్-ఫంక్షనల్ నాయకత్వం"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "CSV data"
 msgstr "CSV డేటా"
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgctxt "Knowledge: choose what the AI sees and keep facts and stories tidy"
+msgid "Curate"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Currency"
@@ -4773,6 +4829,7 @@ msgstr ""
 msgid "Facts"
 msgstr "వాస్తవాలు"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Facts in each action"
 msgstr ""
@@ -6196,6 +6253,10 @@ msgstr "దయతో,"
 msgid "Knowledge"
 msgstr "నాలెడ్జ్"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Knowledge budget"
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "నాలెడ్జ్ లోడ్ కాలేదు. పంపే ముందు మళ్లీ ప్రయత్నించండి లేదా నాలెడ్జ్‌ను ఆఫ్ చేయండి."
@@ -6686,6 +6747,10 @@ msgstr "పొడవైన భాగాలు పెద్ద అక్షరా
 msgid "Look for"
 msgstr "వెతకాల్సినవి"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Look it up instead"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Looks exactly like the page. Use it for applications and email."
 msgstr "సరిగ్గా పేజీ లాగా ఉంది. జాబ్ అప్లికేషన్లు మరియు ఇమెయిల్ కోసం దీన్ని ఉపయోగించండి."
@@ -6963,6 +7028,10 @@ msgstr "మోడల్ సూచనలు అందుబాటులో లే
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "మోడల్: {label}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "models.dev doesn't list {model}, so its context window is unknown."
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8105,6 +8174,10 @@ msgstr "గడువు ముగిసింది: అప్పటి ను�
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Outdent"
 msgstr "ఇండెంట్ తగ్గించు"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
+msgstr ""
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Overreactive Resume - Go to homepage"
@@ -9749,6 +9822,7 @@ msgstr "నమూనా రెజ్యూమ్ జోడించబడిం�
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10265,6 +10339,10 @@ msgstr "ఫాలో-అప్‌ని సెట్ చేయండి..."
 #: src/features/settings/account/security.tsx
 msgid "Set a password"
 msgstr "పాస్వర్డ్ను సెట్ చేయండి"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Set it"
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -10973,6 +11051,7 @@ msgstr ""
 msgid "Stories"
 msgstr "కథలు"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Stories in each action"
 msgstr ""
@@ -11434,6 +11513,10 @@ msgstr "ఈ సర్వర్‌లో అసిస్టెంట్ సెట
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "అసిస్టెంట్ మీ స్వంత కీని ఉపయోగిస్తుంది. మీరు ఒకదానిని కనెక్ట్ చేసే వరకు ఏదీ ఎక్కడికీ పంపబడదు."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "The budget is larger than this model's context window. Lower the AI limits, or the model may cut off or refuse long requests."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
 msgstr "అంతర్నిర్మిత రీడర్ సక్రియంగా ఉంటుంది."
@@ -11461,6 +11544,14 @@ msgstr "కోచ్ వీటిని ఈ దరఖాస్తు కోస�
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach saves facts you state, and tells you. You can undo."
 msgstr "మీరు చెప్పే వాస్తవాలను కోచ్ సేవ్ చేసి, మీకు తెలియజేస్తుంది. మీరు రద్దు చేయవచ్చు."
+
+#. placeholder {0}: n(budget.coach.facts.limit)
+#. placeholder {1}: n(budget.coach.facts.count)
+#. placeholder {2}: n(budget.coach.stories.limit)
+#. placeholder {3}: n(budget.coach.stories.count)
+#: src/features/career/knowledge/budget.tsx
+msgid "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each message, best matches first."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
@@ -12042,6 +12133,10 @@ msgstr "నేడు {time}"
 #: src/features/career/workspace/practise.tsx
 msgid "Today, {hour}"
 msgstr "ఈరోజు, {hour}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "tokens"
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"

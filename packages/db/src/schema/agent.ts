@@ -34,6 +34,8 @@ export const aiProvider = pg.pgTable(
 		baseUrl: pg.text("base_url"),
 		/** Reasoning sent with every request (none, or an effort); null sends nothing, so the model's default applies. */
 		reasoning: pg.text("reasoning"),
+		/** The model's context window in tokens, set by hand when models.dev doesn't know the model (a gateway alias). */
+		contextTokens: pg.integer("context_tokens"),
 		encryptedApiKey: pg.text("encrypted_api_key").notNull(),
 		apiKeySalt: pg.text("api_key_salt").notNull(),
 		apiKeyHash: pg.text("api_key_hash").notNull(),

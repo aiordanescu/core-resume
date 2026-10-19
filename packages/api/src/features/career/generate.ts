@@ -2,6 +2,7 @@ import type { GenerateTask, SavedItemData } from "@reactive-resume/schema/career
 import { ORPCError } from "@orpc/client";
 import z from "zod";
 import { careerWorkspaceSchema, savedItemDataSchema } from "@reactive-resume/schema/career";
+import { promptFact, promptStory } from "@reactive-resume/utils/knowledge";
 import { rankByRelevance, storyText } from "@reactive-resume/utils/relevance";
 import { aiProvidersService } from "../ai-providers/service";
 import { getModel } from "../ai/service";
@@ -191,7 +192,7 @@ export async function generateCareer(input: GenerateInput) {
 				context.facts.filter((fact) => !supporting.has(fact.id)),
 				(fact) => fact.text,
 				query,
-			).map(({ id, text, category }) => ({ id, text, category })),
+			).map(promptFact),
 		],
 		actionFactChars,
 	);
@@ -216,7 +217,7 @@ export async function generateCareer(input: GenerateInput) {
 				),
 				(story) => storyText(story.data),
 				query,
-			).map(({ id, data }) => ({ id, ...data, factIds: undefined, applicationId: undefined })),
+			).map(promptStory),
 		],
 		actionStoryChars,
 	);

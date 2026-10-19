@@ -190,6 +190,16 @@ describe("a connection's reasoning setting", () => {
 		expect(updated).toMatchObject({ reasoning: null, enabled: true, testStatus: "success" });
 	});
 
+	it("saves a context window set by hand without a fresh test", async () => {
+		const updated = await client.update({ id: "provider-1", contextTokens: 131_072 });
+		expect(updated).toMatchObject({ contextTokens: 131_072, enabled: true, testStatus: "success" });
+		await expect(client.update({ id: "provider-1", contextTokens: null })).resolves.toMatchObject({
+			contextTokens: null,
+			enabled: true,
+		});
+		await expect(client.update({ id: "provider-1", contextTokens: 10 })).rejects.toMatchObject({ code: "BAD_REQUEST" });
+	});
+
 	it("only allows Ultra where it can be sent as-is", async () => {
 		await expect(client.update({ id: "provider-1", reasoning: "ultra" })).resolves.toMatchObject({
 			reasoning: "ultra",

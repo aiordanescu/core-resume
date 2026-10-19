@@ -11,6 +11,8 @@ export const aiProviderResponseSchema = z.object({
 	baseURL: z.string().nullable(),
 	/** "none" switches thinking off, an effort switches it on at that level; null sends nothing (Model default). */
 	reasoning: aiReasoningSchema.nullable(),
+	/** The model's context window in tokens when set by hand; null means look it up (models.dev). */
+	contextTokens: z.number().int().nullable(),
 	enabled: z.boolean(),
 	/** Used whenever no connection is chosen, while it's switched on and tested. */
 	isDefault: z.boolean(),

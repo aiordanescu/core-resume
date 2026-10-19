@@ -53,6 +53,7 @@ import { Route as DashboardSettingsPreferencesRouteImport } from "./routes/dashb
 import { Route as DashboardSettingsProfileRouteImport } from "./routes/dashboard/settings/profile";
 import { Route as DashboardApplicationsApplicationIdChar123TabChar125RouteImport } from "./routes/dashboard/applications/$applicationId.{-$tab}";
 import { Route as DashboardCareerCoachChar123ConversationIdChar125RouteImport } from "./routes/dashboard/career/coach.{-$conversationId}";
+import { Route as DashboardCareerKnowledgeCurateRouteImport } from "./routes/dashboard/career/knowledge/curate";
 import { Route as DashboardCareerKnowledgeFactsRouteImport } from "./routes/dashboard/career/knowledge/facts";
 import { Route as DashboardCareerKnowledgePreferencesRouteImport } from "./routes/dashboard/career/knowledge/preferences";
 import { Route as DashboardSettingsAuthenticationIndexRouteImport } from "./routes/dashboard/settings/authentication/index";
@@ -288,6 +289,12 @@ const DashboardCareerCoachChar123ConversationIdChar125Route =
     path: "/coach/{-$conversationId}",
     getParentRoute: () => DashboardCareerRouteRoute,
   } as any);
+const DashboardCareerKnowledgeCurateRoute =
+  DashboardCareerKnowledgeCurateRouteImport.update({
+    id: "/curate",
+    path: "/curate",
+    getParentRoute: () => DashboardCareerKnowledgeRouteRoute,
+  } as any);
 const DashboardCareerKnowledgeFactsRoute =
   DashboardCareerKnowledgeFactsRouteImport.update({
     id: "/facts",
@@ -357,6 +364,7 @@ export interface FileRoutesByFullPath {
   "/dashboard/settings/": typeof DashboardSettingsIndexRoute;
   "/dashboard/applications/$applicationId/{-$tab}": typeof DashboardApplicationsApplicationIdChar123TabChar125Route;
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
+  "/dashboard/career/knowledge/curate": typeof DashboardCareerKnowledgeCurateRoute;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
   "/dashboard/settings/authentication/": typeof DashboardSettingsAuthenticationIndexRoute;
@@ -400,6 +408,7 @@ export interface FileRoutesByTo {
   "/dashboard/settings": typeof DashboardSettingsIndexRoute;
   "/dashboard/applications/$applicationId/{-$tab}": typeof DashboardApplicationsApplicationIdChar123TabChar125Route;
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
+  "/dashboard/career/knowledge/curate": typeof DashboardCareerKnowledgeCurateRoute;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
   "/dashboard/settings/authentication": typeof DashboardSettingsAuthenticationIndexRoute;
@@ -451,6 +460,7 @@ export interface FileRoutesById {
   "/dashboard/settings/": typeof DashboardSettingsIndexRoute;
   "/dashboard/applications/$applicationId/{-$tab}": typeof DashboardApplicationsApplicationIdChar123TabChar125Route;
   "/dashboard/career/coach/{-$conversationId}": typeof DashboardCareerCoachChar123ConversationIdChar125Route;
+  "/dashboard/career/knowledge/curate": typeof DashboardCareerKnowledgeCurateRoute;
   "/dashboard/career/knowledge/facts": typeof DashboardCareerKnowledgeFactsRoute;
   "/dashboard/career/knowledge/preferences": typeof DashboardCareerKnowledgePreferencesRoute;
   "/dashboard/settings/authentication/": typeof DashboardSettingsAuthenticationIndexRoute;
@@ -502,6 +512,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings/"
     | "/dashboard/applications/$applicationId/{-$tab}"
     | "/dashboard/career/coach/{-$conversationId}"
+    | "/dashboard/career/knowledge/curate"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
     | "/dashboard/settings/authentication/"
@@ -545,6 +556,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings"
     | "/dashboard/applications/$applicationId/{-$tab}"
     | "/dashboard/career/coach/{-$conversationId}"
+    | "/dashboard/career/knowledge/curate"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
     | "/dashboard/settings/authentication"
@@ -595,6 +607,7 @@ export interface FileRouteTypes {
     | "/dashboard/settings/"
     | "/dashboard/applications/$applicationId/{-$tab}"
     | "/dashboard/career/coach/{-$conversationId}"
+    | "/dashboard/career/knowledge/curate"
     | "/dashboard/career/knowledge/facts"
     | "/dashboard/career/knowledge/preferences"
     | "/dashboard/settings/authentication/"
@@ -922,6 +935,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof DashboardCareerCoachChar123ConversationIdChar125RouteImport;
       parentRoute: typeof DashboardCareerRouteRoute;
     };
+    "/dashboard/career/knowledge/curate": {
+      id: "/dashboard/career/knowledge/curate";
+      path: "/curate";
+      fullPath: "/dashboard/career/knowledge/curate";
+      preLoaderRoute: typeof DashboardCareerKnowledgeCurateRouteImport;
+      parentRoute: typeof DashboardCareerKnowledgeRouteRoute;
+    };
     "/dashboard/career/knowledge/facts": {
       id: "/dashboard/career/knowledge/facts";
       path: "/facts";
@@ -1014,6 +1034,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 );
 
 interface DashboardCareerKnowledgeRouteRouteChildren {
+  DashboardCareerKnowledgeCurateRoute: typeof DashboardCareerKnowledgeCurateRoute;
   DashboardCareerKnowledgeFactsRoute: typeof DashboardCareerKnowledgeFactsRoute;
   DashboardCareerKnowledgePreferencesRoute: typeof DashboardCareerKnowledgePreferencesRoute;
   DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route: typeof DashboardCareerKnowledgeStoriesChar123StoryIdChar125Route;
@@ -1021,6 +1042,7 @@ interface DashboardCareerKnowledgeRouteRouteChildren {
 
 const DashboardCareerKnowledgeRouteRouteChildren: DashboardCareerKnowledgeRouteRouteChildren =
   {
+    DashboardCareerKnowledgeCurateRoute: DashboardCareerKnowledgeCurateRoute,
     DashboardCareerKnowledgeFactsRoute: DashboardCareerKnowledgeFactsRoute,
     DashboardCareerKnowledgePreferencesRoute:
       DashboardCareerKnowledgePreferencesRoute,

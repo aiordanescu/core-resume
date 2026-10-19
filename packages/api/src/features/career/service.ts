@@ -18,6 +18,7 @@ import {
 	type careerStoryInputSchema,
 	type SavedItemData,
 } from "@reactive-resume/schema/career";
+import { storyHolds } from "@reactive-resume/utils/knowledge";
 import { generateId } from "@reactive-resume/utils/string";
 import { requestRunCancellation } from "../agent/cancellation";
 import { applicationService, recordSentResume } from "../applications/service";
@@ -584,20 +585,11 @@ export const careerService = {
 		const interview = input.interviewId
 			? (application?.activity.find((entry) => entry.type === "interview" && entry.id === input.interviewId) ?? null)
 			: null;
-		const activeFacts = facts.filter((fact) => fact.status === "active").map(modelFact);
-		const usableStories = stories.filter(
-			(story) =>
-				story.data.factIds.length > 0 &&
-				story.data.factIds.every((id) =>
-					facts.some(
-						(fact) =>
-							fact.id === id &&
-							fact.status === "active" &&
-							// Its text's last correction, not updatedAt: switching a fact off and on doesn't change what it says.
-							story.updatedAt >= new Date(fact.revisions.at(-1)?.at ?? 0),
-					),
-				),
-		);
+		const active = facts.filter((fact) => fact.status === "active");
+		const activeFacts = active.map(modelFact);
+		// A story needs every fact behind it switched on and not corrected since; switching one off and on is no change.
+		const usable = new Map(active.map((fact) => [fact.id, fact]));
+		const usableStories = stories.filter((story) => storyHolds(story, usable));
 		if (memoryRevision !== (await memoryVersion(input.userId)) || knowledgeRevision !== (await knowledgeVersion(input)))
 			throw new ORPCError("CONFLICT", { message: "Career memory changed while preparing context. Please retry." });
 		const version = hash(

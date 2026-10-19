@@ -6,6 +6,7 @@
 	"exports": {
 		"./color": "./src/color.ts",
 		"./file": "./src/file.ts",
+		"./knowledge": "./src/knowledge.ts",
 		"./link": "./src/link.ts",
 		"./locale": "./src/locale.ts",
 		"./monorepo.node": "./src/monorepo.node.ts",

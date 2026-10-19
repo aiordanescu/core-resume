@@ -128,6 +128,13 @@ msgstr "{0, plural, one {# document moved to Trash} other {# documents moved to 
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 
+#. placeholder {0}: budget.facts.count
+#. placeholder {1}: n(budget.facts.chars)
+#. placeholder {2}: n(budget.facts.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
+msgstr "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
+
 #. placeholder {0}: knowledge.active.length
 #. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
@@ -167,6 +174,13 @@ msgstr "{0, plural, one {# selected} other {# selected}}"
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# story} other {# stories}}"
+
+#. placeholder {0}: budget.stories.count
+#. placeholder {1}: n(budget.stories.chars)
+#. placeholder {2}: n(budget.stories.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# usable story} other {# usable stories}} · {1} of {2} characters"
+msgstr "{0, plural, one {# usable story} other {# usable stories}} · {1} of {2} characters"
 
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-thread.tsx
@@ -416,6 +430,11 @@ msgstr "{0}, not one of your places"
 msgid "{0}. Issue resolved."
 msgstr "{0}. Issue resolved."
 
+#. placeholder {0}: Math.round((used / budget) * 10) / 10
+#: src/features/career/knowledge/budget.tsx
+msgid "{0}× budget"
+msgstr "{0}× budget"
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 msgid "{accepted} of {0} applied"
@@ -578,6 +597,14 @@ msgstr "{minutes, plural, one {Starts in # minute} other {Starts in # minutes}}"
 #: src/features/career/workspace/shell.tsx
 msgid "{minutes} min"
 msgstr "{minutes} min"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (from models.dev)."
+msgstr "{model} reads up to {formatted} tokens (from models.dev)."
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (set by you)."
+msgstr "{model} reads up to {formatted} tokens (set by you)."
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "{monthCount} interviews"
@@ -1608,6 +1635,12 @@ msgstr "Also shows the icons on skills, profiles and interests."
 msgid "Amharic"
 msgstr "Amharic"
 
+#. placeholder {0}: n(budget.tokens.used)
+#. placeholder {1}: n(budget.tokens.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "An action sends about {0} tokens with this Knowledge, and up to {1} with full budgets, counting about four characters a token and the posting, notes and documents."
+msgstr "An action sends about {0} tokens with this Knowledge, and up to {1} with full budgets, counting about four characters a token and the posting, notes and documents."
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "An embedded font could not be read."
@@ -2332,6 +2365,7 @@ msgstr "Can software read your resume?"
 #: src/features/applications/components/export-applications-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2364,12 +2398,17 @@ msgstr "Catalan"
 msgid "Certifications"
 msgstr "Certifications"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "Change"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Change AI limits"
+msgstr "Change AI limits"
 
 #: src/features/career/coach-thread.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -2844,6 +2883,10 @@ msgstr "Connect an AI provider in Settings"
 msgid "Connect an AI provider in Settings to refresh it automatically."
 msgstr "Connect an AI provider in Settings to refresh it automatically."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Connect an AI provider to compare this with its model's context window."
+msgstr "Connect an AI provider to compare this with its model's context window."
+
 #: src/features/auth/pages/consent.tsx
 msgid "Connect an application"
 msgstr "Connect an application"
@@ -2935,6 +2978,10 @@ msgstr "Content"
 #: src/features/ats-checker/messages.ts
 msgid "Content is laid out in a grid."
 msgstr "Content is laid out in a grid."
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Context window of {model}"
+msgstr "Context window of {model}"
 
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
@@ -3387,6 +3434,10 @@ msgstr "Couldn't save that to Knowledge. Try again."
 msgid "Couldn't save the application."
 msgstr "Couldn't save the application."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Couldn't save the context window."
+msgstr "Couldn't save the context window."
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Couldn't save the follow-up."
 msgstr "Couldn't save the follow-up."
@@ -3643,6 +3694,11 @@ msgstr "Cross-functional leadership"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "CSV data"
 msgstr "CSV data"
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgctxt "Knowledge: choose what the AI sees and keep facts and stories tidy"
+msgid "Curate"
+msgstr "Curate"
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Currency"
@@ -4773,6 +4829,7 @@ msgstr "facts"
 msgid "Facts"
 msgstr "Facts"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Facts in each action"
 msgstr "Facts in each action"
@@ -6196,6 +6253,10 @@ msgstr "Kind regards,"
 msgid "Knowledge"
 msgstr "Knowledge"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Knowledge budget"
+msgstr "Knowledge budget"
+
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "Knowledge couldn't load. Try again or switch Knowledge off before sending."
@@ -6686,6 +6747,10 @@ msgstr "Long stretches are set in capitals."
 msgid "Look for"
 msgstr "Look for"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Look it up instead"
+msgstr "Look it up instead"
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Looks exactly like the page. Use it for applications and email."
 msgstr "Looks exactly like the page. Use it for applications and email."
@@ -6963,6 +7028,10 @@ msgstr "Model suggestions are unavailable. You can still enter any model ID."
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "Model: {label}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "models.dev doesn't list {model}, so its context window is unknown."
+msgstr "models.dev doesn't list {model}, so its context window is unknown."
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8105,6 +8174,10 @@ msgstr "Out of date: the text has changed since."
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Outdent"
 msgstr "Outdent"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
+msgstr "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Overreactive Resume - Go to homepage"
@@ -9749,6 +9822,7 @@ msgstr "Sample resume added. Delete it anytime."
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10265,6 +10339,10 @@ msgstr "Set a follow-up…"
 #: src/features/settings/account/security.tsx
 msgid "Set a password"
 msgstr "Set a password"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Set it"
+msgstr "Set it"
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -10973,6 +11051,7 @@ msgstr "stories"
 msgid "Stories"
 msgstr "Stories"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Stories in each action"
 msgstr "Stories in each action"
@@ -11434,6 +11513,10 @@ msgstr "The assistant isn't set up on this server. Whoever runs it needs to set 
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "The budget is larger than this model's context window. Lower the AI limits, or the model may cut off or refuse long requests."
+msgstr "The budget is larger than this model's context window. Lower the AI limits, or the model may cut off or refuse long requests."
+
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
 msgstr "The built-in reader remains active."
@@ -11461,6 +11544,14 @@ msgstr "The coach reads these for this application only."
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach saves facts you state, and tells you. You can undo."
 msgstr "The coach saves facts you state, and tells you. You can undo."
+
+#. placeholder {0}: n(budget.coach.facts.limit)
+#. placeholder {1}: n(budget.coach.facts.count)
+#. placeholder {2}: n(budget.coach.stories.limit)
+#. placeholder {3}: n(budget.coach.stories.count)
+#: src/features/career/knowledge/budget.tsx
+msgid "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each message, best matches first."
+msgstr "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each message, best matches first."
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
@@ -12042,6 +12133,10 @@ msgstr "Today {time}"
 #: src/features/career/workspace/practise.tsx
 msgid "Today, {hour}"
 msgstr "Today, {hour}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "tokens"
+msgstr "tokens"
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"

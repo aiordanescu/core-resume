@@ -10,6 +10,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { BudgetMeter } from "@/features/career/knowledge/budget";
 import { getOrpcErrorMessage } from "@/libs/error-message";
 import { orpc } from "@/libs/orpc/client";
 
@@ -45,6 +46,9 @@ export function AiLimitsSection() {
 					</Trans>
 				</p>
 			</header>
+			<div className="border-b border-line px-5 py-4 max-sm:px-4">
+				<BudgetMeter bare />
+			</div>
 			<AiLimitsForm
 				groups={[
 					{
