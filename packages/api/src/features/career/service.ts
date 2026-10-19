@@ -1585,6 +1585,7 @@ export const careerService = {
 			workspaces,
 			factGroups,
 			factOverrides,
+			reviews,
 		] = await Promise.all([
 			careerService.profile(userId),
 			db.select().from(tables.careerFact).where(eq(tables.careerFact.userId, userId)),
@@ -1601,6 +1602,7 @@ export const careerService = {
 			db.select().from(tables.careerWorkspace).where(eq(tables.careerWorkspace.userId, userId)),
 			db.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId)),
 			db.select().from(tables.careerFactOverride).where(eq(tables.careerFactOverride.userId, userId)),
+			db.select().from(tables.careerReview).where(eq(tables.careerReview.userId, userId)),
 		]);
 		return {
 			profile,
@@ -1618,6 +1620,7 @@ export const careerService = {
 			workspaces,
 			factGroups,
 			factOverrides,
+			review: reviews[0]?.data ?? null,
 		};
 	},
 };

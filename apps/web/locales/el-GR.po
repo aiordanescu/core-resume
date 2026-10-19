@@ -72,6 +72,10 @@ msgstr "Το \"{written}\" προστέθηκε στο Skills"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "\"Πώς μετρήσατε τον επανασχεδιασμό της αρχικής εμπειρίας χρήσης;\""
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(χωρίς κεφαλίδα)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {Διαβάζοντας το απόσπασμα # του
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {Απομνημόνευση # γεγονότος;} other {Απομνημόνευση # γεγονότων;}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "Η γνώμη ενός μοντέλου, όχι μια ετυμηγορ�
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "Ένα όνομα σάς βοηθά να ξεχωρίζετε τους κωδικούς πρόσβασης, όπως \"Φορητός υπολογιστής εργασίας\"."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "Αραβικά"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Αρχειοθετήθηκε (το κλείνει)"
@@ -2647,6 +2664,10 @@ msgstr "Έλεγχος {0}"
 msgid "Checking against Knowledge"
 msgstr "Έλεγχος με βάση τη Γνώση"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "Έλεγχος διάταξης και περιεχομένου"
@@ -2957,6 +2978,7 @@ msgstr "Συνδέστε έναν πάροχο τεχνητής νοημοσύν
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "Συνδέστε έναν πάροχο τεχνητής νοημοσύνης παραπάνω για να χρησιμοποιήσετε τον βοηθό. Η αποθήκευση και η προετοιμασία εργασιών δεν χρειάζεται."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "Αντιγραφή μεταγραφής"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "Διόρθωση"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "Δεν ήταν δυνατή η ανάκληση του κλειδιού."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "Δεν ήταν δυνατή η αποθήκευση της αλλαγής."
 
@@ -6353,6 +6380,10 @@ msgstr "Κρατήστε τις επαναλαμβανόμενες κεφαλί�
 msgid "Keep the evidence precise"
 msgstr "Κρατήστε τα τεκμήρια ακριβή"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "Κρατήστε το πλαίσιο δίπλα στη σελίδα"
@@ -6436,6 +6467,10 @@ msgstr "Η Γνώση δεν φορτώθηκε. Δοκιμάστε ξανά ή 
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Κορεατικά"
@@ -6482,6 +6517,14 @@ msgstr "Τελευταία αλλαγή στο {0}"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "Τελευταία επεξεργασία"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "Νορβηγικά"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "Δεν εφαρμόστηκε"
@@ -7990,6 +8037,10 @@ msgstr "Τίποτα εδώ δεν πρέπει να σας κοστίσει έ�
 msgid "Nothing is applied for or created until you choose."
 msgstr "Δεν υποβάλλεται ούτε δημιουργείται τίποτα μέχρι να το επιλέξετε."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "Τίποτα δεν επισημαίνει έναν ρόλο ως συνεχιζόμενο."
@@ -8018,6 +8069,10 @@ msgstr "Δεν έχει προγραμματιστεί τίποτα ακόμη."
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "Τίποτα προς εφαρμογή"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "Ερωτήσεις προς υποβολή"
 msgid "R"
 msgstr "Α"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Σηκώστε το φύλλο σχεδίασης"
@@ -9337,6 +9396,10 @@ msgstr "Η ανάγνωση λειτουργεί"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "Ανάγνωση της απάντησής σας"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "Να καταργηθεί αυτό το κλειδί πρόσβασης;
 msgid "Remove this photo?"
 msgstr "Κατάργηση αυτής της φωτογραφίας;"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "Επανάληψη προσπάθειας…"
 msgid "Review"
 msgstr "Κριτική"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "Έλεγχος προσχεδίου"
@@ -9909,6 +9984,10 @@ msgstr "Έλεγχος της απάντησής μου"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "Ο \"Έλεγχος της απάντησής μου\" στέλνει την ερώτηση, όσα είπατε, αυτή την αγγελία και τη Γνώση σας προς {providerName}."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "Στέλνει το μήνυμά σας, αυτή την αίτηση (�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "Στέλνει το κείμενο του βιογραφικού σας μόνο στο {0} · {1}, με το κλειδί σας."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "Δεν ήταν δυνατή η ενημέρωση της προεπισ
 msgid "The review couldn't finish. Try again."
 msgstr "Η κριτική δεν μπορούσε να ολοκληρωθεί. Προσπαθήστε ξανά."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "Η ίδια γραμμή επαναλαμβάνεται σε κάθε σελίδα."
@@ -12092,6 +12180,10 @@ msgstr "Δεν υπάρχει παράγραφος περίληψης."
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "Αυτές είναι οι απαντήσεις που αποθηκεύτηκαν όταν υποβάλατε την αίτηση."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

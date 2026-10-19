@@ -36587,6 +36587,110 @@
 															"createdAt"
 														]
 													}
+												},
+												"review": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"at": {
+																	"type": "string"
+																},
+																"connection": {
+																	"type": "string"
+																},
+																"reviewed": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																},
+																"total": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																},
+																"cleaned": {
+																	"type": "integer",
+																	"minimum": -9007199254740991,
+																	"maximum": 9007199254740991
+																},
+																"findings": {
+																	"type": "array",
+																	"items": {
+																		"type": "object",
+																		"properties": {
+																			"id": {
+																				"type": "string"
+																			},
+																			"kind": {
+																				"enum": [
+																					"contradiction",
+																					"superseded",
+																					"unsupported"
+																				],
+																				"type": "string"
+																			},
+																			"factIds": {
+																				"type": "array",
+																				"minItems": 1,
+																				"maxItems": 4,
+																				"items": {
+																					"type": "string"
+																				}
+																			},
+																			"note": {
+																				"type": "string",
+																				"maxLength": 400
+																			},
+																			"keep": {
+																				"anyOf": [
+																					{
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			},
+																			"resolved": {
+																				"anyOf": [
+																					{
+																						"enum": [
+																							"fixed",
+																							"dismissed"
+																						],
+																						"type": "string"
+																					},
+																					{
+																						"type": "null"
+																					}
+																				]
+																			}
+																		},
+																		"required": [
+																			"id",
+																			"kind",
+																			"factIds",
+																			"note",
+																			"keep",
+																			"resolved"
+																		]
+																	}
+																}
+															},
+															"required": [
+																"at",
+																"connection",
+																"reviewed",
+																"total",
+																"cleaned",
+																"findings"
+															]
+														},
+														{
+															"type": "null"
+														}
+													]
 												}
 											},
 											"required": [
@@ -36604,7 +36708,8 @@
 												"transcripts",
 												"workspaces",
 												"factGroups",
-												"factOverrides"
+												"factOverrides",
+												"review"
 											]
 										}
 									},
@@ -40621,6 +40726,555 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts/<id>/merge\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"into\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/career/knowledge/review": {
+			"get": {
+				"operationId": "getCareerKnowledgeReview",
+				"summary": "Get the last Knowledge review",
+				"tags": [
+					"Career"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"type": "object",
+											"properties": {
+												"at": {
+													"type": "string"
+												},
+												"connection": {
+													"type": "string"
+												},
+												"reviewed": {
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												"total": {
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												"cleaned": {
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												"findings": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"kind": {
+																"enum": [
+																	"contradiction",
+																	"superseded",
+																	"unsupported"
+																],
+																"type": "string"
+															},
+															"factIds": {
+																"type": "array",
+																"minItems": 1,
+																"maxItems": 4,
+																"items": {
+																	"type": "string"
+																}
+															},
+															"note": {
+																"type": "string",
+																"maxLength": 400
+															},
+															"keep": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"resolved": {
+																"anyOf": [
+																	{
+																		"enum": [
+																			"fixed",
+																			"dismissed"
+																		],
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															}
+														},
+														"required": [
+															"id",
+															"kind",
+															"factIds",
+															"note",
+															"keep",
+															"resolved"
+														]
+													}
+												}
+											},
+											"required": [
+												"at",
+												"connection",
+												"reviewed",
+												"total",
+												"cleaned",
+												"findings"
+											]
+										},
+										{
+											"type": "null"
+										}
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/knowledge/review\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"post": {
+				"operationId": "runCareerKnowledgeReview",
+				"summary": "Review Knowledge with AI",
+				"description": "First removes application copies of shared facts, which needs no judgment. Then asks the default AI connection to flag facts that contradict each other, older figures a newer fact replaces, and claims with nothing to check them by, among the shared facts that reach the AI; private groups, switched-off and archived facts are never sent. Requests stay within the action budgets and time limit. Replaces the last review.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"at": {
+											"type": "string"
+										},
+										"connection": {
+											"type": "string"
+										},
+										"reviewed": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"total": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"cleaned": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"findings": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"kind": {
+														"enum": [
+															"contradiction",
+															"superseded",
+															"unsupported"
+														],
+														"type": "string"
+													},
+													"factIds": {
+														"type": "array",
+														"minItems": 1,
+														"maxItems": 4,
+														"items": {
+															"type": "string"
+														}
+													},
+													"note": {
+														"type": "string",
+														"maxLength": 400
+													},
+													"keep": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"resolved": {
+														"anyOf": [
+															{
+																"enum": [
+																	"fixed",
+																	"dismissed"
+																],
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"id",
+													"kind",
+													"factIds",
+													"note",
+													"keep",
+													"resolved"
+												]
+											}
+										}
+									},
+									"required": [
+										"at",
+										"connection",
+										"reviewed",
+										"total",
+										"cleaned",
+										"findings"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/knowledge/review\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			}
+		},
+		"/career/knowledge/review/{id}": {
+			"patch": {
+				"operationId": "resolveCareerKnowledgeFinding",
+				"summary": "Mark a Knowledge review finding fixed or dismissed",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"resolved": {
+										"anyOf": [
+											{
+												"enum": [
+													"fixed",
+													"dismissed"
+												],
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									}
+								},
+								"required": [
+									"resolved"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"at": {
+											"type": "string"
+										},
+										"connection": {
+											"type": "string"
+										},
+										"reviewed": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"total": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"cleaned": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991
+										},
+										"findings": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"kind": {
+														"enum": [
+															"contradiction",
+															"superseded",
+															"unsupported"
+														],
+														"type": "string"
+													},
+													"factIds": {
+														"type": "array",
+														"minItems": 1,
+														"maxItems": 4,
+														"items": {
+															"type": "string"
+														}
+													},
+													"note": {
+														"type": "string",
+														"maxLength": 400
+													},
+													"keep": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"resolved": {
+														"anyOf": [
+															{
+																"enum": [
+																	"fixed",
+																	"dismissed"
+																],
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"id",
+													"kind",
+													"factIds",
+													"note",
+													"keep",
+													"resolved"
+												]
+											}
+										}
+									},
+									"required": [
+										"at",
+										"connection",
+										"reviewed",
+										"total",
+										"cleaned",
+										"findings"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PATCH \"https://rxresu.me/api/openapi/career/knowledge/review/<id>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"resolved\": \"fixed\"\n}'"
 					}
 				]
 			}

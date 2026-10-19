@@ -5,6 +5,7 @@ import type {
 	CareerStoryData,
 	CareerWorkspace,
 	AiLimits,
+	KnowledgeReview,
 	SavedItemData,
 } from "@reactive-resume/schema/career";
 import { sql } from "drizzle-orm";
@@ -248,3 +249,17 @@ export const careerTranscript = pg.pgTable(
 	},
 	(t) => [pg.index().on(t.userId, t.applicationId)],
 );
+
+/** The latest Knowledge review, one per account. */
+export const careerReview = pg.pgTable("career_review", {
+	userId: pg
+		.text("user_id")
+		.primaryKey()
+		.references(() => user.id, { onDelete: "cascade" }),
+	data: pg.jsonb("data").notNull().$type<KnowledgeReview>(),
+	updatedAt: pg
+		.timestamp("updated_at", { withTimezone: true })
+		.notNull()
+		.defaultNow()
+		.$onUpdate(() => new Date()),
+});

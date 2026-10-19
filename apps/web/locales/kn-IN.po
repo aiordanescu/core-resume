@@ -72,6 +72,10 @@ msgstr "\"{written}\" ಅನ್ನು ಕೌಶಲ್ಯಗಳಿಗೆ ಸೇ�
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಮರುವಿನ್ಯಾಸವನ್ನು ನೀವು ಹೇಗೆ ಅಳೆದಿರಿ?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(ಹೆಡರ್ ಇಲ್ಲ)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {ನಿಮ್ಮ ರೆಸ್ಯೂಮೆಯ # ಪ್ಯ
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {# ಸಂಗತಿಯನ್ನು ನೆನಪಿಡಬೇಕೇ?} other {# ಸಂಗತಿಗಳನ್ನು ನೆನಪಿಡಬೇಕೇ?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "ಮಾದರಿಯ ಅಭಿಪ್ರಾಯ, ತೀರ್ಪು ಅಲ�
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "\"ವರ್ಕ್ ಲ್ಯಾಪ್‌ಟಾಪ್\" ನಂತಹ ಪಾಸ್‌ಕೀಗಳನ್ನು ಪ್ರತ್ಯೇಕಿಸಲು ಹೆಸರು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "ಅರೇಬಿಕ್"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "ಆರ್ಕೈವ್ ಮಾಡಲಾಗಿದೆ (ಅದನ್ನು ಮುಚ್ಚಿದೆ)"
@@ -2647,6 +2664,10 @@ msgstr "{0} ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ"
 msgid "Checking against Knowledge"
 msgstr "ಜ್ಞಾನದೊಂದಿಗೆ ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "ಲೇಔಟ್ ಮತ್ತು ವಿಷಯವನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ"
@@ -2957,6 +2978,7 @@ msgstr "AI ಪೂರೈಕೆದಾರರನ್ನು ಸಂಪರ್ಕಿಸ�
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "ಸಹಾಯಕವನ್ನು ಬಳಸಲು ಮೇಲಿನ AI ಪೂರೈಕೆದಾರರನ್ನು ಸಂಪರ್ಕಿಸಿ. ಉದ್ಯೋಗಗಳನ್ನು ಉಳಿಸುವುದು ಮತ್ತು ಸಿದ್ಧಪಡಿಸುವುದು ಒಂದು ಅಗತ್ಯವಿಲ್ಲ."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "ಪ್ರತಿಲೇಖನವನ್ನು ನಕಲಿಸಿ"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "ಸರಿಪಡಿಸಿ"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "ಕೀಯನ್ನು ಹಿಂತೆಗೆದುಕೊಳ್ಳಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "ಆ ಬದಲಾವಣೆಯನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ."
 
@@ -6353,6 +6380,10 @@ msgstr "ಪುನರಾವರ್ತಿತ ಶೀರ್ಷಿಕೆಗಳನ್�
 msgid "Keep the evidence precise"
 msgstr "ಪುರಾವೆಯನ್ನು ನಿಖರವಾಗಿಡಿ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "ಫಲಕವನ್ನು ಪುಟದ ಪಕ್ಕದಲ್ಲಿ ಇರಿಸಿ"
@@ -6436,6 +6467,10 @@ msgstr "ಜ್ಞಾನವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "ಕೊರಿಯನ್"
@@ -6482,6 +6517,14 @@ msgstr "{0} ನಲ್ಲಿ ಕೊನೆಯದಾಗಿ ಬದಲಾಯಿಸಲ
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "ಕೊನೆಯದಾಗಿ ಸಂಪಾದಿಸಲಾಗಿದೆ"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "ನಾರ್ವೇಜಿಯನ್"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "ಅನ್ವಯಿಸಲಾಗಿಲ್ಲ"
@@ -7990,6 +8037,10 @@ msgstr "ಇಲ್ಲಿ ಯಾವುದೂ ನಿಮಗೆ ಪಂದ್ಯವನ
 msgid "Nothing is applied for or created until you choose."
 msgstr "ನೀವು ಆಯ್ಕೆ ಮಾಡುವವರೆಗೆ ಯಾವುದಕ್ಕೂ ಅರ್ಜಿ ಸಲ್ಲಿಸಲಾಗುವುದಿಲ್ಲ ಅಥವಾ ಏನನ್ನೂ ರಚಿಸಲಾಗುವುದಿಲ್ಲ."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "ಯಾವುದೇ ಪಾತ್ರವನ್ನು ನಡೆಯುತ್ತಿರುವಂತೆ ಗುರುತಿಸುವುದಿಲ್ಲ."
@@ -8018,6 +8069,10 @@ msgstr "ಇನ್ನೂ ಏನನ್ನೂ ನಿಗದಿಪಡಿಸಿಲ್�
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "ಅನ್ವಯಿಸಲು ಏನೂ ಇಲ್ಲ"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "ಕೇಳಬೇಕಾದ ಪ್ರಶ್ನೆಗಳು"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "ವಿನ್ಯಾಸ ಹಾಳೆಯನ್ನು ಹೆಚ್ಚಿಸಿ"
@@ -9337,6 +9396,10 @@ msgstr "ಓದುವ ಕೆಲಸಗಳು"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "ನಿಮ್ಮ ಉತ್ತರವನ್ನು ಓದಲಾಗುತ್ತಿದೆ"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "ಈ ಪಾಸ್‌ಕೀ ತೆಗೆದುಹಾಕುವುದೇ?"
 msgid "Remove this photo?"
 msgstr "ಈ ಫೋಟೋವನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "ಮರುಪ್ರಯತ್ನಿಸಲಾಗುತ್ತಿದೆ..."
 msgid "Review"
 msgstr "ವಿಮರ್ಶೆ"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "ಡ್ರಾಫ್ಟ್ ಪರಿಶೀಲಿಸಿ"
@@ -9909,6 +9984,10 @@ msgstr "ನನ್ನ ಉತ್ತರವನ್ನು ಪರಿಶೀಲಿಸಿ"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "“ನನ್ನ ಉತ್ತರವನ್ನು ಪರಿಶೀಲಿಸಿ” ಪ್ರಶ್ನೆ, ನೀವು ಹೇಳಿದ್ದು, ಈ ಉದ್ಯೋಗ ಜಾಹೀರಾತು ಮತ್ತು ನಿಮ್ಮ ಜ್ಞಾನವನ್ನು {providerName} ಗೆ ಕಳುಹಿಸುತ್ತದೆ."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "ನಿಮ್ಮ ಸಂದೇಶ, ಈ ಅರ್ಜಿ (ಉದ್ಯೋಗ
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "ನಿಮ್ಮ ಕೀಲಿಯೊಂದಿಗೆ {0} · {1} ಗೆ ಮಾತ್ರ ನಿಮ್ಮ ರೆಸ್ಯೂಮೆಯ ಪಠ್ಯವನ್ನು ಕಳುಹಿಸುತ್ತದೆ."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "ರೆಸ್ಯೂಮ್ ಪೂರ್ವವೀಕ್ಷಣೆಯನ್�
 msgid "The review couldn't finish. Try again."
 msgstr "ವಿಮರ್ಶೆಯನ್ನು ಮುಗಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "ಅದೇ ಸಾಲು ಪ್ರತಿ ಪುಟದಲ್ಲಿಯೂ ಪುನರಾವರ್ತನೆಯಾಗುತ್ತದೆ."
@@ -12092,6 +12180,10 @@ msgstr "ಯಾವುದೇ ಸಾರಾಂಶ ಪ್ಯಾರಾಗ್ರಾಫ�
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "ನೀವು ಅರ್ಜಿ ಸಲ್ಲಿಸಿದಾಗ ಉಳಿಸಲಾದ ಉತ್ತರಗಳು ಇವು."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

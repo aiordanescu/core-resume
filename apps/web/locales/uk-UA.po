@@ -72,6 +72,10 @@ msgstr "«{written}» додано до навичок"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "«Як ви вимірювали результат редизайну онбордингу?»"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(без заголовка)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {Читання # фрагмента вашого рез
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {Запам’ятати # факт?} few {Запам’ятати # факти?} many {Запам’ятати # фактів?} other {Запам’ятати # факту?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "Думка моделі, а не вирок. Це може бути не
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "Назва допомагає розрізняти ключі доступу, як-от «Робочий ноутбук»."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "Арабська"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Архівовано (закриває)"
@@ -2647,6 +2664,10 @@ msgstr "Перевірка {0}"
 msgid "Checking against Knowledge"
 msgstr "Звіряю зі Знаннями"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "Перевірка макета та вмісту"
@@ -2957,6 +2978,7 @@ msgstr "Підключіть постачальника AI"
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "Щоб скористатися помічником, підключіть постачальника AI вище. Збереження та підготовка робочих місць не потребує."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "Скопіюйте стенограму"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "Виправити"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "Не вдалося відкликати ключ."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "Не вдалося зберегти цю зміну."
 
@@ -6353,6 +6380,10 @@ msgstr "Робіть колонтитули короткими або приби
 msgid "Keep the evidence precise"
 msgstr "Наводьте точні докази"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "Тримайте панель біля сторінки"
@@ -6436,6 +6467,10 @@ msgstr "Не вдалося завантажити Знання. Спробуй�
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Корейська"
@@ -6482,6 +6517,14 @@ msgstr "Востаннє змінено в {0}"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "Останнє редагування"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "Норвезька"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "Не застосовано"
@@ -7990,6 +8037,10 @@ msgstr "Ніщо тут не повинно коштувати вам матчу
 msgid "Nothing is applied for or created until you choose."
 msgstr "Нічого не подається й не створюється, доки ви не вирішите."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "Ніщо не позначає посаду як поточну."
@@ -8018,6 +8069,10 @@ msgstr "Поки нічого не заплановано."
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "Нічого застосовувати"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "Запитання для роботодавця"
 msgid "R"
 msgstr "Р"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Підніміть аркуш дизайну"
@@ -9337,6 +9396,10 @@ msgstr "Читання творів"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "Читаю вашу відповідь"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "Видалити цей ключ?"
 msgid "Remove this photo?"
 msgstr "Видалити це фото?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "Повторна спроба…"
 msgid "Review"
 msgstr "огляд"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "Переглянути чернетку"
@@ -9909,6 +9984,10 @@ msgstr "Оцінити мою відповідь"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "«Оцінити мою відповідь» надсилає запитання, те, що ви сказали, це оголошення та ваші Знання через {providerName}."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "Надсилає ваше повідомлення, цю заявку (�
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "Надсилає текст вашого резюме лише на адресу {0} · {1} з вашим ключем."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "Не вдалося оновити попередній перегляд
 msgid "The review couldn't finish. Try again."
 msgstr "Не вдалося завершити огляд. Спробуйте знову."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "Один і той самий рядок повторюється на кожній сторінці."
@@ -12092,6 +12180,10 @@ msgstr "Немає абзацу з підсумком."
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "Це відповіді, збережені під час подання заявки."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

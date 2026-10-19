@@ -72,6 +72,10 @@ msgstr "\"{written}\" দক্ষতা যোগ করা হয়েছে"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“অনবোর্ডিং রিডিজাইন আপনি কীভাবে মেপেছিলেন?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(কোন শিরোনাম নেই)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {আপনার জীবনবৃত্তান্ত
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {#টি তথ্য মনে রাখবেন?} other {#টি তথ্য মনে রাখবেন?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "একজন মডেলের মতামত, রায় নয়�
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "একটি নাম আপনাকে পাসকিগুলিকে আলাদা করতে সাহায্য করে, যেমন \"ওয়ার্ক ল্যাপটপ\"।"
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "আরবি"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "সংরক্ষণাগারভুক্ত (এটি বন্ধ করে)"
@@ -2647,6 +2664,10 @@ msgstr "{0} চেক করা হচ্ছে"
 msgid "Checking against Knowledge"
 msgstr "জ্ঞানভান্ডারের সাথে মেলানো হচ্ছে"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "লেআউট এবং বিষয়বস্তু পরীক্ষা করা হচ্ছে"
@@ -2957,6 +2978,7 @@ msgstr "একটি AI প্রদানকারীকে সংযুক্�
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "সহকারী ব্যবহার করতে উপরে একটি AI প্রদানকারীকে সংযুক্ত করুন। সঞ্চয় এবং চাকরির প্রস্তুতির প্রয়োজন নেই।"
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "ট্রান্সক্রিপ্ট কপি করুন"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "সংশোধন করুন"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "চাবিটি প্রত্যাহার করা যায়নি।"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "পরিবর্তনটি সংরক্ষণ করা যায়নি।"
 
@@ -6353,6 +6380,10 @@ msgstr "রানিং হেড সংক্ষিপ্ত রাখুন, �
 msgid "Keep the evidence precise"
 msgstr "প্রমাণ সুনির্দিষ্ট রাখুন"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "পৃষ্ঠার পাশে প্যানেল রাখুন"
@@ -6436,6 +6467,10 @@ msgstr "জ্ঞানভান্ডার লোড হয়নি। আব
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "কোরিয়ান"
@@ -6482,6 +6517,14 @@ msgstr "{0} এ সর্বশেষ পরিবর্তন করা হয�
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "শেষ সম্পাদিত"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "নরওয়েজিয়ান"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "প্রয়োগ করা হয়নি"
@@ -7990,6 +8037,10 @@ msgstr "এখানে কোন কিছুর জন্য আপনার �
 msgid "Nothing is applied for or created until you choose."
 msgstr "আপনি বেছে না নেওয়া পর্যন্ত কোনো আবেদন করা বা কিছু তৈরি করা হয় না।"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "কোনো কিছুই একটি ভূমিকাকে চলমান হিসেবে চিহ্নিত করছে না।"
@@ -8018,6 +8069,10 @@ msgstr "এখনও কিছু নির্ধারিত হয়নি।
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "প্রয়োগ করার মতো কিছু নেই"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "যে প্রশ্নগুলো করবেন"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "নকশা শীট বাড়ান"
@@ -9337,6 +9396,10 @@ msgstr "পড়া কাজ করে"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "আপনার উত্তর পড়া হচ্ছে"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "এই পাসকি সরাবেন?"
 msgid "Remove this photo?"
 msgstr "এই ফটোটি সরাবেন?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "আবার চেষ্টা করা হচ্ছে..."
 msgid "Review"
 msgstr "পর্যালোচনা"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "খসড়া পর্যালোচনা করুন"
@@ -9909,6 +9984,10 @@ msgstr "আমার উত্তর পর্যালোচনা করুন
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "“আমার উত্তর পর্যালোচনা করুন” প্রশ্ন, আপনি যা বলেছেন, এই চাকরির বিজ্ঞপ্তি এবং আপনার জ্ঞানভান্ডার {providerName}-এ পাঠায়।"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "আপনার বার্তা, এই আবেদন (চাকর
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "আপনার চাবি সহ আপনার জীবনবৃত্তান্তের পাঠ্য শুধুমাত্র {0} · {1} তে পাঠায়।"
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "জীবনবৃত্তান্তের প্রিভিউ আ�
 msgid "The review couldn't finish. Try again."
 msgstr "পর্যালোচনা শেষ করতে পারেনি. আবার চেষ্টা করুন"
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "একই লাইন প্রতিটি পৃষ্ঠায় পুনরাবৃত্তি হয়।"
@@ -12092,6 +12180,10 @@ msgstr "কোনো সারাংশ অনুচ্ছেদ নেই।"
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "এগুলো আবেদন করার সময় সংরক্ষিত উত্তর।"
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

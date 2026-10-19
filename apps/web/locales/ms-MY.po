@@ -72,6 +72,10 @@ msgstr "“{written}” ditambahkan pada Kemahiran"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“Bagaimana anda mengukur reka bentuk semula orientasi pengguna?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(tiada tajuk)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {Membaca petikan # resume anda…} other {Membaca entri 
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, other {Ingat # fakta?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "Pendapat model, bukan keputusan. Ia boleh menjadi salah."
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "Nama membantu anda membezakan kunci laluan, seperti \"Kerja komputer riba\"."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "Bahasa Arab"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Diarkibkan (menutupnya)"
@@ -2647,6 +2664,10 @@ msgstr "Menyemak {0}"
 msgid "Checking against Knowledge"
 msgstr "Menyemak dengan Pengetahuan"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "Menyemak susun atur dan kandungan"
@@ -2957,6 +2978,7 @@ msgstr "Sambungkan pembekal AI"
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "Sambungkan pembekal AI di atas untuk menggunakan pembantu. Menyimpan dan menyediakan pekerjaan tidak memerlukannya."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "Salin transkrip"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "Betulkan"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "Tidak dapat membatalkan kunci."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "Tidak dapat menyimpan perubahan itu."
 
@@ -6353,6 +6380,10 @@ msgstr "Kekalkan kepala berjalan pendek, atau buang ia. Ia berulang dalam teks y
 msgid "Keep the evidence precise"
 msgstr "Pastikan bukti tepat"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "Simpan panel di sebelah halaman"
@@ -6436,6 +6467,10 @@ msgstr "Pengetahuan tidak dapat dimuatkan. Cuba lagi atau matikan Pengetahuan se
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korea"
@@ -6482,6 +6517,14 @@ msgstr "Terakhir ditukar dalam {0}"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "Terakhir diedit"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "Norwegian"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "Tidak digunakan"
@@ -7990,6 +8037,10 @@ msgstr "Tiada apa-apa di sini yang patut membebankan anda."
 msgid "Nothing is applied for or created until you choose."
 msgstr "Tiada apa-apa dimohon atau dicipta sehingga anda memilih."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "Tiada apa-apa menandakan peranan sebagai sedang berjalan."
@@ -8018,6 +8069,10 @@ msgstr "Belum ada apa-apa yang dijadualkan."
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "Tiada apa-apa untuk digunakan"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "Soalan untuk ditanya"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Naikkan helaian reka bentuk"
@@ -9337,6 +9396,10 @@ msgstr "Membaca berfungsi"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "Membaca jawapan anda"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "Alih keluar kunci laluan ini?"
 msgid "Remove this photo?"
 msgstr "Alih keluar foto ini?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "Mencuba semula…"
 msgid "Review"
 msgstr "Semakan"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "Semak draf"
@@ -9909,6 +9984,10 @@ msgstr "Semak jawapan saya"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "Semak jawapan saya menghantar soalan, apa yang anda katakan, siaran kerja ini dan Pengetahuan anda kepada {providerName}."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "Menghantar mesej anda, permohonan ini (siaran kerja, nota, dokumen yang 
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "Menghantar teks resume anda hanya kepada {0} · {1}, dengan kunci anda."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "Pratonton resume tidak dapat dikemas kini. Pratonton sah terakhir masih 
 msgid "The review couldn't finish. Try again."
 msgstr "Semakan tidak dapat diselesaikan. Cuba lagi."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "Baris yang sama berulang pada setiap halaman."
@@ -12092,6 +12180,10 @@ msgstr "Tiada perenggan ringkasan."
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "Ini ialah jawapan yang disimpan semasa anda memohon."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

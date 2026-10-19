@@ -3,7 +3,7 @@ import { createSelectSchema } from "drizzle-zod";
 import z from "zod";
 import { auth } from "@reactive-resume/auth/config";
 import * as schema from "@reactive-resume/db/schema";
-import { careerProfileDataSchema, careerWorkspaceSchema } from "@reactive-resume/schema/career";
+import { careerProfileDataSchema, careerWorkspaceSchema, knowledgeReviewSchema } from "@reactive-resume/schema/career";
 import { coverLetterSchema } from "@reactive-resume/schema/cover-letter/data";
 import { protectedProcedure, publicProcedure } from "../../context";
 import { applicationDto } from "../../dto/application";
@@ -117,6 +117,7 @@ export const authRouter = {
 					workspaces: z.array(createSelectSchema(schema.careerWorkspace, { data: careerWorkspaceSchema })),
 					factGroups: z.array(createSelectSchema(schema.careerFactGroup)),
 					factOverrides: z.array(createSelectSchema(schema.careerFactOverride)),
+					review: knowledgeReviewSchema.nullable(),
 				}),
 			}),
 		)

@@ -72,6 +72,10 @@ msgstr "“{written}” adicionado às Skills"
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“Como mediu o redesenho do onboarding?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(sem cabeçalho)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {Lendo o bilhete # do seu currículo…} other {Leitura 
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {Memorizar # facto?} other {Memorizar # factos?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "A opinião de um modelo, não um veredicto. Pode estar errado."
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "Um nome ajuda a diferenciar as chaves de acesso, como \"Portátil de trabalho\"."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "Árabe"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Arquivado (fecha)"
@@ -2647,6 +2664,10 @@ msgstr "Verificando {0}"
 msgid "Checking against Knowledge"
 msgstr "A verificar com o Conhecimento"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "Verificação do layout e conteúdo"
@@ -2957,6 +2978,7 @@ msgstr "Ligue um provedor de IA"
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "Ligue um fornecedor de IA acima para utilizar o assistente. Salvar e preparar empregos não precisa de um."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "Copiar transcrição"
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "Corrigir"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "Não foi possível revogar a chave."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "Não foi possível guardar essa alteração."
 
@@ -6353,6 +6380,10 @@ msgstr "Mantenha os cabeçalhos repetidos curtos, ou remova-os. Também se repet
 msgid "Keep the evidence precise"
 msgstr "Mantenha as provas precisas"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "Mantenha o painel ao lado da página"
@@ -6436,6 +6467,10 @@ msgstr "Não foi possível carregar o Conhecimento. Tente novamente ou desative 
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Coreano"
@@ -6482,6 +6517,14 @@ msgstr "Última alteração em {0}"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "Última edição"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "Norueguês"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "Não aplicado"
@@ -7990,6 +8037,10 @@ msgstr "Nada aqui lhe deve custar um fósforo."
 msgid "Nothing is applied for or created until you choose."
 msgstr "Nenhuma candidatura é feita e nada é criado até escolher."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "Nada assinala um cargo como estando em curso."
@@ -8018,6 +8069,10 @@ msgstr "Ainda nada agendado."
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "Nada para aplicar"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "Perguntas a fazer"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "Levante a folha de desenho"
@@ -9337,6 +9396,10 @@ msgstr "A leitura funciona"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "A ler a sua resposta"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "Remover esta chave de acesso?"
 msgid "Remove this photo?"
 msgstr "Remover esta foto?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "Tentando novamente…"
 msgid "Review"
 msgstr "Revisão"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "Rever rascunho"
@@ -9909,6 +9984,10 @@ msgstr "Rever a minha resposta"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "“Rever a minha resposta” envia a pergunta, o que disse, este anúncio e o seu Conhecimento para {providerName}."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "Envia a sua mensagem, esta candidatura (anúncio, notas, documentos envi
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "Envia o texto do seu currículo apenas para {0} · {1}, com a sua chave."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "Não foi possível atualizar a pré-visualização do currículo. A últ
 msgid "The review couldn't finish. Try again."
 msgstr "A revisão não pôde terminar. Tente novamente."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "A mesma linha repete-se em todas as páginas."
@@ -12092,6 +12180,10 @@ msgstr "Não há nenhum parágrafo de resumo."
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "Estas são as respostas guardadas quando se candidatou."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."

@@ -72,6 +72,10 @@ msgstr "\"{written}\" నైపుణ్యాలకు జోడించబడ
 msgid "“How did you measure the onboarding redesign?”"
 msgstr "“ఆన్‌బోర్డింగ్ రీడిజైన్‌ను మీరు ఎలా కొలిచారు?”"
 
+#: src/features/career/knowledge/review.tsx
+msgid "(newer)"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "(no header)"
 msgstr "(హెడర్ లేదు)"
@@ -236,6 +240,11 @@ msgstr "{0, plural, one {మీ రెజ్యూమే యొక్క # ప�
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {Remember # fact?} other {Remember # facts?}}"
 msgstr "{0, plural, one {# వాస్తవాన్ని గుర్తుంచుకోవాలా?} other {# వాస్తవాలను గుర్తుంచుకోవాలా?}}"
+
+#. placeholder {0}: last.cleaned
+#: src/features/career/knowledge/review.tsx
+msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
 
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
@@ -1008,6 +1017,10 @@ msgstr "మోడల్ అభిప్రాయం, తీర్పు కా�
 #: src/features/settings/account/security.tsx
 msgid "A name helps you tell passkeys apart, like \"Work laptop\"."
 msgstr "\"వర్క్ ల్యాప్‌టాప్\" వంటి పాస్‌కీలను వేరుగా చెప్పడంలో పేరు మీకు సహాయపడుతుంది."
+
+#: src/features/career/knowledge/review.tsx
+msgid "A newer fact replaces an older one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A numeric date reads differently in different countries."
@@ -1993,6 +2006,10 @@ msgstr "అరబిక్"
 msgid "Archive"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Archive this one"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "ఆర్కైవ్ చేయబడింది (దానిని మూసివేస్తుంది)"
@@ -2647,6 +2664,10 @@ msgstr "{0}ని తనిఖీ చేస్తోంది"
 msgid "Checking against Knowledge"
 msgstr "నాలెడ్జ్‌తో సరిచూస్తోంది"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Checking for conflicts"
+msgstr ""
+
 #: src/features/ats-checker/checker.tsx
 msgid "Checking layout and content"
 msgstr "లేఅవుట్ మరియు కంటెంట్‌ని తనిఖీ చేస్తోంది"
@@ -2957,6 +2978,7 @@ msgstr "AI ప్రొవైడర్‌ని కనెక్ట్ చేయ�
 msgid "Connect an AI provider above to use the assistant. Saving and preparing jobs doesn't need one."
 msgstr "అసిస్టెంట్‌ని ఉపయోగించడానికి ఎగువన ఉన్న AI ప్రొవైడర్‌ని కనెక్ట్ చేయండి. ఉద్యోగాలను ఆదా చేయడం మరియు సిద్ధం చేయడం అవసరం లేదు."
 
+#: src/features/career/knowledge/review.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
 #: src/features/career/workspace/prepare.tsx
@@ -3208,6 +3230,10 @@ msgstr "లిప్యంతరీకరణను కాపీ చేయండ�
 #: src/features/career/knowledge/facts.tsx
 msgid "Correct"
 msgstr "సరిదిద్దు"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Correct it"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Correct the year, or write \"Present\" for ongoing work."
@@ -3515,6 +3541,7 @@ msgid "Couldn't revoke the key."
 msgstr "కీని ఉపసంహరించుకోవడం సాధ్యపడలేదు."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/review.tsx
 msgid "Couldn't save that change."
 msgstr "ఆ మార్పును సేవ్ చేయడం సాధ్యపడలేదు."
 
@@ -6353,6 +6380,10 @@ msgstr "రన్నింగ్ హెడ్‌లను చిన్నగా 
 msgid "Keep the evidence precise"
 msgstr "ఆధారాలను ఖచ్చితంగా ఉంచండి"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Keep the newer one"
+msgstr ""
+
 #: src/features/resume/editor/chrome.tsx
 msgid "Keep the panel beside the page"
 msgstr "ప్యానెల్‌ను పేజీ పక్కన ఉంచండి"
@@ -6436,6 +6467,10 @@ msgstr "నాలెడ్జ్ లోడ్ కాలేదు. పంపే �
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/review.tsx
+msgid "Knowledge review"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "కొరియన్"
@@ -6482,6 +6517,14 @@ msgstr "{0}లో చివరిగా మార్చబడింది"
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
 msgstr "చివరిగా సవరించబడింది"
+
+#. placeholder {0}: format(last.at, { day: "numeric", month: "short" })
+#. placeholder {1}: last.connection
+#. placeholder {2}: last.reviewed
+#. placeholder {3}: last.total
+#: src/features/career/knowledge/review.tsx
+msgid "Last review {0} on {1}: read {2} of {3} facts."
+msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Last used"
@@ -7860,6 +7903,10 @@ msgstr "Northwind Labs · Lisbon"
 msgid "Norwegian"
 msgstr "నార్వేజియన్"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Not a problem"
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "Not applied"
 msgstr "వర్తింపజేయలేదు"
@@ -7990,6 +8037,10 @@ msgstr "ఇక్కడ ఏదీ మీకు సరిపోలిక ఖర�
 msgid "Nothing is applied for or created until you choose."
 msgstr "మీరు ఎంచుకునే వరకు దేనికీ దరఖాస్తు చేయబడదు, ఏదీ సృష్టించబడదు."
 
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing left to decide."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Nothing marks a role as ongoing."
 msgstr "ఏదీ ఒక పాత్రను కొనసాగుతున్నదిగా గుర్తించడం లేదు."
@@ -8018,6 +8069,10 @@ msgstr "ఇంకా ఏదీ షెడ్యూల్ చేయలేదు."
 #: src/features/career/workspace/messages.tsx
 msgid "Nothing to apply"
 msgstr "వర్తింపజేయడానికి ఏమీ లేదు"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Nothing to check it by"
+msgstr ""
 
 #: src/features/ats-checker/report/report-view.tsx
 msgid "Nothing to fix here."
@@ -9156,6 +9211,10 @@ msgstr "అడగాల్సిన ప్రశ్నలు"
 msgid "R"
 msgstr "R"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Raise \"Facts in each action\" in AI limits to read the rest."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Raise the design sheet"
 msgstr "డిజైన్ షీట్ పెంచండి"
@@ -9337,6 +9396,10 @@ msgstr "పఠనం పనులు"
 #: src/features/career/shared.tsx
 msgid "Reading your answer"
 msgstr "మీ సమాధానాన్ని చదువుతోంది"
+
+#: src/features/career/knowledge/review.tsx
+msgid "Reading your facts"
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Reading your notes"
@@ -9618,6 +9681,14 @@ msgstr "ఈ పాస్‌కీని తీసివేయాలా?"
 msgid "Remove this photo?"
 msgstr "ఈ ఫోటోను తీసివేయాలా?"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Removes copies of shared facts, then asks your AI connection which facts disagree, which a newer fact replaces, and which claim a result with nothing to check it by. You decide what to do with each."
+msgstr ""
+
+#: src/features/career/knowledge/review.tsx
+msgid "Removing copies"
+msgstr ""
+
 #: src/features/career/coach.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/settings/account/security.tsx
@@ -9894,6 +9965,10 @@ msgstr "మళ్లీ ప్రయత్నిస్తోంది..."
 msgid "Review"
 msgstr "సమీక్షించండి"
 
+#: src/features/career/knowledge/review.tsx
+msgid "Review again"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Review draft"
 msgstr "డ్రాఫ్ట్‌ను సమీక్షించు"
@@ -9909,6 +9984,10 @@ msgstr "నా సమాధానాన్ని సమీక్షించు"
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer sends the question, what you said, this posting and your Knowledge to {providerName}."
 msgstr "‘నా సమాధానాన్ని సమీక్షించు’ ప్రశ్న, మీరు చెప్పినది, ఈ ఉద్యోగ ప్రకటన, మీ నాలెడ్జ్‌ను {providerName}కి పంపుతుంది."
+
+#: src/features/career/knowledge/review.tsx
+msgid "Review my Knowledge"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "Review required form answers and remove unsupported claims."
@@ -10556,6 +10635,11 @@ msgstr "మీ సందేశం, ఈ దరఖాస్తు (ఉద్యో
 #: src/features/resume/editor/check/writing-tab.tsx
 msgid "Sends your resume's text only to {0} · {1}, with your key."
 msgstr "మీ కీతో {0} · {1}కి మాత్రమే మీ రెజ్యూమ్ వచనాన్ని పంపుతుంది."
+
+#. placeholder {0}: connection.provider.label
+#: src/features/career/knowledge/review.tsx
+msgid "Sends your shared, switched-on facts to {0}, in requests within your AI limits. Private groups and switched-off facts are never sent."
+msgstr ""
 
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
@@ -12016,6 +12100,10 @@ msgstr "రెస్యూమ్ ప్రివ్యూను అప్‌డ�
 msgid "The review couldn't finish. Try again."
 msgstr "సమీక్ష పూర్తి కాలేదు. మళ్లీ ప్రయత్నించండి."
 
+#: src/features/career/knowledge/review.tsx
+msgid "The review didn't finish."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "The same line repeats on every page."
 msgstr "అదే లైన్ ప్రతి పేజీలో పునరావృతమవుతుంది."
@@ -12092,6 +12180,10 @@ msgstr "సారాంశ పేరాగ్రాఫ్ లేదు."
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
 msgstr "మీరు దరఖాస్తు చేసినప్పుడు సేవ్ చేయబడిన సమాధానాలు ఇవి."
+
+#: src/features/career/knowledge/review.tsx
+msgid "These disagree"
+msgstr ""
 
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
