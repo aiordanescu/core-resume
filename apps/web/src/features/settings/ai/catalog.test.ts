@@ -1,6 +1,6 @@
 import type { ModelSuggestions } from "./catalog";
 import { expect, it, vi } from "vitest";
-import { loadModelSuggestions, suggestedModel } from "./catalog";
+import { contextWindow, loadModelSuggestions, suggestedModel } from "./catalog";
 
 it("suggests current text models with provider-specific IDs and tolerates incomplete catalog entries", async () => {
 	const model = {
@@ -70,4 +70,26 @@ it("prefills the newest model in the provider's family, the newest overall witho
 	expect(suggestedModel(catalog, "anthropic")).toBe("");
 	expect(suggestedModel(catalog, "openai-compatible")).toBe("");
 	expect(suggestedModel(undefined, "openai")).toBe("");
+});
+
+it("finds a model's context window in its provider's catalog, or in any catalog for OpenAI-compatible", () => {
+	const entry = (id: string, context: number) => ({
+		id,
+		name: id,
+		modalities: { input: ["text"], output: ["text"] },
+		limit: { context, output: 8192 },
+	});
+	const catalog: ModelSuggestions = {
+		anthropic: [entry("claude-example", 200_000)],
+		openrouter: [entry("anthropic/claude-example", 180_000)],
+	};
+	expect(contextWindow(catalog, "anthropic", "claude-example")).toBe(200_000);
+	expect(contextWindow(catalog, "openrouter", "anthropic/claude-example")).toBe(180_000);
+	// A gateway that exposes the model under its own or a prefixed id.
+	expect(contextWindow(catalog, "openai-compatible", "claude-example")).toBe(200_000);
+	expect(contextWindow(catalog, "openai-compatible", "vendor/claude-example")).toBe(200_000);
+	// Gateway aliases and unloaded catalogs are unknown.
+	expect(contextWindow(catalog, "openai-compatible", "auto")).toBeNull();
+	expect(contextWindow(catalog, "openai", "claude-example")).toBeNull();
+	expect(contextWindow(undefined, "anthropic", "claude-example")).toBeNull();
 });

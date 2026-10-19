@@ -1,6 +1,7 @@
 import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import type * as React from "react";
 import {
+	ArchiveIcon,
 	ArrowClockwiseIcon,
 	ArrowCounterClockwiseIcon,
 	ArrowDownIcon,
@@ -67,7 +68,10 @@ import {
 	FilePlusIcon,
 	FileTextIcon,
 	FingerprintIcon,
+	FolderSimpleIcon,
+	GaugeIcon,
 	GearSixIcon,
+	GitMergeIcon,
 	GlobeHemisphereWestIcon,
 	GlobeIcon,
 	GlobeSimpleIcon,
@@ -171,6 +175,7 @@ import { cn } from "@reactive-resume/utils/style";
 
 /** Every app icon, by its Phosphor name. Add an entry here to use another Phosphor glyph. */
 const icons = {
+	archive: ArchiveIcon,
 	"arrow-clockwise": ArrowClockwiseIcon,
 	"arrow-counter-clockwise": ArrowCounterClockwiseIcon,
 	"arrow-down": ArrowDownIcon,
@@ -237,7 +242,10 @@ const icons = {
 	"file-plus": FilePlusIcon,
 	"file-text": FileTextIcon,
 	fingerprint: FingerprintIcon,
+	"folder-simple": FolderSimpleIcon,
+	gauge: GaugeIcon,
 	"gear-six": GearSixIcon,
+	"git-merge": GitMergeIcon,
 	globe: GlobeIcon,
 	"globe-hemisphere-west": GlobeHemisphereWestIcon,
 	"globe-simple": GlobeSimpleIcon,

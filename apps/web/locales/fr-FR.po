@@ -128,6 +128,13 @@ msgstr "{0, plural, one {# document déplacé vers la corbeille} other {# docume
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {La modification # n'a pas pu être placée : son texte a été modifié. Demandez à nouveau de le refaire.} other {Les modifications # n'ont pas pu être placées : leur texte a été modifié. Demandez à nouveau de les refaire.}}"
 
+#. placeholder {0}: budget.facts.count
+#. placeholder {1}: n(budget.facts.chars)
+#. placeholder {2}: n(budget.facts.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
@@ -167,6 +174,13 @@ msgstr "{0, plural, one {# sélectionné} other {# sélectionné}}"
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# récit} other {# récits}}"
+
+#. placeholder {0}: budget.stories.count
+#. placeholder {1}: n(budget.stories.chars)
+#. placeholder {2}: n(budget.stories.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# usable story} other {# usable stories}} · {1} of {2} characters"
+msgstr ""
 
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-thread.tsx
@@ -416,6 +430,11 @@ msgstr "{0}, hors de vos lieux"
 msgid "{0}. Issue resolved."
 msgstr "{0}. Problème résolu."
 
+#. placeholder {0}: Math.round((used / budget) * 10) / 10
+#: src/features/career/knowledge/budget.tsx
+msgid "{0}× budget"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 msgid "{accepted} of {0} applied"
@@ -578,6 +597,14 @@ msgstr "{minutes, plural, one {Commence dans # minute} other {Commence dans # mi
 #: src/features/career/workspace/shell.tsx
 msgid "{minutes} min"
 msgstr "{minutes} min"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (from models.dev)."
+msgstr ""
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (set by you)."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "{monthCount} interviews"
@@ -1608,6 +1635,12 @@ msgstr "Affiche également les icônes sur les compétences, les profils et les 
 msgid "Amharic"
 msgstr "Amharique"
 
+#. placeholder {0}: n(budget.tokens.used)
+#. placeholder {1}: n(budget.tokens.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "An action sends about {0} tokens with this Knowledge, and up to {1} with full budgets, counting about four characters a token and the posting, notes and documents."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "Une police intégrée n'a pas pu être lue."
@@ -2332,6 +2365,7 @@ msgstr "Un logiciel peut-il lire votre CV ?"
 #: src/features/applications/components/export-applications-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2364,12 +2398,17 @@ msgstr "Catalan"
 msgid "Certifications"
 msgstr "Certifications"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "Changement"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Change AI limits"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -2844,6 +2883,10 @@ msgstr "Connectez un fournisseur d'IA dans les Paramètres"
 msgid "Connect an AI provider in Settings to refresh it automatically."
 msgstr "Connectez un fournisseur d'IA dans les Paramètres pour l'actualiser automatiquement."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Connect an AI provider to compare this with its model's context window."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Connect an application"
 msgstr "Connecter une application"
@@ -2935,6 +2978,10 @@ msgstr "Contenu"
 #: src/features/ats-checker/messages.ts
 msgid "Content is laid out in a grid."
 msgstr "Le contenu est disposé en grille."
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Context window of {model}"
+msgstr ""
 
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
@@ -3387,6 +3434,10 @@ msgstr "Impossible d'enregistrer cela dans Connaissances. Réessayez."
 msgid "Couldn't save the application."
 msgstr "Impossible d'enregistrer la candidature."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Couldn't save the context window."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Couldn't save the follow-up."
 msgstr "Impossible d'enregistrer le suivi."
@@ -3643,6 +3694,11 @@ msgstr "Leadership interfonctionnel"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "CSV data"
 msgstr "Données CSV"
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgctxt "Knowledge: choose what the AI sees and keep facts and stories tidy"
+msgid "Curate"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Currency"
@@ -4773,6 +4829,7 @@ msgstr ""
 msgid "Facts"
 msgstr "Faits"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Facts in each action"
 msgstr ""
@@ -6196,6 +6253,10 @@ msgstr "Cordialement,"
 msgid "Knowledge"
 msgstr "Connaissances"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Knowledge budget"
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "Impossible de charger Connaissances. Réessayez ou désactivez Connaissances avant d'envoyer."
@@ -6686,6 +6747,10 @@ msgstr "De longs passages sont en majuscules."
 msgid "Look for"
 msgstr "Rechercher"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Look it up instead"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Looks exactly like the page. Use it for applications and email."
 msgstr "Ressemble exactement à la page. Utilisez-le pour les candidatures à un emploi et les e-mails."
@@ -6963,6 +7028,10 @@ msgstr "Les suggestions de modèles ne sont pas disponibles. Vous pouvez toujour
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "Modèle : {label}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "models.dev doesn't list {model}, so its context window is unknown."
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8105,6 +8174,10 @@ msgstr "Périmé : le texte a changé depuis."
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Outdent"
 msgstr "Diminuer le retrait"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
+msgstr ""
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Overreactive Resume - Go to homepage"
@@ -9749,6 +9822,7 @@ msgstr "Exemple de CV ajouté. Supprimez-le à tout moment."
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10265,6 +10339,10 @@ msgstr "Définir un suivi…"
 #: src/features/settings/account/security.tsx
 msgid "Set a password"
 msgstr "Définir un mot de passe"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Set it"
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -10973,6 +11051,7 @@ msgstr ""
 msgid "Stories"
 msgstr "Récits"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Stories in each action"
 msgstr ""
@@ -11434,6 +11513,10 @@ msgstr "L'assistant n'est pas configuré sur ce serveur. Celui qui l'exécute do
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "L'assistant utilise votre propre clé. Rien n'est envoyé nulle part jusqu'à ce que vous en connectiez un."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "The budget is larger than this model's context window. Lower the AI limits, or the model may cut off or refuse long requests."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
 msgstr "Le lecteur intégré reste actif."
@@ -11461,6 +11544,14 @@ msgstr "Le coach les lit uniquement pour cette candidature."
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach saves facts you state, and tells you. You can undo."
 msgstr "Le coach enregistre les faits que vous énoncez et vous en informe. Vous pouvez annuler."
+
+#. placeholder {0}: n(budget.coach.facts.limit)
+#. placeholder {1}: n(budget.coach.facts.count)
+#. placeholder {2}: n(budget.coach.stories.limit)
+#. placeholder {3}: n(budget.coach.stories.count)
+#: src/features/career/knowledge/budget.tsx
+msgid "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each message, best matches first."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
@@ -12042,6 +12133,10 @@ msgstr "Aujourd'hui {time}"
 #: src/features/career/workspace/practise.tsx
 msgid "Today, {hour}"
 msgstr "Aujourd'hui, {hour}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "tokens"
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"

@@ -14,6 +14,16 @@ const providerFields = z.object({
 		.describe(
 			'"none" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model\'s own default applies. Ultra only on OpenAI-compatible and OpenRouter connections.',
 		),
+	contextTokens: z
+		.number()
+		.int()
+		.min(1000)
+		.max(100_000_000)
+		.nullable()
+		.optional()
+		.describe(
+			"The model's context window in tokens, for the Knowledge budget meter. Null or omitted looks the model up on models.dev; set it for models that list doesn't know, such as a gateway alias.",
+		),
 });
 
 export const ULTRA_UNSUPPORTED = "Ultra effort is only available for OpenAI-compatible and OpenRouter connections.";

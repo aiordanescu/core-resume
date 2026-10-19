@@ -22,6 +22,7 @@ export type AiProviderResponse = {
 	model: string;
 	baseURL: string | null;
 	reasoning: AiReasoning | null;
+	contextTokens: number | null;
 	enabled: boolean;
 	isDefault: boolean;
 	testStatus: string;
@@ -42,6 +43,7 @@ type CreateAiProviderInput = {
 	baseURL?: string | null;
 	apiKey: string;
 	reasoning?: AiReasoning | null;
+	contextTokens?: number | null;
 };
 
 type UpdateAiProviderInput = {
@@ -53,6 +55,7 @@ type UpdateAiProviderInput = {
 	baseURL?: string | null;
 	apiKey?: string;
 	reasoning?: AiReasoning | null;
+	contextTokens?: number | null;
 	enabled?: boolean;
 };
 
@@ -67,6 +70,7 @@ function toResponse(row: AiProviderRecord): AiProviderResponse {
 		model: row.model,
 		baseURL: row.baseUrl,
 		reasoning: storedReasoning(row.reasoning),
+		contextTokens: row.contextTokens ?? null,
 		enabled: row.enabled,
 		isDefault: row.isDefault,
 		testStatus: row.testStatus,
@@ -223,6 +227,7 @@ export const aiProvidersService = {
 				model: input.model.trim(),
 				baseUrl: normalizeBaseUrl(input),
 				reasoning: input.reasoning ?? null,
+				contextTokens: input.contextTokens ?? null,
 				...encrypted,
 			})
 			.returning();
@@ -265,6 +270,8 @@ export const aiProvidersService = {
 				...(input.model !== undefined ? { model: input.model.trim() } : {}),
 				...(input.baseURL !== undefined ? { baseUrl: nextBaseUrl } : {}),
 				...(input.reasoning !== undefined ? { reasoning: input.reasoning } : {}),
+				// Only the budget meter reads it, so changing it needs no new connection test.
+				...(input.contextTokens !== undefined ? { contextTokens: input.contextTokens } : {}),
 				...(input.enabled !== undefined && !runtimeChanged ? { enabled: input.enabled } : {}),
 				...(runtimeChanged ? { enabled: false, testStatus: "untested", lastTestedAt: null, testError: null } : {}),
 				...encrypted,

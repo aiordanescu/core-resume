@@ -21,6 +21,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/com
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
+import { storyHolds } from "@reactive-resume/utils/knowledge";
 import { coachQuery, rankByRelevance, storyText } from "@reactive-resume/utils/relevance";
 import { cn } from "@reactive-resume/utils/style";
 import { useSessionDraft } from "./hooks";
@@ -90,13 +91,8 @@ export function useCoachKnowledge(applicationId: string | null) {
 	const active = all.filter(
 		(fact) => fact.status === "active" && (fact.applicationId === null || fact.applicationId === applicationId),
 	);
-	const usable = (stories.data ?? []).filter(
-		(story) =>
-			story.data.factIds.length > 0 &&
-			story.data.factIds.every((id) =>
-				active.some((fact) => fact.id === id && new Date(fact.revisions.at(-1)?.at ?? 0) <= new Date(story.updatedAt)),
-			),
-	);
+	const activeById = new Map(active.map((fact) => [fact.id, fact]));
+	const usable = (stories.data ?? []).filter((story) => storyHolds(story, activeById));
 	return {
 		loaded: facts.isSuccess && stories.isSuccess && (applicationId === null || application.isSuccess),
 		isPending: facts.isPending || stories.isPending,

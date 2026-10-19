@@ -17,7 +17,8 @@ type Section = {
 	to:
 		| "/dashboard/career/knowledge/facts"
 		| "/dashboard/career/knowledge/stories/{-$storyId}"
-		| "/dashboard/career/knowledge/preferences";
+		| "/dashboard/career/knowledge/preferences"
+		| "/dashboard/career/knowledge/curate";
 	match: string;
 	icon: IconName;
 	label: string;
@@ -52,6 +53,12 @@ function KnowledgeLayout() {
 				message: "Preferences",
 				context: "Career preferences: the roles, places, pay and ways of working you want",
 			}),
+		},
+		{
+			to: "/dashboard/career/knowledge/curate",
+			match: "/dashboard/career/knowledge/curate",
+			icon: "gauge",
+			label: t({ message: "Curate", context: "Knowledge: choose what the AI sees and keep facts and stories tidy" }),
 		},
 	];
 

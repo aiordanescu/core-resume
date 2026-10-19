@@ -9803,6 +9803,18 @@
 													}
 												]
 											},
+											"contextTokens": {
+												"anyOf": [
+													{
+														"type": "integer",
+														"minimum": -9007199254740991,
+														"maximum": 9007199254740991
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
 											"enabled": {
 												"type": "boolean"
 											},
@@ -9871,6 +9883,7 @@
 											"model",
 											"baseURL",
 											"reasoning",
+											"contextTokens",
 											"enabled",
 											"isDefault",
 											"testStatus",
@@ -10087,6 +10100,19 @@
 											}
 										],
 										"description": "\"none\" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model's own default applies. Ultra only on OpenAI-compatible and OpenRouter connections."
+									},
+									"contextTokens": {
+										"anyOf": [
+											{
+												"type": "integer",
+												"minimum": 1000,
+												"maximum": 100000000
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "The model's context window in tokens, for the Knowledge budget meter. Null or omitted looks the model up on models.dev; set it for models that list doesn't know, such as a gateway alias."
 									}
 								},
 								"required": [
@@ -10170,6 +10196,18 @@
 												}
 											]
 										},
+										"contextTokens": {
+											"anyOf": [
+												{
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -10238,6 +10276,7 @@
 										"model",
 										"baseURL",
 										"reasoning",
+										"contextTokens",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -10566,6 +10605,19 @@
 										],
 										"description": "\"none\" switches thinking off; minimal, low, medium, high, xhigh, max or ultra switch it on at that effort. Null or omitted sends nothing, so the model's own default applies. Ultra only on OpenAI-compatible and OpenRouter connections."
 									},
+									"contextTokens": {
+										"anyOf": [
+											{
+												"type": "integer",
+												"minimum": 1000,
+												"maximum": 100000000
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "The model's context window in tokens, for the Knowledge budget meter. Null or omitted looks the model up on models.dev; set it for models that list doesn't know, such as a gateway alias."
+									},
 									"enabled": {
 										"type": "boolean"
 									}
@@ -10645,6 +10697,18 @@
 												}
 											]
 										},
+										"contextTokens": {
+											"anyOf": [
+												{
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -10713,6 +10777,7 @@
 										"model",
 										"baseURL",
 										"reasoning",
+										"contextTokens",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -11301,6 +11366,18 @@
 												}
 											]
 										},
+										"contextTokens": {
+											"anyOf": [
+												{
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -11369,6 +11446,7 @@
 										"model",
 										"baseURL",
 										"reasoning",
+										"contextTokens",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -11765,6 +11843,18 @@
 												}
 											]
 										},
+										"contextTokens": {
+											"anyOf": [
+												{
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -11833,6 +11923,7 @@
 										"model",
 										"baseURL",
 										"reasoning",
+										"contextTokens",
 										"enabled",
 										"isDefault",
 										"testStatus",
@@ -103804,6 +103895,18 @@
 												}
 											]
 										},
+										"contextTokens": {
+											"anyOf": [
+												{
+													"type": "integer",
+													"minimum": -9007199254740991,
+													"maximum": 9007199254740991
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"enabled": {
 											"type": "boolean"
 										},
@@ -103872,6 +103975,7 @@
 										"model",
 										"baseURL",
 										"reasoning",
+										"contextTokens",
 										"enabled",
 										"isDefault",
 										"testStatus",

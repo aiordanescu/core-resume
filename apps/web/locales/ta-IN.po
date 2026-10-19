@@ -128,6 +128,13 @@ msgstr "{0, plural, one {# ஆவணம் குப்பைக்கு நக
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# திருத்தத்தை வைக்க முடியவில்லை: அதன் உரை மாற்றப்பட்டது. அதை மீண்டும் செய்ய மீண்டும் கேளுங்கள்.} other {# திருத்தங்களைச் செய்ய முடியவில்லை: அவற்றின் உரை மாற்றப்பட்டது. அவற்றை மீண்டும் செய்ய மீண்டும் கேளுங்கள்.}}"
 
+#. placeholder {0}: budget.facts.count
+#. placeholder {1}: n(budget.facts.chars)
+#. placeholder {2}: n(budget.facts.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
@@ -167,6 +174,13 @@ msgstr "{0, plural, one {# தேர்ந்தெடுக்கப்பட�
 #: src/features/career/coach-thread.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# கதை} other {# கதைகள்}}"
+
+#. placeholder {0}: budget.stories.count
+#. placeholder {1}: n(budget.stories.chars)
+#. placeholder {2}: n(budget.stories.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "{0, plural, one {# usable story} other {# usable stories}} · {1} of {2} characters"
+msgstr ""
 
 #. placeholder {0}: remembered.ids.length
 #: src/features/career/coach-thread.tsx
@@ -416,6 +430,11 @@ msgstr "{0}, உங்கள் இடங்களில் ஒன்றல்�
 msgid "{0}. Issue resolved."
 msgstr "{0}. பிரச்சினை தீர்க்கப்பட்டது."
 
+#. placeholder {0}: Math.round((used / budget) * 10) / 10
+#: src/features/career/knowledge/budget.tsx
+msgid "{0}× budget"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 msgid "{accepted} of {0} applied"
@@ -578,6 +597,14 @@ msgstr "{minutes, plural, one {# நிமிடத்தில் தொடங�
 #: src/features/career/workspace/shell.tsx
 msgid "{minutes} min"
 msgstr "{minutes} நிமி"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (from models.dev)."
+msgstr ""
+
+#: src/features/career/knowledge/budget.tsx
+msgid "{model} reads up to {formatted} tokens (set by you)."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "{monthCount} interviews"
@@ -1608,6 +1635,12 @@ msgstr "திறன்கள், சுயவிவரங்கள் மற்
 msgid "Amharic"
 msgstr "அம்ஹாரிக்"
 
+#. placeholder {0}: n(budget.tokens.used)
+#. placeholder {1}: n(budget.tokens.budget)
+#: src/features/career/knowledge/budget.tsx
+msgid "An action sends about {0} tokens with this Knowledge, and up to {1} with full budgets, counting about four characters a token and the posting, notes and documents."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "An embedded font could not be read."
 msgstr "உட்பொதிக்கப்பட்ட எழுத்துருவைப் படிக்க முடியவில்லை."
@@ -2332,6 +2365,7 @@ msgstr "மென்பொருள் உங்கள் விண்ணப்�
 #: src/features/applications/components/export-applications-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
@@ -2364,12 +2398,17 @@ msgstr "கட்டலான்"
 msgid "Certifications"
 msgstr "சான்றிதழ்கள்"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/settings/account/security.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Change"
 msgstr "மாற்றம்"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Change AI limits"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/settings/ai/web-access.tsx
@@ -2844,6 +2883,10 @@ msgstr "அமைப்புகளில் AI வழங்குநரை இ�
 msgid "Connect an AI provider in Settings to refresh it automatically."
 msgstr "தானாகப் புதுப்பிக்க, அமைப்புகளில் AI வழங்குநரை இணைக்கவும்."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Connect an AI provider to compare this with its model's context window."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Connect an application"
 msgstr "ஒரு பயன்பாட்டை இணைக்கவும்"
@@ -2935,6 +2978,10 @@ msgstr "உள்ளடக்கம்"
 #: src/features/ats-checker/messages.ts
 msgid "Content is laid out in a grid."
 msgstr "உள்ளடக்கம் ஒரு கட்டமைப்பில் (கிரிட்) அமைக்கப்பட்டுள்ளது."
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Context window of {model}"
+msgstr ""
 
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
@@ -3387,6 +3434,10 @@ msgstr "அதை அறிவுத் தளத்தில் சேமிக
 msgid "Couldn't save the application."
 msgstr "வேலை விண்ணப்பத்தைச் சேமிக்க முடியவில்லை."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Couldn't save the context window."
+msgstr ""
+
 #: src/features/applications/components/detail/next-step-card.tsx
 msgid "Couldn't save the follow-up."
 msgstr "பின்தொடர்வதைச் சேமிக்க முடியவில்லை."
@@ -3643,6 +3694,11 @@ msgstr "குறுக்கு-செயல்பாட்டு தலைம�
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "CSV data"
 msgstr "CSV தரவு"
+
+#: src/routes/dashboard/career/knowledge/route.tsx
+msgctxt "Knowledge: choose what the AI sees and keep facts and stories tidy"
+msgid "Curate"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Currency"
@@ -4773,6 +4829,7 @@ msgstr ""
 msgid "Facts"
 msgstr "உண்மைகள்"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Facts in each action"
 msgstr ""
@@ -6196,6 +6253,10 @@ msgstr "அன்புடன்,"
 msgid "Knowledge"
 msgstr "அறிவுத் தளம்"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Knowledge budget"
+msgstr ""
+
 #: src/features/career/coach.tsx
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "அறிவுத் தளத்தை ஏற்ற முடியவில்லை. அனுப்பும் முன் மீண்டும் முயற்சிக்கவும் அல்லது அறிவுத் தளத்தை அணைக்கவும்."
@@ -6686,6 +6747,10 @@ msgstr "நீண்ட பகுதிகள் பெரிய எழுத்
 msgid "Look for"
 msgstr "தேட வேண்டியவை"
 
+#: src/features/career/knowledge/budget.tsx
+msgid "Look it up instead"
+msgstr ""
+
 #: src/features/resume/share/download-tab.tsx
 msgid "Looks exactly like the page. Use it for applications and email."
 msgstr "பக்கத்தைப் போலவே தெரிகிறது. வேலை விண்ணப்பங்கள் மற்றும் மின்னஞ்சலுக்கு இதைப் பயன்படுத்தவும்."
@@ -6963,6 +7028,10 @@ msgstr "மாதிரி பரிந்துரைகள் கிடைக�
 #: src/features/assistant/assistant-panel.tsx
 msgid "Model: {label}"
 msgstr "மாடல்: {label}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "models.dev doesn't list {model}, so its context window is unknown."
+msgstr ""
 
 #: src/features/homepage/sheet.tsx
 msgid "Mono"
@@ -8105,6 +8174,10 @@ msgstr "காலாவதியானது: உரை மாற்றப்ப
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Outdent"
 msgstr "உள்தள்ளலைக் குறை"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
+msgstr ""
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Overreactive Resume - Go to homepage"
@@ -9749,6 +9822,7 @@ msgstr "மாதிரி ரெஸ்யூம் சேர்க்கப்�
 
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
+#: src/features/career/knowledge/budget.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10265,6 +10339,10 @@ msgstr "பின்தொடர்வதை அமைக்கவும்…"
 #: src/features/settings/account/security.tsx
 msgid "Set a password"
 msgstr "கடவுச்சொல்லை அமைக்கவும்"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "Set it"
+msgstr ""
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Set Password"
@@ -10973,6 +11051,7 @@ msgstr ""
 msgid "Stories"
 msgstr "கதைகள்"
 
+#: src/features/career/knowledge/budget.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Stories in each action"
 msgstr ""
@@ -11434,6 +11513,10 @@ msgstr "இந்தச் சேவையகத்தில் உதவிய�
 msgid "The assistant uses your own key. Nothing is sent anywhere until you connect one."
 msgstr "உதவியாளர் உங்கள் சொந்த விசையைப் பயன்படுத்துகிறார். நீங்கள் ஒன்றை இணைக்கும் வரை எதுவும் எங்கும் அனுப்பப்படாது."
 
+#: src/features/career/knowledge/budget.tsx
+msgid "The budget is larger than this model's context window. Lower the AI limits, or the model may cut off or refuse long requests."
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "The built-in reader remains active."
 msgstr "உள்ளமைக்கப்பட்ட ரீடர் செயலில் உள்ளது."
@@ -11461,6 +11544,14 @@ msgstr "ஆலோசகர் இவற்றை இந்த விண்ணப
 #: src/features/career/knowledge/facts.tsx
 msgid "The coach saves facts you state, and tells you. You can undo."
 msgstr "நீங்கள் கூறும் உண்மைகளை ஆலோசகர் சேமித்து, உங்களுக்குத் தெரிவிக்கும். நீங்கள் செயல்தவிர்க்கலாம்."
+
+#. placeholder {0}: n(budget.coach.facts.limit)
+#. placeholder {1}: n(budget.coach.facts.count)
+#. placeholder {2}: n(budget.coach.stories.limit)
+#. placeholder {3}: n(budget.coach.stories.count)
+#: src/features/career/knowledge/budget.tsx
+msgid "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each message, best matches first."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
@@ -12042,6 +12133,10 @@ msgstr "இன்று {time}"
 #: src/features/career/workspace/practise.tsx
 msgid "Today, {hour}"
 msgstr "இன்று, {hour}"
+
+#: src/features/career/knowledge/budget.tsx
+msgid "tokens"
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "Tomorrow"

@@ -24,6 +24,8 @@ vi.mock("@/libs/orpc/client", () => ({
 	},
 }));
 vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: toasts.add, close: vi.fn() } }));
+// The budget meter has its own test; here it would only add queries this file doesn't mock.
+vi.mock("@/features/career/knowledge/budget", () => ({ BudgetMeter: () => null }));
 
 i18n.loadAndActivate({ locale: "en", messages: {} });
 
