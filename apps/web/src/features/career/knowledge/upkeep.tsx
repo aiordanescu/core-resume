@@ -174,29 +174,31 @@ export function DuplicatesCard() {
 								? t`The longer one says almost everything the shorter one does · ${percent}%`
 								: t`Nearly the same words · ${percent}%`}
 						</p>
+						{/* Both cards share the rows (text, button, note), so the buttons line up whichever side has a note. */}
 						<div className="grid gap-2 sm:grid-cols-2">
 							{[
 								[left, right],
 								[right, left],
 							].map(([keep, other]) =>
 								keep && other ? (
-									<div key={keep.id} className="grid content-between gap-2 rounded-md bg-sunken px-3 py-2.5">
+									<div
+										key={keep.id}
+										className="row-span-3 grid grid-rows-subgrid justify-items-start rounded-md bg-sunken px-3 py-2.5"
+									>
 										<FactQuote fact={keep} />
-										<div className="grid justify-items-start gap-1">
-											<Button
-												size="sm"
-												variant="secondary"
-												disabled={busy}
-												onClick={() => merge.mutate({ into: keep.id, ids: [other.id] })}
-											>
-												<Trans>Keep this, archive the other</Trans>
-											</Button>
+										<Button
+											size="sm"
+											variant="secondary"
+											disabled={busy}
+											onClick={() => merge.mutate({ into: keep.id, ids: [other.id] })}
+										>
+											<Trans>Keep this, archive the other</Trans>
+										</Button>
+										<span className="text-xs text-ink-3">
 											{becomesShared(keep, other) && (
-												<span className="text-xs text-ink-3">
-													<Trans>This one becomes shared, so every application gets it.</Trans>
-												</span>
+												<Trans>This one becomes shared, so every application gets it.</Trans>
 											)}
-										</div>
+										</span>
 									</div>
 								) : null,
 							)}
