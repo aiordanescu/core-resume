@@ -833,6 +833,87 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		expect((await service.context({ userId: "alice" })).stories.map((item) => item.id)).toEqual([saved.id]);
 	});
 
+	async function grouped(userId: string, text: string, group: string, applicationId: string | null = null) {
+		const saved = await service.saveFact(userId, {
+			applicationId,
+			text,
+			category: "experience",
+			source: { kind: "manual", id: randomUUID(), quote: text },
+			group,
+		});
+		if (!saved) throw new Error("Expected a new fact.");
+		return saved;
+	}
+
+	it("switches a group with its subgroups, and starts new facts in it the same way", async () => {
+		const acme = await grouped("alice", "I ran the Acme migration.", "experience/acme");
+		const globex = await grouped("alice", "I led Globex reviews.", "experience/globex");
+		const near = await grouped("alice", "I like experienced teams.", "experienced");
+		const bobs = await grouped("bob", "Bob's experience.", "experience");
+		expect(
+			await service.setFactGroupStatus("alice", { group: "experience", status: "excluded", subgroups: true }),
+		).toEqual({ updated: 2 });
+		const status = async (userId: string) =>
+			Object.fromEntries((await service.facts({ userId, all: true })).map((fact) => [fact.id, fact.status]));
+		expect(await status("alice")).toEqual({ [acme.id]: "excluded", [globex.id]: "excluded", [near.id]: "active" });
+		expect(await status("bob")).toEqual({ [bobs.id]: "active" });
+		expect((await service.context({ userId: "alice" })).facts.map((fact) => fact.id)).toEqual([near.id]);
+
+		// A new fact in a subgroup follows the group's last switch; switching again changes nothing already in place.
+		const later = await grouped("alice", "I wrote Acme's runbooks.", "experience/acme/ops");
+		expect(later.status).toBe("excluded");
+		expect(
+			await service.setFactGroupStatus("alice", { group: "experience", status: "excluded", subgroups: true }),
+		).toEqual({ updated: 0 });
+
+		// A subgroup switched on its own keeps that, until its parent is switched with subgroups again.
+		await service.setFactGroupStatus("alice", { group: "experience/globex", status: "active", subgroups: true });
+		expect((await grouped("alice", "Globex on-call.", "experience/globex")).status).toBe("active");
+		await service.setFactGroupStatus("alice", { group: "experience", status: "excluded", subgroups: true });
+		expect((await grouped("alice", "Globex rota.", "experience/globex")).status).toBe("excluded");
+
+		const groups = await service.factGroups("alice");
+		expect(groups.find((entry) => entry.group === "experience")).toMatchObject({ status: "excluded" });
+		expect(groups.find((entry) => entry.group === "experience/globex")).toMatchObject({
+			status: null,
+			facts: { active: 0, excluded: 3 },
+		});
+		expect(groups.find((entry) => entry.group === "experienced")).toMatchObject({ facts: { active: 1, excluded: 0 } });
+		expect((await service.exportData("alice")).factGroups.map((row) => row.group).sort()).toEqual([
+			"experience",
+			"experience/globex",
+		]);
+	});
+
+	it("switches without subgroups, regroups and lists by group, and skips forgotten facts in bulk changes", async () => {
+		const top = await grouped("alice", "Top-level fact.", "work");
+		const nested = await grouped("alice", "Nested fact.", "work/acme");
+		const loose = await fact("alice", "A fact in no group.");
+		await service.setFactGroupStatus("alice", { group: "work", status: "excluded", subgroups: false });
+		expect((await service.facts({ userId: "alice", group: "work" })).map((row) => [row.id, row.status])).toEqual([
+			[nested.id, "active"],
+			[top.id, "excluded"],
+		]);
+		await service.forgetFact("alice", top.id);
+		expect(
+			await service.updateFacts("alice", {
+				ids: [top.id, nested.id, loose.id],
+				group: "archive/old",
+				status: "excluded",
+			}),
+		).toEqual({ updated: 2 });
+		expect((await service.facts({ userId: "alice", group: "archive" })).map((row) => row.id).sort()).toEqual(
+			[nested.id, loose.id].sort(),
+		);
+		// Another account's ids are never touched.
+		expect(await service.updateFacts("bob", { ids: [nested.id], status: "active" })).toEqual({ updated: 0 });
+		await service.updateFact("alice", { id: loose.id, group: null });
+		expect((await service.facts({ userId: "alice" })).find((row) => row.id === loose.id)).toMatchObject({
+			group: null,
+			status: "excluded",
+		});
+	});
+
 	it("keeps AI limits per account and apart from preferences", async () => {
 		const defaults = aiLimitsSchema.parse({});
 		expect(await service.aiLimits("alice")).toEqual(defaults);

@@ -373,6 +373,13 @@ msgstr "Les demandes d'emploi adaptées {0} sur {1} ont reçu une réponse ; {2
 msgid "{0} of {1} terms found"
 msgstr "{0} termes trouvés sur {1}"
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#. placeholder {2}: number.format(node.activeChars)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · {2} characters"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -741,6 +748,14 @@ msgstr "{type} · {0} jours restants"
 #: src/features/documents/document-card.tsx
 msgid "{type} · Edited {0}"
 msgstr "{type} · {0} édité"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} on.} other {Switched # facts in {group} on.}}"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "{value} a month"
@@ -1115,6 +1130,10 @@ msgstr "Ajouter"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "Ajoutez « {0} »"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Add a fact to {group}"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
@@ -1584,6 +1603,10 @@ msgstr "Toutes les candidatures (y compris fermées)"
 #: src/features/settings/account/data.tsx
 msgid "All documents and applications as JSON, in one zip"
 msgstr "Tous les documents et demandes d'emploi au format JSON, dans un seul zip"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "All groups"
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -3536,6 +3559,10 @@ msgstr "Impossible de changer de connexion."
 msgid "Couldn't switch models."
 msgstr "Impossible de changer de modèle."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't switch that group."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
 msgstr "Impossible de transcrire. Votre enregistrement est toujours là."
@@ -5433,6 +5460,22 @@ msgstr "Gris"
 msgid "Grid"
 msgstr "Grille"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Group"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group for this fact"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group, for example experience/acme"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Groups"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
 msgstr "Je vous l'expliquerai volontiers lors de notre appel."
@@ -7321,6 +7364,10 @@ msgstr "Nouveau document"
 msgid "New fact"
 msgstr "Nouveau fait"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "new facts start off"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New key"
 msgstr "Nouvelle clé"
@@ -7487,6 +7534,14 @@ msgstr "Aucun fait à lier pour l'instant. Ajoutez-en dans Faits."
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "Aucun fait pour l'instant. Ajoutez-en un ci-dessus."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "No group"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
@@ -7675,6 +7730,12 @@ msgstr "pas trouvé"
 #: src/features/ats-checker/checker.tsx
 msgid "Not found: {0}"
 msgstr "Introuvable : {0}"
+
+#. placeholder {0}: number.format(ungrouped.facts.active)
+#. placeholder {1}: number.format(ungrouped.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "Not in a group: {0} on · {1} off"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Not in either offer yet"
@@ -9345,6 +9406,10 @@ msgstr "Supprimer le champ"
 msgid "Remove file"
 msgstr "Supprimer le fichier"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Remove from group"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Remove person {0}"
@@ -9877,6 +9942,10 @@ msgstr "Enregistrer la correction"
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "Enregistrez d’abord, puis testez la recherche et la lecture. Aucun test ne s'exécute automatiquement."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Save group"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Save interview"
@@ -10475,6 +10544,10 @@ msgstr "Afficher {title} sur la page"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Show again"
 msgstr "Remontrer"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Show all groups"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Show all types"
@@ -11177,6 +11250,28 @@ msgstr "Échangez les dates de début et de fin."
 #: src/libs/locale.ts
 msgid "Swedish"
 msgstr "Suédois"
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} off"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} on"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all off"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all on"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Switch it off"

@@ -15,6 +15,7 @@ import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/comp
 import { Switch } from "@reactive-resume/ui/components/switch";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { groupAncestors, inGroup } from "@reactive-resume/utils/knowledge";
 import { cn } from "@reactive-resume/utils/style";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { CollapseRow, FilterChip, flash, useCareerTime, withUndo } from "../shared";
@@ -37,6 +38,23 @@ const categoryLabel = (category: FactCategory) =>
 
 const FACTS_INPUT = { applicationId: null, all: true };
 
+/** The group filter: every fact, facts in no group, or one group with its subgroups. */
+type GroupFilter = { kind: "all" } | { kind: "none" } | { kind: "group"; path: string };
+const filterValue = (filter: GroupFilter) =>
+	filter.kind === "group" ? `group:${filter.path}` : filter.kind === "none" ? "none" : "all";
+const parseFilter = (value: string): GroupFilter =>
+	value.startsWith("group:")
+		? { kind: "group", path: value.slice(6) }
+		: value === "none"
+			? { kind: "none" }
+			: { kind: "all" };
+
+/** Every group the facts use, with the groups above them, in path order. */
+const groupPaths = (facts: readonly Fact[]) =>
+	[...new Set(facts.flatMap((fact) => (fact.group ? groupAncestors(fact.group) : [])))].sort((a, b) =>
+		a.localeCompare(b),
+	);
+
 type FactsPageProps = { highlight: string | undefined };
 
 export function FactsPage({ highlight }: FactsPageProps) {
@@ -46,12 +64,14 @@ export function FactsPage({ highlight }: FactsPageProps) {
 	const facts = factQuery.data;
 	const [search, setSearch] = useState("");
 	const [type, setType] = useState<FactCategory | null>(null);
+	const [group, setGroup] = useState<GroupFilter>({ kind: "all" });
 	const [hidden, setHidden] = useState<string[]>([]);
 	const listRef = useRef<HTMLDivElement>(null);
 
 	const refresh = () => {
 		void queryClient.invalidateQueries({ queryKey: orpc.career.facts.key() });
 		void queryClient.invalidateQueries({ queryKey: orpc.career.stories.key() });
+		void queryClient.invalidateQueries({ queryKey: orpc.career.factGroups.key() });
 	};
 	const patch = (id: string, values: Partial<Fact>) =>
 		queryClient.setQueryData<Fact[]>(queryKey, (list) =>
@@ -76,10 +96,12 @@ export function FactsPage({ highlight }: FactsPageProps) {
 	}, [highlight, facts]);
 
 	const query = search.trim().toLocaleLowerCase();
+	const groups = groupPaths(facts ?? []);
 	const visible = (facts ?? []).filter(
 		(fact) =>
 			!hidden.includes(fact.id) &&
 			(type === null || categoryOf(fact) === type) &&
+			(group.kind === "all" || (group.kind === "none" ? !fact.group : inGroup(fact.group, group.path))) &&
 			(!query || `${fact.text} ${sourceLabel(fact)}`.toLocaleLowerCase().includes(query)),
 	);
 
@@ -104,7 +126,7 @@ export function FactsPage({ highlight }: FactsPageProps) {
 
 	const added = (fact: Fact) => {
 		queryClient.setQueryData<Fact[]>(queryKey, (list) => [fact, ...(list ?? [])]);
-		// The new fact shows even when the current search or filter wouldn't match it.
+		// The new fact shows even when the current search or type wouldn't match it; it went into the chosen group.
 		setSearch("");
 		setType(null);
 		refresh();
@@ -134,9 +156,27 @@ export function FactsPage({ highlight }: FactsPageProps) {
 						{categoryLabel(category)}
 					</FilterChip>
 				))}
+				{groups.length > 0 && (
+					<div className="w-auto">
+						<NativeSelect
+							aria-label={t`Group`}
+							value={filterValue(group)}
+							onChange={(event) => setGroup(parseFilter(event.target.value))}
+							className="h-[34px] max-w-[240px] text-[13px] font-medium"
+						>
+							<option value="all">{t`All groups`}</option>
+							<option value="none">{t`No group`}</option>
+							{groups.map((path) => (
+								<option key={path} value={filterValue({ kind: "group", path })}>
+									{path}
+								</option>
+							))}
+						</NativeSelect>
+					</div>
+				)}
 			</div>
 
-			<AddFact onAdded={added} />
+			<AddFact group={group.kind === "group" ? group.path : null} onAdded={added} />
 			{!facts && (factQuery.isError ? <CareerLoadError onRetry={() => void factQuery.refetch()} /> : <CareerLoading />)}
 
 			{facts && (
@@ -161,6 +201,11 @@ export function FactsPage({ highlight }: FactsPageProps) {
 										patch(fact.id, { applicationId: null, company: null });
 										update.mutate({ id: fact.id, share: true });
 									}}
+									groups={groups}
+									onGroup={(next) => {
+										patch(fact.id, { group: next });
+										update.mutate({ id: fact.id, group: next });
+									}}
 									onForget={() => forget(fact)}
 								/>
 							</CollapseRow>
@@ -174,6 +219,11 @@ export function FactsPage({ highlight }: FactsPageProps) {
 							{type !== null && (
 								<Button variant="link" size="sm" onClick={() => setType(null)}>
 									<Trans>Show all types</Trans>
+								</Button>
+							)}
+							{group.kind !== "all" && (
+								<Button variant="link" size="sm" onClick={() => setGroup({ kind: "all" })}>
+									<Trans>Show all groups</Trans>
 								</Button>
 							)}
 						</div>
@@ -241,9 +291,9 @@ function MemoryCard() {
 
 // ---- Add ----
 
-type AddFactProps = { onAdded: (fact: Fact) => void };
+type AddFactProps = { group: string | null; onAdded: (fact: Fact) => void };
 
-function AddFact({ onAdded }: AddFactProps) {
+function AddFact({ group, onAdded }: AddFactProps) {
 	const [text, setText] = useState("");
 	const [category, setCategory] = useState<FactCategory>("accomplishment");
 	const ready = text.trim().length >= 4;
@@ -265,6 +315,7 @@ function AddFact({ onAdded }: AddFactProps) {
 			text: value,
 			category,
 			source: { kind: "manual", id: crypto.randomUUID(), quote: value },
+			group,
 		});
 	};
 
@@ -278,7 +329,9 @@ function AddFact({ onAdded }: AddFactProps) {
 					if (event.key === "Enter" && !event.nativeEvent.isComposing) add();
 				}}
 				maxLength={2000}
-				placeholder={t`Add a fact, for example “I mentored two associate PMs in 2025”`}
+				placeholder={
+					group ? t`Add a fact to ${group}` : t`Add a fact, for example “I mentored two associate PMs in 2025”`
+				}
 				aria-label={t`New fact`}
 				className="h-[34px] min-w-0 flex-1 basis-60 bg-transparent text-sm outline-none placeholder:text-ink-3"
 			/>
@@ -340,12 +393,16 @@ type FactRowProps = {
 	onCorrect: (text: string) => void;
 	onShare: () => void;
 	onForget: () => void;
+	/** Every group in use, offered when choosing one. */
+	groups: string[];
+	onGroup: (group: string | null) => void;
 };
 
-function FactRow({ fact, onStatus, onCorrect, onShare, onForget }: FactRowProps) {
+function FactRow({ fact, onStatus, onCorrect, onShare, onForget, groups, onGroup }: FactRowProps) {
 	const { format } = useCareerTime();
 	const [sourceOpen, setSourceOpen] = useState(false);
 	const [correcting, setCorrecting] = useState(false);
+	const [grouping, setGrouping] = useState(false);
 	const on = fact.status === "active";
 	// Names the switch apart from every other row's.
 	const excerpt = fact.text.length > 60 ? `${fact.text.slice(0, 60)}…` : fact.text;
@@ -369,6 +426,7 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget }: FactRowProps)
 			expanded: sourceOpen,
 		},
 		{ icon: "pencil-simple", label: t`Correct`, onClick: () => setCorrecting(true) },
+		{ icon: "folder-simple", label: t`Group`, onClick: () => setGrouping((open) => !open), expanded: grouping },
 		...share,
 		{ icon: "trash", label: t`Forget`, onClick: onForget },
 	];
@@ -386,6 +444,12 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget }: FactRowProps)
 					>
 						{company === null ? t`All applications` : t`${company} only`}
 					</span>
+					{fact.group && (
+						<span className="flex items-center gap-1 font-sans text-[11px] normal-case">
+							<Icon name="folder-simple" size={14} />
+							{fact.group}
+						</span>
+					)}
 				</p>
 
 				{correcting ? (
@@ -422,6 +486,18 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget }: FactRowProps)
 						</button>
 					))}
 				</div>
+
+				{grouping && (
+					<GroupEditor
+						group={fact.group}
+						groups={groups}
+						onCancel={() => setGrouping(false)}
+						onSave={(next) => {
+							setGrouping(false);
+							if (next !== fact.group) onGroup(next);
+						}}
+					/>
+				)}
 
 				<AnimatePresence initial={false}>
 					{sourceOpen && (
@@ -465,6 +541,62 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget }: FactRowProps)
 				/>
 				<span className="text-end text-xs text-ink-3">{on ? t`Used in coaching` : t`Not used`}</span>
 			</div>
+		</div>
+	);
+}
+
+type GroupEditorProps = {
+	group: string | null;
+	groups: string[];
+	onSave: (group: string | null) => void;
+	onCancel: () => void;
+};
+
+/** Puts a fact in a group, typed as a path such as experience/acme, or takes it out of any. */
+function GroupEditor({ group, groups, onSave, onCancel }: GroupEditorProps) {
+	const listId = useId();
+	const [draft, setDraft] = useState(group ?? "");
+	const normalized = draft
+		.split("/")
+		.map((part) => part.trim())
+		.filter(Boolean)
+		.join("/");
+	const save = () => onSave(normalized || null);
+
+	return (
+		<div className="flex flex-wrap items-center gap-1.5">
+			<input
+				ref={(element) => {
+					if (element && element !== document.activeElement) element.focus();
+				}}
+				list={listId}
+				value={draft}
+				maxLength={200}
+				onChange={(event) => setDraft(event.target.value)}
+				onKeyDown={(event) => {
+					if (event.key === "Enter" && !event.nativeEvent.isComposing) save();
+					if (event.key === "Escape") onCancel();
+				}}
+				placeholder={t`Group, for example experience/acme`}
+				aria-label={t`Group for this fact`}
+				className="h-[30px] min-w-0 flex-1 basis-48 rounded-md border border-line-2 bg-raised px-2.5 text-[13px] outline-none focus:border-accent"
+			/>
+			<datalist id={listId}>
+				{groups.map((path) => (
+					<option key={path} value={path} />
+				))}
+			</datalist>
+			<Button variant="secondary" size="sm" className="h-[30px] px-3" onClick={save}>
+				<Trans>Save group</Trans>
+			</Button>
+			{group && (
+				<Button variant="ghost" size="sm" className="h-[30px] text-ink-2" onClick={() => onSave(null)}>
+					<Trans>Remove from group</Trans>
+				</Button>
+			)}
+			<Button variant="ghost" size="sm" className="h-[30px] text-ink-2" onClick={onCancel}>
+				<Trans>Cancel</Trans>
+			</Button>
 		</div>
 	);
 }

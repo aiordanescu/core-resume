@@ -34372,6 +34372,16 @@
 																		"at"
 																	]
 																}
+															},
+															"group": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
 															}
 														},
 														"required": [
@@ -34385,7 +34395,8 @@
 															"source",
 															"sourceKey",
 															"status",
-															"revisions"
+															"revisions",
+															"group"
 														]
 													}
 												},
@@ -36477,6 +36488,47 @@
 															"updatedAt"
 														]
 													}
+												},
+												"factGroups": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"userId": {
+																"type": "string"
+															},
+															"group": {
+																"type": "string"
+															},
+															"status": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"createdAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															},
+															"updatedAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															}
+														},
+														"required": [
+															"userId",
+															"group",
+															"status",
+															"createdAt",
+															"updatedAt"
+														]
+													}
 												}
 											},
 											"required": [
@@ -36492,7 +36544,8 @@
 												"opportunities",
 												"jobs",
 												"transcripts",
-												"workspaces"
+												"workspaces",
+												"factGroups"
 											]
 										}
 									},
@@ -39341,6 +39394,17 @@
 						},
 						"allowEmptyValue": true,
 						"allowReserved": true
+					},
+					{
+						"name": "group",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"maxLength": 200,
+							"description": "Only facts in this group or a group under it."
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
 					}
 				],
 				"responses": {
@@ -39440,6 +39504,16 @@
 													]
 												}
 											},
+											"group": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
 											"company": {
 												"anyOf": [
 													{
@@ -39478,6 +39552,7 @@
 											"sourceKey",
 											"status",
 											"revisions",
+											"group",
 											"company",
 											"usedBy"
 										]
@@ -39606,6 +39681,17 @@
 											"id",
 											"quote"
 										]
+									},
+									"group": {
+										"anyOf": [
+											{
+												"type": "string",
+												"maxLength": 200
+											},
+											{
+												"type": "null"
+											}
+										]
 									}
 								},
 								"required": [
@@ -39713,6 +39799,16 @@
 															"at"
 														]
 													}
+												},
+												"group": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
 												}
 											},
 											"required": [
@@ -39726,7 +39822,8 @@
 												"source",
 												"sourceKey",
 												"status",
-												"revisions"
+												"revisions",
+												"group"
 											]
 										},
 										{
@@ -39787,6 +39884,129 @@
 						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"text\": \"<string>\",\n  \"category\": \"accomplishment\",\n  \"source\": {\n    \"kind\": \"user-message\",\n    \"id\": \"<string>\",\n    \"quote\": \"<string>\"\n  }\n}'"
 					}
 				]
+			},
+			"patch": {
+				"operationId": "updateCareerFacts",
+				"summary": "Switch or regroup several career facts",
+				"description": "Switches the listed facts on or off, moves them to a group, or both, in one change. Forgotten facts are skipped.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"ids": {
+										"type": "array",
+										"minItems": 1,
+										"maxItems": 1000,
+										"items": {
+											"type": "string",
+											"minLength": 1
+										}
+									},
+									"status": {
+										"enum": [
+											"active",
+											"excluded"
+										],
+										"type": "string"
+									},
+									"group": {
+										"anyOf": [
+											{
+												"type": "string",
+												"maxLength": 200
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "Moves the facts to this group; null takes them out of any."
+									}
+								},
+								"required": [
+									"ids"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"updated": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991,
+											"description": "How many facts changed."
+										}
+									},
+									"required": [
+										"updated"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PATCH \"https://rxresu.me/api/openapi/career/facts\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"ids\": [\n    \"<string>\"\n  ]\n}'"
+					}
+				]
 			}
 		},
 		"/career/facts/{id}": {
@@ -39828,6 +40048,18 @@
 									},
 									"share": {
 										"type": "boolean"
+									},
+									"group": {
+										"anyOf": [
+											{
+												"type": "string",
+												"maxLength": 200
+											},
+											{
+												"type": "null"
+											}
+										],
+										"description": "Moves the fact to this group; null takes it out of any."
 									}
 								}
 							}
@@ -39958,6 +40190,254 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request DELETE \"https://rxresu.me/api/openapi/career/facts/<id>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/career/facts/groups": {
+			"get": {
+				"operationId": "listCareerFactGroups",
+				"summary": "List career fact groups",
+				"description": "Every group that has facts or settings, and the facts in no group: how many are switched on and off, the size of the shared switched-on ones, and how each group was last switched. Groups are paths such as experience/acme; counts are per exact group, not including subgroups.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"group": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												],
+												"description": "The group's path; null for facts in no group."
+											},
+											"status": {
+												"anyOf": [
+													{
+														"enum": [
+															"active",
+															"excluded"
+														],
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												],
+												"description": "How the group was last switched: new facts in it start this way. Null starts them switched on."
+											},
+											"facts": {
+												"type": "object",
+												"properties": {
+													"active": {
+														"type": "integer",
+														"minimum": -9007199254740991,
+														"maximum": 9007199254740991
+													},
+													"excluded": {
+														"type": "integer",
+														"minimum": -9007199254740991,
+														"maximum": 9007199254740991
+													}
+												},
+												"required": [
+													"active",
+													"excluded"
+												]
+											},
+											"activeChars": {
+												"type": "integer",
+												"minimum": -9007199254740991,
+												"maximum": 9007199254740991,
+												"description": "JSON characters of its shared, switched-on facts, as the action budgets count them."
+											}
+										},
+										"required": [
+											"group",
+											"status",
+											"facts",
+											"activeChars"
+										]
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/facts/groups\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/career/facts/groups/status": {
+			"post": {
+				"operationId": "setCareerFactGroupStatus",
+				"summary": "Switch a career fact group on or off",
+				"description": "Switches every fact in the group on or off, and every group under it unless subgroups is false. Facts added to the group later start the same way. The group goes in the body because its path can contain slashes.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"group": {
+										"type": "string",
+										"maxLength": 200
+									},
+									"status": {
+										"enum": [
+											"active",
+											"excluded"
+										],
+										"type": "string"
+									},
+									"subgroups": {
+										"type": "boolean",
+										"default": true,
+										"description": "Include every group under this one."
+									}
+								},
+								"required": [
+									"group",
+									"status"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"updated": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991,
+											"description": "How many facts changed."
+										}
+									},
+									"required": [
+										"updated"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts/groups/status\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"group\": \"<string>\",\n  \"status\": \"active\"\n}'"
 					}
 				]
 			}

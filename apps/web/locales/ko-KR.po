@@ -373,6 +373,13 @@ msgstr "{0}의 {1} 적응 채용 지원서는 답변을 받았습니다. {3}의 
 msgid "{0} of {1} terms found"
 msgstr "검색어 {0}개 중 {1}개 발견"
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#. placeholder {2}: number.format(node.activeChars)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · {2} characters"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -741,6 +748,14 @@ msgstr "{type} · {0} 일 남음"
 #: src/features/documents/document-card.tsx
 msgid "{type} · Edited {0}"
 msgstr "{type} · 수정됨 {0}"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} on.} other {Switched # facts in {group} on.}}"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "{value} a month"
@@ -1115,6 +1130,10 @@ msgstr "추가"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "\"{0}\" 추가"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Add a fact to {group}"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
@@ -1584,6 +1603,10 @@ msgstr "모든 채용 지원서(마감된 포함)"
 #: src/features/settings/account/data.tsx
 msgid "All documents and applications as JSON, in one zip"
 msgstr "JSON 형식의 모든 문서 및 입사 지원서는 하나의 zip으로 제공됩니다."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "All groups"
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -3536,6 +3559,10 @@ msgstr "연결을 전환할 수 없습니다."
 msgid "Couldn't switch models."
 msgstr "모델을 전환할 수 없습니다."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't switch that group."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
 msgstr "텍스트로 변환할 수 없습니다. 녹음은 그대로 남아 있습니다."
@@ -5433,6 +5460,22 @@ msgstr "회색"
 msgid "Grid"
 msgstr "그리드"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Group"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group for this fact"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group, for example experience/acme"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Groups"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
 msgstr "통화에서 자세히 설명해 드리겠습니다."
@@ -7321,6 +7364,10 @@ msgstr "새 문서"
 msgid "New fact"
 msgstr "새 사실"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "new facts start off"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New key"
 msgstr "새 키"
@@ -7487,6 +7534,14 @@ msgstr "연결할 사실이 아직 없습니다. 사실 탭에서 추가하세�
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "아직 사실이 없습니다. 위에서 추가하세요."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "No group"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
@@ -7675,6 +7730,12 @@ msgstr "찾을 수 없음"
 #: src/features/ats-checker/checker.tsx
 msgid "Not found: {0}"
 msgstr "찾을 수 없음: {0}"
+
+#. placeholder {0}: number.format(ungrouped.facts.active)
+#. placeholder {1}: number.format(ungrouped.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "Not in a group: {0} on · {1} off"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Not in either offer yet"
@@ -9345,6 +9406,10 @@ msgstr "필드 삭제"
 msgid "Remove file"
 msgstr "파일 제거"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Remove from group"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Remove person {0}"
@@ -9877,6 +9942,10 @@ msgstr "수정 저장"
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "먼저 저장한 다음 검색 및 읽기를 테스트하세요. 자동으로 테스트가 실행되지 않습니다."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Save group"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Save interview"
@@ -10475,6 +10544,10 @@ msgstr "페이지에 {title} 표시"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Show again"
 msgstr "다시 표시"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Show all groups"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Show all types"
@@ -11177,6 +11250,28 @@ msgstr "시작 날짜와 종료 날짜를 바꿉니다."
 #: src/libs/locale.ts
 msgid "Swedish"
 msgstr "스웨덴어"
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} off"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} on"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all off"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all on"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Switch it off"

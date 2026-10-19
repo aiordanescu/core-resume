@@ -373,6 +373,13 @@ msgstr "అనుకూలీకరించిన {1} దరఖాస్తు�
 msgid "{0} of {1} terms found"
 msgstr "{0} పదాలలో {1} కనుగొనబడ్డాయి"
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#. placeholder {2}: number.format(node.activeChars)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · {2} characters"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -741,6 +748,14 @@ msgstr "{type} · {0} రోజులు మిగిలి ఉన్నాయ�
 #: src/features/documents/document-card.tsx
 msgid "{type} · Edited {0}"
 msgstr "{type} · {0} సవరించబడింది"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "{updated, plural, one {Switched # fact in {group} on.} other {Switched # facts in {group} on.}}"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "{value} a month"
@@ -1115,6 +1130,10 @@ msgstr "జోడించు"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Add “{0}”"
 msgstr "“{0}”ని జోడించండి"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Add a fact to {group}"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Add a fact, for example “I mentored two associate PMs in 2025”"
@@ -1584,6 +1603,10 @@ msgstr "అన్ని ఉద్యోగ దరఖాస్తులు (మ�
 #: src/features/settings/account/data.tsx
 msgid "All documents and applications as JSON, in one zip"
 msgstr "JSON వలె అన్ని డాక్యుమెంట్‌లు మరియు జాబ్ అప్లికేషన్‌లు, ఒకే జిప్‌లో"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "All groups"
+msgstr ""
 
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
@@ -3536,6 +3559,10 @@ msgstr "కనెక్షన్‌లను మార్చడం సాధ్�
 msgid "Couldn't switch models."
 msgstr "మోడల్‌లను మార్చడం సాధ్యపడలేదు."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't switch that group."
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 msgid "Couldn't transcribe. Your recording is still here."
 msgstr "టెక్స్ట్‌గా మార్చడం సాధ్యపడలేదు. మీ రికార్డింగ్ ఇంకా ఇక్కడే ఉంది."
@@ -5433,6 +5460,22 @@ msgstr "బూడిద రంగు"
 msgid "Grid"
 msgstr "గ్రిడ్"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Group"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group for this fact"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Group, for example experience/acme"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Groups"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Happy to walk you through it on our call."
 msgstr "మన కాల్‌లో దాన్ని వివరంగా చెప్పడానికి సంతోషిస్తాను."
@@ -7321,6 +7364,10 @@ msgstr "కొత్త పత్రం"
 msgid "New fact"
 msgstr "కొత్త వాస్తవం"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "new facts start off"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New key"
 msgstr "కొత్త కీ"
@@ -7487,6 +7534,14 @@ msgstr "లింక్ చేయడానికి ఇంకా వాస్త
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts yet. Add one above."
 msgstr "ఇంకా వాస్తవాలు లేవు. పైన ఒకటి జోడించండి."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "No group"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
+msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
@@ -7675,6 +7730,12 @@ msgstr "దొరకలేదు"
 #: src/features/ats-checker/checker.tsx
 msgid "Not found: {0}"
 msgstr "కనుగొనబడలేదు: {0}"
+
+#. placeholder {0}: number.format(ungrouped.facts.active)
+#. placeholder {1}: number.format(ungrouped.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "Not in a group: {0} on · {1} off"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Not in either offer yet"
@@ -9345,6 +9406,10 @@ msgstr "ఫీల్డ్‌ను తీసివేయండి"
 msgid "Remove file"
 msgstr "ఫైల్‌ను తీసివేయండి"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Remove from group"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Remove person {0}"
@@ -9877,6 +9942,10 @@ msgstr "సవరణను సేవ్ చేయి"
 #: src/features/settings/ai/web-access.tsx
 msgid "Save first, then test search and reading. No test runs automatically."
 msgstr "ముందుగా సేవ్ చేసి, ఆపై శోధన మరియు పఠనాన్ని పరీక్షించండి. పరీక్ష స్వయంచాలకంగా నడుస్తుంది."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Save group"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Save interview"
@@ -10475,6 +10544,10 @@ msgstr "పేజీలో {title}ని చూపండి"
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Show again"
 msgstr "మళ్లీ చూపించు"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Show all groups"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Show all types"
@@ -11177,6 +11250,28 @@ msgstr "ప్రారంభ మరియు ముగింపు తేదీ
 #: src/libs/locale.ts
 msgid "Swedish"
 msgstr "స్వీడిష్"
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} off"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch {0} on"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all off"
+msgstr ""
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Switch all on"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Switch it off"

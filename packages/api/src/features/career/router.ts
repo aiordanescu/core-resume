@@ -6,6 +6,8 @@ import {
 	careerScopeSchema,
 	careerStoryInputSchema,
 	careerWorkspaceSchema,
+	factGroupSchema,
+	factSwitchSchema,
 	generateTaskSchema,
 	aiLimitsSchema,
 } from "@reactive-resume/schema/career";
@@ -26,6 +28,18 @@ import { careerVoiceRouter } from "./voice";
 
 const id = z.object({ id: z.string().min(1) });
 const applicationInput = z.object({ applicationId: z.string().min(1) });
+const updatedOutput = z.object({ updated: z.number().int().describe("How many facts changed.") });
+const factGroupOutput = z.object({
+	group: z.string().nullable().describe("The group's path; null for facts in no group."),
+	status: factSwitchSchema
+		.nullable()
+		.describe("How the group was last switched: new facts in it start this way. Null starts them switched on."),
+	facts: z.object({ active: z.number().int(), excluded: z.number().int() }),
+	activeChars: z
+		.number()
+		.int()
+		.describe("JSON characters of its shared, switched-on facts, as the action budgets count them."),
+});
 const savedItemOutput = savedItemSchema.extend({
 	application: z.object({ company: z.string(), role: z.string() }).nullable(),
 	outdated: z.boolean(),
@@ -182,6 +196,7 @@ export const careerRouter = {
 			careerScopeSchema.extend({
 				query: z.string().max(500).optional(),
 				all: z.boolean().optional().describe("Every fact, shared and private to any application."),
+				group: factGroupSchema.optional().describe("Only facts in this group or a group under it."),
 			}),
 		)
 		.output(z.array(careerFactSchema))
@@ -208,14 +223,72 @@ export const careerRouter = {
 		.input(
 			id.extend({
 				text: z.string().trim().min(1).max(2000).optional(),
-				status: z.enum(["active", "excluded"]).optional(),
+				status: factSwitchSchema.optional(),
 				share: z.boolean().optional(),
+				group: factGroupSchema
+					.nullable()
+					.optional()
+					.describe("Moves the fact to this group; null takes it out of any."),
 			}),
 		)
 		.output(z.void())
 		.handler(async ({ context, input }) => {
 			await careerService.updateFact(context.user.id, input);
 		}),
+	updateFacts: protectedProcedure
+		.route({
+			method: "PATCH",
+			path: "/career/facts",
+			tags: ["Career"],
+			operationId: "updateCareerFacts",
+			summary: "Switch or regroup several career facts",
+			description:
+				"Switches the listed facts on or off, moves them to a group, or both, in one change. Forgotten facts are skipped.",
+		})
+		.input(
+			z.object({
+				ids: z.array(z.string().min(1)).min(1).max(1000),
+				status: factSwitchSchema.optional(),
+				group: factGroupSchema
+					.nullable()
+					.optional()
+					.describe("Moves the facts to this group; null takes them out of any."),
+			}),
+		)
+		.output(updatedOutput)
+		.handler(({ context, input }) => careerService.updateFacts(context.user.id, input)),
+	factGroups: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/career/facts/groups",
+			tags: ["Career"],
+			operationId: "listCareerFactGroups",
+			summary: "List career fact groups",
+			description:
+				"Every group that has facts or settings, and the facts in no group: how many are switched on and off, the size of the shared switched-on ones, and how each group was last switched. Groups are paths such as experience/acme; counts are per exact group, not including subgroups.",
+		})
+		.input(z.object({}).optional())
+		.output(z.array(factGroupOutput))
+		.handler(({ context }) => careerService.factGroups(context.user.id)),
+	setFactGroupStatus: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/facts/groups/status",
+			tags: ["Career"],
+			operationId: "setCareerFactGroupStatus",
+			summary: "Switch a career fact group on or off",
+			description:
+				"Switches every fact in the group on or off, and every group under it unless subgroups is false. Facts added to the group later start the same way. The group goes in the body because its path can contain slashes.",
+		})
+		.input(
+			z.object({
+				group: factGroupSchema,
+				status: factSwitchSchema,
+				subgroups: z.boolean().default(true).describe("Include every group under this one."),
+			}),
+		)
+		.output(updatedOutput)
+		.handler(({ context, input }) => careerService.setFactGroupStatus(context.user.id, input)),
 	forgetFact: protectedProcedure
 		.route({
 			method: "DELETE",

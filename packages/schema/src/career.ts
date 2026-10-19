@@ -84,10 +84,31 @@ export const aiLimitsSchema = z.object({
 });
 export type AiLimits = z.infer<typeof aiLimitsSchema>;
 
+/**
+ * A fact's group: a path such as `experience/acme` or `clearance`, with slashes between levels. Spaces around each
+ * level and empty levels are dropped, so `experience / acme/` is `experience/acme`.
+ */
+export const factGroupSchema = z
+	.string()
+	.max(200)
+	.transform((value) =>
+		value
+			.split("/")
+			.map((part) => part.trim())
+			.filter(Boolean)
+			.join("/"),
+	)
+	.pipe(z.string().min(1, "A group needs a name."));
+
+/** What a fact switch or a group switch sets. */
+export const factSwitchSchema = z.enum(["active", "excluded"]);
+
 export const careerFactInputSchema = careerScopeSchema.extend({
 	text: z.string().trim().min(1).max(2000),
 	category: factCategorySchema,
 	source: careerSourceSchema,
+	/** New facts in a group start switched on or off as the group was last switched. */
+	group: factGroupSchema.nullable().optional(),
 });
 
 export const careerStoryInputSchema = careerScopeSchema.extend({

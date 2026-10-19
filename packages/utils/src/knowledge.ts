@@ -99,3 +99,23 @@ export function knowledgeBudget(input: {
 	};
 }
 export type KnowledgeBudget = ReturnType<typeof knowledgeBudget>;
+
+/** Whether a fact's group is the group or one of its subgroups (`experience/acme` is in `experience`). */
+export const inGroup = (factGroup: string | null | undefined, group: string) =>
+	factGroup === group || (factGroup?.startsWith(`${group}/`) ?? false);
+
+/** The group and every group above it, nearest first: `a/b/c`, `a/b`, `a`. */
+export const groupAncestors = (group: string) => {
+	const parts = group.split("/");
+	return parts.map((_, index) => parts.slice(0, parts.length - index).join("/"));
+};
+
+/** The setting that applies to a group: its own, else its nearest parent's that has one. */
+export const nearestGroupSetting = <T>(group: string | null | undefined, settings: ReadonlyMap<string, T>) => {
+	if (!group) return undefined;
+	for (const ancestor of groupAncestors(group)) {
+		const setting = settings.get(ancestor);
+		if (setting !== undefined) return setting;
+	}
+	return undefined;
+};
