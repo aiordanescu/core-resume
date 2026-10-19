@@ -68,7 +68,7 @@ export const getExportFormats = (): DownloadFormat[] => [
 		label: "JSON",
 		extension: ".json",
 		icon: "brackets-curly",
-		description: t`Complete data backup. Imports back into Reactive Resume or JSON Resume tools.`,
+		description: t`Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools.`,
 	},
 ];
 
@@ -212,7 +212,10 @@ export function DownloadActions({ state, label, onDownload, onDownloadPdf }: Dow
 				<p className={cn(ENTER_CLASS, "flex items-start gap-2 text-[13px] leading-[19px] text-ink-2")}>
 					<Icon name="hand-heart" size={18} className="shrink-0 text-ink-3" />
 					<span>
-						<Trans>Good luck out there. Reactive Resume stays free because people chip in.</Trans>{" "}
+						<Trans>
+							Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip
+							in.
+						</Trans>{" "}
 						<a
 							href="https://opencollective.com/reactive-resume/donate"
 							target="_blank"

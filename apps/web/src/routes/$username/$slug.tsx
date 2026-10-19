@@ -29,17 +29,17 @@ export const Route = createFileRoute("/$username/$slug")({
 	},
 	head: ({ loaderData }) => {
 		const resume = loaderData?.resume;
-		const name = resume ? resume.data.basics.name || resume.name || "Resume" : "Reactive Resume";
+		const name = resume ? resume.data.basics.name || resume.name || "Resume" : "Overreactive Resume";
 
 		if (!resume) {
-			return { meta: [{ title: `${name} - Reactive Resume` }, createNoindexFollowMeta()] };
+			return { meta: [{ title: `${name} - Overreactive Resume` }, createNoindexFollowMeta()] };
 		}
 
 		const social = getResumeSocialMeta(resume.data, resume.name || "Resume");
 
 		return {
 			meta: [
-				{ title: `${social.name} - Reactive Resume` },
+				{ title: `${social.name} - Overreactive Resume` },
 				{ name: "description", content: social.description },
 				createNoindexFollowMeta(),
 			],

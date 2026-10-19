@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A priima, o R atmeta sufokusuotą redagavimą. ↑ ir ↓ pereiti tarp redagavimo."
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "Šio laiško atsarginė kopija. Importuojama atgal į Reactive Resume kaip laišką."
+msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -901,6 +901,10 @@ msgstr "Tikslingas šio etapo planas"
 #: src/features/ats-checker/messages.ts
 msgid "A font is referenced but not embedded."
 msgstr "Nurodytas šriftas, tačiau jis neįterptas."
+
+#: src/features/homepage/footer.tsx
+msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
@@ -986,10 +990,6 @@ msgstr "Planas su laiku, jūsų įžanga, istorijos, kurias verta paminėti, ir 
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "Interneto adresas užrašytas be https://."
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "Apie šią programėlę"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2285,6 +2285,14 @@ msgstr "Sukūriau bendrą dizaino sistemą, kurią naudoja šešios produktų ko
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Parengta pagal skelbimą, Sam žinutę ir dvi stipriausias jūsų istorijas."
 
+#: src/features/homepage/footer.tsx
+msgid "Built on"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Built on Reactive Resume"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Integruotas skaitytuvas"
@@ -2302,10 +2310,6 @@ msgstr "sąrašo įrašas {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Sąrašas su ženkleliais"
-
-#: src/features/homepage/footer.tsx
-msgid "By the community, for the community."
-msgstr "Bendruomenės ir bendruomenei."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -2427,10 +2431,6 @@ msgstr "Tiesiogiai pakeitė gyvenimo aprašymą (ankstesnis pokalbis)"
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "Persigalvojote? Pervardinkite savo gyvenimo aprašymą į apibūdinantį pavadinimą."
-
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "Pakeitimų žurnalas"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
@@ -2750,10 +2750,6 @@ msgstr "Komandų paletė"
 msgid "Command Palette - {currentPage}"
 msgstr "Komandų paletė - {currentPage}"
 
-#: src/features/homepage/footer.tsx
-msgid "Community"
-msgstr "Bendruomenė"
-
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Compact"
@@ -2790,8 +2786,8 @@ msgid "Compares your resume with the posting"
 msgstr "Palyginkite savo gyvenimo aprašymą su darbo skelbimu"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "Užbaigti duomenų atsarginę kopiją. Importuojama atgal į Reactive Resume arba JSON Resume įrankius."
+msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2899,7 +2895,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "Už balso funkcijas AI ryšiai apmokestina atskirai ir gali naudoti jūsų paskyros žetonus. Naršyklės balso funkcijos nemokamos, bet jos gamintojas gali apdoroti garsą. Serveris saugo nuorašus, bet niekada nesaugo įrašų."
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "Susisiekite"
 
@@ -4068,10 +4063,6 @@ msgstr "Atmesti pakeitimus?"
 msgid "Disconnect"
 msgstr "Atsijungti"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "Discord"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4120,7 +4111,6 @@ msgstr "Nesiųskite {0}"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "Paaukoti"
 
@@ -4554,8 +4544,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "Patobulintas skaitymas nepasiekiamas. Integruotas skaitytuvas gavo šį darbo skelbimą."
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "Patinka Reactive Resume?"
+msgid "Enjoying Overreactive Resume?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5352,8 +5342,8 @@ msgid "Go to…"
 msgstr "Eikite į…"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "Sėkmės ten. Reactive Resume lieka nemokama, nes žmonės prisijungia."
+msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5558,10 +5548,6 @@ msgstr "Pradžia"
 msgid "Horizontal line"
 msgstr "Horizontali linija"
 
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr "Už prieglobą ir plėtrą moka tokie žmonės kaip jūs. Neprivalomas patarimas:"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "Kaip sekėsi?"
@@ -5719,8 +5705,8 @@ msgid "Import steps"
 msgstr "Importavimo veiksmai"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "Importuokite šį failą į nemokamą Reactive Resume. Kiekviena problema laukia jūsų patikrinime."
+msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5890,8 +5876,8 @@ msgid "Is equity part of the offer?"
 msgstr "Ar pasiūlyme yra akcijų?"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "Ar Reactive Resume tikrai nemokama?"
+msgid "Is Overreactive Resume really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5965,8 +5951,8 @@ msgid "It will show on the application's timeline and on the calendar."
 msgstr "Jis bus rodomas darbo paraiškos laiko juostoje ir kalendoriuje."
 
 #: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
-msgstr "Tai nemokama atvirojo kodo programa, kurią išlaiko ja besinaudojančių žmonių aukos. Jei ji jums padėjo, apsvarstykite galimybę prisidėti."
+msgid "It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in."
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "It's removed from the timeline for good."
@@ -5992,6 +5978,10 @@ msgstr "įrašai, kuriuos čia perkeliate, lieka 30 dienų."
 #: src/features/career/schedule-sheet.tsx
 msgid "Its connection was switched off or removed, so it runs on {0} until you choose another."
 msgstr "Jo ryšys buvo išjungtas arba pašalintas, todėl, kol pasirinksite kitą, jis veikia per {0}."
+
+#: src/features/homepage/footer.tsx
+msgid "Its documentation"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Its messages and attachments are deleted. Edits you accepted stay in the document."
@@ -6469,12 +6459,12 @@ msgid "Link"
 msgstr "Nuoroda"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Susieti Reactive Resume (rekomenduojama)"
+msgid "Link a resume (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "Susiekite Reactive Resume gyvenimo aprašymą, kad galėtumėte naudoti AI atitikties vertinimą ir pritaikymą."
+msgid "Link a resume to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6715,8 +6705,8 @@ msgid "Lower the design sheet"
 msgstr "Nuleiskite dizaino lapą"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "Pagaminta su Reactive Resume, nemokama ir atviro kodo"
+msgid "Made with Overreactive Resume, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7559,7 +7549,7 @@ msgstr "Darbo patirties skyriaus nerasta."
 msgid "No. {number} · {name}"
 msgstr "Nr. {number} · {name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "jokios"
@@ -8116,6 +8106,22 @@ msgstr "Pasenęs: nuo tada tekstas pasikeitė."
 msgid "Outdent"
 msgstr "Mažinti įtrauką"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Overreactive Resume - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Overreactive Resume {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr "Kurti ir plėtoti dizaino sistemą"
@@ -8660,10 +8666,6 @@ msgstr "Prieš siųsdami formą, atspausdinkite arba eksportuokite ją kaip supl
 msgid "Printing is turned off for this resume."
 msgstr "Šio gyvenimo aprašymo spausdinimas išjungtas."
 
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "Privatumo politika"
-
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Privatus"
@@ -8881,21 +8883,9 @@ msgstr "Eksportuokite iš naujo su įterptais šriftais, tada atidarykite failą
 msgid "Re: Senior Product Designer"
 msgstr "Re: Vyresnysis produkto dizaineris"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "„Reactive Resume“ – eiti į pagrindinį puslapį"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume – nemokamas atvirojo kodo gyvenimo aprašymų kūrimo įrankis. Parašykite, sukurkite dizainą, patikrinkite, pritaikykite kiekvienam darbui ir eikite į pokalbį pasiruošę."
-
 #: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume yra atvirojo kodo programa, platinama pagal MIT licenciją. Ją palaiko Amruth Pillai ir bendraautorių bendruomenė, o aukos padengia prieglobos ir kūrimo išlaidas. Mokamo plano nėra."
+msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
+msgstr ""
 
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
@@ -10834,23 +10824,6 @@ msgstr "Etapai"
 msgid "Standard section headings"
 msgstr "Standartinės skyrių antraštės"
 
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "Žvaigždė Reactive Resume ant GitHub"
-
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "Žvaigždė Reactive Resume ant GitHub, {count} žvaigždžių"
-
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "Pridėkite žvaigždutę „GitHub“ (atidaro naujame skirtuke)"
-
-#. placeholder {0}: starCount.toLocaleString()
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "Pridėkite žvaigždutę „GitHub“, šiuo metu {0} žvaigždutės (atidaro naujame skirtuke)"
-
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"
 msgstr "Žvaigždutės GitHub"
@@ -11066,10 +11039,6 @@ msgstr "Pateiktas pridedamas motyvacinis laiškas: {0}"
 msgid "Submitted attached resume: {0}"
 msgstr "Pateiktas pridedamas gyvenimo aprašymas: {0}"
 
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "Subreditas"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "Sėkmė po 90 dienų · kitas žingsnis"
@@ -11107,6 +11076,10 @@ msgstr "Santrauka"
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "Palaikymas"
+
+#: src/features/homepage/footer.tsx
+msgid "Support Reactive Resume"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
@@ -12118,10 +12091,6 @@ msgstr "Transkribuojama naudojant {model}…"
 msgid "Transcript copied"
 msgstr "Nuorašas nukopijuotas"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "Išversti"
-
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "Išverskite programėlę"
@@ -12133,10 +12102,6 @@ msgstr ""
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
 msgstr "Išversta į {languageCount} kalbą. Padėkite išversti programą į savo kalbą."
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "Vertimai"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -13032,6 +12997,10 @@ msgstr "Ką išsiuntėte · {0}"
 msgid "What you're looking for"
 msgstr "Ko ieškote"
 
+#: src/features/homepage/footer.tsx
+msgid "What's different"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "Kam jis skirtas?"
@@ -13262,8 +13231,8 @@ msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reacti
 msgstr "Taip. Importuokite PDF, LinkedIn duomenų eksportavimą, JSON Resume failą arba Reactive Resume eksportavimą, tada tęskite ten, kur baigėte. Sukūrus dirbtinio intelekto teikėją, Word dokumentai taip pat veikia."
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "Taip. Reactive Resume yra atvirojo kodo MIT License ir pristatomas kaip Docker vaizdas, todėl jis veikia jūsų serveryje su jūsų duomenų baze ir saugykla."
+msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

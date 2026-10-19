@@ -1,5 +1,4 @@
 import { useRouter } from "@tanstack/react-router";
-import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { cn } from "@reactive-resume/utils/style";
 
@@ -16,7 +15,6 @@ export function LoadingScreen() {
 				hasNavigated && "transition-opacity duration-standard ease-enter starting:opacity-0",
 			)}
 		>
-			<BrandIcon variant="icon" className="size-12" />
 			<Spinner className="size-6" />
 		</div>
 	);

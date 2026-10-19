@@ -14,7 +14,7 @@ import { CtaLink, Doodle, labelClass } from "./ui";
 import { orpc } from "@/libs/orpc/client";
 
 const crowdinUrl = "https://crowdin.com/project/reactive-resume";
-const githubUrl = "https://github.com/reactive-resume/reactive-resume";
+const githubUrl = "https://github.com/aiordanescu/overreactive-resume";
 // The statistics service caches the totals for six hours.
 const statisticsStaleTime = 6 * 60 * 60 * 1000;
 // A fresh self-hosted install has a handful of users; a total that small reads as a joke, so it isn't shown.
@@ -230,7 +230,7 @@ export function Support() {
 	const templates = i18n.number(templateSchema.options.length);
 	const none = t({
 		message: "none",
-		comment: "Receipt line amount for something Reactive Resume doesn't have, e.g. ads.",
+		comment: "Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.",
 	});
 	const lineItems = [
 		[t`Resume builder`, nothing],
@@ -247,7 +247,7 @@ export function Support() {
 	const pills: { href: string; icon: IconName; label: string }[] = [
 		{ href: crowdinUrl, icon: "translate", label: t`Translate the app` },
 		{ href: `${githubUrl}/issues`, icon: "bug", label: t`Report a bug` },
-		{ href: "https://docs.rxresu.me/contributing/development", icon: "code", label: t`Contribute code` },
+		{ href: `${githubUrl}/tree/main/docs/contributing`, icon: "code", label: t`Contribute code` },
 	];
 
 	return (
@@ -274,7 +274,7 @@ export function Support() {
 					</Trans>
 				</h2>
 				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					{t`Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier.`}
+					{t`Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier.`}
 				</p>
 				<ul className="flex flex-wrap gap-2">
 					{pills.map((pill) => (
@@ -299,7 +299,7 @@ export function Support() {
 					<div className="[transform:translateY(calc((1-clamp(0,var(--p)*1.7-.15,1))*-100%))] drop-shadow-[0_18px_24px_oklch(0.2_0.01_95/.22)] [transition:transform_.4s_linear]">
 						<div className="receipt-paper font-receipt bg-[#fdfcf8] px-[26px] pt-[30px] pb-[46px] text-[14px] leading-[1.75] font-medium text-[oklch(0.25_0.01_95)]">
 							<div className="mb-4 flex flex-col gap-0.5 text-center">
-								<b className="text-[18px] leading-[1.1] font-bold tracking-[-.01em]">REACTIVE RESUME</b>
+								<b className="text-[18px] leading-[1.1] font-bold tracking-[-.01em]">OVERREACTIVE RESUME</b>
 								<span className="text-[oklch(0.5_0.01_95)]">{t`A free and open-source resume builder`}</span>
 								<span className="text-[oklch(0.5_0.01_95)] uppercase">
 									{i18n.date(receiptDate, { day: "2-digit", month: "short", year: "numeric" })}
@@ -318,7 +318,7 @@ export function Support() {
 								<span>{i18n.number(0, { style: "currency", currency: "USD" })}</span>
 							</p>
 							<p className="mt-2.5 border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-3 text-[oklch(0.4_0.01_95)]">
-								{t`Hosting and development are paid for by people like you. Optional tip:`}
+								{t`Reactive Resume’s hosting and development are paid for by people like you. Optional tip:`}
 							</p>
 							<div className="mt-2.5 flex flex-col gap-1.5">
 								<a

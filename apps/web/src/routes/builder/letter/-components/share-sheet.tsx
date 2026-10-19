@@ -119,7 +119,7 @@ function LetterDownloadTab() {
 			: []),
 		...others.map((option) =>
 			option.id === "json"
-				? { ...option, description: t`A backup of this letter. Imports back into Reactive Resume as a letter.` }
+				? { ...option, description: t`A backup of this letter. Imports back into Overreactive Resume as a letter.` }
 				: option,
 		),
 	];

@@ -256,6 +256,7 @@
 	},
 	"globalDependencies": ["vitest.shared.mts", "vitest.setup.ts"],
 	"globalPassThroughEnv": [
+		"APP_COMMIT",
 		"PORT",
 		"SERVER_PORT",
 		"APP_URL",

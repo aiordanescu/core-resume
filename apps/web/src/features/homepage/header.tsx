@@ -1,15 +1,9 @@
 import { t } from "@lingui/core/macro";
-import { useLingui } from "@lingui/react";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
-import { Icon } from "@reactive-resume/ui/components/icon";
 import { cn } from "@reactive-resume/utils/style";
-import { goToScene, prefersReducedMotion, SCENE, useLanding } from "./scroll";
+import { goToScene, SCENE, useLanding } from "./scroll";
 import { CtaLink } from "./ui";
 import { useTheme } from "@/features/theme/provider";
-import { orpc } from "@/libs/orpc/client";
-
-const githubUrl = "https://github.com/reactive-resume/reactive-resume";
 
 const getStoryScenes = () => [
 	{ scene: SCENE.write, label: t`Write` },
@@ -23,7 +17,6 @@ const getStoryScenes = () => [
 
 export function LandingHeader() {
 	const scrolled = useLanding((state) => state.scrolled);
-	const night = useLanding((state) => state.night);
 	const activeScene = useLanding((state) => state.activeScene);
 
 	return (
@@ -41,23 +34,11 @@ export function LandingHeader() {
 				)}
 			/>
 
-			<a href="#top" className="flex items-center gap-2.5 rounded-md">
-				<img
-					src="/icon/light.svg"
-					alt=""
-					width={30}
-					height={30}
-					className={cn("size-[30px] dark:hidden", night && "hidden")}
-				/>
-				<img
-					src="/icon/dark.svg"
-					alt=""
-					width={30}
-					height={30}
-					className={cn("hidden size-[30px] dark:block", night && "block")}
-				/>
-				{/* The wordmark stays in the DOM for screen readers and crawlers; the logomark is what shows. */}
-				<span className="sr-only">Reactive Resume</span>
+			<a
+				href="#top"
+				className="flex items-center rounded-md font-display text-[19px] leading-none font-medium tracking-tight"
+			>
+				Overreactive Resume
 			</a>
 
 			<nav aria-label={t`Story`} className="mx-auto hidden items-center gap-0.5 min-[1240px]:flex">
@@ -85,57 +66,9 @@ export function LandingHeader() {
 			</nav>
 
 			<div className="ms-auto flex items-center gap-2">
-				<GithubLink />
 				<CtaLink size="header" />
 			</div>
 		</header>
-	);
-}
-
-/** The repository's live star count, counted up from zero once it arrives. */
-function GithubLink() {
-	const { i18n } = useLingui();
-	const { data: stars } = useQuery(orpc.statistics.github.getStarCount.queryOptions());
-	const countRef = useRef<HTMLSpanElement>(null);
-
-	useEffect(() => {
-		const element = countRef.current;
-		if (!element || stars == null) return;
-		const compact = new Intl.NumberFormat(i18n.locale, { notation: "compact", maximumFractionDigits: 1 });
-
-		if (prefersReducedMotion()) {
-			element.textContent = compact.format(stars);
-			return;
-		}
-
-		let frame = 0;
-		const start = performance.now();
-		const step = (now: number) => {
-			const progress = Math.min(1, (now - start) / 1600);
-			element.textContent = compact.format(Math.round(stars * (1 - (1 - progress) ** 3)));
-			if (progress < 1) frame = requestAnimationFrame(step);
-		};
-		frame = requestAnimationFrame(step);
-		return () => cancelAnimationFrame(frame);
-	}, [stars, i18n.locale]);
-
-	const count = stars == null ? null : i18n.number(stars);
-	const label = count ? t`Star Reactive Resume on GitHub, ${count} stars` : t`Star Reactive Resume on GitHub`;
-
-	return (
-		<a
-			href={githubUrl}
-			aria-label={label}
-			className="font-martian hidden h-[38px] items-center gap-2 rounded-md px-2.5 text-[12px] leading-none font-medium font-stretch-[87.5%] tabular-nums transition-colors hover:bg-hover lg:flex"
-		>
-			<svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
-				<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-			</svg>
-			<span className="flex items-center gap-1">
-				<Icon name="star" filled size={15} className="text-[oklch(0.72_0.14_80)]" />
-				<span ref={countRef} className="min-w-[4ch]" />
-			</span>
-		</a>
 	);
 }
 
