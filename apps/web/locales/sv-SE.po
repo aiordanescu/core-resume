@@ -88,6 +88,11 @@ msgstr "{0, plural, one {\"{1}\" visas en gång i platsannonsen.} other {\"{2}\"
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, one {# svar} other {# svar}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, one {använt i # sparat objekt} other {använt i # sparade o
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {Det valda typsnittet kan inte visa {list}. Det visas som “?”. Välj ett typsnitt som har det under Design.} other {Det valda typsnittet kan inte visa {list}. De visas som “?”. Välj ett typsnitt som har dem under Design.}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} dagar kvar"
 msgid "{type} · Edited {0}"
 msgstr "{type} · Redigerad {0}"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "Ett datum kommer inte att läsas"
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "Ett faktum har ändrats. Granska den här berättelsen."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "En andra åsikt om din formulering"
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "En kort uppföljning brukar vara bra nu"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "Alla"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "Alla ansökningar"
 
@@ -1962,9 +1989,25 @@ msgstr "Tillämpa 1 ändring"
 msgid "Arabic"
 msgstr "Arabiska"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Arkiverad (stänger den)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "Korrigera det här faktumet"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "Korrigerat {correctedOn} · originalet sparat"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "Anslutningen kunde inte slutföras. Starta om anslutningen från din klient och försök igen."
@@ -3235,6 +3282,10 @@ msgstr "Det gick inte att lägga till ansökan. Försök igen."
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "Det gick inte att lägga till lösenordet. Försök igen."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "Det gick inte att markera som ansökt."
 msgid "Couldn't mark this as read."
 msgstr "Det gick inte att markera som läst."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "Det gick inte att spara berättelsen."
 
@@ -4419,6 +4475,10 @@ msgstr "Duplicera ditt CV för att skapa ett nytt, precis som originalet."
 msgid "Duplicated"
 msgstr "Duplicerat"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "Duplicerar ditt CV..."
@@ -4514,6 +4574,10 @@ msgstr "Redigera fråga"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "Redigera schema"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "Varje post har datum i ett formulär som läses, i ordning, och inga i f
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "Varje roll säger vad du gjorde. Åsikter om formuleringar finns på fliken Skriva."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "Varje mall exporterar en textbaserad PDF med orden i läsordning, vilket är vad sökandens spårningssystem (ATS) behöver för att analysera en meritförteckning. För att testa vilken PDF som helst, inklusive en som är gjord på annat håll, visar den kostnadsfria ATS-kontrollen textprogramvaran och vad som ska fixas."
@@ -4864,6 +4932,10 @@ msgstr "Extraherat från PDF på sidan · läsordning"
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "Faktum · Prestation"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "Förbättra den valda raden"
 msgid "Improving…"
 msgstr "Förbättrar..."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "I gott sällskap"
@@ -6257,6 +6333,10 @@ msgstr "Behåll min"
 msgid "Keep on one page"
 msgstr "Håll dig på en sida"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "Spara privata anteckningar om det här CV:t här. Ingen annan kan se dem."
@@ -6284,6 +6364,10 @@ msgstr "Behåll inspelningen i den här webbläsaren så att jag kan ladda ner d
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Håll dem till ungefär två rader, så att en snabbläsare hinner läsa klart dem."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "Smal"
 msgid "narrow margins"
 msgstr "smala marginaler"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "Behöver uppmärksamhet"
@@ -7517,6 +7606,10 @@ msgstr "Inga jobbansökningar ännu"
 msgid "No applications yet. Add one in Applications first."
 msgstr "Inga jobbansökningar ännu. Lägg till en i Ansökningar först."
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "Inga punktlistor hittades."
@@ -7554,6 +7647,10 @@ msgstr "Inga korrigeringar"
 msgid "No dates were found."
 msgstr "Inga datum hittades."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "inga redigeringar"
@@ -7575,6 +7672,10 @@ msgstr "Ingen e-postadress hittades."
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "Inga belägg än"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "Ej inställd"
 msgid "Not sure what to write?"
 msgstr "Osäker på vad du ska skriva?"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "Inte sant för mig, dölj det"
@@ -8021,6 +8126,10 @@ msgstr "När en omgång är schemalagd tar Förbered fram en tidsatt plan, din i
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "När du har skickat några jobbansökningar visar detta hur långt de kommer och hur snabbt folk svarar."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "Ta bort {value}"
 msgid "Remove connection"
 msgstr "Ta bort anslutningen"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "Ta bort fält"
@@ -9631,6 +9744,7 @@ msgstr "Svara senast"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "Ansvarig för designsystemet och hjälpa andra team med deras design."
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "Återställa"
@@ -10631,6 +10745,11 @@ msgstr "Visa rubrik"
 msgid "Show link in title"
 msgstr "Visa länk i titel"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "Stanna här"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "Fortfarande {pages} sidor på 9 pt. Dölj ett avsnitt eller förkorta poster."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "Berättelser att ta med"
@@ -11214,6 +11341,10 @@ msgstr "Berättelse"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "Berättelse · 5 av 5 delar"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "Byt till ljust tema"
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "Byt till en kolumn"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"

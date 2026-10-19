@@ -95,6 +95,8 @@ To use them for one job, open the application and switch the group on under **Kn
 
 Switch **Used in coaching** off to keep the fact in your account while excluding it from new coaching context. A switched-off fact cannot support a story sent to the coach.
 
+Select **Archive** to retire a fact you no longer use, such as an old skill, without erasing it. An archived fact never goes to the AI, even when its group is switched on or an application includes it, and it's hidden from the list. Choose **Archived** above the list to see archived facts, and **Restore** to bring one back, switched on.
+
 Select **Forget** to remove the fact and its evidence links. Use **Undo** within the six-second notice if you change your mind. The original resume, file or message is not deleted, and copies already exported or sent to a provider remain outside this action. See [Your data](/guides/career-workspace-reference#your-data).
 
 Linked story text remains yours, but its supporting links are cleared and the story stops being shared with AI. Review it and deliberately reconnect suitable facts before using it again. AI work already running with changed or forgotten Knowledge is discarded instead of publishing that obsolete result.
@@ -108,6 +110,19 @@ Put related facts in a group, such as one per job or a group for anything you ra
 **Career → Knowledge → Curate → Groups** lists every group with how many of its facts are switched on and off and how many characters its switched-on shared facts add to the budget. **Switch all on** and **Switch all off** change every fact in the group and its subgroups at once. A fact added to the group later starts the way the group was last switched, so a group you switched off stays off as it grows. Switching a parent group again also resets any subgroup you switched on its own.
 
 The same controls are in the API and MCP: `GET /career/facts/groups` lists groups, `POST /career/facts/groups/status` switches one (the group goes in the body, since its path can contain slashes), `PATCH /career/facts` switches or regroups many facts by id, and `GET /career/facts?group=` lists one group's facts.
+
+## Clean up duplicates
+
+A fact said twice takes twice the budget. **Curate → Duplicates** finds facts with the same text, ignoring case, accents, punctuation and spacing, and facts that say nearly the same thing.
+
+- **Remove copies** folds every word-for-word copy of a shared fact that sits in an application into the shared fact. The shared fact already reaches that application; if it's switched off or in a private group, it's included for that application instead, so nothing that application used goes missing. Saving a new copy of a shared fact to an application does the same straight away.
+- **Keep one** merges a set of identical shared facts. For two facts that are nearly the same, choose **Keep this one** on the better wording. The fact kept must be shared, or private to the same application. **Not the same** hides a pair in this browser.
+
+Merging moves the other fact's stories, saved results and per-application choices to the one kept, then archives the other, so nothing is erased by accident.
+
+## Fix stories the AI can't use
+
+**Curate → Stories the AI can't use** lists each story that isn't sent and why: a fact behind it is switched off, archived, in a private group or forgotten, or was corrected after the story was saved. For a correction it shows the fact's text then and now. If the story still holds, select **Still true, use it** to confirm it as it is; otherwise **Edit story**.
 
 ## Choose how much Knowledge goes with each request
 

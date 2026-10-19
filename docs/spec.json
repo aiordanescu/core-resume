@@ -39970,7 +39970,8 @@
 									"status": {
 										"enum": [
 											"active",
-											"excluded"
+											"excluded",
+											"archived"
 										],
 										"type": "string"
 									},
@@ -40101,9 +40102,11 @@
 									"status": {
 										"enum": [
 											"active",
-											"excluded"
+											"excluded",
+											"archived"
 										],
-										"type": "string"
+										"type": "string",
+										"description": "archived keeps the fact but hides it and never sends it; active or excluded restores it."
 									},
 									"share": {
 										"type": "boolean"
@@ -40253,6 +40256,375 @@
 				]
 			}
 		},
+		"/career/facts/duplicates": {
+			"get": {
+				"operationId": "listCareerFactDuplicates",
+				"summary": "Find duplicate career facts",
+				"description": "Exact duplicates (the same text, ignoring case, accents, punctuation and spacing) as sets with the fact to keep, and near duplicates (mostly the same words) as pairs with their similarity from 0 to 1. Only facts in use (switched on or off) count, and only within one scope: shared facts, or shared and one application's private facts.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"exact": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"keep": {
+														"type": "string"
+													},
+													"copies": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													}
+												},
+												"required": [
+													"keep",
+													"copies"
+												]
+											}
+										},
+										"near": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"factIds": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"similarity": {
+														"type": "number"
+													}
+												},
+												"required": [
+													"factIds",
+													"similarity"
+												]
+											}
+										},
+										"facts": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"text": {
+														"type": "string"
+													},
+													"applicationId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"status": {
+														"type": "string"
+													},
+													"group": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"id",
+													"text",
+													"applicationId",
+													"status",
+													"group"
+												]
+											}
+										}
+									},
+									"required": [
+										"exact",
+										"near",
+										"facts"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://rxresu.me/api/openapi/career/facts/duplicates\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/career/facts/duplicates/clean": {
+			"post": {
+				"operationId": "cleanCareerFactDuplicates",
+				"summary": "Remove application copies of shared facts",
+				"description": "Folds every word-for-word copy of a shared fact that sits in an application into the shared fact: its stories, saved items and overrides move over, the copy is archived, and the shared fact is included for that application if it wouldn't reach it otherwise. Copies among shared facts are left alone.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"updated": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991,
+											"description": "How many facts changed."
+										}
+									},
+									"required": [
+										"updated"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts/duplicates/clean\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			}
+		},
+		"/career/facts/{id}/merge": {
+			"post": {
+				"operationId": "mergeCareerFact",
+				"summary": "Merge a career fact into another",
+				"description": "Moves this fact's stories, saved items and overrides to the fact given as into, then archives this one. The fact kept must be shared or private to the same application, and not archived.",
+				"tags": [
+					"Career"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"into": {
+										"type": "string",
+										"minLength": 1
+									}
+								},
+								"required": [
+									"into"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"updated": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991,
+											"description": "How many facts changed."
+										}
+									},
+									"required": [
+										"updated"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://rxresu.me/api/openapi/career/facts/<id>/merge\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"into\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
 		"/career/facts/groups": {
 			"get": {
 				"operationId": "listCareerFactGroups",
@@ -40314,11 +40686,17 @@
 														"type": "integer",
 														"minimum": -9007199254740991,
 														"maximum": 9007199254740991
+													},
+													"archived": {
+														"type": "integer",
+														"minimum": -9007199254740991,
+														"maximum": 9007199254740991
 													}
 												},
 												"required": [
 													"active",
-													"excluded"
+													"excluded",
+													"archived"
 												]
 											},
 											"activeChars": {

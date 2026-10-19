@@ -88,6 +88,11 @@ msgstr "{0, plural, one {வேலை இடுகையில் \"{1}\" ஒர
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, one {# பதில்} other {# பதில்கள்}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, one {# சேமித்த உருப்படியி�
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {நீங்கள் தேர்ந்தெடுத்த எழுத்துருவால் {list} ஐக் காட்ட முடியாது. அது “?” ஆகத் தோன்றும். வடிவமைப்பு பிரிவில், அதைக் கொண்ட எழுத்துருவைத் தேர்ந்தெடுக்கவும்.} other {நீங்கள் தேர்ந்தெடுத்த எழுத்துருவால் {list} ஐக் காட்ட முடியாது. அவை “?” ஆகத் தோன்றும். வடிவமைப்பு பிரிவில், அவற்றைக் கொண்ட எழுத்துருவைத் தேர்ந்தெடுக்கவும்.}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} நாட்கள் உள்ளன"
 msgid "{type} · Edited {0}"
 msgstr "{type} · திருத்தப்பட்டது {0}"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "ஒரு தேதி படிக்கப்படாது"
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "ஓர் உண்மை மாறியுள்ளது. இந்தக் கதையை மதிப்பாய்வு செய்யவும்."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "உங்கள் வார்த்தைகளில் இரண்�
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "ஒரு குறுகிய பின்தொடர்தல் பொதுவாக இப்போது நன்றாக இருக்கிறது"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "அனைத்து"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "எல்லா விண்ணப்பங்களும்"
 
@@ -1962,9 +1989,25 @@ msgstr "1 மாற்றத்தைப் பயன்படுத்து"
 msgid "Arabic"
 msgstr "அரபிக்"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "காப்பகப்படுத்தப்பட்டது (அதை மூடுகிறது)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "இந்த உண்மையைச் சரிசெய்"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "{correctedOn} அன்று சரிசெய்யப்பட்டது · அசல் வைக்கப்பட்டுள்ளது"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "இந்த இணைப்பை முடிக்க முடியவில்லை. உங்கள் கிளையண்டிலிருந்து இணைப்பை மறுதொடக்கம் செய்து மீண்டும் முயற்சிக்கவும்."
@@ -3235,6 +3282,10 @@ msgstr "பயன்பாட்டைச் சேர்க்க முடி�
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "கடவுச்சொல்லைச் சேர்க்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "விண்ணப்பித்ததாகக் குறிக்�
 msgid "Couldn't mark this as read."
 msgstr "இதைப் படித்ததாகக் குறிக்க முடியவில்லை."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "கதையைச் சேமிக்க முடியவில்லை."
 
@@ -4419,6 +4475,10 @@ msgstr "அசலுக்குப் போலவே ஒரு புதிய
 msgid "Duplicated"
 msgstr "நகலெடுக்கப்பட்டது"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "உங்கள் ரெஸ்யூமியின் நகலை உருவாக்கிக் கொண்டிருக்கிறது..."
@@ -4514,6 +4574,10 @@ msgstr "கேள்வியைத் திருத்து"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "அட்டவணையைத் திருத்து"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "ஒவ்வொரு பதிவிற்கும் ஒரு பட
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "ஒவ்வொரு பாத்திரமும் நீங்கள் செய்ததைச் சொல்கிறது. ரைட்டிங் டேப்பில் வார்த்தைகள் குறித்த கருத்துகள் நேரலையில் இருக்கும்."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "ஒவ்வொரு வார்ப்புருவும் வாசிப்பு வரிசையில் சொற்கள் அமைந்த, உரையைக் கொண்ட PDF கோப்பை ஏற்றுமதி செய்கிறது. விண்ணப்பதாரர் கண்காணிப்பு அமைப்புகள் (ATS) ஒரு சுயவிவரத்தைப் படிக்க இதுவே தேவை. வேறு இடத்தில் உருவாக்கப்பட்ட PDF கோப்பையும் சோதிக்க, இலவச ATS சரிபார்ப்பி மென்பொருள் பிரித்தெடுக்கும் உரையையும் சரிசெய்ய வேண்டியவற்றையும் காட்டுகிறது."
@@ -4864,6 +4932,10 @@ msgstr "பக்கத்தில் உள்ள PDF இலிருந்த
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "உண்மை · சாதனை"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட வரிய�
 msgid "Improving…"
 msgstr "மேம்படுத்துகிறது…"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "நல்ல நிறுவனத்தில்"
@@ -6257,6 +6333,10 @@ msgstr "என்னுடையதை வைத்துக்கொள்"
 msgid "Keep on one page"
 msgstr "ஒரு பக்கத்தில் வைத்திருங்கள்"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "இந்த ரெஸ்யூம் பற்றிய தனிப்பட்ட குறிப்புகளை இங்கே வைத்துக்கொள்ளுங்கள். வேறு யாரும் அவற்றைப் பார்க்க முடியாது."
@@ -6284,6 +6364,10 @@ msgstr "நான் பதிவிறக்க, பதிவை இந்த �
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "விரைவாகப் படிப்பவர் அவற்றை முடிக்கும் வகையில், சுமார் இரண்டு வரிகளுக்குள் வைத்திருங்கள்."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "குறுகிய"
 msgid "narrow margins"
 msgstr "குறுகிய விளிம்புகள்"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "கவனம் தேவை"
@@ -7517,6 +7606,10 @@ msgstr "இதுவரை வேலை விண்ணப்பங்கள் 
 msgid "No applications yet. Add one in Applications first."
 msgstr "இதுவரை வேலை விண்ணப்பங்கள் இல்லை. முதலில் வேலை விண்ணப்பங்களில் ஒன்றைச் சேர்க்கவும்."
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "எந்த புல்லட் பட்டியலும் காணப்படவில்லை."
@@ -7554,6 +7647,10 @@ msgstr "திருத்தங்கள் இல்லை"
 msgid "No dates were found."
 msgstr "தேதிகள் எதுவும் காணப்படவில்லை."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "திருத்தங்கள் இல்லை"
@@ -7575,6 +7672,10 @@ msgstr "மின்னஞ்சல் முகவரி எதுவும் 
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "இன்னும் சான்று இல்லை"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "அமைக்கவில்லை"
 msgid "Not sure what to write?"
 msgstr "என்ன எழுதுவது என்று தெரியவில்லையா?"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "எனக்கு உண்மை இல்லை, அதை மறை"
@@ -8021,6 +8126,10 @@ msgstr "ஒரு சுற்று அட்டவணையிடப்பட�
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "நீங்கள் ஒரு சில வேலை விண்ணப்பங்களை அனுப்பியதும், அவர்கள் எவ்வளவு தூரம் வருகிறார்கள் மற்றும் மக்கள் எவ்வளவு விரைவாக பதிலளிக்கிறார்கள் என்பதை இது காட்டுகிறது."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "{value} ஐ அகற்று"
 msgid "Remove connection"
 msgstr "இணைப்பை அகற்று"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "புலத்தை அகற்று"
@@ -9631,6 +9744,7 @@ msgstr "பதிலளிக்க வேண்டிய நாள்"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "வடிவமைப்பு அமைப்புக்கு பொறுப்பு மற்றும் பிற குழுக்களின் வடிவமைப்புகளுக்கு உதவுதல்."
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "மீட்டெடு"
@@ -10631,6 +10745,11 @@ msgstr "தலைப்பைக் காட்டு"
 msgid "Show link in title"
 msgstr "தலைப்பில் இணைப்பைக் காட்டு"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "இங்கேயே இரு"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "இன்னும் {pages} பக்கங்கள் 9 pt. ஒரு பகுதியை மறைக்கவும் அல்லது உள்ளீடுகளைச் சுருக்கவும்."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "கொண்டுசெல்ல வேண்டிய கதைகள்"
@@ -11214,6 +11341,10 @@ msgstr "கதை"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "கதை · 5 / 5 பகுதிகள்"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "லைட் தீமுக்கு மாற்றவும்"
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "ஒரு நெடுவரிசைக்கு மாறவும்"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"

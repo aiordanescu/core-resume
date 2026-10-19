@@ -980,6 +980,115 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		expect((await service.exportData("alice")).factOverrides).toHaveLength(3);
 	});
 
+	it("archives a fact out of every AI request without erasing it, and restores it", async () => {
+		const old = await fact("alice", "I used Perl in 2009.");
+		await service.updateFact("alice", { id: old.id, status: "archived" });
+		expect((await service.context({ userId: "alice" })).facts).toEqual([]);
+		expect((await service.facts({ userId: "alice" })).find((row) => row.id === old.id)).toMatchObject({
+			status: "archived",
+			text: "I used Perl in 2009.",
+		});
+		// Switching its group doesn't bring an archived fact back.
+		await service.updateFact("alice", { id: old.id, group: "history" });
+		await service.setFactGroupStatus("alice", { group: "history", status: "active", subgroups: true });
+		expect((await service.context({ userId: "alice" })).facts).toEqual([]);
+		expect((await service.factGroups("alice")).find((entry) => entry.group === "history")?.facts).toEqual({
+			active: 0,
+			excluded: 0,
+			archived: 1,
+		});
+		await service.updateFacts("alice", { ids: [old.id], status: "active" });
+		expect((await service.context({ userId: "alice" })).facts.map((row) => row.id)).toEqual([old.id]);
+	});
+
+	it("merges a duplicate into the fact kept, moving its stories, saved work and overrides", async () => {
+		const kept = await fact("alice", "I led the Acme migration of 40 services.");
+		const dupe = await fact("alice", "Led the Acme migration of 40 services");
+		const saved = await service.saveStory("alice", story([dupe.id, kept.id]));
+		const item = await savedItem("alice-app", fit, [dupe.id]);
+		await service.saveOverride("alice", { applicationId: "alice-app", factId: dupe.id, mode: "exclude" });
+		const found = await service.duplicates("alice");
+		expect(found.near.map((pair) => [...pair.factIds].sort())).toEqual([[kept.id, dupe.id].sort()]);
+
+		expect(await service.mergeFact("alice", { id: dupe.id, into: kept.id })).toEqual({ updated: 1 });
+		expect((await service.stories({ userId: "alice" })).find((row) => row.id === saved.id)?.data.factIds).toEqual([
+			kept.id,
+		]);
+		expect(
+			(await service.savedItems({ userId: "alice", applicationId: "alice-app" })).find((row) => row.id === item.id)
+				?.evidence.factIds,
+		).toEqual([kept.id]);
+		expect((await service.overrides("alice", "alice-app")).map((row) => [row.factId, row.mode])).toEqual([
+			[kept.id, "exclude"],
+		]);
+		expect((await service.facts({ userId: "alice" })).find((row) => row.id === dupe.id)?.status).toBe("archived");
+		await expect(service.mergeFact("alice", { id: kept.id, into: dupe.id })).rejects.toMatchObject({
+			code: "NOT_FOUND",
+		});
+		await expect(service.mergeFact("bob", { id: kept.id, into: dupe.id })).rejects.toMatchObject({ code: "NOT_FOUND" });
+		const own = await fact("alice", "Something private.", "alice-app");
+		await expect(service.mergeFact("alice", { id: kept.id, into: own.id })).rejects.toMatchObject({
+			code: "BAD_REQUEST",
+		});
+	});
+
+	it("folds application copies of shared facts into them, keeping what each application read", async () => {
+		const shared = await grouped("alice", "I hold an active clearance.", "clearance");
+		const on = await fact("alice", "I mentor engineers.");
+		await service.saveFactGroup("alice", { group: "clearance", private: true });
+		// Copies made before the cleanup existed, one per application.
+		const insertCopy = async (text: string, applicationId: string) => {
+			const [row] = await getDb()
+				.insert(tables.careerFact)
+				.values({
+					userId: "alice",
+					applicationId,
+					text,
+					category: "experience",
+					source: { kind: "manual", id: randomUUID(), quote: text },
+					sourceKey: randomUUID(),
+				})
+				.returning();
+			if (!row) throw new Error("Expected a copy.");
+			return row;
+		};
+		const clearanceCopy = await insertCopy("I hold an active clearance", "alice-app");
+		const mentorCopy = await insertCopy("i mentor engineers.", "alice-other");
+		const appStory = await service.saveStory("alice", story([clearanceCopy.id], "alice-app"));
+
+		expect(await service.cleanDuplicates("alice")).toEqual({ updated: 2 });
+		const ids = async (applicationId: string) =>
+			(await service.context({ userId: "alice", applicationId })).facts.map((row) => row.id).sort();
+		// The private shared fact is now included for the application whose copy was in its Knowledge.
+		expect(await ids("alice-app")).toEqual([shared.id, on.id].sort());
+		expect(await ids("alice-other")).toEqual([on.id]);
+		expect(
+			(await service.stories({ userId: "alice", applicationId: "alice-app" })).find((row) => row.id === appStory.id)
+				?.data.factIds,
+		).toEqual([shared.id]);
+		expect(
+			(await service.facts({ userId: "alice", all: true }))
+				.filter((row) => row.status === "archived")
+				.map((row) => row.id)
+				.sort(),
+		).toEqual([clearanceCopy.id, mentorCopy.id].sort());
+		expect(await service.cleanDuplicates("alice")).toEqual({ updated: 0 });
+
+		// Saving a new copy returns the shared fact instead of adding one.
+		const again = await service.saveFact("alice", {
+			applicationId: "alice-other",
+			text: "I mentor engineers!",
+			category: "experience",
+			source: { kind: "manual", id: randomUUID(), quote: "I mentor engineers!" },
+		});
+		expect(again?.id).toBe(on.id);
+		expect(
+			(await service.facts({ userId: "alice", applicationId: "alice-other" })).filter(
+				(row) => row.applicationId === "alice-other" && row.status !== "archived",
+			),
+		).toEqual([]);
+	});
+
 	it("keeps AI limits per account and apart from preferences", async () => {
 		const defaults = aiLimitsSchema.parse({});
 		expect(await service.aiLimits("alice")).toEqual(defaults);

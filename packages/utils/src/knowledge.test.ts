@@ -2,6 +2,10 @@ import { describe, expect, it } from "vitest";
 import {
 	ACTION_CONTEXT_CHARS,
 	factPromptChars,
+	findDuplicates,
+	normalizeFactText,
+	preferredFact,
+	storyIssues,
 	groupAncestors,
 	inGroup,
 	knowledgeBudget,
@@ -161,5 +165,119 @@ describe("reachesAi", () => {
 		};
 		expect(reachesAi({ id: "x", status: "excluded", group: "experience/acme/ops" }, rules)).toBe(true);
 		expect(reachesAi({ id: "y", status: "active", group: "experience/globex" }, rules)).toBe(false);
+	});
+});
+
+describe("duplicates", () => {
+	const row = (
+		id: string,
+		text: string,
+		applicationId: string | null = null,
+		status = "active",
+		createdAt = "2026-10-01",
+	) => ({
+		id,
+		text,
+		applicationId,
+		status,
+		createdAt,
+	});
+
+	it("ignores case, accents, punctuation and spacing for exact copies", () => {
+		expect(normalizeFactText("  Led the Café   migration!  ")).toBe(normalizeFactText("led the cafe migration"));
+	});
+
+	it("groups exact copies across shared and private scopes, but not between two applications", () => {
+		const { exact } = findDuplicates([
+			row("shared", "I led the Acme migration."),
+			row("copy-a", "I led the Acme migration", "app-a"),
+			row("copy-b", "i led the acme migration.", "app-b"),
+			row("lone-a", "I mentor engineers.", "app-a"),
+			row("lone-b", "I mentor engineers.", "app-b"),
+			row("gone", "I led the Acme migration.", null, "archived"),
+		]);
+		expect(exact.map((cluster) => cluster.map((fact) => fact.id).sort())).toEqual([["copy-a", "copy-b", "shared"]]);
+	});
+
+	it("pairs facts that say nearly the same thing, but not ones that only share a few words", () => {
+		const { near } = findDuplicates([
+			row("a", "Led the migration of 40 services to Kubernetes at Acme in 2024"),
+			row("b", "Led migration of 40 services to Kubernetes at Acme, 2024"),
+			row("c", "Led the hiring of 4 engineers at Acme in 2024"),
+			row("d", "Led the migration of 40 services to Kubernetes", "app-x"),
+			row("e", "Led the migration of 40 services to Kubernetes at Acme in 2024 and cut costs by 30 percent"),
+		]);
+		const pairs = near.map((pair) =>
+			pair.facts
+				.map((fact) => fact.id)
+				.sort()
+				.join("+"),
+		);
+		expect(pairs).toContain("a+b");
+		expect(pairs).toContain("a+e");
+		expect(pairs).not.toContain("a+c");
+		expect(near[0]?.similarity).toBeGreaterThanOrEqual(near.at(-1)?.similarity ?? 0);
+	});
+
+	it("keeps the shared, switched-on, oldest fact", () => {
+		expect(
+			preferredFact([
+				row("private", "x", "app", "active", "2026-01-01"),
+				row("off", "x", null, "excluded", "2026-01-01"),
+				row("newer", "x", null, "active", "2026-06-01"),
+				row("older", "x", null, "active", "2026-03-01"),
+			])?.id,
+		).toBe("older");
+	});
+});
+
+describe("storyIssues", () => {
+	const at = (day: string) => `2026-10-${day}T00:00:00.000Z`;
+	const fact = (
+		id: string,
+		status = "active",
+		revisions: { text: string; at: string }[] = [],
+		group: string | null = null,
+	) => ({
+		id,
+		text: `Now: ${id}`,
+		status,
+		group,
+		revisions,
+	});
+	const facts = new Map([
+		["ok", fact("ok")],
+		["off", fact("off", "excluded")],
+		["archived", fact("archived", "archived")],
+		["private", fact("private", "active", [], "clearance")],
+		[
+			"corrected",
+			fact("corrected", "active", [
+				{ text: "First", at: at("05") },
+				{ text: "Second", at: at("12") },
+				{ text: "Third", at: at("14") },
+			]),
+		],
+	]);
+	const story = (factIds: string[]) => ({ updatedAt: at("10"), data: { factIds } });
+
+	it("finds nothing wrong with a story the AI can use", () => {
+		expect(storyIssues(story(["ok"]), facts)).toEqual([]);
+	});
+
+	it("names each fact that keeps a story out, and the text a corrected fact had when the story was saved", () => {
+		expect(
+			storyIssues(story(["ok", "off", "archived", "private", "gone", "corrected"]), facts, {
+				privateGroups: ["clearance"],
+				overrides: [],
+			}),
+		).toEqual([
+			{ factId: "off", reason: "off" },
+			{ factId: "archived", reason: "archived" },
+			{ factId: "private", reason: "private" },
+			{ factId: "gone", reason: "missing" },
+			{ factId: "corrected", reason: "corrected", before: "Second", after: "Now: corrected" },
+		]);
+		expect(storyIssues(story([]), facts)).toEqual([{ factId: "", reason: "missing" }]);
 	});
 });

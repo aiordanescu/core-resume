@@ -39,7 +39,7 @@ const entry = (
 	group,
 	status,
 	private: isPrivate,
-	facts: { active, excluded },
+	facts: { active, excluded, archived: 0 },
 	activeChars: active * 100,
 });
 

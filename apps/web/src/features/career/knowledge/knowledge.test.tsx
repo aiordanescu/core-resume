@@ -367,3 +367,32 @@ it("filters facts by group, subgroups included, and adds new facts to the chosen
 	await waitFor(() => expect(api.saveFact).toHaveBeenCalled());
 	expect(api.saveFact.mock.calls[0]?.[0]).toMatchObject({ group: "experience/acme", applicationId: null });
 });
+
+it("keeps archived facts out of the list until asked for, and restores one", async () => {
+	const fact = (id: string, text: string, status: string) => ({
+		id,
+		text,
+		status,
+		group: null,
+		category: "accomplishment",
+		applicationId: null,
+		company: null,
+		usedBy: { stories: 0, savedItems: 0 },
+		revisions: [],
+		source: { kind: "manual", id, quote: text },
+		createdAt: "2026-10-01T00:00:00.000Z",
+		updatedAt: "2026-10-01T00:00:00.000Z",
+	});
+	api.data.facts = [fact("live", "I mentor engineers.", "active"), fact("old", "I used Perl in 2009.", "archived")];
+	mount(<FactsPage highlight={undefined} />);
+	expect(await screen.findByText("I mentor engineers.")).toBeTruthy();
+	expect(screen.queryByText("I used Perl in 2009.")).toBeNull();
+	fireEvent.click(screen.getByRole("button", { name: /Archived 1/ }));
+	expect(screen.getByText("I used Perl in 2009.")).toBeTruthy();
+	expect(screen.queryByText("I mentor engineers.")).toBeNull();
+	expect(screen.getByText("Archived, never sent")).toBeTruthy();
+	// What the server holds once the restore lands, for the refetch that follows it.
+	api.data.facts = [fact("live", "I mentor engineers.", "active"), fact("old", "I used Perl in 2009.", "active")];
+	fireEvent.click(screen.getByRole("button", { name: "Restore" }));
+	await waitFor(() => expect(screen.queryByText("I used Perl in 2009.")).toBeNull());
+});

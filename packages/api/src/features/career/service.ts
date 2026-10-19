@@ -25,6 +25,9 @@ import {
 	type KnowledgeRules,
 	nearestGroupSetting,
 	reachesAi,
+	findDuplicates,
+	normalizeFactText,
+	preferredFact,
 	storyHolds,
 } from "@reactive-resume/utils/knowledge";
 import { generateId } from "@reactive-resume/utils/string";
@@ -46,9 +49,11 @@ const inFactGroup = (group: string, subgroups = true) =>
 	subgroups
 		? or(eq(tables.careerFact.group, group), sql`starts_with(${tables.careerFact.group}, ${`${group}/`})`)
 		: eq(tables.careerFact.group, group);
-/** Facts a switch can change: not forgotten. */
+/** Facts a switch can change: neither forgotten nor archived. */
 const switchable = inArray(tables.careerFact.status, ["active", "excluded"]);
+const notForgotten = ne(tables.careerFact.status, "forgotten");
 type FactSwitch = "active" | "excluded";
+type FactStatus = FactSwitch | "archived";
 type OverrideRow = typeof tables.careerFactOverride.$inferSelect;
 /** Rows hold include or exclude; anything else reads as exclude, the safe side. */
 const overrideOf = (row: OverrideRow) => ({
@@ -371,6 +376,79 @@ async function invalidateMemory(userId: string, id: string, tx: CareerTransactio
 	);
 }
 
+type FactRow = typeof tables.careerFact.$inferSelect;
+
+/**
+ * A copy private to an application reached that application's AI: make sure the fact it's folded into still does
+ * there, with an include override when the shared fact is switched off or private. Returns whether one was added.
+ */
+async function keepReach(
+	tx: CareerTransaction,
+	userId: string,
+	applicationId: string,
+	copy: { id: string; status: string; group: string | null },
+	twin: FactRow,
+) {
+	const rules = await knowledgeRules(userId, applicationId, tx);
+	if (!reachesAi(copy, rules) || reachesAi(twin, rules)) return false;
+	await tx
+		.insert(tables.careerFactOverride)
+		.values({ userId, applicationId, factId: twin.id, mode: "include" })
+		.onConflictDoUpdate({
+			target: [tables.careerFactOverride.applicationId, tables.careerFactOverride.factId],
+			set: { mode: "include" },
+		});
+	return true;
+}
+
+/** Folds `from` into `into`: stories, saved items and overrides point at `into`, and `from` is archived, not erased. */
+async function mergeFacts(tx: CareerTransaction, userId: string, from: FactRow, into: FactRow) {
+	const swap = (ids: readonly string[]) => [...new Set(ids.map((id) => (id === from.id ? into.id : id)))];
+	const stories = await tx
+		.select()
+		.from(tables.careerStory)
+		.where(and(eq(tables.careerStory.userId, userId), sql`${tables.careerStory.data}->'factIds' ? ${from.id}`));
+	for (const story of stories)
+		await tx
+			.update(tables.careerStory)
+			.set({ data: { ...story.data, factIds: swap(story.data.factIds) } })
+			.where(eq(tables.careerStory.id, story.id));
+	const items = await tx
+		.select({ id: tables.careerArtifact.id, evidence: tables.careerArtifact.evidence })
+		.from(tables.careerArtifact)
+		.where(
+			and(eq(tables.careerArtifact.userId, userId), sql`${tables.careerArtifact.evidence}->'factIds' ? ${from.id}`),
+		);
+	for (const item of items)
+		await tx
+			.update(tables.careerArtifact)
+			.set({ evidence: { ...item.evidence, factIds: swap(item.evidence.factIds) } })
+			.where(eq(tables.careerArtifact.id, item.id));
+	const overrides = await tx
+		.select()
+		.from(tables.careerFactOverride)
+		.where(and(eq(tables.careerFactOverride.userId, userId), eq(tables.careerFactOverride.factId, from.id)));
+	for (const override of overrides) {
+		const [taken] = await tx
+			.select({ id: tables.careerFactOverride.id })
+			.from(tables.careerFactOverride)
+			.where(
+				and(
+					eq(tables.careerFactOverride.applicationId, override.applicationId),
+					eq(tables.careerFactOverride.factId, into.id),
+				),
+			);
+		if (taken) await tx.delete(tables.careerFactOverride).where(eq(tables.careerFactOverride.id, override.id));
+		else
+			await tx
+				.update(tables.careerFactOverride)
+				.set({ factId: into.id })
+				.where(eq(tables.careerFactOverride.id, override.id));
+	}
+	if (from.applicationId) await keepReach(tx, userId, from.applicationId, from, into);
+	await tx.update(tables.careerFact).set({ status: "archived" }).where(eq(tables.careerFact.id, from.id));
+}
+
 export const careerService = {
 	memoryVersion,
 	memoryCutoff: async (userId: string) => {
@@ -488,6 +566,7 @@ export const careerService = {
 						or(
 							eq(tables.careerFact.status, "forgotten"),
 							eq(tables.careerFact.status, "excluded"),
+							eq(tables.careerFact.status, "archived"),
 							sql`jsonb_array_length(${tables.careerFact.revisions}) > 0`,
 						),
 					),
@@ -495,6 +574,21 @@ export const careerService = {
 				.limit(1);
 			if (suppressed) return null;
 			const status = input.group ? await groupStatus(tx, userId, input.group) : "active";
+			if (input.applicationId) {
+				// A word-for-word copy of a shared fact adds nothing: the shared one already reaches this application, or
+				// is included for it now, and a later correction to it applies here too.
+				const key = normalizeFactText(input.text);
+				const shared = await tx
+					.select()
+					.from(tables.careerFact)
+					.where(and(eq(tables.careerFact.userId, userId), isNull(tables.careerFact.applicationId), switchable));
+				const twin = shared.find((fact) => normalizeFactText(fact.text) === key);
+				if (twin) {
+					const copy = { id: "", status, group: input.group ?? null };
+					if (await keepReach(tx, userId, input.applicationId, copy, twin)) await invalidateMemory(userId, twin.id, tx);
+					return twin;
+				}
+			}
 			// A forgotten source key remains a content-free tombstone; retries cannot recreate the fact.
 			const [fact] = await tx
 				.insert(tables.careerFact)
@@ -509,7 +603,8 @@ export const careerService = {
 		input: {
 			id: string;
 			text?: string | undefined;
-			status?: FactSwitch | undefined;
+			/** Archived facts never reach the AI and are hidden by default; switching one on or off restores it. */
+			status?: FactStatus | undefined;
 			share?: boolean | undefined;
 			/** Moves the fact to a group, or out of any with null. Its switch stays as it is. */
 			group?: string | null | undefined;
@@ -561,7 +656,7 @@ export const careerService = {
 	/** Switches or regroups many facts at once; forgotten ones are skipped. Returns how many changed. */
 	updateFacts: (
 		userId: string,
-		input: { ids: string[]; status?: FactSwitch | undefined; group?: string | null | undefined },
+		input: { ids: string[]; status?: FactStatus | undefined; group?: string | null | undefined },
 	) =>
 		db.transaction(async (tx) => {
 			await lockCareerUser(tx, userId);
@@ -572,7 +667,7 @@ export const careerService = {
 					...(input.status ? { status: input.status } : {}),
 					...(input.group !== undefined ? { group: input.group } : {}),
 				})
-				.where(and(eq(tables.careerFact.userId, userId), inArray(tables.careerFact.id, input.ids), switchable))
+				.where(and(eq(tables.careerFact.userId, userId), inArray(tables.careerFact.id, input.ids), notForgotten))
 				.returning({ id: tables.careerFact.id });
 			if (rows[0]) await invalidateMemory(userId, rows[0].id, tx);
 			return { updated: rows.length };
@@ -593,7 +688,7 @@ export const careerService = {
 					group: tables.careerFact.group,
 				})
 				.from(tables.careerFact)
-				.where(and(eq(tables.careerFact.userId, userId), switchable)),
+				.where(and(eq(tables.careerFact.userId, userId), notForgotten)),
 			db.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId)),
 		]);
 		const groups = new Map<
@@ -602,7 +697,7 @@ export const careerService = {
 				group: string | null;
 				status: FactSwitch | null;
 				private: boolean;
-				facts: { active: number; excluded: number };
+				facts: { active: number; excluded: number; archived: number };
 				activeChars: number;
 			}
 		>();
@@ -611,7 +706,13 @@ export const careerService = {
 			if (!found)
 				groups.set(
 					group,
-					(found = { group, status: null, private: false, facts: { active: 0, excluded: 0 }, activeChars: 0 }),
+					(found = {
+						group,
+						status: null,
+						private: false,
+						facts: { active: 0, excluded: 0, archived: 0 },
+						activeChars: 0,
+					}),
 				);
 			return found;
 		};
@@ -625,7 +726,8 @@ export const careerService = {
 			if (fact.status === "active") {
 				group.facts.active += 1;
 				if (fact.applicationId === null) group.activeChars += factPromptChars(fact);
-			} else group.facts.excluded += 1;
+			} else if (fact.status === "archived") group.facts.archived += 1;
+			else group.facts.excluded += 1;
 		}
 		return [...groups.values()].sort((a, b) =>
 			a.group === null ? 1 : b.group === null ? -1 : a.group.localeCompare(b.group),
@@ -764,6 +866,97 @@ export const careerService = {
 				.delete(tables.careerFactOverride)
 				.where(and(eq(tables.careerFactOverride.id, id), eq(tables.careerFactOverride.userId, userId)));
 			await invalidateMemory(userId, "", tx);
+		}),
+	/**
+	 * Exact and near duplicates among facts in use, with the one to keep for each exact set (shared over private, switched
+	 * on over off, then the oldest) and the texts involved.
+	 */
+	duplicates: async (userId: string) => {
+		const facts = await db
+			.select({
+				id: tables.careerFact.id,
+				text: tables.careerFact.text,
+				applicationId: tables.careerFact.applicationId,
+				status: tables.careerFact.status,
+				group: tables.careerFact.group,
+				createdAt: tables.careerFact.createdAt,
+			})
+			.from(tables.careerFact)
+			.where(and(eq(tables.careerFact.userId, userId), switchable));
+		const { exact, near } = findDuplicates(facts);
+		const involved = new Map<string, (typeof facts)[number]>();
+		const sets = exact.flatMap((cluster) => {
+			const keep = preferredFact(cluster);
+			if (!keep) return [];
+			for (const fact of cluster) involved.set(fact.id, fact);
+			return [{ keep: keep.id, copies: cluster.filter((fact) => fact.id !== keep.id).map((fact) => fact.id) }];
+		});
+		const pairs = near.map(({ facts: [a, b], similarity }) => {
+			involved.set(a.id, a);
+			involved.set(b.id, b);
+			return { factIds: [a.id, b.id], similarity };
+		});
+		return {
+			exact: sets,
+			near: pairs,
+			facts: [...involved.values()].map(({ id, text, applicationId, status, group }) => ({
+				id,
+				text,
+				applicationId,
+				status,
+				group,
+			})),
+		};
+	},
+	/**
+	 * Folds one fact into another: its stories, saved items and overrides move to the one kept, and it's archived. The
+	 * one kept must be shared, or private to the same application.
+	 */
+	mergeFact: (userId: string, input: { id: string; into: string }) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			if (input.id === input.into) throw new ORPCError("BAD_REQUEST", { message: "Choose two different facts." });
+			const rows = await tx
+				.select()
+				.from(tables.careerFact)
+				.where(and(eq(tables.careerFact.userId, userId), inArray(tables.careerFact.id, [input.id, input.into])))
+				.for("update");
+			const from = rows.find((row) => row.id === input.id);
+			const into = rows.find((row) => row.id === input.into);
+			if (!from || !into || from.status === "forgotten" || into.status === "forgotten" || into.status === "archived")
+				throw new ORPCError("NOT_FOUND");
+			if (into.applicationId !== null && into.applicationId !== from.applicationId)
+				throw new ORPCError("BAD_REQUEST", {
+					message: "Keep the shared fact, or one private to the same application.",
+				});
+			await mergeFacts(tx, userId, from, into);
+			await invalidateMemory(userId, from.id, tx);
+			return { updated: 1 };
+		}),
+	/**
+	 * Removes word-for-word copies of shared facts that sit in applications: each is folded into the shared fact, which
+	 * is included for that application when it wouldn't reach it otherwise. Copies among shared facts are left to you.
+	 */
+	cleanDuplicates: (userId: string) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			const facts = await tx
+				.select()
+				.from(tables.careerFact)
+				.where(and(eq(tables.careerFact.userId, userId), switchable));
+			let merged = 0;
+			for (const cluster of findDuplicates(facts).exact) {
+				const keep = preferredFact(cluster);
+				if (!keep || keep.applicationId !== null) continue;
+				for (const copy of cluster)
+					if (copy.applicationId !== null) {
+						await mergeFacts(tx, userId, copy, keep);
+						merged += 1;
+					}
+			}
+			const [first] = facts;
+			if (merged && first) await invalidateMemory(userId, first.id, tx);
+			return { updated: merged };
 		}),
 	stories: async (input: Owned) => {
 		await requireCareerApplication(input);
