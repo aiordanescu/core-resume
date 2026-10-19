@@ -95,4 +95,27 @@ describe("what a coach message shares", () => {
 		expect(posting.facts.map((item) => item.id)).toEqual(["k8s"]);
 		expect(result.current.sharedFor("What should I ask them?", false).facts.map((item) => item.id)).toEqual(["newest"]);
 	});
+
+	it("keeps a story when its fact was switched off and on, and drops it when the fact's text was corrected", async () => {
+		const later = "2026-10-18T00:00:00.000Z";
+		const story = (id: string, factId: string) => ({
+			id,
+			updatedAt: now,
+			data: { title: id, situation: "", task: "", action: "", result: "", reflection: "", factIds: [factId], tags: [] },
+		});
+		data.facts = [
+			// Corrected before the story was saved, then switched off and on after it: only updatedAt moved.
+			{
+				...fact("toggled", "I run the on-call rota."),
+				revisions: [{ text: "I ran the rota.", at: "2026-10-16T00:00:00.000Z" }],
+				updatedAt: later,
+			},
+			{ ...fact("corrected", "I lead incident reviews."), revisions: [{ text: "I led reviews.", at: later }] },
+		];
+		data.stories = [story("s-toggled", "toggled"), story("s-corrected", "corrected")];
+		const { result } = renderHook(() => useCoachKnowledge(null), { wrapper });
+		await waitFor(() => expect(result.current.loaded).toBe(true));
+
+		expect(result.current.stories.map((item) => item.id)).toEqual(["s-toggled"]);
+	});
 });

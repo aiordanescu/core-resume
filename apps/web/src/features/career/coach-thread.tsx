@@ -94,10 +94,7 @@ export function useCoachKnowledge(applicationId: string | null) {
 		(story) =>
 			story.data.factIds.length > 0 &&
 			story.data.factIds.every((id) =>
-				active.some(
-					(fact) =>
-						fact.id === id && (fact.revisions.length === 0 || new Date(fact.updatedAt) <= new Date(story.updatedAt)),
-				),
+				active.some((fact) => fact.id === id && new Date(fact.revisions.at(-1)?.at ?? 0) <= new Date(story.updatedAt)),
 			),
 	);
 	return {

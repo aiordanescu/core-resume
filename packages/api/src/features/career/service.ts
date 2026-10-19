@@ -593,7 +593,8 @@ export const careerService = {
 						(fact) =>
 							fact.id === id &&
 							fact.status === "active" &&
-							(fact.revisions.length === 0 || story.updatedAt >= fact.updatedAt),
+							// Its text's last correction, not updatedAt: switching a fact off and on doesn't change what it says.
+							story.updatedAt >= new Date(fact.revisions.at(-1)?.at ?? 0),
 					),
 				),
 		);

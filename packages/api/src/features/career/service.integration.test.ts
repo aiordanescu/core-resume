@@ -815,6 +815,24 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		expect(await service.stories({ userId: "alice" })).toMatchObject([{ data: { result: secret, factIds: [] } }]);
 	});
 
+	it("keeps a story usable when a fact is switched off and on, and drops it once the fact's text is corrected", async () => {
+		const backing = await fact("alice", "I lead incident reviews.");
+		const saved = await service.saveStory("alice", story([backing.id]));
+		await service.updateFact("alice", { id: backing.id, status: "excluded" });
+		expect((await service.context({ userId: "alice" })).stories).toEqual([]);
+		await service.updateFact("alice", { id: backing.id, status: "active" });
+		expect((await service.context({ userId: "alice" })).stories.map((item) => item.id)).toEqual([saved.id]);
+		await service.updateFact("alice", { id: backing.id, text: "I lead weekly incident reviews." });
+		expect((await service.context({ userId: "alice" })).stories).toEqual([]);
+		// Saving the story again confirms it against the new text.
+		await service.saveStory("alice", story([backing.id]), saved.id);
+		expect((await service.context({ userId: "alice" })).stories.map((item) => item.id)).toEqual([saved.id]);
+		// A corrected fact switched off and on later still backs the story it was confirmed for.
+		await service.updateFact("alice", { id: backing.id, status: "excluded" });
+		await service.updateFact("alice", { id: backing.id, status: "active" });
+		expect((await service.context({ userId: "alice" })).stories.map((item) => item.id)).toEqual([saved.id]);
+	});
+
 	it("keeps AI limits per account and apart from preferences", async () => {
 		const defaults = aiLimitsSchema.parse({});
 		expect(await service.aiLimits("alice")).toEqual(defaults);
