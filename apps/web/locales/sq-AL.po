@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Ngjitni çelësin tuaj"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Përshkrimi i ngjitur"
 
@@ -9932,7 +9932,7 @@ msgstr "rezymetë e krijuara"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{0} është marrë duke përdorur {1}. Koha e marrjes nuk përcakton freskinë e origjinës."
 
@@ -12056,7 +12056,7 @@ msgstr "Postimi i punës kërkon “{label}”. Nëse është e vërtetë për m
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Postimi i punës nuk mund të lexohej. Plotësoni rolin dhe kompaninë."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Postimi i punës u ruajt me këtë aplikim pune."
 
@@ -12405,7 +12405,7 @@ msgstr "Kjo CV u përditësua nga një agjent i IA-së."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Cilësimet e ndarjes së këtij CV-je kanë ndryshuar diku tjetër."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Ky përshkrim i ruajtur është i prerë ose i paplotë. Rishikoni para përgatitjes së dokumenteve."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Shikoni aplikimin për punë"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Shikoni shpalljen e punës"
 
@@ -13422,7 +13421,7 @@ msgstr "Sa është paga bazë dhe a është e negociueshme?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Sa vlejnë aksionet sot: çmimi i ushtrimit, vlerësimi i fundit, periudha e fitimit të të drejtave dhe afati i ushtrimit?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Çfarë kërkon"
 

@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "کلید خود را بچسبانید"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "توضیحات چسبانده شد"
 
@@ -9932,7 +9932,7 @@ msgstr "رزومه ایجاد شد"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{0} با استفاده از {1} بازیابی شد. زمان بازیابی طراوت مبدا را ایجاد نمی کند."
 
@@ -12056,7 +12056,7 @@ msgstr "در آگهی استخدام \"{label}\" درخواست می شود. ا�
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "آگهی استخدام خوانده نشد. نقش و شرکت را پر کنید."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "آگهی شغلی ذخیره‌شده با این درخواست."
 
@@ -12405,7 +12405,7 @@ msgstr "این رزومه توسط یک عامل هوش مصنوعی به‌رو
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "تنظیمات اشتراک‌گذاری این رزومه در جای دیگری تغییر کرده است."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "این توضیحات ذخیره شده بریده شده یا ناقص است. قبل از تهیه اسناد بررسی کنید."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "مشاهده درخواست کار"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "مشاهده آگهی استخدام"
 
@@ -13422,7 +13421,7 @@ msgstr "حقوق پایه چقدر است و آیا قابل مذاکره است
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "ارزش امروز سهام چقدر است: قیمت اعمال، آخرین ارزش‌گذاری، برنامهٔ واگذاری و بازهٔ اعمال؟"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "آنچه را که می خواهد"
 

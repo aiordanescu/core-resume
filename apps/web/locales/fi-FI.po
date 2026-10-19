@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Liitä avaimesi"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Kuvaus liitetty"
 
@@ -9932,7 +9932,7 @@ msgstr "ansioluettelot luotu"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Haettu {0} käyttämällä {1}:ta. Hakuaika ei vahvista alkuperän tuoreutta."
 
@@ -12056,7 +12056,7 @@ msgstr "Työpaikkailmoituksessa kysytään \"{label}\". Jos se on totta minulle,
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Työpaikkailmoitusta ei voitu lukea. Täytä rooli ja yritys."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Työpaikkailmoitus tallennettu tämän työhakemuksen kanssa."
 
@@ -12405,7 +12405,7 @@ msgstr "Tekoälyagentti on päivittänyt tämän ansioluettelon."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Tämän ansioluettelon jakamisasetukset ovat muuttuneet muualla."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Tämä tallennettu kuvaus on leikattu tai epätäydellinen. Tarkista ennen asiakirjojen laatimista."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Katso työhakemus"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Katso työpaikkailmoitus"
 
@@ -13422,7 +13421,7 @@ msgstr "Mikä on peruspalkka, ja onko se neuvoteltavissa?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Mikä on osakkeiden arvo tänään: merkintähinta, viimeisin arvostus, ansaintajakso ja toteutusaika?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Mitä se pyytää"
 

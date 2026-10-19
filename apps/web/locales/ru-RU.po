@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Вставьте свой ключ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Вставленное описание"
 
@@ -9932,7 +9932,7 @@ msgstr "резюме создано"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Получен {0} с помощью {1}. Время поиска не определяет свежесть происхождения."
 
@@ -12056,7 +12056,7 @@ msgstr "В объявлении о вакансии указано «{label}». 
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Не удалось прочитать объявление о вакансии. Укажите роль и компанию."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Объявление о вакансии сохранено вместе с этим заявлением о приеме на работу."
 
@@ -12405,7 +12405,7 @@ msgstr "Это резюме было обновлено с помощью ИИ-�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Настройки доступа к этому резюме были изменены в другом месте."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Это сохраненное описание обрезано или неполное. Просмотрите перед подготовкой документов."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Посмотреть заявление о приеме на работу"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Посмотреть объявление о вакансии"
 
@@ -13422,7 +13421,7 @@ msgstr "Какой базовый оклад и обсуждается ли он
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Сколько стоят акции сегодня: цена исполнения, последняя оценка, вестинг и срок исполнения?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Что он просит"
 

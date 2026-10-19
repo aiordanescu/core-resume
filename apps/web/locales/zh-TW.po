@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "貼上您的金鑰"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "貼上說明"
 
@@ -9932,7 +9932,7 @@ msgstr "創建的簡歷"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "使用 {1} 檢索 {0}。檢索時間並不能確定來源的新鮮度。"
 
@@ -12056,7 +12056,7 @@ msgstr "招聘啟事要求「{label}」。如果這對我來說是正確的，�
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "無法閱讀招募資訊。填寫角色和公司。"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "職位發布與此職位申請一起保存。"
 
@@ -12405,7 +12405,7 @@ msgstr "這份履歷由人工智慧代理更新。"
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "此簡歷的共享設定已在其他地方更改。"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "此保存的描述被剪裁或不完整。準備文件之前先進行審查。"
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "查看職位申請"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "查看職缺發布"
 
@@ -13422,7 +13421,7 @@ msgstr "底薪是多少？可以談嗎？"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "股權目前價值多少：履約價、最新估值、既得時程和行使期間？"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "它要求什麼"
 

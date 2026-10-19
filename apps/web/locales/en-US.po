@@ -8669,7 +8669,7 @@ msgid "Paste your key"
 msgstr "Paste your key"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Pasted description"
 
@@ -9927,7 +9927,7 @@ msgstr "Resumes created"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 
@@ -12051,7 +12051,7 @@ msgstr "The posting asks for “{label}”. If it's true for me, work it into my
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "The posting couldn't be read. Fill in the role and company."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "The posting saved with this application."
 
@@ -12400,7 +12400,7 @@ msgstr "This resume was updated by an AI agent."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "This resume's sharing settings changed elsewhere."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "This saved description is clipped or incomplete. Review before preparing documents."
 
@@ -13219,8 +13219,7 @@ msgid "View application"
 msgstr "View application"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "View posting"
 
@@ -13417,7 +13416,7 @@ msgstr "What is the base salary, and is it negotiable?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "What it asks for"
 

@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Klistra in din nyckel"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Klistrad beskrivning"
 
@@ -9932,7 +9932,7 @@ msgstr "meritförteckningar skapade"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Hämtade {0} med {1}. Hämtningstiden fastställer inte ursprungets färskhet."
 
@@ -12056,7 +12056,7 @@ msgstr "I jobbannonsen frågas efter \"{label}\". Om det är sant för mig, arbe
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Det gick inte att läsa jobbannonsen. Fyll i rollen och företaget."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Jobbannonsen sparades med denna jobbansökan."
 
@@ -12405,7 +12405,7 @@ msgstr "Detta CV uppdaterades av en AI-agent."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Delningsinställningarna för detta CV har ändrats någon annanstans."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Den här sparade beskrivningen är beskuren eller ofullständig. Granska innan du förbereder dokument."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Se jobbansökan"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Se platsannonsen"
 
@@ -13422,7 +13421,7 @@ msgstr "Vad är grundlönen, och går den att förhandla?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Vad är aktierna värda i dag: lösenpris, senaste värdering, intjänande och lösenfönster?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Vad den begär"
 

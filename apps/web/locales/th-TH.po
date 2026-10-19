@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "วางคีย์ของคุณ"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "วางคำอธิบายแล้ว"
 
@@ -9932,7 +9932,7 @@ msgstr "ประวัติย่อที่สร้างขึ้น"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "ดึงข้อมูล {0} โดยใช้ {1} เวลาในการดึงข้อมูลไม่ได้สร้างความสดใหม่ของแหล่งกำเนิด"
 
@@ -12056,7 +12056,7 @@ msgstr "ประกาศรับสมัครงานขอ “{label}” 
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "ไม่สามารถอ่านประกาศรับสมัครงานได้ กรอกตำแหน่งงานและบริษัท"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ประกาศรับสมัครงานที่บันทึกไว้พร้อมกับการสมัครงานนี้"
 
@@ -12405,7 +12405,7 @@ msgstr "ประวัติย่อนี้ได้รับการปร
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "การตั้งค่าการแชร์เรซูเม่ฉบับนี้มีการเปลี่ยนแปลงที่อื่น"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "คำอธิบายที่บันทึกไว้นี้ถูกตัดทอนหรือไม่สมบูรณ์ ทบทวนก่อนเตรียมเอกสาร"
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "ดูการสมัครงาน"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "ดูประกาศรับสมัครงาน"
 
@@ -13422,7 +13421,7 @@ msgstr "เงินเดือนพื้นฐานเท่าไร แ�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "หุ้นมีมูลค่าเท่าไรในวันนี้: ราคาใช้สิทธิ มูลค่าบริษัทล่าสุด เงื่อนไขการได้รับสิทธิ์ (vesting) และระยะเวลาใช้สิทธิ์?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "มันขออะไร."
 

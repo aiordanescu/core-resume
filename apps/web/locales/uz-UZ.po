@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Kalitingizni joylashtiring"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Tavsif qo‘yilgan"
 
@@ -9932,7 +9932,7 @@ msgstr "rezyumelar yaratildi"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} yordamida {0} olindi. Qabul qilish vaqti kelib chiqishining yangiligini belgilamaydi."
 
@@ -12056,7 +12056,7 @@ msgstr "Ish e'lonida \"{label}\" so'raladi. Agar bu men uchun to'g'ri bo'lsa, un
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Ish haqidagi eʼlonni oʻqib boʻlmadi. Rol va kompaniyani to'ldiring."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Ish haqidagi e'lon ushbu ish arizasi bilan saqlangan."
 
@@ -12405,7 +12405,7 @@ msgstr "Ushbu rezyume AI agenti tomonidan yangilandi."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Ushbu rezyumening ulashish sozlamalari boshqa joyda o'zgartirildi."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Bu saqlangan tavsif kesilgan yoki toʻliq emas. Hujjatlarni tayyorlashdan oldin ko'rib chiqing."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Ishga arizani ko'rish"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Ish e'lonini ko'rish"
 
@@ -13422,7 +13421,7 @@ msgstr "Asosiy maosh qancha va uni muhokama qilsa bo'ladimi?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Ulush bugun qancha turadi: strike narxi, so'nggi baholash, vesting va amalga oshirish muddati?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "U nimani so'raydi"
 

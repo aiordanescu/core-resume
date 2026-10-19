@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "നിങ്ങളുടെ കീ ഒട്ടിക്കുക"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "വിവരണം ഒട്ടിച്ചു"
 
@@ -9932,7 +9932,7 @@ msgstr "റെസ്യൂമെകൾ സൃഷ്ടിച്ചു"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} ഉപയോഗിച്ച് {0} വീണ്ടെടുത്തു. വീണ്ടെടുക്കൽ സമയം ഉത്ഭവ പുതുമ സ്ഥാപിക്കുന്നില്ല."
 
@@ -12056,7 +12056,7 @@ msgstr "ജോലി പോസ്റ്റിംഗ് \"{label}\" ആവശ്�
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "ജോലി പോസ്റ്റിംഗ് വായിക്കാൻ കഴിഞ്ഞില്ല. റോളും കമ്പനിയും പൂരിപ്പിക്കുക."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ഈ അപേക്ഷയ്ക്കൊപ്പം സംരക്ഷിച്ച ജോലി പോസ്റ്റിംഗ്."
 
@@ -12405,7 +12405,7 @@ msgstr "ഈ റെസ്യൂമെ ഒരു AI ഏജന്റ് അപ്�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ഈ റെസ്യൂമെയുടെ പങ്കിടൽ ക്രമീകരണങ്ങൾ മറ്റെവിടെയെങ്കിലും മാറ്റി."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ഈ സംരക്ഷിച്ച വിവരണം ക്ലിപ്പ് ചെയ്തതോ അപൂർണ്ണമായതോ ആണ്. രേഖകൾ തയ്യാറാക്കുന്നതിന് മുമ്പ് അവലോകനം ചെയ്യുക."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "ജോലി അപേക്ഷ കാണുക"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "ജോലി പോസ്റ്റിംഗ് കാണുക"
 
@@ -13422,7 +13421,7 @@ msgstr "അടിസ്ഥാന ശമ്പളം എത്രയാണ്, �
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "ഇക്വിറ്റിക്ക് ഇന്ന് എന്ത് മൂല്യമുണ്ട്: സ്ട്രൈക്ക് പ്രൈസ്, ഏറ്റവും പുതിയ മൂല്യനിർണ്ണയം, വെസ്റ്റിംഗ്, എക്സർസൈസ് കാലയളവ്?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "അത് എന്താണ് ആവശ്യപ്പെടുന്നത്"
 

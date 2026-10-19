@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Anahtarınızı yapıştırın"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Açıklama yapıştırıldı"
 
@@ -9932,7 +9932,7 @@ msgstr "özgeçmişler oluşturuldu"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} kullanılarak {0} alındı. Geri alma süresi menşe tazeliğini sağlamaz."
 
@@ -12056,7 +12056,7 @@ msgstr "İş ilanında “{label}” soruluyor. Eğer bu benim için doğruysa, 
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "İş ilanı okunamadı. Rolü ve şirketi doldurun."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "İş ilanı bu iş başvurusuyla kaydedildi."
 
@@ -12405,7 +12405,7 @@ msgstr "Bu özgeçmiş bir yapay zeka ajanı tarafından güncellendi."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Bu özgeçmişin paylaşım ayarları başka bir yerde değiştirildi."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Kaydedilen bu açıklama kırpılmış veya eksik. Belgeleri hazırlamadan önce inceleyin."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "İş başvurusunu görüntüle"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "İş ilanını görüntüle"
 
@@ -13422,7 +13421,7 @@ msgstr "Temel maaş ne kadar ve pazarlığa açık mı?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Hisselerin bugünkü değeri ne: kullanım fiyatı, son değerleme, hak ediş takvimi ve kullanım süresi?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Ne istiyor"
 

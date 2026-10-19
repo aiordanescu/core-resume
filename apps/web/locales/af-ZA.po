@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Plak jou sleutel"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Geplakte beskrywing"
 
@@ -9932,7 +9932,7 @@ msgstr "CV's geskep"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{0} herwin met behulp van {1}. Herwinningstyd bepaal nie die varsheid van oorsprong nie."
 
@@ -12056,7 +12056,7 @@ msgstr "Die posplasing vra vir \"{label}\". As dit vir my waar is, werk dit in m
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Die posplasing kon nie gelees word nie. Vul die rol en maatskappy in."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Die posplasing wat met hierdie posaansoek gestoor is."
 
@@ -12405,7 +12405,7 @@ msgstr "Hierdie CV is deur 'n KI-agent opgedateer."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Hierdie CV se deelinstellings het elders verander."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Hierdie gestoorde beskrywing is geknip of onvolledig. Hersien voordat u dokumente voorberei."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Bekyk werksaansoek"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Bekyk posplasing"
 
@@ -13422,7 +13421,7 @@ msgstr "Wat is die basiese salaris, en is dit onderhandelbaar?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Wat is die aandele vandag werd: uitoefenprys, jongste waardasie, vestiging en uitoefenvenster?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Waarvoor dit vra"
 

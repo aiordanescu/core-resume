@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "الصق مفتاحك"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "تم لصق الوصف"
 
@@ -9932,7 +9932,7 @@ msgstr "تم إنشاء السيرة الذاتية"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "تم استرجاع {0} باستخدام {1}. وقت الاسترجاع لا يثبت نضارة الأصل."
 
@@ -12056,7 +12056,7 @@ msgstr "يطلب إعلان الوظيفة \"{label}\". إذا كان هذا ص�
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "لا يمكن قراءة إعلان الوظيفة. املأ الدور والشركة."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "تم حفظ إعلان الوظيفة مع طلب الوظيفة هذا."
 
@@ -12405,7 +12405,7 @@ msgstr "تم تحديث هذه السيرة الذاتية بواسطة برنا
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "تم تغيير إعدادات مشاركة هذه السيرة الذاتية في مكان آخر."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "هذا الوصف المحفوظ مقطوع أو غير كامل. المراجعة قبل إعداد المستندات."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "عرض طلب الوظيفة"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "عرض إعلان الوظيفة"
 
@@ -13422,7 +13421,7 @@ msgstr "كم الراتب الأساسي، وهل هو قابل للتفاوض؟
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "كم تساوي الأسهم اليوم: سعر التنفيذ، وآخر تقييم، والاستحقاق، ونافذة التنفيذ؟"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "ما يطلبه"
 

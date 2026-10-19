@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Ielīmējiet savu atslēgu"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Ielīmēts apraksts"
 
@@ -9932,7 +9932,7 @@ msgstr "izveidoti CV"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Izgūts {0}, izmantojot {1}. Izgūšanas laiks nenosaka izcelsmes svaigumu."
 
@@ -12056,7 +12056,7 @@ msgstr "Darba sludinājumā tiek prasīts “{label}”. Ja tā attiecas uz mani
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Darba sludinājumu nevarēja izlasīt. Aizpildiet lomu un uzņēmumu."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Darba sludinājums ir saglabāts ar šo darba pieteikumu."
 
@@ -12405,7 +12405,7 @@ msgstr "Šo CV atjaunināja mākslīgā intelekta aģents."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Šī CV kopīgošanas iestatījumi ir mainīti citur."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Šis saglabātais apraksts ir izgriezts vai nepilnīgs. Pārskatiet pirms dokumentu sagatavošanas."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Skatīt darba pieteikumu"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Skatīt darba sludinājumu"
 
@@ -13422,7 +13421,7 @@ msgstr "Kāda ir pamatalga, un vai par to var vienoties?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Cik šodien ir vērtas akcijas: izmantošanas cena, jaunākais novērtējums, iegūšanas grafiks un izmantošanas periods?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Ko tas prasa"
 

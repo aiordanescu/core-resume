@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Lipiți-vă cheia"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Descriere lipită"
 
@@ -9932,7 +9932,7 @@ msgstr "CV-urile create"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{0} a fost preluat folosind {1}. Timpul de recuperare nu stabilește prospețimea originii."
 
@@ -12056,7 +12056,7 @@ msgstr "Anunțul de locuri de muncă solicită „{label}”. Dacă este adevăr
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Anunțul de muncă nu a putut fi citit. Completați rolul și compania."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Anunțul de angajare a fost salvat cu această cerere de angajare."
 
@@ -12405,7 +12405,7 @@ msgstr "Acest CV a fost actualizat de un agent de inteligență artificială."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Setările de partajare ale acestui CV s-au modificat în altă parte."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Această descriere salvată este tăiată sau incompletă. Verificați înainte de a pregăti documentele."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Vezi cererea de angajare"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Vizualizați postarea de locuri de muncă"
 
@@ -13422,7 +13421,7 @@ msgstr "Care este salariul de bază și este negociabil?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Cât valorează acțiunile astăzi: prețul de exercitare, ultima evaluare, vestingul și fereastra de exercitare?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Ceea ce cere"
 

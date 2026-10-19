@@ -37,6 +37,7 @@ import { Contacts } from "./detail/contacts";
 import { NextStepCard } from "./detail/next-step-card";
 import { SentDocuments } from "./detail/sent-documents";
 import { InterviewDialog } from "./interview-dialog";
+import { ViewPostingButton } from "./posting-dialog";
 import { useClosingValue } from "@/hooks/use-closing-value";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -100,7 +101,6 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 		entry: null,
 	});
 	const [closing, setClosing] = useState(false);
-	const [postingOpen, setPostingOpen] = useState(false);
 	const [applying, setApplying] = useState(false);
 
 	const next = getNextStage(application.status);
@@ -130,32 +130,10 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 						</span>
 						<div className="grid min-w-0 flex-1 gap-0.5">
 							<SheetTitle className="font-display text-[22px] leading-7 font-medium">{application.role}</SheetTitle>
-							<SheetDescription className="flex flex-wrap items-center gap-x-1.5 text-sm text-ink-2">
-								<span>{[application.company, application.location].filter(Boolean).join(" · ")}</span>
-								{(application.sourceUrl || application.jobDescription) && (
-									<>
-										<span aria-hidden="true">·</span>
-										{application.sourceUrl && !application.jobDescription ? (
-											<a
-												href={application.sourceUrl}
-												target="_blank"
-												rel="noreferrer"
-												className="font-medium text-accent-text hover:underline"
-											>
-												<Trans>View posting</Trans>
-											</a>
-										) : (
-											<button
-												type="button"
-												onClick={() => setPostingOpen(true)}
-												className="font-medium text-accent-text hover:underline"
-											>
-												<Trans>View posting</Trans>
-											</button>
-										)}
-									</>
-								)}
+							<SheetDescription className="text-sm text-ink-2">
+								{[application.company, application.location].filter(Boolean).join(" · ")}
 							</SheetDescription>
+							<ViewPostingButton application={application} size="sm" className="mt-1.5 w-fit" />
 						</div>
 						<DropdownMenu>
 							<DropdownMenuTrigger
@@ -293,7 +271,6 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 				open={interview.open}
 				onOpenChange={(open) => setInterview((currentValue) => ({ ...currentValue, open }))}
 			/>
-			<PostingDialog application={application} open={postingOpen} onOpenChange={setPostingOpen} />
 			{applying && <MarkAppliedDialog application={application} onClose={() => setApplying(false)} />}
 		</>
 	);
@@ -450,8 +427,6 @@ function Tags({ application }: { application: Application }) {
 	);
 }
 
-type PostingDialogProps = { application: Application; open: boolean; onOpenChange: (open: boolean) => void };
-
 type MarkAppliedDialogProps = { application: Application; onClose: () => void };
 
 function MarkAppliedDialog({ application, onClose }: MarkAppliedDialogProps) {
@@ -584,69 +559,6 @@ function MarkAppliedDialog({ application, onClose }: MarkAppliedDialogProps) {
 						<Trans>Confirm applied</Trans>
 					</Button>
 				</form>
-			</DialogContent>
-		</Dialog>
-	);
-}
-
-/** The saved posting: its link, what it asks for, and its text. */
-function PostingDialog({ application, open, onOpenChange }: PostingDialogProps) {
-	return (
-		<Dialog open={open} onOpenChange={onOpenChange}>
-			<DialogContent className="max-h-[85svh] overflow-y-auto sm:max-w-xl">
-				<DialogHeader>
-					<DialogTitle>
-						{application.role} · {application.company}
-					</DialogTitle>
-					<DialogDescription>
-						{application.sourceUrl ? (
-							<a
-								href={application.sourceUrl}
-								target="_blank"
-								rel="noreferrer"
-								className="text-accent-text hover:underline"
-							>
-								{application.sourceUrl}
-							</a>
-						) : (
-							<Trans>The posting saved with this application.</Trans>
-						)}
-					</DialogDescription>
-				</DialogHeader>
-				{application.postingSource && (
-					<p className="text-xs text-ink-3">
-						{application.postingSource.method === "paste" ? (
-							<Trans>Pasted description</Trans>
-						) : (
-							<Trans>
-								Retrieved {application.postingSource.retrievedAt} using {application.postingSource.method}. Retrieval
-								time does not establish origin freshness.
-							</Trans>
-						)}
-					</p>
-				)}
-				{(application.postingSource?.truncated || application.postingSource?.completeness === "incomplete") && (
-					<p className="text-xs text-warn-text" role="alert">
-						<Trans>This saved description is clipped or incomplete. Review before preparing documents.</Trans>
-					</p>
-				)}
-				{application.requirements.length > 0 && (
-					<section aria-labelledby="posting-requirements" className="grid gap-2">
-						<h3 id="posting-requirements" className="text-xs font-semibold text-ink-3 uppercase">
-							<Trans>What it asks for</Trans>
-						</h3>
-						<ul className="flex flex-wrap gap-1.5">
-							{application.requirements.map((requirement) => (
-								<li key={requirement} className="rounded-md bg-sunken px-2 py-1 text-xs">
-									{requirement}
-								</li>
-							))}
-						</ul>
-					</section>
-				)}
-				{application.jobDescription && (
-					<p className="text-sm leading-6 whitespace-pre-wrap text-ink-2">{application.jobDescription}</p>
-				)}
 			</DialogContent>
 		</Dialog>
 	);

@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Fügen Sie Ihren Schlüssel ein"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Beschreibung eingefügt"
 
@@ -9932,7 +9932,7 @@ msgstr "Lebensläufe erstellt"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{0} mit {1} abgerufen. Die Abrufzeit bestimmt nicht die Frische des Ursprungslandes."
 
@@ -12056,7 +12056,7 @@ msgstr "In der Stellenausschreibung wird nach „{label}“ gefragt. Wenn es auf
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Die Stellenausschreibung konnte nicht gelesen werden. Geben Sie die Rolle und das Unternehmen ein."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Die Stellenausschreibung wurde mit dieser Stellenbewerbung gespeichert."
 
@@ -12405,7 +12405,7 @@ msgstr "Dieser Lebenslauf wurde von einem KI-Agenten aktualisiert."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Die Freigabeeinstellungen für diesen Lebenslauf wurden an anderer Stelle geändert."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Diese gespeicherte Beschreibung ist abgeschnitten oder unvollständig. Überprüfen Sie die Dokumente, bevor Sie sie vorbereiten."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Stellenbewerbung ansehen"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Stellenausschreibung ansehen"
 
@@ -13422,7 +13421,7 @@ msgstr "Wie hoch ist das Grundgehalt, und ist es verhandelbar?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Was ist die Beteiligung heute wert: Ausübungspreis, letzte Bewertung, Vesting und Ausübungsfrist?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Was es verlangt"
 

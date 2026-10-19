@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "உங்கள் விசையை ஒட்டவும்"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "ஒட்டப்பட்ட விளக்கம்"
 
@@ -9932,7 +9932,7 @@ msgstr "ரெஸ்யூம்கள் உருவாக்கப்பட�
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} ஐப் பயன்படுத்தி {0} மீட்டெடுக்கப்பட்டது. மீட்டெடுப்பு நேரம் தோற்றம் புத்துணர்ச்சியை நிறுவவில்லை."
 
@@ -12056,7 +12056,7 @@ msgstr "வேலை இடுகை \"{label}\" என்று கேட்க
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "வேலை இடுகையைப் படிக்க முடியவில்லை. பங்கு மற்றும் நிறுவனத்தை நிரப்பவும்."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "இந்த வேலை விண்ணப்பத்துடன் வேலை இடுகை சேமிக்கப்பட்டது."
 
@@ -12405,7 +12405,7 @@ msgstr "இந்த ரெஸ்யூம் ஒரு செயற்கை �
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "இந்த ரெஸ்யூமின் பகிர்வு அமைப்புகள் வேறு இடத்தில் மாற்றப்பட்டுள்ளன."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "இந்தச் சேமிக்கப்பட்ட விளக்கம் கிளிப் செய்யப்பட்டது அல்லது முழுமையடையவில்லை. ஆவணங்களைத் தயாரிப்பதற்கு முன் மதிப்பாய்வு செய்யவும்."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "வேலை விண்ணப்பத்தைப் பார்க்கவும்"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "வேலை இடுகையைப் பார்க்கவும்"
 
@@ -13422,7 +13421,7 @@ msgstr "அடிப்படைச் சம்பளம் என்ன, அ�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "பங்குகளின் இன்றைய மதிப்பு என்ன: ஸ்ட்ரைக் விலை, சமீபத்திய மதிப்பீடு, வெஸ்டிங், பயன்படுத்தும் கால அவகாசம்?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "அது என்ன கேட்கிறது"
 

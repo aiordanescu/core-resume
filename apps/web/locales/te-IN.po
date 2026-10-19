@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "మీ కీని అతికించండి"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "అతికించబడిన వివరణ"
 
@@ -9932,7 +9932,7 @@ msgstr "రెజ్యూమెలు సృష్టించబడ్డా�
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1}ని ఉపయోగించి {0} తిరిగి పొందబడింది. పునరుద్ధరణ సమయం మూలం తాజాదనాన్ని స్థాపించదు."
 
@@ -12056,7 +12056,7 @@ msgstr "జాబ్ పోస్టింగ్ “{label}” కోసం అ�
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "జాబ్ పోస్టింగ్ చదవడం సాధ్యపడలేదు. పాత్ర మరియు కంపెనీని పూరించండి."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ఈ జాబ్ అప్లికేషన్‌తో జాబ్ పోస్టింగ్ సేవ్ చేయబడింది."
 
@@ -12405,7 +12405,7 @@ msgstr "ఈ రెజ్యూమెను ఒక AI ఏజెంట్ అప�
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ఈ రెజ్యూమె షేరింగ్ సెట్టింగ్‌లు వేరే చోట మారాయి."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ఈ సేవ్ చేయబడిన వివరణ క్లిప్ చేయబడింది లేదా అసంపూర్ణంగా ఉంది. పత్రాలను సిద్ధం చేసే ముందు సమీక్షించండి."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "ఉద్యోగ దరఖాస్తును వీక్షించండి"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "ఉద్యోగ పోస్టింగ్‌ని వీక్షించండి"
 
@@ -13422,7 +13421,7 @@ msgstr "మూల వేతనం ఎంత, దానిపై చర్చి�
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "ఈరోజు ఈక్విటీ విలువ ఎంత: స్ట్రైక్ ధర, తాజా వాల్యుయేషన్, వెస్టింగ్, ఎక్సర్‌సైజ్ గడువు?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "అది ఏమి అడుగుతుంది"
 

@@ -120,10 +120,13 @@ const archive = (data: SavedItem["data"]): SavedItem =>
 	}) as SavedItem;
 const answers = () => archive({ kind: "answers", answers: [{ question: "Why this role?", answer: "Sent answer" }] });
 const clients: QueryClient[] = [];
-function mount(version?: string, options: { workspace?: boolean; resumeId?: string } = {}) {
+function mount(
+	version?: string,
+	options: { workspace?: boolean; resumeId?: string; posting?: Partial<Application> } = {},
+) {
 	const client = new QueryClient({ defaultOptions: { queries: { retry: false }, mutations: { retry: false } } });
 	clients.push(client);
-	client.setQueryData(["application"], { ...application, resumeId: options.resumeId ?? null });
+	client.setQueryData(["application"], { ...application, ...options.posting, resumeId: options.resumeId ?? null });
 	if (options.workspace !== false) client.setQueryData(["workspace"], structuredClone(current));
 	const view = render(
 		<QueryClientProvider client={client}>
@@ -245,4 +248,17 @@ it("explains a missing linked document during loading and offers retry after fai
 	api.documents.mockResolvedValue([{ id: "linked-resume", type: "resume", name: "Harbor resume" }]);
 	fireEvent.click(screen.getByRole("button", { name: "Try again" }));
 	await waitFor(() => expect(screen.getByRole("link", { name: /Harbor resume/ })).toBeTruthy());
+});
+
+it("opens the saved posting from the header, like the application sheet does", async () => {
+	mount(undefined, {
+		posting: { sourceUrl: "https://jobs.example.com/1", jobDescription: "Build the observability platform." },
+	});
+	fireEvent.click(await screen.findByRole("button", { name: "View posting" }));
+	const dialog = await screen.findByRole("dialog");
+	expect(dialog).toHaveTextContent("Build the observability platform.");
+	expect(screen.getByRole("link", { name: "https://jobs.example.com/1" })).toHaveAttribute(
+		"href",
+		"https://jobs.example.com/1",
+	);
 });

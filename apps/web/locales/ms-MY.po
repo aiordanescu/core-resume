@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "Tampal kunci anda"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "Penerangan ditampal"
 
@@ -9932,7 +9932,7 @@ msgstr "resume dibuat"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "Diambil {0} menggunakan {1}. Masa perolehan tidak mewujudkan kesegaran asal."
 
@@ -12056,7 +12056,7 @@ msgstr "Siaran kerja meminta \"{label}\". Jika ia benar untuk saya, masukkannya 
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "Siaran kerja tidak dapat dibaca. Isi peranan dan syarikat."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "Siaran kerja disimpan dengan permohonan kerja ini."
 
@@ -12405,7 +12405,7 @@ msgstr "Resume ini telah dikemas kini oleh ejen AI."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "Tetapan perkongsian resume ini telah berubah di tempat lain."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "Perihalan yang disimpan ini dipotong atau tidak lengkap. Semak sebelum menyediakan dokumen."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "Lihat permohonan kerja"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "Lihat siaran kerja"
 
@@ -13422,7 +13421,7 @@ msgstr "Berapakah gaji pokok, dan bolehkah ia dirundingkan?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "Berapakah nilai ekuiti hari ini: harga laksana, penilaian terkini, peletakhakan dan tempoh pelaksanaan?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "Apa yang dimintanya"
 

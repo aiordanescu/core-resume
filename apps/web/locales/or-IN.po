@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "ତୁମର ଚାବି ଲେପନ କର |"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "ଅତୀତର ବର୍ଣ୍ଣନା |"
 
@@ -9932,7 +9932,7 @@ msgstr "ରେଜୁମେସ୍ ସୃଷ୍ଟି |"
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1} ବ୍ୟବହାର କରି {0} ଉଦ୍ଧାର କରାଯାଇଛି | ପୁନରୁଦ୍ଧାର ସମୟ ମୂଳ ସତେଜତା ପ୍ରତିଷ୍ଠା କରେ ନାହିଁ |"
 
@@ -12056,7 +12056,7 @@ msgstr "ଚାକିରି ପୋଷ୍ଟିଂ “{label}” ମାଗେ | �
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "ଚାକିରି ବିଜ୍ଞାପନ ପଢ଼ିହେଲା ନାହିଁ। ଭୂମିକା ଓ କମ୍ପାନୀ ପୂରଣ କରନ୍ତୁ।"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "ଏହି ଚାକିରି ଆବେଦନ ସହିତ ଚାକିରି ପୋଷ୍ଟିଂ ସଞ୍ଚୟ ହୋଇଛି |"
 
@@ -12405,7 +12405,7 @@ msgstr "ଏହି ରିଜ୍ୟୁମଟି ଜଣେ AI ଏଜେଣ୍ଟଙ
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "ଏହି ରିଜ୍ୟୁମର ସେୟାରିଂ ସେଟିଂସ୍ ଅନ୍ୟତ୍ର ପରିବର୍ତ୍ତନ ହୋଇଛି।"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "ଏହି ସଞ୍ଚିତ ବର୍ଣ୍ଣନା କ୍ଲିପ୍ କିମ୍ବା ଅସମ୍ପୂର୍ଣ୍ଣ ଅଟେ | ଡକ୍ୟୁମେଣ୍ଟ୍ ପ୍ରସ୍ତୁତ କରିବା ପୂର୍ବରୁ ସମୀକ୍ଷା କରନ୍ତୁ |"
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "ଚାକିରି ଆବେଦନ ଦେଖନ୍ତୁ |"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "ଚାକିରି ପୋଷ୍ଟିଂ ଦେଖନ୍ତୁ |"
 
@@ -13422,7 +13421,7 @@ msgstr "ମୂଳ ଦରମା କେତେ, ଏବଂ ଏହା ବୁଝାମ
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "ଆଜି ଇକ୍ୱିଟିର ମୂଲ୍ୟ କେତେ: ଷ୍ଟ୍ରାଇକ୍ ମୂଲ୍ୟ, ସର୍ବଶେଷ ମୂଲ୍ୟାୟନ, ଭେଷ୍ଟିଂ ଓ ଏକ୍ସରସାଇଜ୍ ୱିଣ୍ଡୋ?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "ଏହା କଣ ମାଗେ |"
 

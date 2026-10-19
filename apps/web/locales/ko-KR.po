@@ -8674,7 +8674,7 @@ msgid "Paste your key"
 msgstr "키를 붙여넣으세요"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Pasted description"
 msgstr "설명을 붙여넣었습니다."
 
@@ -9932,7 +9932,7 @@ msgstr "이력서가 작성되었습니다."
 
 #. placeholder {0}: application.postingSource.retrievedAt
 #. placeholder {1}: application.postingSource.method
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "Retrieved {0} using {1}. Retrieval time does not establish origin freshness."
 msgstr "{1}를 사용하여 {0}를 검색했습니다. 검색 시간은 원본 신선도를 설정하지 않습니다."
 
@@ -12056,7 +12056,7 @@ msgstr "채용 공고에는 \"{label}\"가 필요합니다. 그것이 나에게 
 msgid "The posting couldn't be read. Fill in the role and company."
 msgstr "채용 공고를 읽을 수 없습니다. 역할과 회사를 입력하세요."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "The posting saved with this application."
 msgstr "이 채용 지원서와 함께 저장된 채용 공고입니다."
 
@@ -12405,7 +12405,7 @@ msgstr "이력서는 AI 에이전트에 의해 업데이트되었습니다."
 msgid "This resume's sharing settings changed elsewhere."
 msgstr "이력서의 공유 설정이 다른 곳에서 변경되었습니다."
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "This saved description is clipped or incomplete. Review before preparing documents."
 msgstr "저장된 설명이 잘렸거나 불완전합니다. 서류를 준비하기 전에 검토하세요."
 
@@ -13224,8 +13224,7 @@ msgid "View application"
 msgstr "지원서 보기"
 
 #: src/features/applications/components/add-application-dialog.tsx
-#: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/career/workspace/shell.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
 msgstr "채용 공고 보기"
 
@@ -13422,7 +13421,7 @@ msgstr "기본급은 얼마이며, 협상이 가능한가요?"
 msgid "What is the equity worth today: strike price, latest valuation, vesting and exercise window?"
 msgstr "현재 지분 가치는 어떻게 되나요? 행사가, 최근 기업 가치, 베스팅, 행사 기간은요?"
 
-#: src/features/applications/components/application-detail-sheet.tsx
+#: src/features/applications/components/posting-dialog.tsx
 msgid "What it asks for"
 msgstr "무엇을 요구하는가"
 
