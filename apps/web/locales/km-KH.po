@@ -221,6 +221,11 @@ msgstr "{0, plural, other {បានរកឃើញតួនាទី ក្រ�
 msgid "{0, plural, one {Import # application} other {Import # applications}}"
 msgstr "{0, plural, one {នាំចូលពាក្យសុំការងារ #} other {នាំចូលពាក្យសុំការងារ #}}"
 
+#. placeholder {0}: set.copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #: src/features/career/coach.tsx
 msgid "{0, plural, one {Knowledge · # fact} other {Knowledge · # facts}}"
@@ -489,6 +494,7 @@ msgid "{column, plural, one {# column} other {# columns}}"
 msgstr "{column, plural, one {ជួរឈរ #} other {ជួរឈរ #}}"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "{company} only"
 msgstr "សម្រាប់តែ {company}"
 
@@ -966,7 +972,7 @@ msgid "A fact changed. Review this story."
 msgstr "ការពិតមួយបានផ្លាស់ប្តូរ។ សូមពិនិត្យរឿងនេះឡើងវិញ។"
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgid "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
@@ -6360,10 +6366,6 @@ msgstr "រក្សារបស់ខ្ញុំ"
 msgid "Keep on one page"
 msgstr "ទុកមួយទំព័រ"
 
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Keep one"
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "រក្សាទុកកំណត់ចំណាំឯកជនអំពីប្រវត្តិរូបសង្ខេបនេះនៅទីនេះ។ គ្មាននរណាម្នាក់ផ្សេងអាចមើលឃើញវាទេ។"
@@ -6397,7 +6399,7 @@ msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "រក្សាវាឱ្យប្រហែលពីរបន្ទាត់ ដើម្បីឱ្យអ្នកអានឆ្លងកាត់អានចប់។"
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Keep this one"
+msgid "Keep this, archive the other"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -6412,6 +6414,10 @@ msgstr "រក្សា​គ្នា​ឲ្យ​នៅ​ជាប់​គ
 #: src/features/assistant/assistant-panel.tsx
 msgid "Keeps the most specific parts"
 msgstr "រក្សាផ្នែកជាក់លាក់បំផុត។"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keeps the oldest one that's switched on."
+msgstr ""
 
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
@@ -7485,9 +7491,8 @@ msgstr "ចង្អៀត"
 msgid "narrow margins"
 msgstr "រឹមតូចចង្អៀត"
 
-#. placeholder {0}: Math.round(pair.similarity * 100)
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Nearly the same · {0}%"
+msgid "Nearly the same words · {percent}%"
 msgstr ""
 
 #: src/features/settings/ai/providers.tsx
@@ -7919,6 +7924,10 @@ msgstr "មិនទាន់បានដាក់ពាក្យ"
 msgid "Not connected"
 msgstr "មិនបានភ្ជាប់"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not duplicates, keep both"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Not for me"
 msgstr "មិនមែនសម្រាប់ខ្ញុំ"
@@ -7991,10 +8000,6 @@ msgstr "មិនបានដំឡើង"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "មិនប្រាកដថាត្រូវសរសេរអ្វីទេ?"
-
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Not the same"
-msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -11995,6 +12000,10 @@ msgstr "សំបុត្រត្រូវគ្នានឹងការរច
 msgid "The line changed since you asked, so it wasn't replaced."
 msgstr "បន្ទាត់បានផ្លាស់ប្តូរចាប់តាំងពីអ្នកបានសួរ ដូច្នេះវាមិនត្រូវបានជំនួសទេ។"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "The longer one says almost everything the shorter one does · {percent}%"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "the message"
 msgstr "សារ"
@@ -12339,6 +12348,10 @@ msgstr "នេះវាស់ថាតើកម្មវិធីអាចទា
 #: src/features/applications/components/calendar-view.tsx
 msgid "This month"
 msgstr "ខែនេះ។"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "This one becomes shared, so every application gets it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "This page is clipped or incomplete. Check the original before using it."

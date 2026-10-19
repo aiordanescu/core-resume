@@ -207,7 +207,7 @@ export function findDuplicates<T extends DuplicateFact>(facts: readonly T[]) {
 		for (const term of set) index.set(term, [...(index.get(term) ?? []), position]);
 	});
 	const exactKey = new Map(live.map((fact) => [fact.id, normalizeFactText(fact.text)]));
-	const near: { facts: [T, T]; similarity: number }[] = [];
+	const near: { facts: [T, T]; similarity: number; contained: boolean }[] = [];
 	const seen = new Set<string>();
 	live.forEach((fact, position) => {
 		const own = termSets[position];
@@ -226,7 +226,11 @@ export function findDuplicates<T extends DuplicateFact>(facts: readonly T[]) {
 			const key = [fact.id, otherFact.id].sort().join(":");
 			if (seen.has(key)) continue;
 			seen.add(key);
-			near.push({ facts: [fact, otherFact], similarity: Math.round(Math.max(overlap, contained) * 100) / 100 });
+			near.push({
+				facts: [fact, otherFact],
+				similarity: Math.round(Math.max(overlap, contained) * 100) / 100,
+				contained: overlap < NEAR_OVERLAP,
+			});
 		}
 	});
 	near.sort((a, b) => b.similarity - a.similarity);

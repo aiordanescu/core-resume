@@ -221,6 +221,11 @@ msgstr "{0, plural, other {Peranan, syarikat dan # keperluan ditemui. Semak buti
 msgid "{0, plural, one {Import # application} other {Import # applications}}"
 msgstr "{0, plural, one {Import permohonan kerja #} other {Import permohonan kerja #}}"
 
+#. placeholder {0}: set.copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #: src/features/career/coach.tsx
 msgid "{0, plural, one {Knowledge · # fact} other {Knowledge · # facts}}"
@@ -489,6 +494,7 @@ msgid "{column, plural, one {# column} other {# columns}}"
 msgstr "{column, plural, one {Lajur #} other {Lajur #}}"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "{company} only"
 msgstr "{company} sahaja"
 
@@ -966,7 +972,7 @@ msgid "A fact changed. Review this story."
 msgstr "Satu fakta telah berubah. Semak cerita ini."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgid "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
@@ -6360,10 +6366,6 @@ msgstr "Simpan milik saya"
 msgid "Keep on one page"
 msgstr "Simpan pada satu muka surat"
 
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Keep one"
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "Simpan nota peribadi tentang resume ini di sini. Tiada orang lain boleh melihatnya."
@@ -6397,7 +6399,7 @@ msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Kekalkan pada kira-kira dua baris, supaya pembaca imbas dapat menghabiskannya."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Keep this one"
+msgid "Keep this, archive the other"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -6412,6 +6414,10 @@ msgstr "Kekal bersama"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Keeps the most specific parts"
 msgstr "Menyimpan bahagian yang paling spesifik"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keeps the oldest one that's switched on."
+msgstr ""
 
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
@@ -7485,9 +7491,8 @@ msgstr "Sempit"
 msgid "narrow margins"
 msgstr "margin sempit"
 
-#. placeholder {0}: Math.round(pair.similarity * 100)
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Nearly the same · {0}%"
+msgid "Nearly the same words · {percent}%"
 msgstr ""
 
 #: src/features/settings/ai/providers.tsx
@@ -7919,6 +7924,10 @@ msgstr "Belum dimohon lagi"
 msgid "Not connected"
 msgstr "Tidak bersambung"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not duplicates, keep both"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Not for me"
 msgstr "Bukan untuk saya"
@@ -7991,10 +8000,6 @@ msgstr "Tidak disediakan"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "Tidak pasti apa yang perlu ditulis?"
-
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Not the same"
-msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -11995,6 +12000,10 @@ msgstr "Surat itu sepadan dengan reka bentuk resume sekali lagi"
 msgid "The line changed since you asked, so it wasn't replaced."
 msgstr "Talian bertukar sejak anda bertanya, jadi ia tidak diganti."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "The longer one says almost everything the shorter one does · {percent}%"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "the message"
 msgstr "mesej itu"
@@ -12339,6 +12348,10 @@ msgstr "Ini mengukur sejauh mana setia perisian boleh mengekstrak teks fail ini.
 #: src/features/applications/components/calendar-view.tsx
 msgid "This month"
 msgstr "bulan ini"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "This one becomes shared, so every application gets it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "This page is clipped or incomplete. Check the original before using it."

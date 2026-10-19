@@ -104,8 +104,9 @@ export function DuplicatesCard() {
 				</h2>
 				<p className="text-xs leading-[17px] text-ink-3">
 					<Trans>
-						A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the
-						other is archived, not erased.
+						A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and
+						you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you
+						keep.
 					</Trans>
 				</p>
 			</header>
@@ -141,7 +142,7 @@ export function DuplicatesCard() {
 				<div key={set.keep} className="grid gap-2 border-b border-line px-4 py-3 last:border-b-0">
 					<p className="text-xs font-medium text-ink-3">{plural(set.copies.length + 1, { other: "Said # times" })}</p>
 					<FactQuote fact={facts.get(set.keep)} />
-					<div>
+					<div className="flex flex-wrap items-center gap-x-3 gap-y-1">
 						<Button
 							size="sm"
 							variant="secondary"
@@ -149,8 +150,11 @@ export function DuplicatesCard() {
 							loading={merge.isPending && merge.variables.into === set.keep}
 							onClick={() => merge.mutate({ into: set.keep, ids: set.copies })}
 						>
-							<Trans>Keep one</Trans>
+							{plural(set.copies.length, { one: "Keep one, archive # copy", other: "Keep one, archive # copies" })}
 						</Button>
+						<span className="text-xs text-ink-3">
+							<Trans>Keeps the oldest one that's switched on.</Trans>
+						</span>
 					</div>
 				</div>
 			))}
@@ -159,12 +163,17 @@ export function DuplicatesCard() {
 				const [left, right] = pair.factIds.map((factId) => facts.get(factId));
 				const key = pair.factIds.join(":");
 				if (!left || !right) return null;
-				// The fact kept must be shared, or private to the same application as the other.
-				const canKeep = (keep: DuplicateFact, other: DuplicateFact) =>
-					keep.applicationId === null || keep.applicationId === other.applicationId;
+				const percent = Math.round(pair.similarity * 100);
+				// Keeping a job's own fact over a shared one makes it shared, as the server does, so no job loses it.
+				const becomesShared = (keep: DuplicateFact, other: DuplicateFact) =>
+					keep.applicationId !== null && keep.applicationId !== other.applicationId;
 				return (
 					<div key={key} className="grid gap-2 border-b border-line px-4 py-3 last:border-b-0">
-						<p className="text-xs font-medium text-ink-3">{t`Nearly the same · ${Math.round(pair.similarity * 100)}%`}</p>
+						<p className="text-xs font-medium text-ink-3">
+							{pair.contained
+								? t`The longer one says almost everything the shorter one does · ${percent}%`
+								: t`Nearly the same words · ${percent}%`}
+						</p>
 						<div className="grid gap-2 sm:grid-cols-2">
 							{[
 								[left, right],
@@ -173,21 +182,27 @@ export function DuplicatesCard() {
 								keep && other ? (
 									<div key={keep.id} className="grid content-between gap-2 rounded-md bg-sunken px-3 py-2.5">
 										<FactQuote fact={keep} />
-										<Button
-											size="sm"
-											variant="ghost"
-											className="justify-self-start"
-											disabled={busy || !canKeep(keep, other)}
-											onClick={() => merge.mutate({ into: keep.id, ids: [other.id] })}
-										>
-											<Trans>Keep this one</Trans>
-										</Button>
+										<div className="grid justify-items-start gap-1">
+											<Button
+												size="sm"
+												variant="secondary"
+												disabled={busy}
+												onClick={() => merge.mutate({ into: keep.id, ids: [other.id] })}
+											>
+												<Trans>Keep this, archive the other</Trans>
+											</Button>
+											{becomesShared(keep, other) && (
+												<span className="text-xs text-ink-3">
+													<Trans>This one becomes shared, so every application gets it.</Trans>
+												</span>
+											)}
+										</div>
 									</div>
 								) : null,
 							)}
 						</div>
 						<Button size="sm" variant="ghost" className="justify-self-start text-ink-2" onClick={() => dismiss(key)}>
-							<Trans>Not the same</Trans>
+							<Trans>Not duplicates, keep both</Trans>
 						</Button>
 					</div>
 				);
@@ -207,12 +222,13 @@ type FactQuoteProps = { fact: DuplicateFact | undefined };
 
 function FactQuote({ fact }: FactQuoteProps) {
 	if (!fact) return null;
+	const company = fact.company;
 	return (
 		<div className="grid gap-0.5">
 			<p className="text-sm leading-[21px]">{fact.text}</p>
 			<p className="text-xs text-ink-3">
 				{[
-					fact.applicationId === null ? t`All applications` : t`One application only`,
+					fact.applicationId === null ? t`All applications` : company ? t`${company} only` : t`One application only`,
 					fact.status === "active"
 						? t({ message: "switched on", context: "A fact's switch: the AI can read it" })
 						: t({ message: "switched off", context: "A fact's switch: the AI can't read it" }),

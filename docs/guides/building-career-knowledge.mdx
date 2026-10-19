@@ -116,9 +116,10 @@ The same controls are in the API and MCP: `GET /career/facts/groups` lists group
 A fact said twice takes twice the budget. **Curate → Duplicates** finds facts with the same text, ignoring case, accents, punctuation and spacing, and facts that say nearly the same thing.
 
 - **Remove copies** folds every word-for-word copy of a shared fact that sits in an application into the shared fact. The shared fact already reaches that application; if it's switched off or in a private group, it's included for that application instead, so nothing that application used goes missing. Saving a new copy of a shared fact to an application does the same straight away.
-- **Keep one** merges a set of identical shared facts. For two facts that are nearly the same, choose **Keep this one** on the better wording. The fact kept must be shared, or private to the same application. **Not the same** hides a pair in this browser.
+- **Keep one, archive the copies** keeps one of a set of identical facts, the oldest one that's switched on.
+- For two facts with nearly the same words, or where the longer one says almost everything the shorter one does, choose **Keep this, archive the other** on the one you want. If you keep a fact that belongs to one application over a shared one, it becomes shared, so every application gets it, and it takes the other's group if it has none. **Not duplicates, keep both** hides the pair in this browser, for example a short and a long form you want to keep.
 
-Merging moves the other fact's stories, saved results and per-application choices to the one kept, then archives the other, so nothing is erased by accident.
+Keeping one archives the other: it's hidden and never sent, and you can restore it from **Archived** in Facts. Its stories, saved results and per-application choices move to the one you keep, so nothing is erased by accident.
 
 ## Fix stories the AI can't use
 

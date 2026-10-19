@@ -40412,11 +40412,16 @@
 													},
 													"similarity": {
 														"type": "number"
+													},
+													"contained": {
+														"type": "boolean",
+														"description": "Matched because the longer fact holds nearly all of the shorter one's words."
 													}
 												},
 												"required": [
 													"factIds",
-													"similarity"
+													"similarity",
+													"contained"
 												]
 											}
 										},
@@ -40441,6 +40446,17 @@
 															}
 														]
 													},
+													"company": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														],
+														"description": "The application a private fact belongs to."
+													},
 													"status": {
 														"type": "string"
 													},
@@ -40459,6 +40475,7 @@
 													"id",
 													"text",
 													"applicationId",
+													"company",
 													"status",
 													"group"
 												]
@@ -40622,7 +40639,7 @@
 			"post": {
 				"operationId": "mergeCareerFact",
 				"summary": "Merge a career fact into another",
-				"description": "Moves this fact's stories, saved items and overrides to the fact given as into, then archives this one. The fact kept must be shared or private to the same application, and not archived.",
+				"description": "Keeps the fact given as into and archives this one, which can be restored. This fact's stories, saved items and per-application overrides move to the one kept. If the one kept is private to an application and this one reached more applications, the one kept becomes shared, so no application loses it; it also takes this one's group if it has none. The one kept must not be archived.",
 				"tags": [
 					"Career"
 				],

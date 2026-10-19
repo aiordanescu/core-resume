@@ -221,6 +221,11 @@ msgstr "{0, plural, one {Βρέθηκαν η θέση, η εταιρεία κα�
 msgid "{0, plural, one {Import # application} other {Import # applications}}"
 msgstr "{0, plural, one {Εισαγωγή αίτησης εργασίας #} other {Εισαγωγή αιτήσεων εργασίας #}}"
 
+#. placeholder {0}: set.copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {Keep one, archive # copy} other {Keep one, archive # copies}}"
+msgstr ""
+
 #. placeholder {0}: knowledge.active.length
 #: src/features/career/coach.tsx
 msgid "{0, plural, one {Knowledge · # fact} other {Knowledge · # facts}}"
@@ -489,6 +494,7 @@ msgid "{column, plural, one {# column} other {# columns}}"
 msgstr "{column, plural, one {Στήλη #} other {Στήλες #}}"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "{company} only"
 msgstr "Μόνο {company}"
 
@@ -966,7 +972,7 @@ msgid "A fact changed. Review this story."
 msgstr "Ένα γεγονός άλλαξε. Ελέγξτε αυτή την ιστορία."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgid "A fact said twice takes twice the budget. Keeping one archives the other: it's hidden and never sent, and you can restore it from Archived in Facts. Its stories, saved work and per-job choices move to the one you keep."
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
@@ -6360,10 +6366,6 @@ msgstr "Κράτα το δικό μου"
 msgid "Keep on one page"
 msgstr "Διατήρηση σε μία σελίδα"
 
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Keep one"
-msgstr ""
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "Κρατήστε εδώ ιδιωτικές σημειώσεις για αυτό το βιογραφικό. Κανείς άλλος δεν μπορεί να τις δει."
@@ -6397,7 +6399,7 @@ msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Κρατήστε τις σε περίπου δύο γραμμές, ώστε ένας γρήγορος αναγνώστης να τις ολοκληρώνει."
 
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Keep this one"
+msgid "Keep this, archive the other"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -6412,6 +6414,10 @@ msgstr "Μείνετε μαζί"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Keeps the most specific parts"
 msgstr "Διατηρεί τα πιο συγκεκριμένα μέρη"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keeps the oldest one that's switched on."
+msgstr ""
 
 #: src/features/resume/editor/check/actions.ts
 msgid "Kept as it is"
@@ -7485,9 +7491,8 @@ msgstr "Στενός"
 msgid "narrow margins"
 msgstr "στενά περιθώρια"
 
-#. placeholder {0}: Math.round(pair.similarity * 100)
 #: src/features/career/knowledge/upkeep.tsx
-msgid "Nearly the same · {0}%"
+msgid "Nearly the same words · {percent}%"
 msgstr ""
 
 #: src/features/settings/ai/providers.tsx
@@ -7919,6 +7924,10 @@ msgstr "Δεν έχει υποβληθεί ακόμα"
 msgid "Not connected"
 msgstr "Δεν είναι συνδεδεμένο"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not duplicates, keep both"
+msgstr ""
+
 #: src/features/career/today.tsx
 msgid "Not for me"
 msgstr "Όχι για μένα"
@@ -7991,10 +8000,6 @@ msgstr "Δεν έχει ρυθμιστεί"
 #: src/features/resume/stylesheet/editor.tsx
 msgid "Not sure what to write?"
 msgstr "Δεν είστε σίγουροι τι να γράψετε;"
-
-#: src/features/career/knowledge/upkeep.tsx
-msgid "Not the same"
-msgstr ""
 
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
@@ -11995,6 +12000,10 @@ msgstr "Το γράμμα ταιριάζει ξανά με το σχέδιο τ�
 msgid "The line changed since you asked, so it wasn't replaced."
 msgstr "Η γραμμή άλλαξε από τότε που το ζητήσατε, οπότε δεν αντικαταστάθηκε."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "The longer one says almost everything the shorter one does · {percent}%"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "the message"
 msgstr "το μήνυμα"
@@ -12339,6 +12348,10 @@ msgstr "Αυτό μετρά πόσο πιστά μπορεί το λογισμι
 #: src/features/applications/components/calendar-view.tsx
 msgid "This month"
 msgstr "Αυτόν τον μήνα"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "This one becomes shared, so every application gets it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "This page is clipped or incomplete. Check the original before using it."
