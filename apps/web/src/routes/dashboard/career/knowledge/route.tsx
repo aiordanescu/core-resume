@@ -36,7 +36,7 @@ function KnowledgeLayout() {
 			match: "/dashboard/career/knowledge/facts",
 			icon: "list-checks",
 			label: t`Facts`,
-			count: facts.data?.filter((fact) => fact.status !== "forgotten").length,
+			count: facts.data?.filter((fact) => fact.status !== "forgotten" && fact.status !== "archived").length,
 		},
 		{
 			to: "/dashboard/career/knowledge/stories/{-$storyId}",

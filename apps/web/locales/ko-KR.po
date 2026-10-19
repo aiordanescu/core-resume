@@ -88,6 +88,11 @@ msgstr "{0, plural, one {채용 공고에 \"{1}\"가 한 번 나타납니다.} o
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, other {답변 #개}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, other {저장된 항목 #개에 사용됨}}"
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {선택한 글꼴로는 {list}을(를) 표시할 수 없어 “?”로 표시됩니다. 디자인에서 이 문자가 포함된 글꼴을 선택하세요.} other {선택한 글꼴로는 {list}을(를) 표시할 수 없어 “?”로 표시됩니다. 디자인에서 이 문자들이 포함된 글꼴을 선택하세요.}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} 일 남음"
 msgid "{type} · Edited {0}"
 msgstr "{type} · 수정됨 {0}"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "날짜를 읽을 수 없습니다."
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "사실이 변경되었습니다. 이 스토리를 검토하세요."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "귀하의 표현에 대한 두 번째 의견"
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "짧은 후속 조치는 일반적으로 이제 괜찮습니다."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "모두"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "모든 지원 내역"
 
@@ -1962,9 +1989,25 @@ msgstr "변경 사항 1개 적용"
 msgid "Arabic"
 msgstr "아랍어"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "보관됨(닫음)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "이 사실 수정"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "{correctedOn}에 수정됨 · 원본 보관"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "이 연결을 완료하지 못했습니다. 클라이언트에서 연결을 다시 시작한 후 시도해 주세요."
@@ -3235,6 +3282,10 @@ msgstr "지원을 추가할 수 없습니다. 다시 시도하세요."
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "암호키를 추가할 수 없습니다. 다시 시도해 보세요."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "지원 완료로 표시할 수 없습니다."
 msgid "Couldn't mark this as read."
 msgstr "읽음으로 표시할 수 없습니다."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "스토리를 저장할 수 없습니다."
 
@@ -4419,6 +4475,10 @@ msgstr "이력서를 복제해 원본과 동일한 새 이력서를 만들 수 �
 msgid "Duplicated"
 msgstr "중복됨"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "이력서를 복제하는 중입니다..."
@@ -4514,6 +4574,10 @@ msgstr "질문 편집"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "스케줄 편집"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "모든 항목에는 시스템 읽기 형식의 날짜가 순서대로 �
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "모든 역할은 당신이 한 일을 말해줍니다. 표현에 대한 의견은 글쓰기 탭에 있습니다."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "모든 템플릿은 읽기 순서대로 단어가 포함된 텍스트 기반 PDF를 내보냅니다. 이는 지원자 추적 시스템(ATS)이 이력서를 구문 분석하는 데 필요한 것입니다. 다른 곳에서 만든 것을 포함하여 PDF를 테스트하기 위해 무료 ATS 검사기는 텍스트 소프트웨어 추출 및 수정 사항을 보여줍니다."
@@ -4864,6 +4932,10 @@ msgstr "해당 페이지의 PDF에서 발췌 · 읽는 순서"
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "사실 · 성과"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "선택한 라인 개선"
 msgid "Improving…"
 msgstr "개선 중…"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "좋은 회사에서"
@@ -6257,6 +6333,10 @@ msgstr "내 것을 지켜라"
 msgid "Keep on one page"
 msgstr "한 페이지에 계속"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "이 이력서에 대한 비공개 메모를 여기에 남기세요. 다른 사람은 볼 수 없습니다."
@@ -6284,6 +6364,10 @@ msgstr "다운로드할 수 있도록 이 브라우저에 녹음 보관"
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "훑어 읽는 사람이 끝까지 읽을 수 있도록 대략 두 줄 이내로 유지하세요."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "좁은"
 msgid "narrow margins"
 msgstr "좁은 여백"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "주의가 필요함"
@@ -7517,6 +7606,10 @@ msgstr "아직 입사 지원서가 없습니다."
 msgid "No applications yet. Add one in Applications first."
 msgstr "아직 입사지원서가 없습니다. 먼저 입사 지원서에 하나를 추가하세요."
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "글머리 기호 목록을 찾을 수 없습니다."
@@ -7554,6 +7647,10 @@ msgstr "수정 내역 없음"
 msgid "No dates were found."
 msgstr "날짜를 찾을 수 없습니다."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "수정사항 없음"
@@ -7575,6 +7672,10 @@ msgstr "이메일 주소를 찾을 수 없습니다."
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "아직 근거 없음"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "설정되지 않음"
 msgid "Not sure what to write?"
 msgstr "무엇을 써야 할지 모르겠나요?"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "나에게는 사실이 아닙니다. 숨겨주세요."
@@ -8021,6 +8126,10 @@ msgstr "면접 라운드 일정이 잡히면 준비 탭에서 시간별 계획, 
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "몇 개의 입사 지원서를 보내고 나면 지원서의 도달 범위와 응답 속도가 얼마나 빠른지 알 수 있습니다."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "{value} 제거"
 msgid "Remove connection"
 msgstr "연결 제거"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "필드 삭제"
@@ -9631,6 +9744,7 @@ msgstr "회신 기한"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "디자인 시스템을 담당하고 다른 팀의 디자인을 돕습니다."
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "복원하다"
@@ -10631,6 +10745,11 @@ msgstr "제목 표시"
 msgid "Show link in title"
 msgstr "제목에 링크 표시"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "여기있어"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "여전히 {pages} 페이지는 9포인트입니다. 섹션을 숨기거나 항목을 줄이세요."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "가져갈 스토리"
@@ -11214,6 +11341,10 @@ msgstr "이야기"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "스토리 · 5/5 부분"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "라이트 테마로 전환"
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "하나의 열로 전환"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"

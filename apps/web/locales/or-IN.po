@@ -88,6 +88,11 @@ msgstr "{0, plural, one {ଚାକିରି ବିଜ୍ଞାପନରେ “{1
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, one {#ଟି ଉତ୍ତର} other {#ଟି ଉତ୍ତର}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, one {#ଟି ସେଭ୍ ହୋଇଥିବା ଆଇଟମ
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {ଆପଣ ଚୟନ କରିଥିବା ଫଣ୍ଟ {list} ଦେଖାଇପାରିବ ନାହିଁ। ଏହା “?” ଭାବେ ଦେଖାଯାଏ। ଡିଜାଇନ୍ ଟ୍ୟାବରେ, ଏହା ଥିବା ଏକ ଫଣ୍ଟ ବାଛନ୍ତୁ।} other {ଆପଣ ଚୟନ କରିଥିବା ଫଣ୍ଟ {list} ଦେଖାଇପାରିବ ନାହିଁ। ଏଗୁଡ଼ିକ “?” ଭାବେ ଦେଖାଯାଏ। ଡିଜାଇନ୍ ଟ୍ୟାବରେ, ଏଗୁଡ଼ିକ ଥିବା ଏକ ଫଣ୍ଟ ବାଛନ୍ତୁ।}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} ଦିନ ବାକି ଅଛି |"
 msgid "{type} · Edited {0}"
 msgstr "{type} · ସମ୍ପାଦିତ {0} |"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "ଏକ ତାରିଖ ପ read ାଯିବ ନାହିଁ |"
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "ଗୋଟିଏ ତଥ୍ୟ ବଦଳିଛି। ଏହି କାହାଣୀଟି ସମୀକ୍ଷା କରନ୍ତୁ।"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "ତୁମର ଶବ୍ଦ ଉପରେ ଦ୍ୱିତୀୟ ମତ |"
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "ଏକ ସଂକ୍ଷିପ୍ତ ଅନୁସରଣ ସାଧାରଣତ now ବର୍ତ୍ତମାନ ଠିକ ଅଛି |"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "ସମସ୍ତ"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "ସମସ୍ତ ଆବେଦନ"
 
@@ -1962,9 +1989,25 @@ msgstr "1ଟି ପରିବର୍ତ୍ତନ ପ୍ରୟୋଗ କରନ୍�
 msgid "Arabic"
 msgstr "ଆରବୀ"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "ଅଭିଲେଖାଗାର (ଏହାକୁ ବନ୍ଦ କରେ)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "ଏହି ତଥ୍ୟ ସଂଶୋଧନ କରନ୍ତୁ"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "{correctedOn}ରେ ସଂଶୋଧିତ · ମୂଳ ରଖାଯାଇଛି"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "ଏହି ସଂଯୋଗ ସଂପୂର୍ଣ୍ଣ କରିପାରିଲା ନାହିଁ | ଆପଣଙ୍କ କ୍ଲାଏଣ୍ଟରୁ ସଂଯୋଗକୁ ପୁନ Rest ଆରମ୍ଭ କରନ୍ତୁ ଏବଂ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |"
@@ -3235,6 +3282,10 @@ msgstr "ଆବେଦନ ଯୋଡ଼ିହେଲା ନାହିଁ। ଦୟା
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "ପାସ୍କି ଯୋଡି ପାରିଲା ନାହିଁ | ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "ଏହାକୁ ଆବେଦନ କରାଯାଇଛି ବୋଲି �
 msgid "Couldn't mark this as read."
 msgstr "ଏହାକୁ ପଢ଼ାଯାଇଛି ବୋଲି ଚିହ୍ନିତ କରିହେଲା ନାହିଁ।"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "କାହାଣୀ ସେଭ୍ କରିହେଲା ନାହିଁ।"
 
@@ -4419,6 +4475,10 @@ msgstr "ଆପଣଙ୍କ ରେଜ୍ୟୁମେକୁ ନକଲ କରନ୍
 msgid "Duplicated"
 msgstr "ନକଲ"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "ଆପଣଙ୍କ ରେଜ୍ୟୁମେ ନକଲ ହେଉଛି..."
@@ -4514,6 +4574,10 @@ msgstr "ପ୍ରଶ୍ନ ସମ୍ପାଦନ କରନ୍ତୁ"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "ସମୟସୂଚୀ ସମ୍ପାଦନ କରନ୍ତୁ"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "ପ୍ରତ୍ୟେକ ଏଣ୍ଟ୍ରିରେ ଏକ ଫର୍ମ
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "ପ୍ରତ୍ୟେକ ଭୂମିକା ତୁମେ ଯାହା କରିଛ ତାହା କହିଥାଏ | ଲେଖା ଟ୍ୟାବରେ ଲାଇଭ୍ ୱାର୍ଡିଂ ଉପରେ ମତାମତ |"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "ପ୍ରତ୍ୟେକ ଟେମ୍ପଲେଟ୍ ପ reading ଼ିବା କ୍ରମରେ ଶବ୍ଦ ସହିତ ଏକ ପାଠ୍ୟ-ଆଧାରିତ PDF ରପ୍ତାନି କରେ, ଯାହା ଆବେଦନକାରୀ ଟ୍ରାକିଂ ସିଷ୍ଟମ୍ (ATS) ଏକ ରେଜୁମ୍ ବିଶ୍ଳେଷଣ କରିବାକୁ ଆବଶ୍ୟକ କରେ | ଯେକ any ଣସି PDF ପରୀକ୍ଷା କରିବାକୁ, ଅନ୍ୟତ୍ର ତିଆରି ହୋଇଥିବା ଅନ୍ତର୍ଭୂକ୍ତ କରି, ମାଗଣା ATS ଯାଞ୍ଚକାରୀ ପାଠ୍ୟ ସଫ୍ଟୱେର୍ ନିର୍ବାହ ଏବଂ କ’ଣ ଠିକ୍ କରାଯିବ ତାହା ଦର୍ଶାଏ |"
@@ -4864,6 +4932,10 @@ msgstr "ପୃଷ୍ଠାରେ PDF ରୁ ବାହାର କରାଯାଇ�
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "ତଥ୍ୟ · ସଫଳତା"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "ମନୋନୀତ ରେଖା ଉନ୍ନତ କରନ୍ତୁ |"
 msgid "Improving…"
 msgstr "ଉନ୍ନତି…"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "ଭଲ କମ୍ପାନୀରେ |"
@@ -6257,6 +6333,10 @@ msgstr "ମୋର ରଖ |"
 msgid "Keep on one page"
 msgstr "ଗୋଟିଏ ପୃଷ୍ଠାରେ ରଖ |"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "ଏହି ରେଜ୍ୟୁମେ ବିଷୟରେ ବ୍ୟକ୍ତିଗତ ଟିପ୍ପଣୀ ଏଠାରେ ରଖନ୍ତୁ। ଅନ୍ୟ କେହି ସେଗୁଡିକ ଦେଖିପାରିବେ ନାହିଁ।"
@@ -6284,6 +6364,10 @@ msgstr "ରେକର୍ଡିଂକୁ ଏହି ବ୍ରାଉଜରରେ ର
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "ସେଗୁଡ଼ିକୁ ପ୍ରାୟ ଦୁଇ ଧାଡ଼ିରେ ରଖନ୍ତୁ, ଯାହା ଦ୍ୱାରା ଜଣେ ଶୀଘ୍ର-ପାଠକ ସେଗୁଡ଼ିକୁ ଶେଷ କରିପାରିବେ।"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "ସଂକୀର୍ଣ୍ଣ |"
 msgid "narrow margins"
 msgstr "ସଂକୀର୍ଣ୍ଣ ମାର୍ଜିନ"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "ଧ୍ୟାନର ଆବଶ୍ୟକତା |"
@@ -7517,6 +7606,10 @@ msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଚାକିରି ଆବ
 msgid "No applications yet. Add one in Applications first."
 msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଚାକିରି ଆବେଦନ ନାହିଁ। ପ୍ରଥମେ ଆବେଦନଗୁଡ଼ିକରେ ଗୋଟିଏ ଯୋଡ଼ନ୍ତୁ।"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "କୌଣସି ବୁଲେଟ୍ ତାଲିକା ମିଳିଲା ନାହିଁ।"
@@ -7554,6 +7647,10 @@ msgstr "କୌଣସି ସଂଶୋଧନ ନାହିଁ"
 msgid "No dates were found."
 msgstr "କୌଣସି ତାରିଖ ମିଳିଲା ନାହିଁ।"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "କ ed ଣସି ସମ୍ପାଦନା ନାହିଁ |"
@@ -7575,6 +7672,10 @@ msgstr "କୌଣସି ଇମେଲ୍ ଠିକଣା ମିଳିଲା ନ�
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ପ୍ରମାଣ ନାହିଁ"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "ସେଟ୍ ଅପ୍ ହୋଇନାହିଁ |"
 msgid "Not sure what to write?"
 msgstr "କଣ ଲେଖିବେ ନିଶ୍ଚିତ ନୁହଁନ୍ତି?"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "ମୋ ପାଇଁ ସତ ନୁହେଁ, ଏହାକୁ ଲୁଚାନ୍ତୁ |"
@@ -8021,6 +8126,10 @@ msgstr "ଏକ ରାଉଣ୍ଡ ନିର୍ଧାରିତ ହେବା ପ�
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "ଥରେ ଆପଣ ଅଳ୍ପ କିଛି ଚାକିରି ଆବେଦନ ପଠାଇଲେ, ଏହା ଦର୍ଶାଏ ଯେ ସେମାନେ କେତେ ଦୂର ପାଆନ୍ତି ଏବଂ ଲୋକମାନେ କେତେ ଶୀଘ୍ର ଉତ୍ତର ଦିଅନ୍ତି |"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "{value} ଅପସାରଣ କରନ୍ତୁ |"
 msgid "Remove connection"
 msgstr "ସଂଯୋଗ ଅପସାରଣ କରନ୍ତୁ |"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "କ୍ଷେତ୍ର ଅପସାରଣ କରନ୍ତୁ |"
@@ -9631,6 +9744,7 @@ msgstr "ଉତ୍ତର ଦେବାର ଶେଷ ତାରିଖ"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "ଡିଜାଇନ୍ ସିଷ୍ଟମ୍ ପାଇଁ ଦାୟୀ ଏବଂ ଅନ୍ୟ ଦଳମାନଙ୍କୁ ସେମାନଙ୍କର ଡିଜାଇନ୍ ସହିତ ସାହାଯ୍ୟ କରେ |"
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "ପୁନଃସ୍ଥାପନ କରନ୍ତୁ"
@@ -10631,6 +10745,11 @@ msgstr "ହେଡିଙ୍ଗ୍ ଦେଖାନ୍ତୁ |"
 msgid "Show link in title"
 msgstr "ଶୀର୍ଷକରେ ଲିଙ୍କ ଦେଖାନ୍ତୁ"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "ଏଠାରେ ରୁହ |"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "ତଥାପି 9 pt ରେ {pages} ପୃଷ୍ଠାଗୁଡ଼ିକ | ଏକ ବିଭାଗ ଲୁଚାନ୍ତୁ କିମ୍ବା ଏଣ୍ଟ୍ରିଗୁଡ଼ିକୁ ଛୋଟ କରନ୍ତୁ |"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "ଆଣିବାକୁ ଥିବା କାହାଣୀ"
@@ -11214,6 +11341,10 @@ msgstr "କାହାଣୀ"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "କାହାଣୀ · 5ଟି ମଧ୍ୟରୁ 5ଟି ଅଂଶ"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "ଲାଇଟ୍ ଥିମ୍‌କୁ ସ୍ୱିଚ୍ କରନ୍ତ
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "ଗୋଟିଏ ସ୍ତମ୍ଭକୁ ଯାଆନ୍ତୁ |"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"

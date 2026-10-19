@@ -7,6 +7,7 @@ import {
 	careerStoryInputSchema,
 	careerWorkspaceSchema,
 	factGroupSchema,
+	factStatusSchema,
 	factSwitchSchema,
 	overrideModeSchema,
 	generateTaskSchema,
@@ -39,7 +40,7 @@ const factGroupOutput = z.object({
 	private: z
 		.boolean()
 		.describe("Its facts, and its subgroups', never reach the AI unless an application includes the group."),
-	facts: z.object({ active: z.number().int(), excluded: z.number().int() }),
+	facts: z.object({ active: z.number().int(), excluded: z.number().int(), archived: z.number().int() }),
 	activeChars: z
 		.number()
 		.int()
@@ -228,7 +229,9 @@ export const careerRouter = {
 		.input(
 			id.extend({
 				text: z.string().trim().min(1).max(2000).optional(),
-				status: factSwitchSchema.optional(),
+				status: factStatusSchema
+					.optional()
+					.describe("archived keeps the fact but hides it and never sends it; active or excluded restores it."),
 				share: z.boolean().optional(),
 				group: factGroupSchema
 					.nullable()
@@ -253,7 +256,7 @@ export const careerRouter = {
 		.input(
 			z.object({
 				ids: z.array(z.string().min(1)).min(1).max(1000),
-				status: factSwitchSchema.optional(),
+				status: factStatusSchema.optional(),
 				group: factGroupSchema
 					.nullable()
 					.optional()
@@ -262,6 +265,59 @@ export const careerRouter = {
 		)
 		.output(updatedOutput)
 		.handler(({ context, input }) => careerService.updateFacts(context.user.id, input)),
+	duplicates: protectedProcedure
+		.route({
+			method: "GET",
+			path: "/career/facts/duplicates",
+			tags: ["Career"],
+			operationId: "listCareerFactDuplicates",
+			summary: "Find duplicate career facts",
+			description:
+				"Exact duplicates (the same text, ignoring case, accents, punctuation and spacing) as sets with the fact to keep, and near duplicates (mostly the same words) as pairs with their similarity from 0 to 1. Only facts in use (switched on or off) count, and only within one scope: shared facts, or shared and one application's private facts.",
+		})
+		.input(z.object({}).optional())
+		.output(
+			z.object({
+				exact: z.array(z.object({ keep: z.string(), copies: z.array(z.string()) })),
+				near: z.array(z.object({ factIds: z.array(z.string()), similarity: z.number() })),
+				facts: z.array(
+					z.object({
+						id: z.string(),
+						text: z.string(),
+						applicationId: z.string().nullable(),
+						status: z.string(),
+						group: z.string().nullable(),
+					}),
+				),
+			}),
+		)
+		.handler(({ context }) => careerService.duplicates(context.user.id)),
+	cleanDuplicates: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/facts/duplicates/clean",
+			tags: ["Career"],
+			operationId: "cleanCareerFactDuplicates",
+			summary: "Remove application copies of shared facts",
+			description:
+				"Folds every word-for-word copy of a shared fact that sits in an application into the shared fact: its stories, saved items and overrides move over, the copy is archived, and the shared fact is included for that application if it wouldn't reach it otherwise. Copies among shared facts are left alone.",
+		})
+		.input(z.object({}).optional())
+		.output(updatedOutput)
+		.handler(({ context }) => careerService.cleanDuplicates(context.user.id)),
+	mergeFact: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/facts/{id}/merge",
+			tags: ["Career"],
+			operationId: "mergeCareerFact",
+			summary: "Merge a career fact into another",
+			description:
+				"Moves this fact's stories, saved items and overrides to the fact given as into, then archives this one. The fact kept must be shared or private to the same application, and not archived.",
+		})
+		.input(id.extend({ into: z.string().min(1) }))
+		.output(updatedOutput)
+		.handler(({ context, input }) => careerService.mergeFact(context.user.id, input)),
 	factGroups: protectedProcedure
 		.route({
 			method: "GET",

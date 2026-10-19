@@ -1,3 +1,5 @@
+import { terms } from "./relevance";
+
 /**
  * Knowledge rules the API and the web app must agree on: how a fact or story is written into an application action,
  * when a story still holds, and how much of the AI limits the switched-on Knowledge uses.
@@ -152,3 +154,124 @@ export function reachesAi(
 /** Whether a group, or a group above it, is private. */
 export const isPrivateGroup = (group: string | null | undefined, privateGroups: readonly string[]) =>
 	Boolean(group) && privateGroups.some((entry) => inGroup(group, entry));
+
+/** Text as duplicates compare it: case, accents, punctuation and spacing don't count. */
+export const normalizeFactText = (text: string) =>
+	text
+		.toLocaleLowerCase()
+		.normalize("NFKD")
+		.replace(/\p{M}/gu, "")
+		.replace(/[^\p{L}\p{N}]+/gu, " ")
+		.trim();
+
+type DuplicateFact = { id: string; text: string; applicationId: string | null; status: string };
+
+/** Two facts can duplicate each other when one would reach the other's scope: shared, or the same application. */
+const sameScope = (a: DuplicateFact, b: DuplicateFact) =>
+	a.applicationId === null || b.applicationId === null || a.applicationId === b.applicationId;
+
+/** Near duplicates share this much of their words (Jaccard on stemmed terms), or one holds nearly all of the other's. */
+const NEAR_OVERLAP = 0.75;
+const NEAR_CONTAINED = 0.9;
+
+/**
+ * Exact duplicates (the same normalized text) and near duplicates (mostly the same words) among facts that are in use,
+ * that is switched on or off but not archived or forgotten. Exact ones come as clusters, near ones as pairs with
+ * their similarity (0 to 1), most similar first; a pair that's already exact isn't repeated as near.
+ */
+export function findDuplicates<T extends DuplicateFact>(facts: readonly T[]) {
+	const live = facts.filter((fact) => fact.status === "active" || fact.status === "excluded");
+	const byText = new Map<string, T[]>();
+	for (const fact of live) {
+		const key = normalizeFactText(fact.text);
+		if (!key) continue;
+		byText.set(key, [...(byText.get(key) ?? []), fact]);
+	}
+	const exact: T[][] = [];
+	for (const cluster of byText.values()) {
+		// Split by scope: copies private to two different applications don't reach each other.
+		const shared = cluster.filter((fact) => fact.applicationId === null);
+		const scopes = new Map<string, T[]>();
+		for (const fact of cluster)
+			if (fact.applicationId !== null)
+				scopes.set(fact.applicationId, [...(scopes.get(fact.applicationId) ?? []), fact]);
+		if (shared.length) {
+			const all = [...shared, ...[...scopes.values()].flat()];
+			if (all.length > 1) exact.push(all);
+		} else for (const scoped of scopes.values()) if (scoped.length > 1) exact.push(scoped);
+	}
+
+	const termSets = live.map((fact) => new Set(terms(fact.text)));
+	const index = new Map<string, number[]>();
+	termSets.forEach((set, position) => {
+		for (const term of set) index.set(term, [...(index.get(term) ?? []), position]);
+	});
+	const exactKey = new Map(live.map((fact) => [fact.id, normalizeFactText(fact.text)]));
+	const near: { facts: [T, T]; similarity: number }[] = [];
+	const seen = new Set<string>();
+	live.forEach((fact, position) => {
+		const own = termSets[position];
+		if (!own || own.size < 3) return;
+		const shared = new Map<number, number>();
+		for (const term of own)
+			for (const other of index.get(term) ?? []) if (other > position) shared.set(other, (shared.get(other) ?? 0) + 1);
+		for (const [other, common] of shared) {
+			const otherFact = live[other];
+			const otherSet = termSets[other];
+			if (!otherFact || !otherSet || otherSet.size < 3 || !sameScope(fact, otherFact)) continue;
+			if (exactKey.get(fact.id) === exactKey.get(otherFact.id)) continue;
+			const overlap = common / (own.size + otherSet.size - common);
+			const contained = common / Math.min(own.size, otherSet.size);
+			if (overlap < NEAR_OVERLAP && !(contained >= NEAR_CONTAINED && Math.min(own.size, otherSet.size) >= 5)) continue;
+			const key = [fact.id, otherFact.id].sort().join(":");
+			if (seen.has(key)) continue;
+			seen.add(key);
+			near.push({ facts: [fact, otherFact], similarity: Math.round(Math.max(overlap, contained) * 100) / 100 });
+		}
+	});
+	near.sort((a, b) => b.similarity - a.similarity);
+	return { exact, near };
+}
+
+/** Which of several duplicates to keep: shared over private, switched on over off, then the oldest. */
+export function preferredFact<T extends DuplicateFact & { createdAt: Date | string }>(facts: readonly T[]) {
+	return [...facts].sort(
+		(a, b) =>
+			Number(a.applicationId !== null) - Number(b.applicationId !== null) ||
+			Number(a.status !== "active") - Number(b.status !== "active") ||
+			new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+	)[0];
+}
+
+/** Why a fact keeps a story from the AI. */
+export type StoryIssue =
+	| { factId: string; reason: "missing" | "off" | "private" | "archived" }
+	| { factId: string; reason: "corrected"; before: string; after: string };
+
+/**
+ * Why a story can't go to the AI, fact by fact: a fact is gone, switched off, private, archived, or was corrected
+ * after the story was saved (with its text then and now). Empty when the story is usable; a story with no facts at all
+ * has one issue with an empty fact id.
+ */
+export function storyIssues(
+	story: { updatedAt: Date | string; data: { factIds: readonly string[] } },
+	facts: ReadonlyMap<
+		string,
+		{ id: string; text: string; status: string; group?: string | null; revisions: readonly Revision[] }
+	>,
+	rules: KnowledgeRules = NO_RULES,
+): StoryIssue[] {
+	if (story.data.factIds.length === 0) return [{ factId: "", reason: "missing" }];
+	const saved = new Date(story.updatedAt);
+	return story.data.factIds.flatMap((factId): StoryIssue[] => {
+		const fact = facts.get(factId);
+		if (!fact || fact.status === "forgotten") return [{ factId, reason: "missing" }];
+		if (fact.status === "archived") return [{ factId, reason: "archived" }];
+		if (!reachesAi(fact, rules))
+			return [{ factId, reason: isPrivateGroup(fact.group, rules.privateGroups) ? "private" : "off" }];
+		if (textChangedAt(fact) <= saved) return [];
+		// Its text when the story was saved: the earliest correction made after that holds it.
+		const before = fact.revisions.find((revision) => new Date(revision.at) > saved)?.text ?? "";
+		return [{ factId, reason: "corrected", before, after: fact.text }];
+	});
+}

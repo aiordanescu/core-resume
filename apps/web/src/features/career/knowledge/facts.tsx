@@ -65,6 +65,8 @@ export function FactsPage({ highlight }: FactsPageProps) {
 	const [search, setSearch] = useState("");
 	const [type, setType] = useState<FactCategory | null>(null);
 	const [group, setGroup] = useState<GroupFilter>({ kind: "all" });
+	// Archived facts are kept out of the list until asked for, and then shown on their own.
+	const [archived, setArchived] = useState(false);
 	const [hidden, setHidden] = useState<string[]>([]);
 	const listRef = useRef<HTMLDivElement>(null);
 
@@ -100,6 +102,7 @@ export function FactsPage({ highlight }: FactsPageProps) {
 	const visible = (facts ?? []).filter(
 		(fact) =>
 			!hidden.includes(fact.id) &&
+			(fact.status === "archived") === archived &&
 			(type === null || categoryOf(fact) === type) &&
 			(group.kind === "all" || (group.kind === "none" ? !fact.group : inGroup(fact.group, group.path))) &&
 			(!query || `${fact.text} ${sourceLabel(fact)}`.toLocaleLowerCase().includes(query)),
@@ -124,11 +127,36 @@ export function FactsPage({ highlight }: FactsPageProps) {
 		});
 	};
 
+	const archive = (fact: Fact) => {
+		setHidden((current) => [...current, fact.id]);
+		withUndo({
+			description: t`Fact archived`,
+			onUndo: () => setHidden((current) => current.filter((id) => id !== fact.id)),
+			commit: () =>
+				client.career
+					.updateFact({ id: fact.id, status: "archived" })
+					.then(() => {
+						patch(fact.id, { status: "archived" });
+						setHidden((current) => current.filter((id) => id !== fact.id));
+					})
+					.catch((error: unknown) => {
+						setHidden((current) => current.filter((id) => id !== fact.id));
+						toast.add({
+							type: "error",
+							description: getOrpcErrorMessage(error, { fallback: t`Couldn't archive that fact.` }),
+						});
+					})
+					.finally(refresh),
+		});
+	};
+	const archivedCount = (facts ?? []).filter((fact) => fact.status === "archived").length;
+
 	const added = (fact: Fact) => {
 		queryClient.setQueryData<Fact[]>(queryKey, (list) => [fact, ...(list ?? [])]);
 		// The new fact shows even when the current search or type wouldn't match it; it went into the chosen group.
 		setSearch("");
 		setType(null);
+		setArchived(false);
 		refresh();
 	};
 
@@ -174,6 +202,12 @@ export function FactsPage({ highlight }: FactsPageProps) {
 						</NativeSelect>
 					</div>
 				)}
+				{(archivedCount > 0 || archived) && (
+					<FilterChip pressed={archived} onClick={() => setArchived((current) => !current)}>
+						<Icon name="archive" size={14} />
+						{t`Archived ${archivedCount}`}
+					</FilterChip>
+				)}
 			</div>
 
 			<AddFact group={group.kind === "group" ? group.path : null} onAdded={added} />
@@ -207,6 +241,7 @@ export function FactsPage({ highlight }: FactsPageProps) {
 										update.mutate({ id: fact.id, group: next });
 									}}
 									onForget={() => forget(fact)}
+									onArchive={() => archive(fact)}
 								/>
 							</CollapseRow>
 						))}
@@ -214,7 +249,11 @@ export function FactsPage({ highlight }: FactsPageProps) {
 					{visible.length === 0 && (
 						<div className="grid justify-items-center gap-2 p-6 text-center text-sm text-ink-3">
 							<p>
-								{facts.length === 0 ? t`No facts yet. Add one above.` : t`No facts match. Try another word or type.`}
+								{facts.length === 0
+									? t`No facts yet. Add one above.`
+									: archived
+										? t`No archived facts match.`
+										: t`No facts match. Try another word or type.`}
 							</p>
 							{type !== null && (
 								<Button variant="link" size="sm" onClick={() => setType(null)}>
@@ -393,17 +432,19 @@ type FactRowProps = {
 	onCorrect: (text: string) => void;
 	onShare: () => void;
 	onForget: () => void;
+	onArchive: () => void;
 	/** Every group in use, offered when choosing one. */
 	groups: string[];
 	onGroup: (group: string | null) => void;
 };
 
-function FactRow({ fact, onStatus, onCorrect, onShare, onForget, groups, onGroup }: FactRowProps) {
+function FactRow({ fact, onStatus, onCorrect, onShare, onForget, onArchive, groups, onGroup }: FactRowProps) {
 	const { format } = useCareerTime();
 	const [sourceOpen, setSourceOpen] = useState(false);
 	const [correcting, setCorrecting] = useState(false);
 	const [grouping, setGrouping] = useState(false);
 	const on = fact.status === "active";
+	const isArchived = fact.status === "archived";
 	// Names the switch apart from every other row's.
 	const excerpt = fact.text.length > 60 ? `${fact.text.slice(0, 60)}…` : fact.text;
 	const date = (value: Date | string) => format(value, { day: "numeric", month: "short" });
@@ -428,6 +469,9 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget, groups, onGroup
 		{ icon: "pencil-simple", label: t`Correct`, onClick: () => setCorrecting(true) },
 		{ icon: "folder-simple", label: t`Group`, onClick: () => setGrouping((open) => !open), expanded: grouping },
 		...share,
+		isArchived
+			? { icon: "arrow-counter-clockwise", label: t`Restore`, onClick: () => onStatus("active") }
+			: { icon: "archive", label: t`Archive`, onClick: onArchive },
 		{ icon: "trash", label: t`Forget`, onClick: onForget },
 	];
 
@@ -534,12 +578,21 @@ function FactRow({ fact, onStatus, onCorrect, onShare, onForget, groups, onGroup
 			</div>
 
 			<div className="flex w-[120px] flex-none flex-col items-end gap-1 max-sm:w-20">
-				<Switch
-					checked={on}
-					aria-label={t`Use in coaching: ${excerpt}`}
-					onCheckedChange={(checked) => onStatus(checked ? "active" : "excluded")}
-				/>
-				<span className="text-end text-xs text-ink-3">{on ? t`Used in coaching` : t`Not used`}</span>
+				{isArchived ? (
+					<span className="flex items-center gap-1 text-end text-xs text-ink-3">
+						<Icon name="archive" size={14} />
+						<Trans>Archived, never sent</Trans>
+					</span>
+				) : (
+					<>
+						<Switch
+							checked={on}
+							aria-label={t`Use in coaching: ${excerpt}`}
+							onCheckedChange={(checked) => onStatus(checked ? "active" : "excluded")}
+						/>
+						<span className="text-end text-xs text-ink-3">{on ? t`Used in coaching` : t`Not used`}</span>
+					</>
+				)}
 			</div>
 		</div>
 	);

@@ -88,6 +88,11 @@ msgstr "{0, plural, one {A „{1}” egyszer megjelenik az álláshirdetésben.}
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, one {# válasz} other {# válasz}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, one {# mentett elemben használva} other {# mentett elemben 
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {A kiválasztott betűtípus nem tudja megjeleníteni ezt: {list}. “?” jelként jelenik meg. A Dizájn részben válassz olyan betűtípust, amely tartalmazza.} other {A kiválasztott betűtípus nem tudja megjeleníteni ezeket: {list}. “?” jelként jelennek meg. A Dizájn részben válassz olyan betűtípust, amely tartalmazza őket.}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} nap van hátra"
 msgid "{type} · Edited {0}"
 msgstr "{type} · Szerkesztette: {0}"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "A dátumot nem olvassák el"
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "Egy tény megváltozott. Nézd át ezt a történetet."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "Egy másik vélemény a megfogalmazásodról"
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "Egy rövid nyomon követés általában most jó"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "Minden"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "Összes jelentkezés"
 
@@ -1962,9 +1989,25 @@ msgstr "1 módosítás alkalmazása"
 msgid "Arabic"
 msgstr "arab"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Archivált (bezárja)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "Tény javítása"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "Javítva: {correctedOn} · az eredeti megmaradt"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "Nem sikerült befejezni ezt a kapcsolatot. Indítsa újra a kapcsolatot az ügyfélről, és próbálja újra."
@@ -3235,6 +3282,10 @@ msgstr "Nem sikerült hozzáadni a jelentkezést. Próbáld újra."
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "Nem sikerült hozzáadni a jelszót. Próbáld újra."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "Nem sikerült beadottként megjelölni."
 msgid "Couldn't mark this as read."
 msgstr "Nem sikerült olvasottként megjelölni."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "Nem sikerült menteni a történetet."
 
@@ -4419,6 +4475,10 @@ msgstr "Duplikáld az önéletrajzodat, hogy egy új, az eredetivel megegyező p
 msgid "Duplicated"
 msgstr "Megkettőzött"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "Önéletrajz duplikálása..."
@@ -4514,6 +4574,10 @@ msgstr "Kérdés szerkesztése"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "Ütemezés szerkesztése"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "Minden bejegyzésnek dátumai vannak egy űrlaprendszerben, amelyet olva
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "Minden szerep azt mondja, hogy mit csináltál. A fogalmazással kapcsolatos vélemények az Írás fülön élnek."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "Minden sablon egy szöveges PDF-t exportál a szavakkal olvasási sorrendben, ami az igénylőkövető rendszereknek (ATS) az önéletrajz elemzéséhez szükséges. Bármelyik PDF teszteléséhez, beleértve a máshol készülteket is, az ingyenes ATS ellenőrző megjeleníti a szövegszoftver-kivonatokat és a javítást."
@@ -4864,6 +4932,10 @@ msgstr "Kivonat a PDF oldalról · olvasási sorrend"
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "Tény · Teljesítmény"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "A kiválasztott vonal javítása"
 msgid "Improving…"
 msgstr "Javuló…"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "Jó társaságban"
@@ -6257,6 +6333,10 @@ msgstr "Tartsd meg az enyémet"
 msgid "Keep on one page"
 msgstr "Maradj egy oldalon"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "Itt tarthat magánjegyzeteket erről az önéletrajzról. Senki más nem látja őket."
@@ -6284,6 +6364,10 @@ msgstr "A felvétel maradjon ebben a böngészőben, hogy letölthessem"
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "Tartsd őket nagyjából két sorban, hogy egy átfutó olvasó is végigolvassa."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "Keskeny"
 msgid "narrow margins"
 msgstr "szűk margók"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "Figyelmet igényel"
@@ -7517,6 +7606,10 @@ msgstr "Még nincs álláspályázat"
 msgid "No applications yet. Add one in Applications first."
 msgstr "Még nincs álláspályázat. Először adjon hozzá egyet az álláspályázatokhoz."
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "Nem található felsorolás."
@@ -7554,6 +7647,10 @@ msgstr "Nincs javítás"
 msgid "No dates were found."
 msgstr "Nem található dátum."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "nincs szerkesztés"
@@ -7575,6 +7672,10 @@ msgstr "Nem található e-mail cím."
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "Még nincs bizonyíték"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "Nincs beállítva"
 msgid "Not sure what to write?"
 msgstr "Nem tudod, mit írj?"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "Nem igaz rám, rejtsd el"
@@ -8021,6 +8126,10 @@ msgstr "Amint egy forduló időpontja megvan, a Felkészülés elkészíti az id
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "Miután elküldött néhány jelentkezést, ez megmutatja, meddig jutnak el, és milyen gyorsan válaszolnak az emberek."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "Távolítsa el a {value}-t"
 msgid "Remove connection"
 msgstr "Távolítsa el a kapcsolatot"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "Távolítsa el a mezőt"
@@ -9631,6 +9744,7 @@ msgstr "Válaszhatáridő"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "Felelős a tervezési rendszerért, és segít más csapatoknak a tervezésben."
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "Visszaállítás"
@@ -10631,6 +10745,11 @@ msgstr "Címsor megjelenítése"
 msgid "Show link in title"
 msgstr "Link megjelenítése a címben"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "Maradj itt"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "Még mindig {pages} oldalak 9 pontnál. Szakasz elrejtése vagy bejegyzések lerövidítése."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "Magaddal viendő történetek"
@@ -11214,6 +11341,10 @@ msgstr "Történet"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "Történet · 5/5 rész"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "Váltás világos témára"
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "Váltás egy oszlopra"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"

@@ -103,6 +103,9 @@ export const factGroupSchema = z
 /** What a fact switch or a group switch sets. */
 export const factSwitchSchema = z.enum(["active", "excluded"]);
 
+/** A fact's status as it can be set: switched on or off, or archived (kept, hidden, never sent; switch it to restore). */
+export const factStatusSchema = z.enum(["active", "excluded", "archived"]);
+
 /** An application's exception: include a group or fact the AI wouldn't otherwise get, or exclude one it would. */
 export const overrideModeSchema = z.enum(["include", "exclude"]);
 

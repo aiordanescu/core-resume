@@ -88,6 +88,11 @@ msgstr "{0, plural, one {يظهر \"{1}\" مرة واحدة في إعلان ال
 msgid "{0, plural, one {# answer} other {# answers}}"
 msgstr "{0, plural, zero {لا إجابات} one {إجابة واحدة} two {إجابتان} few {# إجابات} many {# إجابة} other {# إجابة}}"
 
+#. placeholder {0}: copies.length
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, one {# application fact is a word-for-word copy of a shared fact, which already reaches that application.} other {# application facts are word-for-word copies of shared facts, which already reach those applications.}}"
+msgstr ""
+
 #. placeholder {0}: importable.length
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# application ready to import} other {# applications ready to import}}"
@@ -246,6 +251,11 @@ msgstr "{0, plural, zero {غير مستخدمة في أي عنصر محفوظ} o
 #: src/libs/error-message.ts
 msgid "{0, plural, one {Your selected font can't display {list}. It shows as “?”. In Design, choose a font that has it.} other {Your selected font can't display {list}. They show as “?”. In Design, choose a font that has them.}}"
 msgstr "{0, plural, one {لا يمكن للخط الذي اخترته عرض {list}. يظهر على شكل “?”. في التصميم، اختر خطًا يتضمنه.} two {لا يمكن للخط الذي اخترته عرض {list}. يظهران على شكل “?”. في التصميم، اختر خطًا يتضمنهما.} other {لا يمكن للخط الذي اخترته عرض {list}. تظهر على شكل “?”. في التصميم، اختر خطًا يتضمنها.}}"
+
+#. placeholder {0}: set.copies.length + 1
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{0, plural, other {Said # times}}"
+msgstr ""
 
 #. placeholder {0}: when(runAt)
 #: src/features/career/workspace/prepare.tsx
@@ -755,6 +765,10 @@ msgstr "{type} · {0} أيام متبقية"
 msgid "{type} · Edited {0}"
 msgstr "{type} · تم تحرير {0}"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "{updated, plural, one {Removed # copy.} other {Removed # copies.}}"
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "{updated, plural, one {Switched # fact in {group} off.} other {Switched # facts in {group} off.}}"
 msgstr ""
@@ -934,9 +948,17 @@ msgstr "لن يتم قراءة التاريخ"
 msgid "A fact"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact behind it was forgotten."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
 msgstr "تغيّرت حقيقة. راجع هذه القصة."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A fact said twice takes twice the budget. Merging keeps one: stories and saved work move to it, and the other is archived, not erased."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A fact you've since forgotten"
@@ -1022,6 +1044,10 @@ msgstr "رأي ثاني في كلامك"
 #: src/features/applications/next-step.ts
 msgid "A short follow-up is usually fine now"
 msgstr "عادة ما تكون المتابعة القصيرة جيدة الآن"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "A story reaches the AI only while every fact behind it does, and none was corrected after the story was saved."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "A story you've since deleted"
@@ -1603,6 +1629,7 @@ msgid "All"
 msgstr "الجميع"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "All applications"
 msgstr "كل الطلبات"
 
@@ -1962,9 +1989,25 @@ msgstr "طبّق تغييرًا واحدًا"
 msgid "Arabic"
 msgstr "العربية"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "Archive"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "مؤرشف (يغلق)"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived {archivedCount}"
+msgstr ""
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Archived, never sent"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Archived: “{quote}”"
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "Are you sure you want to close this dialog?"
@@ -3178,6 +3221,10 @@ msgstr "صحّح هذه الحقيقة"
 msgid "Corrected {correctedOn} · original kept"
 msgstr "صُحِّحت في {correctedOn} · الأصل محفوظ"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Corrected after the story was saved:"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "لا يمكن إكمال هذا الاتصال. أعد تشغيل الاتصال من العميل وحاول مرة أخرى."
@@ -3235,6 +3282,10 @@ msgstr "تعذر إضافة الطلب. يرجى المحاولة مرة أخر�
 #: src/features/settings/account/security.tsx
 msgid "Couldn't add the passkey. Try again."
 msgstr "تعذر إضافة مفتاح المرور. حاول ثانية."
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Couldn't archive that fact."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
@@ -3409,6 +3460,10 @@ msgstr "تعذّر تحديده كمُقدَّم."
 msgid "Couldn't mark this as read."
 msgstr "تعذّر تحديد هذا كمقروء."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Couldn't merge those facts."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't propose these edits: {0}"
@@ -3512,6 +3567,7 @@ msgid "Couldn't save the resume length."
 msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
+#: src/features/career/knowledge/upkeep.tsx
 msgid "Couldn't save the story."
 msgstr "تعذّر حفظ القصة."
 
@@ -4419,6 +4475,10 @@ msgstr "استنسخ سيرتك الذاتية لإنشاء سيرة جديدة 
 msgid "Duplicated"
 msgstr "مكررة"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Duplicates"
+msgstr ""
+
 #: src/dialogs/resume/index.tsx
 msgid "Duplicating your resume..."
 msgstr "جاري استنساخ سيرتك الذاتية..."
@@ -4514,6 +4574,10 @@ msgstr "عدّل السؤال"
 #: src/features/career/schedule-sheet.tsx
 msgid "Edit schedule"
 msgstr "عدّل الجدول"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Edit story"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Edit the email"
@@ -4740,6 +4804,10 @@ msgstr "يحتوي كل إدخال على تواريخ في نموذج يتم ق
 msgid "Every role says what you did. Opinions on wording live in the Writing tab."
 msgstr "كل دور يقول ما فعلته. توجد آراء حول الصياغة في علامة التبويب \"الكتابة\"."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Every story can be used."
+msgstr ""
+
 #: src/features/homepage/faq.tsx
 msgid "Every template exports a text-based PDF with the words in reading order, which is what applicant tracking systems (ATS) need to parse a resume. To test any PDF, including one made elsewhere, the free ATS checker shows the text software extracts and what to fix."
 msgstr "يقوم كل قالب بتصدير PDF القائم على النص مع الكلمات بترتيب القراءة، وهو ما تحتاجه أنظمة تتبع مقدم الطلب (ATS) لتحليل السيرة الذاتية. لاختبار أي PDF، بما في ذلك ما تم تصنيعه في مكان آخر، يعرض مدقق ATS المجاني مقتطفات البرامج النصية وما يجب إصلاحه."
@@ -4864,6 +4932,10 @@ msgstr "مستخرج من PDF الموجود بالصفحة · ترتيب الق
 #: src/features/homepage/remember.tsx
 msgid "Fact · Accomplishment"
 msgstr "حقيقة · إنجاز"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "Fact archived"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact forgotten"
@@ -5877,6 +5949,10 @@ msgstr "تحسين الخط المحدد"
 msgid "Improving…"
 msgstr "تحسين…"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "In a private group: “{quote}”"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "In good company"
 msgstr "في شركة جيدة"
@@ -6257,6 +6333,10 @@ msgstr "احتفظ بالألغام"
 msgid "Keep on one page"
 msgstr "إبقاء على صفحة واحدة"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep one"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Keep private notes about this resume here. Nobody else can see them."
 msgstr "احتفظ هنا بملاحظات خاصة عن هذه السيرة الذاتية. لا يمكن لأحد غيرك رؤيتها."
@@ -6284,6 +6364,10 @@ msgstr "احتفظ بالتسجيل في هذا المتصفح لأتمكن من
 #: src/features/ats-checker/messages.ts
 msgid "Keep them to roughly two lines, so a skim-reader finishes them."
 msgstr "أبقِها في حدود سطرين تقريبًا، حتى يستطيع القارئ السريع إنهاءها."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Keep this one"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Keep to two or three families. Each extra font is another chance for one to map badly."
@@ -7358,6 +7442,11 @@ msgstr "ضيق"
 msgid "narrow margins"
 msgstr "هوامش ضيقة"
 
+#. placeholder {0}: Math.round(pair.similarity * 100)
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Nearly the same · {0}%"
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "Needs attention"
 msgstr "يحتاج إلى اهتمام"
@@ -7517,6 +7606,10 @@ msgstr "لا توجد طلبات عمل حتى الآن"
 msgid "No applications yet. Add one in Applications first."
 msgstr "لا توجد طلبات عمل حتى الآن. أضف واحدًا في طلبات العمل أولاً."
 
+#: src/features/career/knowledge/facts.tsx
+msgid "No archived facts match."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "لم يُعثر على أي قوائم نقطية."
@@ -7554,6 +7647,10 @@ msgstr "لا تصحيحات"
 msgid "No dates were found."
 msgstr "لم يُعثر على أي تواريخ."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No duplicates found."
+msgstr ""
+
 #: src/features/assistant/assistant-panel.tsx
 msgid "no edits"
 msgstr "لا توجد تعديلات"
@@ -7575,6 +7672,10 @@ msgstr "لم يُعثر على عنوان بريد إلكتروني."
 #: src/features/homepage/remember.tsx
 msgid "No evidence yet"
 msgstr "لا يوجد دليل بعد"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "No facts back it. Edit it and tick the facts it rests on."
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "No facts match. Try another word or type."
@@ -7844,6 +7945,10 @@ msgstr "لم يتم إعداده"
 msgid "Not sure what to write?"
 msgstr "لست متأكدًا مما يجب كتابته؟"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Not the same"
+msgstr ""
+
 #: src/features/resume/editor/check/job-match.tsx
 msgid "Not true for me, hide it"
 msgstr "ليس صحيحا بالنسبة لي، إخفاء ذلك"
@@ -8021,6 +8126,10 @@ msgstr "بمجرد جدولة جولة، يُعدّ التحضير خطة موق
 #: src/features/applications/components/insights-view.tsx
 msgid "Once you've sent a few applications, this shows how far they get and how quickly people reply."
 msgstr "بمجرد إرسالك لعدد قليل من طلبات العمل، فهذا يوضح مدى تقدمهم ومدى سرعة استجابة الأشخاص."
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "One application only"
+msgstr ""
 
 #: src/features/resume/editor/design/template-group.tsx
 msgid "One column"
@@ -9464,6 +9573,10 @@ msgstr "إزالة {value}"
 msgid "Remove connection"
 msgstr "إزالة الاتصال"
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Remove copies"
+msgstr ""
+
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Remove field"
 msgstr "إزالة الحقل"
@@ -9631,6 +9744,7 @@ msgstr "الرد قبل"
 msgid "Responsible for the design system and helping other teams with their designs."
 msgstr "مسؤول عن نظام التصميم ومساعدة الفرق الأخرى في تصميماتهم."
 
+#: src/features/career/knowledge/facts.tsx
 #: src/features/documents/document-actions.tsx
 msgid "Restore"
 msgstr "يعيد"
@@ -10631,6 +10745,11 @@ msgstr "إظهار العنوان"
 msgid "Show link in title"
 msgstr "إظهار الرابط في العنوان"
 
+#. placeholder {0}: near.length - shown
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Show more ({0})"
+msgstr ""
+
 #: src/features/resume/editor/check/check-panel.tsx
 #: src/features/resume/editor/check/writing-tab.tsx
 #: src/features/resume/editor/write/entry-card.tsx
@@ -11148,6 +11267,10 @@ msgstr "ابق هنا"
 msgid "Still {pages} pages at 9 pt. Hide a section or shorten entries."
 msgstr "لا تزال صفحات {pages} عند 9 نقاط. إخفاء قسم أو تقصير الإدخالات."
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Still true, use it"
+msgstr ""
+
 #: src/features/assistant/conversation.tsx
 #: src/features/career/coach-thread.tsx
 #: src/features/homepage/prepare.tsx
@@ -11203,6 +11326,10 @@ msgstr ""
 msgid "Stories shared with each message"
 msgstr ""
 
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Stories the AI can't use"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "Stories to bring"
 msgstr "القصص التي ستحضرها"
@@ -11214,6 +11341,10 @@ msgstr "قصة"
 #: src/features/homepage/remember.tsx
 msgid "Story · 5 of 5 parts"
 msgstr "قصة · 5 من 5 أجزاء"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Story confirmed. The AI can use it again."
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "Story deleted"
@@ -11366,6 +11497,20 @@ msgstr "التبديل إلى السمة المضيئة"
 #: src/features/resume/editor/check/issues.ts
 msgid "Switch to one column"
 msgstr "التبديل إلى عمود واحد"
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can't read it"
+msgid "switched off"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgid "Switched off: “{quote}”"
+msgstr ""
+
+#: src/features/career/knowledge/upkeep.tsx
+msgctxt "A fact's switch: the AI can read it"
+msgid "switched on"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Switched to one column"
