@@ -2,12 +2,15 @@ import type { ReactNode } from "react";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
+import { Wordmark } from "@reactive-resume/ui/components/wordmark";
 import { cn } from "@reactive-resume/utils/style";
 import { SCENE } from "./scroll";
 import { labelClass } from "./ui";
+import { appVersionLabel } from "@/libs/app-version";
 
-const githubUrl = "https://github.com/reactive-resume/reactive-resume";
+const githubUrl = "https://github.com/aiordanescu/overreactive-resume";
 const licenseUrl = `${githubUrl}/blob/main/LICENSE`;
+const upstreamUrl = "https://github.com/reactive-resume/reactive-resume";
 const linkClass = "text-ink transition-colors hover:text-accent-text";
 
 type FooterLink = { label: string; href: string } | { label: string; to: "/ats-checker" | "/dashboard" };
@@ -27,33 +30,26 @@ const getColumns = (): { id: string; title: string; links: FooterLink[] }[] => [
 		id: "resources",
 		title: t`Resources`,
 		links: [
-			{ label: t`About`, href: "https://docs.rxresu.me/getting-started" },
-			{ label: t`Documentation`, href: "https://docs.rxresu.me" },
-			{ label: t`Changelog`, href: "https://docs.rxresu.me/changelog" },
 			{ label: t`Source code`, href: githubUrl },
-			{ label: t`Self-hosting`, href: "https://docs.rxresu.me" },
+			{ label: t`What's different`, href: `${githubUrl}/blob/main/FORK.md` },
+			{ label: t`Documentation`, href: `${githubUrl}/tree/main/docs` },
+			{ label: t`Self-hosting`, href: `${githubUrl}/tree/main/docs/self-hosting` },
+			{ label: t`Report an issue`, href: `${githubUrl}/issues` },
 		],
 	},
 	{
-		id: "community",
-		title: t`Community`,
+		id: "upstream",
+		title: t`Built on`,
 		links: [
-			{ label: t`Discord`, href: "https://discord.gg/aSyA5ZSxpb" },
-			{ label: t`Subreddit`, href: "https://reddit.com/r/reactiveresume" },
-			{ label: t`Translations`, href: "https://crowdin.com/project/reactive-resume" },
-			{ label: t`Contact`, href: "mailto:amruth@rxresu.me" },
-			{ label: "LinkedIn", href: "https://www.linkedin.com/company/reactive-resume" },
-			{ label: "Amruth Pillai · X", href: "https://x.com/KingOKings" },
-			{ label: t`Report an issue`, href: `${githubUrl}/issues` },
+			{ label: "Reactive Resume", href: upstreamUrl },
+			{ label: t`Its documentation`, href: "https://docs.rxresu.me" },
+			{ label: t`Support Reactive Resume`, href: "https://opencollective.com/reactive-resume/donate" },
 		],
 	},
 	{
 		id: "legal",
 		title: t`Legal`,
-		links: [
-			{ label: t`Privacy policy`, href: "https://docs.rxresu.me/legal/privacy-policy" },
-			{ label: t`MIT License`, href: licenseUrl },
-		],
+		links: [{ label: t`MIT License`, href: licenseUrl }],
 	},
 ];
 
@@ -78,24 +74,20 @@ export function LandingFooter() {
 		<footer data-scene={SCENE.footer} className="relative overflow-hidden border-t border-line">
 			<div className="mx-auto grid max-w-[1440px] grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-x-8 gap-y-10 px-(--gutter) pt-16">
 				<div className="col-span-2 flex min-w-0 flex-col gap-3.5">
-					<img
-						loading="lazy"
-						src="/logo/light.svg"
-						alt="Reactive Resume"
-						width={140}
-						height={140}
-						className="-ms-[18px] -mt-[22px] -mb-[18px] size-[140px] dark:hidden"
-					/>
-					<img
-						loading="lazy"
-						src="/logo/dark.svg"
-						alt="Reactive Resume"
-						width={140}
-						height={140}
-						className="-ms-[18px] -mt-[22px] -mb-[18px] hidden size-[140px] dark:block"
-					/>
+					<Wordmark stacked className="text-[30px]" />
 					<div className="flex flex-col gap-1 font-ui text-[13px] leading-normal text-ink-3">
-						<p>{t`By the community, for the community.`}</p>
+						<p>
+							<Trans>
+								A fork of{" "}
+								<a
+									href={upstreamUrl}
+									className="text-accent-text underline underline-offset-[3px] transition-colors hover:text-accent-hover"
+								>
+									Reactive Resume
+								</a>{" "}
+								by Amruth Pillai.
+							</Trans>
+						</p>
 						<p>
 							<Trans>
 								Licensed under{" "}
@@ -107,7 +99,7 @@ export function LandingFooter() {
 								</a>
 							</Trans>
 						</p>
-						<p>v{__APP_VERSION__}</p>
+						<p>{appVersionLabel}</p>
 					</div>
 				</div>
 
@@ -133,9 +125,9 @@ export function LandingFooter() {
 
 			{/* It fades in by sliding up out of the mask's faded bottom; an opacity fade would fail contrast checks. */}
 			<div aria-hidden="true" className="@container mx-auto mt-14 max-w-[1440px] px-(--gutter)">
-				<div className="h-[27cqw] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_35%,transparent_100%)]">
-					<div className="font-anybody [transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[.12em] pb-[.06em] text-[17.5cqw] leading-[.84] font-extrabold tracking-[-.035em] whitespace-nowrap text-ink font-stretch-[78%] select-none [transition:transform_.35s_var(--ease)]">
-						<span className="block">Reactive</span>
+				<div className="h-[24cqw] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_35%,transparent_100%)]">
+					<div className="font-anybody [transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[.12em] pb-[.06em] text-[15.5cqw] leading-[.84] font-extrabold tracking-[-.035em] whitespace-nowrap text-ink font-stretch-[78%] select-none [transition:transform_.35s_var(--ease)]">
+						<span className="block">Overreactive</span>
 						<span className="block text-accent-text">Resume</span>
 					</div>
 				</div>

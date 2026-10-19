@@ -2,14 +2,14 @@ import type { ErrorComponentProps } from "@tanstack/react-router";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "@tanstack/react-router";
 import { Alert, AlertDescription, AlertTitle } from "@reactive-resume/ui/components/alert";
-import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Button, buttonVariants } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { Wordmark } from "@reactive-resume/ui/components/wordmark";
 
 export function ErrorScreen({ reset }: ErrorComponentProps) {
 	return (
 		<div className="mx-auto flex h-svh max-w-md flex-col items-center justify-center gap-y-4">
-			<BrandIcon variant="logo" className="size-12" />
+			<Wordmark stacked className="text-center text-[26px]" />
 
 			<Alert>
 				<Icon name="warning" size={16} />

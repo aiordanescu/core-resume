@@ -73,11 +73,11 @@ function buildIntegrations() {
 	return {
 		version: 3,
 		summary:
-			"Reactive Resume is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API or the MCP server.",
+			"Overreactive Resume is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API or the MCP server.",
 		credentials: {
 			"api-key": {
 				type: "api_key",
-				label: "Reactive Resume API key",
+				label: "Overreactive Resume API key",
 				generateUrl: `${baseUrl}/dashboard/settings/ai`,
 				setup: [
 					"Open **Settings → AI & developer**, select **New key** in the **API keys** section, name it, choose when it expires, then copy it.",
@@ -87,10 +87,10 @@ function buildIntegrations() {
 			},
 			oauth: {
 				type: "oauth2",
-				label: "Reactive Resume OAuth",
+				label: "Overreactive Resume OAuth",
 				setup: [
 					`OAuth authorization-code flow with dynamic client registration (RFC 7591). Clients discover the authorization server from \`${baseUrl}/.well-known/oauth-protected-resource\` (issuer \`${authorizationServer()}\`).`,
-					"The user signs in to Reactive Resume and approves the client on the consent screen; the resulting access token is sent as `Authorization: Bearer <token>`.",
+					"The user signs in to Overreactive Resume and approves the client on the consent screen; the resulting access token is sent as `Authorization: Bearer <token>`.",
 				].join("\n\n"),
 			},
 		},
@@ -98,7 +98,7 @@ function buildIntegrations() {
 			{
 				type: "http",
 				slug: "reactive-resume-api",
-				name: "Reactive Resume REST API",
+				name: "Overreactive Resume REST API",
 				docs: `${DOCS_URL}/guides/using-the-api`,
 				basis,
 				spec: `${baseUrl}/openapi.json`,
@@ -122,7 +122,7 @@ function buildIntegrations() {
 			{
 				type: "mcp",
 				slug: "reactive-resume-mcp",
-				name: "Reactive Resume MCP server",
+				name: "Overreactive Resume MCP server",
 				docs: `${DOCS_URL}/guides/using-the-mcp-server`,
 				basis,
 				url: `${baseUrl}/mcp`,

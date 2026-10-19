@@ -1,4 +1,5 @@
 import type { ProxyOptions } from "vite";
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -13,6 +14,15 @@ import { defineConfig } from "vite";
 const rootPackageJsonPath = new URL("../../package.json", import.meta.url);
 const rootPackageJson = JSON.parse(readFileSync(rootPackageJsonPath, "utf-8")) as { version: string | undefined };
 const appVersion = JSON.stringify(rootPackageJson.version ?? "0.0.0");
+// The fork commit the build came from: APP_COMMIT in Docker (the build context has no .git), else the local checkout.
+const readGitCommit = () => {
+	try {
+		return execFileSync("git", ["rev-parse", "--short=9", "HEAD"], { encoding: "utf-8" }).trim();
+	} catch {
+		return "";
+	}
+};
+const appCommit = JSON.stringify(process.env.APP_COMMIT || readGitCommit());
 const workspaceRoot = fileURLToPath(new URL("../..", import.meta.url));
 
 const webRoot = fileURLToPath(new URL(".", import.meta.url));
@@ -85,6 +95,7 @@ export default defineConfig({
 
 	define: {
 		__APP_VERSION__: appVersion,
+		__APP_COMMIT__: appCommit,
 	},
 
 	// `vite build` builds the app, then the marketing pages' server entry, then prerenders the pages with it.

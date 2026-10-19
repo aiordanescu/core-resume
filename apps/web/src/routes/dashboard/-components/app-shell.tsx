@@ -6,11 +6,11 @@ import { useHotkey } from "@tanstack/react-hotkeys";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useMatchRoute } from "@tanstack/react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@reactive-resume/ui/components/avatar";
-import { BrandIcon } from "@reactive-resume/ui/components/brand-icon";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Kbd } from "@reactive-resume/ui/components/kbd";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
+import { Monogram, Wordmark } from "@reactive-resume/ui/components/wordmark";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
 import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
@@ -126,8 +126,7 @@ function Sidebar() {
 			className="sticky top-0 flex h-svh flex-col gap-3 border-e border-line bg-surface p-3 [view-transition-name:app-nav]"
 		>
 			<Link to="/" className="flex h-9 items-center gap-2.5 px-1.5">
-				<BrandIcon variant="icon" alt="" className="size-6 shrink-0" />
-				<span className="text-sm font-semibold">Reactive Resume</span>
+				<Wordmark className="text-[17px]" />
 			</Link>
 
 			<button
@@ -220,8 +219,8 @@ function Rail() {
 			aria-label={t`App navigation`}
 			className="sticky top-0 flex h-svh flex-col items-center gap-2 border-e border-line bg-surface py-3 [view-transition-name:app-nav]"
 		>
-			<Link to="/" aria-label="Reactive Resume" className="mb-1 grid size-8 place-items-center rounded-md">
-				<BrandIcon variant="icon" alt="" className="size-6" />
+			<Link to="/" aria-label="Overreactive Resume" className="mb-1 grid size-8 place-items-center rounded-md">
+				<Monogram aria-hidden="true" className="text-[19px]" />
 			</Link>
 			<RailTip label={t`Search`} icon="magnifying-glass">
 				<button

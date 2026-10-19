@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A pranon dhe R refuzon modifikimin e fokusuar. ↑ dhe ↓ lëvizni ndërmjet modifikimeve."
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "Një kopje rezervë e kësaj letre. Importon përsëri në Reactive Resume si një letër."
+msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -901,6 +901,10 @@ msgstr "Një plan i përqendruar për këtë raund"
 #: src/features/ats-checker/messages.ts
 msgid "A font is referenced but not embedded."
 msgstr "Një font referohet por nuk është i integruar."
+
+#: src/features/homepage/footer.tsx
+msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
@@ -986,10 +990,6 @@ msgstr "Një plan me kohë, hyrja juaj, historitë që do të sillni dhe pyetjet
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "Një adresë web është shkruar pa https://."
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "Rreth këtij aplikacioni"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2285,6 +2285,14 @@ msgstr "Ndërtova një sistem dizajni të përbashkët që përdoret nga gjasht�
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Ndërtuar nga shpallja, mesazhi i Sam-it dhe dy historitë tuaja më të forta."
 
+#: src/features/homepage/footer.tsx
+msgid "Built on"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Built on Reactive Resume"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Lexues i integruar"
@@ -2302,10 +2310,6 @@ msgstr "hyrje në listë {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Lista me pika"
-
-#: src/features/homepage/footer.tsx
-msgid "By the community, for the community."
-msgstr "Nga komuniteti, për komunitetin."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -2427,10 +2431,6 @@ msgstr "Ndryshoi rezymenë drejtpërdrejt (një bisedë e mëparshme)"
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "Ndërruat mendje? Riemërtoni CV-në tuaj me diçka më përshkruese."
-
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "Ndryshimet"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
@@ -2750,10 +2750,6 @@ msgstr "Paleta e komandave"
 msgid "Command Palette - {currentPage}"
 msgstr "Paleta e komandave - {currentPage}"
 
-#: src/features/homepage/footer.tsx
-msgid "Community"
-msgstr "Komuniteti"
-
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Compact"
@@ -2790,8 +2786,8 @@ msgid "Compares your resume with the posting"
 msgstr "Krahasoni CV-në tuaj me postimin e punës"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "Rezervimi i plotë i të dhënave. Importon përsëri në mjetet Reactive Resume ose JSON Resume."
+msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2899,7 +2895,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "Lidhjet e faturojnë të folurën veçmas dhe mund të përdorin tokenë në llogarinë tuaj. E folura e shfletuesit tuaj është falas, por prodhuesi i tij mund ta përpunojë audion. Serveri ruan transkriptet, kurrë regjistrimet."
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "Kontaktoni"
 
@@ -4068,10 +4063,6 @@ msgstr "Të hidhen poshtë ndryshimet?"
 msgid "Disconnect"
 msgstr "Shkëput"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "Discord"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4120,7 +4111,6 @@ msgstr "Mos dërgo {0}"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "Dhuro"
 
@@ -4554,8 +4544,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "Leximi i përmirësuar nuk ishte i disponueshëm. Lexuesi i integruar e mori këtë postim pune."
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "Ju pëlqen Reactive Resume?"
+msgid "Enjoying Overreactive Resume?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5352,8 +5342,8 @@ msgid "Go to…"
 msgstr "Shko te…"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "Fat të mirë atje. Reactive Resume qëndron falas sepse njerëzit futen."
+msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5558,10 +5548,6 @@ msgstr "Kreu"
 msgid "Horizontal line"
 msgstr "Vijë horizontale"
 
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr "Pritja dhe zhvillimi paguhen nga njerëz si ju. Këshillë opsionale:"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "Si shkoi?"
@@ -5719,8 +5705,8 @@ msgid "Import steps"
 msgstr "Hapat e importit"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "Importo këtë skedar në një Reactive Resume falas. Çdo problem ju pret në Check."
+msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5890,8 +5876,8 @@ msgid "Is equity part of the offer?"
 msgstr "A janë aksionet pjesë e ofertës?"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "A është vërtet falas Reactive Resume?"
+msgid "Is Overreactive Resume really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5965,8 +5951,8 @@ msgid "It will show on the application's timeline and on the calendar."
 msgstr "Do të shfaqet në afatin kohor të aplikimit për punë dhe në kalendar."
 
 #: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
-msgstr "Është falas dhe me burim të hapur, mbahet gjallë nga donacionet e njerëzve që e përdorin. Nëse ju ka ndihmuar, mendoni të kontribuoni."
+msgid "It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in."
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "It's removed from the timeline for good."
@@ -5992,6 +5978,10 @@ msgstr "hyrjet që zhvendosni këtu qëndrojnë për 30 ditë."
 #: src/features/career/schedule-sheet.tsx
 msgid "Its connection was switched off or removed, so it runs on {0} until you choose another."
 msgstr "Lidhja e tij u çaktivizua ose u hoq, prandaj funksionon me {0} derisa të zgjidhni një tjetër."
+
+#: src/features/homepage/footer.tsx
+msgid "Its documentation"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Its messages and attachments are deleted. Edits you accepted stay in the document."
@@ -6469,12 +6459,12 @@ msgid "Link"
 msgstr "Lidhje"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Lidh një Reactive Resume (rekomandohet)"
+msgid "Link a resume (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "Lidhni një CV të Reactive Resume për të përdorur vlerësimin e përputhjes dhe përshtatjen me AI."
+msgid "Link a resume to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6715,8 +6705,8 @@ msgid "Lower the design sheet"
 msgstr "Ulni fletën e projektimit"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "Bërë me Reactive Resume, falas dhe me burim të hapur"
+msgid "Made with Overreactive Resume, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7559,7 +7549,7 @@ msgstr "Nuk u gjet seksioni i përvojës së punës."
 msgid "No. {number} · {name}"
 msgstr "Nr {number} · {name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "asnjë"
@@ -8116,6 +8106,22 @@ msgstr "I vjetëruar: teksti ka ndryshuar që atëherë."
 msgid "Outdent"
 msgstr "Zvogëlo dhëmbëzimin"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Overreactive Resume - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Overreactive Resume {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr "Zotërim dhe zhvillim i një sistemi dizajni"
@@ -8660,10 +8666,6 @@ msgstr "Printoni ose eksportoni formularin në një PDF të sheshtë përpara se
 msgid "Printing is turned off for this resume."
 msgstr "Printimi është i çaktivizuar për këtë rezyme."
 
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "Politika e privatësisë"
-
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Privat"
@@ -8881,21 +8883,9 @@ msgstr "Eksportoni përsëri me fontet e integruara, pastaj hapni skedarin dhe k
 msgid "Re: Senior Product Designer"
 msgstr "Re: Dizajner i lartë produkti"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - Shko në faqen kryesore"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume është një krijues CV-sh falas dhe me burim të hapur. Shkruajeni, dizajnojeni, kontrollojeni, përshtateni për çdo punë dhe shkoni në intervistë të përgatitur."
-
 #: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume është me burim të hapur sipas licencës MIT. Amruth Pillai dhe një komunitet kontribuuesish e mbajnë në punë, dhe donacionet paguajnë hostimin dhe zhvillimin. Nuk ka nivel me pagesë."
+msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
+msgstr ""
 
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
@@ -10834,23 +10824,6 @@ msgstr "Fazat"
 msgid "Standard section headings"
 msgstr "Titujt standard të seksioneve"
 
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "Ylli Reactive Resume në GitHub"
-
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "Ylli Reactive Resume në yjet GitHub, {count}"
-
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "Jepna yll në GitHub (hapet në skedë të re)"
-
-#. placeholder {0}: starCount.toLocaleString()
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "Jepna yll në GitHub, aktualisht {0} yje (hapet në skedë të re)"
-
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"
 msgstr "Yje në GitHub"
@@ -11066,10 +11039,6 @@ msgstr "Letër motivuese e dorëzuar: {0}"
 msgid "Submitted attached resume: {0}"
 msgstr "CV e dorëzuar bashkëngjitur: {0}"
 
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "Subreddit"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "Suksesi pas 90 ditësh · hapi tjetër"
@@ -11107,6 +11076,10 @@ msgstr "Përmbledhja"
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "Mbështetje"
+
+#: src/features/homepage/footer.tsx
+msgid "Support Reactive Resume"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
@@ -12118,10 +12091,6 @@ msgstr "Po transkriptohet me {model}…"
 msgid "Transcript copied"
 msgstr "Transkripti u kopjua"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "Përkthejeni"
-
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "Përkthe aplikacionin"
@@ -12133,10 +12102,6 @@ msgstr ""
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
 msgstr "Përkthyer në {languageCount} gjuhë. Ndihmoni në përkthimin e aplikacionit në gjuhën tuaj."
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "Përkthime"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -13032,6 +12997,10 @@ msgstr "Çfarë dërguat · {0}"
 msgid "What you're looking for"
 msgstr "Çfarë kërkoni"
 
+#: src/features/homepage/footer.tsx
+msgid "What's different"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "Për çfarë është?"
@@ -13262,8 +13231,8 @@ msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reacti
 msgstr "po. Importoni një eksportim PDF, një eksportim të të dhënave LinkedIn, një skedar JSON Resume ose një eksport Reactive Resume, më pas vazhdoni aty ku e la. Me një ofrues të AI të konfiguruar, dokumentet Word funksionojnë gjithashtu."
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "po. Reactive Resume është me burim të hapur nën MIT License dhe dërgohet si një imazh Docker, kështu që funksionon në serverin tuaj me bazën e të dhënave dhe ruajtjen tuaj."
+msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

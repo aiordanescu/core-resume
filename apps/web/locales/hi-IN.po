@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "ए स्वीकार करता है और आर केंद्रित संपादन को अस्वीकार करता है। ↑ और ↓ संपादनों के बीच जाएँ।"
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "इस पत्र का बैकअप. एक पत्र के रूप में Reactive Resume में वापस आयात करता है।"
+msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -901,6 +901,10 @@ msgstr "इस राउंड के लिए केंद्रित यो�
 #: src/features/ats-checker/messages.ts
 msgid "A font is referenced but not embedded."
 msgstr "एक फ़ॉन्ट संदर्भित है लेकिन एम्बेड नहीं किया गया।"
+
+#: src/features/homepage/footer.tsx
+msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
@@ -986,10 +990,6 @@ msgstr "समयबद्ध योजना, आपकी शुरुआत, 
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "एक वेब पता https:// के बिना लिखा गया है।"
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "इस ऐप के बारे में"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2285,6 +2285,14 @@ msgstr "छह प्रोडक्ट टीमों द्वारा इ�
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "पोस्टिंग, Sam के संदेश और आपकी दो सबसे मज़बूत कहानियों से बनाया गया।"
 
+#: src/features/homepage/footer.tsx
+msgid "Built on"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Built on Reactive Resume"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "अंतर्निर्मित पाठक"
@@ -2302,10 +2310,6 @@ msgstr "सूची प्रविष्टि {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "बुलेटेड सूची"
-
-#: src/features/homepage/footer.tsx
-msgid "By the community, for the community."
-msgstr "समुदाय द्वारा, समुदाय के लिए।"
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -2427,10 +2431,6 @@ msgstr "सीधे बायोडाटा बदला (पहले की 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "मन बदल गया? अपने रेज़्यूमे का नाम बदलकर उसे और वर्णनात्मक बनाएं।"
-
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "चेंजलॉग"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
@@ -2750,10 +2750,6 @@ msgstr "कमांड पैलेट"
 msgid "Command Palette - {currentPage}"
 msgstr "कमांड पैलेट - {currentPage}"
 
-#: src/features/homepage/footer.tsx
-msgid "Community"
-msgstr "समुदाय"
-
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Compact"
@@ -2790,8 +2786,8 @@ msgid "Compares your resume with the posting"
 msgstr "आपके बायोडाटा की तुलना नौकरी पोस्टिंग से करता है"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "पूरा डेटा बैकअप. Reactive Resume या JSON Resume टूल में वापस आयात करता है।"
+msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2899,7 +2895,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "कनेक्शन बोलने का शुल्क अलग से लेते हैं और आपके खाते के टोकन इस्तेमाल कर सकते हैं। आपके ब्राउज़र की आवाज़ मुफ़्त है, लेकिन उसका निर्माता ऑडियो प्रोसेस कर सकता है। सर्वर ट्रांसक्रिप्ट रखता है, रिकॉर्डिंग कभी नहीं।"
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "संपर्क"
 
@@ -4068,10 +4063,6 @@ msgstr "बदलाव छोड़ दें?"
 msgid "Disconnect"
 msgstr "डिसकनेक्ट करें"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "डिस्कॉर्ड"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4120,7 +4111,6 @@ msgstr "{0} न भेजें"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "दान करें"
 
@@ -4554,8 +4544,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "उन्नत पठन अनुपलब्ध था. बिल्ट-इन रीडर ने इस जॉब पोस्टिंग को पुनः प्राप्त किया।"
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "Reactive Resume पसंद आ रहा है?"
+msgid "Enjoying Overreactive Resume?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5352,8 +5342,8 @@ msgid "Go to…"
 msgstr "… पर जाएं"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "वहाँ शुभकामनाएँ. Reactive Resume मुफ़्त रहता है क्योंकि लोग जुड़ते हैं।"
+msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5558,10 +5548,6 @@ msgstr "होम"
 msgid "Horizontal line"
 msgstr "क्षैतिज रेखा"
 
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr "होस्टिंग और विकास का भुगतान आप जैसे लोगों द्वारा किया जाता है। वैकल्पिक टिप:"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "कैसा रहा?"
@@ -5719,8 +5705,8 @@ msgid "Import steps"
 msgstr "आयात चरण"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "इस फ़ाइल को निःशुल्क Reactive Resume में आयात करें। चेक में हर अंक आपका इंतजार कर रहा है."
+msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5890,8 +5876,8 @@ msgid "Is equity part of the offer?"
 msgstr "क्या ऑफ़र में इक्विटी शामिल है?"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "क्या Reactive Resume सचमुच मुफ़्त है?"
+msgid "Is Overreactive Resume really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5965,8 +5951,8 @@ msgid "It will show on the application's timeline and on the calendar."
 msgstr "यह नौकरी आवेदन की टाइमलाइन और कैलेंडर पर दिखाई देगा।"
 
 #: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
-msgstr "यह मुफ़्त और ओपन सोर्स है, और इसके उपयोगकर्ताओं के दान से चलता है। अगर इससे आपको मदद मिली है, तो योगदान देने पर विचार करें।"
+msgid "It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in."
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "It's removed from the timeline for good."
@@ -5992,6 +5978,10 @@ msgstr "आपके द्वारा यहां भेजी गई प्�
 #: src/features/career/schedule-sheet.tsx
 msgid "Its connection was switched off or removed, so it runs on {0} until you choose another."
 msgstr "इसका कनेक्शन बंद कर दिया गया या हटा दिया गया, इसलिए जब तक आप कोई दूसरा नहीं चुनते, यह {0} पर चलता है।"
+
+#: src/features/homepage/footer.tsx
+msgid "Its documentation"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Its messages and attachments are deleted. Edits you accepted stay in the document."
@@ -6469,12 +6459,12 @@ msgid "Link"
 msgstr "जोड़ना"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "Reactive Resume लिंक करें (अनुशंसित)"
+msgid "Link a resume (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "AI मिलान स्कोरिंग और अनुकूलन के लिए कोई Reactive Resume लिंक करें।"
+msgid "Link a resume to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6715,8 +6705,8 @@ msgid "Lower the design sheet"
 msgstr "डिज़ाइन शीट को नीचे करें"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "Reactive Resume के साथ बनाया गया, मुफ़्त और खुला स्रोत"
+msgid "Made with Overreactive Resume, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7559,7 +7549,7 @@ msgstr "कोई कार्य-अनुभव सेक्शन नही�
 msgid "No. {number} · {name}"
 msgstr "नंबर {number} · {name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "कोई नहीं"
@@ -8116,6 +8106,22 @@ msgstr "पुराना: तब से पाठ बदल गया है�
 msgid "Outdent"
 msgstr "इंडेंट घटाएँ"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Overreactive Resume - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Overreactive Resume {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr "डिज़ाइन सिस्टम की ज़िम्मेदारी और उसका विकास"
@@ -8660,10 +8666,6 @@ msgstr "भेजने से पहले फ़ॉर्म को प्र�
 msgid "Printing is turned off for this resume."
 msgstr "इस बायोडाटा की छपाई बंद है।"
 
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "गोपनीयता नीति"
-
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "निजी"
@@ -8881,21 +8883,9 @@ msgstr "फ़ॉन्ट एम्बेड करके दोबारा �
 msgid "Re: Senior Product Designer"
 msgstr "Re: सीनियर प्रोडक्ट डिज़ाइनर"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - होमपेज पर जाएँ"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume एक मुफ़्त, ओपन-सोर्स रेज़्यूमे बिल्डर है। इसे लिखें, डिज़ाइन करें, जाँचें, हर नौकरी के लिए अनुकूलित करें और पूरी तैयारी के साथ साक्षात्कार में जाएँ।"
-
 #: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume, MIT लाइसेंस के तहत ओपन सोर्स है। Amruth Pillai और योगदानकर्ताओं का एक समुदाय इसे चलाते हैं, और दान से होस्टिंग और विकास का खर्च चलता है। कोई सशुल्क योजना नहीं है।"
+msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
+msgstr ""
 
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
@@ -10834,23 +10824,6 @@ msgstr "चरणों"
 msgid "Standard section headings"
 msgstr "मानक अनुभाग शीर्षक"
 
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "GitHub पर स्टार Reactive Resume लगाएं"
-
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "GitHub पर स्टार Reactive Resume, {count} स्टार"
-
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "GitHub पर हमें स्टार दें (नए टैब में खुलता है)"
-
-#. placeholder {0}: starCount.toLocaleString()
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "GitHub पर हमें स्टार दें, अभी {0} स्टार हैं (नए टैब में खुलता है)"
-
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"
 msgstr "GitHub पर स्टार"
@@ -11066,10 +11039,6 @@ msgstr "संलग्न कवर लेटर प्रस्तुत क�
 msgid "Submitted attached resume: {0}"
 msgstr "संलग्न बायोडाटा प्रस्तुत किया गया: {0}"
 
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "सबरेडिट"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "90 दिनों में सफलता · अगला कदम"
@@ -11107,6 +11076,10 @@ msgstr "सारांश"
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "सहायता"
+
+#: src/features/homepage/footer.tsx
+msgid "Support Reactive Resume"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
@@ -12118,10 +12091,6 @@ msgstr "{model} से ट्रांसक्राइब कर रहा ह
 msgid "Transcript copied"
 msgstr "प्रतिलेख की प्रतिलिपि बनाई गई"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "अनुवाद"
-
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "ऐप का अनुवाद करें"
@@ -12133,10 +12102,6 @@ msgstr ""
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
 msgstr "{languageCount} भाषाओं में अनुवादित। ऐप को अपनी भाषा में अनुवाद करने में सहायता करें।"
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "अनुवाद"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -13032,6 +12997,10 @@ msgstr "आपने क्या भेजा · {0}"
 msgid "What you're looking for"
 msgstr "आप क्या ढूँढ रहे हैं"
 
+#: src/features/homepage/footer.tsx
+msgid "What's different"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "वह किसके लिए है?"
@@ -13262,8 +13231,8 @@ msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reacti
 msgstr "हाँ। एक PDF, एक LinkedIn डेटा निर्यात, एक JSON Resume फ़ाइल या एक Reactive Resume निर्यात आयात करें, फिर वहीं से शुरू करें जहां इसे छोड़ा था। AI प्रदाता सेटअप के साथ, Word दस्तावेज़ भी काम करते हैं।"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "हाँ। Reactive Resume, MIT License के तहत खुला स्रोत है और Docker छवि के रूप में भेजा जाता है, इसलिए यह आपके अपने सर्वर पर आपके अपने डेटाबेस और स्टोरेज के साथ चलता है।"
+msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

@@ -846,7 +846,7 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr ""
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
+msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
 msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
@@ -895,6 +895,10 @@ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A font is referenced but not embedded."
+msgstr ""
+
+#: src/features/homepage/footer.tsx
+msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
 msgstr ""
 
 #: src/features/homepage/sections.tsx
@@ -980,10 +984,6 @@ msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
-msgstr ""
-
-#: src/features/homepage/footer.tsx
-msgid "About"
 msgstr ""
 
 #: src/features/career/workspace/practise.tsx
@@ -2280,6 +2280,14 @@ msgstr ""
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr ""
 
+#: src/features/homepage/footer.tsx
+msgid "Built on"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Built on Reactive Resume"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr ""
@@ -2296,10 +2304,6 @@ msgstr ""
 #: src/features/resume/editor/write/rich-text-editor.tsx
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
-msgstr ""
-
-#: src/features/homepage/footer.tsx
-msgid "By the community, for the community."
 msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
@@ -2421,10 +2425,6 @@ msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
-msgstr ""
-
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
 msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
@@ -2745,10 +2745,6 @@ msgstr ""
 msgid "Command Palette - {currentPage}"
 msgstr ""
 
-#: src/features/homepage/footer.tsx
-msgid "Community"
-msgstr ""
-
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Compact"
@@ -2785,7 +2781,7 @@ msgid "Compares your resume with the posting"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
+msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -2894,7 +2890,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr ""
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr ""
 
@@ -4063,10 +4058,6 @@ msgstr ""
 msgid "Disconnect"
 msgstr ""
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr ""
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4115,7 +4106,6 @@ msgstr ""
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr ""
 
@@ -4549,7 +4539,7 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr ""
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
+msgid "Enjoying Overreactive Resume?"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
@@ -5347,7 +5337,7 @@ msgid "Go to…"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
+msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
 msgstr ""
 
 #. Authentication provider display name in account settings
@@ -5553,10 +5543,6 @@ msgstr ""
 msgid "Horizontal line"
 msgstr ""
 
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr ""
@@ -5714,7 +5700,7 @@ msgid "Import steps"
 msgstr ""
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
+msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
 msgstr ""
 
 #: src/features/documents/documents-page.tsx
@@ -5885,7 +5871,7 @@ msgid "Is equity part of the offer?"
 msgstr ""
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
+msgid "Is Overreactive Resume really free?"
 msgstr ""
 
 #: src/features/career/offers.tsx
@@ -5960,7 +5946,7 @@ msgid "It will show on the application's timeline and on the calendar."
 msgstr ""
 
 #: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
+msgid "It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in."
 msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
@@ -5986,6 +5972,10 @@ msgstr ""
 #. placeholder {0}: providers[0]?.label ?? ""
 #: src/features/career/schedule-sheet.tsx
 msgid "Its connection was switched off or removed, so it runs on {0} until you choose another."
+msgstr ""
+
+#: src/features/homepage/footer.tsx
+msgid "Its documentation"
 msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
@@ -6464,11 +6454,11 @@ msgid "Link"
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
+msgid "Link a resume (recommended)"
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
+msgid "Link a resume to use AI match scoring and tailoring."
 msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
@@ -6710,7 +6700,7 @@ msgid "Lower the design sheet"
 msgstr ""
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
+msgid "Made with Overreactive Resume, free and open source"
 msgstr ""
 
 #. Layout editor column label for the primary content area
@@ -7554,7 +7544,7 @@ msgstr ""
 msgid "No. {number} · {name}"
 msgstr ""
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr ""
@@ -8111,6 +8101,22 @@ msgstr ""
 msgid "Outdent"
 msgstr ""
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Overreactive Resume - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Overreactive Resume {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr ""
@@ -8655,10 +8661,6 @@ msgstr ""
 msgid "Printing is turned off for this resume."
 msgstr ""
 
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr ""
-
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr ""
@@ -8876,20 +8878,8 @@ msgstr ""
 msgid "Re: Senior Product Designer"
 msgstr ""
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
+msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
 msgstr ""
 
 #. placeholder {0}: reader.label
@@ -10829,23 +10819,6 @@ msgstr ""
 msgid "Standard section headings"
 msgstr ""
 
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr ""
-
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr ""
-
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr ""
-
-#. placeholder {0}: starCount.toLocaleString()
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"
 msgstr "Izinkanyezi ku-GitHub"
@@ -11061,10 +11034,6 @@ msgstr ""
 msgid "Submitted attached resume: {0}"
 msgstr ""
 
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr ""
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr ""
@@ -11101,6 +11070,10 @@ msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Support"
+msgstr ""
+
+#: src/features/homepage/footer.tsx
+msgid "Support Reactive Resume"
 msgstr ""
 
 #: src/features/career/shared.tsx
@@ -12113,10 +12086,6 @@ msgstr ""
 msgid "Transcript copied"
 msgstr ""
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr ""
@@ -12127,10 +12096,6 @@ msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
-msgstr ""
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
 msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
@@ -13027,6 +12992,10 @@ msgstr ""
 msgid "What you're looking for"
 msgstr ""
 
+#: src/features/homepage/footer.tsx
+msgid "What's different"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr ""
@@ -13257,7 +13226,7 @@ msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reacti
 msgstr ""
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
 msgstr ""
 
 #: src/features/career/coach-thread.tsx

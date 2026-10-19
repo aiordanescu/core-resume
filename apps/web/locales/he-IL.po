@@ -851,8 +851,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A מקבל ו-R דוחה את העריכה הממוקדת. ↑ ו-↓ מעבר בין עריכות."
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Reactive Resume as a letter."
-msgstr "גיבוי למכתב זה. מייבא חזרה אל Reactive Resume כמכתב."
+msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -901,6 +901,10 @@ msgstr "תוכנית ממוקדת לסבב הזה"
 #: src/features/ats-checker/messages.ts
 msgid "A font is referenced but not embedded."
 msgstr "גופן מוזכר אך אינו מוטבע."
+
+#: src/features/homepage/footer.tsx
+msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
@@ -986,10 +990,6 @@ msgstr "תוכנית מתוזמנת, הפתיחה שלך, הסיפורים שכ�
 #: src/features/ats-checker/messages.ts
 msgid "A web address is written without https://."
 msgstr "כתובת אינטרנט כתובה בלי https://."
-
-#: src/features/homepage/footer.tsx
-msgid "About"
-msgstr "על האפליקציה הזו"
 
 #: src/features/career/workspace/practise.tsx
 msgid "About 90 seconds when spoken"
@@ -2285,6 +2285,14 @@ msgstr "בניתי מערכת עיצוב משותפת שבה משתמשים שי
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "נבנה מהמודעה, מההודעה של Sam ומשני הסיפורים החזקים ביותר שלך."
 
+#: src/features/homepage/footer.tsx
+msgid "Built on"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Built on Reactive Resume"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "קורא מובנה"
@@ -2302,10 +2310,6 @@ msgstr "ערך רשימה {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "רשימת תבליטים"
-
-#: src/features/homepage/footer.tsx
-msgid "By the community, for the community."
-msgstr "מהקהילה, למען הקהילה."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -2427,10 +2431,6 @@ msgstr "שינה את קורות החיים ישירות (שיחה קודמת)"
 #: src/dialogs/resume/index.tsx
 msgid "Changed your mind? Rename your resume to something more descriptive."
 msgstr "התחרטת? אפשר לשנות את שם קורות החיים שלך לשם תיאורי יותר."
-
-#: src/features/homepage/footer.tsx
-msgid "Changelog"
-msgstr "יומן שינויים"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Changes section titles and date words only, not your content."
@@ -2750,10 +2750,6 @@ msgstr "לוח הפקודות"
 msgid "Command Palette - {currentPage}"
 msgstr "לוח הפקודות - {currentPage}"
 
-#: src/features/homepage/footer.tsx
-msgid "Community"
-msgstr "קהילה"
-
 #: src/features/resume/editor/design/fit.ts
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Compact"
@@ -2790,8 +2786,8 @@ msgid "Compares your resume with the posting"
 msgstr "משווה את קורות החיים שלך עם פרסום המשרה"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Reactive Resume or JSON Resume tools."
-msgstr "גיבוי נתונים מלא. מייבא חזרה לכלי Reactive Resume או JSON Resume."
+msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -2899,7 +2895,6 @@ msgid "Connections bill speech separately and may use tokens on your account. Yo
 msgstr "חיבורים מחייבים על דיבור בנפרד ועשויים לצרוך טוקנים בחשבון שלך. הדיבור של הדפדפן חינמי, אבל היצרן שלו עשוי לעבד את השמע. השרת שומר תמלולים, אף פעם לא הקלטות."
 
 #: src/features/applications/components/application-detail-sheet.tsx
-#: src/features/homepage/footer.tsx
 msgid "Contact"
 msgstr "מַגָע"
 
@@ -4068,10 +4063,6 @@ msgstr "לבטל את השינויים?"
 msgid "Disconnect"
 msgstr "ניתוק"
 
-#: src/features/homepage/footer.tsx
-msgid "Discord"
-msgstr "דיסקורד"
-
 #: src/features/resume/editor/write/write-panel.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -4120,7 +4111,6 @@ msgstr "אל תשלח {0}"
 
 #: src/components/ui/donation-toast.tsx
 #: src/features/resume/share/download-tab.tsx
-#: src/routes/dashboard/settings/route.tsx
 msgid "Donate"
 msgstr "לִתְרוֹם"
 
@@ -4554,8 +4544,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "קריאה משופרת לא הייתה זמינה. הקורא המובנה אחזר את פרסום המשרה הזה."
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Reactive Resume?"
-msgstr "נהנה מ-Reactive Resume?"
+msgid "Enjoying Overreactive Resume?"
+msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5352,8 +5342,8 @@ msgid "Go to…"
 msgstr "עבור אל…"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Reactive Resume stays free because people chip in."
-msgstr "בהצלחה שם בחוץ. Reactive Resume נשאר בחינם כי אנשים מצטרפים."
+msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
+msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -5558,10 +5548,6 @@ msgstr "דף הבית"
 msgid "Horizontal line"
 msgstr "קו אופקי"
 
-#: src/features/homepage/sections.tsx
-msgid "Hosting and development are paid for by people like you. Optional tip:"
-msgstr "על אירוח ופיתוח משלמים אנשים כמוך. טיפ אופציונלי:"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "איך זה הלך?"
@@ -5719,8 +5705,8 @@ msgid "Import steps"
 msgstr "שלבי ייבוא"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into a free Reactive Resume. Every issue is waiting for you in Check."
-msgstr "ייבא קובץ זה לקובץ Reactive Resume בחינם. כל גיליון מחכה לך בצ'ק."
+msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -5890,8 +5876,8 @@ msgid "Is equity part of the offer?"
 msgstr "האם ההצעה כוללת אופציות?"
 
 #: src/features/homepage/faq.tsx
-msgid "Is Reactive Resume really free?"
-msgstr "האם Reactive Resume באמת בחינם?"
+msgid "Is Overreactive Resume really free?"
+msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -5965,8 +5951,8 @@ msgid "It will show on the application's timeline and on the calendar."
 msgstr "זה יופיע בציר הזמן של המועמדות ובלוח השנה."
 
 #: src/components/ui/donation-toast.tsx
-msgid "It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in."
-msgstr "זה חינמי וקוד פתוח, וממשיך לפעול בזכות תרומות מהאנשים שמשתמשים בו. אם זה עזר לך, שקול לתרום."
+msgid "It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in."
+msgstr ""
 
 #: src/features/applications/components/detail/activity.tsx
 msgid "It's removed from the timeline for good."
@@ -5992,6 +5978,10 @@ msgstr "ערכים שאתה עובר לכאן נשארים למשך 30 יום."
 #: src/features/career/schedule-sheet.tsx
 msgid "Its connection was switched off or removed, so it runs on {0} until you choose another."
 msgstr "החיבור שלו כובה או הוסר, ולכן הוא פועל על {0} עד שתבחר חיבור אחר."
+
+#: src/features/homepage/footer.tsx
+msgid "Its documentation"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 msgid "Its messages and attachments are deleted. Edits you accepted stay in the document."
@@ -6469,12 +6459,12 @@ msgid "Link"
 msgstr "לְקַשֵׁר"
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume (recommended)"
-msgstr "קשר Reactive Resume (מומלץ)"
+msgid "Link a resume (recommended)"
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
-msgid "Link a Reactive Resume to use AI match scoring and tailoring."
-msgstr "קשר קורות חיים מ-Reactive Resume כדי להשתמש בציון התאמה ובהתאמה אישית מבוססי בינה מלאכותית."
+msgid "Link a resume to use AI match scoring and tailoring."
+msgstr ""
 
 #: src/features/resume/editor/write/basics-card.tsx
 #: src/features/resume/editor/write/rich-text-editor.tsx
@@ -6715,8 +6705,8 @@ msgid "Lower the design sheet"
 msgstr "הורד את גיליון העיצוב"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Reactive Resume, free and open source"
-msgstr "מיוצר עם Reactive Resume, חינם וקוד פתוח"
+msgid "Made with Overreactive Resume, free and open source"
+msgstr ""
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -7559,7 +7549,7 @@ msgstr "לא נמצא מקטע ניסיון תעסוקתי."
 msgid "No. {number} · {name}"
 msgstr "מס. {number} · {name}"
 
-#. Receipt line amount for something Reactive Resume doesn't have, e.g. ads.
+#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
 #: src/features/homepage/sections.tsx
 msgid "none"
 msgstr "אַף לֹא אֶחָד"
@@ -8116,6 +8106,22 @@ msgstr "לא מעודכן: הטקסט השתנה מאז."
 msgid "Outdent"
 msgstr "הקטנת כניסה"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "Overreactive Resume - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Overreactive Resume {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/sections.tsx
+msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
 msgstr "אחריות על מערכת עיצוב ופיתוחה"
@@ -8660,10 +8666,6 @@ msgstr "הדפס או ייצא את הטופס ל־PDF שטוח לפני השל�
 msgid "Printing is turned off for this resume."
 msgstr "ההדפסה מושבתת עבור קורות חיים אלה."
 
-#: src/features/homepage/footer.tsx
-msgid "Privacy policy"
-msgstr "מדיניות הפרטיות"
-
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "פרטי"
@@ -8881,21 +8883,9 @@ msgstr "ייצא מחדש עם גופנים מוטבעים, ולאחר מכן פ
 msgid "Re: Senior Product Designer"
 msgstr "Re: מעצב מוצר בכיר"
 
-#: src/routes/_home/-sections/header.tsx
-msgid "Reactive Resume - Go to homepage"
-msgstr "Reactive Resume - מעבר לדף הבית"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Reactive Resume {__APP_VERSION__} · MIT"
-msgstr "Reactive Resume {__APP_VERSION__} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Reactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Reactive Resume הוא בונה קורות חיים חינמי בקוד פתוח. כתוב אותם, עצב אותם, בדוק אותם, התאם אותם לכל משרה והגע לראיון מוכן."
-
 #: src/features/homepage/sections.tsx
-msgid "Reactive Resume is open source under the MIT License. Amruth Pillai and a community of contributors keep it running, and donations pay for hosting and development. There’s no paid tier."
-msgstr "Reactive Resume הוא קוד פתוח ברישיון MIT. Amruth Pillai וקהילה של תורמים מתחזקים אותו, ותרומות מממנות את האחסון והפיתוח. אין מסלול בתשלום."
+msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
+msgstr ""
 
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
@@ -10834,23 +10824,6 @@ msgstr "שלבים"
 msgid "Standard section headings"
 msgstr "כותרות סעיפים סטנדרטיים"
 
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub"
-msgstr "סמן את Reactive Resume ב-GitHub"
-
-#: src/features/homepage/header.tsx
-msgid "Star Reactive Resume on GitHub, {count} stars"
-msgstr "כוכב Reactive Resume על GitHub, {count} כוכבים"
-
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub (opens in new tab)"
-msgstr "סמנו אותנו בכוכב ב־GitHub (נפתח בלשונית חדשה)"
-
-#. placeholder {0}: starCount.toLocaleString()
-#: src/components/input/github-stars-button.tsx
-msgid "Star us on GitHub, currently {0} stars (opens in new tab)"
-msgstr "סמנו אותנו בכוכב ב־GitHub, כרגע {0} כוכבים (נפתח בלשונית חדשה)"
-
 #: src/features/homepage/sections.tsx
 msgid "Stars on GitHub"
 msgstr "כוכבים ב-GitHub"
@@ -11066,10 +11039,6 @@ msgstr "הוגש מכתב נלווה מצורף: {0}"
 msgid "Submitted attached resume: {0}"
 msgstr "הוגשה קורות חיים מצורפים: {0}"
 
-#: src/features/homepage/footer.tsx
-msgid "Subreddit"
-msgstr "סברדיט"
-
 #: src/features/career/workspace/prepare.tsx
 msgid "Success at 90 days · next step"
 msgstr "הצלחה ב-90 יום · הצעד הבא"
@@ -11107,6 +11076,10 @@ msgstr "תקציר"
 #: src/features/homepage/sections.tsx
 msgid "Support"
 msgstr "תְמִיכָה"
+
+#: src/features/homepage/footer.tsx
+msgid "Support Reactive Resume"
+msgstr ""
 
 #: src/features/career/shared.tsx
 #: src/features/career/workspace/debrief.tsx
@@ -12118,10 +12091,6 @@ msgstr "מתמלל באמצעות {model}…"
 msgid "Transcript copied"
 msgstr "תמלול הועתק"
 
-#: src/routes/dashboard/settings/route.tsx
-msgid "Translate"
-msgstr "לְתַרְגֵם"
-
 #: src/features/homepage/sections.tsx
 msgid "Translate the app"
 msgstr "תרגם את האפליקציה"
@@ -12133,10 +12102,6 @@ msgstr ""
 #: src/features/homepage/sections.tsx
 msgid "Translated into {languageCount} languages. Help translate it into yours."
 msgstr "תורגם ל-{languageCount} שפות. עזור לתרגם את האפליקציה לשפה שלך."
-
-#: src/features/homepage/footer.tsx
-msgid "Translations"
-msgstr "תרגומים"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/trash-page.tsx
@@ -13032,6 +12997,10 @@ msgstr "מה ששלחת · {0}"
 msgid "What you're looking for"
 msgstr "מה אתה מחפש"
 
+#: src/features/homepage/footer.tsx
+msgid "What's different"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "What's it for?"
 msgstr "בשביל מה זה?"
@@ -13262,8 +13231,8 @@ msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reacti
 msgstr "כֵּן. ייבא PDF, ייצוא נתונים LinkedIn, קובץ JSON Resume או ייצוא Reactive Resume, ואז המשיכו מהנקודה שבה הפסיקה. עם הגדרת ספק AI, גם מסמכי Word עובדים."
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Reactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "כֵּן. Reactive Resume הוא קוד פתוח תחת MIT License ונשלח כתמונת Docker, כך שהוא פועל בשרת משלך עם מסד נתונים ואחסון משלך."
+msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

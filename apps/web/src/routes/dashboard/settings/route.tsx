@@ -5,6 +5,7 @@ import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-r
 import { Fragment } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { popTransition } from "@/features/settings/root";
+import { appVersionLabel } from "@/libs/app-version";
 
 type Page = {
 	to: "/dashboard/settings/account" | "/dashboard/settings/preferences" | "/dashboard/settings/ai";
@@ -19,13 +20,14 @@ const SETTINGS_PAGES: Page[] = [
 	{ to: "/dashboard/settings/ai", icon: "sparkle", label: () => t`AI & developer` },
 ];
 
-// The project's own links: where to read up, see the code, help translate, report a problem or donate.
+const githubUrl = "https://github.com/aiordanescu/overreactive-resume";
+
+// The fork's own links (where to read up, see the code, report a problem), then the project it's built on.
 const getProjectLinks = () => [
-	{ href: "https://docs.rxresu.me", label: t`Docs` },
-	{ href: "https://github.com/reactive-resume/reactive-resume", label: t`Source` },
-	{ href: "https://crowdin.com/project/reactive-resume", label: t`Translate` },
-	{ href: "https://github.com/reactive-resume/reactive-resume/issues", label: t`Report a bug` },
-	{ href: "https://opencollective.com/reactive-resume/donate", label: t`Donate` },
+	{ href: `${githubUrl}/tree/main/docs`, label: t`Docs` },
+	{ href: githubUrl, label: t`Source` },
+	{ href: `${githubUrl}/issues`, label: t`Report a bug` },
+	{ href: "https://github.com/reactive-resume/reactive-resume", label: t`Built on Reactive Resume` },
 ];
 
 export const Route = createFileRoute("/dashboard/settings")({ component: RouteComponent });
@@ -57,7 +59,7 @@ function RouteComponent() {
 					))}
 				</div>
 				<p className="mt-auto px-2.5 text-xs leading-[18px] text-ink-3 max-lg:hidden">
-					<Trans>Reactive Resume {__APP_VERSION__} · MIT</Trans>
+					<Trans>Overreactive Resume {appVersionLabel} · MIT</Trans>
 					<br />
 					{getProjectLinks().map((link, index) => (
 						<Fragment key={link.href}>

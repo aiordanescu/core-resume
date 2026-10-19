@@ -1,11 +1,11 @@
 {
 	"info": {
-		"title": "Reactive Resume",
+		"title": "Overreactive Resume",
 		"version": "6.0.3",
-		"description": "Reactive Resume API. Mutations do not support Idempotency-Key. Do not automatically retry POST, PUT, PATCH or DELETE requests after a timeout: first read the resource to determine whether the operation succeeded. Existing enum values and response shapes are retained for compatibility.",
+		"description": "Overreactive Resume API. Mutations do not support Idempotency-Key. Do not automatically retry POST, PUT, PATCH or DELETE requests after a timeout: first read the resource to determine whether the operation succeeded. Existing enum values and response shapes are retained for compatibility.",
 		"license": {
 			"name": "MIT",
-			"url": "https://github.com/reactive-resume/reactive-resume/blob/main/LICENSE"
+			"url": "https://github.com/aiordanescu/overreactive-resume/blob/main/LICENSE"
 		},
 		"contact": {
 			"name": "Amruth Pillai",
@@ -14524,7 +14524,7 @@
 														"type": "null"
 													}
 												],
-												"description": "The linked Reactive Resume, if any."
+												"description": "The linked resume, if any."
 											},
 											"coverLetterId": {
 												"anyOf": [
@@ -15377,7 +15377,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -15697,7 +15697,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -16170,7 +16170,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -17012,7 +17012,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -17329,7 +17329,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -17482,7 +17482,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -18397,7 +18397,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -18714,7 +18714,7 @@
 												"type": "null"
 											}
 										],
-										"description": "The linked Reactive Resume, if any."
+										"description": "The linked resume, if any."
 									},
 									"coverLetterId": {
 										"anyOf": [
@@ -18867,7 +18867,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -19708,7 +19708,7 @@
 															"type": "null"
 														}
 													],
-													"description": "The linked Reactive Resume, if any."
+													"description": "The linked resume, if any."
 												},
 												"coverLetterId": {
 													"anyOf": [
@@ -19982,7 +19982,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -20648,7 +20648,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -21338,7 +21338,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -22097,7 +22097,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -22854,7 +22854,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -23609,7 +23609,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -24304,7 +24304,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -24977,7 +24977,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -25670,7 +25670,7 @@
 													"type": "null"
 												}
 											],
-											"description": "The linked Reactive Resume, if any."
+											"description": "The linked resume, if any."
 										},
 										"coverLetterId": {
 											"anyOf": [
@@ -28372,7 +28372,7 @@
 			"get": {
 				"operationId": "listAuthProviders",
 				"summary": "List authentication providers",
-				"description": "Returns a list of all authentication providers enabled on this Reactive Resume instance, along with their display names. Possible providers include password-based credentials, Google, GitHub, LinkedIn, and custom OAuth. No authentication required.",
+				"description": "Returns a list of all authentication providers enabled on this Overreactive Resume instance, along with their display names. Possible providers include password-based credentials, Google, GitHub, LinkedIn, and custom OAuth. No authentication required.",
 				"tags": [
 					"Authentication"
 				],
@@ -33570,7 +33570,7 @@
 																"type": "null"
 															}
 														],
-														"description": "The linked Reactive Resume, if any."
+														"description": "The linked resume, if any."
 													},
 													"coverLetterId": {
 														"anyOf": [
@@ -55338,7 +55338,7 @@
 			"get": {
 				"operationId": "getFeatureFlags",
 				"summary": "Get feature flags",
-				"description": "Returns the current feature flags for this Reactive Resume instance. Feature flags control instance-wide settings such as whether new user signups or email-based authentication are disabled. No authentication required.",
+				"description": "Returns the current feature flags for this Overreactive Resume instance. Feature flags control instance-wide settings such as whether new user signups or email-based authentication are disabled. No authentication required.",
 				"tags": [
 					"Feature Flags"
 				],
@@ -84943,14 +84943,14 @@
 			"get": {
 				"operationId": "getGitHubStarCount",
 				"summary": "Get GitHub star count",
-				"description": "Returns the number of GitHub stars for the Reactive Resume repository. The count is cached for up to 6 hours and falls back to a last-known value if the GitHub API is unavailable. No authentication required.",
+				"description": "Returns the number of GitHub stars for the Overreactive Resume repository. The count is cached for up to 6 hours and falls back to a last-known value if the GitHub API is unavailable. No authentication required.",
 				"tags": [
 					"Platform Statistics"
 				],
 				"parameters": [],
 				"responses": {
 					"200": {
-						"description": "The number of GitHub stars for the Reactive Resume repository.",
+						"description": "The number of GitHub stars for the Overreactive Resume repository.",
 						"content": {
 							"application/json": {
 								"schema": {
@@ -103571,7 +103571,7 @@
 															"type": "null"
 														}
 													],
-													"description": "The linked Reactive Resume, if any."
+													"description": "The linked resume, if any."
 												},
 												"coverLetterId": {
 													"anyOf": [

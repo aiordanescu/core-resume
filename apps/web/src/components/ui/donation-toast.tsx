@@ -46,10 +46,10 @@ export function DonationToast() {
 
 					<div className="min-w-0">
 						<p id={titleId} className="text-sm font-semibold text-ink">
-							{t`Enjoying Reactive Resume?`}
+							{t`Enjoying Overreactive Resume?`}
 						</p>
 						<p className="mt-1 text-[13px] leading-relaxed text-ink-2">
-							{t`It's free and open source, kept going by donations from the people who use it. If it has helped you, consider chipping in.`}
+							{t`It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in.`}
 						</p>
 
 						<div className="mt-3 flex items-center gap-1">
