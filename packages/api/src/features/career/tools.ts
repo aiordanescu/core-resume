@@ -125,7 +125,7 @@ export function buildCareerTools(input: CareerToolsInput): ToolSet {
 				"Find switched-on facts and STARR stories by keyword, best match first; any word in the query can match. Facts private to another application never appear.",
 			inputSchema: z.object({ query: z.string().max(500) }),
 			execute: async ({ query }) => {
-				const active = (await careerService.facts(scope)).filter((fact) => fact.status === "active").map(modelFact);
+				const active = (await careerService.aiFacts(scope)).map(modelFact);
 				const facts = boundedItems(
 					search(active, (fact) => fact.text, query),
 					input.context.limits.searchFactChars,

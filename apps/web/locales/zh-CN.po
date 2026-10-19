@@ -380,6 +380,12 @@ msgstr "找到 {0} 个词中的 {1} 个"
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "有一个时间段的写法是大多数软件无法读取的。"
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "不会读取日期"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "并计数"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "并且所有公共链接都将被永久删除。这无法撤消。"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "无法附加文件。"
 msgid "Couldn't change it."
 msgstr "无法改变它。"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "无法改变设计。再试一次。"
@@ -3238,6 +3260,10 @@ msgstr "无法更改电子邮件。再试一次。"
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "无法更改定时任务。"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "改善…"
 msgid "In good company"
 msgstr "在好的公司里"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "增加行距，避免两行文字被合并成一行。"
@@ -6172,6 +6211,11 @@ msgstr "卡纳达语"
 msgid "Keep"
 msgstr "保持"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "只保留一个地址，这样软件就不用猜该用哪一个。"
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "知识库无法加载。请重试，或在发送前关闭知识库。"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "韩语"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "将其留空以删除链接。"
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "省略"
 
@@ -6428,6 +6477,10 @@ msgstr "主导了新手引导改版的用户研究；激活率从 31% 升至 44%
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "左边"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "一次只导入前 {MAX_IMPORT} 行，剩下的 {overflow} 行不会导�
 msgid "Only the first pages were checked."
 msgstr "只检查了前几页。"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "这些只有你能看到"
@@ -8800,9 +8857,18 @@ msgstr "在发送之前，把表单打印或导出为扁平化的 PDF。"
 msgid "Printing is turned off for this resume."
 msgstr "此简历的打印已关闭。"
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "私密"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "下划线链接"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

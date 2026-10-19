@@ -54,6 +54,7 @@ vi.mock("@/features/applications/use-application-actions", () => ({ useInvalidat
 vi.mock("@/features/applications/components/application-notes", () => ({ ApplicationNotes: () => null }));
 vi.mock("@/features/applications/components/interview-dialog", () => ({ InterviewDialog: () => null }));
 vi.mock("./coach-sheet", () => ({ CoachSheet: () => null }));
+vi.mock("./knowledge", () => ({ ApplicationKnowledge: () => null }));
 vi.mock("./fit", () => ({ FitTab: () => null, AiNotice: () => null }));
 vi.mock("./prepare", () => ({ PrepareTab: () => null }));
 vi.mock("./practise", () => ({ PractiseTab: () => null }));

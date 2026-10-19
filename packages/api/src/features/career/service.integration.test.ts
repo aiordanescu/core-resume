@@ -914,6 +914,72 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		});
 	});
 
+	it("keeps private groups from the AI unless an application includes them, without copying facts", async () => {
+		const clearance = await grouped("alice", "I hold an active clearance.", "clearance");
+		const level = await grouped("alice", "My clearance is at the top level.", "clearance/level");
+		await service.updateFact("alice", { id: level.id, status: "excluded" });
+		const acme = await grouped("alice", "I ran the Acme migration.", "experience/acme");
+		const ids = async (applicationId: string | null) =>
+			(await service.context({ userId: "alice", applicationId })).facts.map((fact) => fact.id).sort();
+		const before = await service.context({ userId: "alice" });
+
+		await service.saveFactGroup("alice", { group: "clearance", private: true });
+		expect(await ids(null)).toEqual([acme.id]);
+		expect(await ids("alice-app")).toEqual([acme.id]);
+		// Making a group private changes what the AI may read, so in-flight work is discarded.
+		expect((await service.context({ userId: "alice" })).memoryVersion).not.toBe(before.memoryVersion);
+		await expect(service.saveStory("alice", story([clearance.id]))).rejects.toMatchObject({ code: "BAD_REQUEST" });
+		const search = (await service.aiFacts({ userId: "alice", applicationId: null })).map((fact) => fact.id);
+		expect(search).toEqual([acme.id]);
+		expect((await service.factGroups("alice")).find((entry) => entry.group === "clearance")).toMatchObject({
+			private: true,
+		});
+
+		// One application includes the group: switched-off facts in it come along; other applications don't change.
+		const otherVersion = (await service.context({ userId: "alice", applicationId: "alice-other" })).version;
+		const included = await service.saveOverride("alice", {
+			applicationId: "alice-app",
+			group: "clearance",
+			mode: "include",
+		});
+		expect(await ids("alice-app")).toEqual([acme.id, clearance.id, level.id].sort());
+		expect(await ids("alice-other")).toEqual([acme.id]);
+		expect((await service.context({ userId: "alice", applicationId: "alice-other" })).version).toBe(otherVersion);
+		const appStory = await service.saveStory("alice", story([clearance.id], "alice-app"));
+		expect(
+			(await service.context({ userId: "alice", applicationId: "alice-app" })).stories.map((item) => item.id),
+		).toContain(appStory.id);
+
+		// A fact override wins over its group's, and a new choice for a target replaces the old one.
+		await service.saveOverride("alice", { applicationId: "alice-app", factId: level.id, mode: "exclude" });
+		await service.saveOverride("alice", { applicationId: "alice-app", group: "experience", mode: "exclude" });
+		expect(await ids("alice-app")).toEqual([clearance.id]);
+		await service.saveOverride("alice", { applicationId: "alice-app", group: "experience", mode: "include" });
+		expect((await service.overrides("alice", "alice-app")).map((row) => [row.group, row.factId, row.mode])).toEqual([
+			["clearance", null, "include"],
+			[null, level.id, "exclude"],
+			["experience", null, "include"],
+		]);
+		await expect(
+			service.saveOverride("alice", { applicationId: "alice-app", group: "x", factId: acme.id, mode: "include" }),
+		).rejects.toMatchObject({ code: "BAD_REQUEST" });
+		await expect(service.overrides("bob", "alice-app")).rejects.toMatchObject({ code: "NOT_FOUND" });
+		await service.deleteOverride("bob", included.id);
+		expect(await service.overrides("alice", "alice-app")).toHaveLength(3);
+		await service.deleteOverride("alice", included.id);
+		expect(await ids("alice-app")).toEqual([acme.id]);
+
+		// A correction to the shared fact is what the including application reads; nothing was copied.
+		await service.saveOverride("alice", { applicationId: "alice-app", group: "clearance", mode: "include" });
+		await service.updateFact("alice", { id: clearance.id, text: "I hold an active TS clearance." });
+		expect(
+			(await service.context({ userId: "alice", applicationId: "alice-app" })).facts.find(
+				(fact) => fact.id === clearance.id,
+			)?.text,
+		).toBe("I hold an active TS clearance.");
+		expect((await service.exportData("alice")).factOverrides).toHaveLength(3);
+	});
+
 	it("keeps AI limits per account and apart from preferences", async () => {
 		const defaults = aiLimitsSchema.parse({});
 		expect(await service.aiLimits("alice")).toEqual(defaults);

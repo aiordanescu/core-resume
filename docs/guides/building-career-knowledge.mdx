@@ -83,6 +83,14 @@ Application notes belong to that application. A debrief can also suggest remembe
 
 Facts show their scope. Choose **Use for all applications** only when a private fact is useful beyond that job. This changes its scope, not its truth.
 
+### Use a shared fact for some jobs only
+
+Some facts should reach the AI only for certain jobs, such as a security clearance for government roles. Put them in a group and switch **Private** on for it in **Curate → Groups**. A private group's facts, and its subgroups', never go to your AI provider, whatever their own switches say. They stay in Knowledge, and you can still correct or forget them.
+
+To use them for one job, open the application and switch the group on under **Knowledge for this job** in its details. Fit, Apply, Prepare, Practise, Debrief, Messages and that job's coach then read those facts, switched off or not; every other job still doesn't. Nothing is copied, so a correction to a fact applies to every job that uses it.
+
+**Knowledge for this job** can also **Include** or **Leave out** any other group, for example to keep an unrelated past role out of one application. A choice for a single fact, made through the API (`PUT /career/overrides` with a `factId`), wins over its group's.
+
 ## Stop using or forget a fact
 
 Switch **Used in coaching** off to keep the fact in your account while excluding it from new coaching context. A switched-off fact cannot support a story sent to the coach.

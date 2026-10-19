@@ -380,6 +380,12 @@ msgstr "{0} នៃ {1} ពាក្យត្រូវបានរកឃើញ"
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "កាលបរិច្ឆេទចន្លោះមួយត្រូ
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "កាលបរិច្ឆេទនឹងមិនត្រូវបានអានទេ។"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "និងការរាប់"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "ហើយរាល់តំណភ្ជាប់សាធារណៈត្រូវបានដកចេញជាអចិន្ត្រៃយ៍។ នេះមិនអាចត្រឡប់វិញបានទេ។"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "មិនអាចភ្ជាប់ឯកសារបានទេ។"
 msgid "Couldn't change it."
 msgstr "មិន​អាច​ផ្លាស់​ប្តូ​រ​វា​។"
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "មិនអាចផ្លាស់ប្តូរការរចនាបានទេ។ ព្យាយាមម្តងទៀត។"
@@ -3238,6 +3260,10 @@ msgstr "មិន​អាច​ផ្លាស់ប្ដូរ​អ៊ីម
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "មិនអាចផ្លាស់ប្តូរកាលវិភាគបានទេ។"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "កំពុងកែលម្អ…"
 msgid "In good company"
 msgstr "នៅក្នុងក្រុមហ៊ុនល្អ។"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "បង្កើនចន្លោះបន្ទាត់ ដើម្បីកុំឱ្យបន្ទាត់ពីរបញ្ចូលគ្នាទៅជាមួយ។"
@@ -6172,6 +6211,11 @@ msgstr "Kannada"
 msgid "Keep"
 msgstr "រក្សា"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "រក្សាទុកអាសយដ្ឋានតែមួយ ដើម្បីកុំឱ្យកម្មវិធីត្រូវទាយថាតើត្រូវប្រើមួយណា។"
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "មិនអាចផ្ទុកចំណេះដឹងបានទេ។ សូមព្យាយាមម្តងទៀត ឬបិទចំណេះដឹងមុនពេលផ្ញើ។"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Korean"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "ទុកវាឱ្យនៅទទេដើម្បីលុបតំណ។"
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "ចាកចេញ"
 
@@ -6428,6 +6477,10 @@ msgstr "បានដឹកនាំការស្រាវជ្រាវសម
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "ឆ្វេង"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "មានតែ {MAX_IMPORT} ជួរដេកដំបូងប៉ុ�
 msgid "Only the first pages were checked."
 msgstr "មានតែទំព័រដំបូងប៉ុណ្ណោះដែលត្រូវបានត្រួតពិនិត្យ។"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "មានតែអ្នកទេដែលឃើញទាំងនេះ"
@@ -8800,9 +8857,18 @@ msgstr "បោះពុម្ព ឬនាំចេញទម្រង់ទៅ�
 msgid "Printing is turned off for this resume."
 msgstr "ការបោះពុម្ពត្រូវបានបិទសម្រាប់ប្រវត្តិរូបសង្ខេបនេះ។"
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "ឯកជន"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "គូសបន្ទាត់ក្រោមតំណ"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

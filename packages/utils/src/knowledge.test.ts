@@ -7,6 +7,7 @@ import {
 	knowledgeBudget,
 	nearestGroupSetting,
 	promptStory,
+	reachesAi,
 	storyHolds,
 	storyPromptChars,
 } from "./knowledge";
@@ -107,5 +108,58 @@ describe("groups", () => {
 		expect(nearestGroupSetting("a/b", settings)).toBe("excluded");
 		expect(nearestGroupSetting("z", settings)).toBeUndefined();
 		expect(nearestGroupSetting(null, settings)).toBeUndefined();
+	});
+});
+
+describe("reachesAi", () => {
+	const on = { id: "on", status: "active", group: "experience/acme" };
+	const off = { id: "off", status: "excluded", group: "clearance/ts" };
+	const loose = { id: "loose", status: "active", group: null };
+
+	it("follows each fact's switch without rules, and never sends forgotten or archived facts", () => {
+		expect(reachesAi(on)).toBe(true);
+		expect(reachesAi(off)).toBe(false);
+		expect(reachesAi(loose)).toBe(true);
+		expect(
+			reachesAi(
+				{ ...on, status: "forgotten" },
+				{ privateGroups: [], overrides: [{ group: null, factId: "on", mode: "include" }] },
+			),
+		).toBe(false);
+		expect(reachesAi({ ...on, status: "archived" })).toBe(false);
+	});
+
+	it("keeps private groups and their subgroups out, switched on or not", () => {
+		const rules = { privateGroups: ["experience"], overrides: [] };
+		expect(reachesAi(on, rules)).toBe(false);
+		expect(reachesAi(loose, rules)).toBe(true);
+	});
+
+	it("lets an application include or exclude a group or a fact, the fact's own override first", () => {
+		const rules = {
+			privateGroups: ["clearance"],
+			overrides: [
+				{ group: "clearance", factId: null, mode: "include" as const },
+				{ group: "experience", factId: null, mode: "exclude" as const },
+				{ group: null, factId: "on", mode: "include" as const },
+			],
+		};
+		// Included even though it's switched off and private.
+		expect(reachesAi(off, rules)).toBe(true);
+		// Its group is left out, but the fact itself is included.
+		expect(reachesAi(on, rules)).toBe(true);
+		expect(reachesAi({ id: "other", status: "active", group: "experience/globex" }, rules)).toBe(false);
+	});
+
+	it("uses the nearest group override", () => {
+		const rules = {
+			privateGroups: [],
+			overrides: [
+				{ group: "experience", factId: null, mode: "exclude" as const },
+				{ group: "experience/acme", factId: null, mode: "include" as const },
+			],
+		};
+		expect(reachesAi({ id: "x", status: "excluded", group: "experience/acme/ops" }, rules)).toBe(true);
+		expect(reachesAi({ id: "y", status: "active", group: "experience/globex" }, rules)).toBe(false);
 	});
 });

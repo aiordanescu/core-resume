@@ -380,6 +380,12 @@ msgstr "Tìm thấy {0} trên {1} từ khóa"
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "Một khoảng thời gian được viết theo định dạng mà hầu
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "Một ngày sẽ không được đọc"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "và đếm"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "và mọi liên kết công khai sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "Không thể đính kèm tập tin."
 msgid "Couldn't change it."
 msgstr "Không thể thay đổi nó."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "Không thể thay đổi thiết kế. Hãy thử lại."
@@ -3238,6 +3260,10 @@ msgstr "Không thể thay đổi email. Hãy thử lại."
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "Không thể thay đổi lịch trình."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "Cải thiện…"
 msgid "In good company"
 msgstr "Ở công ty tốt"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "Tăng khoảng cách dòng để hai dòng không bị hợp nhất thành một."
@@ -6172,6 +6211,11 @@ msgstr "Tiếng Kannada"
 msgid "Keep"
 msgstr "Giữ"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "Chỉ để một địa chỉ, để phần mềm không phải đoán xem nên dùng địa chỉ nào."
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "Không thể tải Kiến thức. Hãy thử lại hoặc tắt Kiến thức trước khi gửi."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "Tiếng Hàn"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "Để trống để xóa liên kết."
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "bỏ đi"
 
@@ -6428,6 +6477,10 @@ msgstr "Dẫn dắt nghiên cứu cho dự án thiết kế lại onboarding; t�
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "Bên trái"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "Chỉ {MAX_IMPORT} hàng đầu tiên được nhập mỗi lần, bỏ 
 msgid "Only the first pages were checked."
 msgstr "Chỉ những trang đầu tiên được kiểm tra."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "Chỉ có bạn mới nhìn thấy những điều này"
@@ -8800,9 +8857,18 @@ msgstr "In hoặc xuất biểu mẫu thành PDF phẳng trước khi gửi."
 msgid "Printing is turned off for this resume."
 msgstr "Việc in ấn bị tắt đối với bản lý lịch này."
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Riêng tư"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "Gạch chân các liên kết"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

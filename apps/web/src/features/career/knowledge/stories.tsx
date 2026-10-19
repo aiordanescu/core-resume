@@ -13,10 +13,12 @@ import { Input } from "@reactive-resume/ui/components/input";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
+import { reachesAi } from "@reactive-resume/utils/knowledge";
 import { cn } from "@reactive-resume/utils/style";
 import { useSessionDraft } from "../hooks";
 import { CareerLoadError, CareerLoading } from "../load-state";
 import { CollapseRow, Eyebrow, Swap, useNow, withUndo } from "../shared";
+import { useKnowledgeRules } from "./groups";
 import { collectInterviews, upcomingInterviews } from "@/features/applications/interviews";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { getOrpcErrorMessage } from "@/libs/error-message";
@@ -423,9 +425,10 @@ function StoryEditor({ story, facts, onSaved, onCancel, onDelete }: StoryEditorP
 		},
 	);
 	const [tried, setTried] = useState(false);
-	// A shared story can only rest on shared facts; switched-off ones are listed but can't be ticked.
+	// A shared story can only rest on shared facts; switched-off and private ones are listed but can't be ticked.
 	const shared = facts.filter((fact) => fact.applicationId === null);
-	const usable = new Set(shared.filter((fact) => fact.status === "active").map((fact) => fact.id));
+	const { rules } = useKnowledgeRules(null);
+	const usable = new Set(shared.filter((fact) => reachesAi(fact, rules)).map((fact) => fact.id));
 
 	const save = useMutation({
 		...orpc.career.saveStory.mutationOptions(),

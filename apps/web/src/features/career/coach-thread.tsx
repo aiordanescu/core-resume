@@ -21,10 +21,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/com
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
-import { storyHolds } from "@reactive-resume/utils/knowledge";
+import { reachesAi, storyHolds } from "@reactive-resume/utils/knowledge";
 import { coachQuery, rankByRelevance, storyText } from "@reactive-resume/utils/relevance";
 import { cn } from "@reactive-resume/utils/style";
 import { useSessionDraft } from "./hooks";
+import { useKnowledgeRules } from "./knowledge/groups";
 import { Eyebrow, MemoryProposal, useCareerTime, useNow, withUndo, Working, workingSteps } from "./shared";
 import { attachmentPart, fileToBase64, useAssistantChat } from "@/features/assistant/chat";
 import { AssistantMarkdown } from "@/features/assistant/markdown";
@@ -86,20 +87,23 @@ export function useCoachKnowledge(applicationId: string | null) {
 		...orpc.applications.getById.queryOptions({ input: { id: applicationId ?? "" } }),
 		enabled: applicationId !== null,
 	});
+	const knowledge = useKnowledgeRules(applicationId);
 	const all = facts.data ?? [];
 	// Same order and filters as the server's career context, so the recorded ids are what was sent.
 	const active = all.filter(
-		(fact) => fact.status === "active" && (fact.applicationId === null || fact.applicationId === applicationId),
+		(fact) => (fact.applicationId === null || fact.applicationId === applicationId) && reachesAi(fact, knowledge.rules),
 	);
 	const activeById = new Map(active.map((fact) => [fact.id, fact]));
 	const usable = (stories.data ?? []).filter((story) => storyHolds(story, activeById));
 	return {
-		loaded: facts.isSuccess && stories.isSuccess && (applicationId === null || application.isSuccess),
+		loaded:
+			facts.isSuccess && stories.isSuccess && knowledge.loaded && (applicationId === null || application.isSuccess),
 		isPending: facts.isPending || stories.isPending,
-		isError: facts.isError || stories.isError,
+		isError: facts.isError || stories.isError || knowledge.isError,
 		retry: () => {
 			void facts.refetch();
 			void stories.refetch();
+			knowledge.retry();
 		},
 		all,
 		active,

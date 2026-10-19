@@ -380,6 +380,12 @@ msgstr "تم العثور على {0} من أصل {1} من المصطلحات"
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "نطاق تاريخ مكتوب بصيغة لا تستطيع معظم ا�
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "لن يتم قراءة التاريخ"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "والعد"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "وتتم إزالة كل رابط عام نهائيًا. لا يمكن التراجع عن هذا."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "تعذر إرفاق الملف."
 msgid "Couldn't change it."
 msgstr "لا يمكن تغييره."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "لم أستطع تغيير التصميم. حاول ثانية."
@@ -3238,6 +3260,10 @@ msgstr "لا يمكن تغيير البريد الإلكتروني. حاول ث�
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "تعذّر تغيير الجدول."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "تحسين…"
 msgid "In good company"
 msgstr "في شركة جيدة"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "زد تباعد الأسطر حتى لا يندمج سطران في سطر واحد."
@@ -6172,6 +6211,11 @@ msgstr "الكانادا"
 msgid "Keep"
 msgstr "يحفظ"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "احتفظ بعنوان واحد فقط، حتى لا تضطر البرامج إلى تخمين أيّها تستخدم."
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "تعذّر تحميل المعرفة. حاول مرة أخرى أو أوقف المعرفة قبل الإرسال."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "الكورية"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "اتركه فارغًا لإزالة الرابط."
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "اترك خارجا"
 
@@ -6428,6 +6477,10 @@ msgstr "قاد البحث لإعادة تصميم التهيئة؛ ارتفع ا
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "غادر"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "يُستورد أول {MAX_IMPORT} صف فقط في المرة الوا�
 msgid "Only the first pages were checked."
 msgstr "تم فحص الصفحات الأولى فقط."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "أنت فقط ترى هذه"
@@ -8800,9 +8857,18 @@ msgstr "اطبع النموذج أو صدّره إلى PDF مسطّح قبل إ�
 msgid "Printing is turned off for this resume."
 msgstr "تم إيقاف الطباعة لهذه السيرة الذاتية."
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "خاص"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "تسطير الروابط"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

@@ -380,6 +380,12 @@ msgstr "{0}/{1} kifejezés megtalálva"
 msgid "{0} on · {1} off · {2} characters"
 msgstr ""
 
+#. placeholder {0}: number.format(node.facts.active)
+#. placeholder {1}: number.format(node.facts.excluded)
+#: src/features/career/knowledge/groups.tsx
+msgid "{0} on · {1} off · private, never sent unless an application includes it"
+msgstr ""
+
 #. placeholder {0}: document.posting.company
 #: src/features/assistant/conversation.tsx
 msgid "{0} posting"
@@ -923,6 +929,10 @@ msgstr "Egy időintervallum olyan formában van megadva, amelyet a legtöbb szof
 #: src/features/resume/editor/check/issues.ts
 msgid "A date won't be read"
 msgstr "A dátumot nem olvassák el"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "A fact"
+msgstr ""
 
 #: src/features/career/knowledge/stories.tsx
 msgid "A fact changed. Review this story."
@@ -1696,6 +1706,14 @@ msgstr "és számolás"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "és minden nyilvános linket véglegesen eltávolítunk. Ezt nem lehet visszavonni."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Another group…"
+msgstr ""
 
 #: src/features/resume/share/link-tab.tsx
 msgid "Another of your resumes uses this address."
@@ -3227,6 +3245,10 @@ msgstr "Nem sikerült csatolni a fájlt."
 msgid "Couldn't change it."
 msgstr "Nem lehetett változtatni."
 
+#: src/features/career/knowledge/groups.tsx
+msgid "Couldn't change that group."
+msgstr ""
+
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Couldn't change the design. Try again."
 msgstr "A dizájnt nem lehetett módosítani. Próbáld újra."
@@ -3238,6 +3260,10 @@ msgstr "Nem sikerült módosítani az e-mail címet. Próbáld újra."
 #: src/features/career/workspace/prepare.tsx
 msgid "Couldn't change the schedule."
 msgstr "Nem sikerült módosítani az ütemezést."
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Couldn't change this application's Knowledge."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't change this schedule."
@@ -5855,6 +5881,19 @@ msgstr "Javuló…"
 msgid "In good company"
 msgstr "Jó társaságban"
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include"
+msgstr ""
+
+#. placeholder {0}: node.path
+#: src/features/career/workspace/knowledge.tsx
+msgid "Include {0} for this job"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Included for this job"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Increase line spacing so two lines are not merged into one."
 msgstr "Növeld a sorközt, hogy két sor ne olvadjon eggyé."
@@ -6172,6 +6211,11 @@ msgstr "kannada"
 msgid "Keep"
 msgstr "Tartsa"
 
+#. placeholder {0}: node.path
+#: src/features/career/knowledge/groups.tsx
+msgid "Keep {0} private"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Keep a single address, so software does not have to guess which one to use."
 msgstr "Csak egy címet adjon meg, hogy a szoftvernek ne kelljen találgatnia, melyiket használja."
@@ -6304,6 +6348,10 @@ msgstr ""
 msgid "Knowledge couldn't load. Try again or switch Knowledge off before sending."
 msgstr "A Tudástár nem töltődött be. Próbáld újra, vagy küldés előtt kapcsold ki a Tudástárat."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Knowledge for this job"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Korean"
 msgstr "koreai"
@@ -6414,6 +6462,7 @@ msgid "Leave it empty to remove the link."
 msgstr "A hivatkozás eltávolításához hagyja üresen."
 
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/career/workspace/knowledge.tsx
 msgid "Leave out"
 msgstr "Hagyd ki"
 
@@ -6428,6 +6477,10 @@ msgstr "Kutatást vezettem az onboarding újratervezéséhez; az aktiválás 31%
 #: src/features/resume/editor/design/template-group.tsx
 msgid "Left"
 msgstr "Balra"
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Left out for this job"
+msgstr ""
 
 #: src/features/resume/import/read-file.ts
 msgid "Legacy Word files aren't supported. Open the file in Word and save it as .docx first."
@@ -8028,6 +8081,10 @@ msgstr "Egyszerre csak az első {MAX_IMPORT} sor importálódik, így {overflow}
 msgid "Only the first pages were checked."
 msgstr "Csak az első oldalak lettek ellenőrizve."
 
+#: src/features/career/workspace/knowledge.tsx
+msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
+msgstr ""
+
 #: src/features/resume/share/link-tab.tsx
 msgid "Only you see these"
 msgstr "Ezeket csak te látod"
@@ -8800,9 +8857,18 @@ msgstr "Nyomtasd ki vagy exportáld az űrlapot lapos PDF-ként, mielőtt elkül
 msgid "Printing is turned off for this resume."
 msgstr "A nyomtatás ki van kapcsolva ennél az önéletrajznál."
 
+#: src/features/career/knowledge/groups.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Privát"
+
+#: src/features/career/knowledge/groups.tsx
+msgid "Private (parent)"
+msgstr ""
+
+#: src/features/career/workspace/knowledge.tsx
+msgid "Private, not sent"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Private. Only you can see it."
@@ -11262,7 +11328,7 @@ msgid "Switch {0} on"
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
-msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. Put a fact in a group from its row in Facts."
+msgid "Switch a whole group on or off, subgroups included. Facts you add to a group later start the way the group was last switched. A private group never reaches your AI provider, whatever its switches say, unless an application includes it from its details. Put a fact in a group from its row in Facts."
 msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
@@ -12494,6 +12560,7 @@ msgstr "A hivatkozások aláhúzása"
 #: src/features/career/shared.tsx
 #: src/features/career/today.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/career/workspace/knowledge.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/homepage/write.tsx
 #: src/features/resume/editor/check/actions.ts

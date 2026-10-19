@@ -20,7 +20,13 @@ vi.mock("@/libs/orpc/client", () => {
 	});
 	return {
 		orpc: {
-			career: { facts: endpoint("facts"), stories: endpoint("stories"), aiLimits: endpoint("aiLimits") },
+			career: {
+				facts: endpoint("facts"),
+				stories: endpoint("stories"),
+				aiLimits: endpoint("aiLimits"),
+				factGroups: endpoint("factGroups"),
+				overrides: endpoint("overrides"),
+			},
 			aiProviders: { list: endpoint("providers"), update: endpoint("update") },
 		},
 	};
@@ -89,6 +95,7 @@ describe("Knowledge budget", () => {
 			stories: [],
 			aiLimits: aiLimitsSchema.parse({ coachFacts: 5, actionFactChars: 2000, actionStoryChars: 2000 }),
 			providers: [provider("claude-small", null)],
+			factGroups: [],
 		};
 	});
 	afterEach(cleanup);

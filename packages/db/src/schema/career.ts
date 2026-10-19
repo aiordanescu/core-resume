@@ -7,6 +7,7 @@ import type {
 	AiLimits,
 	SavedItemData,
 } from "@reactive-resume/schema/career";
+import { sql } from "drizzle-orm";
 import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
 import { aiProvider } from "./agent";
@@ -76,6 +77,8 @@ export const careerFactGroup = pg.pgTable(
 		group: pg.text("group").notNull(),
 		/** How the group was last switched, so a fact added to it starts the same way; null starts it switched on. */
 		status: pg.text("status"),
+		/** Never sent to the AI, whatever its facts' switches say, unless an application includes it. Covers subgroups. */
+		private: pg.boolean("private").notNull().default(false),
 		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 		updatedAt: pg
 			.timestamp("updated_at", { withTimezone: true })
@@ -84,6 +87,37 @@ export const careerFactGroup = pg.pgTable(
 			.$onUpdate(() => new Date()),
 	},
 	(t) => [pg.primaryKey({ columns: [t.userId, t.group] })],
+);
+/**
+ * One application's exception to what reaches the AI: a group (with its subgroups) or a single fact, included or
+ * excluded for that application only. Nothing is copied, so a correction to a shared fact applies here too.
+ */
+export const careerFactOverride = pg.pgTable(
+	"career_fact_override",
+	{
+		id: pg
+			.text("id")
+			.primaryKey()
+			.$defaultFn(() => generateId()),
+		userId: pg
+			.text("user_id")
+			.notNull()
+			.references(() => user.id, { onDelete: "cascade" }),
+		applicationId: pg
+			.text("application_id")
+			.notNull()
+			.references(() => application.id, { onDelete: "cascade" }),
+		group: pg.text("group"),
+		factId: pg.text("fact_id").references(() => careerFact.id, { onDelete: "cascade" }),
+		/** include or exclude. */
+		mode: pg.text("mode").notNull(),
+		createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+	},
+	(t) => [
+		pg.uniqueIndex().on(t.applicationId, t.group),
+		pg.uniqueIndex().on(t.applicationId, t.factId),
+		pg.check("career_fact_override_one_target", sql`(${t.group} is null) <> (${t.factId} is null)`),
+	],
 );
 export const careerStory = pg.pgTable(
 	"career_story",

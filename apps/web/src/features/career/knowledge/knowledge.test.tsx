@@ -45,6 +45,7 @@ vi.mock("@/libs/orpc/client", () => {
 					"saveFact",
 					"updateFact",
 					"factGroups",
+					"overrides",
 				].map((name) => [name, endpoint(name)]),
 			),
 		},
@@ -110,7 +111,7 @@ const mount = (children: ReactNode) => {
 beforeEach(() => {
 	vi.clearAllMocks();
 	api.fail.clear();
-	api.data = { facts: [], stories: [], profile: profile(), savedItems: [] };
+	api.data = { facts: [], stories: [], profile: profile(), savedItems: [], factGroups: [] };
 	api.saveProfile.mockResolvedValue(profile());
 	sessionStorage.clear();
 	localStorage.clear();

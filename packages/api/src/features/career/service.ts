@@ -18,7 +18,15 @@ import {
 	type careerStoryInputSchema,
 	type SavedItemData,
 } from "@reactive-resume/schema/career";
-import { factPromptChars, groupAncestors, nearestGroupSetting, storyHolds } from "@reactive-resume/utils/knowledge";
+import {
+	factPromptChars,
+	groupAncestors,
+	isPrivateGroup,
+	type KnowledgeRules,
+	nearestGroupSetting,
+	reachesAi,
+	storyHolds,
+} from "@reactive-resume/utils/knowledge";
 import { generateId } from "@reactive-resume/utils/string";
 import { requestRunCancellation } from "../agent/cancellation";
 import { applicationService, recordSentResume } from "../applications/service";
@@ -41,6 +49,12 @@ const inFactGroup = (group: string, subgroups = true) =>
 /** Facts a switch can change: not forgotten. */
 const switchable = inArray(tables.careerFact.status, ["active", "excluded"]);
 type FactSwitch = "active" | "excluded";
+type OverrideRow = typeof tables.careerFactOverride.$inferSelect;
+/** Rows hold include or exclude; anything else reads as exclude, the safe side. */
+const overrideOf = (row: OverrideRow) => ({
+	...row,
+	mode: row.mode === "include" ? ("include" as const) : ("exclude" as const),
+});
 
 /** How a new fact in this group starts: as the group, or its nearest parent, was last switched. */
 async function groupStatus(tx: CareerTransaction, userId: string, group: string): Promise<FactSwitch> {
@@ -52,6 +66,41 @@ async function groupStatus(tx: CareerTransaction, userId: string, group: string)
 		);
 	const settings = new Map(rows.flatMap((row) => (row.status ? [[row.group, row.status] as const] : [])));
 	return nearestGroupSetting(group, settings) === "excluded" ? "excluded" : "active";
+}
+
+/** Private groups, and in an application, its overrides: what decides reach beyond each fact's own switch. */
+async function knowledgeRules(
+	userId: string,
+	applicationId: string | null | undefined,
+	reader: typeof db | CareerTransaction = db,
+): Promise<KnowledgeRules> {
+	const [groups, overrides] = await Promise.all([
+		reader
+			.select({ group: tables.careerFactGroup.group })
+			.from(tables.careerFactGroup)
+			.where(and(eq(tables.careerFactGroup.userId, userId), eq(tables.careerFactGroup.private, true)))
+			.orderBy(tables.careerFactGroup.group),
+		applicationId
+			? reader
+					.select({
+						group: tables.careerFactOverride.group,
+						factId: tables.careerFactOverride.factId,
+						mode: tables.careerFactOverride.mode,
+					})
+					.from(tables.careerFactOverride)
+					.where(
+						and(
+							eq(tables.careerFactOverride.userId, userId),
+							eq(tables.careerFactOverride.applicationId, applicationId),
+						),
+					)
+					.orderBy(tables.careerFactOverride.id)
+			: Promise.resolve([]),
+	]);
+	return {
+		privateGroups: groups.map((row) => row.group),
+		overrides: overrides.map((row) => ({ ...row, mode: row.mode === "include" ? "include" : "exclude" })),
+	};
 }
 
 export async function requireCareerApplication(input: Owned & { interviewId?: string | null | undefined }) {
@@ -141,17 +190,21 @@ const factUsage = {
 
 async function requireFacts(input: Owned, ids: string[], reader: typeof db | CareerTransaction = db) {
 	if (!ids.length) return [];
-	const rows = await reader
-		.select()
-		.from(tables.careerFact)
-		.where(
-			and(
-				eq(tables.careerFact.userId, input.userId),
-				inArray(tables.careerFact.id, ids),
-				eq(tables.careerFact.status, "active"),
-				visible(tables.careerFact.applicationId, input.applicationId),
+	const [found, rules] = await Promise.all([
+		reader
+			.select()
+			.from(tables.careerFact)
+			.where(
+				and(
+					eq(tables.careerFact.userId, input.userId),
+					inArray(tables.careerFact.id, ids),
+					visible(tables.careerFact.applicationId, input.applicationId),
+				),
 			),
-		);
+		knowledgeRules(input.userId, input.applicationId, reader),
+	]);
+	// A story can only rest on facts that reach the AI where it's used.
+	const rows = found.filter((row) => reachesAi(row, rules));
 	if (new Set(rows.map((row) => row.id)).size !== new Set(ids).size)
 		throw new ORPCError("BAD_REQUEST", { message: "Some supporting facts are unavailable in this context." });
 	return rows;
@@ -193,7 +246,27 @@ async function memoryVersion(userId: string, reader: typeof db | CareerTransacti
 			),
 		)
 		.orderBy(tables.careerFact.id);
-	return hash(JSON.stringify(revisions));
+	// Making a group private, or moving a fact into one, hides it everywhere, like an exclusion. An application's own
+	// overrides only change that application's Knowledge, which knowledgeVersion covers.
+	const groups = await reader
+		.select({ group: tables.careerFactGroup.group })
+		.from(tables.careerFactGroup)
+		.where(and(eq(tables.careerFactGroup.userId, userId), eq(tables.careerFactGroup.private, true)))
+		.orderBy(tables.careerFactGroup.group);
+	if (!groups.length) return hash(JSON.stringify(revisions));
+	const privateGroups = groups.map((row) => row.group);
+	const hidden = await reader
+		.select({ id: tables.careerFact.id, group: tables.careerFact.group })
+		.from(tables.careerFact)
+		.where(and(eq(tables.careerFact.userId, userId), sql`${tables.careerFact.group} is not null`))
+		.orderBy(tables.careerFact.id);
+	return hash(
+		JSON.stringify([
+			revisions,
+			privateGroups,
+			hidden.filter((fact) => isPrivateGroup(fact.group, privateGroups)).map((fact) => fact.id),
+		]),
+	);
 }
 
 /** Structured generation is read-only: any change to its Knowledge/preferences invalidates the result. */
@@ -202,13 +275,15 @@ function knowledgeSignature(
 	facts: Array<typeof tables.careerFact.$inferSelect>,
 	stories: Array<typeof tables.careerStory.$inferSelect>,
 	timezone: string,
+	rules: KnowledgeRules,
 ) {
+	const hasRules = rules.privateGroups.length > 0 || rules.overrides.length > 0;
 	return hash(
 		JSON.stringify([
 			profile,
 			timezone,
 			facts
-				.map(({ id, applicationId, text, category, status, revisions, source, updatedAt }) => ({
+				.map(({ id, applicationId, text, category, status, revisions, source, updatedAt, group }) => ({
 					id,
 					applicationId,
 					text,
@@ -217,11 +292,14 @@ function knowledgeSignature(
 					revisions,
 					source,
 					updatedAt,
+					// Only when set, so Knowledge without groups keeps the signature it had before groups existed.
+					...(group ? { group } : {}),
 				}))
 				.sort((a, b) => a.id.localeCompare(b.id)),
 			stories
 				.map(({ id, applicationId, data, updatedAt }) => ({ id, applicationId, data, updatedAt }))
 				.sort((a, b) => a.id.localeCompare(b.id)),
+			...(hasRules ? [rules] : []),
 		]),
 	);
 }
@@ -257,6 +335,7 @@ async function knowledgeVersion(input: Owned, reader: typeof db | CareerTransact
 		facts,
 		stories,
 		owner?.timezone ?? "UTC",
+		await knowledgeRules(input.userId, input.applicationId, reader),
 	);
 }
 
@@ -306,7 +385,23 @@ export const careerService = {
 			)
 			.orderBy(desc(tables.careerFact.updatedAt))
 			.limit(1);
-		return row?.at ?? null;
+		// Making a group private, or moving a fact into one, also keeps older messages out of replays.
+		const groups = await db
+			.select({ group: tables.careerFactGroup.group, at: tables.careerFactGroup.updatedAt })
+			.from(tables.careerFactGroup)
+			.where(and(eq(tables.careerFactGroup.userId, userId), eq(tables.careerFactGroup.private, true)));
+		if (!groups.length) return row?.at ?? null;
+		const privateGroups = groups.map((entry) => entry.group);
+		const moved = await db
+			.select({ group: tables.careerFact.group, at: tables.careerFact.updatedAt })
+			.from(tables.careerFact)
+			.where(and(eq(tables.careerFact.userId, userId), sql`${tables.careerFact.group} is not null`));
+		const times = [
+			row?.at,
+			...groups.map((entry) => entry.at),
+			...moved.filter((fact) => isPrivateGroup(fact.group, privateGroups)).map((fact) => fact.at),
+		].filter((at): at is Date => at instanceof Date);
+		return times.reduce((latest, at) => (at > latest ? at : latest));
 	},
 	profile: async (userId: string) => {
 		const [row] = await db.select().from(tables.careerProfile).where(eq(tables.careerProfile.userId, userId));
@@ -439,7 +534,8 @@ export const careerService = {
 				})
 				.where(ownedFact(input.id, userId))
 				.returning();
-			if (input.text !== undefined || input.status !== undefined) await invalidateMemory(userId, input.id, tx);
+			if (input.text !== undefined || input.status !== undefined || input.group !== undefined)
+				await invalidateMemory(userId, input.id, tx);
 			if (!updated) throw new ORPCError("NOT_FOUND");
 			return updated;
 		});
@@ -478,7 +574,7 @@ export const careerService = {
 				})
 				.where(and(eq(tables.careerFact.userId, userId), inArray(tables.careerFact.id, input.ids), switchable))
 				.returning({ id: tables.careerFact.id });
-			if (input.status && rows[0]) await invalidateMemory(userId, rows[0].id, tx);
+			if (rows[0]) await invalidateMemory(userId, rows[0].id, tx);
 			return { updated: rows.length };
 		}),
 	/**
@@ -505,6 +601,7 @@ export const careerService = {
 			{
 				group: string | null;
 				status: FactSwitch | null;
+				private: boolean;
 				facts: { active: number; excluded: number };
 				activeChars: number;
 			}
@@ -512,12 +609,17 @@ export const careerService = {
 		const entry = (group: string | null) => {
 			let found = groups.get(group);
 			if (!found)
-				groups.set(group, (found = { group, status: null, facts: { active: 0, excluded: 0 }, activeChars: 0 }));
+				groups.set(
+					group,
+					(found = { group, status: null, private: false, facts: { active: 0, excluded: 0 }, activeChars: 0 }),
+				);
 			return found;
 		};
-		for (const setting of settings)
-			entry(setting.group).status =
-				setting.status === "active" || setting.status === "excluded" ? setting.status : null;
+		for (const setting of settings) {
+			const found = entry(setting.group);
+			found.status = setting.status === "active" || setting.status === "excluded" ? setting.status : null;
+			found.private = setting.private;
+		}
 		for (const fact of facts) {
 			const group = entry(fact.group);
 			if (fact.status === "active") {
@@ -569,6 +671,100 @@ export const careerService = {
 			if (rows[0]) await invalidateMemory(userId, rows[0].id, tx);
 			return { updated: rows.length };
 		}),
+	/**
+	 * Marks a group private, so none of its facts (subgroups included) reach the AI unless an application includes it, or
+	 * makes it ordinary again.
+	 */
+	saveFactGroup: (userId: string, input: { group: string; private: boolean }) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			await tx
+				.insert(tables.careerFactGroup)
+				.values({ userId, group: input.group, private: input.private })
+				.onConflictDoUpdate({
+					target: [tables.careerFactGroup.userId, tables.careerFactGroup.group],
+					set: { private: input.private, updatedAt: new Date() },
+				});
+			await invalidateMemory(userId, "", tx);
+			return input;
+		}),
+	/** Facts the AI can read in this scope: switched on or brought in by the application, and not private. */
+	aiFacts: async (input: Owned) => {
+		const [facts, rules] = await Promise.all([
+			careerService.facts(input),
+			knowledgeRules(input.userId, input.applicationId),
+		]);
+		return facts.filter((fact) => reachesAi(fact, rules));
+	},
+	/** An application's overrides: groups or facts it includes or excludes on top of the global switches. */
+	overrides: async (userId: string, applicationId: string) => {
+		await requireCareerApplication({ userId, applicationId });
+		const rows = await db
+			.select()
+			.from(tables.careerFactOverride)
+			.where(
+				and(eq(tables.careerFactOverride.userId, userId), eq(tables.careerFactOverride.applicationId, applicationId)),
+			)
+			.orderBy(tables.careerFactOverride.createdAt);
+		return rows.map(overrideOf);
+	},
+	/** Includes or excludes a group or a fact for one application, replacing any earlier choice for the same target. */
+	saveOverride: async (
+		userId: string,
+		input: {
+			applicationId: string;
+			group?: string | undefined;
+			factId?: string | undefined;
+			mode: "include" | "exclude";
+		},
+	) => {
+		await requireCareerApplication({ userId, applicationId: input.applicationId });
+		if ((input.group === undefined) === (input.factId === undefined))
+			throw new ORPCError("BAD_REQUEST", { message: "Choose either a group or a fact." });
+		return db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			if (input.factId) {
+				const [fact] = await tx
+					.select({ id: tables.careerFact.id })
+					.from(tables.careerFact)
+					.where(
+						and(
+							ownedFact(input.factId, userId),
+							visible(tables.careerFact.applicationId, input.applicationId),
+							switchable,
+						),
+					);
+				if (!fact) throw new ORPCError("NOT_FOUND", { message: "That fact isn't available to this application." });
+			}
+			const target = input.factId
+				? eq(tables.careerFactOverride.factId, input.factId)
+				: eq(tables.careerFactOverride.group, input.group ?? "");
+			await tx
+				.delete(tables.careerFactOverride)
+				.where(and(eq(tables.careerFactOverride.applicationId, input.applicationId), target));
+			const [row] = await tx
+				.insert(tables.careerFactOverride)
+				.values({
+					userId,
+					applicationId: input.applicationId,
+					group: input.group ?? null,
+					factId: input.factId ?? null,
+					mode: input.mode,
+				})
+				.returning();
+			await invalidateMemory(userId, "", tx);
+			if (!row) throw new ORPCError("NOT_FOUND");
+			return overrideOf(row);
+		});
+	},
+	deleteOverride: (userId: string, id: string) =>
+		db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			await tx
+				.delete(tables.careerFactOverride)
+				.where(and(eq(tables.careerFactOverride.id, id), eq(tables.careerFactOverride.userId, userId)));
+			await invalidateMemory(userId, "", tx);
+		}),
 	stories: async (input: Owned) => {
 		await requireCareerApplication(input);
 		return db
@@ -617,16 +813,19 @@ export const careerService = {
 	context: async (input: Owned & { interviewId?: string | null | undefined }) => {
 		const memoryRevision = await memoryVersion(input.userId);
 		const application = await requireCareerApplication(input);
-		const [preferences, limits, facts, stories, [owner]] = await Promise.all([
+		const [preferences, limits, facts, stories, [owner], rules] = await Promise.all([
 			careerService.profile(input.userId),
 			careerService.aiLimits(input.userId),
 			careerService.facts(input),
 			careerService.stories(input),
 			db.select({ timezone: tables.user.timezone }).from(tables.user).where(eq(tables.user.id, input.userId)),
+			knowledgeRules(input.userId, input.applicationId),
 		]);
 		// The coach reads times in the user's timezone (Settings → Preferences) with the rest of their preferences.
 		const profile = { ...preferences, timezone: owner?.timezone ?? "UTC" };
-		const knowledgeRevision = knowledgeSignature(preferences, facts, stories, profile.timezone);
+		const knowledgeRevision = knowledgeSignature(preferences, facts, stories, profile.timezone, rules);
+		// Switched on, or brought in by this application, and not in a private group it didn't include.
+		const active = facts.filter((fact) => reachesAi(fact, rules));
 		let resume: { text: string; version: string; submitted: boolean; source: { kind: string; id: string } } | null =
 			null;
 		let letter: { text: string; version: string; submitted: boolean; source: { kind: string; id: string } } | null =
@@ -691,15 +890,22 @@ export const careerService = {
 					source: { kind: "letter", id: row.id },
 				};
 		}
-		const blockedSources = await db
-			.select({ source: tables.careerFact.source })
-			.from(tables.careerFact)
-			.where(
-				and(
-					eq(tables.careerFact.userId, input.userId),
-					or(sql`${tables.careerFact.status} <> 'active'`, sql`jsonb_array_length(${tables.careerFact.revisions}) > 0`),
-				),
-			);
+		const blockedSources = [
+			...(await db
+				.select({ source: tables.careerFact.source })
+				.from(tables.careerFact)
+				.where(
+					and(
+						eq(tables.careerFact.userId, input.userId),
+						or(
+							sql`${tables.careerFact.status} <> 'active'`,
+							sql`jsonb_array_length(${tables.careerFact.revisions}) > 0`,
+						),
+					),
+				)),
+			// A document a private fact quotes stays out too, or the AI would read the fact in it.
+			...facts.filter((fact) => !reachesAi(fact, rules)).map(({ source }) => ({ source })),
+		];
 		if (
 			blockedSources.some(
 				({ source }) =>
@@ -719,9 +925,8 @@ export const careerService = {
 		const interview = input.interviewId
 			? (application?.activity.find((entry) => entry.type === "interview" && entry.id === input.interviewId) ?? null)
 			: null;
-		const active = facts.filter((fact) => fact.status === "active");
 		const activeFacts = active.map(modelFact);
-		// A story needs every fact behind it switched on and not corrected since; switching one off and on is no change.
+		// A story needs every fact behind it reaching the AI and not corrected since; switching one off and on is no change.
 		const usable = new Map(active.map((fact) => [fact.id, fact]));
 		const usableStories = stories.filter((story) => storyHolds(story, usable));
 		if (memoryRevision !== (await memoryVersion(input.userId)) || knowledgeRevision !== (await knowledgeVersion(input)))
@@ -735,6 +940,7 @@ export const careerService = {
 				stories.map((story) => [story.id, story.updatedAt]),
 				resume?.version,
 				letter?.version,
+				...(rules.overrides.length ? [rules.overrides] : []),
 			]),
 		);
 		return {
@@ -1185,6 +1391,7 @@ export const careerService = {
 			transcripts,
 			workspaces,
 			factGroups,
+			factOverrides,
 		] = await Promise.all([
 			careerService.profile(userId),
 			db.select().from(tables.careerFact).where(eq(tables.careerFact.userId, userId)),
@@ -1200,6 +1407,7 @@ export const careerService = {
 			db.select().from(tables.careerTranscript).where(eq(tables.careerTranscript.userId, userId)),
 			db.select().from(tables.careerWorkspace).where(eq(tables.careerWorkspace.userId, userId)),
 			db.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId)),
+			db.select().from(tables.careerFactOverride).where(eq(tables.careerFactOverride.userId, userId)),
 		]);
 		return {
 			profile,
@@ -1216,6 +1424,7 @@ export const careerService = {
 			transcripts,
 			workspaces,
 			factGroups,
+			factOverrides,
 		};
 	},
 };

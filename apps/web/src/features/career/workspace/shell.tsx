@@ -26,6 +26,7 @@ import { ApplyTab } from "./apply";
 import { CoachSheet } from "./coach-sheet";
 import { DebriefTab } from "./debrief";
 import { FitTab } from "./fit";
+import { ApplicationKnowledge } from "./knowledge";
 import { MessagesTab } from "./messages";
 import { PractiseTab } from "./practise";
 import { PrepareTab } from "./prepare";
@@ -655,6 +656,8 @@ function ContextColumn({ application, interview, now, onEdit }: ContextColumnPro
 					<Trans>The coach reads these for this application only.</Trans>
 				</p>
 			</section>
+
+			<ApplicationKnowledge applicationId={application.id} />
 		</>
 	);
 }
