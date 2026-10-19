@@ -902,10 +902,6 @@ msgstr "この選考ステップに向けた集中プラン"
 msgid "A font is referenced but not embedded."
 msgstr "フォントが参照されていますが、埋め込まれていません。"
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "6つのプロダクトチームが使う共通のデザインシステ�
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "求人情報、Samのメッセージ、あなたの最も強い2つのストーリーから作成。"
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "内蔵リーダー"
@@ -2310,6 +2298,10 @@ msgstr "リストエントリ {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "箇条書きリスト"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "コーチが{0}向けに書いたすべての内容（新しい順）。
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "これまでに行ったことすべてが 1 ページにまとめられています。"
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

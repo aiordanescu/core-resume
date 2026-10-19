@@ -902,10 +902,6 @@ msgstr "Osredotočen načrt za ta krog"
 msgid "A font is referenced but not embedded."
 msgstr "Pisava je navedena, vendar ni vdelana."
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "Zgradil skupni sistem oblikovanja, ki ga uporablja šest skupin izdelkov
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Pripravljeno na podlagi oglasa, Samovega sporočila in vaših dveh najmočnejših zgodb."
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Vgrajen bralnik"
@@ -2310,6 +2298,10 @@ msgstr "vnos na seznam {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Seznam z oznakami"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "Vse, kar je svetovalec napisal za podjetje {0}, najnovejše najprej."
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "Vse, kar ste naredili, na eni strani."
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

@@ -897,10 +897,6 @@ msgstr "A focused plan for this round"
 msgid "A font is referenced but not embedded."
 msgstr "A font is referenced but not embedded."
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2280,14 +2276,6 @@ msgstr "Built a shared design system used by six product teams."
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "Built from the posting, Sam’s message and your two strongest stories."
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr "Built on"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr "Built on Reactive Resume"
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "Built-in reader"
@@ -2305,6 +2293,10 @@ msgstr "bullet {n}"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "Bulleted list"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr "By <0>Alex Iordanescu</0>."
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4659,6 +4651,14 @@ msgstr "Everything the coach wrote for {0}, newest first."
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "Everything you’ve done, on one page."
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr "Evolved from"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr "Evolved from Reactive Resume"
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"

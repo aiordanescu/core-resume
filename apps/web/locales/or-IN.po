@@ -902,10 +902,6 @@ msgstr "ଏହି ରାଉଣ୍ଡ ପାଇଁ ଏକ କେନ୍ଦ୍ର�
 msgid "A font is referenced but not embedded."
 msgstr "ଏକ ଫଣ୍ଟ ସନ୍ଦର୍ଭିତ କିନ୍ତୁ ଏମ୍ବେଡ୍ କରାଯାଇ ନାହିଁ।"
 
-#: src/features/homepage/footer.tsx
-msgid "A fork of <0>Reactive Resume</0> by Amruth Pillai."
-msgstr ""
-
 #: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
@@ -2285,14 +2281,6 @@ msgstr "ଛଅଟି ପ୍ରଡକ୍ଟ ଟିମ୍ ବ୍ୟବହାର �
 msgid "Built from the posting, Sam’s message and your two strongest stories."
 msgstr "ଚାକିରି ବିଜ୍ଞାପନ, Samଙ୍କ ବାର୍ତ୍ତା ଓ ଆପଣଙ୍କ ଦୁଇଟି ସବୁଠାରୁ ଶକ୍ତିଶାଳୀ କାହାଣୀରୁ ପ୍ରସ୍ତୁତ।"
 
-#: src/features/homepage/footer.tsx
-msgid "Built on"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Built on Reactive Resume"
-msgstr ""
-
 #: src/features/settings/ai/web-access.tsx
 msgid "Built-in reader"
 msgstr "ବିଲ୍ଟ-ଇନ୍ ରିଡର୍ |"
@@ -2310,6 +2298,10 @@ msgstr "ତାଲିକା ପ୍ରବେଶ {n} |"
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Bulleted list"
 msgstr "ବୁଲେଟେଡ୍ ତାଲିକା |"
+
+#: src/features/homepage/footer.tsx
+msgid "By <0>Alex Iordanescu</0>."
+msgstr ""
 
 #: src/routes/dashboard/applications/index.tsx
 msgid "Calendar"
@@ -4664,6 +4656,14 @@ msgstr "{0} ପାଇଁ କୋଚ୍ ଲେଖିଥିବା ସବୁକି�
 #: src/features/homepage/hero.tsx
 msgid "Everything you’ve done, on one page."
 msgstr "ଗୋଟିଏ ପୃଷ୍ଠାରେ ତୁମେ ସବୁକିଛି କରିଛ |"
+
+#: src/features/homepage/footer.tsx
+msgid "Evolved from"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "Evolved from Reactive Resume"
+msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
