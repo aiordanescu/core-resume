@@ -186,7 +186,7 @@ REST data responses use `Cache-Control: no-store`. Uploaded profile images are p
 | AI requests                                                                                     | 20 per minute                                                 |
 | Request body size on Vercel installations                                                       | 4.5 MB (see [Large RPC requests](/guides/large-rpc-requests)) |
 
-Procedure limits apply in production. When you hit a limit, the API responds with `429`. On a self-hosted installation, `FLAG_DISABLE_API_RATE_LIMIT` turns off the per-key limit together with the sign-in limits; the procedure limits also turn off (see [Environment variables](/self-hosting/environment-variables)).
+Procedure limits apply in production. When you hit a limit, the per-key limit included, the API responds with `429` and a `Retry-After` header in seconds. A key over its limit can still call public operations, as a visitor. On a self-hosted installation, `FLAG_DISABLE_API_RATE_LIMIT` turns off the per-key limit together with the sign-in limits; the procedure limits also turn off (see [Environment variables](/self-hosting/environment-variables)).
 
 ## Errors
 

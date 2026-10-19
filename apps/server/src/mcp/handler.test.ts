@@ -68,3 +68,13 @@ it("returns actionable rate limits and conceals unexpected authentication errors
 	expect(failed.status).toBe(500);
 	expect(await failed.text()).not.toContain("private database connection string");
 });
+
+it("answers 429 when the API key is over its rate limit", async () => {
+	mocks.authentication.mockRejectedValueOnce(
+		new ORPCError("TOO_MANY_REQUESTS", { data: { reset: Date.now() + 90_000 } }),
+	);
+	const response = await handleMcp(initialize());
+	expect(response.status).toBe(429);
+	expect(Number(response.headers.get("retry-after"))).toBeGreaterThanOrEqual(89);
+	expect(response.headers.has("www-authenticate")).toBe(false);
+});

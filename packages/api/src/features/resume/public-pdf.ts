@@ -53,10 +53,15 @@ const defaultDependencies: PublicResumePdfDependencies = {
 	findResume,
 	hasPasswordAccess: async (requestHeaders, resumeId, passwordHash) =>
 		(await import("./access")).hasResumeAccess(requestHeaders, resumeId, passwordHash),
-	resolveCurrentUserId: async (requestHeaders) =>
-		(await import("../../context"))
-			.resolveAuthenticationFromRequestHeaders(requestHeaders)
-			.then((authentication) => (authentication?.permissions.includes("read") ? authentication.user.id : undefined)),
+	resolveCurrentUserId: async (requestHeaders) => {
+		const { isApiKeyRateLimitError, resolveAuthenticationFromRequestHeaders } = await import("../../context");
+		// A rate-limited API key downloads the public PDF as a visitor, as it reads public procedures.
+		const authentication = await resolveAuthenticationFromRequestHeaders(requestHeaders).catch((error: unknown) => {
+			if (isApiKeyRateLimitError(error)) return null;
+			throw error;
+		});
+		return authentication?.permissions.includes("read") ? authentication.user.id : undefined;
+	},
 	rateLimiter: publicRenderRateLimiter,
 	renderPdf: async (input) =>
 		(await import("@reactive-resume/pdf/server")).createResumePdfFile({ ...input, uploadOrigin: env.APP_URL }),

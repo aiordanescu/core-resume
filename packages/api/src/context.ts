@@ -54,9 +54,33 @@ async function getAuthenticationFromBearerToken(headers: Headers): Promise<Reque
 	}
 }
 
-async function getAuthenticationFromApiKey(apiKey: string): Promise<RequestAuthentication | null> {
+/**
+ * An API key over its request limit. Better Auth reports it as an invalid key; answering 401 for it made a busy key
+ * look revoked, so callers that need a user answer 429 with the reset time instead.
+ */
+function apiKeyRateLimitError(tryAgainIn: unknown) {
+	const wait = typeof tryAgainIn === "number" && tryAgainIn > 0 ? tryAgainIn : 60_000;
+	return new ORPCError("TOO_MANY_REQUESTS", {
+		message: "This API key has made too many requests. Retry after the rate limit resets.",
+		data: { reset: Date.now() + wait },
+	});
+}
+
+export function isApiKeyRateLimitError(error: unknown): error is ORPCError<"TOO_MANY_REQUESTS", { reset: number }> {
+	return error instanceof ORPCError && error.code === "TOO_MANY_REQUESTS";
+}
+
+async function getAuthenticationFromApiKey(
+	apiKey: string,
+): Promise<RequestAuthentication | ReturnType<typeof apiKeyRateLimitError> | null> {
 	try {
 		const result = await auth.api.verifyApiKey({ body: { key: apiKey } });
+		if (result.error?.code === "RATE_LIMITED") {
+			const details: unknown = "details" in result.error ? result.error.details : undefined;
+			return apiKeyRateLimitError(
+				details && typeof details === "object" && "tryAgainIn" in details ? details.tryAgainIn : undefined,
+			);
+		}
 		if (!result.key || !result.valid) return null;
 		const activeUser = await findActiveUser(result.key.referenceId);
 		if (!activeUser) return null;
@@ -72,15 +96,21 @@ async function getAuthenticationFromApiKey(apiKey: string): Promise<RequestAuthe
 	}
 }
 
-/** API key, then OAuth bearer token, then same-origin session cookies. */
+/**
+ * API key, then OAuth bearer token, then same-origin session cookies. An API key over its rate limit throws 429 unless
+ * a bearer token in the same request works.
+ */
 export async function resolveAuthenticationFromRequestHeaders(headers: Headers): Promise<RequestAuthentication | null> {
 	const apiKey = headers.get("x-api-key");
+	let rateLimited: ReturnType<typeof apiKeyRateLimitError> | undefined;
 	if (apiKey) {
 		const authentication = await getAuthenticationFromApiKey(apiKey);
-		if (authentication) return authentication;
+		if (authentication instanceof ORPCError) rateLimited = authentication;
+		else if (authentication) return authentication;
 	}
 	const bearer = await getAuthenticationFromBearerToken(headers);
 	if (bearer) return bearer;
+	if (rateLimited) throw rateLimited;
 	const origin = headers.get("origin");
 	if (
 		headers.has("cookie") &&
@@ -111,9 +141,15 @@ const base = os.$context<ORPCContext>();
 export const publicProcedure = base
 	.route({ spec: (operation) => ({ ...operation, security: [] }) })
 	.use(async ({ context, next }) => {
+		// A rate-limited API key still reads public content as a visitor; protected procedures answer 429.
+		let apiKeyRateLimit: ORPCError<"TOO_MANY_REQUESTS", { reset: number }> | undefined;
 		const authentication =
 			context.authentication === undefined
-				? await resolveAuthenticationFromRequestHeaders(context.reqHeaders)
+				? await resolveAuthenticationFromRequestHeaders(context.reqHeaders).catch((error: unknown) => {
+						if (!isApiKeyRateLimitError(error)) throw error;
+						apiKeyRateLimit = error;
+						return null;
+					})
 				: context.authentication;
 
 		return next({
@@ -121,6 +157,7 @@ export const publicProcedure = base
 				...context,
 				authentication,
 				user: authentication?.user ?? null,
+				apiKeyRateLimit,
 			},
 		});
 	});
@@ -130,6 +167,11 @@ export const protectedProcedure = publicProcedure
 		spec: (operation) => ({ ...operation, security: [{ apiKey: [] }, { bearerAuth: [] }, { cookieAuth: [] }] }),
 	})
 	.use(({ context, procedure, next }) => {
+		if (!context.user && context.apiKeyRateLimit) {
+			const { reset } = context.apiKeyRateLimit.data;
+			context.resHeaders?.set("retry-after", String(Math.max(1, Math.ceil((reset - Date.now()) / 1000))));
+			throw context.apiKeyRateLimit;
+		}
 		if (!context.user) throw new ORPCError("UNAUTHORIZED");
 		const route = procedure["~orpc"].route;
 		const permission =
