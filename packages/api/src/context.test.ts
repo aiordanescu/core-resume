@@ -22,8 +22,13 @@ vi.mock("@reactive-resume/db/client", () => ({ db: dbMock }));
 vi.mock("@reactive-resume/db/schema", () => ({ user: { __table: "user" } }));
 vi.mock("drizzle-orm", () => ({ eq: () => "EQ" }));
 
-const { resolveUserFromRequestHeaders, resolveAuthenticationFromRequestHeaders, protectedProcedure } =
-	await import("./context");
+const {
+	isApiKeyRateLimitError,
+	protectedProcedure,
+	publicProcedure,
+	resolveAuthenticationFromRequestHeaders,
+	resolveUserFromRequestHeaders,
+} = await import("./context");
 
 const setupDbResolves = (userResult: unknown) => {
 	dbMock.select.mockReturnValueOnce({
@@ -166,6 +171,73 @@ describe("credential authorization", () => {
 			},
 		);
 		await expect(operation(undefined)).rejects.toMatchObject({ code: "FORBIDDEN" });
+		expect(authMock.api.getSession).not.toHaveBeenCalled();
+	});
+});
+
+describe("API key rate limits", () => {
+	const rateLimited = (tryAgainIn = 90_000) => ({
+		valid: false,
+		error: { code: "RATE_LIMITED", message: "Rate limit exceeded.", details: { tryAgainIn } },
+		key: null,
+	});
+	const callProtected = (headers: Headers, resHeaders = new Headers()) =>
+		createProcedureClient(
+			protectedProcedure.handler(({ context }) => context.user.id),
+			{ context: { locale: "en-US", reqHeaders: headers, resHeaders } },
+		)(undefined);
+	const callPublic = (headers: Headers) =>
+		createProcedureClient(
+			publicProcedure.handler(({ context }) => context.user?.id ?? "visitor"),
+			{ context: { locale: "en-US", reqHeaders: headers } },
+		)(undefined);
+
+	it("answers 429 with the reset time, not 401, when a key is over its limit", async () => {
+		reset();
+		authMock.api.verifyApiKey.mockResolvedValue(rateLimited());
+		const resHeaders = new Headers();
+		const before = Date.now();
+		const error = await callProtected(new Headers({ "x-api-key": "busy-key" }), resHeaders).catch(
+			(caught: unknown) => caught,
+		);
+		expect(error).toMatchObject({ code: "TOO_MANY_REQUESTS", status: 429 });
+		expect((error as { data: { reset: number } }).data.reset).toBeGreaterThanOrEqual(before + 90_000);
+		expect(resHeaders.get("retry-after")).toBe("90");
+	});
+
+	it("still answers 401 for an invalid key", async () => {
+		reset();
+		authMock.api.verifyApiKey.mockResolvedValue({ valid: false, error: { code: "INVALID_API_KEY" }, key: null });
+		await expect(callProtected(new Headers({ "x-api-key": "wrong-key" }))).rejects.toMatchObject({
+			code: "UNAUTHORIZED",
+		});
+	});
+
+	it("lets a rate-limited key read public procedures as a visitor", async () => {
+		reset();
+		authMock.api.verifyApiKey.mockResolvedValue(rateLimited());
+		await expect(callPublic(new Headers({ "x-api-key": "busy-key" }))).resolves.toBe("visitor");
+	});
+
+	it("uses a working bearer token sent with a rate-limited key", async () => {
+		reset();
+		authMock.api.verifyApiKey.mockResolvedValue(rateLimited());
+		verifyOAuthTokenMock.mockResolvedValueOnce({ sub: "bearer-user" });
+		setupDbResolves({ id: "bearer-user" });
+		await expect(
+			resolveAuthenticationFromRequestHeaders(
+				new Headers({ "x-api-key": "busy-key", authorization: "Bearer valid-token" }),
+			),
+		).resolves.toMatchObject({ user: { id: "bearer-user" }, method: "bearer" });
+	});
+
+	it("throws the 429 from shared credential resolution when nothing else authenticates", async () => {
+		reset();
+		authMock.api.verifyApiKey.mockResolvedValue(rateLimited(1_000));
+		const error = await resolveAuthenticationFromRequestHeaders(new Headers({ "x-api-key": "busy-key" })).catch(
+			(caught: unknown) => caught,
+		);
+		expect(isApiKeyRateLimitError(error)).toBe(true);
 		expect(authMock.api.getSession).not.toHaveBeenCalled();
 	});
 });
