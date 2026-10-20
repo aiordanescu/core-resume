@@ -178,7 +178,7 @@ export const providerOptions: AIProviderOption[] = [
 	},
 ];
 
-// Prefill Base URL from the provider's known default when the provider changes. The model comes from suggestedModel.
+// Prefill Base URL from the provider's known default when the provider changes. The model box only shows suggestedModel as a placeholder.
 export function providerDefaults(provider: AIProvider) {
 	const option = providerOptions.find((entry) => entry.value === provider);
 	return { baseURL: option?.defaultBaseURL ?? AI_PROVIDER_DEFAULT_BASE_URLS[provider] ?? "" };
@@ -194,7 +194,7 @@ export const modelSuggestionsQuery = {
 } as const;
 
 /**
- * The model to prefill for a new provider: the newest suggestion in its model family, or the newest of all when the
+ * The model to suggest in a new provider's Model box: the newest suggestion in its model family, or the newest of all when the
  * family has none. Empty when the provider has no catalog or the suggestions didn't load.
  */
 export function suggestedModel(catalog: ModelSuggestions | undefined, provider: AIProvider) {

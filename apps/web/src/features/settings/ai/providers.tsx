@@ -361,7 +361,8 @@ function ProviderFieldsForm({ provider, value, onChange, keyOptional }: Provider
 					list={`${id}-models`}
 					aria-describedby={`${id}-model-hint`}
 					value={value.model}
-					placeholder={models[0]?.id}
+					// A hint, not a value: a value in the box makes the browser filter the suggestions down to it.
+					placeholder={suggestedModel(catalog, provider)}
 					onChange={(event) => set({ model: event.target.value })}
 					{...secretInputProps}
 				/>
@@ -440,11 +441,6 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 		reasoning: null,
 		...providerDefaults("openai"),
 	});
-	// The model shows the newest suggestion from models.dev until it's edited, so a catalog that loads late still fills
-	// it in. Blank when the suggestions don't load.
-	const { data: catalog } = useQuery({ ...modelSuggestionsQuery, enabled: open });
-	const [modelEdited, setModelEdited] = useState(false);
-	const model = modelEdited ? fields.model : suggestedModel(catalog, provider);
 	const [failure, setFailure] = useState<string | null>(null);
 	const create = useMutation(orpc.aiProviders.create.mutationOptions({ meta: { noInvalidate: true } }));
 	const test = useMutation(orpc.aiProviders.test.mutationOptions({ meta: { noInvalidate: true } }));
@@ -452,7 +448,6 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 	const reset = () => {
 		setProvider("openai");
 		setFields({ label: "", apiKey: "", model: "", reasoning: null, ...providerDefaults("openai") });
-		setModelEdited(false);
 		setFailure(null);
 	};
 
@@ -461,7 +456,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 		const input = {
 			label: fields.label.trim() || providerLabel(provider),
 			provider,
-			model: model.trim(),
+			model: fields.model.trim(),
 			baseURL: fields.baseURL.trim(),
 			apiKey: fields.apiKey.trim(),
 			reasoning: fields.reasoning,
@@ -492,7 +487,7 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 	};
 
 	const pending = create.isPending || test.isPending;
-	const ready = Boolean((provider === "ollama" || fields.apiKey.trim()) && model.trim());
+	const ready = Boolean((provider === "ollama" || fields.apiKey.trim()) && fields.model.trim());
 
 	return (
 		<Dialog
@@ -539,23 +534,16 @@ function AddProviderDialog({ open, onOpenChange }: AddProviderDialogProps) {
 							onValueChange={(next) => {
 								if (!next) return;
 								setProvider(next);
-								setModelEdited(false);
 								setFields((current) => ({
 									...current,
 									...providerDefaults(next),
+									model: "",
 									reasoning: reasoningFor(next, current.reasoning),
 								}));
 							}}
 						/>
 					</div>
-					<ProviderFieldsForm
-						provider={provider}
-						value={{ ...fields, model }}
-						onChange={(next) => {
-							if (next.model !== model) setModelEdited(true);
-							setFields(next);
-						}}
-					/>
+					<ProviderFieldsForm provider={provider} value={fields} onChange={setFields} />
 					{failure && (
 						<p role="alert" className="text-sm text-danger-text">
 							{failure}

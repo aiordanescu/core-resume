@@ -89,13 +89,11 @@ function ConnectForm({ choice }: { choice: Choice }) {
 	const id = useId();
 	const queryClient = useQueryClient();
 	const [apiKey, setApiKey] = useState("");
-	// The newest models.dev suggestion until it's edited, as in Settings; blank if it doesn't load.
-	const { data: catalog } = useQuery({
-		...modelSuggestionsQuery,
-		enabled: modelsDevProviderIds[choice.provider] !== null,
-	});
-	const [typedModel, setModel] = useState<string | null>(null);
-	const model = typedModel ?? suggestedModel(catalog, choice.provider);
+	// As in Settings, the box starts empty: a value would make the browser filter the suggestions down to it.
+	const catalogId = modelsDevProviderIds[choice.provider];
+	const { data: catalog } = useQuery({ ...modelSuggestionsQuery, enabled: catalogId !== null });
+	const models = catalogId ? (catalog?.[catalogId] ?? []) : [];
+	const [model, setModel] = useState("");
 	const [baseURL, setBaseURL] = useState("");
 	const [failure, setFailure] = useState<string | null>(null);
 
@@ -161,7 +159,20 @@ function ConnectForm({ choice }: { choice: Choice }) {
 				<Label htmlFor={`${id}-model`}>
 					<Trans>Model</Trans>
 				</Label>
-				<Input id={`${id}-model`} value={model} onChange={(event) => setModel(event.target.value)} />
+				<Input
+					id={`${id}-model`}
+					list={`${id}-models`}
+					value={model}
+					placeholder={suggestedModel(catalog, choice.provider)}
+					onChange={(event) => setModel(event.target.value)}
+				/>
+				<datalist id={`${id}-models`}>
+					{models.map((entry) => (
+						<option key={entry.id} value={entry.id}>
+							{entry.name}
+						</option>
+					))}
+				</datalist>
 			</div>
 			{failure && (
 				<p role="alert" className="text-xs text-danger-text">
