@@ -6,27 +6,89 @@ This file is the fork's patch list: every change that is not in upstream, and wh
 
 ## Branches
 
-| Branch                      | What it holds                                                                                                                      |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `main`                      | Core Resume: upstream plus the fork's changes. The default branch and what gets deployed. Changes land only through pull requests. |
-| `upstream`                  | An exact mirror of `reactive-resume/reactive-resume:main`. It only fast-forwards and never carries fork commits.                   |
-| `feat/*`, `fix/*`, `docs/*` | Work in progress, cut from `main` and merged back into `main` with a merge commit.                                                 |
+| Branch                                | What it holds                                                                                                                      |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `main`                                | Core Resume: upstream plus the fork's changes. The default branch and what gets deployed. Changes land only through pull requests. |
+| `upstream`                            | An exact mirror of `reactive-resume/reactive-resume:main`. It only fast-forwards and never carries fork commits.                   |
+| `feat/*`, `fix/*`, `docs/*`, `sync/*` | Work in progress, cut from `main` and merged back into `main` with a merge commit. `sync/*` branches carry upstream syncs.         |
 
 A change offered upstream gets its own branch cut from `upstream`, so the upstream pull request carries only that change.
 
 ## Syncing with upstream
 
-1. Fast-forward `upstream`: `git fetch upstream && git push origin upstream/main:refs/heads/upstream`.
-2. Open a pull request from `upstream` into `main` titled `Merge upstream <version or date>`, resolve any conflicts there, and merge it with a merge commit. `main` is never rebased or force-pushed.
-3. Sync at upstream release tags by default; take an untagged upstream commit only when a specific fix is needed sooner.
-4. When upstream merges a change that started here, resolve conflicts in favor of upstream's version and mark it **Upstream** below.
-5. Conflicts in `apps/web/locales/*.po`: take upstream's side, then run `pnpm lingui:extract`, which rebuilds the catalogs and refills en-US and en-GB (see **English catalogs** below).
+Sync at upstream release tags by default. Take an untagged upstream commit only when a specific fix is needed sooner. A sync must not lose a fork change and must be reversible, so it follows these steps, and its pull request reports what each check found.
+
+### 1. Prepare
+
+1. Turn on `git rerere` once per clone: `git config rerere.enabled true`. Git then records how each conflict was resolved and reuses that at the next sync.
+2. Fast-forward `upstream`: `git fetch upstream && git push origin upstream/main:refs/heads/upstream`.
+3. Cut `sync/<version>` from an up-to-date `main`, and note the fork's state and the last upstream commit it has:
+
+```sh
+git switch -c sync/<version> origin/main
+fork=$(git rev-parse HEAD)
+base=$(git merge-base HEAD upstream/main)
+```
+
+### 2. Review before merging
+
+1. List the files that both upstream and the fork changed since the last sync. Fork changes can only be lost in these files. The `.po` catalogs are left out because they follow their own rule (step 3).
+
+```sh
+comm -12 <(git diff --name-only "$base" upstream/main | sort) <(git diff --name-only "$base" "$fork" | sort) | grep -v '\.po$'
+```
+
+2. List upstream's new migrations and label each one in the pull request: additive (new tables, columns or indexes) or destructive (drops, renames, type changes, rewritten data). A destructive one is called out before the production deploy is approved.
+
+```sh
+git diff --name-only --diff-filter=A "$base" upstream/main -- 'migrations/*/migration.sql'
+```
+
+3. Check whether upstream added something that does the same job as a fork change. If it did, decide which one stays and say so in the pull request.
+
+### 3. Merge
+
+1. Run `git merge upstream/main` on the sync branch and resolve conflicts there. Don't open the pull request straight from `upstream`: resolving its conflicts on GitHub would commit them to `upstream`, which has to stay an exact mirror.
+2. Resolve conflicts hunk by hunk. Never take one side of a whole file the fork changed, except in the cases below.
+3. When upstream merged a change that started here, take upstream's version and mark it **Upstream** below.
+4. Conflicts in `apps/web/locales/*.po`: take upstream's side, then run `pnpm lingui:extract`, which rebuilds the catalogs and refills en-US and en-GB (see **English catalogs** below).
+5. Generated files (`pnpm-lock.yaml`, `apps/web/src/routeTree.gen.ts`, `docs/spec.json`): take upstream's side, then regenerate them with `pnpm install`, a Vite build and `pnpm docs:gen`.
+
+### 4. Check that nothing was lost
+
+1. Every line the fork added before the merge should still be a fork addition after it. This prints the ones that are not:
+
+```sh
+added() { git diff "$1" "$2" | grep '^+[^+]' | sort -u; }
+comm -23 <(added "$base" "$fork") <(added upstream/main HEAD)
+```
+
+Each printed line is either restored or explained in the pull request, for example because upstream now has the same line or a conflict resolution replaced it on purpose.
+
+2. Run the full checks, not only the affected packages: typecheck, all unit tests, `pnpm lint:agent`, `pnpm format:check`, `pnpm exec turbo boundaries` and `pnpm build`.
+3. Every entry in the patch list below should have a test that fails if the change is lost. An entry without one is checked by hand on the dev instance (step 6).
+
+### 5. Pull request
+
+Open it from `sync/<version>` into `main`, titled `Merge upstream <version or date>`, and merge it with a merge commit. The description lists the overlapping files and how each was resolved, the new migrations with their labels, the output of the lost-lines check, and the checks that were run. `main` is never rebased or force-pushed.
+
+### 6. Deploy
+
+1. Deploy to the dev instance first and try each patch-list entry there.
+2. Before deploying to production, dump the database with `pg_dump -Fc`, naming the dump after the new commit. Write down the old image tag, the new image tag and the dump name together: that is the rollback.
+3. Images are tagged with the `main` commit. Keep earlier tags at least as long as the database dumps.
+
+### Rolling back
+
+- **Code:** redeploy the previous image tag. To undo the sync in git as well, revert the merge on `main` through a pull request (`git revert -m 1 <merge commit>`). Before the next sync, revert that revert first, or git treats the upstream commits as already merged and leaves them out.
+- **Database:** migrations only go forward, and the server applies them at startup, so rolling back the image keeps the newer schema. Additive changes are harmless: the older code ignores them and the schema check only logs the drift (with `STRICT_SCHEMA_CHECK=true` the drift is fatal, so turn it off for the rollback). A destructive migration can only be undone by restoring the pre-deploy dump, which loses anything written since. When a sync brings one, consider testing it first on a restored copy of the dump in a throwaway database.
 
 ## Keeping the fork cheap to maintain
 
 - Prefer additive changes: new files and settings rather than edits spread through upstream code.
 - Don't reformat or rename upstream code. Internal package names (`@reactive-resume/*`), the database and environment variable names stay as upstream has them.
 - Strings added here ship in English; the fork may fill in translations that upstream's Crowdin doesn't cover.
+- Every fork change gets a test that fails if the change disappears, so an upstream sync can't drop it silently.
 - Upstream's GitHub Actions workflows stay disabled on this repository.
 
 ## Fork changes
