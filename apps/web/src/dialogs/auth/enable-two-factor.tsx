@@ -21,6 +21,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { OTPField } from "@reactive-resume/ui/components/otp-field";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { useDialogStore } from "../store";
 import { PasswordInput } from "@/components/input/password-input";
@@ -66,7 +67,7 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
 
 			const { data, error } = await authClient.twoFactor.enable({
 				password: value.password,
-				issuer: "Overreactive Resume",
+				issuer: APP_NAME,
 			});
 
 			if (error) {
@@ -167,7 +168,7 @@ export function EnableTwoFactorDialog(_: DialogProps<"auth.two-factor.enable">) 
 
 	const handleDownloadBackupCodes = () => {
 		if (!backupCodes) return;
-		downloadWithAnchor(new Blob([backupCodes.join("\n")], { type: "text/plain" }), "reactive-resume_backup-codes.txt");
+		downloadWithAnchor(new Blob([backupCodes.join("\n")], { type: "text/plain" }), "core-resume_backup-codes.txt");
 	};
 
 	return (

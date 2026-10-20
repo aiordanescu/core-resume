@@ -6,6 +6,7 @@ import { useId, useState } from "react";
 import { useTimeout } from "usehooks-ts";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { cn } from "@reactive-resume/utils/style";
 import { D3, EASE, EXIT } from "@/libs/motion";
 
@@ -46,7 +47,7 @@ export function DonationToast() {
 
 					<div className="min-w-0">
 						<p id={titleId} className="text-sm font-semibold text-ink">
-							{t`Enjoying Overreactive Resume?`}
+							{t`Enjoying ${APP_NAME}?`}
 						</p>
 						<p className="mt-1 text-[13px] leading-relaxed text-ink-2">
 							{t`It's built on Reactive Resume, which is free and open source and kept going by donations from the people who use it. If it has helped you, consider chipping in.`}

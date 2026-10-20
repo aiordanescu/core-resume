@@ -1,3 +1,4 @@
+import { APP_NAME } from "@reactive-resume/utils/brand";
 type CalendarEvent = {
 	uid: string;
 	title: string;
@@ -35,7 +36,7 @@ export function buildIcs(event: CalendarEvent | CalendarEvent[], now = new Date(
 	const lines = [
 		"BEGIN:VCALENDAR",
 		"VERSION:2.0",
-		"PRODID:-//Overreactive Resume//Applications//EN",
+		`PRODID:-//${APP_NAME}//Applications//EN`,
 		"CALSCALE:GREGORIAN",
 		...events.flatMap((item) => [
 			"BEGIN:VEVENT",

@@ -1,6 +1,7 @@
 import type { InlineStyle, OdtBlock, OdtInline, OdtListItem, SectionTitleResolver } from "./types";
 import type { ResumeData } from "@reactive-resume/schema/resume/data";
 import { isCoverLetterOnlyDocument } from "@reactive-resume/resume/export-sections";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { toSafeLink } from "@reactive-resume/utils/link";
 import { isRTL } from "@reactive-resume/utils/locale";
 import { toHex } from "./html-to-odt";
@@ -279,7 +280,7 @@ function buildMetaXml(title: string): string {
 	return [
 		XML_DECLARATION,
 		`<office:document-meta xmlns:office="${OFFICE_NS}" xmlns:meta="${META_NS}" xmlns:dc="${DC_NS}" office:version="1.3">`,
-		`<office:meta><dc:title>${escapeXml(title)}</dc:title><meta:generator>Overreactive Resume</meta:generator></office:meta>`,
+		`<office:meta><dc:title>${escapeXml(title)}</dc:title><meta:generator>${APP_NAME}</meta:generator></office:meta>`,
 		"</office:document-meta>",
 	].join("");
 }
