@@ -628,6 +628,10 @@ msgstr "{length} λεπ."
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {Εκτελείται στη σελίδα {next} κατά περίπου τη γραμμή #} other {Εκτελείται στη σελίδα {next} κατά περίπου γραμμές #}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "Ελάχιστο {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "Κάθε απάντηση για την οποία λαμβάνετε ανατροφοδότηση φυλάσσεται εδώ, με τη νεότερη πρώτη."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "Κάθε απαίτηση της αγγελίας ελέγχεται με βάση τα γεγονότα και τις ιστορίες στη Γνώση σας. Τα κενά εμφανίζονται ως ελλιπή τεκμήρια, ποτέ ως έλλειψη ικανότητας."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

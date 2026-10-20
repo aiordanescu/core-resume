@@ -628,6 +628,10 @@ msgstr "{length} phút"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {Chạy trên trang {next} khoảng dòng #} other {Chạy trên trang {next} khoảng dòng #}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "tối thiểu {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "Mỗi câu trả lời bạn nhận được nhận xét đều được lưu ở đây, mới nhất trước."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "Mỗi yêu cầu trong tin tuyển dụng được đối chiếu với các dữ kiện và câu chuyện trong Kiến thức của bạn. Khoảng trống được hiển thị là thiếu bằng chứng, không bao giờ là thiếu năng lực."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

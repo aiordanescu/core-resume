@@ -101,7 +101,7 @@ type DebriefFormProps = {
 function DebriefForm({ application, round, from, readOnly, onReviewed }: DebriefFormProps) {
 	const id = useId();
 	const { day } = useCareerTime();
-	const generate = useGenerate(application.id);
+	const generate = useGenerate(application.id, round?.id ?? "none");
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	// Tab switches and reloads keep what was written until it's reviewed.

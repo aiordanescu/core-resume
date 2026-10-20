@@ -164,27 +164,39 @@ export function useDefaultProvider() {
 	return { ...state, provider: state.usableProviders[0] ?? null };
 }
 
-const generateKey = (applicationId: string) => ["career-generate", applicationId];
+const generateKey = (applicationId: string, scope?: string) =>
+	scope === undefined ? ["career-generate", applicationId] : ["career-generate", applicationId, scope];
+
+/** A drafted answer waiting for Use or Dismiss. The server doesn't save drafts, so it lives here, per question. */
+export const answerProposalKey = (applicationId: string, answerId: string) => [
+	"career-answer-proposal",
+	applicationId,
+	answerId,
+];
 
 /**
  * Asks the coach for one structured piece of work for a tab. Errors say what didn't run; stored data stays usable.
  * `isRunning` covers checks started before a navigation too: the request keeps running when the view unmounts,
- * and the server saves the result, so the tab must stay busy until it lands.
+ * and the server saves the result, so the tab must stay busy until it lands. `scope` names the item a tab works on
+ * (a question, an interview, a round), so a run for one item doesn't show another as busy.
  */
-export function useGenerate(applicationId: string) {
+export function useGenerate(applicationId: string, scope?: string) {
 	const { i18n } = useLingui();
 	const queryClient = useQueryClient();
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	const runningTasks = useMutationState({
-		filters: { mutationKey: generateKey(applicationId), status: "pending" },
+		filters: { mutationKey: generateKey(applicationId, scope), exact: true, status: "pending" },
 		select: (mutation) => (mutation.state.variables as { task?: GenerateTask } | undefined)?.task?.task,
 	});
 	const mutation = useMutation({
 		...orpc.career.generate.mutationOptions(),
-		mutationKey: generateKey(applicationId),
+		mutationKey: generateKey(applicationId, scope),
+		// These callbacks belong to the mutation, so they still run when the result lands after the view unmounted.
 		onSuccess: (result) => {
 			if (result.item) void queryClient.invalidateQueries({ queryKey: orpc.career.savedItems.key() });
+			if (result.answer && scope !== undefined)
+				queryClient.setQueryData(answerProposalKey(applicationId, scope), result.answer);
 		},
 		onError: (error) => {
 			const name = provider?.label ?? t`Your AI connection`;

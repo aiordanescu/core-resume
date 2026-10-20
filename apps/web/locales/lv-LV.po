@@ -628,6 +628,10 @@ msgstr "{length} min"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {Iet uz lapu {next} pa aptuveni # līniju} other {Iet uz lapu {next} pa aptuveni # līnijām}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "Vismaz {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "Katra atbilde, par kuru saņēmāt atsauksmi, tiek glabāta šeit, jaunākās augšā."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "Katra sludinājuma prasība tiek salīdzināta ar faktiem un stāstiem jūsu Zināšanās. Nepilnības tiek rādītas kā trūkstoši pierādījumi, nevis trūkstošas spējas."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

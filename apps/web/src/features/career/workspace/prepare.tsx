@@ -89,7 +89,7 @@ type PlanEmptyProps = { application: Application; interview: InterviewTimelineEn
 function PlanEmpty({ application, interview }: PlanEmptyProps) {
 	const connection = useDefaultProvider();
 	const { provider } = connection;
-	const generate = useGenerate(application.id);
+	const generate = useGenerate(application.id, interview.id);
 	const label = provider?.label ?? "";
 	return (
 		<Notice title={t`A focused plan for this round`}>
@@ -150,7 +150,7 @@ function Plan({ application, interview, briefing, readOnly, go }: PlanProps) {
 	const doneMinutes = data.plan.reduce((sum, row, index) => sum + (done(index) ? row.minutes : 0), 0);
 	const questions = [...data.questions, ...workspace.data.questions];
 	const { provider } = useDefaultProvider();
-	const generate = useGenerate(application.id);
+	const generate = useGenerate(application.id, interview?.id ?? "none");
 
 	const action = (row: SavedData<"briefing">["plan"][number]) => {
 		const className = cn(buttonVariants({ variant: "secondary", size: "sm" }));

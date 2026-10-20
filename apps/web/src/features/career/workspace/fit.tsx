@@ -81,8 +81,8 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 				</h2>
 				<p className="max-w-[420px] text-sm text-ink-2">
 					<Trans>
-						Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as
-						missing evidence, never missing ability.
+						Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your
+						Knowledge doesn't show it yet, not that you can't do it.
 					</Trans>
 				</p>
 				<AiNotice className="max-w-[420px] text-start" />
@@ -107,6 +107,8 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 	const supported = statuses.filter((status) => status === "supported" || status === "added").length;
 	const partial = statuses.filter((status) => status === "partial").length;
 	const missing = statuses.filter((status) => status === "missing").length;
+	// Supported counts 1, partly 0.5, missing 0: how much of the posting your Knowledge covers, not a hiring prediction.
+	const match = statuses.length ? Math.round(((supported + partial / 2) / statuses.length) * 100) : null;
 
 	const workspaceKey = orpc.career.workspace.queryKey({ input: { applicationId: application.id } });
 	const onSaved = (requirement: Requirement, factId: string) => {
@@ -140,6 +142,12 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 					<p className="max-w-[560px] text-sm leading-[19px] text-ink-2">{item.data.summary}</p>
 				</div>
 				<p className="flex flex-wrap items-baseline gap-x-2 font-mono text-xs font-medium tracking-[0.04em] text-ink-2 uppercase">
+					{match !== null && (
+						<>
+							<span className="text-ink">{t`${match}% match`}</span>
+							<span aria-hidden="true">·</span>
+						</>
+					)}
 					{t`${supported} supported · ${partial} partly · ${missing} missing`}
 					{item.outdated && !readOnly && provider && (
 						<Button
