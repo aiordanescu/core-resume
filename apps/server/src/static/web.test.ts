@@ -155,7 +155,7 @@ describe("web app fallback classification", () => {
 
 			const html = await (await handleWebApp(new Request("https://example.com/jane/resume"))).text();
 
-			expect(html).toContain("<title>Jane $&amp; $&#39; Doe - Overreactive Resume</title>");
+			expect(html).toContain("<title>Jane $&amp; $&#39; Doe - Core Resume</title>");
 			expect(html).toContain('<meta name="description" content="Costs $$ and $` nothing">');
 		});
 	});

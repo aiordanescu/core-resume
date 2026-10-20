@@ -1,4 +1,5 @@
 import z from "zod";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { publicProcedure } from "../../context";
 import { statisticsService } from "./service";
 
@@ -10,9 +11,8 @@ const githubRouter = {
 			tags: ["Platform Statistics"],
 			operationId: "getGitHubStarCount",
 			summary: "Get GitHub star count",
-			description:
-				"Returns the number of GitHub stars for the Overreactive Resume repository. The count is cached for up to 6 hours and falls back to a last-known value if the GitHub API is unavailable. No authentication required.",
-			successDescription: "The number of GitHub stars for the Overreactive Resume repository.",
+			description: `Returns the number of GitHub stars for the ${APP_NAME} repository. The count is cached for up to 6 hours and falls back to a last-known value if the GitHub API is unavailable. No authentication required.`,
+			successDescription: `The number of GitHub stars for the ${APP_NAME} repository.`,
 		})
 		.input(z.object({}).optional())
 		.output(z.number().describe("The number of GitHub stars."))

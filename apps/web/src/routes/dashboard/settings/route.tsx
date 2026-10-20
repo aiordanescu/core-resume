@@ -4,6 +4,7 @@ import { Trans } from "@lingui/react/macro";
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Fragment } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
+import { APP_NAME, APP_REPOSITORY_URL } from "@reactive-resume/utils/brand";
 import { popTransition } from "@/features/settings/root";
 import { appVersionLabel } from "@/libs/app-version";
 
@@ -20,7 +21,7 @@ const SETTINGS_PAGES: Page[] = [
 	{ to: "/dashboard/settings/ai", icon: "sparkle", label: () => t`AI & developer` },
 ];
 
-const githubUrl = "https://github.com/aiordanescu/overreactive-resume";
+const githubUrl = APP_REPOSITORY_URL;
 
 // The fork's own links (where to read up, see the code, report a problem), then the project it's built on.
 const getProjectLinks = () => [
@@ -59,7 +60,9 @@ function RouteComponent() {
 					))}
 				</div>
 				<p className="mt-auto px-2.5 text-xs leading-[18px] text-ink-3 max-lg:hidden">
-					<Trans>Overreactive Resume {appVersionLabel} · MIT</Trans>
+					<Trans>
+						{APP_NAME} {appVersionLabel} · MIT
+					</Trans>
 					<br />
 					{getProjectLinks().map((link, index) => (
 						<Fragment key={link.href}>

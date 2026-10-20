@@ -7,6 +7,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Skeleton } from "@reactive-resume/ui/components/skeleton";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { computeInsights, computeOutcomes, computeTimeline } from "../insights";
 import { getStageColor, getStageLabel } from "../stages";
 import { stagger } from "@/libs/motion";
@@ -252,7 +253,7 @@ async function uiFontFace(): Promise<string | null> {
 
 // A funnel-flow snapshot (the shareable picture). Hand-drawn SVG with inline fills so it exports to
 // PNG without any library. Rendered dark + vibrant so the on-screen preview matches the export;
-// the "Overreactive Resume" mark is injected only when exporting.
+// the "Core Resume" mark is injected only when exporting.
 function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsights> }) {
 	const svgRef = useRef<SVGSVGElement>(null);
 	const W = 800;
@@ -394,7 +395,7 @@ function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsight
 					</g>
 				))}
 
-				{/* export-only watermark: the Overreactive Resume wordmark, bottom-right, 8px from each edge. */}
+				{/* export-only watermark: the Core Resume wordmark, bottom-right, 8px from each edge. */}
 				<text
 					data-export-only
 					style={{ display: "none" }}
@@ -405,7 +406,7 @@ function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsight
 					fontFamily={FLOW_FONT}
 					fontSize={14}
 				>
-					Overreactive Resume
+					{APP_NAME}
 				</text>
 			</svg>
 		</div>

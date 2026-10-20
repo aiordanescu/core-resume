@@ -5,6 +5,7 @@ import { auth } from "@reactive-resume/auth/config";
 import * as schema from "@reactive-resume/db/schema";
 import { careerProfileDataSchema, careerWorkspaceSchema, knowledgeReviewSchema } from "@reactive-resume/schema/career";
 import { coverLetterSchema } from "@reactive-resume/schema/cover-letter/data";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { protectedProcedure, publicProcedure } from "../../context";
 import { applicationDto } from "../../dto/application";
 import {
@@ -26,8 +27,7 @@ export const authRouter = {
 				tags: ["Authentication"],
 				operationId: "listAuthProviders",
 				summary: "List authentication providers",
-				description:
-					"Returns a list of all authentication providers enabled on this Overreactive Resume instance, along with their display names. Possible providers include password-based credentials, Google, GitHub, LinkedIn, and custom OAuth. No authentication required.",
+				description: `Returns a list of all authentication providers enabled on this ${APP_NAME} instance, along with their display names. Possible providers include password-based credentials, Google, GitHub, LinkedIn, and custom OAuth. No authentication required.`,
 				successDescription: "A map of enabled authentication provider identifiers to their display names.",
 			})
 			.input(z.object({}).optional())

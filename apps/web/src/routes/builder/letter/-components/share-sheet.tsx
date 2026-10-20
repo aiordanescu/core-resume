@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@reactive-resume/u
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
 import { createLetterFile, letterFileName } from "@/features/letters/export";
@@ -119,7 +120,7 @@ function LetterDownloadTab() {
 			: []),
 		...others.map((option) =>
 			option.id === "json"
-				? { ...option, description: t`A backup of this letter. Imports back into Overreactive Resume as a letter.` }
+				? { ...option, description: t`A backup of this letter. Imports back into ${APP_NAME} as a letter.` }
 				: option,
 		),
 	];

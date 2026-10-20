@@ -1,6 +1,6 @@
 {
-	"name": "Overreactive Resume",
-	"short_name": "Overreactive",
+	"name": "Core Resume",
+	"short_name": "Core Resume",
 	"description": "A free and open-source resume builder.",
 	"id": "/?source=pwa",
 	"start_url": "/?source=pwa",

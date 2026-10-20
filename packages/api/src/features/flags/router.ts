@@ -1,5 +1,6 @@
 import z from "zod";
 import { env } from "@reactive-resume/env/server";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { publicProcedure } from "../../context";
 import { isCareerSchedulingEnabled } from "../career/runner";
 
@@ -22,8 +23,7 @@ export const flagsRouter = {
 			tags: ["Feature Flags"],
 			operationId: "getFeatureFlags",
 			summary: "Get feature flags",
-			description:
-				"Returns the current feature flags for this Overreactive Resume instance. Feature flags control instance-wide settings such as whether new user signups or email-based authentication are disabled. No authentication required.",
+			description: `Returns the current feature flags for this ${APP_NAME} instance. Feature flags control instance-wide settings such as whether new user signups or email-based authentication are disabled. No authentication required.`,
 			successDescription: "The current feature flags for this instance.",
 		})
 		.input(z.object({}).optional())

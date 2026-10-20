@@ -12,6 +12,7 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { Tabs, TabsList, TabsTrigger } from "@reactive-resume/ui/components/tabs";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { cn } from "@reactive-resume/utils/style";
 import { PdfPasswordRequiredError, PdfTooLargeError, PdfUnreadableError } from "./extract-client";
 import { getPdfCategoryDescription, getPdfCategoryLabel, getPdfFindingMessage } from "./messages";
@@ -476,7 +477,7 @@ function Result({ result, file, onFix, onReset }: ResultProps) {
 						<Trans>Fix these in a few minutes</Trans>
 					</b>
 					<span className="text-[13px] leading-[19px] text-ink-2 max-lg:hidden">
-						<Trans>Import this file into Overreactive Resume. Every issue is waiting for you in Check.</Trans>
+						<Trans>Import this file into {APP_NAME}. Every issue is waiting for you in Check.</Trans>
 					</span>
 					<Button className="h-10" onClick={onFix}>
 						<Trans>Fix these in the editor</Trans>

@@ -7,6 +7,7 @@ import router from "@reactive-resume/api/routers";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
 import { createResumeDataJsonSchema } from "@reactive-resume/schema/resume/json-schema";
 import { writableResumeDataSchema } from "@reactive-resume/schema/resume/write";
+import { APP_NAME, APP_REPOSITORY_URL } from "@reactive-resume/utils/brand";
 
 export const openAPIRouter = {
 	...router,
@@ -83,12 +84,11 @@ const healthResponseSchema = {
 export async function generateOpenApiSpec({ appUrl, version }: GenerateOpenApiSpecOptions) {
 	const spec = await openAPIGenerator.generate(openAPIRouter, {
 		info: {
-			title: "Overreactive Resume",
+			title: APP_NAME,
 			version,
-			description:
-				"Overreactive Resume API. Mutations do not support Idempotency-Key. Do not automatically retry POST, PUT, PATCH or DELETE requests after a timeout: first read the resource to determine whether the operation succeeded. Existing enum values and response shapes are retained for compatibility.",
-			license: { name: "MIT", url: "https://github.com/aiordanescu/overreactive-resume/blob/main/LICENSE" },
-			contact: { name: "Amruth Pillai", email: "amruth@rxresu.me", url: "https://amruthpillai.com" },
+			description: `${APP_NAME} API. Mutations do not support Idempotency-Key. Do not automatically retry POST, PUT, PATCH or DELETE requests after a timeout: first read the resource to determine whether the operation succeeded. Existing enum values and response shapes are retained for compatibility.`,
+			license: { name: "MIT", url: `${APP_REPOSITORY_URL}/blob/main/LICENSE` },
+			contact: { name: APP_NAME, url: `${APP_REPOSITORY_URL}/issues` },
 		},
 		servers: [{ url: `${appUrl}/api/openapi` }],
 		paths: {
@@ -113,7 +113,10 @@ export async function generateOpenApiSpec({ appUrl, version }: GenerateOpenApiSp
 				},
 			},
 		},
-		externalDocs: { url: "https://docs.rxresu.me", description: "Reactive Resume Documentation" },
+		externalDocs: {
+			url: "https://docs.rxresu.me",
+			description: `Reactive Resume documentation, which ${APP_NAME} builds on`,
+		},
 		commonSchemas: {
 			ResumeData: { schema: writableResumeDataSchema, strategy: "input" },
 		},

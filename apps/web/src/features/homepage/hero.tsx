@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { useEffect, useRef } from "react";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { cn } from "@reactive-resume/utils/style";
 import { prefersReducedMotion, SCENE } from "./scroll";
 import { Sheet } from "./sheet";
@@ -248,7 +249,7 @@ export function Hero() {
 
 				<div className="absolute inset-x-(--gutter) bottom-[clamp(20px,4vh,40px)] z-2 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
 					<p className="max-w-full font-display text-base leading-[1.45] text-pretty text-ink-2 min-[900px]:max-w-[min(25em,calc(50vw-var(--pw)/2-5vw))] min-[900px]:text-[clamp(17px,1.3vw,20px)]">
-						{t`Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared.`}
+						{t`${APP_NAME} is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared.`}
 					</p>
 					<CtaLink size="hero" />
 				</div>

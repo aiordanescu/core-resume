@@ -2,6 +2,7 @@ import { oauthProviderAuthServerMetadata, oauthProviderOpenIdConfigMetadata } fr
 import { auth } from "@reactive-resume/auth/config";
 import { env } from "@reactive-resume/env/server";
 import { buildMcpServerCard } from "@reactive-resume/mcp/server-card";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { appVersion } from "../app-version";
 
 const DOCS_URL = "https://docs.rxresu.me";
@@ -72,12 +73,11 @@ function buildIntegrations() {
 
 	return {
 		version: 3,
-		summary:
-			"Overreactive Resume is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API or the MCP server.",
+		summary: `${APP_NAME} is a free and open-source resume builder. Agents can read and edit a user's resumes, cover letters and job applications through the REST API or the MCP server.`,
 		credentials: {
 			"api-key": {
 				type: "api_key",
-				label: "Overreactive Resume API key",
+				label: `${APP_NAME} API key`,
 				generateUrl: `${baseUrl}/dashboard/settings/ai`,
 				setup: [
 					"Open **Settings → AI & developer**, select **New key** in the **API keys** section, name it, choose when it expires, then copy it.",
@@ -87,18 +87,18 @@ function buildIntegrations() {
 			},
 			oauth: {
 				type: "oauth2",
-				label: "Overreactive Resume OAuth",
+				label: `${APP_NAME} OAuth`,
 				setup: [
 					`OAuth authorization-code flow with dynamic client registration (RFC 7591). Clients discover the authorization server from \`${baseUrl}/.well-known/oauth-protected-resource\` (issuer \`${authorizationServer()}\`).`,
-					"The user signs in to Overreactive Resume and approves the client on the consent screen; the resulting access token is sent as `Authorization: Bearer <token>`.",
+					`The user signs in to ${APP_NAME} and approves the client on the consent screen; the resulting access token is sent as \`Authorization: Bearer <token>\`.`,
 				].join("\n\n"),
 			},
 		},
 		surfaces: [
 			{
 				type: "http",
-				slug: "reactive-resume-api",
-				name: "Overreactive Resume REST API",
+				slug: "core-resume-api",
+				name: `${APP_NAME} REST API`,
 				docs: `${DOCS_URL}/guides/using-the-api`,
 				basis,
 				spec: `${baseUrl}/openapi.json`,
@@ -121,8 +121,8 @@ function buildIntegrations() {
 			},
 			{
 				type: "mcp",
-				slug: "reactive-resume-mcp",
-				name: "Overreactive Resume MCP server",
+				slug: "core-resume-mcp",
+				name: `${APP_NAME} MCP server`,
 				docs: `${DOCS_URL}/guides/using-the-mcp-server`,
 				basis,
 				url: `${baseUrl}/mcp`,

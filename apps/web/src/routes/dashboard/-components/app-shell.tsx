@@ -12,6 +12,7 @@ import { Kbd } from "@reactive-resume/ui/components/kbd";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { Monogram, Wordmark } from "@reactive-resume/ui/components/wordmark";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { getInitials } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { MobileTabIndicator } from "@/components/layout/mobile-tab-indicator";
@@ -219,7 +220,7 @@ function Rail() {
 			aria-label={t`App navigation`}
 			className="sticky top-0 flex h-svh flex-col items-center gap-2 border-e border-line bg-surface py-3 [view-transition-name:app-nav]"
 		>
-			<Link to="/" aria-label="Overreactive Resume" className="mb-1 grid size-8 place-items-center rounded-md">
+			<Link to="/" aria-label={APP_NAME} className="mb-1 grid size-8 place-items-center rounded-md">
 				<Monogram aria-hidden="true" className="text-[19px]" />
 			</Link>
 			<RailTip label={t`Search`} icon="magnifying-glass">
