@@ -1,5 +1,6 @@
 import { env } from "@reactive-resume/env/server";
 import { templateSchema } from "@reactive-resume/schema/templates";
+import { APP_NAME, APP_REPOSITORY_URL } from "@reactive-resume/utils/brand";
 import { getLocaleAlternates } from "@reactive-resume/utils/locale";
 
 const DOCS_URL = "https://docs.rxresu.me";
@@ -71,13 +72,13 @@ export function handleSitemap(options?: StaticSeoOptions) {
 export function handleLlms(options?: StaticSeoOptions) {
 	const baseUrl = appUrl();
 	const body = [
-		"# Overreactive Resume",
+		`# ${APP_NAME}`,
 		"",
-		`> Overreactive Resume is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is released under the MIT License.`,
+		`> ${APP_NAME} is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is released under the MIT License.`,
 		"",
 		"## Product",
 		"",
-		`- [Homepage](${baseUrl}/): what Overreactive Resume does, with answers to common questions.`,
+		`- [Homepage](${baseUrl}/): what ${APP_NAME} does, with answers to common questions.`,
 		`- [ATS checker](${baseUrl}/ats-checker): a free tool that shows the text applicant tracking systems extract from a resume PDF and what to fix. It runs in the browser; the file is never uploaded.`,
 		`- [Get started](${baseUrl}/dashboard): create an account and a first resume.`,
 		"",
@@ -106,7 +107,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"",
 		"## Community",
 		"",
-		"- [Source code on GitHub](https://github.com/aiordanescu/overreactive-resume)",
+		`- [Source code on GitHub](${APP_REPOSITORY_URL})`,
 		"- [Discord](https://discord.gg/aSyA5ZSxpb)",
 		"- [Subreddit](https://www.reddit.com/r/reactiveresume)",
 		"- [Translations on Crowdin](https://crowdin.com/project/reactive-resume)",

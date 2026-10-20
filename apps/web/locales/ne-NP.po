@@ -477,6 +477,18 @@ msgstr ""
 msgid "{accepted} of {0} applied"
 msgstr "{0} मध्ये {accepted} लागू गरियो"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "{APP_NAME} - Go to homepage"
+msgstr ""
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "{APP_NAME} {appVersionLabel} · MIT"
+msgstr ""
+
+#: src/features/homepage/hero.tsx
+msgid "{APP_NAME} is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "{applicationCount, plural, one {# application} other {# applications}}"
 msgstr "{applicationCount, plural, one {# रोजगार आवेदन} other {# रोजगार आवेदनहरू}}"
@@ -928,7 +940,7 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A ले स्वीकार गर्दछ र R ले केन्द्रित सम्पादनलाई अस्वीकार गर्दछ। ↑ र ↓ सम्पादनहरू बीच सार्नुहोस्।"
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgid "A backup of this letter. Imports back into {APP_NAME} as a letter."
 msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
@@ -2914,7 +2926,7 @@ msgid "Compares your resume with the posting"
 msgstr "तपाइँको रिज्युमलाई रोजगार पोस्टिङसँग तुलना गर्नुहोस्"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgid "Complete data backup. Imports back into {APP_NAME}, Reactive Resume or JSON Resume tools."
 msgstr ""
 
 #: src/features/ats-checker/messages.ts
@@ -4722,7 +4734,7 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "परिष्कृत पठन अनुपलब्ध थियो। बिल्ट-इन पाठकले यो जागिर पोस्टिङ पुन: प्राप्त गर्यो।"
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Overreactive Resume?"
+msgid "Enjoying {APP_NAME}?"
 msgstr ""
 
 #: src/features/career/knowledge/preferences.tsx
@@ -5916,7 +5928,7 @@ msgid "Import steps"
 msgstr "चरणहरू आयात गर्नुहोस्"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
 msgstr ""
 
 #: src/features/documents/documents-page.tsx
@@ -6095,13 +6107,13 @@ msgstr "14 ग्राहकसँग अन्तर्वार्ता ल�
 msgid "Interviewer"
 msgstr "साक्षात्कारकर्ता"
 
+#: src/features/homepage/faq.tsx
+msgid "Is {APP_NAME} really free?"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "के इक्विटी प्रस्तावको भाग हो?"
-
-#: src/features/homepage/faq.tsx
-msgid "Is Overreactive Resume really free?"
-msgstr ""
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -6971,7 +6983,7 @@ msgid "Lower the design sheet"
 msgstr "डिजाइन पाना तल्लो"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Overreactive Resume, free and open source"
+msgid "Made with {APP_NAME}, free and open source"
 msgstr ""
 
 #. Layout editor column label for the primary content area
@@ -8443,18 +8455,6 @@ msgstr "इन्डेन्ट घटाउनुहोस्"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
-msgstr ""
-
-#: src/routes/_home/-sections/header.tsx
-msgid "Overreactive Resume - Go to homepage"
-msgstr ""
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/hero.tsx
-msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
 msgstr ""
 
 #: src/features/homepage/prepare.tsx
@@ -13675,7 +13675,11 @@ msgid "Written offer"
 msgstr "लिखित प्रस्ताव"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgid "Yes. {APP_NAME} is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr ""
+
+#: src/features/homepage/faq.tsx
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. {APP_NAME} is a fork of Reactive Resume, which is funded by donations."
 msgstr ""
 
 #: src/features/homepage/faq.tsx
@@ -13685,10 +13689,6 @@ msgstr "हो। तपाईंले ट्रयाक गर्ने ह�
 #: src/features/homepage/faq.tsx
 msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
 msgstr "हो। एक PDF, एक LinkedIn डाटा निर्यात, एक JSON Resume फाइल वा Reactive Resume निर्यात आयात गर्नुहोस्, त्यसपछि छोडेको ठाउँबाट उठाउनुहोस्। एआई प्रदायक सेटअपको साथ, Word कागजातहरू पनि काम गर्छन्।"
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

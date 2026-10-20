@@ -1,3 +1,4 @@
+import { APP_NAME, APP_REPOSITORY_URL } from "@reactive-resume/utils/brand";
 import { prepareMcpDiscovery } from "./discovery";
 import { MCP_TOOL_NAME as T } from "./mcp-tool-names";
 import { PROMPT_META } from "./prompts";
@@ -7,16 +8,11 @@ const RESUME_ID_ARGUMENT = [{ name: "id", description: "Resume ID.", required: t
 /** Shared server identity for both the live MCP server and the static server card. */
 export function buildMcpServerInfo(version: string) {
 	return {
-		name: "reactive-resume",
+		name: "core-resume",
 		version,
-		title: "Overreactive Resume",
-		websiteUrl: "https://rxresu.me",
-		description:
-			"Overreactive Resume is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.",
-		icons: [
-			{ src: "https://rxresu.me/icon/light.svg", mimeType: "image/svg+xml", theme: "light" as const },
-			{ src: "https://rxresu.me/icon/dark.svg", mimeType: "image/svg+xml", theme: "dark" as const },
-		],
+		title: APP_NAME,
+		websiteUrl: APP_REPOSITORY_URL,
+		description: `${APP_NAME} is a free and open-source resume builder. Use this MCP server to interact with your resume using an LLM of your choice.`,
 	};
 }
 

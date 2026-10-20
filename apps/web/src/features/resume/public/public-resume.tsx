@@ -9,6 +9,7 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { useBreakpoint } from "@reactive-resume/ui/hooks/use-breakpoint";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { PdfViewer } from "./pdf-viewer";
 import { ResumeReflow } from "./resume-reflow";
 import { LoadingScreen } from "@/components/layout/loading-screen";
@@ -80,10 +81,10 @@ export function PublicResumePage({ resume, username, slug, flags, isRoot = false
 	const credit = (
 		<footer className="flex justify-center px-4 py-6 text-sm text-ink-3 print:hidden">
 			{flags.disableSignups ? (
-				<Trans>Made with Overreactive Resume, free and open source</Trans>
+				<Trans>Made with {APP_NAME}, free and open source</Trans>
 			) : (
 				<a href={isRoot ? "/dashboard" : "/"} className="underline-offset-2 hover:text-ink hover:underline">
-					<Trans>Made with Overreactive Resume, free and open source</Trans>
+					<Trans>Made with {APP_NAME}, free and open source</Trans>
 				</a>
 			)}
 		</footer>

@@ -13,6 +13,7 @@ import { Checkbox } from "@reactive-resume/ui/components/checkbox";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { createLetterFile, letterFileName } from "@/features/letters/export";
@@ -66,7 +67,7 @@ export const getExportFormats = (): DownloadFormat[] => [
 		label: "JSON",
 		extension: ".json",
 		icon: "brackets-curly",
-		description: t`Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools.`,
+		description: t`Complete data backup. Imports back into ${APP_NAME}, Reactive Resume or JSON Resume tools.`,
 	},
 ];
 

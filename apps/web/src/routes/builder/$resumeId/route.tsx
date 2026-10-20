@@ -2,6 +2,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
 import z from "zod";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { EditorShell } from "./-components/editor-shell";
 import { useBuilderResumeUpdateSubscription, useResumeCleanup, useResumeStore } from "@/features/resume/builder/draft";
 import { EDITOR_MODES } from "@/features/resume/editor/store";
@@ -38,7 +39,7 @@ export const Route = createFileRoute("/builder/$resumeId")({
 	},
 	head: ({ loaderData }) => ({
 		meta: loaderData
-			? [{ title: `${loaderData.name} - Overreactive Resume` }, createNoindexFollowMeta()]
+			? [{ title: `${loaderData.name} - ${APP_NAME}` }, createNoindexFollowMeta()]
 			: [createNoindexFollowMeta()],
 	}),
 });

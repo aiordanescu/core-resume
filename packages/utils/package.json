@@ -4,6 +4,7 @@
 	"type": "module",
 	"private": true,
 	"exports": {
+		"./brand": "./src/brand.ts",
 		"./color": "./src/color.ts",
 		"./file": "./src/file.ts",
 		"./knowledge": "./src/knowledge.ts",

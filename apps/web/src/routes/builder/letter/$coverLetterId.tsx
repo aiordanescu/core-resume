@@ -4,6 +4,7 @@ import { createFileRoute, redirect, useBlocker } from "@tanstack/react-router";
 import { useEffect } from "react";
 import z from "zod";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { LetterShell } from "./-components/letter-shell";
 import { letterWordsQueryOptions } from "@/features/letters/compose";
 import { useLetterEditorStore } from "@/features/letters/store";
@@ -39,7 +40,7 @@ export const Route = createFileRoute("/builder/letter/$coverLetterId")({
 	},
 	head: ({ loaderData }) => ({
 		meta: loaderData
-			? [{ title: `${loaderData.name} - Overreactive Resume` }, createNoindexFollowMeta()]
+			? [{ title: `${loaderData.name} - ${APP_NAME}` }, createNoindexFollowMeta()]
 			: [createNoindexFollowMeta()],
 	}),
 });

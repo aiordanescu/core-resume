@@ -477,6 +477,18 @@ msgstr "{0}× budget"
 msgid "{accepted} of {0} applied"
 msgstr "{accepted} of {0} applied"
 
+#: src/routes/_home/-sections/header.tsx
+msgid "{APP_NAME} - Go to homepage"
+msgstr "{APP_NAME} - Go to homepage"
+
+#: src/routes/dashboard/settings/route.tsx
+msgid "{APP_NAME} {appVersionLabel} · MIT"
+msgstr "{APP_NAME} {appVersionLabel} · MIT"
+
+#: src/features/homepage/hero.tsx
+msgid "{APP_NAME} is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+msgstr "{APP_NAME} is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
+
 #: src/features/settings/account/data.tsx
 msgid "{applicationCount, plural, one {# application} other {# applications}}"
 msgstr "{applicationCount, plural, one {# application} other {# applications}}"
@@ -928,8 +940,8 @@ msgid "A accepts and R rejects the focused edit. ↑ and ↓ move between edits.
 msgstr "A accepts and R rejects the focused edit. ↑ and ↓ move between edits."
 
 #: src/routes/builder/letter/-components/share-sheet.tsx
-msgid "A backup of this letter. Imports back into Overreactive Resume as a letter."
-msgstr "A backup of this letter. Imports back into Overreactive Resume as a letter."
+msgid "A backup of this letter. Imports back into {APP_NAME} as a letter."
+msgstr "A backup of this letter. Imports back into {APP_NAME} as a letter."
 
 #: src/features/resume/editor/check/issues.ts
 msgid "A city and country let roles be matched to where you are."
@@ -2914,8 +2926,8 @@ msgid "Compares your resume with the posting"
 msgstr "Compares your resume with the posting"
 
 #: src/features/resume/share/download-tab.tsx
-msgid "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
-msgstr "Complete data backup. Imports back into Overreactive Resume, Reactive Resume or JSON Resume tools."
+msgid "Complete data backup. Imports back into {APP_NAME}, Reactive Resume or JSON Resume tools."
+msgstr "Complete data backup. Imports back into {APP_NAME}, Reactive Resume or JSON Resume tools."
 
 #: src/features/ats-checker/messages.ts
 msgid "Compress or remove large images to keep uploads quick."
@@ -4722,8 +4734,8 @@ msgid "Enhanced reading was unavailable. The built-in reader retrieved this post
 msgstr "Enhanced reading was unavailable. The built-in reader retrieved this posting."
 
 #: src/components/ui/donation-toast.tsx
-msgid "Enjoying Overreactive Resume?"
-msgstr "Enjoying Overreactive Resume?"
+msgid "Enjoying {APP_NAME}?"
+msgstr "Enjoying {APP_NAME}?"
 
 #: src/features/career/knowledge/preferences.tsx
 msgid "Enter a full amount, such as 95000. Your previous amount is unchanged."
@@ -5916,8 +5928,8 @@ msgid "Import steps"
 msgstr "Import steps"
 
 #: src/features/ats-checker/checker.tsx
-msgid "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
-msgstr "Import this file into Overreactive Resume. Every issue is waiting for you in Check."
+msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
+msgstr "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
 
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
@@ -6095,13 +6107,13 @@ msgstr "Interviewed 14 customers, mapped three drop-off points and prototyped a 
 msgid "Interviewer"
 msgstr "Interviewer"
 
+#: src/features/homepage/faq.tsx
+msgid "Is {APP_NAME} really free?"
+msgstr "Is {APP_NAME} really free?"
+
 #: src/features/career/offers.tsx
 msgid "Is equity part of the offer?"
 msgstr "Is equity part of the offer?"
-
-#: src/features/homepage/faq.tsx
-msgid "Is Overreactive Resume really free?"
-msgstr "Is Overreactive Resume really free?"
 
 #: src/features/career/offers.tsx
 msgid "Is there a bonus, and what does it depend on?"
@@ -6971,8 +6983,8 @@ msgid "Lower the design sheet"
 msgstr "Lower the design sheet"
 
 #: src/features/resume/public/public-resume.tsx
-msgid "Made with Overreactive Resume, free and open source"
-msgstr "Made with Overreactive Resume, free and open source"
+msgid "Made with {APP_NAME}, free and open source"
+msgstr "Made with {APP_NAME}, free and open source"
 
 #. Layout editor column label for the primary content area
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -8444,18 +8456,6 @@ msgstr "Outdent"
 #: src/features/career/knowledge/budget.tsx
 msgid "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
 msgstr "Over budget: each action sends the facts and stories that best match the posting first and leaves out the rest."
-
-#: src/routes/_home/-sections/header.tsx
-msgid "Overreactive Resume - Go to homepage"
-msgstr "Overreactive Resume - Go to homepage"
-
-#: src/routes/dashboard/settings/route.tsx
-msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr "Overreactive Resume {appVersionLabel} · MIT"
-
-#: src/features/homepage/hero.tsx
-msgid "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
-msgstr "Overreactive Resume is a free, open-source resume builder. Write it, design it, check it, tailor it for every job and walk into the interview prepared."
 
 #: src/features/homepage/prepare.tsx
 msgid "Own and evolve a design system"
@@ -13675,8 +13675,12 @@ msgid "Written offer"
 msgstr "Written offer"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
-msgstr "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgid "Yes. {APP_NAME} is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgstr "Yes. {APP_NAME} is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+
+#: src/features/homepage/faq.tsx
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. {APP_NAME} is a fork of Reactive Resume, which is funded by donations."
+msgstr "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. {APP_NAME} is a fork of Reactive Resume, which is funded by donations."
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
@@ -13685,10 +13689,6 @@ msgstr "Yes. Every job you track gets its own workspace: check your fit against 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
 msgstr "Yes. Import a PDF, a LinkedIn data export, a JSON Resume file or a Reactive Resume export, then pick up where it left off. With an AI provider set up, Word documents work too."
-
-#: src/features/homepage/faq.tsx
-msgid "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "Yes. Overreactive Resume is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
 
 #: src/features/career/coach-thread.tsx
 msgid "Yesterday"

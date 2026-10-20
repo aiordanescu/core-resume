@@ -20,6 +20,7 @@ import * as schema from "@reactive-resume/db/schema";
 import { ResetPasswordEmail, VerifyEmail, VerifyEmailChange } from "@reactive-resume/email/templates/auth";
 import { sendEmail } from "@reactive-resume/email/transport";
 import { env } from "@reactive-resume/env/server";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { rateLimitConfig } from "@reactive-resume/utils/rate-limit";
 import { NO_REPLY_DAYS, noReplyDaysSchema } from "@reactive-resume/utils/reminders";
 import { RESUME_PAGES, resumePagesSchema } from "@reactive-resume/utils/resume-pages";
@@ -173,7 +174,7 @@ const getAuthConfig = () => {
 	}
 
 	return betterAuth({
-		appName: "Overreactive Resume",
+		appName: APP_NAME,
 		baseURL: authBaseUrl,
 		secret: env.AUTH_SECRET,
 
@@ -412,7 +413,7 @@ const getAuthConfig = () => {
 			admin(),
 			passkey(),
 			genericOAuth({ config: authConfigs }),
-			twoFactor({ issuer: "Overreactive Resume" }),
+			twoFactor({ issuer: APP_NAME }),
 			apiKey({
 				enableSessionForAPIKeys: false,
 				rateLimit: {
