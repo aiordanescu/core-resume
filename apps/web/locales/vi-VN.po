@@ -991,7 +991,6 @@ msgstr "Kế hoạch tập trung cho vòng này"
 msgid "A font is referenced but not embedded."
 msgstr "Có một font được tham chiếu nhưng không được nhúng."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Trình xây dựng sơ yếu lý lịch mã nguồn mở và miễn phí"
@@ -1518,10 +1517,6 @@ msgstr "Địa chỉ"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Thêm lời nhắc vào Hôm nay nếu đến lúc đó bạn vẫn chưa nhận được phản hồi."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Quảng cáo"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Tỷ lệ khung hình"
 msgid "Assistant"
 msgstr "Trợ lý"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Trợ lý (chìa khóa của bạn)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "cuộc trò chuyện của trợ lý"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Tại Northwind Labs, hầu hết các nhóm mới đều bị kẹt trước khi hoàn tất thiết lập."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "Máy kiểm tra ATS"
 
@@ -2491,10 +2481,6 @@ msgstr "Hủy"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Sự nghiệp"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Cố vấn sự nghiệp (chìa khóa của bạn)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Tiếp tục"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Tiếp tục với tư cách khách"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Đóng góp mã nguồn"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Đã gửi thư xin việc (tùy chọn)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Thư xin việc"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "Đừng gửi {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Quyên tặng"
 
@@ -5556,10 +5536,6 @@ msgstr "Đi đến bảng điều khiển"
 msgid "Go to…"
 msgstr "Đi đến…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Phỏng vấn ngay bây giờ"
 msgid "Interview opening"
 msgstr "Phần mở đầu phỏng vấn"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Chuẩn bị phỏng vấn"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "Tìm kiếm việc làm không thành công. Hãy thử lại hoặc dá
 msgid "Job search pipeline"
 msgstr "Quy trình tìm việc"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Theo dõi công việc"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Việc làm"
@@ -6344,10 +6312,6 @@ msgstr "Tiếp tục chỉnh sửa"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Giữ trong Thùng rác"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Giúp ứng dụng tiếp tục <0>miễn phí.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "Không tìm thấy mục Kinh nghiệm làm việc."
 msgid "No. {number} · {name}"
 msgstr "Số {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "không có"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Xuất lại với font đã nhúng, sau đó mở tệp và kiểm tra 
 msgid "Re: Senior Product Designer"
 msgstr "Re: Nhà thiết kế sản phẩm cao cấp"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Thư trả lời"
 msgid "Reply copied"
 msgstr "Đã sao chép thư trả lời"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Báo lỗi"
@@ -9886,10 +9836,6 @@ msgstr "sơ yếu lý lịch + thư"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Đã đính kèm sơ yếu lý lịch"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "Trình tạo sơ yếu lý lịch"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Tóm tắt các hồ sơ ứng tuyển đang mở của bạn"
 msgid "Summary"
 msgstr "Tóm tắt"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Ủng hộ"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "Mẫu, loại và màu sắc tuân theo sơ yếu lý lịch nên luôn 
 msgid "Templates"
 msgstr "Mẫu"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Mẫu × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Các điều khoản trong tin tuyển dụng"
@@ -11839,10 +11777,6 @@ msgstr "Văn bản trong {minimum} pt có thể bị đọc sai khi hệ thống
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Thái"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Cảm ơn bạn đã giữ nó miễn phí."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Quá nhạt cho các tiêu đề có màu trắng. Nó có thể khó đ
 msgid "Too many requests. Try again later."
 msgstr "Quá nhiều yêu cầu. Hãy thử lại sau."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Tổng cộng"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Theo dõi công việc bạn đang ứng tuyển và liên kết sơ yếu lý lịch đã gửi."
@@ -12576,10 +12506,6 @@ msgstr "Theo dõi trong Hồ sơ ứng tuyển"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Theo dõi công việc đầu tiên của bạn"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Theo dõi"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Đang chép lời bằng {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Đã sao chép bản chép lời"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Dịch ứng dụng"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Đề nghị bằng văn bản"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Đúng. Mọi tính năng đều miễn phí: tất cả các mẫu {templates}, tải xuống PDF và Word, trình kiểm tra ATS, thư xin việc và trình theo dõi công việc. Không có quảng cáo, không theo dõi và không có cấp trả phí. Đóng góp trả tiền cho việc lưu trữ và phát triển."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

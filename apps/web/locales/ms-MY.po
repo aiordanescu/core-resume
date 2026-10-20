@@ -991,7 +991,6 @@ msgstr "Pelan fokus untuk pusingan ini"
 msgid "A font is referenced but not embedded."
 msgstr "Satu fon dirujuk tetapi tidak dibenamkan."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Pembina resume percuma dan sumber terbuka"
@@ -1518,10 +1517,6 @@ msgstr "Alamat"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Menambah peringatan ke Hari ini jika anda belum menerima balasan menjelang masa itu."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Iklan"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Nisbah Aspek"
 msgid "Assistant"
 msgstr "Penolong"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Pembantu (kunci anda)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Perbualan pembantu"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Di Northwind Labs, kebanyakan pasukan baharu tersekat sebelum selesai membuat persediaan."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "Penyemak ATS"
 
@@ -2491,10 +2481,6 @@ msgstr "Batal"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Kerjaya"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Jurulatih kerjaya (kunci anda)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Teruskan"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Teruskan sebagai tetamu"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Sumbangkan kod"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Surat lamaran diserahkan (pilihan)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Surat iringan"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "Jangan hantar {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Derma"
 
@@ -5556,10 +5536,6 @@ msgstr "Pergi ke papan pemuka"
 msgid "Go to…"
 msgstr "Pergi ke…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Temu duga sekarang"
 msgid "Interview opening"
 msgstr "Pembukaan temu duga"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Persediaan temu duga"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "Pencarian kerja gagal. Cuba lagi atau tampal pautan siaran kerja."
 msgid "Job search pipeline"
 msgstr "Pipeline carian kerja"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Penjejak kerja"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Pekerjaan"
@@ -6344,10 +6312,6 @@ msgstr "Teruskan menyunting"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Simpan dalam Sampah"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Bantu memastikan ia kekal <0>percuma.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "Tiada bahagian pengalaman kerja ditemui."
 msgid "No. {number} · {name}"
 msgstr "No. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "tiada"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Eksport semula dengan fon dibenamkan, kemudian buka fail dan semak teks 
 msgid "Re: Senior Product Designer"
 msgstr "Re: Pereka Produk Kanan"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Balasan"
 msgid "Reply copied"
 msgstr "Balasan disalin"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Laporkan pepijat"
@@ -9886,10 +9836,6 @@ msgstr "resume + surat"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Resume dilampirkan"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "pembina resume"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Ringkasan permohonan anda yang terbuka"
 msgid "Summary"
 msgstr "Ringkasan"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Sokongan"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "Templat, jenis dan warna mengikut resume, jadi pasangan itu sentiasa sep
 msgid "Templates"
 msgstr "Templat"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Templat × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Syarat dari siaran kerja"
@@ -11839,10 +11777,6 @@ msgstr "Teks di bawah {minimum} pt boleh disalah baca apabila sistem memaparkann
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Thai"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Terima kasih kerana mengekalkannya percuma."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Terlalu ringan untuk tajuk berwarna putih. Mungkin sukar untuk membaca d
 msgid "Too many requests. Try again later."
 msgstr "Terlalu banyak permintaan. Cuba lagi nanti."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Jumlah"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Jejaki pekerjaan yang anda mohon dan pautkan resume yang anda hantar."
@@ -12576,10 +12506,6 @@ msgstr "Jejak dalam Permohonan"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Jejaki kerja pertama anda"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Penjejakan"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Mentranskripsi dengan {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Transkrip disalin"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Terjemahkan aplikasi ini"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Tawaran bertulis"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "ya. Setiap ciri adalah percuma: semua templat {templates}, muat turun PDF dan Word, penyemak ATS, surat lamaran dan penjejak kerja. Tiada iklan, tiada penjejakan dan tiada peringkat berbayar. Derma membayar untuk hosting dan pembangunan."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

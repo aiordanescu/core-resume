@@ -991,7 +991,6 @@ msgstr "이번 라운드를 위한 집중 계획"
 msgid "A font is referenced but not embedded."
 msgstr "폰트가 참조되었지만 임베드되지 않았습니다."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "무료 오픈 소스 이력서 작성 도구"
@@ -1518,10 +1517,6 @@ msgstr "주소"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "그때까지 답이 없으면 오늘에 알림을 추가합니다."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "광고"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "가로세로 비율"
 msgid "Assistant"
 msgstr "어시스턴트"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "어시스턴트(당신의 열쇠)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "어시스턴트 대화"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs에서는 대부분의 신규 팀이 설정을 마치기 전에 멈췄습니다."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS 체커"
 
@@ -2491,10 +2481,6 @@ msgstr "취소"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "커리어"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "커리어 코치(내 키 사용)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "계속"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "게스트로 계속하기"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "코드 기여하기"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "자기 소개서 제출됨(선택 사항)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "커버레터"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0}를 보내지 마세요"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "기부하세요"
 
@@ -5556,10 +5536,6 @@ msgstr "대시보드로 이동"
 msgid "Go to…"
 msgstr "…로 이동하세요"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "지금 면접"
 msgid "Interview opening"
 msgstr "면접 오프닝"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "면접 준비"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "채용정보 검색에 실패했습니다. 다시 시도하거나 채용
 msgid "Job search pipeline"
 msgstr "구직 파이프라인"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "지원 현황 관리"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "일자리"
@@ -6344,10 +6312,6 @@ msgstr "계속 편집"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "휴지통에 보관"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "계속 <0>무료로</0> 이용할 수 있도록 도와주세요."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "경력 섹션을 찾을 수 없습니다."
 msgid "No. {number} · {name}"
 msgstr "번호 {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "없음"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "폰트를 임베드하여 다시 내보낸 뒤 파일을 열어 텍스�
 msgid "Re: Senior Product Designer"
 msgstr "Re: 시니어 프로덕트 디자이너"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "답장"
 msgid "Reply copied"
 msgstr "답장이 복사되었습니다"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "버그 신고하기"
@@ -9886,10 +9836,6 @@ msgstr "이력서 + 편지"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "이력서 첨부됨"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "이력서 작성기"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "진행 중인 지원 요약"
 msgid "Summary"
 msgstr "요약"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "지원하다"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "템플릿, 유형 및 색상은 이력서를 따르므로 쌍이 항상 
 msgid "Templates"
 msgstr "템플릿"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "템플릿 × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "채용 공고의 용어"
@@ -11839,10 +11777,6 @@ msgstr "{minimum} pt 아래의 텍스트는 시스템이 다시 렌더링할 때
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "태국어"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "무료로 보관해 주셔서 감사합니다."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "흰색 제목에 너무 밝습니다. 희미하게 인쇄되어 읽기 �
 msgid "Too many requests. Try again later."
 msgstr "요청이 너무 많습니다. 나중에 다시 시도하세요."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "총"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "지원 중인 공고를 추적하고 보낸 이력서를 연결하세요."
@@ -12576,10 +12506,6 @@ msgstr "지원 목록에서 추적"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "첫 번째 직업 추적"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "추적"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "{model} 모델로 텍스트 변환 중…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "성적 증명서가 복사되었습니다."
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "앱 번역하기"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "서면 오퍼"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "예. 모든 기능은 무료입니다: 모든 {templates} 템플릿, PDF 및 Word 다운로드, ATS 검사기, 자기 소개서 및 지원 현황 관리. 광고도 없고, 추적도 없고, 유료 계층도 없습니다. 기부금은 호스팅 및 개발 비용을 지불합니다."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

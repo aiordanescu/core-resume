@@ -991,7 +991,6 @@ msgstr "本轮的重点计划"
 msgid "A font is referenced but not embedded."
 msgstr "有一款字体被引用但未嵌入。"
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "免费的开源简历生成器"
@@ -1518,10 +1517,6 @@ msgstr "地址"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "如果届时仍未收到回复，会在“今天”中添加提醒。"
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "广告"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "宽高比"
 msgid "Assistant"
 msgstr "助手"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "助理（你的钥匙）"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "助理对话"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "在 Northwind Labs，大多数新团队还没完成设置就停滞了。"
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS检查器"
 
@@ -2491,10 +2481,6 @@ msgstr "取消"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "职业"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "职业教练（您的密钥）"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "继续"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "以访客身份继续"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "贡献代码"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "提交求职信（可选）"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "求职信"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "不要发送 {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "捐赠"
 
@@ -5556,10 +5536,6 @@ msgstr "转到仪表板"
 msgid "Go to…"
 msgstr "前往…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "正在面试"
 msgid "Interview opening"
 msgstr "面试开场白"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "面试准备"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "职位搜索失败。请重试或粘贴职位发布链接。"
 msgid "Job search pipeline"
 msgstr "求职流程"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "求职追踪器"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "工作机会"
@@ -6344,10 +6312,6 @@ msgstr "继续编辑"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "保留在垃圾箱中"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "让它保持<0>免费。</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "未找到工作经历部分。"
 msgid "No. {number} · {name}"
 msgstr "编号：{number}·{name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "没有任何"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "重新导出并嵌入字体，然后打开文件检查文字复制出来
 msgid "Re: Senior Product Designer"
 msgstr "Re: 高级产品设计师"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "回复"
 msgid "Reply copied"
 msgstr "回复已复制"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "报告问题"
@@ -9886,10 +9836,6 @@ msgstr "简历+信件"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "已附简历"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "简历制作者"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "您进行中申请的摘要"
 msgid "Summary"
 msgstr "总结"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "支持"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "模板、类型和颜色遵循简历，因此两者始终匹配。"
 msgid "Templates"
 msgstr "模板"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "模板 × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "职位发布中的条款"
@@ -11839,10 +11777,6 @@ msgstr "当系统重新渲染时，{minimum} pt 下的文本可能会被误读�
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "泰语"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "感谢您保持免费。"
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "对于白色标题来说太亮了。微弱地阅读和打印可能会很
 msgid "Too many requests. Try again later."
 msgstr "请求太多。稍后再试。"
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "全部的"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "跟踪你正在申请的职位并关联已发送的简历。"
@@ -12576,10 +12506,6 @@ msgstr "在“申请”中追踪"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "追踪你的第一份工作"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "追踪"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "正在使用 {model} 转写…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "复制成绩单"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "翻译该应用程序"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "书面录用"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "是的。每个功能都是免费的：所有 {templates} 模板、PDF 和 Word 下载、ATS 检查器、求职信和求职追踪器。没有广告，没有跟踪，也没有付费等级。捐款用于支付托管和开发费用。"
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
