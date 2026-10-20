@@ -79,3 +79,10 @@ export function stripHtml(html: string | undefined): string {
 	if (!html) return "";
 	return html.replace(/<[^>]*>/g, "").trim();
 }
+
+/**
+ * Whether a resume address looks random (12 letters and digits, at least two of each) rather than made from a name,
+ * which could be guessed. The API makes such addresses for new resumes and for resumes going public.
+ */
+export const isRandomSlug = (slug: string) =>
+	/^[a-z0-9]{12}$/.test(slug) && (slug.match(/\d/g)?.length ?? 0) >= 2 && (slug.match(/[a-z]/g)?.length ?? 0) >= 2;

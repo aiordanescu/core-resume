@@ -57,7 +57,7 @@ export const crudRouter = {
 			operationId: "createResume",
 			summary: "Create a new resume",
 			description:
-				"Creates a new resume with the given name and tags. The slug (its public address) is optional: when omitted it is generated from the name and made unique across the user's resumes; when given it must be unique too. Optionally initializes the resume with sample data by setting withSampleData to true. Returns the ID of the newly created resume. Requires authentication.",
+				"Creates a new resume with the given name and tags. The slug (its public address) is optional: when omitted it is a random address, unique across the user's resumes, since one made from the name could be guessed; when given it must be unique too. Optionally initializes the resume with sample data by setting withSampleData to true. Returns the ID of the newly created resume. Requires authentication.",
 			successDescription: "The ID of the newly created resume.",
 		})
 		.input(resumeDto.create.input)
@@ -154,6 +154,7 @@ export const crudRouter = {
 				...(input.tags !== undefined ? { tags: input.tags } : {}),
 				...(input.data !== undefined ? { data: input.data } : {}),
 				...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
+				...(input.randomSlug !== undefined ? { randomSlug: input.randomSlug } : {}),
 				...(input.showDownloadButtons !== undefined ? { showDownloadButtons: input.showDownloadButtons } : {}),
 			}),
 		),
@@ -222,7 +223,7 @@ export const crudRouter = {
 			operationId: "duplicateResume",
 			summary: "Duplicate a resume",
 			description:
-				"Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is generated from the name and made unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
+				"Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is a random address, unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
 			successDescription: "The ID of the duplicated resume.",
 		})
 		.input(resumeDto.duplicate.input)

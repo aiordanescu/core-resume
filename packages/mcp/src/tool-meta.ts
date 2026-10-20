@@ -336,7 +336,7 @@ const BASE_TOOL_META = {
 					.min(1)
 					.max(64)
 					.optional()
-					.describe("Optional URL-friendly slug; generated from the name when omitted."),
+					.describe("Optional URL-friendly slug; a random address when omitted."),
 				tags: z
 					.array(z.string())
 					.optional()

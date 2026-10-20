@@ -29,6 +29,7 @@ import { isAllowedOAuthRedirectUri } from "@reactive-resume/utils/url-security.n
 import { createGithubProfileMapper, createProfileMapper } from "./oauth-profile";
 import { authRateLimitStorage } from "./rate-limit";
 import { getTrustedOrigins } from "./trusted-origins";
+import { recordUsernameChange } from "./username-redirect";
 
 const authBaseUrl = env.APP_URL;
 const isRateLimitEnabled = process.env.NODE_ENV === "production" && !env.FLAG_DISABLE_API_RATE_LIMIT;
@@ -194,6 +195,13 @@ const getAuthConfig = () => {
 						if (!user.isAnonymous) return Promise.resolve(undefined);
 						const username = `guest-${generateId().slice(-12)}`;
 						return Promise.resolve({ data: { ...user, username, displayUsername: username } });
+					},
+				},
+				update: {
+					// A new username keeps the old one's public links working for 30 days.
+					before: async (user, context) => {
+						const id = context?.context.session?.user.id;
+						if (typeof user.username === "string" && id) await recordUsernameChange(id, toUsername(user.username));
 					},
 				},
 			},

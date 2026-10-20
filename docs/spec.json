@@ -58415,7 +58415,7 @@
 			"post": {
 				"operationId": "createResume",
 				"summary": "Create a new resume",
-				"description": "Creates a new resume with the given name and tags. The slug (its public address) is optional: when omitted it is generated from the name and made unique across the user's resumes; when given it must be unique too. Optionally initializes the resume with sample data by setting withSampleData to true. Returns the ID of the newly created resume. Requires authentication.",
+				"description": "Creates a new resume with the given name and tags. The slug (its public address) is optional: when omitted it is a random address, unique across the user's resumes, since one made from the name could be guessed; when given it must be unique too. Optionally initializes the resume with sample data by setting withSampleData to true. Returns the ID of the newly created resume. Requires authentication.",
 				"tags": [
 					"Resumes"
 				],
@@ -58445,7 +58445,7 @@
 									"slug": {
 										"type": "string",
 										"minLength": 1,
-										"description": "The slug of the resume. Generated from the name, and made unique, when omitted."
+										"description": "The slug of the resume. A random, unique address when omitted."
 									},
 									"withSampleData": {
 										"type": "boolean",
@@ -63017,6 +63017,10 @@
 									"showDownloadButtons": {
 										"type": "boolean",
 										"description": "Whether download buttons are shown on the public resume page."
+									},
+									"randomSlug": {
+										"type": "boolean",
+										"description": "true gives the resume a fresh random address; the old one, and any address it redirected from, stop working at once. Making a resume public does this on its own when its address was made from its name rather than chosen."
 									},
 									"sessionId": {
 										"type": "string",
@@ -76603,6 +76607,10 @@
 										},
 										"name": {
 											"type": "string"
+										},
+										"username": {
+											"type": "string",
+											"description": "The owner's current username; a link with an old one still finds the resume."
 										}
 									},
 									"required": [
@@ -76613,7 +76621,8 @@
 										"showDownloadButtons",
 										"isLocked",
 										"data",
-										"name"
+										"name",
+										"username"
 									]
 								}
 							}
@@ -77510,7 +77519,7 @@
 			"post": {
 				"operationId": "duplicateResume",
 				"summary": "Duplicate a resume",
-				"description": "Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is generated from the name and made unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
+				"description": "Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is a random address, unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
 				"tags": [
 					"Resumes"
 				],
@@ -77547,7 +77556,7 @@
 									"slug": {
 										"type": "string",
 										"minLength": 1,
-										"description": "The slug of the copy. Generated from the name, and made unique, when omitted."
+										"description": "The slug of the copy. A random, unique address when omitted."
 									}
 								}
 							}
@@ -89801,6 +89810,10 @@
 										"type": "boolean",
 										"description": "Whether download buttons are shown on the public resume page."
 									},
+									"randomSlug": {
+										"type": "boolean",
+										"description": "true gives the resume a fresh random address; the old one, and any address it redirected from, stop working at once. Making a resume public does this on its own when its address was made from its name rather than chosen."
+									},
 									"sessionId": {
 										"type": "string",
 										"maxLength": 64,
@@ -94287,7 +94300,7 @@
 			"post": {
 				"operationId": "createResumeCopy",
 				"summary": "Duplicate a resume",
-				"description": "Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is generated from the name and made unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
+				"description": "Creates a copy of an existing resume with the same data, and the given name and tags. The slug is optional: when omitted it is a random address, unique across the user's resumes. Returns the ID of the duplicated resume. Requires authentication.",
 				"tags": [
 					"Resumes"
 				],
@@ -94324,7 +94337,7 @@
 									"slug": {
 										"type": "string",
 										"minLength": 1,
-										"description": "The slug of the copy. Generated from the name, and made unique, when omitted."
+										"description": "The slug of the copy. A random, unique address when omitted."
 									}
 								}
 							}

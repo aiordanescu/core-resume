@@ -12,7 +12,7 @@ import * as schema from "@reactive-resume/db/schema";
 import { detachEmbeddedLetters } from "@reactive-resume/resume/cover-letter";
 import { applyResumePatches, ResumePatchError } from "@reactive-resume/resume/patch";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
-import { generateId } from "@reactive-resume/utils/string";
+import { generateId, isRandomSlug } from "@reactive-resume/utils/string";
 import { adoptEmbeddedLetters } from "../cover-letters/embedded";
 import { lockDocumentOwner } from "../documents/ownership";
 import { getStorageService } from "../storage/service";
@@ -20,7 +20,7 @@ import { grantResumeAccess, hasResumeAccess } from "./access";
 import { assertCanView, isOwner, redactResumeForViewer, shouldCountForStatistics } from "./access-policy";
 import { publishResumeUpdated } from "./events";
 import { parseStoredResumeData, parseWritableResumeData } from "./resume-data-validation";
-import { checkSlug, findFreeSlug, matchesSlug, recordSlugChange, SLUG_PATTERN } from "./slugs";
+import { checkSlug, findFreeRandomSlug, matchesSlug, matchesUsername, recordSlugChange, SLUG_PATTERN } from "./slugs";
 import {
 	deleteVersion,
 	getVersion,
@@ -513,12 +513,13 @@ export const resumeService = {
 				showDownloadButtons: schema.resume.showDownloadButtons,
 				passwordHash: schema.resume.password,
 				hasPassword: sql<boolean>`${schema.resume.password} IS NOT NULL`,
+				username: schema.user.username,
 			})
 			.from(schema.resume)
 			.innerJoin(schema.user, eq(schema.resume.userId, schema.user.id))
-			.where(and(matchesSlug(input.slug), eq(schema.user.username, input.username), isNull(schema.resume.trashedAt)))
-			// A resume's current slug wins over another's redirect (renames delete clashing redirects anyway).
-			.orderBy(desc(sql`${schema.resume.slug} = ${input.slug}`))
+			.where(and(matchesSlug(input.slug), matchesUsername(input.username), isNull(schema.resume.trashedAt)))
+			// A current username or slug wins over another's redirect (changes delete clashing redirects anyway).
+			.orderBy(desc(sql`${schema.user.username} = ${input.username}`), desc(sql`${schema.resume.slug} = ${input.slug}`))
 			.limit(1);
 
 		if (
@@ -550,14 +551,18 @@ export const resumeService = {
 		}
 
 		const current = { ...resume, data: parseStoredResumeData(resume.data) };
-		return toSharedResumeResponse(redactResumeForViewer(current, isOwner(current, viewer)), resume.hasPassword);
+		// The current username, so a link with an old one can move to the current address.
+		return {
+			...toSharedResumeResponse(redactResumeForViewer(current, isOwner(current, viewer)), resume.hasPassword),
+			username: resume.username,
+		};
 	},
 
 	create: async (input: {
 		id?: string;
 		userId: string;
 		name: string;
-		/** Generated from the name, and made unique among the user's resumes, when omitted. */
+		/** A random address, unique among the user's resumes, when omitted: one made from the name could be guessed. */
 		slug?: string;
 		tags: string[];
 		locale: Locale;
@@ -572,7 +577,7 @@ export const resumeService = {
 		data.metadata.page.locale = input.locale;
 
 		try {
-			const slug = input.slug ?? (await findFreeSlug(db, input.userId, input.name));
+			const slug = input.slug ?? (await findFreeRandomSlug(db, input.userId));
 			await db.transaction(async (tx) => {
 				// The resume row comes first: letters an imported file carried are saved linked to it.
 				const stored = structuredClone(data);
@@ -582,6 +587,7 @@ export const resumeService = {
 					name: input.name,
 					autoName: input.autoName ?? false,
 					slug,
+					slugChosen: input.slug !== undefined,
 					tags: input.tags,
 					userId: input.userId,
 					data: stored,
@@ -623,6 +629,8 @@ export const resumeService = {
 		tags?: string[];
 		data?: ResumeData;
 		isPublic?: boolean;
+		/** A fresh random address; the old one, and any it redirected from, stop working at once. */
+		randomSlug?: boolean;
 		showDownloadButtons?: boolean;
 		skipAutoSnapshot?: boolean;
 		/** The editor visit this save belongs to; its autosaves share one version. */
@@ -635,6 +643,8 @@ export const resumeService = {
 						name: schema.resume.name,
 						data: schema.resume.data,
 						slug: schema.resume.slug,
+						slugChosen: schema.resume.slugChosen,
+						isPublic: schema.resume.isPublic,
 						isLocked: schema.resume.isLocked,
 						autoName: schema.resume.autoName,
 					})
@@ -645,8 +655,20 @@ export const resumeService = {
 				if (!existing) throw new ORPCError("NOT_FOUND");
 				if (existing.isLocked) throw new ORPCError("RESUME_LOCKED", { status: 403 });
 
+				// Going public with an address made from a name (not one the owner set) gets a random one, since a name and
+				// a number are easy to guess; so does asking for a fresh one. Neither leaves a redirect, or the old address
+				// would still work.
+				const reroll =
+					input.randomSlug === true ||
+					(input.isPublic === true &&
+						!existing.isPublic &&
+						input.slug === undefined &&
+						!existing.slugChosen &&
+						!isRandomSlug(existing.slug));
+				const fresh = reroll ? await findFreeRandomSlug(tx, input.userId) : undefined;
+				if (reroll) await tx.delete(schema.resumeSlugRedirect).where(eq(schema.resumeSlugRedirect.resumeId, input.id));
 				// A new address must follow the pattern; existing ones that don't keep working until changed.
-				const renamed = input.slug !== undefined && input.slug !== existing.slug;
+				const renamed = !reroll && input.slug !== undefined && input.slug !== existing.slug;
 				if (renamed && !SLUG_PATTERN.test(input.slug as string)) {
 					throw new ORPCError("INVALID_SLUG", { status: 400 });
 				}
@@ -675,7 +697,8 @@ export const resumeService = {
 				const updateData: Partial<typeof schema.resume.$inferSelect> = {
 					...(input.name !== undefined ? { name: input.name, autoName: false } : {}),
 					...(followedName ? { name: followedName } : {}),
-					...(input.slug !== undefined ? { slug: input.slug } : {}),
+					...(fresh ? { slug: fresh, slugChosen: false } : {}),
+					...(renamed ? { slug: input.slug, slugChosen: true } : {}),
 					...(input.tags !== undefined ? { tags: input.tags } : {}),
 					...(normalizedData ? { data: normalizedData } : {}),
 					...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
@@ -787,11 +810,11 @@ export const resumeService = {
 				and(
 					isNotNull(schema.resume.password),
 					matchesSlug(input.slug),
-					eq(schema.user.username, input.username),
+					matchesUsername(input.username),
 					isNull(schema.resume.trashedAt),
 				),
 			)
-			.orderBy(desc(sql`${schema.resume.slug} = ${input.slug}`))
+			.orderBy(desc(sql`${schema.user.username} = ${input.username}`), desc(sql`${schema.resume.slug} = ${input.slug}`))
 			.limit(1);
 
 		if (!resume) throw new ORPCError("INVALID_PASSWORD", { status: 401 });

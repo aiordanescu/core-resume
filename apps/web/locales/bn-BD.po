@@ -991,7 +991,6 @@ msgstr "এই রাউন্ডের জন্য কেন্দ্রীভ
 msgid "A font is referenced but not embedded."
 msgstr "একটি ফন্ট উল্লেখ করা হয়েছে কিন্তু এমবেড করা হয়নি।"
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "একটি বিনামূল্যে এবং ওপেন সোর্স রেজিউমে নির্মাতা"
@@ -1518,10 +1517,6 @@ msgstr "ঠিকানা"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "এর মধ্যে উত্তর না পেলে আজ বিভাগে একটি রিমাইন্ডার যোগ করে।"
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "বিজ্ঞাপন"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "আকারের অনুপাত"
 msgid "Assistant"
 msgstr "সহকারী"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "সহকারী (আপনার চাবি)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "সহকারী কথোপকথন"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs-এ বেশিরভাগ নতুন টিম সেটআপ শেষ করার আগেই আটকে যেত।"
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS চেকার"
 
@@ -2491,10 +2481,6 @@ msgstr "বাতিল করুন"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "ক্যারিয়ার"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "ক্যারিয়ার কোচ (আপনার কী)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "চালিয়ে যান"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "অতিথি হিসেবে চালিয়ে যান"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "কোডে অবদান রাখুন"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "কভার লেটার জমা দেওয়া (ঐচ্ছিক)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "কভার লেটার"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} পাঠাবেন না"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "দান করুন"
 
@@ -5537,6 +5517,10 @@ msgstr "প্রতিটি ভূমিকা ও যোগ্যতার �
 msgid "Give the story a title before you can save."
 msgstr "সংরক্ষণ করার আগে গল্পের একটি শিরোনাম দিন।"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -5555,10 +5539,6 @@ msgstr "ড্যাশবোর্ডে যান"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
 msgstr "… এ যান"
-
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -6085,10 +6065,6 @@ msgstr "এখন ইন্টারভিউ"
 msgid "Interview opening"
 msgstr "ইন্টারভিউয়ের সূচনা বক্তব্য"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "ইন্টারভিউ প্রস্তুতি"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6261,6 @@ msgstr "কাজের সন্ধান ব্যর্থ হয়েছে
 msgid "Job search pipeline"
 msgstr "চাকরি খোঁজার পাইপলাইন"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "চাকরির আবেদন ট্র্যাকার"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "চাকরি"
@@ -6344,10 +6316,6 @@ msgstr "সম্পাদনা চালিয়ে যান"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "ট্র্যাশে রাখুন"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "এটি <0>বিনামূল্যে</0> রাখতে সাহায্য করুন।"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6779,6 +6747,10 @@ msgstr "লিঙ্ক কপি করা হয়েছে"
 #: src/features/resume/share/link-tab.tsx
 msgid "Link is live"
 msgstr "লিঙ্ক লাইভ"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -7525,6 +7497,14 @@ msgstr "নতুন"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "এই সার্ভারে নতুন অ্যাকাউন্ট নিবন্ধন বর্তমানে বন্ধ রয়েছে।"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "নতুন API কী"
@@ -7575,6 +7555,10 @@ msgstr "নতুন পৃষ্ঠা"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "নতুন পাসওয়ার্ড"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -7874,11 +7858,6 @@ msgstr "কোনো কর্ম-অভিজ্ঞতা সেকশন প�
 #: src/features/homepage/design.tsx
 msgid "No. {number} · {name}"
 msgstr "নম্বর {number} · {name}"
-
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "কোনটি"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -8472,10 +8451,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9231,6 @@ msgstr "ফন্ট এমবেড করে পুনরায় এক্�
 msgid "Re: Senior Product Designer"
 msgstr "Re: সিনিয়র প্রোডাক্ট ডিজাইনার"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9729,6 @@ msgstr "জবাব"
 msgid "Reply copied"
 msgstr "জবাব কপি করা হয়েছে"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "ত্রুটি রিপোর্ট করুন"
@@ -9886,10 +9856,6 @@ msgstr "জীবনবৃত্তান্ত + চিঠি"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "রিজিউমি সংযুক্ত"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "জীবনবৃত্তান্ত নির্মাতা"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11477,6 @@ msgstr "আপনার চলমান আবেদনগুলোর সার
 msgid "Summary"
 msgstr "সারাংশ"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "সমর্থন"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11705,6 @@ msgstr "টেমপ্লেট, টাইপ এবং রঙগুলি জ�
 msgid "Templates"
 msgstr "টেমপ্লেট"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "টেমপ্লেট × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "চাকরির বিজ্ঞপ্তির শব্দ"
@@ -11839,10 +11797,6 @@ msgstr "{minimum} pt এর অধীনে পাঠ্য ভুল পড়�
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "থাই"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "এটা বিনামূল্যে রাখার জন্য আপনাকে ধন্যবাদ."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -11951,6 +11905,10 @@ msgstr ""
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "অনুলিপিটি চাকরির আবেদনের সাথে লিঙ্ক করা আছে, তাই চেক ও সহকারী এর চাকরির বিজ্ঞপ্তি ব্যবহার করে।"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
@@ -12223,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "ভাবছেন…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."
@@ -12561,10 +12523,6 @@ msgstr "সাদা শিরোনাম জন্য খুব হালক�
 msgid "Too many requests. Try again later."
 msgstr "অনেক অনুরোধ. পরে আবার চেষ্টা করুন."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "মোট"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "যে চাকরিতে আবেদন করছেন তার খোঁজ রাখুন এবং আপনার পাঠানো জীবনবৃত্তান্তটি লিঙ্ক করুন।"
@@ -12576,10 +12534,6 @@ msgstr "আবেদনে ট্র্যাক করুন"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "আপনার প্রথম কাজ ট্র্যাক"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "ট্র্যাকিং"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12550,6 @@ msgstr "{model} দিয়ে ট্রান্সক্রাইব কর�
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "ট্রান্সক্রিপ্ট কপি করা হয়েছে"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "অ্যাপটি অনুবাদ করুন"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."

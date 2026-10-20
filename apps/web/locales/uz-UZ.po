@@ -991,7 +991,6 @@ msgstr "Ushbu bosqich uchun aniq reja"
 msgid "A font is referenced but not embedded."
 msgstr "Shriftga havola bor, lekin u ichiga joylashtirilmagan."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Bepul va ochiq manbali rezyume yaratuvchisi"
@@ -1518,10 +1517,6 @@ msgstr "Manzil"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Agar shu vaqtgacha javob bo'lmasa, Bugun bo'limiga eslatma qo'shadi."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "E'lonlar"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Tomonlar nisbati"
 msgid "Assistant"
 msgstr "Yordamchi"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Assistent (sizning kalitingiz)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Assistent suhbatlari"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs kompaniyasida aksariyat yangi jamoalar sozlashni tugatmasdan to'xtab qolardi."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS tekshiruvi"
 
@@ -2491,10 +2481,6 @@ msgstr "Bekor qilish"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Karyera"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Karyera murabbiyi (sizning kalitingiz)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Davom etish"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Mehmon sifatida davom etish"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Kod qo‘shishda hissa qo‘shing"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Muqova xati topshirildi (ixtiyoriy)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Motivatsion xatlar"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} yubormang"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Xayriya qiling"
 
@@ -5537,6 +5517,10 @@ msgstr "Har bir lavozim va malakaga sana oraligʻini bering."
 msgid "Give the story a title before you can save."
 msgstr "Saqlash uchun hikoyaga sarlavha bering."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -5555,10 +5539,6 @@ msgstr "Dashboardga o'tish"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
 msgstr "… ga o'ting"
-
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -6085,10 +6065,6 @@ msgstr "Intervyu hozir"
 msgid "Interview opening"
 msgstr "Intervyudagi kirish so'zi"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Intervyuga tayyorgarlik"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6261,6 @@ msgstr "Ish qidirish amalga oshmadi. Qayta urinib ko'ring yoki ish e'loniga havo
 msgid "Job search pipeline"
 msgstr "Ish qidirish jarayoni"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Arizalar kuzatuvi"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Ish o'rinlari"
@@ -6344,10 +6316,6 @@ msgstr "Tahrirlashni davom ettirish"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Chiqindida saqlang"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Uni <0>bepul saqlashga</0> yordam bering."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6779,6 +6747,10 @@ msgstr "Havola nusxalandi"
 #: src/features/resume/share/link-tab.tsx
 msgid "Link is live"
 msgstr "Havola jonli"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -7525,6 +7497,14 @@ msgstr "Yangi"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "Bu serverda yangi hisob qaydnomalarini ro‘yxatdan o‘tkazish hozircha o‘chirilgan."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "Yangi API kaliti"
@@ -7575,6 +7555,10 @@ msgstr "Yangi sahifa"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "Yangi parol"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -7874,11 +7858,6 @@ msgstr "Ish tajribasi boʻlimi topilmadi."
 #: src/features/homepage/design.tsx
 msgid "No. {number} · {name}"
 msgstr "No {number} · {name}"
-
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "yo'q"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -8472,10 +8451,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9231,6 @@ msgstr "Shriftlar joylashtirilgan holda qayta eksport qiling, soʻng faylni ochi
 msgid "Re: Senior Product Designer"
 msgstr "Re: Katta mahsulot dizayneri"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9729,6 @@ msgstr "Javob"
 msgid "Reply copied"
 msgstr "Javob nusxalandi"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Xato haqida xabar berish"
@@ -9886,10 +9856,6 @@ msgstr "rezyume + xat"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Rezyume biriktirilgan"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "Rezyume yaratish vositasi"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11477,6 @@ msgstr "Ochiq arizalaringiz xulosalari"
 msgid "Summary"
 msgstr "Qisqacha ma'lumot"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Qo'llab-quvvatlash"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11705,6 @@ msgstr "Shablon, tur va ranglar rezyumega mos keladi, shuning uchun juftlik har 
 msgid "Templates"
 msgstr "Andozalar"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Shablonlar × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Ish e'lonidan olingan shartlar"
@@ -11839,10 +11797,6 @@ msgstr "{minimum} pt ostidagi matn tizim uni qayta ko'rsatganda noto'g'ri o'qili
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tay tili"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Uni bepul saqlaganingiz uchun tashakkur."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -11951,6 +11905,10 @@ msgstr ""
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "Nusxa ish uchun ariza bilan bog'langan, shuning uchun Check va yordamchi uning ish e'lonidan foydalanadi."
+
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
@@ -12223,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "O‘ylash…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."
@@ -12561,10 +12523,6 @@ msgstr "Oq rangdagi sarlavhalar uchun juda yorug‘. O'qish va chop etish qiyin 
 msgid "Too many requests. Try again later."
 msgstr "Juda koʻp soʻrovlar. Keyinroq qayta urinib ko‘ring."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Jami"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Ariza topshirayotgan ishni kuzating va yuborgan rezyumeni bog'lang."
@@ -12576,10 +12534,6 @@ msgstr "Arizalarda kuzatish"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Birinchi ishingizni kuzatib boring"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Kuzatuv"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12550,6 @@ msgstr "{model} bilan transkripsiya qilinmoqda…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Transkript nusxalandi"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Ilovani tarjima qilish"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."

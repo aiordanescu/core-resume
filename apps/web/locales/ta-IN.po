@@ -991,7 +991,6 @@ msgstr "இந்தச் சுற்றுக்கான கவனம் ச
 msgid "A font is referenced but not embedded."
 msgstr "ஒரு எழுத்துரு குறிப்பிடப்பட்டுள்ளது ஆனால் உட்பொதிக்கப்படவில்லை."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "இலவச மற்றும் திறந்த மூல ரெஸ்யூம் பில்டர்"
@@ -1518,10 +1517,6 @@ msgstr "முகவரி"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "அதற்குள் பதில் வரவில்லை என்றால், ‘இன்று’ பக்கத்தில் நினைவூட்டலைச் சேர்க்கும்."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "விளம்பரங்கள்"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "ஒப்புத்திணைவு விகிதம்"
 msgid "Assistant"
 msgstr "உதவியாளர்"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "உதவியாளர் (உங்கள் சாவி)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "உதவியாளர் உரையாடல்கள்"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs-இல், பெரும்பாலான புதிய குழுக்கள் அமைவை முடிப்பதற்கு முன்பே தேங்கிவிட்டன."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS சரிபார்ப்பு"
 
@@ -2491,10 +2481,6 @@ msgstr "ரத்து செய்"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "தொழில் வாழ்க்கை"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "தொழில் ஆலோசகர் (உங்கள் விசை)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "தொடர்க"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "விருந்தினராகத் தொடரவும்"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "குறியீடு பங்களிக்கவும்"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "கவர் கடிதம் சமர்ப்பிக்கப்பட்டது (விரும்பினால்)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "கவர் கடிதங்கள்"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} ஐ அனுப்ப வேண்டாம்"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "நன்கொடை அளிக்கவும்"
 
@@ -5537,6 +5517,10 @@ msgstr "ஒவ்வொரு பணிக்கும் தகுதிக்�
 msgid "Give the story a title before you can save."
 msgstr "சேமிப்பதற்கு முன் கதைக்கு ஒரு தலைப்பு கொடுக்கவும்."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -5555,10 +5539,6 @@ msgstr "டாஷ்போர்டுக்கு செல்லவும்"
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Go to…"
 msgstr "… க்குச் செல்லவும்"
-
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
 
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
@@ -6085,10 +6065,6 @@ msgstr "இப்போது நேர்காணல்"
 msgid "Interview opening"
 msgstr "நேர்காணல் தொடக்க உரை"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "நேர்காணல் தயாரிப்பு"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6261,6 @@ msgstr "வேலை தேடல் தோல்வியடைந்தது.
 msgid "Job search pipeline"
 msgstr "வேலை தேடல் நிலைவரிசை"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "விண்ணப்பக் கண்காணிப்பு"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "வேலைகள்"
@@ -6344,10 +6316,6 @@ msgstr "தொடர்ந்து திருத்து"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "குப்பையில் வைக்கவும்"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "இதை <0>இலவசமாக</0> வைத்திருக்க உதவுங்கள்."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -6779,6 +6747,10 @@ msgstr "இணைப்பு நகலெடுக்கப்பட்டத�
 #: src/features/resume/share/link-tab.tsx
 msgid "Link is live"
 msgstr "இணைப்பு நேரலையில் உள்ளது"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
@@ -7525,6 +7497,14 @@ msgstr "புதியது"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "இந்த சேவையகத்தில் புதிய கணக்குப் பதிவுகள் தற்போது முடக்கப்பட்டுள்ளன."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "புதிய API விசை"
@@ -7575,6 +7555,10 @@ msgstr "புதிய பக்கம்"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "புதிய கடவுச்சொல்"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -7874,11 +7858,6 @@ msgstr "பணி அனுபவப் பிரிவு எதுவும்
 #: src/features/homepage/design.tsx
 msgid "No. {number} · {name}"
 msgstr "எண். {number} · {name}"
-
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "எதுவும் இல்லை"
 
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
@@ -8472,10 +8451,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9231,6 @@ msgstr "எழுத்துருக்கள் உட்பொதிக்�
 msgid "Re: Senior Product Designer"
 msgstr "Re: மூத்த தயாரிப்பு வடிவமைப்பாளர்"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9729,6 @@ msgstr "மறுமொழி"
 msgid "Reply copied"
 msgstr "மறுமொழி நகலெடுக்கப்பட்டது"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "பிழையைப் புகாரளி"
@@ -9886,10 +9856,6 @@ msgstr "ரெஸ்யூம் + கடிதம்"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "விண்ணப்பம் இணைக்கப்பட்டுள்ளது"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "ரெஸ்யூம் பில்டர்"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11477,6 @@ msgstr "உங்கள் திறந்த விண்ணப்பங்க�
 msgid "Summary"
 msgstr "சுருக்கம்"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "ஆதரவு"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11705,6 @@ msgstr "டெம்ப்ளேட், வகை மற்றும் வண�
 msgid "Templates"
 msgstr "வார்ப்புருக்கள்"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "டெம்ப்ளேட்கள் × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "வேலை இடுகையின் விதிமுறைகள்"
@@ -11839,10 +11797,6 @@ msgstr "{minimum} pt இன் கீழ் உள்ள உரையை கண�
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "தாய்"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "இலவசமாக வைத்ததற்கு நன்றி."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -11951,6 +11905,10 @@ msgstr ""
 #: src/features/documents/new-document-dialog.tsx
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "நகல் வேலை விண்ணப்பத்துடன் இணைக்கப்பட்டுள்ளது, எனவே சரிபார்த்து, உதவியாளர் அதன் வேலை இடுகையைப் பயன்படுத்துகிறார்."
+
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
 
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
@@ -12223,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "சிந்திக்கிறது…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."
@@ -12561,10 +12523,6 @@ msgstr "வெள்ளை நிறத்தில் உள்ள தலைப
 msgid "Too many requests. Try again later."
 msgstr "பல கோரிக்கைகள். பிறகு முயற்சிக்கவும்."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "மொத்தம்"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "நீங்கள் விண்ணப்பிக்கும் வேலையைக் கண்காணித்து, நீங்கள் அனுப்பிய ரெஸ்யூமை இணைக்கவும்."
@@ -12576,10 +12534,6 @@ msgstr "விண்ணப்பங்களில் கண்காணி"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "உங்கள் முதல் வேலையைக் கண்காணிக்கவும்"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "கண்காணிப்பு"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12550,6 @@ msgstr "{model} மூலம் எழுத்தாக்குகிறது
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "டிரான்ஸ்கிரிப்ட் நகலெடுக்கப்பட்டது"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "செயலியை மொழிபெயர்க்கவும்"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."

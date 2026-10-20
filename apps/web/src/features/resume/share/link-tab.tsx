@@ -12,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/com
 import { Separator } from "@reactive-resume/ui/components/separator";
 import { SwitchRow } from "@reactive-resume/ui/components/switch";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { isRandomSlug } from "@reactive-resume/utils/string";
 import { cn } from "@reactive-resume/utils/style";
 import { CopyLinkButton } from "./copy-link-button";
 import { formatTimeSince, summarizeViews } from "./format";
@@ -40,12 +41,18 @@ export function LinkTab() {
 	const url = `${window.location.origin}/${session?.user.username ?? ""}/${resume.slug}`;
 
 	const setPublic = async (checked: boolean) => {
-		const description = checked ? t`Link is live` : t`Link turned off. The address is kept`;
 		try {
 			const updated = await updateResume({ id: resume.id, isPublic: checked });
 			patchResume((draft) => {
 				draft.isPublic = updated.isPublic;
+				draft.slug = updated.slug;
 			});
+			// An address made from the name could be guessed, so going public gives it a random one.
+			const description = !checked
+				? t`Link turned off. The address is kept`
+				: updated.slug !== resume.slug
+					? t`Link is live, at a new random address that can't be guessed`
+					: t`Link is live`;
 			toast.add({ description });
 		} catch (error) {
 			toast.add({ type: "error", description: errorMessage(error) });
@@ -101,13 +108,60 @@ export function LinkTab() {
 							<Trans>Open public page</Trans>
 						</a>
 						<QrCodeButton url={url} />
+						<NewAddressButton />
 					</div>
+					{!isRandomSlug(resume.slug) && (
+						<p className="text-xs text-ink-3">
+							<Trans>
+								This address is made from words, so someone could guess it. New random address gives it one that can't
+								be guessed.
+							</Trans>
+						</p>
+					)}
 				</div>
 			)}
 
 			<Separator />
 			<ViewsAndDownloads isPublic={isPublic} />
 		</div>
+	);
+}
+
+/** Swaps the address for a random one; the current link, and any old one it redirected from, stop working at once. */
+function NewAddressButton() {
+	const resume = useCurrentResume();
+	const patchResume = usePatchResume();
+	const confirm = useConfirm();
+	const { mutateAsync: updateResume, isPending } = useMutation(orpc.resume.update.mutationOptions());
+
+	const renew = async () => {
+		const confirmed = await confirm(t`Give this resume a new address?`, {
+			description: t`The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed.`,
+			confirmText: t`New address`,
+		});
+		if (!confirmed) return;
+		try {
+			const updated = await updateResume({ id: resume.id, randomSlug: true });
+			patchResume((draft) => {
+				draft.slug = updated.slug;
+			});
+			toast.add({ description: t`New address. The old link no longer works.` });
+		} catch (error) {
+			toast.add({ type: "error", description: errorMessage(error) });
+		}
+	};
+
+	return (
+		<Button
+			variant="ghost"
+			size="sm"
+			className="gap-1.5"
+			disabled={isPending || resume.isLocked}
+			onClick={() => void renew()}
+		>
+			<Icon name="arrows-clockwise" size={18} />
+			<Trans>New random address</Trans>
+		</Button>
 	);
 }
 

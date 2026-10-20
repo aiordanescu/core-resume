@@ -1,7 +1,7 @@
 import type { IconName } from "@reactive-resume/ui/components/icon";
 import type { CSSProperties } from "react";
 import { t } from "@lingui/core/macro";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { SegmentedControl, SegmentedControlItem } from "@reactive-resume/ui/components/segmented-control";
 import { cn } from "@reactive-resume/utils/style";
@@ -9,8 +9,20 @@ import { SCENE, useLanding } from "./scroll";
 import { Sheet } from "./sheet";
 import { Doodle, labelClass, TypedText } from "./ui";
 
-const ADDRESS = "rxresu.me/alex-morgan";
-const SLUG_START = ADDRESS.indexOf("/") + 1;
+/** A sample resume's path, in the shape this instance gives a public link: the username, then a random address. */
+const SAMPLE_PATH = "alex-morgan/7k2m9xq4ra3b";
+const noSubscription = () => () => undefined;
+
+/**
+ * This instance's own address, as Settings → Account shows it. The homepage is prerendered per locale without one,
+ * so the server snapshot is empty and the browser fills it in once the page loads.
+ */
+const useAddress = () =>
+	`${useSyncExternalStore(
+		noSubscription,
+		() => window.location.host,
+		() => "",
+	)}/${SAMPLE_PATH}`;
 
 /**
  * Colours that switch from the day palette to the night sky's once the sky is half dark (--nts), rather than passing
@@ -57,6 +69,8 @@ export function Share() {
 	const [copied, setCopied] = useState(false);
 	const copiedTimer = useRef(0);
 	const share = t`Share`;
+	const address = useAddress();
+	const pathStart = address.indexOf("/") + 1;
 	const isPrivate = visibility === 2;
 
 	useEffect(() => () => window.clearTimeout(copiedTimer.current), []);
@@ -134,7 +148,7 @@ export function Share() {
 				</div>
 
 				<div className="absolute inset-x-(--gutter) top-1/2 flex -translate-y-1/2 flex-col items-center gap-[26px] text-center">
-					{/* The heading reads "Your resume, live at rxresu.me/…"; this label is its visible first half. */}
+					{/* The heading reads "Your resume, live at <this host>/…"; this label is its visible first half. */}
 					<span
 						aria-hidden="true"
 						className={cn(labelClass, "tracking-[.1em] text-(--night-label) opacity-[clamp(0,var(--tu)*20,1)]")}
@@ -157,12 +171,12 @@ export function Share() {
 						/>
 						{/* The caret rides on the last character typed. */}
 						<TypedText
-							text={ADDRESS}
+							text={address}
 							progress="--tu"
 							rate={60}
 							className={cn("[overflow-wrap:anywhere] [--caret:var(--night-accent)]", isPrivate && "line-through")}
 							charClassName="typed-caret"
-							charStyle={(index) => (index >= SLUG_START ? { color: "var(--night-accent)" } : undefined)}
+							charStyle={(index) => (index >= pathStart ? { color: "var(--night-accent)" } : undefined)}
 						/>
 					</h2>
 

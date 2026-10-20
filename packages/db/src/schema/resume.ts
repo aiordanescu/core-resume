@@ -17,6 +17,8 @@ export const resume = pg.pgTable(
 			.$defaultFn(() => generateId()),
 		name: pg.text("name").notNull(),
 		slug: pg.text("slug").notNull(),
+		/** The owner set the address on purpose; otherwise going public swaps a guessable address for a random one. */
+		slugChosen: pg.boolean("slug_chosen").notNull().default(false),
 		tags: pg.text("tags").array().notNull().default([]),
 		isPublic: pg.boolean("is_public").notNull().default(false),
 		showDownloadButtons: pg.boolean("show_download_buttons").notNull().default(true),
@@ -176,3 +178,14 @@ export const resumeStatisticsDaily = pg.pgTable(
 	},
 	(t) => [pg.unique().on(t.resumeId, t.date), pg.index().on(t.resumeId, t.date.desc())],
 );
+
+/** A user's previous username, kept for 30 days after a change so shared public links keep working. */
+export const usernameRedirect = pg.pgTable("username_redirect", {
+	username: pg.text("username").primaryKey(),
+	userId: pg
+		.text("user_id")
+		.notNull()
+		.references(() => user.id, { onDelete: "cascade" }),
+	expiresAt: pg.timestamp("expires_at", { withTimezone: true }).notNull(),
+	createdAt: pg.timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});

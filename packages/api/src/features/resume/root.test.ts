@@ -15,6 +15,7 @@ const fixture = () => ({
 		isLocked: false,
 		showDownloadButtons: false,
 		hasPassword: false,
+		username: "owner",
 	})),
 });
 const request = { requestHeaders: new Headers({ host: "attacker.example", "x-forwarded-host": "attacker.example" }) };

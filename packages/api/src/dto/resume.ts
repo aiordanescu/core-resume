@@ -21,8 +21,9 @@ const resumeSchema = createSelectSchema(schema.resume, {
 	updatedAt: z.date().describe("The date and time the resume was last updated."),
 })
 	// Trash and automatic naming stay internal to the documents API. getById exposes the application link
-	// explicitly because the editor uses it to select the application a tailored copy belongs to.
-	.omit({ applicationId: true, trashedAt: true, autoName: true });
+	// explicitly because the editor uses it to select the application a tailored copy belongs to. Whether the owner
+	// chose the address only decides what going public does, so it stays internal too.
+	.omit({ applicationId: true, trashedAt: true, autoName: true, slugChosen: true });
 
 const versionSchema = z.object({
 	id: z.string().describe("The ID of the version."),
@@ -65,9 +66,10 @@ export const resumeDto = {
 		// to an empty string for non-owner viewers (see redactResumeForViewer in
 		// features/resume/access-policy.ts). Relax the `min(1)` constraint here so
 		// the redacted public response passes output validation.
-		output: resumeSchema
-			.omit({ name: true, password: true, userId: true, createdAt: true, updatedAt: true })
-			.extend({ name: z.string() }),
+		output: resumeSchema.omit({ name: true, password: true, userId: true, createdAt: true, updatedAt: true }).extend({
+			name: z.string(),
+			username: z.string().describe("The owner's current username; a link with an old one still finds the resume."),
+		}),
 	},
 
 	create: {
@@ -78,7 +80,7 @@ export const resumeDto = {
 				.describe("While true, the resume's name follows its headline until someone renames it."),
 			slug: resumeSchema.shape.slug
 				.optional()
-				.describe("The slug of the resume. Generated from the name, and made unique, when omitted."),
+				.describe("The slug of the resume. A random, unique address when omitted."),
 			withSampleData: z.boolean().default(false),
 		}),
 		output: z.string().describe("The ID of the created resume."),
@@ -96,6 +98,12 @@ export const resumeDto = {
 			.extend({
 				id: z.string(),
 				data: writableResumeDataSchema.optional(),
+				randomSlug: z
+					.boolean()
+					.optional()
+					.describe(
+						"true gives the resume a fresh random address; the old one, and any address it redirected from, stop working at once. Making a resume public does this on its own when its address was made from its name rather than chosen.",
+					),
 				sessionId: z
 					.string()
 					.max(64)
@@ -157,9 +165,7 @@ export const resumeDto = {
 		input: resumeSchema.pick({ id: true }).extend({
 			name: resumeSchema.shape.name.optional(),
 			tags: resumeSchema.shape.tags.optional(),
-			slug: resumeSchema.shape.slug
-				.optional()
-				.describe("The slug of the copy. Generated from the name, and made unique, when omitted."),
+			slug: resumeSchema.shape.slug.optional().describe("The slug of the copy. A random, unique address when omitted."),
 		}),
 		output: z.string().describe("The ID of the duplicated resume."),
 	},
