@@ -6,27 +6,10 @@
 /* Short viewports hide the secondary captions of the pinned scenes so nothing overlaps. */
 @custom-variant short (@media (height < 720px));
 
-@font-face {
-	font-family: "IBM Plex Mono";
-	font-style: normal;
-	font-weight: 500;
-	font-display: swap;
-	src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: "IBM Plex Mono";
-	font-style: normal;
-	font-weight: 700;
-	font-display: swap;
-	src: url("/fonts/ibm-plex-mono-700.woff2") format("woff2");
-}
-
 @theme {
 	/* Existing landing classes share the app's display and UI families. */
 	--font-anybody: var(--font-display);
 	--font-martian: var(--font-ui);
-	--font-receipt: "IBM Plex Mono", ui-monospace, monospace;
 
 	--animate-breathe: landing-breathe 16s ease-in-out infinite alternate;
 	--animate-drift: landing-drift 90s ease-in-out infinite alternate;
@@ -318,25 +301,6 @@
 	filter: blur(28px);
 	transform-origin: 0 0;
 	transform: skewX(-16deg) rotate(-8deg);
-}
-
-/* The receipt's torn, zig-zag bottom edge. */
-@utility receipt-paper {
-	mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
-}
-
-@utility receipt-barcode {
-	background: repeating-linear-gradient(
-		90deg,
-		oklch(0.22 0.01 95) 0 2px,
-		transparent 2px 4px,
-		oklch(0.22 0.01 95) 4px 5px,
-		transparent 5px 8px,
-		oklch(0.22 0.01 95) 8px 11px,
-		transparent 11px 12px,
-		oklch(0.22 0.01 95) 12px 13px,
-		transparent 13px 17px
-	);
 }
 
 /*

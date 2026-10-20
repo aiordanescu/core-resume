@@ -13,7 +13,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { HotkeysProvider } from "@tanstack/react-hotkeys";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
-import { createRootRouteWithContext, HeadContent, Outlet, useRouterState } from "@tanstack/react-router";
+import { createRootRouteWithContext, HeadContent, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { domMax, LazyMotion, MotionConfig } from "motion/react";
 import { useEffect } from "react";
@@ -21,7 +21,6 @@ import { Toaster } from "@reactive-resume/ui/components/toast";
 import { TooltipProvider } from "@reactive-resume/ui/components/tooltip";
 import { isRTL } from "@reactive-resume/utils/locale";
 import { BreakpointIndicator } from "@/components/layout/breakpoint-indicator";
-import { DonationToast } from "@/components/ui/donation-toast";
 import { DialogManager } from "@/dialogs/manager";
 import { CommandPalette } from "@/features/command-palette";
 import { useDocumentWebMcpTools } from "@/features/documents/webmcp";
@@ -60,9 +59,6 @@ function RootComponent() {
 	// WebMCP: browser agents can list and open the signed-in user's documents from any page.
 	useDocumentWebMcpTools(session !== null);
 
-	// Suppress the app-wide donation toast inside the builder so it doesn't cover the right-sidebar controls.
-	const isBuilder = useRouterState({ select: (s) => s.location.pathname.startsWith("/builder") });
-
 	// The theme class is owned by ThemeProvider, which also follows the system appearance.
 	useEffect(() => {
 		document.documentElement.lang = locale;
@@ -85,7 +81,6 @@ function RootComponent() {
 												<ConfirmDialogProvider>
 													<Outlet />
 
-													{!isBuilder && <DonationToast />}
 													<DialogManager />
 													<CommandPalette />
 													<Toaster />
