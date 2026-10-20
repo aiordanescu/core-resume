@@ -3,7 +3,6 @@ import { APICallError, generateText, RetryError } from "ai";
 import z from "zod";
 import { coverLetterTextToHtml } from "@reactive-resume/resume/cover-letter";
 import { postingSourceSchema } from "@reactive-resume/schema/applications/data";
-import { generateId, slugify } from "@reactive-resume/utils/string";
 import { protectedProcedure } from "../../context";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { aiProvidersService } from "../ai-providers/service";
@@ -431,7 +430,6 @@ export const aiRouter = {
 			const newResumeId = await resumeService.create({
 				userId: context.user.id,
 				name,
-				slug: `${slugify(name)}-${generateId().slice(0, 6)}`,
 				tags: [...resume.tags, "tailored"],
 				data: tailoredData,
 				locale: context.locale,

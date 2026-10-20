@@ -5517,6 +5517,10 @@ msgstr "為每一段經歷和學歷都標註時間段。"
 msgid "Give the story a title before you can save."
 msgstr "請先為故事加上標題，才能儲存。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "連結已複製"
 msgid "Link is live"
 msgstr "連結已上線"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "職位申請連結"
@@ -7489,6 +7497,14 @@ msgstr "新的"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "此伺服器目前已停用新帳戶註冊。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "全新 API 鑰匙"
@@ -7539,6 +7555,10 @@ msgstr "新頁面"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "新密碼"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "該副本連結到職位申請，因此 Check 和助理可以使用其職位發布。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "結束在開始之前。"
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "思維…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

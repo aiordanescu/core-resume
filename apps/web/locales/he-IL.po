@@ -5517,6 +5517,10 @@ msgstr "תן לכל תפקיד והשכלה טווח תאריכים."
 msgid "Give the story a title before you can save."
 msgstr "תן לסיפור כותרת כדי שתוכל לשמור."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "הקישור הועתק"
 msgid "Link is live"
 msgstr "הקישור פעיל"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "קישור להגשת מועמדות לעבודה"
@@ -7489,6 +7497,14 @@ msgstr "חָדָשׁ"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "הרשמת חשבונות חדשים מושבתת כרגע בשרת הזה."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "מפתח API חדש"
@@ -7539,6 +7555,10 @@ msgstr "עמוד חדש"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "סיסמה חדשה"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "העותק מקושר לבקשה לעבודה, לכן צ'ק והעוזר משתמשים בפרסום המשרה שלו."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "הסוף הוא לפני ההתחלה."
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "חֲשִׁיבָה…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

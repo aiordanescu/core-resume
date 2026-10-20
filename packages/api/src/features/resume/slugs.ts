@@ -2,13 +2,41 @@ import type { DbOrTx } from "@reactive-resume/db/client";
 import { and, eq, gt, inArray, like, or, sql } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
-import { slugify } from "@reactive-resume/utils/string";
+import { isRandomSlug, slugify } from "@reactive-resume/utils/string";
 
 /** Lowercase letters and numbers, in groups joined by single dashes. Only new and changed slugs must match. */
 export const SLUG_PATTERN = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 // After a rename the old address keeps working this long.
 const REDIRECT_LIFETIME_MS = 30 * 24 * 60 * 60 * 1000;
+
+const RANDOM_ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+/**
+ * A random address, 12 letters and digits with at least two of each, so it can't be guessed from the name and doesn't
+ * read as one.
+ */
+export function randomSlug() {
+	for (;;) {
+		const bytes = crypto.getRandomValues(new Uint8Array(24));
+		// 252 is the largest multiple of 36 below 256, so every character is equally likely.
+		const chars = [...bytes].filter((byte) => byte < 252).map((byte) => RANDOM_ALPHABET[byte % 36]);
+		const slug = chars.slice(0, 12).join("");
+		if (slug.length === 12 && isRandomSlug(slug)) return slug;
+	}
+}
+
+/** A random address none of the user's resumes uses yet. */
+export async function findFreeRandomSlug(client: DbOrTx, userId: string) {
+	for (;;) {
+		const slug = randomSlug();
+		const [taken] = await client
+			.select({ id: schema.resume.id })
+			.from(schema.resume)
+			.where(and(eq(schema.resume.userId, userId), eq(schema.resume.slug, slug)));
+		if (!taken) return slug;
+	}
+}
 
 /** `stem`, or `stem-2`, `stem-3`… whichever isn't taken. */
 function pickFreeSlug(stem: string, taken: ReadonlySet<string>) {
@@ -73,6 +101,29 @@ export async function recordSlugChange(
 			target: [schema.resumeSlugRedirect.userId, schema.resumeSlugRedirect.slug],
 			set: { resumeId: input.resumeId, expiresAt },
 		});
+}
+
+/**
+ * Matches a resume owner by username, or by a previous username whose redirect hasn't expired, but only while no
+ * account holds that name: a real account's username always wins over someone's old one.
+ */
+export function matchesUsername(username: string) {
+	return or(
+		eq(schema.user.username, username),
+		inArray(
+			schema.user.id,
+			db
+				.select({ id: schema.usernameRedirect.userId })
+				.from(schema.usernameRedirect)
+				.where(
+					and(
+						eq(schema.usernameRedirect.username, username),
+						gt(schema.usernameRedirect.expiresAt, sql`now()`),
+						sql`not exists (select 1 from "user" as taken where taken.username = ${username})`,
+					),
+				),
+		),
+	);
 }
 
 /** Matches a resume by its slug, or by a previous slug whose redirect hasn't expired. */

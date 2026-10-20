@@ -33,6 +33,7 @@ it.each(["write", "read"] as RequestPermission[])(
 			showDownloadButtons: true,
 			hasPassword: false,
 			passwordHash: null,
+			username: "owner",
 		};
 		const get = createProcedureClient(sharingRouter.getBySlug, {
 			context: {

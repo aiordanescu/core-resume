@@ -5512,6 +5512,10 @@ msgstr "Give every role and qualification a date range."
 msgid "Give the story a title before you can save."
 msgstr "Give the story a title before you can save."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr "Give this resume a new address?"
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6739,6 +6743,10 @@ msgstr "Link copied"
 msgid "Link is live"
 msgstr "Link is live"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr "Link is live, at a new random address that can't be guessed"
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "Link to application"
@@ -7484,6 +7492,14 @@ msgstr "New"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "New account sign-ups are currently disabled on this server."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr "New address"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr "New address. The old link no longer works."
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "New API key"
@@ -7534,6 +7550,10 @@ msgstr "New Page"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "New Password"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr "New random address"
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11881,6 +11901,10 @@ msgstr "The Coach shares up to {0} of {1} facts and {2} of {3} stories with each
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "The copy is linked to the application, so Check and the assistant use its posting."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "The end is before the start."
@@ -12152,6 +12176,10 @@ msgstr "Thinking: {0}"
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "Thinking…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

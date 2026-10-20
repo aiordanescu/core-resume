@@ -5517,6 +5517,10 @@ msgstr "すべての職務と資格に期間を記載してください。"
 msgid "Give the story a title before you can save."
 msgstr "保存するには、ストーリーにタイトルを付けてください。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "リンクがコピーされました"
 msgid "Link is live"
 msgstr "リンクはライブです"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "求人応募へのリンク"
@@ -7489,6 +7497,14 @@ msgstr "新しい"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "このサーバーでは現在、新規アカウントの登録が無効になっています。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "新しい API キー"
@@ -7539,6 +7555,10 @@ msgstr "新しいページ"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "新しいパスワード"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "コピーは求人応募にリンクされているため、Check とアシスタントはその求人掲載を使用します。"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "終わりは始まりの前にある。"
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "考え…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

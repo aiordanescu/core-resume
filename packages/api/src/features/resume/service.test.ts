@@ -52,6 +52,7 @@ vi.mock("@reactive-resume/db/schema", () => ({
 		createdAt: "created_at",
 	},
 	user: { id: "id", username: "username" },
+	resumeSlugRedirect: { resumeId: "resume_id" },
 }));
 vi.mock("drizzle-orm", () => ({
 	and: (...a: unknown[]) => a,
@@ -91,7 +92,9 @@ vi.mock("./slugs", () => ({
 	SLUG_PATTERN: /^[a-z0-9]+(-[a-z0-9]+)*$/,
 	checkSlug: vi.fn(),
 	findFreeSlug: vi.fn(async () => "generated-slug"),
+	findFreeRandomSlug: vi.fn(async () => "k3v9x2m7qa4p"),
 	matchesSlug: (slug: string) => ["slug", slug],
+	matchesUsername: (username: string) => ["username", username],
 	recordSlugChange: recordSlugChangeMock,
 }));
 
@@ -204,13 +207,22 @@ describe("versions.restore", () => {
 });
 
 describe("update", () => {
-	const updateHarness = (existing: { slug: string }) => {
+	const updateHarness = (existing: { slug: string; isPublic?: boolean; slugChosen?: boolean }) => {
 		const row = { ...createResumeRow(defaultResumeData), slug: existing.slug };
-		const select = createLockedSelectChain([{ data: defaultResumeData, isLocked: false, slug: existing.slug }]);
+		const select = createLockedSelectChain([
+			{
+				data: defaultResumeData,
+				isLocked: false,
+				slug: existing.slug,
+				isPublic: existing.isPublic ?? false,
+				slugChosen: existing.slugChosen ?? false,
+			},
+		]);
 		const update = createUpdateChain([row]);
-		const tx = { select: () => select.chain, update: () => update.chain };
+		const deleteWhere = vi.fn(async () => undefined);
+		const tx = { select: () => select.chain, update: () => update.chain, delete: () => ({ where: deleteWhere }) };
 		dbMock.transaction.mockImplementationOnce(async (callback: (tx: unknown) => Promise<unknown>) => callback(tx));
-		return { tx, update };
+		return { tx, update, deleteWhere };
 	};
 
 	it("keeps the old address as a redirect when the slug changes", async () => {
@@ -224,7 +236,37 @@ describe("update", () => {
 			from: "old-address",
 			to: "new-address",
 		});
-		expect(update.set).toHaveBeenCalledWith({ slug: "new-address" });
+		// An address set by hand is the owner's choice; going public later keeps it.
+		expect(update.set).toHaveBeenCalledWith({ slug: "new-address", slugChosen: true });
+	});
+
+	it("gives a guessable address a random one when the resume goes public, with no redirect", async () => {
+		const { update, deleteWhere } = updateHarness({ slug: "alexandru-stefan-iordanescu-80" });
+		await resumeService.update({ id: "r1", userId: "u1", isPublic: true });
+		expect(update.set).toHaveBeenCalledWith({ slug: "k3v9x2m7qa4p", slugChosen: false, isPublic: true });
+		// Old redirects to it go too, or a guessable address would still find it.
+		expect(deleteWhere).toHaveBeenCalled();
+		expect(recordSlugChangeMock).not.toHaveBeenCalled();
+	});
+
+	it("keeps an address on going public when it's already random, chosen by hand, or the resume was public", async () => {
+		for (const existing of [
+			{ slug: "q7w2e9r4t1yz" },
+			{ slug: "my-portfolio", slugChosen: true },
+			{ slug: "alexandru-stefan-iordanescu-94", isPublic: true },
+		]) {
+			const { update } = updateHarness(existing);
+			await resumeService.update({ id: "r1", userId: "u1", isPublic: true });
+			expect(update.set).toHaveBeenCalledWith({ isPublic: true });
+		}
+	});
+
+	it("gives a fresh random address on request, whatever the old one was", async () => {
+		const { update, deleteWhere } = updateHarness({ slug: "my-portfolio", isPublic: true, slugChosen: true });
+		await resumeService.update({ id: "r1", userId: "u1", randomSlug: true });
+		expect(update.set).toHaveBeenCalledWith({ slug: "k3v9x2m7qa4p", slugChosen: false });
+		expect(deleteWhere).toHaveBeenCalled();
+		expect(recordSlugChangeMock).not.toHaveBeenCalled();
 	});
 
 	it("rejects a new slug outside the pattern, but accepts an unchanged legacy one", async () => {
@@ -237,7 +279,7 @@ describe("update", () => {
 		const { update } = updateHarness({ slug: "Legacy_Slug" });
 		await resumeService.update({ id: "r1", userId: "u1", name: "Renamed", slug: "Legacy_Slug" });
 		// A name typed by hand also ends automatic naming.
-		expect(update.set).toHaveBeenCalledWith({ name: "Renamed", autoName: false, slug: "Legacy_Slug" });
+		expect(update.set).toHaveBeenCalledWith({ name: "Renamed", autoName: false });
 		expect(recordSlugChangeMock).not.toHaveBeenCalled();
 	});
 

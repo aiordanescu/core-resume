@@ -5517,6 +5517,10 @@ msgstr "ప్రతి పాత్రకు మరియు అర్హతక
 msgid "Give the story a title before you can save."
 msgstr "సేవ్ చేసే ముందు కథకు ఒక శీర్షిక ఇవ్వండి."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "లింక్ కాపీ చేయబడింది"
 msgid "Link is live"
 msgstr "లింక్ ప్రత్యక్ష ప్రసారం చేయబడింది"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "ఉద్యోగ దరఖాస్తుకు లింక్"
@@ -7489,6 +7497,14 @@ msgstr "కొత్తది"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "ఈ సర్వర్‌లో కొత్త ఖాతా నమోదులు ప్రస్తుతం నిలిపివేయబడ్డాయి."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "కొత్త API కీ"
@@ -7539,6 +7555,10 @@ msgstr "కొత్త పేజీ"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "న్యూ పాస్‌వర్డ్"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "కాపీ జాబ్ అప్లికేషన్‌కి లింక్ చేయబడింది, కాబట్టి తనిఖీ మరియు అసిస్టెంట్ దాని జాబ్ పోస్టింగ్‌ను ఉపయోగిస్తాయి."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "ముగింపు ప్రారంభానికి ముందు ఉంది."
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "ఆలోచిస్తూ..."
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

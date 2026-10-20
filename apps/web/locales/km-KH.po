@@ -5517,6 +5517,10 @@ msgstr "ផ្តល់ចន្លោះកាលបរិច្ឆេទដល
 msgid "Give the story a title before you can save."
 msgstr "ដាក់ចំណងជើងឱ្យរឿង ទើបអាចរក្សាទុកបាន។"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "បានចម្លងតំណ"
 msgid "Link is live"
 msgstr "Link បានផ្សាយបន្តផ្ទាល់"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "ភ្ជាប់ទៅពាក្យសុំការងារ"
@@ -7489,6 +7497,14 @@ msgstr "ថ្មី។"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "ការចុះឈ្មោះគណនីថ្មីត្រូវបានបិទនៅលើម៉ាស៊ីនមេនេះបច្ចុប្បន្ន។"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "កូនសោ API ថ្មី។"
@@ -7539,6 +7555,10 @@ msgstr "ទំព័រ​ថ្មី"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "ពាក្យសម្ងាត់​ថ្មី"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "ច្បាប់ចម្លងត្រូវបានភ្ជាប់ទៅនឹងពាក្យសុំការងារ ដូច្នេះ Check និងជំនួយការប្រើការប្រកាសការងាររបស់ខ្លួន។"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "ចុងបញ្ចប់គឺមុនពេលចាប់ផ្តើម។"
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "កំពុងគិត…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

@@ -5517,6 +5517,10 @@ msgstr "모든 직무와 자격 사항에 날짜 범위를 추가하세요."
 msgid "Give the story a title before you can save."
 msgstr "저장하려면 스토리 제목을 입력하세요."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "링크가 복사되었습니다"
 msgid "Link is live"
 msgstr "링크가 활성화되었습니다"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "입사지원 바로가기"
@@ -7489,6 +7497,14 @@ msgstr "새로운"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "이 서버에서는 현재 새 계정 가입이 비활성화되어 있습니다."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "새로운 API 키"
@@ -7539,6 +7555,10 @@ msgstr "새 페이지"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "새 비밀번호"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "사본은 채용 지원서에 연결되므로 Check와 보조자는 해당 채용 공고를 사용합니다."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "끝은 시작 전입니다."
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "생각…"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."

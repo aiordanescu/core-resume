@@ -5517,6 +5517,10 @@ msgstr "ഓരോ റോളിനും യോഗ്യതയ്ക്കും 
 msgid "Give the story a title before you can save."
 msgstr "സേവ് ചെയ്യുന്നതിന് മുമ്പ് കഥയ്ക്ക് ഒരു തലക്കെട്ട് നൽകുക."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Give this resume a new address?"
+msgstr ""
+
 #. Secondary navigation button on backup-code verification screen
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
@@ -6744,6 +6748,10 @@ msgstr "ലിങ്ക് പകർത്തി"
 msgid "Link is live"
 msgstr "ലിങ്ക് ലൈവാണ്"
 
+#: src/features/resume/share/link-tab.tsx
+msgid "Link is live, at a new random address that can't be guessed"
+msgstr ""
+
 #: src/features/documents/document-actions.tsx
 msgid "Link to application"
 msgstr "ജോലി അപേക്ഷയിലേക്കുള്ള ലിങ്ക്"
@@ -7489,6 +7497,14 @@ msgstr "പുതിയത്"
 msgid "New account sign-ups are currently disabled on this server."
 msgstr "ഈ സെർവറിൽ പുതിയ അക്കൗണ്ട് രജിസ്ട്രേഷനുകൾ നിലവിൽ പ്രവർത്തനരഹിതമാണ്."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "New address"
+msgstr ""
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New address. The old link no longer works."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "New API key"
 msgstr "പുതിയ API കീ"
@@ -7539,6 +7555,10 @@ msgstr "പുതിയ പേജ്"
 #: src/features/auth/pages/reset-password.tsx
 msgid "New Password"
 msgstr "പുതിയ പാസ്‌വേഡ്"
+
+#: src/features/resume/share/link-tab.tsx
+msgid "New random address"
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "New roles from your search"
@@ -11886,6 +11906,10 @@ msgstr ""
 msgid "The copy is linked to the application, so Check and the assistant use its posting."
 msgstr "പകർപ്പ് ജോലി അപേക്ഷയുമായി ലിങ്ക് ചെയ്‌തിരിക്കുന്നു, അതിനാൽ പരിശോധിച്ച് അസിസ്റ്റൻ്റ് അതിൻ്റെ ജോലി പോസ്റ്റിംഗ് ഉപയോഗിക്കുന്നു."
 
+#: src/features/resume/share/link-tab.tsx
+msgid "The current link stops working right away, for everyone you've shared it with. The new address is random, so it can't be guessed."
+msgstr ""
+
 #: src/features/resume/editor/write/dates-field.tsx
 msgid "The end is before the start."
 msgstr "തുടക്കത്തിനു മുമ്പാണ് അവസാനം."
@@ -12157,6 +12181,10 @@ msgstr ""
 #: src/features/assistant/conversation.tsx
 msgid "Thinking…"
 msgstr "ചിന്തിക്കുന്നു..."
+
+#: src/features/resume/share/link-tab.tsx
+msgid "This address is made from words, so someone could guess it. New random address gives it one that can't be guessed."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "This application couldn't be opened."
