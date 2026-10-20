@@ -991,7 +991,6 @@ msgstr "ଏହି ରାଉଣ୍ଡ ପାଇଁ ଏକ କେନ୍ଦ୍ର�
 msgid "A font is referenced but not embedded."
 msgstr "ଏକ ଫଣ୍ଟ ସନ୍ଦର୍ଭିତ କିନ୍ତୁ ଏମ୍ବେଡ୍ କରାଯାଇ ନାହିଁ।"
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "ଏକ ମାଗଣା ଏବଂ ମୁକ୍ତ ଉତ୍ସ ରେଜୁମ୍ ବିଲଡର୍ |"
@@ -1518,10 +1517,6 @@ msgstr "ଠିକଣା"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "ସେତେବେଳ ସୁଦ୍ଧା ଉତ୍ତର ନ ପାଇଲେ “ଆଜି”ରେ ଏକ ସ୍ମାରକ ଯୋଡ଼େ।"
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "ବିଜ୍ଞାପନଗୁଡିକ |"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "ଆସ୍ପେକ୍ଟ ଅନୁପାତ"
 msgid "Assistant"
 msgstr "ସହକାରୀ"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "ସହାୟକ (ତୁମର ଚାବି)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "ସହକାରୀ ବାର୍ତ୍ତାଳାପ |"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labsରେ, ଅଧିକାଂଶ ନୂଆ ଟିମ୍ ସେଟଅପ୍ ଶେଷ କରିବା ପୂର୍ବରୁ ଅଟକି ଯାଉଥିଲେ।"
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS ଯାଞ୍ଚକାରୀ |"
 
@@ -2491,10 +2481,6 @@ msgstr "ବାତିଲ୍ କରନ୍ତୁ"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "କ୍ୟାରିଅର୍"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "କ୍ୟାରିଅର୍ କୋଚ୍ (ଆପଣଙ୍କ କି)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "ଜାରି ରଖନ୍ତୁ"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "ଅତିଥି ଭାବରେ ଜାରି ରଖନ୍ତୁ"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "କୋଡ୍ ଅବଦାନ କରନ୍ତୁ"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "କଭର୍ ଚିଠି ଦାଖଲ (ବ al କଳ୍ପିକ)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "କଭର୍ ଚିଠିଗୁଡ଼ିକ"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} ପଠାନ୍ତୁ ନାହିଁ |"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "ଦାନ କରନ୍ତୁ"
 
@@ -5556,10 +5536,6 @@ msgstr "ଡ୍ୟାଶବୋର୍ଡକୁ ଯାଆନ୍ତୁ"
 msgid "Go to…"
 msgstr "… କୁ ଯାଆନ୍ତୁ"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "ଏବେ ସାକ୍ଷାତକାର"
 msgid "Interview opening"
 msgstr "ସାକ୍ଷାତକାର ଆରମ୍ଭ"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "ସାକ୍ଷାତକାର ପ୍ରସ୍ତୁତି"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "ଚାକିରି ଖୋଜ ବିଫଳ ହେଲା | ପୁନର୍
 msgid "Job search pipeline"
 msgstr "ଚାକିରି ଖୋଜ ପାଇପଲାଇନ୍"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "ଚାକିରି ଟ୍ରାକର୍ |"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "ଚାକିରି"
@@ -6344,10 +6312,6 @@ msgstr "ସମ୍ପାଦନା ଜାରି ରଖନ୍ତୁ"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "ଆବର୍ଜନାରେ ରଖନ୍ତୁ |"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "ଏହାକୁ <0>ମାଗଣା</0> ରଖିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ।"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "କୌଣସି କାର୍ଯ୍ୟ-ଅଭିଜ୍ଞତା ବିଭ
 msgid "No. {number} · {name}"
 msgstr "ନା। {number} · {name} |"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "କିଛି ନୁହେଁ |"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "ଫଣ୍ଟଗୁଡ଼ିକ ଏମ୍ବେଡ୍ କରି ପୁନ
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "ଉତ୍ତର"
 msgid "Reply copied"
 msgstr "ଉତ୍ତର କପି ହେଲା"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "ଗୋଟିଏ ବଗ୍ ରିପୋର୍ଟ କରନ୍ତୁ"
@@ -9886,10 +9836,6 @@ msgstr "ରେଜୁମ୍ + ଅକ୍ଷର"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "ରେଜ୍ୟୁମେ ସଂଲଗ୍ନ"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "ରେଜୁମ୍ ବିଲଡର୍ |"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "ଆପଣଙ୍କ ଖୋଲା ଆବେଦନଗୁଡ଼ିକର ସ
 msgid "Summary"
 msgstr "ସାରାଂଶ"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "ସମର୍ଥନ"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "ଟେମ୍ପଲେଟ୍, ପ୍ରକାର ଏବଂ ରଙ୍ଗ �
 msgid "Templates"
 msgstr "ଟେମ୍ପଲେଟ୍‌ଗୁଡିକ"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "ଟେମ୍ପଲେଟ୍ × {templates} |"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "ଚାକିରି ବିଜ୍ଞାପନରୁ ଶବ୍ଦ"
@@ -11839,10 +11777,6 @@ msgstr "{minimum} pt ଅନ୍ତର୍ଗତ ପାଠ୍ୟ ଭୁଲ ଭା�
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "ଥାଇ"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "ଏହାକୁ ମୁକ୍ତ ରଖିବା ପାଇଁ ଧନ୍ୟବାଦ |"
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "ଧଳା ରଙ୍ଗର ହେଡିଙ୍ଗ୍ ପାଇଁ ଅତ�
 msgid "Too many requests. Try again later."
 msgstr "ବହୁତ ଅନୁରୋଧ | ପରେ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |"
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "ସମୁଦାୟ"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "ଆପଣ ଆବେଦନ କରୁଥିବା ଏକ ଚାକିରିକୁ ଟ୍ରାକ୍ କରନ୍ତୁ ଏବଂ ଆପଣ ପଠାଇଥିବା ରେଜ୍ୟୁମେକୁ ଲିଙ୍କ୍ କରନ୍ତୁ।"
@@ -12576,10 +12506,6 @@ msgstr "ଆବେଦନଗୁଡ଼ିକରେ ଟ୍ରାକ୍ କରନ୍�
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "ତୁମର ପ୍ରଥମ କାମ ଟ୍ରାକ୍ କର |"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "ଟ୍ରାକିଂ"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "{model} ସହ ଟ୍ରାନ୍ସକ୍ରାଇବ୍ କରୁଛ�
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "ଟ୍ରାନ୍ସକ୍ରିପ୍ଟ କପି ହୋଇଛି |"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "ଆପ୍ ଅନୁବାଦ କରନ୍ତୁ"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "ଲିଖିତ ଅଫର୍"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "ହଁ। ପ୍ରତ୍ୟେକ ବୈଶିଷ୍ଟ୍ୟ ମାଗଣା: ସମସ୍ତ {templates} ଟେମ୍ପଲେଟ୍, PDF ଏବଂ Word ଡାଉନଲୋଡ୍, ATS ଚେକର୍, କଭର୍ ଚିଠି ଏବଂ ଚାକିରି ଟ୍ରାକର୍। କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ, ଟ୍ରାକିଂ ନାହିଁ ଏବଂ ଦେୟଯୁକ୍ତ ସ୍ତର ନାହିଁ। ଦାନ ହୋଷ୍ଟିଂ ଏବଂ ବିକାଶର ଖର୍ଚ୍ଚ ବହନ କରେ।"
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

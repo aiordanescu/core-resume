@@ -991,7 +991,6 @@ msgstr "Célzott terv erre a fordulóra"
 msgid "A font is referenced but not embedded."
 msgstr "Egy betűtípusra hivatkozik a fájl, de nincs beágyazva."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Ingyenes és nyílt forráskódú önéletrajz-készítő"
@@ -1518,10 +1517,6 @@ msgstr "Cím"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Emlékeztetőt tesz a Ma nézetbe, ha addig nem kapsz választ."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Hirdetések"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Méretarány"
 msgid "Assistant"
 msgstr "Helyettes"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Segéd (az Ön kulcsa)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Asszisztensi beszélgetések"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "A Northwind Labsnél a legtöbb új csapat elakadt, mielőtt befejezte volna a beállítást."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS ellenőrző"
 
@@ -2491,10 +2481,6 @@ msgstr "Mégsem"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Karrier"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Karriercoach (saját kulcs)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Tovább"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Folytatás vendégként"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Járulj hozzá kóddal"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Kísérőlevél benyújtva (nem kötelező)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Motivációs levelek"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "Ne küldje el a {0}-t"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Adományoz"
 
@@ -5556,10 +5536,6 @@ msgstr "Tovább az irányítópultra"
 msgid "Go to…"
 msgstr "Menj ide:…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Interjú most"
 msgid "Interview opening"
 msgstr "Interjúnyitás"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Interjúfelkészülés"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "Az álláskeresés nem sikerült. Próbálja újra, vagy illesszen be eg
 msgid "Job search pipeline"
 msgstr "Álláskeresési folyamat"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Jelentkezéskövető"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Állások"
@@ -6344,10 +6312,6 @@ msgstr "Szerkesztés folytatása"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Tárolja a kukában"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Tartsuk <0>ingyenesen elérhetőnek.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "Nem található Szakmai tapasztalat szakasz."
 msgid "No. {number} · {name}"
 msgstr "sz. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "egyik sem"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Exportáld újra beágyazott betűtípusokkal, majd nyisd meg a fájlt, 
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior termékdizájner"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Válaszüzenet"
 msgid "Reply copied"
 msgstr "Válaszüzenet másolva"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Hiba bejelentése"
@@ -9886,10 +9836,6 @@ msgstr "önéletrajz + levél"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Csatolt önéletrajz"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "önéletrajz készítő"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Nyitott jelentkezéseid összefoglalói"
 msgid "Summary"
 msgstr "Összegzés"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Támogatás"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "A sablon, a típus és a színek követik az önéletrajzot, így a pár
 msgid "Templates"
 msgstr "Sablonok"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Sablonok × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Feltételek az álláshirdetésből"
@@ -11839,10 +11777,6 @@ msgstr "A {minimum} pt alatti szöveg félreolvasható, ha a rendszer újra rend
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "thai"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Köszönjük, hogy ingyenesen tartod."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Túl világos a fehér címsorokhoz. Lehet, hogy nehéz olvasni és halv
 msgid "Too many requests. Try again later."
 msgstr "Túl sok kérés. Próbálja újra később."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Teljes"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Kövesd nyomon az állást, amelyre jelentkezel, és kapcsold hozzá az elküldött önéletrajzot."
@@ -12576,10 +12506,6 @@ msgstr "Követés a Jelentkezésekben"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Kövesse nyomon első munkáját"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Követés"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Átírás ezzel: {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Átirat másolva"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Fordítsd le az alkalmazást"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Írásos ajánlat"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Igen. Minden funkció ingyenes: az összes {templates} sablon, a PDF és Word letöltések, az ATS ellenőrző, a kísérőlevelek és a jelentkezéskövető. Nincsenek hirdetések, nincs nyomon követés és nincs fizetős szint. Adományokból fizetik a tárhelyet és a fejlesztést."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

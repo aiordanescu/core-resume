@@ -991,7 +991,6 @@ msgstr "Bu tur için odaklı bir plan"
 msgid "A font is referenced but not embedded."
 msgstr "Bir yazı tipine başvuruluyor ancak gömülü değil."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Ücretsiz ve açık kaynaklı bir özgeçmiş oluşturucu"
@@ -1518,10 +1517,6 @@ msgstr "Adres"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "O zamana kadar yanıt alamazsanız Bugün'e bir hatırlatıcı ekler."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Reklamlar"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "En/Boy Oranı"
 msgid "Assistant"
 msgstr "Asistan"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Asistan (anahtarınız)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Asistan görüşmeleri"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labs'te yeni ekiplerin çoğu kurulumu bitirmeden takılıp kalıyordu."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS denetleyici"
 
@@ -2491,10 +2481,6 @@ msgstr "İptal Et"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Kariyer"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Kariyer koçu (kendi anahtarınız)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Devam et"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Misafir olarak devam et"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Koda katkıda bulunun"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Kapak mektubu gönderildi (isteğe bağlı)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Ön yazılar"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} göndermeyin"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Bağış yapmak"
 
@@ -5556,10 +5536,6 @@ msgstr "Gösterge Paneline Git"
 msgid "Go to…"
 msgstr "… adresine gidin."
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Görüşme şimdi"
 msgid "Interview opening"
 msgstr "Görüşme açılışı"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Görüşme hazırlığı"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "İş arama başarısız oldu. Tekrar deneyin veya bir iş ilanı bağlan
 msgid "Job search pipeline"
 msgstr "İş arama hattı"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Başvuru takibi"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "İşler"
@@ -6344,10 +6312,6 @@ msgstr "Düzenlemeye devam et"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Çöp Kutusunda Tut"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "<0>Ücretsiz kalmasına</0> yardımcı olun."
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "İş deneyimi bölümü bulunamadı."
 msgid "No. {number} · {name}"
 msgstr "Hayır. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "hiçbiri"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Yazı tiplerini gömerek yeniden dışa aktarın, ardından dosyayı aç
 msgid "Re: Senior Product Designer"
 msgstr "Ynt: Kıdemli Ürün Tasarımcısı"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Yanıt"
 msgid "Reply copied"
 msgstr "Yanıt kopyalandı"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Bir hata bildir"
@@ -9886,10 +9836,6 @@ msgstr "özgeçmiş + mektup"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Özgeçmiş ekte yer almaktadır"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "özgeçmiş oluşturucu"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Açık başvurularınızın özetleri"
 msgid "Summary"
 msgstr "Özet"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Destek"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "Şablon, tür ve renkler özgeçmişi takip eder, böylece çift her zam
 msgid "Templates"
 msgstr "Şablonlar"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Şablonlar × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "İş ilanındaki şartlar"
@@ -11839,10 +11777,6 @@ msgstr "{minimum} pt altındaki metin, sistem onu ​​yeniden oluşturduğunda
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tayca"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Ücretsiz tuttuğunuz için teşekkür ederiz."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Beyaz başlıklar için fazla hafif. Hafifçe okunması ve yazdırılmas
 msgid "Too many requests. Try again later."
 msgstr "Çok fazla istek var. Daha sonra tekrar deneyin."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Toplam"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Başvurduğunuz işi takip edin ve gönderdiğiniz özgeçmişi bağlayın."
@@ -12576,10 +12506,6 @@ msgstr "Başvurularda takip et"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "İlk işinizi takip edin"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Takip"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "{model} ile yazıya dökülüyor…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Transkript kopyalandı"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Uygulamayı çevir"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Yazılı teklif"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Evet. Her özellik ücretsizdir: tüm {templates} şablonları, PDF ve Word indirmeleri, ATS denetleyicisi, ön yazılar ve başvuru takibi. Reklam yok, izleme yok ve ücretli katman yok. Bağışlar barındırma ve geliştirme için ödeme yapar."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

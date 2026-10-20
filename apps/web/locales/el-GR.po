@@ -991,7 +991,6 @@ msgstr "Ένα εστιασμένο πλάνο για αυτόν τον γύρο
 msgid "A font is referenced but not embedded."
 msgstr "Μια γραμματοσειρά αναφέρεται αλλά δεν είναι ενσωματωμένη."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Ένα δωρεάν και ανοιχτού κώδικα δημιουργία βιογραφικών"
@@ -1518,10 +1517,6 @@ msgstr "Διεύθυνση"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Προσθέτει υπενθύμιση στο Σήμερα, αν δεν έχετε λάβει απάντηση μέχρι τότε."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Διαφημίσεις"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Αναλογία διαστάσεων"
 msgid "Assistant"
 msgstr "Βοηθός"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Βοηθός (το κλειδί σας)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Βοηθητικές συνομιλίες"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Στη Northwind Labs, οι περισσότερες νέες ομάδες κολλούσαν πριν ολοκληρώσουν τη ρύθμιση."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATS πούλι"
 
@@ -2491,10 +2481,6 @@ msgstr "Ακύρωση"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Καριέρα"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Σύμβουλος καριέρας (το κλειδί σας)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Συνέχεια"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Συνέχεια ως επισκέπτης"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Συνεισφέρετε κώδικα"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Υποβλήθηκε συνοδευτική επιστολή (προαιρετικό)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Συνοδευτικές επιστολές"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "Μην στέλνετε {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Προσφέρω"
 
@@ -5556,10 +5536,6 @@ msgstr "Μετάβαση στον πίνακα ελέγχου"
 msgid "Go to…"
 msgstr "Μεταβείτε στο…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Συνέντευξη τώρα"
 msgid "Interview opening"
 msgstr "Εισαγωγή συνέντευξης"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Προετοιμασία συνέντευξης"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "Η αναζήτηση εργασίας απέτυχε. Δοκιμάστ�
 msgid "Job search pipeline"
 msgstr "Ροή αναζήτησης εργασίας"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Παρακολούθηση αιτήσεων"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Θέσεις εργασίας"
@@ -6344,10 +6312,6 @@ msgstr "Συνέχεια επεξεργασίας"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Διατήρηση στον Κάδο απορριμμάτων"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Διατηρήστε το <0>δωρεάν.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "Δεν βρέθηκε ενότητα εργασιακής εμπειρί
 msgid "No. {number} · {name}"
 msgstr "Αρ. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "κανένας"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Επανεξαγάγετε με ενσωματωμένες γραμμα�
 msgid "Re: Senior Product Designer"
 msgstr "ΑΠ: Senior Product Designer"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Απάντηση"
 msgid "Reply copied"
 msgstr "Η απάντηση αντιγράφηκε"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Αναφέρετε ένα σφάλμα"
@@ -9886,10 +9836,6 @@ msgstr "βιογραφικό + επιστολή"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Συνημμένο βιογραφικό"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "δημιουργός βιογραφικών"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Περιλήψεις των ανοιχτών αιτήσεών σας"
 msgid "Summary"
 msgstr "Σύνοψη"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Υποστήριξη"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "Το πρότυπο, ο τύπος και τα χρώματα ακολο
 msgid "Templates"
 msgstr "Πρότυπα"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Πρότυπα × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Όροι από την ανάρτηση εργασίας"
@@ -11839,10 +11777,6 @@ msgstr "Το κείμενο κάτω από το {minimum} pt μπορεί να 
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Ταϊλανδικά"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Σας ευχαριστούμε που το κρατήσατε δωρεάν."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Πολύ ελαφρύ για επικεφαλίδες σε λευκό. �
 msgid "Too many requests. Try again later."
 msgstr "Πάρα πολλά αιτήματα. Δοκιμάστε ξανά αργότερα."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Σύνολο"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Παρακολουθήστε μια θέση στην οποία κάνετε αίτηση και συνδέστε το βιογραφικό που στείλατε."
@@ -12576,10 +12506,6 @@ msgstr "Παρακολούθηση στις Αιτήσεις"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Παρακολουθήστε την πρώτη σας δουλειά"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Παρακολούθηση"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Απομαγνητοφώνηση με {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Η μεταγραφή αντιγράφηκε"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Μεταφράστε την εφαρμογή"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Γραπτή προσφορά"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Ναι. Κάθε δυνατότητα είναι δωρεάν: όλα τα {templates} πρότυπα, λήψεις PDF και Word, ο έλεγχος ATS, συνοδευτικές επιστολές και η παρακολούθηση αιτήσεων. Δεν υπάρχουν διαφημίσεις, καμία παρακολούθηση και κανένα επίπεδο επί πληρωμή. Οι δωρεές πληρώνουν για φιλοξενία και ανάπτυξη."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

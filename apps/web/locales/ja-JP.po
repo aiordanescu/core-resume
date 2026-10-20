@@ -991,7 +991,6 @@ msgstr "この選考ステップに向けた集中プラン"
 msgid "A font is referenced but not embedded."
 msgstr "フォントが参照されていますが、埋め込まれていません。"
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "無料のオープンソースの履歴書ビルダー"
@@ -1518,10 +1517,6 @@ msgstr "住所"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "それまでに返信がなければ、「今日」にリマインダーを追加します。"
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "広告"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "アスペクト比"
 msgid "Assistant"
 msgstr "アシスタント"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "アシスタント（あなたのキー）"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "アシスタントの会話"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "Northwind Labsでは、新規チームの多くがセットアップを終える前に行き詰まっていました。"
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "ATSチェッカー"
 
@@ -2491,10 +2481,6 @@ msgstr "キャンセル"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "キャリア"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "キャリアコーチ（あなたのキー）"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "続行"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "ゲストとして続ける"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "コードで貢献する"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "カバーレターの提出（オプション）"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "カバーレター"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "{0} を送信しないでください"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "寄付する"
 
@@ -5556,10 +5536,6 @@ msgstr "ダッシュボードへ移動"
 msgid "Go to…"
 msgstr "… へ移動"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "面接中"
 msgid "Interview opening"
 msgstr "面接の冒頭トーク"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "面接対策"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "就職活動に失敗しました。もう一度試すか、求人情報
 msgid "Job search pipeline"
 msgstr "求人応募パイプライン"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "ジョブトラッカー"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "求人情報"
@@ -6344,10 +6312,6 @@ msgstr "編集を続ける"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "ゴミ箱に入れておく"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "これからも<0>無料で</0>使えるように。"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "職歴セクションが見つかりませんでした。"
 msgid "No. {number} · {name}"
 msgstr "No.{number}・{name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "なし"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "フォントを埋め込んで再エクスポートしてからファイ
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "返信"
 msgid "Reply copied"
 msgstr "返信をコピーしました"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "バグを報告する"
@@ -9886,10 +9836,6 @@ msgstr "履歴書+手紙"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "履歴書を添付済み"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "履歴書ビルダー"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "進行中の応募の概要"
 msgid "Summary"
 msgstr "サマリー"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "サポート"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "テンプレート、タイプ、色は履歴書に従うため、ペア
 msgid "Templates"
 msgstr "テンプレート"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "テンプレート × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "求人掲載の条件"
@@ -11839,10 +11777,6 @@ msgstr "{minimum} pt の下のテキストは、システムが再レンダリ�
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "タイ語"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "無料で保管していただきありがとうございます。"
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "白の見出しには軽すぎます。薄く印刷すると読みにく
 msgid "Too many requests. Try again later."
 msgstr "リクエストが多すぎます。後でもう一度試してください。"
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "合計"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "応募中の求人を追跡し、送付した履歴書をリンクします。"
@@ -12576,10 +12506,6 @@ msgstr "応募で管理"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "最初のジョブを追跡する"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "トラッキング"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "{model}で文字起こし中…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "トランスクリプトをコピーしました"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "アプリを翻訳する"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "書面でのオファー"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "はい。すべての機能は無料です: すべての {templates} テンプレート、PDF および Word のダウンロード、ATS チェッカー、カバー レター、ジョブ トラッカー。広告、追跡、有料枠はありません。寄付はホスティングと開発に支払われます。"
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

@@ -991,7 +991,6 @@ msgstr "Soustředěný plán pro toto kolo"
 msgid "A font is referenced but not embedded."
 msgstr "Písmo je odkazováno, ale není vloženo."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Bezplatný a open source tvůrce životopisů"
@@ -1518,10 +1517,6 @@ msgstr "Adresa"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Pokud se do té doby neozvou, přidá připomínku do sekce Dnes."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "reklamy"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Poměr stran"
 msgid "Assistant"
 msgstr "Asistent"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Asistent (váš klíč)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Konverzace s Asistentem"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "V Northwind Labs většina nových týmů uvízla dřív, než dokončila nastavení."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "Kontrola ATS"
 
@@ -2491,10 +2481,6 @@ msgstr "Zrušit"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Kariéra"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Kariérní kouč (váš klíč)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Pokračovat"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Pokračovat jako host"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Přispějte kódem"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Odeslání průvodního dopisu (volitelné)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Motivační dopisy"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "Neposílejte {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Darovat"
 
@@ -5556,10 +5536,6 @@ msgstr "Přejít na nástěnku"
 msgid "Go to…"
 msgstr "Přejít na…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Pohovor právě teď"
 msgid "Interview opening"
 msgstr "Úvod na pohovor"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Příprava na pohovor"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "Hledání práce se nezdařilo. Zkuste to znovu nebo vložte odkaz na na
 msgid "Job search pipeline"
 msgstr "Proces hledání práce"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Přehled žádostí o práci"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Pracovní místa"
@@ -6344,10 +6312,6 @@ msgstr "Pokračovat v úpravách"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Uchovávejte v koši"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Udržujte jej <0>zdarma.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "Nebyla nalezena sekce pracovních zkušeností."
 msgid "No. {number} · {name}"
 msgstr "č. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "žádný"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Znovu exportujte s vloženými písmy, poté soubor otevřete a ověřte
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Odpověď"
 msgid "Reply copied"
 msgstr "Odpověď zkopírována"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Nahlásit chybu"
@@ -9886,10 +9836,6 @@ msgstr "resumé + dopis"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Přiložený životopis"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "tvůrce životopisů"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Shrnutí vašich otevřených žádostí"
 msgid "Summary"
 msgstr "Souhrn"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Podpora"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "Šablona, ​​typ a barvy se řídí resumé, takže dvojice vždy lad
 msgid "Templates"
 msgstr "Šablony"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Šablony × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Výrazy z inzerátu"
@@ -11839,10 +11777,6 @@ msgstr "Text pod {minimum} pt může být špatně přečten, když jej systém 
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Thajština"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Děkujeme, že je máte zdarma."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Příliš světlé pro nadpisy na bílé. Může být obtížné číst 
 msgid "Too many requests. Try again later."
 msgstr "Příliš mnoho požadavků. Zkuste to znovu později."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Celkový"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Sledujte pracovní pozici, o kterou se ucházíte, a přidejte odkaz na životopis, který jste odeslali."
@@ -12576,10 +12506,6 @@ msgstr "Sledovat v Žádostech"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Sledujte svou první práci"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Sledování"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Přepisuje se pomocí {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Přepis zkopírován"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Přeložte aplikaci"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Písemná nabídka"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Ano. Každá funkce je zdarma: všech {templates} šablon, stahování v PDF a Wordu, kontrola ATS, průvodní dopisy a přehled žádostí o práci. Nejsou tu žádné reklamy, žádné sledování a žádná placená úroveň. Dary platí hosting a vývoj."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."

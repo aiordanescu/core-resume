@@ -73,7 +73,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 	const body = [
 		"# Overreactive Resume",
 		"",
-		`> Overreactive Resume is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is funded by donations and released under the MIT License.`,
+		`> Overreactive Resume is a free and open-source resume builder. Write a resume in an editor beside a live page, pick one of ${templateSchema.options.length} templates, check that applicant tracking systems can read it, tailor it to a job posting, and share it at a public link or download it. No ads, no tracking, no paid tier; it is released under the MIT License.`,
 		"",
 		"## Product",
 		"",
@@ -83,7 +83,7 @@ export function handleLlms(options?: StaticSeoOptions) {
 		"",
 		"## Facts",
 		"",
-		"- Price: free, every feature. Optional donations through GitHub Sponsors and Open Collective.",
+		"- Price: free, every feature.",
 		"- Export: PDF, Word (DOCX), Markdown and JSON.",
 		"- Import: PDF, LinkedIn data export, JSON Resume, Reactive Resume JSON; Word files with an AI provider.",
 		"- Sharing: private by default; a public link or a password-protected link, changeable at any time.",

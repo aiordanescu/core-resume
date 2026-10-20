@@ -991,7 +991,6 @@ msgstr "Un pla concentrat per a aquesta ronda"
 msgid "A font is referenced but not embedded."
 msgstr "Es fa referència a un tipus de lletra que no està incrustat."
 
-#: src/features/homepage/sections.tsx
 #: src/libs/seo.ts
 msgid "A free and open-source resume builder"
 msgstr "Un creador de currículums gratuït i de codi obert"
@@ -1518,10 +1517,6 @@ msgstr "Adreça"
 #: src/features/career/workspace/messages.tsx
 msgid "Adds a reminder to Today if you haven't heard back by then."
 msgstr "Afegeix un recordatori a Avui si per aleshores no heu rebut resposta."
-
-#: src/features/homepage/sections.tsx
-msgid "Ads"
-msgstr "Anuncis"
 
 #: src/routes/builder/$resumeId/-components/design-panel.tsx
 msgid "Advanced"
@@ -2126,10 +2121,6 @@ msgstr "Relació d’aspecte"
 msgid "Assistant"
 msgstr "Assistent"
 
-#: src/features/homepage/sections.tsx
-msgid "Assistant (your key)"
-msgstr "Assistent (la teva clau)"
-
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Assistant conversations"
 msgstr "Converses d'assistent"
@@ -2147,7 +2138,6 @@ msgid "At Northwind Labs, most new teams stalled before they finished setup."
 msgstr "A Northwind Labs, la majoria d'equips nous s'encallaven abans d'acabar la configuració."
 
 #: src/features/homepage/footer.tsx
-#: src/features/homepage/sections.tsx
 msgid "ATS checker"
 msgstr "Comprovador ATS"
 
@@ -2491,10 +2481,6 @@ msgstr "Cancel·la"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Carrera"
-
-#: src/features/homepage/sections.tsx
-msgid "Career coach (your key)"
-msgstr "Orientador professional (la vostra clau)"
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -3107,10 +3093,6 @@ msgstr "Continua"
 #: src/features/auth/pages/login.tsx
 msgid "Continue as guest"
 msgstr "Continua com a convidat"
-
-#: src/features/homepage/sections.tsx
-msgid "Contribute code"
-msgstr "Contribueix amb codi"
 
 #: src/features/homepage/prepare.tsx
 msgid "Contribution clear"
@@ -3764,7 +3746,6 @@ msgid "Cover letter submitted (optional)"
 msgstr "Carta de presentació enviada (opcional)"
 
 #: src/features/command-palette/pages/navigation.tsx
-#: src/features/homepage/sections.tsx
 msgid "Cover letters"
 msgstr "Cartes de presentació"
 
@@ -4300,7 +4281,6 @@ msgid "Don't send {0}"
 msgstr "No envieu {0}"
 
 #: src/components/ui/donation-toast.tsx
-#: src/features/resume/share/download-tab.tsx
 msgid "Donate"
 msgstr "Donar"
 
@@ -5556,10 +5536,6 @@ msgstr "Ves al tauler"
 msgid "Go to…"
 msgstr "Ves a…"
 
-#: src/features/resume/share/download-tab.tsx
-msgid "Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip in."
-msgstr ""
-
 #. Authentication provider display name in account settings
 #. Brand name label for Google social sign-in button
 #: src/features/auth/components/social-auth.tsx
@@ -6085,10 +6061,6 @@ msgstr "Entrevista ara"
 msgid "Interview opening"
 msgstr "Presentació inicial per a l'entrevista"
 
-#: src/features/homepage/sections.tsx
-msgid "Interview prep"
-msgstr "Preparació d'entrevistes"
-
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/today.tsx
 msgid "Interview preparation"
@@ -6285,10 +6257,6 @@ msgstr "La cerca de feina ha fallat. Torna-ho a provar o enganxa un enllaç de p
 msgid "Job search pipeline"
 msgstr "Procés de cerca de feina"
 
-#: src/features/homepage/sections.tsx
-msgid "Job tracker"
-msgstr "Seguiment de candidatures"
-
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Jobs"
 msgstr "Treballs"
@@ -6344,10 +6312,6 @@ msgstr "Continua editant"
 #: src/features/documents/document-actions.tsx
 msgid "Keep in Trash"
 msgstr "Mantenir a la paperera"
-
-#: src/features/homepage/sections.tsx
-msgid "Keep it <0>free.</0>"
-msgstr "Mantinguem-lo <0>gratuït.</0>"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Keep it honest"
@@ -7875,11 +7839,6 @@ msgstr "No s'ha trobat cap secció d'experiència laboral."
 msgid "No. {number} · {name}"
 msgstr "Núm. {number} · {name}"
 
-#. Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.
-#: src/features/homepage/sections.tsx
-msgid "none"
-msgstr "cap"
-
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/list-view.tsx
@@ -8472,10 +8431,6 @@ msgstr ""
 
 #: src/routes/dashboard/settings/route.tsx
 msgid "Overreactive Resume {appVersionLabel} · MIT"
-msgstr ""
-
-#: src/features/homepage/sections.tsx
-msgid "Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier."
 msgstr ""
 
 #: src/features/homepage/hero.tsx
@@ -9256,10 +9211,6 @@ msgstr "Torna a exportar amb els tipus de lletra incrustats i després obre el f
 msgid "Re: Senior Product Designer"
 msgstr "Re: Senior Product Designer"
 
-#: src/features/homepage/sections.tsx
-msgid "Reactive Resume’s hosting and development are paid for by people like you. Optional tip:"
-msgstr ""
-
 #. placeholder {0}: reader.label
 #: src/features/career/workspace/practise.tsx
 msgid "Read aloud by {0}, which may use tokens on that account."
@@ -9758,7 +9709,6 @@ msgstr "Resposta"
 msgid "Reply copied"
 msgstr "S'ha copiat la resposta"
 
-#: src/features/homepage/sections.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Report a bug"
 msgstr "Informa d'un error"
@@ -9886,10 +9836,6 @@ msgstr "currículum + carta"
 #: src/features/homepage/tailor.tsx
 msgid "Resume attached"
 msgstr "Currículum adjunt"
-
-#: src/features/homepage/sections.tsx
-msgid "Resume builder"
-msgstr "Editor de currículums"
 
 #: src/features/resume/preview/resume-accessible-text.tsx
 msgid "Resume content"
@@ -11511,10 +11457,6 @@ msgstr "Resums de les vostres candidatures obertes"
 msgid "Summary"
 msgstr "Resum"
 
-#: src/features/homepage/sections.tsx
-msgid "Support"
-msgstr "Suport"
-
 #: src/features/homepage/footer.tsx
 msgid "Support Reactive Resume"
 msgstr ""
@@ -11743,10 +11685,6 @@ msgstr "La plantilla, el tipus i els colors segueixen el currículum, de manera 
 msgid "Templates"
 msgstr "Plantilles"
 
-#: src/features/homepage/sections.tsx
-msgid "Templates × {templates}"
-msgstr "Plantilles × {templates}"
-
 #: src/features/ats-checker/checker.tsx
 msgid "Terms from the posting"
 msgstr "Termes de l'anunci"
@@ -11839,10 +11777,6 @@ msgstr "El text sota {minimum} pt es pot malinterpretar quan un sistema el torna
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "Tai"
-
-#: src/features/homepage/sections.tsx
-msgid "Thank you for keeping it free."
-msgstr "Gràcies per mantenir-lo lliure."
 
 #: src/features/homepage/remember.tsx
 msgid "Thanks, Sam. Here’s one: at Northwind Labs I led the onboarding redesign, from 14 customer interviews to a shorter setup."
@@ -12561,10 +12495,6 @@ msgstr "Massa clar per als encapçalaments en blanc. Pot ser difícil llegir-lo 
 msgid "Too many requests. Try again later."
 msgstr "Massa peticions. Torna-ho a provar més tard."
 
-#: src/features/homepage/sections.tsx
-msgid "Total"
-msgstr "Total"
-
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Track a job you're applying to and link the resume you sent."
 msgstr "Fes un seguiment de la feina a la qual estàs sol·licitant i enllaça el currículum que has enviat."
@@ -12576,10 +12506,6 @@ msgstr "Fes-ne el seguiment a Candidatures"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Track your first job"
 msgstr "Feu un seguiment del vostre primer treball"
-
-#: src/features/homepage/sections.tsx
-msgid "Tracking"
-msgstr "Seguiment"
 
 #: src/features/career/workspace/practise.tsx
 msgid "Transcribe answers with"
@@ -12596,10 +12522,6 @@ msgstr "Transcrivint amb {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Transcripció copiada"
-
-#: src/features/homepage/sections.tsx
-msgid "Translate the app"
-msgstr "Tradueix l'aplicació"
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13725,8 +13647,8 @@ msgid "Written offer"
 msgstr "Oferta per escrit"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Donations pay for hosting and development."
-msgstr "Sí. Totes les funcions són gratuïtes: totes les {templates} plantilles, les descàrregues en PDF i Word, el verificador ATS, les cartes de presentació i el seguiment de candidatures. No hi ha anuncis, ni seguiment, ni cap nivell de pagament. Les donacions paguen l'allotjament i el desenvolupament."
+msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. Overreactive Resume is a fork of Reactive Resume, which is funded by donations."
+msgstr ""
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every job you track gets its own workspace: check your fit against the posting, draft answers from stories you wrote once, get a short plan before the interview, practise out loud with feedback and debrief afterwards. When offers arrive, compare them side by side. The coaching uses your own AI key; the comparison doesn’t need one."
