@@ -101,12 +101,12 @@ function PasteBox({ application, initial, readOnly, onSave }: PasteBoxProps) {
 					{provider && (
 						<Button
 							variant="secondary"
-							loading={generate.isPending}
+							loading={generate.isRunning("reply")}
 							disabled={!message.trim()}
 							onClick={() => void generate.run({ task: "reply", message: message.trim() }).catch(() => undefined)}
 						>
-							{!generate.isPending && <Icon name="sparkle" size={18} />}
-							{generate.isPending ? <Working steps={workingSteps("reply")} /> : <Trans>Read it for me</Trans>}
+							{!generate.isRunning("reply") && <Icon name="sparkle" size={18} />}
+							{generate.isRunning("reply") ? <Working steps={workingSteps("reply")} /> : <Trans>Read it for me</Trans>}
 						</Button>
 					)}
 				</div>

@@ -87,9 +87,9 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 				</p>
 				<AiNotice className="max-w-[420px] text-start" />
 				{provider && (
-					<Button loading={generate.isPending} onClick={check}>
+					<Button loading={generate.isRunning("fit")} onClick={check}>
 						<Icon name="list-checks" size={18} />
-						{generate.isPending ? <Working steps={workingSteps("fit")} /> : <Trans>Check fit</Trans>}
+						{generate.isRunning("fit") ? <Working steps={workingSteps("fit")} /> : <Trans>Check fit</Trans>}
 					</Button>
 				)}
 			</div>
@@ -146,10 +146,10 @@ export function FitTab({ application, version }: WorkspaceTabProps) {
 							variant="link"
 							size="sm"
 							className="font-sans text-[13px] tracking-normal normal-case"
-							loading={generate.isPending}
+							loading={generate.isRunning("fit")}
 							onClick={check}
 						>
-							{generate.isPending ? <Working steps={workingSteps("fit")} /> : <Trans>Check again</Trans>}
+							{generate.isRunning("fit") ? <Working steps={workingSteps("fit")} /> : <Trans>Check again</Trans>}
 						</Button>
 					)}
 				</p>

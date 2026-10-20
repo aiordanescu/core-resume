@@ -213,8 +213,12 @@ function DebriefForm({ application, round, from, readOnly, onReviewed }: Debrief
 			</div>
 			{!readOnly && (
 				<div className="grid justify-items-start gap-2.5">
-					<Button disabled={!ready || !provider} loading={generate.isPending} onClick={submit}>
-						{generate.isPending ? <Working steps={workingSteps("debrief")} /> : <Trans>Review my answer</Trans>}
+					<Button disabled={!ready || !provider} loading={generate.isRunning("debrief")} onClick={submit}>
+						{generate.isRunning("debrief") ? (
+							<Working steps={workingSteps("debrief")} />
+						) : (
+							<Trans>Review my answer</Trans>
+						)}
 					</Button>
 					{connection.isUnavailable ? (
 						<AiProviderLoadState state={connection} />

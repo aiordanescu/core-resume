@@ -423,12 +423,12 @@ function AnswerCard({
 						size="sm"
 						variant="ghost"
 						className="ms-auto shrink-0"
-						loading={generate.isPending}
+						loading={generate.isRunning("answer")}
 						disabled={disabled || !question.trim()}
 						onClick={() => void ask()}
 					>
-						{!generate.isPending && <Icon name="sparkle" size={16} />}
-						{generate.isPending ? (
+						{!generate.isRunning("answer") && <Icon name="sparkle" size={16} />}
+						{generate.isRunning("answer") ? (
 							<Working steps={workingSteps(empty ? "answer" : "tighten")} />
 						) : empty ? (
 							<Trans>Draft</Trans>

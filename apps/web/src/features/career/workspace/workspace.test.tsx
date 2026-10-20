@@ -13,6 +13,7 @@ import { EMPTY_WORKSPACE } from "@reactive-resume/schema/career";
 import { useDebouncedSave } from "../hooks";
 import { ApplyTab } from "./apply";
 import { DebriefTab } from "./debrief";
+import { FitTab } from "./fit";
 import { MessagesTab } from "./messages";
 import { PractiseTab } from "./practise";
 import { SavedTab } from "./saved";
@@ -46,6 +47,7 @@ vi.mock("@/libs/orpc/client", () => {
 				submitApplication: endpoint("submit", api.submit),
 				generate: endpoint("generate", api.generate),
 				deleteSavedItem: endpoint("delete"),
+				forgetFact: endpoint("forgetFact"),
 				saveFact: endpoint("saveFact"),
 			},
 		},
@@ -311,6 +313,18 @@ it("retains the practice answer after leaving, without exposing it to another si
 	api.userId = "another-user";
 	next.rerender(<PractiseTab {...props} />);
 	expect(screen.getByRole("textbox", { name: "Your answer" })).toHaveValue("");
+});
+
+it("keeps a fit check busy after leaving the tab and coming back while it still runs", async () => {
+	const check = deferred<{ item: null; answer: null }>();
+	api.generate.mockReturnValueOnce(check.promise);
+	const view = mount(<FitTab {...props} />);
+	fireEvent.click(screen.getByRole("button", { name: "Check fit" }));
+	await waitFor(() => expect(api.generate).toHaveBeenCalledOnce());
+	view.rerender(<div />); // Navigating away unmounts the tab; the request keeps running.
+	view.rerender(<FitTab {...props} />);
+	expect(screen.getByRole("button")).toHaveAttribute("aria-busy", "true");
+	await act(async () => check.resolve({ item: null, answer: null }));
 });
 
 it("sends the selected story with feedback and offers recovery if Knowledge cannot load", async () => {
