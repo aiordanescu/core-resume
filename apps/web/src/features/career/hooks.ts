@@ -4,7 +4,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import type { SetStateAction } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useMutationState, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouteContext, useRouter } from "@tanstack/react-router";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { EMPTY_WORKSPACE } from "@reactive-resume/schema/career";
@@ -164,16 +164,25 @@ export function useDefaultProvider() {
 	return { ...state, provider: state.usableProviders[0] ?? null };
 }
 
+const generateKey = (applicationId: string) => ["career-generate", applicationId];
+
 /**
  * Asks the coach for one structured piece of work for a tab. Errors say what didn't run; stored data stays usable.
+ * `isRunning` covers checks started before a navigation too: the request keeps running when the view unmounts,
+ * and the server saves the result, so the tab must stay busy until it lands.
  */
 export function useGenerate(applicationId: string) {
 	const { i18n } = useLingui();
 	const queryClient = useQueryClient();
 	const connection = useDefaultProvider();
 	const { provider } = connection;
+	const runningTasks = useMutationState({
+		filters: { mutationKey: generateKey(applicationId), status: "pending" },
+		select: (mutation) => (mutation.state.variables as { task?: GenerateTask } | undefined)?.task?.task,
+	});
 	const mutation = useMutation({
 		...orpc.career.generate.mutationOptions(),
+		mutationKey: generateKey(applicationId),
 		onSuccess: (result) => {
 			if (result.item) void queryClient.invalidateQueries({ queryKey: orpc.career.savedItems.key() });
 		},
@@ -190,6 +199,7 @@ export function useGenerate(applicationId: string) {
 	});
 	return {
 		...mutation,
+		isRunning: (task: GenerateTask["task"]) => mutation.isPending || runningTasks.includes(task),
 		run: (task: GenerateTask) => {
 			if (connection.isUnavailable)
 				return Promise.reject(new Error(t`AI connections haven't loaded. Try again before generating.`));

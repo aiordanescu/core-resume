@@ -633,8 +633,12 @@ function Session({ applicationId, interviewId, questions, voice, initialMode, st
 
 				<div className="grid gap-2.5">
 					<div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-						<Button disabled={!ready || !provider} loading={generate.isPending} onClick={getFeedback}>
-							{generate.isPending ? <Working steps={workingSteps("practice")} /> : <Trans>Get feedback</Trans>}
+						<Button disabled={!ready || !provider} loading={generate.isRunning("practice")} onClick={getFeedback}>
+							{generate.isRunning("practice") ? (
+								<Working steps={workingSteps("practice")} />
+							) : (
+								<Trans>Get feedback</Trans>
+							)}
 						</Button>
 						<p className="text-xs text-ink-2">
 							<Trans>Compared with your stories and the posting.</Trans>

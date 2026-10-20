@@ -104,11 +104,15 @@ function PlanEmpty({ application, interview }: PlanEmptyProps) {
 			) : provider ? (
 				<>
 					<Button
-						loading={generate.isPending}
+						loading={generate.isRunning("briefing")}
 						disabled={!provider}
 						onClick={() => void generate.run({ task: "briefing", interviewId: interview.id }).catch(() => {})}
 					>
-						{generate.isPending ? <Working steps={workingSteps("briefing")} /> : <Trans>Plan my preparation</Trans>}
+						{generate.isRunning("briefing") ? (
+							<Working steps={workingSteps("briefing")} />
+						) : (
+							<Trans>Plan my preparation</Trans>
+						)}
 					</Button>
 					<PrivacyLine className="max-w-[360px] text-start">
 						<Trans>
@@ -207,12 +211,16 @@ function Plan({ application, interview, briefing, readOnly, go }: PlanProps) {
 								variant="link"
 								size="sm"
 								className="font-sans text-[13px] tracking-normal normal-case"
-								loading={generate.isPending}
+								loading={generate.isRunning("briefing")}
 								onClick={() =>
 									void generate.run({ task: "briefing", interviewId: interview.id }).catch(() => undefined)
 								}
 							>
-								{generate.isPending ? <Working steps={workingSteps("briefing")} /> : <Trans>Plan again</Trans>}
+								{generate.isRunning("briefing") ? (
+									<Working steps={workingSteps("briefing")} />
+								) : (
+									<Trans>Plan again</Trans>
+								)}
 							</Button>
 						)}
 					</span>
