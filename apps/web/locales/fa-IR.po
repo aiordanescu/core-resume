@@ -628,6 +628,10 @@ msgstr "{length} دقیقه"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {در حدود خط # روی صفحه {next} اجرا می شود} other {روی صفحه {next} تقریباً با خطوط # اجرا می شود}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "حداقل {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "هر پاسخی که برایش بازخورد می‌گیرید اینجا نگه داشته می‌شود، از جدیدترین."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "هر الزام آگهی با واقعیت‌ها و داستان‌های دانسته‌های شما سنجیده می‌شود. کمبودها به‌عنوان نبودِ شاهد نشان داده می‌شوند، هرگز به‌عنوان نبودِ توانایی."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

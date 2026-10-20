@@ -628,6 +628,10 @@ msgstr "{length} ମିନିଟ୍"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {ପ୍ରାୟ # ରେଖା ଦ୍ୱାରା {next} ପୃଷ୍ଠାରେ ଚାଲିଥାଏ |} other {ପ୍ରାୟ # ରେଖା ଦ୍ୱାରା {next} ପୃଷ୍ଠାରେ ଚାଲିଥାଏ |}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "ସର୍ବନିମ୍ନ {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "ଆପଣ ମତାମତ ପାଇଥିବା ପ୍ରତ୍ୟେକ ଉତ୍ତର ଏଠାରେ ରଖାଯାଏ, ନୂଆଟି ପ୍ରଥମେ।"
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "ଚାକିରି ବିଜ୍ଞାପନର ପ୍ରତ୍ୟେକ ଆବଶ୍ୟକତାକୁ ଆପଣଙ୍କ ଜ୍ଞାନରେ ଥିବା ତଥ୍ୟ ଓ କାହାଣୀ ସହ ଯାଞ୍ଚ କରାଯାଏ। ଅଭାବଗୁଡ଼ିକ ଅନୁପସ୍ଥିତ ପ୍ରମାଣ ଭାବେ ଦେଖାଯାଏ, କେବେ ବି ଅନୁପସ୍ଥିତ ଦକ୍ଷତା ଭାବେ ନୁହେଁ।"
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

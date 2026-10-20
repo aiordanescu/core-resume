@@ -4,7 +4,7 @@ import type { WorkspaceTabProps } from "./shell";
 import type { Application } from "@/features/applications/types";
 import type { CareerWorkspace } from "@reactive-resume/schema/career";
 import type { ReactNode } from "react";
-import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
@@ -325,6 +325,81 @@ it("keeps a fit check busy after leaving the tab and coming back while it still 
 	view.rerender(<FitTab {...props} />);
 	expect(screen.getByRole("button")).toHaveAttribute("aria-busy", "true");
 	await act(async () => check.resolve({ item: null, answer: null }));
+});
+
+it("sums up Fit as a match: supported counts fully, partly half, missing nothing", () => {
+	const requirement = (text: string, status: "supported" | "partial" | "missing") => ({
+		text,
+		origin: "posting" as const,
+		status,
+		evidence: `${text} evidence`,
+		factIds: [],
+	});
+	api.data.savedItems = [
+		item("Fit", {
+			kind: "fit",
+			headline: "A relevant role",
+			summary: "Read the table.",
+			requirements: [
+				requirement("Go", "supported"),
+				requirement("Kubernetes", "supported"),
+				requirement("Kafka", "partial"),
+				requirement("Rust", "missing"),
+			],
+			checks: [],
+			ask: null,
+		}),
+	];
+	mount(<FitTab {...props} />);
+	expect(screen.getByText("63% match")).toBeInTheDocument();
+	expect(screen.getByText(/2 supported · 1 partly · 1 missing/)).toBeInTheDocument();
+});
+
+const draftButton = (question: string) => {
+	const card = screen.getByRole("textbox", { name: question }).closest("section");
+	if (!card) throw new Error(`No card for ${question}`);
+	return within(card).getAllByRole("button").at(-1) as HTMLElement;
+};
+
+it("keeps one question's draft from showing the other questions as busy", async () => {
+	api.data.workspace = {
+		...EMPTY_WORKSPACE,
+		answers: [
+			{ id: "first", question: "Why this role?", answer: "", factIds: [] },
+			{ id: "second", question: "Why now?", answer: "", factIds: [] },
+		],
+	};
+	const first = deferred<{ item: null; answer: { text: string; factIds: string[] } }>();
+	const second = deferred<{ item: null; answer: { text: string; factIds: string[] } }>();
+	api.generate.mockReturnValueOnce(first.promise).mockReturnValueOnce(second.promise);
+	mount(<ApplyTab {...props} />);
+	fireEvent.click(draftButton("Why this role?"));
+	await waitFor(() => expect(draftButton("Why this role?")).toHaveAttribute("aria-busy", "true"));
+	expect(draftButton("Why now?")).not.toHaveAttribute("aria-busy");
+	fireEvent.click(draftButton("Why now?"));
+	await waitFor(() => expect(api.generate).toHaveBeenCalledTimes(2));
+	await act(async () => {
+		first.resolve({ item: null, answer: { text: "First draft", factIds: [] } });
+		second.resolve({ item: null, answer: { text: "Second draft", factIds: [] } });
+	});
+});
+
+it("shows a drafted answer that lands after leaving the tab when you come back", async () => {
+	api.data.workspace = {
+		...EMPTY_WORKSPACE,
+		answers: [{ id: "first", question: "Why this role?", answer: "", factIds: [] }],
+	};
+	const draft = deferred<{ item: null; answer: { text: string; factIds: string[] } }>();
+	api.generate.mockReturnValueOnce(draft.promise);
+	const view = mount(<ApplyTab {...props} />);
+	fireEvent.click(draftButton("Why this role?"));
+	await waitFor(() => expect(api.generate).toHaveBeenCalledOnce());
+	view.rerender(<div />);
+	await act(async () => draft.resolve({ item: null, answer: { text: "Drafted while away", factIds: [] } }));
+	view.rerender(<ApplyTab {...props} />);
+	expect(await screen.findByText("Drafted while away")).toBeInTheDocument();
+	fireEvent.click(screen.getByRole("button", { name: "Skip" }));
+	await waitFor(() => expect(screen.queryByText("Drafted while away")).not.toBeInTheDocument());
 });
 
 it("sends the selected story with feedback and offers recovery if Knowledge cannot load", async () => {

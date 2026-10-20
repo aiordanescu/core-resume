@@ -217,7 +217,7 @@ type SessionProps = {
 
 function Session({ applicationId, interviewId, questions, voice, initialMode, storyId, storyTitle }: SessionProps) {
 	const id = useId();
-	const generate = useGenerate(applicationId);
+	const generate = useGenerate(applicationId, `${interviewId ?? "none"}:${storyId ?? "general"}`);
 	const connection = useDefaultProvider();
 	const { provider } = connection;
 	const draft = useSessionDraft<PracticeDraft>(

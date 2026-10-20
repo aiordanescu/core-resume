@@ -628,6 +628,10 @@ msgstr "{length} dk"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {{next} sayfasında yaklaşık # satırıyla çalışır} other {{next} sayfasında yaklaşık # satırları kadar çalışır}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "En az {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "Geri bildirim aldığınız her cevap burada saklanır, en yenisi önce."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "İlandaki her gereksinim, Bilgi Bankanızdaki bilgiler ve hikayelerle karşılaştırılır. Boşluklar yetenek eksikliği olarak değil, yalnızca kanıt eksikliği olarak gösterilir."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

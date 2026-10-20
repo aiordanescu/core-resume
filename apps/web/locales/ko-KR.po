@@ -628,6 +628,10 @@ msgstr "{length}분"
 msgid "{lines, plural, one {Runs onto page {next} by about # line} other {Runs onto page {next} by about # lines}}"
 msgstr "{lines, plural, one {약 # 라인을 통해 페이지 {next}로 실행됩니다.} other {약 # 라인만큼 {next} 페이지로 실행됩니다.}}"
 
+#: src/features/career/workspace/fit.tsx
+msgid "{match}% match"
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "{minimum} minimum"
 msgstr "최소 {minimum}"
@@ -4517,8 +4521,8 @@ msgid "Each answer you get feedback on is kept here, newest first."
 msgstr "피드백을 받은 답변은 모두 최신순으로 여기에 보관됩니다."
 
 #: src/features/career/workspace/fit.tsx
-msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. Gaps show as missing evidence, never missing ability."
-msgstr "채용 공고의 각 요건을 지식에 있는 사실 및 스토리와 대조합니다. 빈 부분은 능력이 아니라 근거가 부족하다는 뜻으로만 표시됩니다."
+msgid "Each requirement in the posting is checked against the facts and stories in your Knowledge. A gap means your Knowledge doesn't show it yet, not that you can't do it."
+msgstr ""
 
 #: src/features/assistant/conversation.tsx
 msgid "Each send starts fresh with this message and selected files. Previous conversation history stays here."

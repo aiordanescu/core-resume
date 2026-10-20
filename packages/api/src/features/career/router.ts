@@ -26,6 +26,7 @@ import {
 } from "../../dto/career";
 import { aiRequestRateLimit } from "../../middleware/rate-limit";
 import { generateCareer } from "./generate";
+import { joinInFlight } from "./in-flight";
 import { careerJobs } from "./jobs";
 import { knowledgeReview } from "./review";
 import { careerService } from "./service";
@@ -541,8 +542,11 @@ export const careerRouter = {
 				answer: z.object({ text: z.string(), factIds: z.array(z.string()) }).nullable(),
 			}),
 		)
+		// The same request from a second tab joins the run in progress rather than paying for a second one.
 		.handler(({ context, input, signal }) =>
-			generateCareer({ userId: context.user.id, ...input, ...(signal ? { signal } : {}) }),
+			joinInFlight(JSON.stringify([context.user.id, input.applicationId, input.locale, input.task]), signal, (shared) =>
+				generateCareer({ userId: context.user.id, ...input, signal: shared }),
+			),
 		),
 	applyReply: protectedProcedure
 		.route({

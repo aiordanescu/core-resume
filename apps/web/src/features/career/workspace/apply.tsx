@@ -23,7 +23,15 @@ import { toast } from "@reactive-resume/ui/components/toast";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@reactive-resume/ui/components/tooltip";
 import { downloadWithAnchor, generateFilename } from "@reactive-resume/utils/file";
 import { cn } from "@reactive-resume/utils/style";
-import { latest, useDebouncedSave, useDefaultProvider, useGenerate, useSavedItems, useWorkspace } from "../hooks";
+import {
+	answerProposalKey,
+	latest,
+	useDebouncedSave,
+	useDefaultProvider,
+	useGenerate,
+	useSavedItems,
+	useWorkspace,
+} from "../hooks";
 import { CollapseRow, Swap, useCareerTime, withUndo, Working, workingSteps } from "../shared";
 import { AiNotice } from "./fit";
 import { useInvalidateApplications } from "@/features/applications/use-application-actions";
@@ -248,8 +256,17 @@ function AnswerCard({
 	const [editingQuestion, setEditingQuestion] = useState(answer.question === "");
 	// Edit question focuses the field as its menu closes; the menu would otherwise take focus back and end the edit.
 	const questionField = useRef<HTMLTextAreaElement>(null);
-	const [proposal, setProposal] = useState<{ text: string; factIds: string[] } | null>(null);
-	const generate = useGenerate(applicationId);
+	// A draft that lands after leaving the tab still shows on return.
+	const queryClient = useQueryClient();
+	const proposalKey = answerProposalKey(applicationId, answer.id);
+	const { data: proposal = null } = useQuery<{ text: string; factIds: string[] } | null>({
+		queryKey: proposalKey,
+		queryFn: () => null,
+		enabled: false,
+		gcTime: Number.POSITIVE_INFINITY,
+	});
+	const setProposal = (next: { text: string; factIds: string[] } | null) => queryClient.setQueryData(proposalKey, next);
+	const generate = useGenerate(applicationId, answer.id);
 	const { provider } = useDefaultProvider();
 	const flushAnswer = useDebouncedSave(disabled || readOnly ? answer.answer : text, answer.answer, (value) =>
 		onSave({ answer: value }),
@@ -264,8 +281,8 @@ function AnswerCard({
 	const empty = !text.trim();
 
 	const ask = async () => {
-		const result = await generate.run({ task: "answer", question: question.trim(), answer: text }).catch(() => null);
-		if (result?.answer) setProposal(result.answer);
+		// useGenerate stores the drafted answer as this question's proposal.
+		await generate.run({ task: "answer", question: question.trim(), answer: text }).catch(() => null);
 	};
 
 	return (
