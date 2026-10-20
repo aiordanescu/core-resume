@@ -14,14 +14,12 @@ import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { toast } from "@reactive-resume/ui/components/toast";
 import { downloadWithAnchor } from "@reactive-resume/utils/file";
-import { cn } from "@reactive-resume/utils/style";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { createLetterFile, letterFileName } from "@/features/letters/export";
 import { useCurrentResume } from "@/features/resume/builder/draft";
 import { useOpenIssueCount } from "@/features/resume/editor/check/use-check";
 import { createExportFile, getDefaultFileName, sanitizeFileName } from "@/features/resume/export/use-resume-export";
 import { getReadableErrorMessage } from "@/libs/error-message";
-import { ENTER_CLASS } from "@/libs/motion";
 import { client } from "@/libs/orpc/client";
 
 export type DownloadFormat<Id extends string = ExportFormat> = {
@@ -160,10 +158,7 @@ type DownloadActionsProps = {
 	onDownloadPdf?: (() => void) | undefined;
 };
 
-/**
- * The failure alert (with PDF as the fallback) and the 44px button that shows its progress. After a download, a
- * one-line thank-you asks for a donation: the moment someone has what they came for is the one time it's fair to ask.
- */
+/** The failure alert (with PDF as the fallback) and the 44px button that shows its progress. */
 export function DownloadActions({ state, label, onDownload, onDownloadPdf }: DownloadActionsProps) {
 	return (
 		<>
@@ -207,26 +202,6 @@ export function DownloadActions({ state, label, onDownload, onDownloadPdf }: Dow
 					</>
 				)}
 			</Button>
-
-			{state === "done" && (
-				<p className={cn(ENTER_CLASS, "flex items-start gap-2 text-[13px] leading-[19px] text-ink-2")}>
-					<Icon name="hand-heart" size={18} className="shrink-0 text-ink-3" />
-					<span>
-						<Trans>
-							Good luck out there. Overreactive Resume is built on Reactive Resume, which stays free because people chip
-							in.
-						</Trans>{" "}
-						<a
-							href="https://opencollective.com/reactive-resume/donate"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="font-medium text-accent-text underline underline-offset-2 hover:text-accent-hover"
-						>
-							<Trans>Donate</Trans>
-						</a>
-					</span>
-				</p>
-			)}
 		</>
 	);
 }

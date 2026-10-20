@@ -14,9 +14,8 @@ export const SCENE = {
 	remember: 7,
 	numbers: 8,
 	languages: 9,
-	support: 10,
-	faq: 11,
-	footer: 12,
+	faq: 10,
+	footer: 11,
 } as const;
 
 /**

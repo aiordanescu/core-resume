@@ -1,11 +1,9 @@
-import type { IconName } from "@reactive-resume/ui/components/icon";
 import type { CSSProperties } from "react";
 import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { templateSchema } from "@reactive-resume/schema/templates";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { localeSchema } from "@reactive-resume/utils/locale";
 import { cn } from "@reactive-resume/utils/style";
@@ -14,7 +12,6 @@ import { CtaLink, Doodle, labelClass } from "./ui";
 import { orpc } from "@/libs/orpc/client";
 
 const crowdinUrl = "https://crowdin.com/project/reactive-resume";
-const githubUrl = "https://github.com/aiordanescu/overreactive-resume";
 // The statistics service caches the totals for six hours.
 const statisticsStaleTime = 6 * 60 * 60 * 1000;
 // A fresh self-hosted install has a handful of users; a total that small reads as a joke, so it isn't shown.
@@ -143,7 +140,7 @@ const words = [
 export function Languages() {
 	const { i18n } = useLingui();
 	const languageCount = i18n.number(localeSchema.options.length - 1);
-	const near = useLanding((state) => state.activeScene >= SCENE.numbers && state.activeScene <= SCENE.support);
+	const near = useLanding((state) => state.activeScene >= SCENE.numbers && state.activeScene <= SCENE.faq);
 	const reducedMotion = useLanding((state) => state.reducedMotion);
 	const [index, setIndex] = useState(0);
 	const [paused, setPaused] = useState(false);
@@ -212,142 +209,6 @@ export function Languages() {
 					{t`Translated into ${languageCount} languages. Help translate it into yours.`}
 				</a>
 			</p>
-		</section>
-	);
-}
-
-const pillLinkClass =
-	"flex h-10 items-center gap-2 rounded-full border border-line-2 px-3.5 font-medium font-ui text-ink text-sm transition-colors hover:bg-hover";
-const receiptButtonClass =
-	"flex h-[42px] items-center justify-between rounded-md px-3.5 font-semibold text-sm transition-colors";
-
-/** 10 Support: the case for donations, printed as a receipt that totals nothing. */
-export function Support() {
-	const { i18n } = useLingui();
-	// oxlint-disable-next-line react/purity -- The receipt shows the current calendar date on each render, including after midnight.
-	const receiptDate = new Date();
-	const nothing = i18n.number(0, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-	const templates = i18n.number(templateSchema.options.length);
-	const none = t({
-		message: "none",
-		comment: "Receipt line amount for something Overreactive Resume doesn't have, e.g. ads.",
-	});
-	const lineItems = [
-		[t`Resume builder`, nothing],
-		[t`Templates × ${templates}`, nothing],
-		[t`Assistant (your key)`, nothing],
-		[t`Career coach (your key)`, nothing],
-		[t`Interview prep`, nothing],
-		[t`ATS checker`, nothing],
-		[t`Job tracker`, nothing],
-		[t`Cover letters`, nothing],
-		[t`Ads`, none],
-		[t`Tracking`, none],
-	] as const;
-	const pills: { href: string; icon: IconName; label: string }[] = [
-		{ href: crowdinUrl, icon: "translate", label: t`Translate the app` },
-		{ href: `${githubUrl}/issues`, icon: "bug", label: t`Report a bug` },
-		{ href: `${githubUrl}/tree/main/docs/contributing`, icon: "code", label: t`Contribute code` },
-	];
-
-	return (
-		<section
-			id="support"
-			data-scene={SCENE.support}
-			aria-labelledby="support-title"
-			className="relative mx-auto grid max-w-[1440px] grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-16 border-t border-line px-(--gutter) pt-[12vh] pb-[16vh]"
-		>
-			<Doodle
-				name="jar"
-				wipe="clamp(0, (var(--p) - .3) / .2, 1)"
-				className="start-[3vw] bottom-[4vh] w-[9vw] translate-y-[calc(var(--p)*-30px)] rotate-[4deg] max-[900px]:hidden"
-			/>
-
-			<div className="flex flex-col gap-[22px] pt-[4vh]">
-				<span className={cn(labelClass, "text-ink-3")}>{t`Support`}</span>
-				<h2
-					id="support-title"
-					className="font-anybody text-[clamp(48px,5.6vw,100px)] leading-[.98] font-light tracking-[-.03em] text-ink"
-				>
-					<Trans>
-						Keep it <em className="font-display font-normal text-accent-text italic">free.</em>
-					</Trans>
-				</h2>
-				<p className="max-w-[28em] font-display text-[clamp(17px,1.4vw,21px)] leading-normal text-pretty text-ink-2">
-					{t`Overreactive Resume is a fork of Reactive Resume, open source under the MIT License. Amruth Pillai and a community of contributors keep Reactive Resume running, and donations pay for its hosting and development. There’s no paid tier.`}
-				</p>
-				<ul className="flex flex-wrap gap-2">
-					{pills.map((pill) => (
-						<li key={pill.href}>
-							<a href={pill.href} className={pillLinkClass}>
-								<Icon name={pill.icon} size={18} className="text-ink-2" />
-								{pill.label}
-							</a>
-						</li>
-					))}
-				</ul>
-			</div>
-
-			<div className="flex w-[min(100%,400px)] flex-col items-center justify-self-center">
-				<div
-					aria-hidden="true"
-					className="relative z-2 h-[18px] w-[calc(100%+36px)] rounded-[9px] bg-ink shadow-[inset_0_-4px_0_oklch(0_0_0/.35),0_6px_14px_-6px_oklch(0_0_0/.4)]"
-				>
-					<span className="absolute inset-x-[18px] top-2 h-[3px] rounded-[2px] bg-[oklch(0_0_0/.6)]" />
-				</div>
-				<div className="-mx-3 -mt-[9px] box-content w-full overflow-hidden px-3 pb-10">
-					<div className="[transform:translateY(calc((1-clamp(0,var(--p)*1.7-.15,1))*-100%))] drop-shadow-[0_18px_24px_oklch(0.2_0.01_95/.22)] [transition:transform_.4s_linear]">
-						<div className="receipt-paper font-receipt bg-[#fdfcf8] px-[26px] pt-[30px] pb-[46px] text-[14px] leading-[1.75] font-medium text-[oklch(0.25_0.01_95)]">
-							<div className="mb-4 flex flex-col gap-0.5 text-center">
-								<b className="text-[18px] leading-[1.1] font-bold tracking-[-.01em]">OVERREACTIVE RESUME</b>
-								<span className="text-[oklch(0.5_0.01_95)]">{t`A free and open-source resume builder`}</span>
-								<span className="text-[oklch(0.5_0.01_95)] uppercase">
-									{i18n.date(receiptDate, { day: "2-digit", month: "short", year: "numeric" })}
-								</span>
-							</div>
-							<dl className="grid grid-cols-[1fr_auto] gap-x-3.5 border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-2.5">
-								{lineItems.map(([item, amount]) => (
-									<div key={item} className="contents">
-										<dt>{item}</dt>
-										<dd>{amount}</dd>
-									</div>
-								))}
-							</dl>
-							<p className="mt-2.5 flex justify-between border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-2.5 text-base font-bold">
-								<span className="uppercase">{t`Total`}</span>
-								<span>{i18n.number(0, { style: "currency", currency: "USD" })}</span>
-							</p>
-							<p className="mt-2.5 border-t-[1.5px] border-dashed border-[oklch(0.7_0.01_95)] pt-3 text-[oklch(0.4_0.01_95)]">
-								{t`Reactive Resume’s hosting and development are paid for by people like you. Optional tip:`}
-							</p>
-							<div className="mt-2.5 flex flex-col gap-1.5">
-								<a
-									href="https://github.com/sponsors/AmruthPillai"
-									className={cn(
-										receiptButtonClass,
-										"bg-[oklch(0.22_0.01_95)] text-white hover:bg-[oklch(0.32_0.01_95)]",
-									)}
-								>
-									GitHub Sponsors
-									<Icon name="arrow-up-right" size={19} />
-								</a>
-								<a
-									href="https://opencollective.com/reactive-resume/donate"
-									className={cn(
-										receiptButtonClass,
-										"border border-[oklch(0.82_0.008_95)] text-[oklch(0.22_0.01_95)] hover:bg-[oklch(0.96_0.005_95)]",
-									)}
-								>
-									Open Collective
-									<Icon name="arrow-up-right" size={19} />
-								</a>
-							</div>
-							<div aria-hidden="true" className="receipt-barcode mx-auto mt-[18px] mb-1.5 h-11 w-[78%]" />
-							<p className="text-center text-[oklch(0.5_0.01_95)]">{t`Thank you for keeping it free.`}</p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</section>
 	);
 }
