@@ -24,7 +24,7 @@ without entering your own key. The steps below apply when personal providers are
     Under **AI providers**, select **Add provider** (the dashed button below your saved providers).
   </Step>
   <Step title="Choose the provider and fill in the fields">
-    Pick your provider from the **Provider** list. Reactive Resume fills in that provider's **Base URL**, and the newest **Model** listed for it on [models.dev](https://models.dev/) (blank if the list doesn't load). Paste your key into **API key**, and change the model if you want a different one.
+    Pick your provider from the **Provider** list. Reactive Resume fills in that provider's **Base URL**. Paste your key into **API key**, then pick a **Model** from the list of models [models.dev](https://models.dev/) knows for that provider, or type any model ID. The box shows the newest one in grey as a suggestion (nothing if the list doesn't load).
 
     <Frame caption="The Add provider dialog">
       <img src="/images/guides/using-ai/add-provider-dialog.webp" alt="Add provider dialog with Provider set to OpenAI, a hidden API key, Model gpt-4.1, Name Personal OpenAI and the default OpenAI base URL" />
@@ -62,7 +62,7 @@ Reactive Resume translates the setting for each provider: an effort for OpenAI, 
 
 ### Supported providers
 
-| Provider          | Model filled in          | Default base URL                                   |
+| Provider          | Model suggested          | Default base URL                                   |
 | ----------------- | ------------------------ | -------------------------------------------------- |
 | OpenAI            | newest `gpt-` model      | `https://api.openai.com/v1`                        |
 | Anthropic Claude  | newest `claude-` model   | `https://api.anthropic.com/v1`                     |

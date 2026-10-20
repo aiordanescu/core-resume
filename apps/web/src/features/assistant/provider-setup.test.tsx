@@ -40,7 +40,7 @@ const modelInput = () => screen.getByLabelText("Model") as HTMLInputElement;
 describe("Assistant provider setup", () => {
 	afterEach(() => vi.restoreAllMocks());
 
-	it("prefills the newest models.dev model and keeps what's typed", async () => {
+	it("suggests the newest models.dev model without filling the box, so every model stays listed", async () => {
 		vi.spyOn(globalThis, "fetch").mockResolvedValue(
 			Response.json({
 				openai: { models: { old: entry("gpt-old", "2025-04-14"), new: entry("gpt-new", "2026-09-29") } },
@@ -50,16 +50,18 @@ describe("Assistant provider setup", () => {
 		renderSetup();
 
 		expand(/^OpenAI$/);
-		await waitFor(() => expect(modelInput().value).toBe("gpt-new"));
-		fireEvent.change(modelInput(), { target: { value: "" } });
+		await waitFor(() => expect(modelInput().placeholder).toBe("gpt-new"));
 		expect(modelInput().value).toBe("");
+		const options = [...(modelInput().list?.options ?? [])].map((option) => option.value);
+		expect(options).toEqual(["gpt-new", "gpt-old"]);
 
 		expand(/^Anthropic$/);
-		await waitFor(() => expect(modelInput().value).toBe("claude-new"));
+		await waitFor(() => expect(modelInput().placeholder).toBe("claude-new"));
+		expect(modelInput().value).toBe("");
 
 		expand(/OpenAI-compatible/);
 		await waitFor(() => expect(screen.getByLabelText("Base URL")).toBeTruthy());
-		expect(modelInput().value).toBe("");
+		expect(modelInput().placeholder).toBe("");
 	});
 
 	it("leaves the model blank when models.dev doesn't load", async () => {
@@ -69,5 +71,6 @@ describe("Assistant provider setup", () => {
 		expand(/^OpenAI$/);
 		await waitFor(() => expect(fetchCatalog).toHaveBeenCalled());
 		expect(modelInput().value).toBe("");
+		expect(modelInput().placeholder).toBe("");
 	});
 });
