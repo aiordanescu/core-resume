@@ -97,7 +97,7 @@ function buildIntegrations() {
 		surfaces: [
 			{
 				type: "http",
-				slug: "core-resume-api",
+				slug: "allthatwork-api",
 				name: `${APP_NAME} REST API`,
 				docs: `${DOCS_URL}/guides/using-the-api`,
 				basis,
@@ -121,7 +121,7 @@ function buildIntegrations() {
 			},
 			{
 				type: "mcp",
-				slug: "core-resume-mcp",
+				slug: "allthatwork-mcp",
 				name: `${APP_NAME} MCP server`,
 				docs: `${DOCS_URL}/guides/using-the-mcp-server`,
 				basis,

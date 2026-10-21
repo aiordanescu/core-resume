@@ -1,6 +1,6 @@
 ---
 version: 6.0.0
-name: Core Resume · Desk & Paper
+name: All That Work · Desk & Paper
 description: A warm, quiet interface around bright paper. Moss green marks primary actions, selection, and progress. Light and dark themes keep document paper white.
 colors:
   light:
@@ -118,7 +118,7 @@ marketing:
 
 ## Overview
 
-Core Resume uses “Desk & Paper”: a warm, quiet interface around a bright resume or letter. Low-contrast surfaces, thin rules, and a moss-green accent keep attention on the document.
+All That Work uses “Desk & Paper”: a warm, quiet interface around a bright resume or letter. Low-contrast surfaces, thin rules, and a moss-green accent keep attention on the document.
 
 This reference covers the current app and homepage. Implementation details live in the source files named below; [REDESIGN_PLAN.md](REDESIGN_PLAN.md) records the redesign milestones and deviations from the original handoff.
 
@@ -232,7 +232,7 @@ The public homepage in `apps/web/src/features/homepage` shares app colors and th
 
 ### Brand and type
 
-- **Header:** a 30px logomark from `apps/web/public/icon/{light,dark}.svg`. Keep “Core Resume” as visually hidden text inside the home link.
+- **Header:** a 30px logomark from `apps/web/public/icon/{light,dark}.svg`. Keep “All That Work” as visually hidden text inside the home link.
 - **Footer:** a 140px logo from `apps/web/public/logo/{light,dark}.svg`, followed by community and MIT license copy.
 - **Wordmark:** Anybody 800, at 17.5cqw and 78% width, with “Core” in `ink` and “Resume” in `accent-text`. A 23cqw container crops it through a gradient mask. It rises from 60% translation as the footer enters and is decorative (`aria-hidden`).
 - **Anybody:** hero and closing headlines, selected scene titles, large numerals, and the wordmark. Use weights 300–400 for main display text; reserve 800 for the wordmark.

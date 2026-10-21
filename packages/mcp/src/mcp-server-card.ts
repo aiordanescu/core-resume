@@ -8,7 +8,7 @@ const RESUME_ID_ARGUMENT = [{ name: "id", description: "Resume ID.", required: t
 /** Shared server identity for both the live MCP server and the static server card. */
 export function buildMcpServerInfo(version: string) {
 	return {
-		name: "core-resume",
+		name: "allthatwork",
 		version,
 		title: APP_NAME,
 		websiteUrl: APP_REPOSITORY_URL,

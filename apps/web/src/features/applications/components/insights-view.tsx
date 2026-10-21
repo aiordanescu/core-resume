@@ -253,7 +253,7 @@ async function uiFontFace(): Promise<string | null> {
 
 // A funnel-flow snapshot (the shareable picture). Hand-drawn SVG with inline fills so it exports to
 // PNG without any library. Rendered dark + vibrant so the on-screen preview matches the export;
-// the "Core Resume" mark is injected only when exporting.
+// the "All That Work" mark is injected only when exporting.
 function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsights> }) {
 	const svgRef = useRef<SVGSVGElement>(null);
 	const W = 800;
@@ -395,7 +395,7 @@ function PipelineFlow({ insights }: { insights: ReturnType<typeof computeInsight
 					</g>
 				))}
 
-				{/* export-only watermark: the Core Resume wordmark, bottom-right, 8px from each edge. */}
+				{/* export-only watermark: the All That Work wordmark, bottom-right, 8px from each edge. */}
 				<text
 					data-export-only
 					style={{ display: "none" }}

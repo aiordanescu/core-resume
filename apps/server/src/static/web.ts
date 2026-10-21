@@ -87,7 +87,7 @@ const ATS_CHECKER_DESCRIPTION =
 
 type StructuredData = Record<string, unknown>;
 
-/** Who makes Core Resume, referenced by id from every page's structured data. */
+/** Who makes All That Work, referenced by id from every page's structured data. */
 function organization(origin: string): StructuredData {
 	return {
 		"@type": "Organization",

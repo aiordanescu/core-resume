@@ -1,5 +1,5 @@
 /** The product name shown to users. Rename the product here, not in individual strings. */
-export const APP_NAME = "Core Resume";
+export const APP_NAME = "All That Work";
 
 /** The fork's source repository on GitHub. */
-export const APP_REPOSITORY_URL = "https://github.com/aiordanescu/core-resume";
+export const APP_REPOSITORY_URL = "https://github.com/allthatwork/allthatwork";

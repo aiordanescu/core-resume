@@ -1,6 +1,6 @@
 {
 	"name": "reactive-resume",
-	"description": "Core Resume is a free and open-source resume builder that makes it easy to create, update, and share your resume.",
+	"description": "All That Work is a free and open-source resume builder that makes it easy to create, update, and share your resume.",
 	"version": "6.0.4",
 	"private": true,
 	"license": "MIT",
@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/aiordanescu/core-resume.git"
+		"url": "https://github.com/allthatwork/allthatwork.git"
 	},
 	"engines": {
 		"node": "24.x"

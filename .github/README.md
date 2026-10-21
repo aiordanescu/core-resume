@@ -1,8 +1,8 @@
-# Core Resume
+# All That Work
 
 A self-hosted fork of [Reactive Resume](https://github.com/reactive-resume/reactive-resume) for running a serious job search with the AI models you choose.
 
-Core Resume (formerly Overreactive Resume) keeps everything Reactive Resume does: the resume and cover letter editor, the job application tracker, the career coach, the REST API and the MCP server. It changes the parts that get in the way when you run it yourself, at volume, on your own models.
+All That Work (formerly Core Resume and Overreactive Resume) keeps everything Reactive Resume does: the resume and cover letter editor, the job application tracker, the career coach, the REST API and the MCP server. It changes the parts that get in the way when you run it yourself, at volume, on your own models.
 
 ## Why it exists
 
@@ -10,7 +10,7 @@ It grew out of a real job search: hundreds of career facts, dozens of applicatio
 
 ## What's different
 
-| Area                       | Reactive Resume                                                                                                                                          | Core Resume                                                                                                                  |
+| Area                       | Reactive Resume                                                                                                                                          | All That Work                                                                                                                |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | How much Knowledge AI sees | Fixed: the coach gets 30 facts and 8 stories; Fit, Apply, Prepare and the other application actions get 10,000 characters of facts and 10,000 of stories | Set per account in **Settings → AI & developer → AI limits**, up to 1,000,000 characters                                     |
 | Which Knowledge AI sees    | The newest facts and stories first, until the budget is full                                                                                             | The ones that best match the posting, the task or your message first; the rest fill any space left                           |
@@ -33,8 +33,8 @@ On the way:
 There's no hosted version and no published image yet. Build it from source with Docker and Docker Compose:
 
 ```bash
-git clone --depth=1 https://github.com/aiordanescu/core-resume.git
-cd core-resume
+git clone --depth=1 https://github.com/allthatwork/allthatwork.git
+cd allthatwork
 
 # Set AUTH_SECRET and a separate ENCRYPTION_SECRET in .env.
 # Generate each with: openssl rand -hex 32
@@ -48,7 +48,7 @@ Then open http://localhost:3000. For everything else, such as configuration, sto
 
 ## Switching from Reactive Resume
 
-Point Core Resume at your existing Reactive Resume database and upload storage, and use a build at least as new as your Reactive Resume version. On startup it applies Reactive Resume's migrations plus its own, which only add to the schema. Back up your database first.
+Point All That Work at your existing Reactive Resume database and upload storage, and use a build at least as new as your Reactive Resume version. On startup it applies Reactive Resume's migrations plus its own, which only add to the schema. Back up your database first.
 
 You can switch back. Reactive Resume keeps working with the extra columns: its startup schema check logs them and carries on, unless you set `STRICT_SCHEMA_CHECK=true`.
 
@@ -56,10 +56,10 @@ You can switch back. Reactive Resume keeps working with the extra columns: its s
 
 The `upstream` branch mirrors Reactive Resume, and `main` merges it at each release. Fork changes stay additive and keep Reactive Resume's internal names, so new releases arrive quickly. Changes that suit every Reactive Resume user may be offered upstream.
 
-Found a bug or have an idea? [Open an issue](https://github.com/aiordanescu/core-resume/issues). If it also happens in Reactive Resume itself, report it [upstream](https://github.com/reactive-resume/reactive-resume/issues) too.
+Found a bug or have an idea? [Open an issue](https://github.com/allthatwork/allthatwork/issues). If it also happens in Reactive Resume itself, report it [upstream](https://github.com/reactive-resume/reactive-resume/issues) too.
 
 ## Credits and license
 
 Reactive Resume is created by [Amruth Pillai](https://github.com/AmruthPillai) and its contributors, and nearly all of this project is their work. If it's useful to you, consider [supporting Reactive Resume](https://opencollective.com/reactive-resume).
 
-Core Resume is not affiliated with or endorsed by Reactive Resume. Like Reactive Resume, it's released under the [MIT license](../LICENSE).
+All That Work is not affiliated with or endorsed by Reactive Resume. Like Reactive Resume, it's released under the [MIT license](../LICENSE).
