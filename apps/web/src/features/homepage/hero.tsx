@@ -15,8 +15,8 @@ const fragmentKind = {
 	pill: "rounded-full px-3.5 py-[9px] font-semibold font-ui text-[15px] leading-none",
 };
 
-// The field is dimmed to 78%, so the light pills take a deeper green to keep their text at 4.5:1.
-const pillAccent = "bg-accent-soft text-[oklch(0.36_0.1_150)] dark:text-accent-text";
+// The field is dimmed to 78%, so the light pills take a deeper blue to keep their text at 4.5:1.
+const pillAccent = "bg-accent-soft text-[oklch(0.36_0.132_258)] dark:text-accent-text";
 
 /**
  * The eighteen career fragments that converge into the page. Each starts at (x, y), drifts to (tx, ty) and scales

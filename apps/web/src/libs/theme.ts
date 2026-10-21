@@ -42,7 +42,7 @@ export const setThemeCookie = (theme: Theme) => {
 
 const paletteSchema = z.union([z.literal("cobalt"), z.literal("original")]);
 
-/** The app's colors, applied on top of the light or dark appearance. Original is upstream's. */
+/** The app's colors, applied on top of the light or dark appearance. Original is upstream's warm paper, with the brand blue in place of its green. */
 export type Palette = z.infer<typeof paletteSchema>;
 
 const paletteStorageKey = "palette";
@@ -50,7 +50,7 @@ export const defaultPalette: Palette = "cobalt";
 
 export const paletteMap = {
 	cobalt: { name: msg`Cobalt`, description: msg`GitHub chrome, blue accent` },
-	original: { name: msg`Original`, description: msg`Warm paper tones, green accent` },
+	original: { name: msg`Original`, description: msg`Warm paper tones, blue accent` },
 } satisfies Record<Palette, { name: MessageDescriptor; description: MessageDescriptor }>;
 
 /** The browser bar color for each palette and appearance, matching `--bg`. index.html starts with Cobalt's. */

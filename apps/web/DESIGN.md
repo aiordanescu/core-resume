@@ -1,7 +1,7 @@
 ---
 version: 6.0.0
 name: All That Work · Desk & Paper
-description: A warm, quiet interface around bright paper. Moss green marks primary actions, selection, and progress. Light and dark themes keep document paper white.
+description: A warm, quiet interface around bright paper. The brand blue marks primary actions, selection, and progress. Light and dark themes keep document paper white.
 colors:
   light:
     bg: "#F8F7F3"
@@ -13,11 +13,11 @@ colors:
     ink: "#1C1B15"
     ink-2: "#4F4D47"
     ink-3: "#6D6C65"
-    accent: "#337344"
-    accent-hover: "#206133"
-    on-accent: "#F7FEF8"
-    accent-soft: "#DCF2DF"
-    accent-text: "#195C2E"
+    accent: "#0067E0"
+    accent-hover: "#0057C2"
+    on-accent: "#F7FBFF"
+    accent-soft: "#DDEBFF"
+    accent-text: "#0052B8"
     danger: "#BA3630"
     danger-soft: "#FFE7E4"
     danger-text: "#A92321"
@@ -36,11 +36,11 @@ colors:
     ink: "#EFEEEB"
     ink-2: "#BCBAB5"
     ink-3: "#979590"
-    accent: "#6FC082"
-    accent-hover: "#83D494"
-    on-accent: "#07150A"
-    accent-soft: "#1A3520"
-    accent-text: "#8FD89E"
+    accent: "#4D9FFF"
+    accent-hover: "#6DB2FF"
+    on-accent: "#07111F"
+    accent-soft: "#1A2E4C"
+    accent-text: "#8CC2FF"
     danger: "#D9544B"
     danger-soft: "#47211D"
     danger-text: "#FDA297"
@@ -117,7 +117,7 @@ marketing:
 
 ## Overview
 
-All That Work uses “Desk & Paper”: a warm, quiet interface around a bright resume or letter. Low-contrast surfaces, thin rules, and a moss-green accent keep attention on the document.
+All That Work uses “Desk & Paper”: a warm, quiet interface around a bright resume or letter. Low-contrast surfaces, thin rules, and a blue accent, matched to the logo, keep attention on the document.
 
 This reference covers the current app and homepage. Implementation details live in the source files named below; [REDESIGN_PLAN.md](REDESIGN_PLAN.md) records the redesign milestones and deviations from the original handoff.
 

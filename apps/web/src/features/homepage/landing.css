@@ -235,8 +235,8 @@
  * underline is painted as a background line, because a text underline skips the spaces typed between words.
  */
 @utility typed-suggestion {
-	--underline: color-mix(in oklch, oklch(0.5 0.1 150) calc((1 - var(--cl)) * 100%), transparent);
-	background-color: color-mix(in oklch, oklch(0.93 0.05 150) calc((1 - var(--cl)) * 100%), transparent);
+	--underline: color-mix(in oklch, oklch(0.54 0.201 258.2) calc((1 - var(--cl)) * 100%), transparent);
+	background-color: color-mix(in oklch, oklch(0.923 0.037 257) calc((1 - var(--cl)) * 100%), transparent);
 	background-image: linear-gradient(var(--underline), var(--underline));
 	background-size: 100% 2px;
 	background-position: 0 100%;
@@ -248,7 +248,7 @@
 	margin-inline: -0.3cqw;
 	border-radius: 0.4cqw;
 	padding-inline: 0.3cqw;
-	background: color-mix(in oklch, oklch(0.88 0.1 150) calc(var(--k, 0) * 100%), transparent);
+	background: color-mix(in oklch, oklch(0.879 0.06 257.8) calc(var(--k, 0) * 100%), transparent);
 }
 
 /* A keyword in the job posting, highlighted in step with its match on the resume. */
@@ -262,10 +262,10 @@
 
 /* The Check lens: the parsed text layer, revealed through a circle at (--lx, --ly). */
 @utility check-lens {
-	background-color: oklch(0.2 0.03 160);
+	background-color: oklch(0.216 0.045 256.2);
 	background-image:
-		repeating-linear-gradient(0deg, oklch(0.6 0.1 150 / 0.1) 0 1px, transparent 1px 4cqw),
-		repeating-linear-gradient(90deg, oklch(0.6 0.1 150 / 0.1) 0 1px, transparent 1px 4cqw);
+		repeating-linear-gradient(0deg, oklch(0.635 0.162 255.1 / 0.1) 0 1px, transparent 1px 4cqw),
+		repeating-linear-gradient(90deg, oklch(0.635 0.162 255.1 / 0.1) 0 1px, transparent 1px 4cqw);
 	clip-path: circle(11cqw at var(--lx, 50%) var(--ly, 16%));
 }
 
@@ -411,10 +411,10 @@
 	--ink: oklch(0.22 0.01 95);
 	--ink-2: oklch(0.42 0.01 95);
 	--ink-3: oklch(0.53 0.01 95);
-	--accent: oklch(0.5 0.1 150);
-	--on-accent: oklch(0.99 0.01 150);
-	--accent-soft: oklch(0.94 0.035 150);
-	--accent-text: oklch(0.42 0.1 150);
+	--accent: oklch(0.54 0.201 258.2);
+	--on-accent: oklch(0.986 0.007 247.9);
+	--accent-soft: oklch(0.936 0.031 257.2);
+	--accent-text: oklch(0.463 0.175 258.5);
 	--warn-soft: oklch(0.95 0.045 85);
 	--warn-text: oklch(0.48 0.1 70);
 	--hover: oklch(0.22 0.01 95 / 0.05);

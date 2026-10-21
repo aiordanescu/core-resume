@@ -13270,7 +13270,7 @@ msgid "Waiting to hear back"
 msgstr "ପୁନର୍ବାର ଶୁଣିବାକୁ ଅପେକ୍ଷା କରିଛି |"
 
 #: src/libs/theme.ts
-msgid "Warm paper tones, green accent"
+msgid "Warm paper tones, blue accent"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts

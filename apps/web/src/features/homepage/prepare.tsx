@@ -166,7 +166,7 @@ function PencilTick({ tick }: { tick: string }) {
 				d="M6 12.5 L10.5 17 L22 2"
 				pathLength={1}
 				fill="none"
-				stroke="oklch(0.42 0.1 150)"
+				stroke="oklch(0.431 0.162 258.3)"
 				strokeWidth="2.6"
 				strokeLinecap="round"
 				strokeLinejoin="round"
@@ -330,7 +330,7 @@ function PlanPanel() {
 			<h3 className="font-display text-[1.55em] leading-[1.15] text-ink">{t`A focused 30-minute plan`}</h3>
 			<span className="text-ink-2">{t`Built from the posting, Sam’s message and your two strongest stories.`}</span>
 			<div aria-hidden="true" className="h-[.3em] overflow-hidden rounded-full bg-[oklch(0.93_0.006_95)]">
-				<div className="h-full origin-left [transform:scaleX(calc((var(--k1)*10+var(--k2)*10+var(--k3)*5+var(--k4)*5)/30))] rounded-full bg-[oklch(0.5_0.1_150)] rtl:origin-right" />
+				<div className="h-full origin-left [transform:scaleX(calc((var(--k1)*10+var(--k2)*10+var(--k3)*5+var(--k4)*5)/30))] rounded-full bg-[oklch(0.5_0.18_258)] rtl:origin-right" />
 			</div>
 			<ul className="flex flex-col gap-[.35em]">
 				{rows.map((row, index) => (
@@ -636,7 +636,7 @@ export function Prepare() {
 									<>
 										{tab.label}
 										{tab.badge && (
-											<span className="rounded-full bg-[oklch(0.42_0.1_150)] px-[.5em] py-[.15em] text-[.92em] leading-none text-white tabular-nums">
+											<span className="rounded-full bg-[oklch(0.42_0.154_258)] px-[.5em] py-[.15em] text-[.92em] leading-none text-white tabular-nums">
 												{tab.badge}
 											</span>
 										)}

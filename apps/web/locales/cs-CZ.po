@@ -13265,7 +13265,7 @@ msgid "Waiting to hear back"
 msgstr "Čekání na odpověď"
 
 #: src/libs/theme.ts
-msgid "Warm paper tones, green accent"
+msgid "Warm paper tones, blue accent"
 msgstr ""
 
 #: src/features/ats-checker/messages.ts

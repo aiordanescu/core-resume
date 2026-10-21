@@ -210,8 +210,8 @@ function LetterOverlay({ pageIndex, pageMap, itemId, washed }: LetterOverlayProp
 					className={cn(
 						"absolute cursor-pointer rounded-[4px] outline-[1.5px] transition-[background-color,outline-color] duration-standard outline-solid",
 						washed && node.kind === "item"
-							? "bg-[oklch(0.93_0.05_150/0.55)] mix-blend-multiply outline-[oklch(0.5_0.1_150)]"
-							: "outline-transparent hover:bg-[oklch(0.5_0.1_150/0.06)]",
+							? "bg-[oklch(0.93_0.032_258/0.55)] mix-blend-multiply outline-[oklch(0.5_0.18_258)]"
+							: "outline-transparent hover:bg-[oklch(0.5_0.18_258/0.06)]",
 					)}
 					style={{
 						left: `calc(${(node.x / page.width) * 100}% - 4px)`,

@@ -38,11 +38,11 @@ const bodyText = (family: string, size = "1.75cqw") => ({ fontFamily: family, fo
 export const sheetTemplates: SheetTemplate[] = [
 	{
 		name: msg`Classic`,
-		root: { ...bodyText(fonts.sans), "--accent-ink": "oklch(0.48 0.1 150)" } as CSSProperties,
-		header: { margin: "0 8cqw", padding: "8cqw 0 3.6cqw", borderBottom: "0.25cqw solid oklch(0.48 0.1 150)" },
+		root: { ...bodyText(fonts.sans), "--accent-ink": "oklch(0.482 0.182 258.5)" } as CSSProperties,
+		header: { margin: "0 8cqw", padding: "8cqw 0 3.6cqw", borderBottom: "0.25cqw solid oklch(0.482 0.182 258.5)" },
 		align: "flex-start",
 		title: { fontFamily: fonts.serif, fontSize: "6.6cqw", fontWeight: 500, letterSpacing: "-.015em" },
-		subtitleColor: "oklch(0.48 0.1 150)",
+		subtitleColor: "oklch(0.482 0.182 258.5)",
 		heading: {
 			fontFamily: fonts.sans,
 			fontSize: "1.6cqw",
@@ -137,7 +137,7 @@ export const sheetTemplates: SheetTemplate[] = [
 			textTransform: "uppercase",
 			letterSpacing: "-.02em",
 		},
-		subtitleColor: "oklch(0.48 0.1 150)",
+		subtitleColor: "oklch(0.482 0.182 258.5)",
 		heading: {
 			fontFamily: fonts.display,
 			fontSize: "2.4cqw",
@@ -207,7 +207,7 @@ function Heading({ template, children, tick }: HeadingProps) {
 			<Icon
 				name="check-circle"
 				filled
-				className="text-[oklch(0.5_0.12_150)] opacity-[clamp(0,calc((var(--chk,0)-var(--tick))*12),1)]"
+				className="text-[oklch(0.5_0.184_258)] opacity-[clamp(0,calc((var(--chk,0)-var(--tick))*12),1)]"
 				style={{ fontSize: "2.5cqw", "--tick": tick } as CSSProperties}
 			/>
 		</h3>
