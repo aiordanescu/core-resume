@@ -18,7 +18,8 @@ describe.skipIf(!process.env.OAUTH_TEST_DATABASE_URL)("account wrapper ownership
 	beforeAll(async () => {
 		admin = new Pool({ connectionString: process.env.OAUTH_TEST_DATABASE_URL });
 		await admin.query(`CREATE SCHEMA ${schemaName}`);
-		for (const table of ["user", "session", "apikey", "oauth_resource", "jwks"]) {
+		// username_redirect is the fork's: renaming a username records the old one there.
+		for (const table of ["user", "session", "apikey", "oauth_resource", "jwks", "username_redirect"]) {
 			await admin.query(`CREATE TABLE ${schemaName}."${table}" (LIKE public."${table}" INCLUDING ALL)`);
 		}
 		pool = new Pool({
