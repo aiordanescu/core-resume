@@ -1879,6 +1879,17 @@ msgstr "ปรากฏบนเพจเมื่อมีชื่อเรื
 msgid "Appears on the page once it has an organization."
 msgstr "ปรากฏบนเพจเมื่อมีองค์กรแล้ว"
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "คำแนะนำในการเพิกถอน Apple"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "ระบบติดตามผู้สมัครจะเปลี่ยน PDF ของคุณให้เป็นข้อความธรรมดาก่อนที่ใครก็ตามจะอ่าน ตัวตรวจสอบจะทำเช่นเดียวกัน โดยมีไลบรารี PDF.js ในเบราว์เซอร์ของคุณ จากนั้นจะให้คะแนนว่าเรซูเม่ของคุณยังคงอยู่ได้มากเพียงใด: 0 ถึง 100 โดยพิจารณาจากความน่าเชื่อถือของข้อความ ไม่ใช่จากโอกาสที่จะได้งาน"
@@ -5878,6 +5889,14 @@ msgstr "หากนี่เป็นส่วนหนึ่งของปร
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "หากมีคนส่งลิงก์นี้ให้คุณ โปรดขอลิงก์ใหม่จากพวกเขา"
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "หากแอปไม่เปิดขึ้น ให้ลองอีกครั้งบนอุปกรณ์ที่ติดตั้งแอปไว้"
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "หากคุณใช้การลงชื่อเข้าใช้ด้วย Apple และ Reactive Resume ยังคงอยู่ในบัญชี Apple ของคุณหลังจากการลบ ให้ลบการเข้าถึงบัญชีที่นั่นด้วย"
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "ไม่สนใจ"
@@ -8322,6 +8341,10 @@ msgstr "เปิดเรื่องราว"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "เปิดไฟล์ที่ส่งออกแล้วยืนยันว่าคุณสามารถเลือกและคัดลอกได้ทุกส่วน"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "เปิดแอป Reactive Resume"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "เลย์เอาต์คอลัมน์เดียวแบบบทความนิตยสาร: ชื่อขนาดใหญ่ใต้ข้อความนำตัวพิมพ์ใหญ่ และบทสรุปเป็นย่อหน้านำขนาดใหญ่ ประณีต เหมาะสำหรับนักเขียน นักออกแบบ และสายงานสื่อสาร"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "สไตล์วอลล์สตรีทแบบคอลัมน์เดียว พร้อมส่วนหัวจัดกึ่งกลางและหัวข้อแต่ละส่วนที่มีเส้นคั่น"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "คอลัมน์เดียว มีแถบซ้ายขอบสีม่วงแดง กะทัดรัดและเหมาะสำหรับผู้สมัครระดับเริ่มต้นหรือฝึกงาน"
 
@@ -12608,6 +12635,10 @@ msgstr "ลองอีกครั้ง"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "ลองอีกครั้งด้วยแบบนี้"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "ลองเปิดแอปอีกครั้ง"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

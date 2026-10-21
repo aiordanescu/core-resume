@@ -5,6 +5,7 @@ vi.mock("@reactive-resume/utils/monorepo.node", () => ({ findWorkspaceRoot: () =
 beforeEach(() => {
 	vi.resetModules();
 	for (const name of [
+		"APP_REVISION",
 		"WEB_ACCESS_PROVIDER",
 		"WEB_ACCESS_API_KEY",
 		"WEB_ACCESS_API_URL",
@@ -13,13 +14,49 @@ beforeEach(() => {
 		"AI_API_KEY",
 		"AI_BASE_URL",
 		"REDIS_URL",
+		"WEB_FONT_BASE_URL",
 		"STORAGE_HEALTHCHECK_TIMEOUT_MS",
 	])
 		vi.stubEnv(name, undefined);
 });
+
+describe("application revision", () => {
+	it.each([undefined, "", "a".repeat(40)])("accepts an unset or full Git commit SHA (%s)", async (revision) => {
+		vi.stubEnv("APP_REVISION", revision);
+		expect((await import("./server")).env.APP_REVISION).toBe(revision || undefined);
+	});
+
+	it.each(["abc1234", "g".repeat(40)])("rejects invalid revision %s", async (revision) => {
+		vi.stubEnv("APP_REVISION", revision);
+		vi.spyOn(console, "error").mockImplementation(() => {});
+		await expect(import("./server")).rejects.toThrow("Invalid environment variables");
+	});
+});
 afterEach(() => {
 	vi.unstubAllEnvs();
 	vi.restoreAllMocks();
+});
+
+describe("web font mirror configuration", () => {
+	it.each([undefined, "", "https://fonts.example.com", "https://fonts.example.com/cm/", "http://localhost:8080"])(
+		"accepts %s",
+		async (value) => {
+			vi.stubEnv("WEB_FONT_BASE_URL", value);
+			expect((await import("./server")).env.WEB_FONT_BASE_URL).toBe(value || undefined);
+		},
+	);
+
+	it.each([
+		"not a url",
+		"/fonts",
+		"ftp://fonts.example.com",
+		"https://fonts.example.com?key=value",
+		"https://fonts.example.com#fonts",
+	])("rejects %s", async (value) => {
+		vi.stubEnv("WEB_FONT_BASE_URL", value);
+		vi.spyOn(console, "error").mockImplementation(() => {});
+		await expect(import("./server")).rejects.toThrow("Invalid environment variables");
+	});
 });
 
 describe("server web access configuration", () => {

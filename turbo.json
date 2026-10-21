@@ -17,6 +17,11 @@
 					"deny": ["app:web", "runtime:browser"]
 				}
 			},
+			"app:mobile": {
+				"dependencies": {
+					"deny": ["app:server", "app:web", "runtime:server", "runtime:browser"]
+				}
+			},
 			"runtime:server": {
 				"dependencies": {
 					"deny": ["app:web", "runtime:browser"]
@@ -25,6 +30,11 @@
 			"runtime:browser": {
 				"dependencies": {
 					"deny": ["app:server", "runtime:server"]
+				}
+			},
+			"runtime:native": {
+				"dependencies": {
+					"deny": ["app:web", "app:server", "runtime:server", "runtime:browser"]
 				}
 			},
 			"runtime:universal": {
@@ -63,11 +73,15 @@
 				"PORT",
 				"SERVER_PORT",
 				"APP_URL",
+				"APP_REVISION",
 				"ROOT_RESUME_ID",
+				"WEB_FONT_BASE_URL",
 				"DATABASE_*",
 				"AUTH_SECRET",
 				"TRUSTED_PROXIES",
 				"BETTER_AUTH_*",
+				"APPLE_CLIENT_*",
+				"MOBILE_*",
 				"GOOGLE_CLIENT_*",
 				"GITHUB_CLIENT_*",
 				"LINKEDIN_CLIENT_*",
@@ -106,11 +120,15 @@
 				"PORT",
 				"SERVER_PORT",
 				"APP_URL",
+				"APP_REVISION",
 				"ROOT_RESUME_ID",
+				"WEB_FONT_BASE_URL",
 				"DATABASE_*",
 				"AUTH_SECRET",
 				"TRUSTED_PROXIES",
 				"BETTER_AUTH_*",
+				"APPLE_CLIENT_*",
+				"MOBILE_*",
 				"GOOGLE_CLIENT_*",
 				"GITHUB_CLIENT_*",
 				"LINKEDIN_CLIENT_*",
@@ -150,11 +168,15 @@
 				"PORT",
 				"SERVER_PORT",
 				"APP_URL",
+				"APP_REVISION",
 				"ROOT_RESUME_ID",
+				"WEB_FONT_BASE_URL",
 				"DATABASE_*",
 				"AUTH_SECRET",
 				"TRUSTED_PROXIES",
 				"BETTER_AUTH_*",
+				"APPLE_CLIENT_*",
+				"MOBILE_*",
 				"GOOGLE_CLIENT_*",
 				"GITHUB_CLIENT_*",
 				"LINKEDIN_CLIENT_*",
@@ -194,11 +216,15 @@
 				"PORT",
 				"SERVER_PORT",
 				"APP_URL",
+				"APP_REVISION",
 				"ROOT_RESUME_ID",
+				"WEB_FONT_BASE_URL",
 				"DATABASE_*",
 				"AUTH_SECRET",
 				"TRUSTED_PROXIES",
 				"BETTER_AUTH_*",
+				"APPLE_CLIENT_*",
+				"MOBILE_*",
 				"GOOGLE_CLIENT_*",
 				"GITHUB_CLIENT_*",
 				"LINKEDIN_CLIENT_*",
@@ -260,13 +286,20 @@
 		"PORT",
 		"SERVER_PORT",
 		"APP_URL",
+		"APP_REVISION",
 		"ROOT_RESUME_ID",
+		"WEB_FONT_BASE_URL",
 		"DATABASE_URL",
 		"AUTH_SECRET",
 		"TRUSTED_PROXIES",
 		"BETTER_AUTH_API_KEY",
 		"BETTER_AUTH_INTERNAL_URL",
 		"OPENAI_APPS_CHALLENGE_TOKEN",
+		"APPLE_CLIENT_ID",
+		"APPLE_CLIENT_SECRET",
+		"MOBILE_IOS_APP_IDS",
+		"MOBILE_ANDROID_PACKAGES",
+		"MOBILE_ANDROID_CERT_SHA256",
 		"GOOGLE_CLIENT_ID",
 		"GOOGLE_CLIENT_SECRET",
 		"GITHUB_CLIENT_ID",

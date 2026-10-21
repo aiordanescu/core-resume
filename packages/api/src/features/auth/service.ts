@@ -1,6 +1,6 @@
 import type { AuthProvider } from "@reactive-resume/auth/types";
 import { ORPCError } from "@orpc/client";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { isCustomOAuthProviderEnabled } from "@reactive-resume/auth/config";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
@@ -8,6 +8,7 @@ import { env } from "@reactive-resume/env/server";
 import { careerService } from "../career/service";
 import { coverLetterService } from "../cover-letters/service";
 import { getStorageService } from "../storage/service";
+import { revokeAppleAuthorization } from "./apple-revocation";
 
 type ProviderList = Partial<Record<AuthProvider, string>>;
 
@@ -15,6 +16,7 @@ const providers = {
 	list: (): ProviderList => {
 		const providers: ProviderList = { credential: "Password", passkey: "Passkey" };
 
+		if (env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET) providers.apple = "Apple";
 		if (env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET) providers.google = "Google";
 		if (env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET) providers.github = "GitHub";
 		if (env.LINKEDIN_CLIENT_ID && env.LINKEDIN_CLIENT_SECRET) providers.linkedin = "LinkedIn";
@@ -26,6 +28,23 @@ const providers = {
 
 export const authService = {
 	providers,
+	getProfile: async (userId: string) => {
+		const [user] = await db
+			.select({
+				id: schema.user.id,
+				name: schema.user.name,
+				username: schema.user.username,
+				displayUsername: schema.user.displayUsername,
+				image: schema.user.image,
+				email: schema.user.email,
+				emailVerified: schema.user.emailVerified,
+				timezone: schema.user.timezone,
+			})
+			.from(schema.user)
+			.where(eq(schema.user.id, userId));
+		if (!user) throw new ORPCError("NOT_FOUND");
+		return user;
+	},
 
 	// GDPR-style export of everything the user owns. Selects explicit columns so
 	// secrets (password hashes, tokens, api keys) never leak into the export.
@@ -74,12 +93,27 @@ export const authService = {
 				coverLetters.map(({ id }) => coverLetterService.getById({ id, userId: input.userId })),
 			),
 			applications: applications.map(({ userId: _userId, ...application }) => application),
+			aiContentReports: await db
+				.select()
+				.from(schema.aiContentReport)
+				.where(eq(schema.aiContentReport.userId, input.userId)),
 			career: await careerService.exportData(input.userId),
 		};
 	},
 
 	deleteAccount: async (input: { userId: string }): Promise<void> => {
 		const storageService = getStorageService();
+		const appleAccounts = await db
+			.select({ refreshToken: schema.account.refreshToken, accessToken: schema.account.accessToken })
+			.from(schema.account)
+			.where(and(eq(schema.account.userId, input.userId), eq(schema.account.providerId, "apple")));
+		for (const tokens of appleAccounts) {
+			if (!(await revokeAppleAuthorization(tokens))) {
+				console.warn(
+					"Apple authorization revocation unavailable during account deletion; manual revocation instructions apply.",
+				);
+			}
+		}
 
 		// Delete all user files in one call (pictures, screenshots, pdfs)
 		// The storage service delete method supports recursive deletion via prefix

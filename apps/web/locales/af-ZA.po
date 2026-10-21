@@ -1879,6 +1879,17 @@ msgstr "Verskyn op die bladsy sodra dit 'n titel het."
 msgid "Appears on the page once it has an organization."
 msgstr "Verskyn op die bladsy sodra dit 'n organisasie het."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple herroepingsinstruksies"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Aansoeker-opsporingstelsels verander jou PDF in gewone teks voordat iemand dit lees. Die kontroleerder doen dieselfde, met die PDF.js-biblioteek in jou blaaier, en tel dan hoeveel van jou CV oorleef: 0 tot 100, van hoe betroubaar die teks uitkom, nie van jou kanse om die werk te kry nie."
@@ -5878,6 +5889,14 @@ msgstr "As dit deel van jou ervaring is, voeg dit by waar dit hoort."
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "As iemand vir jou hierdie skakel gestuur het, vra hulle vir 'n nuwe een."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "As die toepassing nie oopgemaak het nie, probeer weer op 'n toestel waar dit geïnstalleer is."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "As jy Teken in met Apple gebruik het en Reactive Resume word steeds in jou Apple-rekening gelys nadat dit uitgevee is, verwyder sy toegang ook daar."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "Ignoreer"
@@ -8322,6 +8341,10 @@ msgstr "Maak storie oop"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Maak die uitgevoerde lêer oop en bevestig jy kan elke deel daarvan kies en kopieer."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Maak die Reactive Resume-toepassing oop"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "Enkelkolom, uitgelê soos ’n tydskrifartikel: ’n groot vertoonnaam onder ’n bo-opskrif in hoofletters en die opsomming as ’n groter inleidingsparagraaf; verfyn vir skrywers, ontwerpers en kommunikasierolle."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "Enkelkolom in Wall Street-styl met 'n gesentreerde kopstuk en afdelingsopskrifte met lyne."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "Enkelkolom met 'n magenta linkerrandaksent; kompak en doeltreffend vir intreevlak- of internskap-aansoeke."
 
@@ -12608,6 +12635,10 @@ msgstr "Probeer weer"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "Probeer weer hiermee"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "Probeer die toepassing weer oopmaak"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

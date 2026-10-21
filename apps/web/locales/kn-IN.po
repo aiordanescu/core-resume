@@ -1879,6 +1879,17 @@ msgstr "ಶೀರ್ಷಿಕೆಯನ್ನು ಹೊಂದಿದ ನಂತರ 
 msgid "Appears on the page once it has an organization."
 msgstr "ಅದು ಸಂಸ್ಥೆಯನ್ನು ಹೊಂದಿದ ನಂತರ ಪುಟದಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple ಹಿಂತೆಗೆದುಕೊಳ್ಳುವ ಸೂಚನೆಗಳು"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "ಅರ್ಜಿದಾರರ ಟ್ರ್ಯಾಕಿಂಗ್ ವ್ಯವಸ್ಥೆಗಳು ನಿಮ್ಮ PDF ಅನ್ನು ಯಾರಾದರೂ ಓದುವ ಮೊದಲು ಅದನ್ನು ಸರಳ ಪಠ್ಯವನ್ನಾಗಿ ಪರಿವರ್ತಿಸುತ್ತವೆ. ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲಿರುವ PDF.js ಲೈಬ್ರರಿಯೊಂದಿಗೆ ಪರೀಕ್ಷಕನು ಅದೇ ರೀತಿ ಮಾಡುತ್ತಾನೆ, ನಂತರ ನಿಮ್ಮ ರೆಸ್ಯೂಮ್ ಎಷ್ಟು ಉಳಿದಿದೆ ಎಂಬುದನ್ನು ಸ್ಕೋರ್ ಮಾಡುತ್ತದೆ: 0 ರಿಂದ 100, ಪಠ್ಯವು ಎಷ್ಟು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಹೊರಬರುತ್ತದೆ, ಕೆಲಸ ಪಡೆಯುವ ನಿಮ್ಮ ಅವಕಾಶಗಳಿಂದ ಅಲ್ಲ."
@@ -5878,6 +5889,14 @@ msgstr "ಇದು ನಿಮ್ಮ ಅನುಭವದ ಭಾಗವಾಗಿದ್
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "ಯಾರಾದರೂ ನಿಮಗೆ ಈ ಲಿಂಕ್ ಕಳುಹಿಸಿದ್ದರೆ, ಹೊಸದನ್ನು ಕೇಳಿಕೊಳ್ಳಿ."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "ಅಪ್ಲಿಕೇಶನ್ ತೆರೆಯದಿದ್ದರೆ, ಅದನ್ನು ಸ್ಥಾಪಿಸಿದ ಸಾಧನದಲ್ಲಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "ನೀವು Apple ಜೊತೆಗೆ ಸೈನ್ ಇನ್ ಅನ್ನು ಬಳಸಿದ್ದರೆ ಮತ್ತು ಅಳಿಸಿದ ನಂತರವೂ ನಿಮ್ಮ Apple ಖಾತೆಯಲ್ಲಿ Reactive Resume ಅನ್ನು ಪಟ್ಟಿ ಮಾಡಿದ್ದರೆ, ಅಲ್ಲಿಯೂ ಅದರ ಪ್ರವೇಶವನ್ನು ತೆಗೆದುಹಾಕಿ."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "ನಿರ್ಲಕ್ಷಿಸಿ"
@@ -8322,6 +8341,10 @@ msgstr "ಕಥೆಯನ್ನು ತೆರೆಯಿರಿ"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ತೆರೆದು ಅದರ ಪ್ರತಿಯೊಂದು ಭಾಗವನ್ನೂ ಆಯ್ಕೆಮಾಡಿ ಕಾಪಿ ಮಾಡಬಹುದೆಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Reactive Resume ಅಪ್ಲಿಕೇಶನ್ ತೆರೆಯಿರಿ"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "ನಿಯತಕಾಲಿಕದ ವಿಶೇಷ ಲೇಖನದಂತೆ ರೂಪಿಸಿದ ಏಕ-ಕಾಲಮ್ ವಿನ್ಯಾಸ: ದೊಡ್ಡಕ್ಷರದ ಚಿಕ್ಕ ಮೇಲ್ಸಾಲಿನ ಕೆಳಗೆ ದೊಡ್ಡ ಹೆಸರು, ಮತ್ತು ಸಾರಾಂಶವು ದೊಡ್ಡ ಪರಿಚಯ ಪ್ಯಾರಾಗ್ರಾಫ್ ಆಗಿ; ಬರಹಗಾರರು, ವಿನ್ಯಾಸಕರು ಮತ್ತು ಸಂವಹನ ಪಾತ್ರಗಳಿಗಾಗಿ ಪರಿಷ್ಕರಿಸಲಾಗಿದೆ."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "ಮಧ್ಯಕ್ಕೆ ಹೊಂದಿಸಿದ ಶಿರೋಲೇಖ ಮತ್ತು ಗೆರೆಗಳಿಂದ ಬೇರ್ಪಡಿಸಿದ ವಿಭಾಗ ಶೀರ್ಷಿಕೆಗಳಿರುವ ಏಕ ಕಾಲಮ್ ವಾಲ್ ಸ್ಟ್ರೀಟ್ ಶೈಲಿ."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "ಒಂದು ಕಾಲಮ್, ಮ್ಯಾಜೆಂಟಾ ಎಡ ಗಡಿಯ ಅಲಂಕಾರ; ಪ್ರವೇಶ-ಮಟ್ಟದ ಅಥವಾ ಇಂಟರ್ನ್‌ಶಿಪ್ ಅರ್ಜಿಗಳಿಗಾಗಿ ಸಂಕೀರ್ಣ ಮತ್ತು ಪರಿಣಾಮಕಾರಿ."
 
@@ -12608,6 +12635,10 @@ msgstr "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "ಇದರೊಂದಿಗೆ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಮತ್ತೆ ತೆರೆಯಲು ಪ್ರಯತ್ನಿಸಿ"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

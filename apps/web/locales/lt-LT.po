@@ -1879,6 +1879,17 @@ msgstr "Rodomas puslapyje, kai turi pavadinimą."
 msgid "Appears on the page once it has an organization."
 msgstr "Rodomas puslapyje, kai tik turi organizaciją."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple atšaukimo instrukcijos"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Paraiškos stebėjimo sistemos paverčia jūsų PDF paprastu tekstu, kol kas nors jį neskaito. Tikriklis daro tą patį, naršyklėje turėdamas PDF.js biblioteką, tada įvertina, kiek jūsų gyvenimo aprašymo išliko: nuo 0 iki 100, atsižvelgiant į tai, kaip patikimai pasirodo tekstas, o ne nuo jūsų galimybių gauti darbą."
@@ -5878,6 +5889,14 @@ msgstr "Jei tai yra jūsų patirties dalis, pridėkite ją ten, kur ji priklauso
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "Jei kas nors jums atsiuntė šią nuorodą, paprašykite naujos."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "Jei programa neatsidarė, bandykite dar kartą įrenginyje, kuriame ji įdiegta."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "Jei naudojote Prisijungti naudojant Apple ir Reactive Resume po ištrynimo vis dar yra jūsų Apple paskyroje, pašalinkite ir jos prieigą."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "Ignoruoti"
@@ -8322,6 +8341,10 @@ msgstr "Atidaryti istoriją"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Atidarykite eksportuotą failą ir įsitikinkite, kad galite pažymėti ir nukopijuoti kiekvieną jo dalį."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Atidarykite programą Reactive Resume"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "Vieno stulpelio išdėstymas lyg žurnalo straipsnis: didelis vardas po nedidele didžiųjų raidžių eilute, o santrauka – kaip didesnė įžanga; išgryninta rašytojams, dizaineriams ir komunikacijos specialistams."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "Vieno stulpelio Volstrito stilius su centruota antrašte ir linijomis atskirtais skyrių pavadinimais."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "Vienas stulpelis su purpuriniu kairiuoju kraštiniu akcentu; kompaktiškas ir efektyvus pradedančiojo ar praktikos kandidatūroms."
 
@@ -12608,6 +12635,10 @@ msgstr "Bandykite dar kartą"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "Bandyti dar kartą su šiuo"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "Pabandykite dar kartą atidaryti programą"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

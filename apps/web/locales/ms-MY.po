@@ -1879,6 +1879,17 @@ msgstr "Muncul pada halaman apabila ia mempunyai tajuk."
 msgid "Appears on the page once it has an organization."
 msgstr "Muncul pada halaman setelah ia mempunyai organisasi."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Arahan pembatalan Apple"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Sistem penjejakan pemohon menukar PDF anda menjadi teks biasa sebelum sesiapa membacanya. Pemeriksa melakukan perkara yang sama, dengan pustaka PDF.js dalam penyemak imbas anda, kemudian menjaringkan jumlah resume anda yang masih hidup: 0 hingga 100, daripada sejauh mana kebolehpercayaan teks keluar, bukan daripada peluang anda untuk mendapatkan pekerjaan itu."
@@ -5878,6 +5889,14 @@ msgstr "Jika ia sebahagian daripada pengalaman anda, tambahkannya di tempat yang
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "Jika seseorang menghantar pautan ini kepada anda, minta mereka yang baharu."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "Jika apl tidak dibuka, cuba lagi pada peranti yang dipasang."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "Jika anda menggunakan Log masuk dengan Apple dan Reactive Resume masih disenaraikan dalam Akaun Apple anda selepas pemadaman, alih keluar aksesnya di sana juga."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "abaikan"
@@ -8322,6 +8341,10 @@ msgstr "Buka cerita"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Buka fail yang dieksport dan sahkan anda boleh memilih dan menyalin setiap bahagiannya."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Buka apl Reactive Resume"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "Satu lajur disusun seperti rencana majalah: nama paparan yang besar di bawah tajuk kecil berhuruf besar dan ringkasan sebagai pendahuluan yang lebih besar; diperhalus untuk penulis, pereka dan peranan komunikasi."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "Gaya Wall Street satu lajur dengan pengepala di tengah dan tajuk bahagian bergaris pemisah."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "Satu kolum dengan aksen sempadan kiri magenta; padat dan cekap untuk permohonan peringkat permulaan atau latihan industri."
 
@@ -12608,6 +12635,10 @@ msgstr "Cuba lagi"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "Cuba lagi dengan ini"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "Cuba buka apl sekali lagi"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

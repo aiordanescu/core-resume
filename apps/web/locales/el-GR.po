@@ -1879,6 +1879,17 @@ msgstr "Εμφανίζεται στη σελίδα μόλις έχει τίτλ�
 msgid "Appears on the page once it has an organization."
 msgstr "Εμφανίζεται στη σελίδα μόλις έχει έναν οργανισμό."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple οδηγίες ανάκλησης"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Τα συστήματα παρακολούθησης των αιτούντων μετατρέπουν το PDF σε απλό κείμενο πριν το διαβάσει κάποιος. Το πούλι κάνει το ίδιο, με τη βιβλιοθήκη PDF.js στο πρόγραμμα περιήγησής σας και, στη συνέχεια, βαθμολογεί πόσο από το βιογραφικό σας επιβιώνει: 0 έως 100, από το πόσο αξιόπιστα βγαίνει το κείμενο, όχι από τις πιθανότητές σας να βρείτε τη δουλειά."
@@ -5878,6 +5889,14 @@ msgstr "Εάν είναι μέρος της εμπειρίας σας, προσ�
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "Εάν κάποιος σας έστειλε αυτόν τον σύνδεσμο, ζητήστε του έναν νέο."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "Εάν η εφαρμογή δεν άνοιξε, δοκιμάστε ξανά σε μια συσκευή όπου είναι εγκατεστημένη."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "Εάν χρησιμοποιήσατε Σύνδεση με το Apple και το Reactive Resume εξακολουθεί να εμφανίζεται στον λογαριασμό σας Apple μετά τη διαγραφή, αφαιρέστε την πρόσβασή του και εκεί."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "Αγνοώ"
@@ -8322,6 +8341,10 @@ msgstr "Άνοιγμα ιστορίας"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Ανοίξτε το εξαγόμενο αρχείο και επιβεβαιώστε ότι μπορείτε να επιλέξετε και να αντιγράψετε κάθε τμήμα του."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Ανοίξτε την εφαρμογή Reactive Resume"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "Μονόστηλη σελιδοποίηση σαν άρθρο περιοδικού: μεγάλο όνομα σε γραμματοσειρά τίτλων κάτω από έναν επίτιτλο με κεφαλαία και η περίληψη ως μεγαλύτερο εισαγωγικό κείμενο· εκλεπτυσμένο για συγγραφείς, σχεδιαστές και ρόλους επικοινωνίας."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "Στυλ Wall Street μίας στήλης με κεντραρισμένη κεφαλίδα και τίτλους ενοτήτων με διαχωριστικές γραμμές."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "Μονή στήλη με ματζέντα αριστερό περίγραμμα· συμπαγές και αποδοτικό για αιτήσεις αρχικού επιπέδου ή πρακτικής άσκησης."
 
@@ -12608,6 +12635,10 @@ msgstr "Δοκιμάστε ξανά"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "Δοκιμάστε ξανά με αυτό"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "Δοκιμάστε να ανοίξετε ξανά την εφαρμογή"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

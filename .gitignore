@@ -70,3 +70,15 @@ temp
 
 # Git Hooks
 .vite-hooks
+
+# Mobile app (Expo): generated native projects and build output
+/apps/mobile/ios
+/apps/mobile/android
+/apps/mobile/.expo
+/apps/mobile/dist
+/apps/mobile/expo-env.d.ts
+
+# Design exports live in Figma/Penpot; keep only runtime assets in source.
+/apps/mobile/assets/launch-kit/
+/apps/mobile/assets/reactive-resume-launch-kit.zip
+/apps/mobile/assets/reactive-resume-mobile-launch-assets.zip
