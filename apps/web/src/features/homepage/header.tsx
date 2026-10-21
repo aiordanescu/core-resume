@@ -1,6 +1,6 @@
 import { t } from "@lingui/core/macro";
 import { useEffect, useRef, useState } from "react";
-import { APP_NAME } from "@reactive-resume/utils/brand";
+import { Wordmark } from "@reactive-resume/ui/components/wordmark";
 import { cn } from "@reactive-resume/utils/style";
 import { goToScene, SCENE, useLanding } from "./scroll";
 import { CtaLink } from "./ui";
@@ -35,11 +35,9 @@ export function LandingHeader() {
 				)}
 			/>
 
-			<a
-				href="#top"
-				className="flex items-center rounded-md font-display text-[19px] leading-none font-medium tracking-tight"
-			>
-				{APP_NAME}
+			{/* "allthat" follows the header's night ink; the mark and "work" keep the brand blue. */}
+			<a href="#top" className="flex items-center rounded-md">
+				<Wordmark height={30} className="text-inherit" />
 			</a>
 
 			<nav aria-label={t`Story`} className="mx-auto hidden items-center gap-0.5 min-[1240px]:flex">
