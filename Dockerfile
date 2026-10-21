@@ -52,12 +52,12 @@ ENV APP_REVISION=${APP_REVISION}
 
 LABEL maintainer="aiordanescu"
 LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.title="Core Resume"
+LABEL org.opencontainers.image.title="All That Work"
 LABEL org.opencontainers.image.description="A free and open-source resume builder."
 LABEL org.opencontainers.image.vendor="Alexandru Iordanescu"
-LABEL org.opencontainers.image.url="https://github.com/aiordanescu/core-resume"
+LABEL org.opencontainers.image.url="https://github.com/allthatwork/allthatwork"
 LABEL org.opencontainers.image.documentation="https://docs.rxresu.me"
-LABEL org.opencontainers.image.source="https://github.com/aiordanescu/core-resume"
+LABEL org.opencontainers.image.source="https://github.com/allthatwork/allthatwork"
 
 ENV NODE_ENV="production" \
     PORT=3000 \

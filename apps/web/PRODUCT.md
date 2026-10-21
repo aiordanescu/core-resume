@@ -1,4 +1,4 @@
-# Core Resume: Web Product
+# All That Work: Web Product
 
 <!-- impeccable:product-schema 1 -->
 
@@ -16,7 +16,7 @@ Help people turn their experience into professional application documents and ma
 
 ## Positioning
 
-Core Resume is a free, open-source resume builder with privacy and data ownership as durable commitments. Users can run the application on their own infrastructure. Document editing, reviewable AI assistance, and application tracking belong to the same workflow.
+All That Work is a free, open-source resume builder with privacy and data ownership as durable commitments. Users can run the application on their own infrastructure. Document editing, reviewable AI assistance, and application tracking belong to the same workflow.
 
 ## Operating Context
 
@@ -36,7 +36,7 @@ Core Resume is a free, open-source resume builder with privacy and data ownershi
 
 ## Brand Commitments
 
-Keep the Core Resume name and existing brand assets. The incumbent visual system is documented in the inherited `../../DESIGN.md`; product setup does not replace that system. Resume templates retain their own identities independently of app styling.
+Keep the All That Work name and existing brand assets. The incumbent visual system is documented in the inherited `../../DESIGN.md`; product setup does not replace that system. Resume templates retain their own identities independently of app styling.
 
 ## Evidence on Hand
 

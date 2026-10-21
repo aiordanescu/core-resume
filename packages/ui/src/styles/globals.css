@@ -115,7 +115,7 @@
 }
 
 /*
- * Cobalt palette (Core Resume, the default): GitHub's Primer neutrals with a blue accent. The tokens above are
+ * Cobalt palette (All That Work, the default): GitHub's Primer neutrals with a blue accent. The tokens above are
  * the Original palette. `data-palette` on <html> is set before first paint (index.html) and by ThemeProvider.
  * Danger, warn, the other stages and motion are shared. Info moves to violet so it doesn't read as the accent.
  */

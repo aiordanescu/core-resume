@@ -7,11 +7,11 @@ async function generateOpenApiDocumentation(
 	const packageJson = JSON.parse(await readFile(new URL("../../../../package.json", import.meta.url), "utf8")) as {
 		version: string;
 	};
-	process.env.APP_URL ??= "https://coreresu.me";
+	process.env.APP_URL ??= "https://allthat.work";
 	process.env.DATABASE_URL ??= "postgresql://localhost/reactive_resume_docs";
 	process.env.AUTH_SECRET ??= "documentation-generation-isolated-process-only";
 	const { generateOpenApiSpec } = await import("./generator");
-	const spec = await generateOpenApiSpec({ appUrl: "https://coreresu.me", version: packageJson.version });
+	const spec = await generateOpenApiSpec({ appUrl: "https://allthat.work", version: packageJson.version });
 	await writeFile(target, `${JSON.stringify(spec, null, "\t")}\n`);
 }
 

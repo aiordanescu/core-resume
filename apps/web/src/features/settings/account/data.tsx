@@ -35,7 +35,7 @@ export function DataSection({ openDeletion = false }: DataSectionProps) {
 		mutationFn: async () => {
 			const zip = buildAccountZip(await client.auth.exportData());
 			const date = new Date().toISOString().slice(0, 10);
-			downloadWithAnchor(new Blob([zip as BlobPart], { type: "application/zip" }), `core-resume-${date}.zip`);
+			downloadWithAnchor(new Blob([zip as BlobPart], { type: "application/zip" }), `allthatwork-${date}.zip`);
 		},
 		onError: (error) =>
 			toast.add({ type: "error", description: getReadableErrorMessage(error, t`Couldn't export. Try again.`) }),

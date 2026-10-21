@@ -49,7 +49,7 @@ describe("deployment environment", () => {
 			APP_URL: "https://resume.cloudron.example",
 			DATABASE_URL: "postgres://user:pass@postgresql:5432/db",
 			TRUSTED_PROXIES: "172.18.0.1",
-			SMTP_FROM: "Core Resume <resume@cloudron.example>",
+			SMTP_FROM: "All That Work <resume@cloudron.example>",
 			OAUTH_CLIENT_ID: "client",
 		});
 		expect(
