@@ -48,7 +48,7 @@ git diff --name-only --diff-filter=A "$base" upstream/main -- 'migrations/*/migr
 
 ### 3. Merge
 
-1. Run `git merge upstream/main` on the sync branch and resolve conflicts there. Don't open the pull request straight from `upstream`: resolving its conflicts on GitHub would commit them to `upstream`, which has to stay an exact mirror.
+1. Run `git merge <tag>` (or `upstream/main`) on the sync branch and resolve conflicts there. Commit it as `chore: merge upstream <version>`: the commit-msg hook rejects git's default merge message. Don't open the pull request straight from `upstream`: resolving its conflicts on GitHub would commit them to `upstream`, which has to stay an exact mirror.
 2. Resolve conflicts hunk by hunk. Never take one side of a whole file the fork changed, except in the cases below.
 3. When upstream merged a change that started here, take upstream's version and mark it **Upstream** below.
 4. Conflicts in `apps/web/locales/*.po`: take upstream's side, then run `pnpm lingui:extract`, which rebuilds the catalogs and refills en-US and en-GB (see **English catalogs** below).
@@ -65,7 +65,7 @@ comm -23 <(added "$base" "$fork") <(added upstream/main HEAD)
 
 Each printed line is either restored or explained in the pull request, for example because upstream now has the same line or a conflict resolution replaced it on purpose.
 
-2. Run the full checks, not only the affected packages: typecheck, all unit tests, `pnpm lint:agent`, `pnpm format:check`, `pnpm exec turbo boundaries` and `pnpm build`.
+2. Run the full checks, not only the affected packages: typecheck, all unit tests, `pnpm lint:agent`, `pnpm format:check`, `pnpm exec turbo boundaries` and `pnpm build`. Also run the real-database suites (`*.integration.test.ts`) against a throwaway database, after `pnpm db:migrate` there as upstream's CI does: some copy their tables from the migrated `public` schema, and a fork table missing from such a list shows up only here.
 3. Every entry in the patch list below should have a test that fails if the change is lost. An entry without one is checked by hand on the dev instance (step 6).
 
 ### 5. Pull request
