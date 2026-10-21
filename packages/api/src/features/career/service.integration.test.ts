@@ -713,8 +713,9 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 		await getDb().delete(tables.user).where(eq(tables.user.id, "alice"));
 		const remaining = await service.exportData("alice");
 		for (const [key, value] of Object.entries(remaining))
-			if (key !== "profile" && key !== "review") expect(value, key).toEqual([]);
+			if (key !== "profile" && key !== "review" && key !== "aiLimits") expect(value, key).toEqual([]);
 		expect(remaining.review).toBeNull();
+		expect(remaining.aiLimits).toBeNull();
 		expect(await getDb().select().from(tables.careerProfile).where(eq(tables.careerProfile.userId, "alice"))).toEqual(
 			[],
 		);

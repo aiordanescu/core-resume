@@ -108,7 +108,10 @@ msgid "{0, plural, one {# application to export} other {# applications to export
 msgstr "{0, plural, one {കയറ്റുമതി ചെയ്യാനുള്ള # അപേക്ഷ} other {കയറ്റുമതി ചെയ്യാനുള്ള # അപേക്ഷകൾ}}"
 
 #. placeholder {0}: applications.length
+#. placeholder {0}: counts.applications.applications
+#. placeholder {0}: current.applications.applications
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# application} other {# applications}}"
 msgstr "{0, plural, one {# അപേക്ഷ} other {# അപേക്ഷകൾ}}"
 
@@ -121,6 +124,17 @@ msgstr "{0, plural, one {# പ്രതീകം} other {# പ്രതീകങ
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# കോൺടാക്‌റ്റിന് ഒരു അസാധുവായ ഇമെയിൽ ഉണ്ട് അല്ലെങ്കിൽ പേരില്ല; അതിൻ്റെ തൊഴിൽ അപേക്ഷ ഇപ്പോഴും ഇറക്കുമതി ചെയ്യുന്നു.} other {# കോൺടാക്റ്റുകൾക്ക് ഒരു അസാധുവായ ഇമെയിൽ ഉണ്ട് അല്ലെങ്കിൽ പേരില്ല; അവരുടെ തൊഴിൽ അപേക്ഷകൾ ഇപ്പോഴും ഇറക്കുമതി ചെയ്യുന്നു.}}"
+
+#. placeholder {0}: summary.attachments
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation attachment wasn't imported: only its name is in the export.} other {# conversation attachments weren't imported: only their names are in the export.}}"
+msgstr ""
+
+#. placeholder {0}: counts.coach.threads
+#. placeholder {0}: current.coach.threads
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation} other {# conversations}}"
+msgstr ""
 
 #. placeholder {0}: outcomes.medianDaysToReply
 #: src/features/applications/components/insights-view.tsx
@@ -144,23 +158,64 @@ msgstr "{0, plural, one {# എഡിറ്റ് സ്ഥാപിക്കാ�
 msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
 msgstr ""
 
+#. placeholder {0}: current.applications.linked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# fact, story, saved item, schedule or conversation tied to one} other {# facts, stories, saved items, schedules and conversations tied to them}}"
+msgstr ""
+
+#. placeholder {0}: counts.knowledge.facts
+#. placeholder {0}: current.knowledge.facts
 #. placeholder {0}: knowledge.active.length
-#. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# fact} other {# facts}}"
 msgstr "{0, plural, one {# വസ്തുത} other {# വസ്തുതകൾ}}"
+
+#. placeholder {0}: counts.knowledge.groups
+#. placeholder {0}: current.knowledge.groups
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# group} other {# groups}}"
+msgstr ""
 
 #. placeholder {0}: report.ignored.length
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# പ്രശ്നം അവഗണിച്ചു.} other {# പ്രശ്നങ്ങൾ അവഗണിക്കപ്പെട്ടു.}}"
 
+#. placeholder {0}: counts.documents.letters
+#. placeholder {0}: current.documents.letters
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# letter} other {# letters}}"
+msgstr ""
+
+#. placeholder {0}: current.documents.locked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: counts.jobSearch.opportunities
+#. placeholder {0}: current.jobSearch.opportunities
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# posting found} other {# postings found}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {# നിർദ്ദേശിച്ച എഡിറ്റ്} other {# നിർദ്ദേശിച്ച എഡിറ്റുകൾ}}"
+
+#. placeholder {0}: summary.madePrivate
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume was public and came in private. Share it again from the resume.} other {# resumes were public and came in private. Share them again from each resume.}}"
+msgstr ""
+
+#. placeholder {0}: counts.documents.resumes
+#. placeholder {0}: current.documents.resumes
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume} other {# resumes}}"
+msgstr ""
 
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -174,13 +229,22 @@ msgstr "{0, plural, one {# വരിയിൽ കമ്പനിയോ റോള
 msgid "{0, plural, one {# saved offer} other {# saved offers}}"
 msgstr "{0, plural, one {സംരക്ഷിച്ച # ഓഫർ} other {സംരക്ഷിച്ച # ഓഫറുകൾ}}"
 
+#. placeholder {0}: counts.jobSearch.schedules
+#. placeholder {0}: current.jobSearch.schedules
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# schedule} other {# schedules}}"
+msgstr ""
+
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# തിരഞ്ഞെടുത്തു} other {# തിരഞ്ഞെടുത്തു}}"
 
+#. placeholder {0}: counts.knowledge.stories
+#. placeholder {0}: current.knowledge.stories
 #. placeholder {0}: used.stories.length
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# കഥ} other {# കഥകൾ}}"
 
@@ -671,6 +735,10 @@ msgstr "{name} പേജ് 1-ൽ ചേർത്തു"
 #: src/features/career/hooks.ts
 msgid "{name} didn't respond. Nothing was changed; try again."
 msgstr "{name} പ്രതികരിച്ചില്ല. ഒന്നും മാറ്റിയിട്ടില്ല; വീണ്ടും ശ്രമിക്കുക."
+
+#: src/features/settings/account/import/archive.ts
+msgid "{name} in this zip isn't valid JSON."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "{name} is split into {columns} columns"
@@ -1467,6 +1535,10 @@ msgstr "{domain}.com പോലെയുള്ള ഡൊമെയ്ൻ അവസ
 msgid "Add to calendar"
 msgstr "കലണ്ടറിലേക്ക് ചേർക്കുക"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Add to mine"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add to pipeline"
 msgstr "പൈപ്പ്ലൈനിലേക്ക് ചേർക്കുക"
@@ -1505,6 +1577,10 @@ msgstr "{1}-ൽ {0} ചേർത്തു"
 #: src/features/career/shared.tsx
 msgid "Added by you"
 msgstr "നിങ്ങൾ ചേർത്തത്"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Added records come in as new ones, so tidy up afterwards in Knowledge, Curate. Public resumes come in private, and schedules come in switched off."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Added to Knowledge as a preference."
@@ -1605,6 +1681,7 @@ msgstr "വിശദാംശങ്ങൾ പൂരിപ്പിക്കാ�
 msgid "AI edit"
 msgstr "AI എഡിറ്റ്"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "AI limits"
 msgstr ""
@@ -1958,11 +2035,16 @@ msgstr "അപേക്ഷ അപ്ഡേറ്റ് ചെയ്തു"
 msgid "Application updated."
 msgstr "അപേക്ഷ അപ്ഡേറ്റ് ചെയ്തു."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Application workspaces"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2246,6 +2328,7 @@ msgid "BA, Communication Design"
 msgstr "ബിഎ, കമ്മ്യൂണിക്കേഷൻ ഡിസൈൻ"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Back"
 msgstr "തിരികെ"
 
@@ -2334,6 +2417,10 @@ msgstr "സമർപ്പിക്കുന്നതിന് മുമ്പ�
 msgid "Behavioral"
 msgstr "ബിഹേവിയറൽ"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "belonged to something that wasn't imported"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "ബെംഗാളി"
@@ -2417,6 +2504,14 @@ msgstr "ബ്രീഫിംഗ് പുതുക്കൽ ഓണാണ് · 
 msgid "Briefing refresh paused"
 msgstr "ബ്രീഫിംഗ് പുതുക്കൽ താൽക്കാലികമായി നിർത്തി"
 
+#: src/features/settings/account/data.tsx
+msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Bring in documents, applications and Knowledge from an Export everything zip, made in Reactive Resume or {APP_NAME}."
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
 msgstr "നിങ്ങളുടെ റെസ്യൂമെ നിർമ്മിക്കുക"
@@ -2498,6 +2593,7 @@ msgstr "സോഫ്റ്റ്‌വെയറിന് നിങ്ങളു�
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
@@ -2508,6 +2604,10 @@ msgstr "റദ്ദാക്കുക"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "കരിയർ"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Career preferences"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -2739,6 +2839,10 @@ msgstr "അതിൻ്റെ ഡിസൈനുമായി പൊരുത്�
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "2 MB വരെയുള്ള WebM, MP4, MP3, WAV അല്ലെങ്കിൽ Ogg ഫയൽ തിരഞ്ഞെടുക്കുക."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose an account export"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
 msgstr "ഒരു തൊഴിൽ അപേക്ഷ തിരഞ്ഞെടുക്കുക..."
@@ -2754,6 +2858,10 @@ msgstr "മറ്റൊരു ഫയൽ തിരഞ്ഞെടുക്കു�
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "നിറം തിരഞ്ഞെടുക്കുക"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose the zip"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2817,6 +2925,7 @@ msgstr "ക്ലയൻ്റ് ഐഡി"
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/resume/editor/check/page-layer.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/builder/$resumeId/-components/share-sheet.tsx
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Close"
@@ -2862,6 +2971,10 @@ msgstr "കോച്ച്"
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Coach and Assistant replies"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Coach conversations"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3149,12 +3262,17 @@ msgstr "സംഭാഷണത്തിന്റെ പേര്"
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Conversations"
 msgstr "സംഭാഷണങ്ങൾ"
 
 #: src/features/career/coach.tsx
 msgid "Conversations about one job live in its workspace."
 msgstr "ഒരു ജോലിയെക്കുറിച്ചുള്ള സംഭാഷണങ്ങൾ അതിന്റെ വർക്ക്‌സ്‌പേസിലാണ്."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Conversations continue with your own AI provider."
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Cooking"
@@ -3332,6 +3450,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
 msgstr "ഫയൽ അറ്റാച്ചുചെയ്യാനായില്ല."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "couldn't be read"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't change it."
@@ -4285,6 +4407,7 @@ msgstr "ഡോക്യുമെന്റേഷൻ"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Documents"
 msgstr "പ്രമാണങ്ങൾ"
@@ -4312,6 +4435,7 @@ msgid "Donate"
 msgstr "സംഭാവന ചെയ്യുക"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "ചെയ്തു"
@@ -4485,6 +4609,10 @@ msgstr "ഇവിടെ ഒരു PDF ഇടുക അല്ലെങ്കി�
 #: src/features/documents/documents-page.tsx
 msgid "Drop a PDF, Word or JSON file"
 msgstr "ഒരു PDF, Word അല്ലെങ്കിൽ JSON ഫയൽ ഡ്രോപ്പ് ചെയ്യുക"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Drop the pronouns and start from the verb. That is the convention in most markets."
@@ -4961,10 +5089,6 @@ msgstr "കയറ്റുമതി ചെയ്ത pipeline-flow.png"
 msgid "Extra high"
 msgstr ""
 
-#: src/features/resume/import/read-file.ts
-msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
-msgstr "ഈ അക്കൗണ്ട് ആർക്കൈവ് എക്‌സ്‌ട്രാക്‌റ്റുചെയ്യുക, തുടർന്ന് അതിൻ്റെ റെസ്യൂമെകളിൽ നിന്നോ അക്ഷരങ്ങളുടെ ഫോൾഡറിൽ നിന്നോ ഒരു JSON ഫയൽ ഇറക്കുമതി ചെയ്യുക."
-
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Extracted from the PDF on the page · reading order"
 msgstr "പേജിലെ PDF ൽ നിന്ന് എക്‌സ്‌ട്രാക്‌റ്റുചെയ്‌തു · വായന ക്രമം"
@@ -4981,6 +5105,10 @@ msgstr ""
 msgid "Fact forgotten"
 msgstr "വസ്തുത മറന്നു"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Fact groups"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact type"
 msgstr "വസ്തുതയുടെ തരം"
@@ -4990,6 +5118,7 @@ msgid "facts"
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "വസ്തുതകൾ"
@@ -5434,6 +5563,14 @@ msgstr "ഫ്രഞ്ച്"
 msgid "From"
 msgstr "നിന്ന്"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}, exported {exported}."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From a debrief"
 msgstr "ഒരു അവലോകനത്തിൽ നിന്ന്"
@@ -5786,6 +5923,11 @@ msgstr "ഹോം"
 msgid "Horizontal line"
 msgstr "തിരശ്ചീന രേഖ"
 
+#. placeholder {0}: labels[area]
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How {0} come in"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "അത് എങ്ങനെ പോയി?"
@@ -5814,6 +5956,10 @@ msgstr "ആഴ്ചയിൽ എത്ര ദിവസം ഓഫീസിൽ �
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "എത്ര ദിവസത്തെ അവധി ലഭിക്കും?"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How much Knowledge the AI reads, and time limits. Off keeps yours."
+msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
@@ -5910,6 +6056,7 @@ msgid "Images cover most of the page."
 msgstr "ചിത്രങ്ങൾ പേജിന്റെ ഭൂരിഭാഗവും മൂടുന്നു."
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import"
 msgstr "ഇംപോർട്ട്"
 
@@ -5921,9 +6068,18 @@ msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ്യുക, ജോലിക്കായി ഒരെണ്ണം പകർത്തുക, അല്ലെങ്കിൽ ശൂന്യമായി തുടങ്ങുക."
 
+#: src/features/settings/account/data.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import an export"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
 msgstr "ഇറക്കുമതി failed. CSV പരിശോധിച്ച് again പരീക്ഷിക്കുക."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import finished"
+msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -5947,6 +6103,7 @@ msgid "Import progress"
 msgstr "ഇറക്കുമതി പുരോഗതി"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "ഇറക്കുമതി ഘട്ടങ്ങൾ"
 
@@ -5957,6 +6114,10 @@ msgstr ""
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "നിങ്ങളുടെ നിലവിലെ ബയോഡാറ്റ ഇമ്പോർട്ടുചെയ്യുക, നിങ്ങൾക്ക് പരിഷ്‌ക്കരിക്കാൻ ഞങ്ങൾ എല്ലാ വിഭാഗങ്ങളും നിരത്തും. അല്ലെങ്കിൽ പുതുതായി തുടങ്ങുക. നിങ്ങളുടെ പേരിൽ ആരംഭിക്കുക. അവിടെ നിന്ന് നിർമ്മിക്കുക."
+
+#: src/features/settings/account/data.tsx
+msgid "Import…"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
@@ -6288,6 +6449,10 @@ msgstr "തൊഴിൽ പരസ്യം <0>· ഐച്ഛികം, കീ�
 msgid "Job posting link"
 msgstr "ജോലി പോസ്റ്റിംഗ് ലിങ്ക്"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Job search"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
 msgstr "ജോലി തിരയൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ ജോലി പോസ്റ്റിംഗ് ലിങ്ക് ഒട്ടിക്കുക."
@@ -6459,6 +6624,7 @@ msgstr "ഖെമർ"
 msgid "Kind regards,"
 msgstr "വിശ്വസ്തതയോടെ,"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Knowledge"
@@ -6466,6 +6632,10 @@ msgstr "അറിവ്"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Knowledge budget"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Knowledge choices for applications"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -6688,11 +6858,16 @@ msgstr "ലെറ്റർ ബോഡി"
 msgid "Letter details"
 msgstr "കത്തിൻ്റെ വിശദാംശങ്ങൾ"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Letter links"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Letter page"
 msgstr "കത്ത് പേജ്"
 
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Letters"
 msgstr "ലെറ്ററുകൾ"
 
@@ -7204,6 +7379,7 @@ msgstr "കോച്ചിന് സന്ദേശം അയയ്ക്കു�
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Messages"
 msgstr "സന്ദേശങ്ങൾ"
 
@@ -8264,6 +8440,10 @@ msgstr "ഒരേസമയം ആദ്യത്തെ {MAX_IMPORT} വരിക
 msgid "Only the first pages were checked."
 msgstr "ആദ്യത്തെ പേജുകൾ മാത്രമേ പരിശോധിച്ചുള്ളൂ."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "only their names are in the export"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
 msgstr ""
@@ -8870,6 +9050,10 @@ msgstr "ജോലി പോസ്റ്റിംഗ് ഉറവിടം"
 msgid "Posting terms in your resume"
 msgstr "ജോലിയുടെ നിബന്ധനകൾ നിങ്ങളുടെ റെസ്യൂമെയിൽ രേഖപ്പെടുത്തുന്നു"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Postings found"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/saved.tsx
 msgid "Practice"
@@ -8926,6 +9110,7 @@ msgstr "പ്രിഫറൻസ്"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/index.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Preferences"
@@ -9735,13 +9920,25 @@ msgstr "പോസ്റ്റിംഗ് തന്നെ ഉപയോഗിക�
 msgid "Replace"
 msgstr "മാറ്റിസ്ഥാപിക്കുക"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace and import"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace icon fonts with plain text, then re-export."
 msgstr "ഐക്കൺ ഫോണ്ടുകൾക്ക് പകരം സാധാരണ ടെക്സ്റ്റ് ഉപയോഗിച്ച് വീണ്ടും എക്സ്പോർട്ട് ചെയ്യുക."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace mine"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace tables with plain paragraphs and lists. Cells extract in storage order, not reading order."
 msgstr "ടേബിളുകൾക്ക് പകരം സാധാരണ ഖണ്ഡികകളും ലിസ്റ്റുകളും ഉപയോഗിക്കുക. സെല്ലുകൾ വായനാ ക്രമത്തിലല്ല, സംഭരണ ക്രമത്തിലാണ് എക്‌സ്ട്രാക്റ്റ് ചെയ്യുന്നത്."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace what you have?"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
@@ -9900,6 +10097,10 @@ msgstr "റെസ്യൂമേ ഫയൽ"
 msgid "Resume length"
 msgstr ""
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Resume length and reminders. Off keeps yours."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
 msgstr "റെസ്യൂമെ പേജ്"
@@ -9912,6 +10113,7 @@ msgstr "റെസ്യൂമെ സമർപ്പിച്ചു (ഓപ്ഷ
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Resumes"
 msgstr "റെസ്യൂമെകൾ"
 
@@ -10288,6 +10490,10 @@ msgstr "ജോലി അപേക്ഷയായി സംരക്ഷിച്�
 msgid "Saved description"
 msgstr "സംരക്ഷിച്ച വിവരണം"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Saved items"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Saved just now"
 msgstr "ഇപ്പോൾ സേവ് ചെയ്തു"
@@ -10369,8 +10575,13 @@ msgid "Scheduled work isn't available on this server."
 msgstr "ഷെഡ്യൂൾ ചെയ്ത ജോലികൾ ഈ സെർവറിൽ ലഭ്യമല്ല."
 
 #: src/features/career/today.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Schedules"
 msgstr "ഷെഡ്യൂളുകൾ"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Schedules came in switched off. Turn on the ones you want."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
@@ -10692,6 +10903,7 @@ msgid "Set up web search in Settings"
 msgstr "സെറ്റിംഗ്സിൽ വെബ് തിരയൽ സജ്ജമാക്കുക"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
@@ -11395,6 +11607,7 @@ msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "കഥകൾ"
@@ -11681,6 +11894,10 @@ msgstr "തമിഴ്"
 msgid "Target roles"
 msgstr "ലക്ഷ്യമിടുന്ന റോളുകൾ"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Target roles, locations, pay and what matters to you. Off keeps yours."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Task"
@@ -11961,6 +12178,10 @@ msgstr "ഫയൽ ഒരു റെസ്യൂമെ ആയി വായിക�
 msgid "The greeting follows the name."
 msgstr "പേരിന് പിന്നാലെയാണ് ആശംസ."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The import stopped. Try again."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "the key"
 msgstr "താക്കോൽ"
@@ -12139,6 +12360,10 @@ msgstr "സേവന ക്വാട്ട തീർന്നു."
 msgid "The service rejected the credentials."
 msgstr "സേവനം യോഗ്യതാപത്രങ്ങൾ നിരസിച്ചു."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The steps marked done were imported. Nothing from the failed step was saved."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "The test didn't run."
 msgstr "പരീക്ഷണം നടന്നില്ല."
@@ -12174,6 +12399,10 @@ msgstr "പ്രൊഫൈൽ, പോർട്ട്‌ഫോളിയോ അല
 #: src/features/ats-checker/messages.ts
 msgid "There is no summary paragraph."
 msgstr "സംഗ്രഹ ഖണ്ഡിക ഇല്ല."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "These are deleted before the import, and can't be brought back:"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
@@ -12278,6 +12507,14 @@ msgstr "ഈ ഫയലിൽ അദൃശ്യമായി വരച്ച ട�
 msgid "This file contains white-on-white text."
 msgstr "ഈ ഫയലിൽ വെള്ളയിൽ വെള്ള ടെക്സ്റ്റ് അടങ്ങിയിരിക്കുന്നു."
 
+#: src/features/settings/account/import/archive.ts
+msgid "This file couldn't be read as a zip. Choose the zip that Export everything downloaded."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "This file couldn't be read."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file declares no language."
 msgstr "ഈ ഫയൽ ഒരു ഭാഷയും പ്രഖ്യാപിക്കുന്നില്ല."
@@ -12313,6 +12550,10 @@ msgstr "ഈ ഫയൽ Type 3 ഫോണ്ടുകൾ ഉപയോഗിക്�
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "ഇത് ഒരു PDF പോർട്ട്‌ഫോളിയോ ആണ്: ദൃശ്യമായ പേജ് ഒരു കവർ മാത്രമാണ്."
+
+#: src/features/resume/import/read-file.ts
+msgid "This is an account export. Import all of it in Settings, Your data, Import an export, or extract it and import a JSON file from its resumes or letters folder."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This is an XFA form, so most software reads only the empty shell."
@@ -12441,6 +12682,14 @@ msgstr "ഈ ആഴ്ച: നിങ്ങളുടെ തെളിവുകൾ �
 #: src/features/career/workspace/shell.tsx
 msgid "This workspace couldn't be loaded."
 msgstr "ഈ വർക്ക്‌സ്‌പേസ് ലോഡ് ചെയ്യാനായില്ല."
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip is too large to be an account export."
+msgstr ""
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip isn't an account export. Use the zip from Settings, Your data, Export everything, in Reactive Resume or {APP_NAME}."
+msgstr ""
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
@@ -12581,6 +12830,10 @@ msgstr "{model} ഉപയോഗിച്ച് ട്രാൻസ്ക്രൈ
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "ട്രാൻസ്ക്രിപ്റ്റ് പകർത്തി"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Transcripts"
+msgstr ""
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13353,6 +13606,10 @@ msgstr "ഓരോ ആവശ്യകതയും വിലയിരുത്ത�
 msgid "Went well"
 msgstr "നന്നായി പോയി"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "were already in your account"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
 msgstr "ഒരു പാഴ്‌സർ വായിക്കുന്നത്"
@@ -13854,6 +14111,10 @@ msgstr "നിങ്ങളുടെ AI കണക്ഷൻ"
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "നിങ്ങളുടെ ഉത്തരം"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Your applications stay, but lose their linked resumes and letters."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 #: src/features/homepage/prepare.tsx

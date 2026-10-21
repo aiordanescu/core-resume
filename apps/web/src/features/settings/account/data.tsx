@@ -16,9 +16,11 @@ import {
 import { Button } from "@reactive-resume/ui/components/button";
 import { Input } from "@reactive-resume/ui/components/input";
 import { toast } from "@reactive-resume/ui/components/toast";
+import { APP_NAME } from "@reactive-resume/utils/brand";
 import { downloadWithAnchor } from "@reactive-resume/utils/file";
 import { SettingsRow, SettingsSection } from "../section";
 import { buildAccountZip } from "./export";
+import { ImportAccountDialog } from "./import/import-account-dialog";
 import { applicationsListQueryOptions } from "@/features/applications/queries";
 import { authClient } from "@/libs/auth/client";
 import { getReadableErrorMessage } from "@/libs/error-message";
@@ -30,6 +32,7 @@ type DataSectionProps = { openDeletion?: boolean };
 
 export function DataSection({ openDeletion = false }: DataSectionProps) {
 	const [deleting, setDeleting] = useState(openDeletion);
+	const [importing, setImporting] = useState(false);
 
 	const exportAll = useMutation({
 		mutationFn: async () => {
@@ -52,6 +55,14 @@ export function DataSection({ openDeletion = false }: DataSectionProps) {
 				</Button>
 			</SettingsRow>
 			<SettingsRow
+				title={<Trans>Import an export</Trans>}
+				description={<Trans>Bring in an Export everything zip from Reactive Resume or {APP_NAME}</Trans>}
+			>
+				<Button size="sm" variant="secondary" onClick={() => setImporting(true)}>
+					<Trans>Import…</Trans>
+				</Button>
+			</SettingsRow>
+			<SettingsRow
 				title={<Trans>Delete account</Trans>}
 				description={<Trans>Permanently removes everything. Export first if you want a copy.</Trans>}
 			>
@@ -64,6 +75,7 @@ export function DataSection({ openDeletion = false }: DataSectionProps) {
 					<Trans>Delete…</Trans>
 				</Button>
 			</SettingsRow>
+			<ImportAccountDialog open={importing} onOpenChange={setImporting} />
 			<DeleteAccountDialog open={deleting} onOpenChange={setDeleting} />
 		</SettingsSection>
 	);

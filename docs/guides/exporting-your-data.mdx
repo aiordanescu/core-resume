@@ -26,28 +26,55 @@ You can download a copy of everything you have stored in Reactive Resume in one 
 
 ## What's in the zip
 
-| File                | Contents                                                                                                                                                  |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account.json`      | Your name, email, username, photo address, timezone, whether your email is verified, and when the account was created and last updated.                   |
-| `applications.json` | Every job application with its status, job details, notes, contacts, follow-ups and activity.                                                             |
-| `resumes/`          | One JSON file per resume, including those in the trash. Each holds the resume's name, public address, tags, sharing settings and the full resume content. |
-| `letters/`          | One JSON file per cover letter.                                                                                                                           |
+| File                | Contents                                                                                                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `account.json`      | Your name, email, username, photo address, resume length and reminder settings, whether your email is verified, and when the account was created and last updated. |
+| `applications.json` | Every job application with its status, job details, notes, contacts, follow-ups and activity.                                                                      |
+| `resumes/`          | One JSON file per resume, including those in the trash. Each holds the resume's name, public address, tags, sharing settings and the full resume content.          |
+| `letters/`          | One JSON file per cover letter.                                                                                                                                    |
 
-`career.json` contains your preferences, facts and their source/correction history, stories, workspace answers and checklist state, saved results, schedules, notifications, discovered roles, voice transcripts, and career conversations with attachment metadata. It does not include raw voice recordings or the attachments' binary files.
+`career.json` contains your preferences, AI limits, facts and their source/correction history, fact groups and per-application choices, stories, workspace answers and checklist state, saved results, schedules, notifications, discovered roles, voice transcripts, and career conversations with attachment metadata. It does not include raw voice recordings or the attachments' binary files.
 
 Each resume and letter file is named after the document plus a unique ID, so two documents with the same name don't overwrite each other.
 
 The archive doesn't include your password, passkeys, two-step verification codes, API keys or AI provider keys. Uploaded images, such as resume photos, are listed by their address rather than included as files.
 
-<Tip>
-  To restore a resume or letter, extract the archive and import its individual JSON file from `resumes/` or `letters/`.
-  Resume content and design are restored as a new document; account settings, document sharing settings and application
-  links are not restored. The whole zip is an account backup, not a bulk-import file. You can also download one resume
-  as **JSON** from the **Share** sheet. See [Importing resumes](/guides/importing-resumes).
-</Tip>
+## Import an export
+
+You can bring a whole export back in, into this account or another one. It works with exports from Reactive Resume and from All That Work.
+
+<Steps>
+  <Step title="Open Import an export">
+    In **Settings**, **Account**, **Your data**, select **Import…** next to **Import an export**, then choose the zip. It's read in your browser first, and nothing is saved until you select **Import**.
+  </Step>
+
+  <Step title="Choose what to bring in">
+    Each area has a switch: **Documents**, **Applications**, **Knowledge**, **Job search** and **Coach conversations**. For each one you choose:
+
+    - **Add to mine**: everything comes in as new records next to what you have. Tidy up duplicates afterwards in **Knowledge**, **Curate**. A fact you already have from the same source is skipped.
+    - **Replace mine**: everything you have in that area is deleted first. You confirm this, and the confirmation lists what will be deleted. Replacing **Applications** also deletes the facts, stories, saved items, schedules and conversations tied to them.
+
+    **Preferences**, **AI limits** and **Career preferences** keep yours unless you switch them on.
+
+  </Step>
+
+  <Step title="Check the result">
+    When it's done you see what came in, and anything that was skipped and why.
+  </Step>
+</Steps>
+
+Some things don't come back the way they were:
+
+- Resumes that were public come in private. Share them again from each resume.
+- Schedules come in switched off.
+- Conversations continue with your own AI provider. Attachments aren't imported, since the export only lists them.
+- The versions saved when an application was sent aren't in the export, so applications keep their linked resume and letter but not those versions.
+
+To restore a single resume or letter instead, extract the archive and import its JSON file from `resumes/` or `letters/`. See [Importing resumes](/guides/importing-resumes).
 
 ## Related guides
 
 - [Exporting your resume](/guides/exporting-your-resume): PDF, Word, OpenDocument, Markdown and JSON for a single resume.
 - [Importing resumes](/guides/importing-resumes): bring a resume file into Reactive Resume.
+- [Building career knowledge](/guides/building-career-knowledge): curate facts after an import.
 - [Deleting your account](/guides/deleting-your-account): remove your account and everything in it.

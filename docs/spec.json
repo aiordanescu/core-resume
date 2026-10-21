@@ -29372,6 +29372,19 @@
 														}
 													]
 												},
+												"resumePages": {
+													"type": "integer",
+													"minimum": -2147483648,
+													"maximum": 2147483647
+												},
+												"noReplyDays": {
+													"type": "integer",
+													"minimum": -2147483648,
+													"maximum": 2147483647
+												},
+												"interviewReminders": {
+													"type": "boolean"
+												},
 												"emailVerified": {
 													"type": "boolean"
 												},
@@ -29393,6 +29406,9 @@
 												"username",
 												"displayUsername",
 												"image",
+												"resumePages",
+												"noReplyDays",
+												"interviewReminders",
 												"emailVerified",
 												"createdAt",
 												"updatedAt"
@@ -33577,6 +33593,10 @@
 														"format": "date-time",
 														"x-native-type": "date",
 														"description": "The date and time the resume was last updated."
+													},
+													"slugChosen": {
+														"type": "boolean",
+														"description": "The owner chose the public address."
 													}
 												},
 												"required": [
@@ -33589,7 +33609,8 @@
 													"isLocked",
 													"data",
 													"createdAt",
-													"updatedAt"
+													"updatedAt",
+													"slugChosen"
 												]
 											}
 										},
@@ -35003,6 +35024,97 @@
 															"default": "ask"
 														}
 													}
+												},
+												"aiLimits": {
+													"anyOf": [
+														{
+															"type": "object",
+															"properties": {
+																"coachFacts": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 1000,
+																	"default": 30
+																},
+																"coachStories": {
+																	"type": "integer",
+																	"minimum": 0,
+																	"maximum": 200,
+																	"default": 8
+																},
+																"searchFactChars": {
+																	"type": "integer",
+																	"minimum": 2000,
+																	"maximum": 1000000,
+																	"default": 12000
+																},
+																"searchStoryChars": {
+																	"type": "integer",
+																	"minimum": 2000,
+																	"maximum": 1000000,
+																	"default": 16000
+																},
+																"actionFactChars": {
+																	"type": "integer",
+																	"minimum": 2000,
+																	"maximum": 1000000,
+																	"default": 10000
+																},
+																"actionStoryChars": {
+																	"type": "integer",
+																	"minimum": 2000,
+																	"maximum": 1000000,
+																	"default": 10000
+																},
+																"actionTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 30,
+																	"maximum": 900,
+																	"default": 120
+																},
+																"replyStepTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 30,
+																	"maximum": 840,
+																	"default": 120
+																},
+																"replyTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 60,
+																	"maximum": 840,
+																	"default": 240
+																},
+																"discoveryTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 30,
+																	"maximum": 900,
+																	"default": 90
+																},
+																"webCallTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 10,
+																	"maximum": 120,
+																	"default": 20
+																},
+																"transcriptionTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 10,
+																	"maximum": 600,
+																	"default": 60
+																},
+																"speechTimeoutSeconds": {
+																	"type": "integer",
+																	"minimum": 10,
+																	"maximum": 300,
+																	"default": 30
+																}
+															}
+														},
+														{
+															"type": "null"
+														}
+													],
+													"description": "Settings → AI limits; null uses the defaults."
 												},
 												"facts": {
 													"type": "array",
@@ -37418,6 +37530,7 @@
 											},
 											"required": [
 												"profile",
+												"aiLimits",
 												"facts",
 												"stories",
 												"artifacts",
@@ -37497,6 +37610,1144 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl \"https://allthat.work/api/openapi/auth/account/export\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/auth/account/imports/preview": {
+			"get": {
+				"operationId": "previewAccountImport",
+				"summary": "Count what an account import could replace",
+				"description": "Returns how many records the authenticated user has in each import area, so a client can say what replacing an area deletes. Requires authentication.",
+				"tags": [
+					"Authentication"
+				],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "Counts per import area.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"documents": {
+											"type": "object",
+											"properties": {
+												"resumes": {
+													"type": "number"
+												},
+												"letters": {
+													"type": "number"
+												},
+												"locked": {
+													"type": "number"
+												}
+											},
+											"required": [
+												"resumes",
+												"letters",
+												"locked"
+											]
+										},
+										"applications": {
+											"type": "object",
+											"properties": {
+												"applications": {
+													"type": "number"
+												},
+												"linked": {
+													"type": "number",
+													"description": "Facts, stories, saved items, schedules and conversations tied to an application."
+												}
+											},
+											"required": [
+												"applications",
+												"linked"
+											]
+										},
+										"knowledge": {
+											"type": "object",
+											"properties": {
+												"facts": {
+													"type": "number"
+												},
+												"stories": {
+													"type": "number"
+												},
+												"groups": {
+													"type": "number"
+												}
+											},
+											"required": [
+												"facts",
+												"stories",
+												"groups"
+											]
+										},
+										"jobSearch": {
+											"type": "object",
+											"properties": {
+												"opportunities": {
+													"type": "number"
+												},
+												"schedules": {
+													"type": "number"
+												}
+											},
+											"required": [
+												"opportunities",
+												"schedules"
+											]
+										},
+										"coach": {
+											"type": "object",
+											"properties": {
+												"threads": {
+													"type": "number"
+												}
+											},
+											"required": [
+												"threads"
+											]
+										}
+									},
+									"required": [
+										"documents",
+										"applications",
+										"knowledge",
+										"jobSearch",
+										"coach"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://allthat.work/api/openapi/auth/account/imports/preview\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/auth/account/imports": {
+			"post": {
+				"operationId": "importAccountData",
+				"summary": "Import one area of an account export",
+				"description": "Imports one area (documents, applications, knowledge, jobSearch, coach or settings) of an \"Export everything\" archive from Reactive Resume or All That Work into the authenticated account. Send the areas in that order and pass the ids each one returns to the next. Records get new ids; public resumes come in private; schedules come in switched off. In replace mode the area's existing records are deleted first, in the same transaction. Requires authentication.",
+				"tags": [
+					"Authentication"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"anyOf": [
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "documents"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"resumes": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "Resume files from resumes/ in the archive."
+											},
+											"letters": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "Letter files from letters/ in the archive."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "applications"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"ids": {
+												"type": "object",
+												"properties": {
+													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"letter": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"application": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"fact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"story": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"artifact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"schedule": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"thread": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													}
+												},
+												"default": {},
+												"description": "Old id → new id, per kind, as returned by earlier areas of the same import. New ids the user doesn't own are ignored."
+											},
+											"applications": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "applications.json."
+											},
+											"workspaces": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json workspaces."
+											},
+											"letterLinks": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"properties": {
+														"letterId": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"applicationId": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"required": [
+														"letterId",
+														"applicationId"
+													]
+												},
+												"default": [],
+												"description": "Letters written for an application, by old ids."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "knowledge"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"ids": {
+												"type": "object",
+												"properties": {
+													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"letter": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"application": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"fact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"story": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"artifact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"schedule": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"thread": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													}
+												},
+												"default": {},
+												"description": "Old id → new id, per kind, as returned by earlier areas of the same import. New ids the user doesn't own are ignored."
+											},
+											"facts": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json facts."
+											},
+											"groups": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json factGroups."
+											},
+											"overrides": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json factOverrides."
+											},
+											"stories": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json stories."
+											},
+											"artifacts": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json artifacts (saved items)."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "jobSearch"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"ids": {
+												"type": "object",
+												"properties": {
+													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"letter": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"application": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"fact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"story": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"artifact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"schedule": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"thread": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													}
+												},
+												"default": {},
+												"description": "Old id → new id, per kind, as returned by earlier areas of the same import. New ids the user doesn't own are ignored."
+											},
+											"opportunities": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json opportunities."
+											},
+											"schedules": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json schedules. They come in switched off."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "coach"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"ids": {
+												"type": "object",
+												"properties": {
+													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"letter": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"application": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"fact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"story": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"artifact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"schedule": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"thread": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													}
+												},
+												"default": {},
+												"description": "Old id → new id, per kind, as returned by earlier areas of the same import. New ids the user doesn't own are ignored."
+											},
+											"threads": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json threads."
+											},
+											"messages": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json messages."
+											},
+											"transcripts": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "career.json transcripts."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
+												"const": "settings"
+											},
+											"preferences": {
+												"anyOf": [
+													{
+														"type": "object",
+														"propertyNames": {
+															"type": "string"
+														},
+														"additionalProperties": {}
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null,
+												"description": "account.json user."
+											},
+											"aiLimits": {
+												"anyOf": [
+													{
+														"type": "object",
+														"propertyNames": {
+															"type": "string"
+														},
+														"additionalProperties": {}
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null,
+												"description": "career.json aiLimits."
+											},
+											"profile": {
+												"anyOf": [
+													{
+														"type": "object",
+														"propertyNames": {
+															"type": "string"
+														},
+														"additionalProperties": {}
+													},
+													{
+														"type": "null"
+													}
+												],
+												"default": null,
+												"description": "career.json profile."
+											}
+										},
+										"required": [
+											"area"
+										]
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "What was added and skipped, and the new ids.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"ids": {
+											"type": "object",
+											"properties": {
+												"resume": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"letter": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"application": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"fact": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"story": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"artifact": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"schedule": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"thread": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												}
+											},
+											"default": {},
+											"description": "Old id → new id, per kind, as returned by earlier areas of the same import. New ids the user doesn't own are ignored."
+										},
+										"added": {
+											"type": "object",
+											"propertyNames": {
+												"type": "string"
+											},
+											"additionalProperties": {
+												"type": "integer",
+												"minimum": -9007199254740991,
+												"maximum": 9007199254740991
+											},
+											"description": "Records added, by kind."
+										},
+										"skipped": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"kind": {
+														"type": "string"
+													},
+													"reason": {
+														"enum": [
+															"unreadable",
+															"unlinked",
+															"exists",
+															"files"
+														],
+														"type": "string",
+														"description": "unreadable: not valid; unlinked: tied to something not imported; exists: already in the account; files: the file isn't in the export."
+													},
+													"count": {
+														"type": "integer",
+														"minimum": -9007199254740991,
+														"maximum": 9007199254740991
+													}
+												},
+												"required": [
+													"kind",
+													"reason",
+													"count"
+												]
+											},
+											"default": []
+										},
+										"madePrivate": {
+											"type": "integer",
+											"minimum": -9007199254740991,
+											"maximum": 9007199254740991,
+											"default": 0,
+											"description": "Resumes that were public and came in private."
+										}
+									},
+									"required": [
+										"added"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/auth/account/imports\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"area\": \"documents\"\n}'"
 					}
 				]
 			}

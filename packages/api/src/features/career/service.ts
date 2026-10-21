@@ -1583,6 +1583,7 @@ export const careerService = {
 	exportData: async (userId: string) => {
 		const [
 			profile,
+			profileRow,
 			facts,
 			stories,
 			artifacts,
@@ -1600,6 +1601,10 @@ export const careerService = {
 			reviews,
 		] = await Promise.all([
 			careerService.profile(userId),
+			db
+				.select({ aiLimits: tables.careerProfile.aiLimits })
+				.from(tables.careerProfile)
+				.where(eq(tables.careerProfile.userId, userId)),
 			db.select().from(tables.careerFact).where(eq(tables.careerFact.userId, userId)),
 			db.select().from(tables.careerStory).where(eq(tables.careerStory.userId, userId)),
 			db.select().from(tables.careerArtifact).where(eq(tables.careerArtifact.userId, userId)),
@@ -1618,6 +1623,7 @@ export const careerService = {
 		]);
 		return {
 			profile,
+			aiLimits: profileRow[0]?.aiLimits ?? null,
 			facts,
 			stories,
 			artifacts,

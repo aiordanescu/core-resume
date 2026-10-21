@@ -7,7 +7,7 @@ import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const remove = vi.hoisted(() => vi.fn());
-vi.mock("@tanstack/react-router", () => ({ useNavigate: () => vi.fn() }));
+vi.mock("@tanstack/react-router", () => ({ useNavigate: () => vi.fn(), useRouter: () => ({ invalidate: vi.fn() }) }));
 vi.mock("@/libs/auth/client", () => ({ authClient: { apiKey: { list: async () => ({ data: { apiKeys: [] } }) } } }));
 vi.mock("@/libs/orpc/client", () => ({
 	client: { auth: { deleteAccount: remove } },
