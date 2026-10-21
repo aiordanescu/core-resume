@@ -2,6 +2,11 @@ packages:
   - apps/*
   - packages/*
   - tooling
+  # All That Work doesn't build or ship upstream's native app; see FORK.md.
+  - "!apps/mobile"
+  - "!packages/forme-native"
+# The mobile app's patch in patchedDependencies has nothing to apply to while it's excluded.
+allowUnusedPatches: true
 catalogMode: prefer
 catalog:
   "@better-auth/api-key": "1.7.10"
