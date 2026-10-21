@@ -1879,6 +1879,17 @@ msgstr "தலைப்பைப் பெற்றவுடன் பக்க�
 msgid "Appears on the page once it has an organization."
 msgstr "அது ஒரு அமைப்பைப் பெற்றவுடன் பக்கத்தில் தோன்றும்."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple திரும்பப் பெறுவதற்கான வழிமுறைகள்"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "விண்ணப்பதாரர் கண்காணிப்பு அமைப்புகள் உங்கள் PDF ஐ எவரும் படிக்கும் முன் எளிய உரையாக மாற்றும். உங்கள் உலாவியில் உள்ள PDF.js லைப்ரரியில் சரிபார்ப்பவரும் அதையே செய்கிறார், பின்னர் உங்கள் ரெஸ்யூம் எவ்வளவு உயிர்வாழும் என்பதை 0 முதல் 100 வரை மதிப்பெண்கள் எடுக்கும், உரை எவ்வளவு நம்பகத்தன்மையுடன் வெளிவருகிறது, வேலை கிடைப்பதற்கான வாய்ப்புகளிலிருந்து அல்ல."
@@ -5878,6 +5889,14 @@ msgstr "இது உங்கள் அனுபவத்தின் ஒரு
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "யாராவது உங்களுக்கு இந்த இணைப்பை அனுப்பியிருந்தால், அவர்களிடம் புதிய ஒன்றைக் கேட்கவும்."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "ஆப்ஸ் திறக்கப்படவில்லை என்றால், அது நிறுவப்பட்ட சாதனத்தில் மீண்டும் முயற்சிக்கவும்."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "நீங்கள் Apple உடன் உள்நுழைவதைப் பயன்படுத்தியிருந்தால் மற்றும் Reactive Resume நீக்கப்பட்ட பிறகும் உங்கள் Apple கணக்கில் பட்டியலிடப்பட்டிருந்தால், அதன் அணுகலையும் அகற்றவும்."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "புறக்கணிக்கவும்"
@@ -8322,6 +8341,10 @@ msgstr "கதையைத் திற"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "ஏற்றுமதி செய்யப்பட்ட கோப்பைத் திறந்து அதன் ஒவ்வொரு பகுதியையும் தேர்ந்தெடுத்து நகலெடுக்க முடிகிறதா என்பதை உறுதிப்படுத்தவும்."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Reactive Resume பயன்பாட்டைத் திறக்கவும்"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "பத்திரிகைக் கட்டுரை போல அமைக்கப்பட்ட ஒற்றை நெடுவரிசை: பெரிய எழுத்துகளிலான மேல்வரிக்குக் கீழே பெரிய பெயர், சுருக்கம் பெரிய அறிமுகப் பத்தியாக; எழுத்தாளர்கள், வடிவமைப்பாளர்கள் மற்றும் தகவல்தொடர்புப் பணிகளுக்காகச் செம்மைப்படுத்தப்பட்டது."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "மையப்படுத்தப்பட்ட தலைப்பகுதி மற்றும் கோடுகளால் பிரிக்கப்பட்ட பிரிவுத் தலைப்புகளுடன் கூடிய ஒற்றை நெடுவரிசை வால் ஸ்ட்ரீட் பாணி."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "மஜெண்டா நிற இடது எல்லை அமைப்புடன் ஒற்றை நெடுவரிசை; ஆரம்ப நிலை அல்லது இன்டர்ன்ஷிப் விண்ணப்பங்களுக்கு சுருக்கமானதும் பயனுள்ளதுமான வடிவம்."
 
@@ -12608,6 +12635,10 @@ msgstr "மீண்டும் முயற்சிக்கவும்"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "இதைக் கொண்டு மீண்டும் முயற்சி செய்"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "பயன்பாட்டை மீண்டும் திறக்க முயற்சிக்கவும்"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

@@ -1,9 +1,11 @@
 import { afterEach, expect, it, vi } from "vitest";
-import { loadFonts } from "./fonts";
+import { configureFontReader, downloadFont, loadFonts } from "./fonts";
 
 afterEach(() => {
 	vi.useRealTimers();
 	vi.unstubAllGlobals();
+	vi.unstubAllEnvs();
+	configureFontReader(downloadFont);
 });
 
 const font = (path: string) => ({
@@ -11,6 +13,41 @@ const font = (path: string) => ({
 	weight: 400,
 	italic: false,
 	src: `https://fonts.gstatic.com${path}`,
+});
+
+const computerModernBase = "https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest";
+const mirrorBase = "https://fonts.example.com/cm";
+
+it.each([
+	[undefined, computerModernBase],
+	["", computerModernBase],
+	[mirrorBase, mirrorBase],
+	[`${mirrorBase}/`, mirrorBase],
+	[`${mirrorBase}///`, mirrorBase],
+	[` ${mirrorBase}/ `, mirrorBase],
+])("uses explicit mirror %s without reading the server environment", async (baseUrl, expectedBase) => {
+	vi.stubEnv("WEB_FONT_BASE_URL", "https://unused-env.example/cm");
+	vi.resetModules();
+	const { loadFonts: loadMirroredFonts } = await import("./fonts");
+	const requested: string[] = [];
+	vi.stubGlobal("fetch", (source: URL | string) => {
+		requested.push(String(source));
+		return Promise.resolve(new Response(new Uint8Array([1, 2, 3])));
+	});
+	const requests = [
+		{ ...font(""), src: `${computerModernBase}/font/Bright/cmunbmr.woff` },
+		{ ...font(""), weight: 700, italic: true, src: `${computerModernBase}/font/Bright/cmunbxo.woff` },
+		font("/s/mirror-test/font.ttf"),
+	];
+	expect((await loadMirroredFonts(requests, baseUrl)).missing).toEqual([]);
+	expect(requested).toEqual([
+		`${expectedBase}/font/Bright/cmunbmr.woff`,
+		`${expectedBase}/font/Bright/cmunbxo.woff`,
+		"https://fonts.gstatic.com/s/mirror-test/font.ttf",
+	]);
+	await loadMirroredFonts(requests, baseUrl);
+	expect(requested).toHaveLength(3);
+	expect(requests[0]?.src).toBe(`${computerModernBase}/font/Bright/cmunbmr.woff`);
 });
 
 it("falls back to fonts.gstatic.cn when fonts.gstatic.com doesn't answer, then starts there", async () => {
@@ -55,4 +92,20 @@ it("finishes a slow download that keeps sending, and fails one that stops (#3627
 	await vi.advanceTimersByTimeAsync(300_000);
 	expect((await slow).missing).toEqual([]);
 	expect((await stops).missing).toEqual(["Test"]);
+});
+
+it("uses the configured font reader and native streaming fetch without the global Response constructor", async () => {
+	const bytes = new Uint8Array([0, 1, 0, 0, 7, 8, 9]);
+	const response = new Response(bytes);
+	const fetcher = vi.fn<typeof fetch>().mockResolvedValue(response);
+	vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("Use the native streaming fetch")));
+	vi.stubGlobal("Response", function () {
+		throw new Error("Native Response cannot wrap a stream");
+	});
+	configureFontReader((src) => downloadFont(src, fetcher));
+
+	const loaded = await loadFonts([font("/s/test/native.ttf"), font("/s/test/native.ttf")]);
+	expect(loaded.missing).toEqual([]);
+	expect(loaded.fonts.map((face) => face.src)).toEqual([bytes, bytes]);
+	expect(fetcher).toHaveBeenCalledOnce();
 });

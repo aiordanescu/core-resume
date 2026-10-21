@@ -1879,6 +1879,17 @@ msgstr "一旦有標題就會出現在頁面上。"
 msgid "Appears on the page once it has an organization."
 msgstr "一旦有組織就會出現在頁面上。"
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple撤销指令"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "申請人追蹤系統會在任何人閱讀之前將您的 PDF 轉換為純文字。檢查器也會做同樣的事情，使用瀏覽器中的 PDF.js 庫，然後根據文字的可靠程度，而不是根據您獲得工作的機會，對您的履歷存活率進行評分：0 到 100。"
@@ -5878,6 +5889,14 @@ msgstr "如果它是您體驗的一部分，請將其添加到它所屬的位置
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "如果有人向您發送了此鏈接，請向他們索取一個新鏈接。"
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "如果該應用程式未打開，請在安裝應用程式的裝置上重試。"
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "如果您使用 Apple 登錄，並且刪除後 Reactive Resume 仍列在您的 Apple 帳戶中，也請刪除其存取權限。"
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "忽略"
@@ -8322,6 +8341,10 @@ msgstr "開啟故事"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "開啟匯出的檔案，確認您可以選取並複製其中的每一部分。"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "開啟Reactive Resume應用程式"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "單欄排版，宛如雜誌專題報導：大字姓名位於大寫眉題下方，摘要以較大的導言呈現；精緻典雅，適合作家、設計師與傳播類職位。"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "華爾街風格的單欄版面，採用置中頁首與附分隔線的章節標題。"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "單欄版面，左側具有洋紅色邊框點綴；版面緊湊有效率，適合入門或實習職缺。"
 
@@ -12608,6 +12635,10 @@ msgstr "再試一次"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "用這個再試一次"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "尝试再次打开应用程序"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

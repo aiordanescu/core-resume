@@ -1879,6 +1879,17 @@ msgstr "Objeví se na stránce, jakmile má název."
 msgid "Appears on the page once it has an organization."
 msgstr "Objeví se na stránce, jakmile má organizaci."
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Pokyny k odvolání Apple"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "Sledovací systémy žadatelů změní váš PDF na prostý text dříve, než si jej někdo přečte. Kontrola dělá totéž, s knihovnou PDF.js ve vašem prohlížeči pak vyhodnotí, kolik z vašeho životopisu přežije: 0 až 100 podle toho, jak spolehlivě text vyjde, nikoli podle vašich šancí na získání zakázky."
@@ -5878,6 +5889,14 @@ msgstr "Pokud je to součást vaší zkušenosti, přidejte ji tam, kam patří.
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "Pokud vám někdo poslal tento odkaz, požádejte ho o nový."
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "Pokud se aplikace neotevřela, zkuste to znovu na zařízení, kde je nainstalována."
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "Pokud jste použili Přihlásit se pomocí Apple a Reactive Resume je po smazání stále uveden ve vašem účtu Apple, odeberte mu přístup i tam."
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "Ignorovat"
@@ -8322,6 +8341,10 @@ msgstr "Otevřít příběh"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "Otevřete exportovaný soubor a ověřte, že v něm můžete označit a zkopírovat každou část."
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Otevřete aplikaci Reactive Resume"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "Jeden sloupec sázený jako článek v časopise: velké jméno pod nadtitulkem verzálkami a shrnutí jako větší perex; vytříbené pro spisovatele, designéry a komunikační role."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "Jednosloupcový styl Wall Street s vycentrovaným záhlavím a nadpisy oddílů oddělenými linkami."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "Jednosloupcové s magentovým levým okrajem; kompaktní a efektivní pro juniorské pozice nebo stáže."
 
@@ -12608,6 +12635,10 @@ msgstr "Zkuste to znovu"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "Zkusit znovu s tímto"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "Zkuste aplikaci otevřít znovu"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

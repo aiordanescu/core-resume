@@ -1,5 +1,7 @@
+import type { User } from "better-auth";
 import type { GenericOAuthConfig, GenericOAuthUserInfo } from "better-auth/plugins";
 import type { JWTPayload } from "jose";
+import { AsyncLocalStorage } from "node:async_hooks";
 import { apiKey } from "@better-auth/api-key";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { dash } from "@better-auth/infra";
@@ -64,7 +66,10 @@ export async function verifyOAuthToken(token: string): Promise<JWTPayload> {
 		.limit(1);
 	if (!client || client.disabled)
 		throw new APIError("UNAUTHORIZED", { message: "OAuth client is disabled or deleted." });
-	if (payload.sid !== undefined) {
+	const scopes = typeof payload.scope === "string" ? payload.scope.split(/\s+/).filter(Boolean) : [];
+	// offline_access grants outlive the browser session. After refresh revocation or in-app sign-out,
+	// issued JWT access tokens remain valid for up to 1 h; consent revocation blocks them immediately below.
+	if (payload.sid !== undefined && !scopes.includes("offline_access")) {
 		if (typeof payload.sid !== "string") throw new APIError("UNAUTHORIZED", { message: "Invalid token session." });
 		const [session] = await db
 			.select()
@@ -84,7 +89,6 @@ export async function verifyOAuthToken(token: string): Promise<JWTPayload> {
 		.from(schema.oauthConsent)
 		.where(and(eq(schema.oauthConsent.clientId, payload.azp), eq(schema.oauthConsent.userId, payload.sub)))
 		.limit(1);
-	const scopes = typeof payload.scope === "string" ? payload.scope.split(/\s+/).filter(Boolean) : [];
 	if (
 		!consent ||
 		(payload.rr_grant_id !== undefined
@@ -107,6 +111,7 @@ export function isCustomOAuthProviderEnabled() {
 }
 
 const TRUSTED_ORIGINS = getTrustedOrigins(env.APP_URL);
+const accountUser = new AsyncLocalStorage<User>();
 const oauthProviderRateLimit = isRateLimitEnabled
 	? rateLimitConfig.betterAuth.oauthProvider
 	: ({
@@ -181,7 +186,11 @@ const getAuthConfig = () => {
 		database: drizzleAdapter(db, { schema, provider: "pg" }),
 
 		telemetry: { enabled: false },
-		trustedOrigins: TRUSTED_ORIGINS,
+		trustedOrigins: [
+			...TRUSTED_ORIGINS,
+			// Apple's form_post callback includes this origin; keep CSRF checks enabled.
+			...(env.APPLE_CLIENT_ID && env.APPLE_CLIENT_SECRET ? ["https://appleid.apple.com"] : []),
+		],
 		rateLimit: {
 			...rateLimitConfig.betterAuth.global,
 			...(authRateLimitStorage ? { customStorage: authRateLimitStorage } : {}),
@@ -210,6 +219,27 @@ const getAuthConfig = () => {
 
 		hooks: {
 			before: createAuthMiddleware(async (ctx) => {
+				const user = accountUser.getStore();
+				if (user && !ctx.request && ["/update-user", "/api-key/list", "/api-key/delete"].includes(ctx.path)) {
+					// Internal account calls reuse session-only hooks without creating a browser credential.
+					return {
+						context: {
+							context: {
+								session: {
+									user,
+									session: {
+										id: "",
+										token: "",
+										userId: user.id,
+										createdAt: new Date(0),
+										updatedAt: new Date(0),
+										expiresAt: new Date(0),
+									},
+								},
+							},
+						},
+					};
+				}
 				if (ctx.path === "/sign-in/anonymous" && (!env.FLAG_ENABLE_GUEST_LOGIN || env.FLAG_DISABLE_SIGNUPS)) {
 					throw new APIError("FORBIDDEN", { message: "Guest login is disabled." });
 				}
@@ -374,6 +404,17 @@ const getAuthConfig = () => {
 		},
 
 		socialProviders: {
+			apple: {
+				enabled: !!env.APPLE_CLIENT_ID && !!env.APPLE_CLIENT_SECRET,
+				disableSignUp: env.FLAG_DISABLE_SIGNUPS,
+				clientId: env.APPLE_CLIENT_ID ?? "",
+				clientSecret: env.APPLE_CLIENT_SECRET ?? "",
+				mapProfileToUser: createProfileMapper({
+					providerName: "Apple",
+					getName: (profile, context) => profile.name || context.emailLocalPart,
+				}),
+			},
+
 			google: {
 				enabled: !!env.GOOGLE_CLIENT_ID && !!env.GOOGLE_CLIENT_SECRET,
 				disableSignUp: env.FLAG_DISABLE_SIGNUPS,
@@ -517,6 +558,20 @@ export const auth: Auth = new Proxy({} as Auth, {
 		return Reflect.get(instance, property, instance);
 	},
 });
+
+type ProfileUpdate = { name?: string; username?: string; image?: string | null; timezone?: string };
+
+// Only these server calls can install the identity; their cookie headers never leave this module.
+export const accountAuth = {
+	updateProfile: (user: User, body: ProfileUpdate) =>
+		accountUser.run(user, () =>
+			auth.api.updateUser({
+				body: { ...body, ...(body.username !== undefined ? { displayUsername: body.username } : {}) },
+			}),
+		),
+	listApiKeys: (user: User) => accountUser.run(user, () => auth.api.listApiKeys({})),
+	deleteApiKey: (user: User, keyId: string) => accountUser.run(user, () => auth.api.deleteApiKey({ body: { keyId } })),
+};
 
 export async function initializeAuth(): Promise<void> {
 	await auth.$context;

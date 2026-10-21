@@ -1879,6 +1879,17 @@ msgstr "タイトルが付けられるとページに表示されます。"
 msgid "Appears on the page once it has an organization."
 msgstr "組織が作成されるとページに表示されます。"
 
+#. Authentication provider display name in account settings
+#. Brand name label for Apple social sign-in button
+#: src/features/auth/components/social-auth.tsx
+#: src/features/settings/account/auth-hooks.ts
+msgid "Apple"
+msgstr "Apple"
+
+#: src/features/settings/account/data.tsx
+msgid "Apple revocation instructions"
+msgstr "Apple 失効命令"
+
 #: src/features/ats-checker/checker.tsx
 msgid "Applicant tracking systems turn your PDF into plain text before anyone reads it. The checker does the same, with the PDF.js library in your browser, then scores how much of your resume survives: 0 to 100, from how reliably the text comes out, not from your chances of getting the job."
 msgstr "応募者追跡システムは、誰かが読む前にあなたの PDF をプレーンテキストに変換します。チェッカーは、ブラウザの PDF.js ライブラリを使用して同様のことを行い、就職の可能性ではなく、履歴書がどれだけ残っているかを 0 から 100 までのスコアで評価します。これは、テキストがどれだけ確実に出力されるかによって決まります。"
@@ -5878,6 +5889,14 @@ msgstr "それがあなたの経験の一部である場合は、それが属す
 msgid "If someone sent you this link, ask them for a new one."
 msgstr "誰かがこのリンクを送ってきた場合は、新しいリンクを送ってもらうように依頼してください。"
 
+#: src/routes/auth/native-callback.tsx
+msgid "If the app did not open, try again on a device where it is installed."
+msgstr "アプリが開かなかった場合は、アプリがインストールされているデバイスでもう一度試してください。"
+
+#: src/features/settings/account/data.tsx
+msgid "If you used Sign in with Apple and Reactive Resume is still listed in your Apple Account after deletion, remove its access there too."
+msgstr "Apple でサインインを使用していて、削除後も Reactive Resume が Apple アカウントにまだリストされている場合は、そこでのアクセスも削除します。"
+
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "Ignore"
 msgstr "無視する"
@@ -8322,6 +8341,10 @@ msgstr "ストーリーを開く"
 #: src/features/ats-checker/messages.ts
 msgid "Open the exported file and confirm you can select and copy every part of it."
 msgstr "エクスポートしたファイルを開き、すべての部分を選択・コピーできることを確認してください。"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Open the Reactive Resume app"
+msgstr "Reactive Resume アプリを開きます"
 
 #: src/features/career/today.tsx
 msgid "Open the schedule"
@@ -10952,6 +10975,10 @@ msgid "Single-column set like a magazine feature: a large display name under an 
 msgstr "雑誌の特集記事のような1カラムレイアウト。大文字のキッカーの下に大きな名前を配置し、サマリーを大きめのリード文として表示します。ライター、デザイナー、広報職向けに洗練されています。"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column Wall Street style with a centered header and ruled section headings."
+msgstr "中央揃えのヘッダーと罫線付きのセクション見出しを備えた、ウォール街スタイルの1カラムレイアウト。"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column with a magenta left border accent; compact and efficient for entry-level or internship applications."
 msgstr "マゼンタの左ボーダーアクセントが付いた 1 カラムのレイアウト。コンパクトで、初級職やインターンシップの応募に最適です。"
 
@@ -12608,6 +12635,10 @@ msgstr "もう一度やり直してください"
 #: src/features/career/workspace/practise.tsx
 msgid "Try again with this"
 msgstr "これでもう一度試す"
+
+#: src/routes/auth/native-callback.tsx
+msgid "Try opening the app again"
+msgstr "アプリをもう一度開いてみてください"
 
 #: src/features/homepage/faq.tsx
 msgid "Try the ATS checker"

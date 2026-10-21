@@ -1,0 +1,59 @@
+import type { ApplicationsView } from "@/routes";
+import type { ReactNode } from "react";
+import { useLingui } from "@lingui/react/macro";
+import { useRouter, Stack } from "expo-router";
+import { View } from "react-native";
+import { SafeAreaInsetsContext, SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { CollectionHeader } from "@/components/collection-header";
+import { routes } from "@/routes";
+import { Segmented, Text, useTheme } from "@/ui";
+
+type ApplicationsViewFrameProps = {
+	current: ApplicationsView;
+	children: ReactNode;
+	search?: { value: string; onChangeText: (value: string) => void; disabled?: boolean };
+	actions?: ReactNode;
+};
+
+/** The List / Board / Calendar / Insights switch above each Applications view (mockup `viewTabs`). */
+export function ApplicationsViewFrame({ current, children, search, actions }: ApplicationsViewFrameProps) {
+	const router = useRouter();
+	const { t } = useLingui();
+	const { colors, space } = useTheme();
+	const insets = useSafeAreaInsets();
+	return (
+		<SafeAreaView edges={["top", "left", "right"]} style={{ flex: 1, backgroundColor: colors.bg }}>
+			{/* Views swap in place: no push animation, no back stack between them. Shared title stays above the view tabs. */}
+			<Stack.Screen options={{ title: t`Applications`, animation: "none", headerShown: false }} />
+			<View style={{ paddingHorizontal: space.s4, paddingTop: space.s4, paddingBottom: space.s1, gap: space.s3 }}>
+				{search ? (
+					<CollectionHeader
+						title={t`Applications`}
+						searchLabel={t`Search applications`}
+						placeholder={t`Role, company or contact`}
+						{...search}
+						actions={actions}
+					/>
+				) : (
+					<Text variant="display" accessibilityRole="header">{t`Applications`}</Text>
+				)}
+				<Segmented
+					label={t`Application views`}
+					value={current}
+					options={[
+						{ value: "list", label: t`List` },
+						{ value: "board", label: t`Board` },
+						{ value: "calendar", label: t`Calendar` },
+						{ value: "insights", label: t`Insights` },
+					]}
+					onChange={(view) => {
+						if (view !== current) router.replace(routes.applications(view));
+					}}
+				/>
+			</View>
+			<SafeAreaInsetsContext value={{ ...insets, top: 0, left: 0, right: 0 }}>
+				<View style={{ flex: 1 }}>{children}</View>
+			</SafeAreaInsetsContext>
+		</SafeAreaView>
+	);
+}

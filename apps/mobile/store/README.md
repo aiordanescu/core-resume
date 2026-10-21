@@ -1,0 +1,19 @@
+# Store metadata
+
+`metadata.json` contains English and the ten requested translations: Spanish (Spain), French (France), German, Brazilian Portuguese, Simplified Chinese, Japanese, Korean, Hindi, Arabic, and Indonesian. The brand name remains **Reactive Resume** in every locale, as confirmed by the owner. Apple subtitles, descriptions, and keywords are localized; Google uses the localized short and full descriptions. Both stores limit app names to 30 characters, so the longer free/open-source phrase belongs in the description.
+
+Each entry maps Apple's locale to Google's locale. Design sources live in [Figma](https://www.figma.com/design/paEvXcSQes7pnrGtnLS73a?node-id=16-1958) and the owner's Penpot workspace. Supplied launch archives and extracted listing exports are ignored locally, not committed. They contain all 11 languages. All 264 listing PNGs passed decoding, dimensions, and no-alpha checks on 2026-10-17: five large iPhone, five medium iPhone, five Android phone, four iPad, four Android tablet, and one Play feature graphic per locale. The current launch-kit screen reconstructions still need matching shipped UI captures before use as screenshots. Default icons may be shared across languages.
+
+All 11 localized Play feature graphics are saved in their matching listing drafts; a full reload confirmed 11 distinct persisted graphics. Screenshot panels have not been uploaded. Apple uses `zh-Hans`, `ja`, `ko`, `hi`, `ar-SA`, and `id` where Google uses `zh-CN`, `ja-JP`, `ko-KR`, `hi-IN`, `ar`, and `id`; the asset folder for Indonesian is `id-ID`.
+
+Copy is saved in both stores' drafts, not published or verified by native-language reviewers. It describes the build with AI consent, private safety reporting, and local shared-author blocking; deploy the matching backend and policy before review. Validate again after any copy changes: name/subtitle 30 characters, Google short description 80, full description 4,000, and Apple keywords 100 (the current entries also fit 100 UTF-8 bytes).
+
+Only the seven runtime icon/splash PNGs are committed under `../assets`; configuration uses these paths directly. They are byte-identical copies of the supplied artwork used in iOS build 4 and Android build 5. PWA icon derivatives in `../../web/public` use the same supplied artwork. Those PWA files require the normal web deployment before users receive them.
+
+## Apple creative assets
+
+`../assets/store-submission/` contains new, opaque PNG artwork for the product-page header (3840 × 1646) and search results (1920 × 1280), plus promotional text for all 11 listing locales. Editable artwork lives on the **Store submission · Apple creative** page in [Penpot](https://design.penpot.app/#/workspace?team-id=24d9d841-759d-81bc-8008-b792095a65ef&file-id=cd444aaf-0d8c-801b-8008-cdf1c80b1724&page-id=8a9af029-2933-802b-8008-cdfdce4eb3b3).
+
+Artwork uses the original Rx mark, Hanken Grotesk, forest green, and ivory. The document motif is an illustration, not an app screenshot. Only the unchanged brand name appears, so the same artwork can be used across locales. Both exports were visually inspected and checked for dimensions and absence of alpha. Every promotional-text entry fits Apple's 170-character limit; native-language editorial review remains unverified.
+
+These new assets and promotional texts have **not been uploaded or saved in App Store Connect**. Existing Play icon and feature artwork were observed in the default listing. Apple's default iPhone screenshot slot was empty, as were its header and promotional-text fields. Actual phone/tablet captures of the current store builds remain required before screenshot panels or app-preview videos can be completed; older development captures and reconstructed launch-kit panels do not close that gate. Apple header/search creative assets, promotional text, and preview videos are optional; screenshots are required.

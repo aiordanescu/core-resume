@@ -104,6 +104,10 @@ export const resumeDto = {
 					.describe(
 						"true gives the resume a fresh random address; the old one, and any address it redirected from, stop working at once. Making a resume public does this on its own when its address was made from its name rather than chosen.",
 					),
+				expectedUpdatedAt: z.coerce
+					.date()
+					.optional()
+					.describe("If provided, the update only applies when the resume version still matches this timestamp."),
 				sessionId: z
 					.string()
 					.max(64)
