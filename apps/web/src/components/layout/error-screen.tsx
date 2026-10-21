@@ -9,7 +9,7 @@ import { Wordmark } from "@reactive-resume/ui/components/wordmark";
 export function ErrorScreen({ reset }: ErrorComponentProps) {
 	return (
 		<div className="mx-auto flex h-svh max-w-md flex-col items-center justify-center gap-y-4">
-			<Wordmark stacked className="text-center text-[26px]" />
+			<Wordmark variant="stacked" height={80} />
 
 			<Alert>
 				<Icon name="warning" size={16} />

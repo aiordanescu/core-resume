@@ -36,6 +36,7 @@
 	--on-accent: oklch(0.99 0.01 150); /* #F7FEF8 */
 	--accent-soft: oklch(0.94 0.035 150); /* #DCF2DF selected background, proposals */
 	--accent-text: oklch(0.42 0.1 150); /* #195C2E */
+	--brand: oklch(0.597 0.221 258); /* #0077FF logo blue, the same in every palette */
 	--danger: oklch(0.53 0.17 27); /* #BA3630 */
 	--danger-soft: oklch(0.95 0.03 27); /* #FFE7E4 */
 	--danger-text: oklch(0.48 0.17 27); /* #A92321 */
@@ -95,6 +96,7 @@
 	--on-accent: oklch(0.18 0.03 150); /* #07150A */
 	--accent-soft: oklch(0.3 0.05 150); /* #1A3520 */
 	--accent-text: oklch(0.82 0.11 150); /* #8FD89E */
+	--brand: oklch(0.696 0.163 254.1); /* #4D9FFF lifted for contrast on dark */
 	--danger: oklch(0.62 0.17 27); /* #D9544B */
 	--danger-soft: oklch(0.3 0.06 27); /* #47211D */
 	--danger-text: oklch(0.8 0.11 27); /* #FDA297 */
@@ -230,6 +232,7 @@
 	--color-on-accent: var(--on-accent);
 	--color-accent-soft: var(--accent-soft);
 	--color-accent-text: var(--accent-text);
+	--color-brand: var(--brand);
 	--color-danger: var(--danger);
 	--color-danger-soft: var(--danger-soft);
 	--color-danger-text: var(--danger-text);

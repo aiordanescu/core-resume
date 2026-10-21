@@ -97,7 +97,6 @@ marketing:
     accent: { fontFamily: Newsreader, fontStyle: italic, color: accent-text }
     label:
       { fontFamily: Martian Mono, fontSize: 11px, fontWeight: 500, letterSpacing: 0.08em, textTransform: uppercase }
-    wordmark: { fontFamily: Anybody, fontSize: 17.5cqw, lineHeight: 0.84, fontWeight: 800, fontStretch: 78% }
   colors:
     graphite: { light: "oklch(0.38 0.01 95 / .3)", dark: "oklch(0.9 0.01 95 / .18)" }
     night-1: "oklch(0.24 0.03 265)"
@@ -232,10 +231,12 @@ The public homepage in `apps/web/src/features/homepage` shares app colors and th
 
 ### Brand and type
 
-- **Header:** a 30px logomark from `apps/web/public/icon/{light,dark}.svg`. Keep “All That Work” as visually hidden text inside the home link.
-- **Footer:** a 140px logo from `apps/web/public/logo/{light,dark}.svg`, followed by community and MIT license copy.
-- **Wordmark:** Anybody 800, at 17.5cqw and 78% width, with “Core” in `ink` and “Resume” in `accent-text`. A 23cqw container crops it through a gradient mask. It rises from 60% translation as the footer enters and is decorative (`aria-hidden`).
-- **Anybody:** hero and closing headlines, selected scene titles, large numerals, and the wordmark. Use weights 300–400 for main display text; reserve 800 for the wordmark.
+- **Logo:** a rounded six-arm asterisk with lowercase “allthat” over “work”, drawn as vector outlines in `Wordmark` and `Logomark` (`@reactive-resume/ui/components/wordmark`), so it needs no font. “allthat” takes `ink`; the asterisk and “work” take `brand` (#0077FF, lifted to #4D9FFF in dark mode), which stays blue in every palette. Variants: `inline` (mark and one-line name), `stacked` (mark above the two-line name, flush left), `beside` (mark next to the two-line name) and `name` (the two-line name alone).
+- **Header:** the `inline` logo at 30px, inside the home link that carries the accessible name.
+- **Footer:** the `stacked` logo at 130px, aligned with the copy and link columns, followed by the author, license and version lines.
+- **Footer name:** the `name` variant at 50cqw. A 24cqw container crops it through a gradient mask. It rises from 60% translation as the footer enters and is decorative (`aria-hidden`).
+- **App:** `beside` at 36px in the sidebar, the asterisk alone at 32px in the tablet rail, `stacked` on the auth (104px) and error screens (80px). Static copies for favicons, app icons and other sites are in `apps/web/public` (`favicon.*`, `pwa-*`, `icon/`, `logo/`, `opengraph/logo.svg`).
+- **Anybody:** hero and closing headlines, selected scene titles and large numerals. Use weights 300–400 for main display text.
 - **Newsreader:** body copy, italic accents, and serif title treatments in the Design scene. The app's `font-display` still maps to Newsreader; use `font-anybody` explicitly.
 - **Martian Mono:** 11px uppercase labels at weight 500, with 0.08em tracking. Use `font-martian`.
 - **Hanken Grotesk:** buttons and mock app UI. All four families are self-hosted.

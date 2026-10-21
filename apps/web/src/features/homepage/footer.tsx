@@ -69,13 +69,13 @@ function FooterLinkItem({ link }: { link: FooterLink }): ReactNode {
 	);
 }
 
-/** 13 Footer, ending on the wordmark rising into view, cropped by the page's edge. */
+/** 13 Footer, ending on the logo's stacked name rising into view, cropped by the page's edge. */
 export function LandingFooter() {
 	return (
 		<footer data-scene={SCENE.footer} className="relative overflow-hidden border-t border-line">
 			<div className="mx-auto grid max-w-[1440px] grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-x-8 gap-y-10 px-(--gutter) pt-16">
 				<div className="col-span-2 flex min-w-0 flex-col gap-3.5">
-					<Wordmark stacked className="text-[30px]" />
+					<Wordmark variant="stacked" height={130} />
 					<div className="flex flex-col gap-1 font-ui text-[13px] leading-normal text-ink-3">
 						<p>
 							<Trans>
@@ -127,9 +127,8 @@ export function LandingFooter() {
 			{/* It fades in by sliding up out of the mask's faded bottom; an opacity fade would fail contrast checks. */}
 			<div aria-hidden="true" className="@container mx-auto mt-14 max-w-[1440px] px-(--gutter)">
 				<div className="h-[24cqw] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_35%,transparent_100%)]">
-					<div className="font-anybody [transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[.12em] pb-[.06em] text-[15.5cqw] leading-[.84] font-extrabold tracking-[-.035em] whitespace-nowrap text-ink font-stretch-[78%] select-none [transition:transform_.35s_var(--ease)]">
-						<span className="block">Core</span>
-						<span className="block text-accent-text">Resume</span>
+					<div className="[transform:translateY(calc((1-clamp(0,(var(--p)-.1)/.8,1))*60%))] pt-[2cqw] select-none [transition:transform_.35s_var(--ease)]">
+						<Wordmark variant="name" className="block h-auto w-[50cqw]" />
 					</div>
 				</div>
 			</div>
