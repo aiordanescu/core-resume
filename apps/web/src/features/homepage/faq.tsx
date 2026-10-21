@@ -86,7 +86,7 @@ type FaqItemProps = { item: Question; index: number };
 function FaqItem({ item, index }: FaqItemProps) {
 	const number = String(index + 1).padStart(2, "0");
 	const linkClass =
-		"mt-3 inline-flex items-center gap-1 font-medium font-ui text-[14px] text-[oklch(0.42_0.1_150)] underline underline-offset-[3px] transition-colors hover:text-[oklch(0.32_0.1_150)]";
+		"mt-3 inline-flex items-center gap-1 font-medium font-ui text-[14px] text-[oklch(0.42_0.154_258)] underline underline-offset-[3px] transition-colors hover:text-[oklch(0.32_0.118_258)]";
 
 	return (
 		<details name="faq" className="faq-item border-b border-line">

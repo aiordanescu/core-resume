@@ -163,7 +163,7 @@ export function Tailor() {
 						className="@container absolute inset-0 [transform:translate(calc(var(--dir)*var(--cv)*var(--cvx)),calc(var(--cv)*8%))_rotate(calc(var(--dir)*var(--cv)*-8deg))] overflow-hidden rounded-[2px] bg-[#fbfaf6] shadow-paper [transition:transform_.5s_var(--ease)]"
 					>
 						<div className="flex flex-col gap-[2.6cqw] p-[9cqw] font-display text-[2.2cqw] leading-normal text-[oklch(0.3_0.01_95)]">
-							<span className="font-martian text-[1.6cqw] font-medium tracking-[.08em] text-[oklch(0.48_0.1_150)] uppercase">
+							<span className="font-martian text-[1.6cqw] font-medium tracking-[.08em] text-[oklch(0.48_0.176_258)] uppercase">
 								{t`Cover letter · Fieldnote`}
 							</span>
 							<span className="text-[3cqw]">{t`Dear Fieldnote team,`}</span>

@@ -83,13 +83,13 @@ export function Write() {
 
 				<div className="absolute start-[5vw] top-[calc(10vh+17vw+150px)] h-[120vh] w-[90vw] origin-top-left [transform:translateY(calc((1-var(--in))*14vh))_rotate(-1.2deg)_scale(calc(.94+var(--in)*.06))] rounded-[3px] bg-paper p-[6vw] font-ui text-[14px] leading-[1.55] text-[oklch(0.28_0.01_95)] shadow-paper [transition:transform_.5s_var(--ease)] min-[900px]:start-[42vw] min-[900px]:top-[14vh] min-[900px]:w-[60vw] min-[900px]:px-[5vw] min-[900px]:py-[4.5vw] min-[900px]:text-[clamp(14px,1.3vw,20px)] min-[900px]:opacity-[clamp(0,var(--p)*20,1)] rtl:origin-top-right">
 					<div className="absolute end-[2vw] top-[1.6vw] flex h-7 items-center gap-1.5 rounded-full bg-[oklch(0.95_0.006_95)] ps-2 pe-[11px] text-[12px] font-medium text-[oklch(0.42_0.01_95)] opacity-(--cl)">
-						<Icon name="cloud-check" size={16} className="text-[oklch(0.42_0.1_150)]" />
+						<Icon name="cloud-check" size={16} className="text-[oklch(0.42_0.154_258)]" />
 						{t`Saved · version ${version}`}
 					</div>
 
 					<div className="grid grid-cols-[minmax(0,1fr)] items-start gap-x-[3vw] gap-y-[.5em] min-[900px]:grid-cols-[minmax(0,1fr)_minmax(0,max(15vw,210px))]">
 						<div className="col-start-1 flex flex-col gap-[.25em]">
-							<span className="font-martian mb-[.8em] border-b border-[oklch(0.45_0.1_150/.35)] pb-[.6em] text-[.7em] leading-[1.4] tracking-[.14em] text-[oklch(0.45_0.1_150)] uppercase">
+							<span className="font-martian mb-[.8em] border-b border-[oklch(0.45_0.166_258/.35)] pb-[.6em] text-[.7em] leading-[1.4] tracking-[.14em] text-[oklch(0.45_0.166_258)] uppercase">
 								{t`Experience`}
 							</span>
 							<div className="flex items-baseline justify-between gap-[1em]">
@@ -126,14 +126,14 @@ export function Write() {
 						>
 							<span
 								aria-hidden="true"
-								className="absolute -start-[3vw] top-[22px] hidden w-[3vw] border-t-[1.5px] border-dashed border-[oklch(0.5_0.1_150/.6)] min-[900px]:block"
+								className="absolute -start-[3vw] top-[22px] hidden w-[3vw] border-t-[1.5px] border-dashed border-[oklch(0.5_0.18_258/.6)] min-[900px]:block"
 							/>
 							<div
 								inert={kept || step !== 1}
 								className="col-start-1 row-start-1 flex flex-col gap-[9px] rounded-xl border border-[oklch(0.9_0.006_95)] bg-white px-[13px] py-3 opacity-(--card) shadow-[0_12px_30px_-12px_oklch(0.2_0.01_95/.3)]"
 							>
 								<div className="flex items-center gap-2">
-									<span className="flex size-[22px] items-center justify-center rounded-full bg-[oklch(0.94_0.035_150)] text-[oklch(0.42_0.1_150)]">
+									<span className="flex size-[22px] items-center justify-center rounded-full bg-[oklch(0.94_0.027_258)] text-[oklch(0.42_0.154_258)]">
 										<Icon name="sparkle" size={15} />
 									</span>
 									<b className="font-semibold">{t`Assistant`}</b>
@@ -144,7 +144,7 @@ export function Write() {
 										ref={acceptRef}
 										type="button"
 										onClick={() => finish(false)}
-										className="h-[30px] rounded-md bg-[oklch(0.5_0.1_150)] px-3 text-[12.5px] font-semibold text-white transition-colors hover:bg-[oklch(0.44_0.1_150)]"
+										className="h-[30px] rounded-md bg-[oklch(0.5_0.18_258)] px-3 text-[12.5px] font-semibold text-white transition-colors hover:bg-[oklch(0.44_0.162_258)]"
 									>
 										{t`Accept`}
 									</button>
@@ -163,7 +163,7 @@ export function Write() {
 									"col-start-1 row-start-1 flex items-center gap-2 self-start rounded-xl px-[13px] py-2.5 font-medium opacity-(--chip)",
 									kept
 										? "bg-[oklch(0.95_0.006_95)] text-[oklch(0.3_0.01_95)]"
-										: "bg-[oklch(0.95_0.03_150)] text-[oklch(0.38_0.1_150)]",
+										: "bg-[oklch(0.95_0.022_258)] text-[oklch(0.38_0.14_258)]",
 								)}
 							>
 								<Icon name="check" size={17} />
@@ -173,7 +173,7 @@ export function Write() {
 									ref={undoRef}
 									type="button"
 									onClick={reopen}
-									className="ms-auto flex h-7 items-center gap-[3px] rounded-sm px-2 text-[12.5px] font-medium text-[oklch(0.3_0.01_95)] transition-colors hover:bg-[oklch(0.9_0.04_150)] motion-reduce:hidden"
+									className="ms-auto flex h-7 items-center gap-[3px] rounded-sm px-2 text-[12.5px] font-medium text-[oklch(0.3_0.01_95)] transition-colors hover:bg-[oklch(0.9_0.048_258)] motion-reduce:hidden"
 								>
 									<Icon name="arrow-u-up-left" size={16} />
 									{t`Undo`}

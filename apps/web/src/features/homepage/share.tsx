@@ -59,7 +59,7 @@ const stars = (() => {
 const visibilityIcons: IconName[] = ["globe-hemisphere-west", "lock", "eye-slash"];
 
 /**
- * 05 Share, the night scene. The page flies off to the top corner on a green trail, the resume's address types out,
+ * 05 Share, the night scene. The page flies off to the top corner on a blue trail, the resume's address types out,
  * and the visibility and copy controls and the export formats appear.
  */
 export function Share() {

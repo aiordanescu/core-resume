@@ -9,7 +9,7 @@ import { prefersReducedMotion, SCENE, useLanding } from "./scroll";
 import { designSystemBullet, ProfileSummary, Sheet } from "./sheet";
 import { Doodle, labelClass, SceneCaption } from "./ui";
 
-const field = "text-[oklch(0.62_0.08_150)]";
+const field = "text-[oklch(0.62_0.144_258)]";
 
 /**
  * What the Check lens reveals: the page as a parser sees it, fields and sections, flagging the mixed dates until the
@@ -50,7 +50,7 @@ function ParsedText({ fixed }: { fixed: boolean }) {
 				<span className={field}>role</span> {t`Product Designer`} <span className={field}>org</span> {t`Parcel & Co.`}
 				<br />
 				<span className={field}>dates</span>{" "}
-				<span data-park className={fixed ? "text-[oklch(0.86_0.12_150)]" : "text-[oklch(0.85_0.13_85)]"}>
+				<span data-park className={fixed ? "text-[oklch(0.86_0.068_258)]" : "text-[oklch(0.85_0.13_85)]"}>
 					{fixed ? `${t`2017 – 2021`} ✓ ${t`one format`}` : `${t`06/2017 – 2021`} ⚠ ${t`mixed format`}`}
 				</span>
 			</div>
@@ -136,7 +136,7 @@ export function Check() {
 					/>
 					<span
 						aria-hidden="true"
-						className="absolute inset-x-0 top-[calc(var(--sv)*120%-20%)] h-0.5 bg-accent opacity-[calc(clamp(0,var(--sv)*30,1)*clamp(0,(1-var(--sv))*30,1))] shadow-[0_0_18px_2px_oklch(0.6_0.12_150/.5)]"
+						className="absolute inset-x-0 top-[calc(var(--sv)*120%-20%)] h-0.5 bg-accent opacity-[calc(clamp(0,var(--sv)*30,1)*clamp(0,(1-var(--sv))*30,1))] shadow-[0_0_18px_2px_oklch(0.6_0.2_258/.5)]"
 					/>
 				</h2>
 
@@ -200,7 +200,7 @@ export function Check() {
 					<Sheet />
 					<div
 						aria-hidden="true"
-						className="check-lens font-martian absolute inset-0 flex flex-col gap-[2.2cqw] overflow-hidden rounded-[2px] p-[7cqw] text-[2.15cqw] leading-[1.7] text-[oklch(0.9_0.09_150)] opacity-(--lo)"
+						className="check-lens font-martian absolute inset-0 flex flex-col gap-[2.2cqw] overflow-hidden rounded-[2px] p-[7cqw] text-[2.15cqw] leading-[1.7] text-[oklch(0.9_0.048_258)] opacity-(--lo)"
 					>
 						<ParsedText fixed={progress > 0.72} />
 					</div>
@@ -217,7 +217,7 @@ export function Check() {
 					/>
 					<span
 						aria-hidden="true"
-						className="font-martian pointer-events-none absolute top-[calc(var(--ly,16%)-14.5cqw)] left-(--lx,50%) -translate-x-1/2 -translate-y-full rounded-full bg-[oklch(0.2_0.03_160)] px-[9px] py-[5px] text-[10px] leading-none font-medium tracking-[.08em] whitespace-nowrap text-[oklch(0.88_0.09_150)] uppercase opacity-(--lo)"
+						className="font-martian pointer-events-none absolute top-[calc(var(--ly,16%)-14.5cqw)] left-(--lx,50%) -translate-x-1/2 -translate-y-full rounded-full bg-[oklch(0.2_0.054_258)] px-[9px] py-[5px] text-[10px] leading-none font-medium tracking-[.08em] whitespace-nowrap text-[oklch(0.88_0.058_258)] uppercase opacity-(--lo)"
 					>
 						{t`What software reads`}
 					</span>
