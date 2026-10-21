@@ -35,7 +35,7 @@ describe("buildAccountZip", () => {
 			aiContentReports: [],
 		} as never);
 		await expect(detectImportKind(new File([new Uint8Array(archive)], "reactive-resume.zip"))).rejects.toThrow(
-			"Extract this account archive",
+			"This is an account export",
 		);
 	});
 	it("exports individual documents that the importer accepts", () => {

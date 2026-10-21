@@ -102,6 +102,11 @@ describe("account backup", () => {
 			expect(exported.career).toEqual(career);
 			expect(exported.aiContentReports).toEqual([{ id: "report", userId: "owner", content: "Reported output" }]);
 			expect(mocks.predicates).toContainEqual({ column: "aiContentReport.userId", value: "owner" });
+			// The fork's own settings come along, so an import can restore them.
+			expect(Object.keys(mocks.select.mock.calls[0]?.[0] ?? {})).toEqual(
+				expect.arrayContaining(["resumePages", "noReplyDays", "interviewReminders"]),
+			);
+			expect(Object.keys(mocks.select.mock.calls[1]?.[0] ?? {})).toContain("slugChosen");
 		},
 	);
 });

@@ -83,7 +83,7 @@ export async function detectImportKind(file: File): Promise<ImportKind | null> {
 		}
 		if (accountArchive) {
 			throw new ImportError(
-				t`Extract this account archive, then import a JSON file from its resumes or letters folder.`,
+				t`This is an account export. Import all of it in Settings, Your data, Import an export, or extract it and import a JSON file from its resumes or letters folder.`,
 			);
 		}
 		return "linkedin";

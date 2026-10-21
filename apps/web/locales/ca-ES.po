@@ -108,7 +108,10 @@ msgid "{0, plural, one {# application to export} other {# applications to export
 msgstr "{0, plural, one {# candidatura per exportar} other {# candidatures per exportar}}"
 
 #. placeholder {0}: applications.length
+#. placeholder {0}: counts.applications.applications
+#. placeholder {0}: current.applications.applications
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# application} other {# applications}}"
 msgstr "{0, plural, one {# candidatura} other {# candidatures}}"
 
@@ -121,6 +124,17 @@ msgstr "{0, plural, one {Caràcter #} other {Caràcters #}}"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# contacte té un correu electrònic no vàlid o no té nom; la seva candidatura s'importa igualment.} other {# contactes tenen un correu electrònic no vàlid o no tenen nom; les seves candidatures s'importen igualment.}}"
+
+#. placeholder {0}: summary.attachments
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation attachment wasn't imported: only its name is in the export.} other {# conversation attachments weren't imported: only their names are in the export.}}"
+msgstr ""
+
+#. placeholder {0}: counts.coach.threads
+#. placeholder {0}: current.coach.threads
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation} other {# conversations}}"
+msgstr ""
 
 #. placeholder {0}: outcomes.medianDaysToReply
 #: src/features/applications/components/insights-view.tsx
@@ -144,23 +158,64 @@ msgstr "{0, plural, one {No s'ha pogut fer l'edició de #: el seu text ha canvia
 msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
 msgstr ""
 
+#. placeholder {0}: current.applications.linked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# fact, story, saved item, schedule or conversation tied to one} other {# facts, stories, saved items, schedules and conversations tied to them}}"
+msgstr ""
+
+#. placeholder {0}: counts.knowledge.facts
+#. placeholder {0}: current.knowledge.facts
 #. placeholder {0}: knowledge.active.length
-#. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# fact} other {# facts}}"
 msgstr "{0, plural, one {# fet} other {# fets}}"
+
+#. placeholder {0}: counts.knowledge.groups
+#. placeholder {0}: current.knowledge.groups
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# group} other {# groups}}"
+msgstr ""
 
 #. placeholder {0}: report.ignored.length
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {El problema # s'ignora.} other {Els problemes de # s'ignoren.}}"
 
+#. placeholder {0}: counts.documents.letters
+#. placeholder {0}: current.documents.letters
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# letter} other {# letters}}"
+msgstr ""
+
+#. placeholder {0}: current.documents.locked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: counts.jobSearch.opportunities
+#. placeholder {0}: current.jobSearch.opportunities
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# posting found} other {# postings found}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {# modificació proposada} other {# modificacions proposades}}"
+
+#. placeholder {0}: summary.madePrivate
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume was public and came in private. Share it again from the resume.} other {# resumes were public and came in private. Share them again from each resume.}}"
+msgstr ""
+
+#. placeholder {0}: counts.documents.resumes
+#. placeholder {0}: current.documents.resumes
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume} other {# resumes}}"
+msgstr ""
 
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -174,13 +229,22 @@ msgstr "{0, plural, one {La fila # no té cap empresa ni funció i es saltarà.}
 msgid "{0, plural, one {# saved offer} other {# saved offers}}"
 msgstr "{0, plural, one {# oferta desada} other {# ofertes desades}}"
 
+#. placeholder {0}: counts.jobSearch.schedules
+#. placeholder {0}: current.jobSearch.schedules
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# schedule} other {# schedules}}"
+msgstr ""
+
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# seleccionat} other {# seleccionat}}"
 
+#. placeholder {0}: counts.knowledge.stories
+#. placeholder {0}: current.knowledge.stories
 #. placeholder {0}: used.stories.length
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# història} other {# històries}}"
 
@@ -671,6 +735,10 @@ msgstr "{name} afegit a la pàgina 1"
 #: src/features/career/hooks.ts
 msgid "{name} didn't respond. Nothing was changed; try again."
 msgstr "{name} no ha respost. No s'ha canviat res; torneu-ho a provar."
+
+#: src/features/settings/account/import/archive.ts
+msgid "{name} in this zip isn't valid JSON."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "{name} is split into {columns} columns"
@@ -1467,6 +1535,10 @@ msgstr "Afegeix el final del domini, com ara {domain}.com"
 msgid "Add to calendar"
 msgstr "Afegeix al calendari"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Add to mine"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add to pipeline"
 msgstr "Afegeix al pipeline"
@@ -1505,6 +1577,10 @@ msgstr "S'ha afegit {0} a {1}"
 #: src/features/career/shared.tsx
 msgid "Added by you"
 msgstr "Afegit per vós"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Added records come in as new ones, so tidy up afterwards in Knowledge, Curate. Public resumes come in private, and schedules come in switched off."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Added to Knowledge as a preference."
@@ -1605,6 +1681,7 @@ msgstr "La IA no va poder omplir els detalls. Es conserva l'oferta de feina; com
 msgid "AI edit"
 msgstr "Edició AI"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "AI limits"
 msgstr ""
@@ -1958,11 +2035,16 @@ msgstr "S'ha actualitzat la candidatura"
 msgid "Application updated."
 msgstr "Candidatura actualitzada."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Application workspaces"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2246,6 +2328,7 @@ msgid "BA, Communication Design"
 msgstr "Llicenciatura, Disseny de Comunicació"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Back"
 msgstr "Enrere"
 
@@ -2334,6 +2417,10 @@ msgstr "Abans d'enviar"
 msgid "Behavioral"
 msgstr "Conductual"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "belonged to something that wasn't imported"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "Bengalí"
@@ -2417,6 +2504,14 @@ msgstr "L'actualització del dossier està activada · {0}"
 msgid "Briefing refresh paused"
 msgstr "Actualització del dossier en pausa"
 
+#: src/features/settings/account/data.tsx
+msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Bring in documents, applications and Knowledge from an Export everything zip, made in Reactive Resume or {APP_NAME}."
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
 msgstr "Construeix el teu currículum"
@@ -2498,6 +2593,7 @@ msgstr "El programari pot llegir el vostre currículum?"
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
@@ -2508,6 +2604,10 @@ msgstr "Cancel·la"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "Carrera"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Career preferences"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -2739,6 +2839,10 @@ msgstr "Trieu un currículum a Write que coincideixi amb el seu disseny. Fins al
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "Trieu un fitxer WebM, MP4, MP3, WAV o Ogg de fins a 2 MB."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose an account export"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
 msgstr "Trieu una sol·licitud de feina..."
@@ -2754,6 +2858,10 @@ msgstr "Trieu un altre fitxer"
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "Trieu el color"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose the zip"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2817,6 +2925,7 @@ msgstr "ID del client"
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/resume/editor/check/page-layer.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/builder/$resumeId/-components/share-sheet.tsx
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Close"
@@ -2862,6 +2971,10 @@ msgstr "Orientador"
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Coach and Assistant replies"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Coach conversations"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3149,12 +3262,17 @@ msgstr "Nom de la conversa"
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Conversations"
 msgstr "Converses"
 
 #: src/features/career/coach.tsx
 msgid "Conversations about one job live in its workspace."
 msgstr "Les converses sobre una feina es troben al seu espai de treball."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Conversations continue with your own AI provider."
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Cooking"
@@ -3332,6 +3450,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
 msgstr "No s'ha pogut adjuntar el fitxer."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "couldn't be read"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't change it."
@@ -4285,6 +4407,7 @@ msgstr "Documentació"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Documents"
 msgstr "Documents"
@@ -4312,6 +4435,7 @@ msgid "Donate"
 msgstr "Donar"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "Fet"
@@ -4485,6 +4609,10 @@ msgstr "Deixeu un PDF aquí o trieu un fitxer"
 #: src/features/documents/documents-page.tsx
 msgid "Drop a PDF, Word or JSON file"
 msgstr "Deixa anar un fitxer PDF, Word o JSON"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Drop the pronouns and start from the verb. That is the convention in most markets."
@@ -4961,10 +5089,6 @@ msgstr "S'ha exportat pipeline-flow.png"
 msgid "Extra high"
 msgstr ""
 
-#: src/features/resume/import/read-file.ts
-msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
-msgstr "Extraieu aquest arxiu de compte i, a continuació, importeu un fitxer JSON des dels seus currículums o carpeta de cartes."
-
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Extracted from the PDF on the page · reading order"
 msgstr "Extret de la PDF a la pàgina · ordre de lectura"
@@ -4981,6 +5105,10 @@ msgstr ""
 msgid "Fact forgotten"
 msgstr "S'ha oblidat el fet"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Fact groups"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact type"
 msgstr "Tipus de fet"
@@ -4990,6 +5118,7 @@ msgid "facts"
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "Fets"
@@ -5434,6 +5563,14 @@ msgstr "Francès"
 msgid "From"
 msgstr "Des de"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}, exported {exported}."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From a debrief"
 msgstr "D'un balanç"
@@ -5786,6 +5923,11 @@ msgstr "Inici"
 msgid "Horizontal line"
 msgstr "Línia horitzontal"
 
+#. placeholder {0}: labels[area]
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How {0} come in"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "Com ha anat?"
@@ -5814,6 +5956,10 @@ msgstr "Quants dies a la setmana cal anar a l'oficina?"
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "Quants dies de vacances inclou?"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How much Knowledge the AI reads, and time limits. Off keeps yours."
+msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
@@ -5910,6 +6056,7 @@ msgid "Images cover most of the page."
 msgstr "Les imatges cobreixen la major part de la pàgina."
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import"
 msgstr "Importa"
 
@@ -5921,9 +6068,18 @@ msgstr "Importa un currículum"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Importeu un currículum, copieu-ne un per a una feina o comenceu en blanc."
 
+#: src/features/settings/account/data.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import an export"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
 msgstr "La importació ha fallat. Revisa el CSV i torna-ho a provar."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import finished"
+msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -5947,6 +6103,7 @@ msgid "Import progress"
 msgstr "Progrés de la importació"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "Passos d'importació"
 
@@ -5957,6 +6114,10 @@ msgstr ""
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "Importeu el vostre currículum actual i distribuirem totes les seccions perquè les perfeccioneu. O començar de nou. Comença pel teu nom. Construeix a partir d'allà."
+
+#: src/features/settings/account/data.tsx
+msgid "Import…"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
@@ -6288,6 +6449,10 @@ msgstr "Oferta de feina <0>· opcional, afegeix una comparació de paraules clau
 msgid "Job posting link"
 msgstr "Enllaç de l'oferta de feina"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Job search"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
 msgstr "La cerca de feina ha fallat. Torna-ho a provar o enganxa un enllaç de publicació de feina."
@@ -6459,6 +6624,7 @@ msgstr "Khmer"
 msgid "Kind regards,"
 msgstr "Salutacions cordials,"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Knowledge"
@@ -6466,6 +6632,10 @@ msgstr "Coneixements"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Knowledge budget"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Knowledge choices for applications"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -6688,11 +6858,16 @@ msgstr "Cos de la lletra"
 msgid "Letter details"
 msgstr "Detalls de la carta"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Letter links"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Letter page"
 msgstr "Pàgina de carta"
 
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Letters"
 msgstr "Cartes"
 
@@ -7204,6 +7379,7 @@ msgstr "Escriu a l'orientador"
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Messages"
 msgstr "Missatges"
 
@@ -8264,6 +8440,10 @@ msgstr "Només s'importen les primeres {MAX_IMPORT} files de cop, i en queden fo
 msgid "Only the first pages were checked."
 msgstr "Només s'han comprovat les primeres pàgines."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "only their names are in the export"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
 msgstr ""
@@ -8870,6 +9050,10 @@ msgstr "Font de l'anunci"
 msgid "Posting terms in your resume"
 msgstr "Termes de l'anunci al vostre currículum"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Postings found"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/saved.tsx
 msgid "Practice"
@@ -8926,6 +9110,7 @@ msgstr "Preferència"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/index.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Preferences"
@@ -9735,13 +9920,25 @@ msgstr "Repetit molt més sovint del que l'oferta mateixa els fa servir: {0}. El
 msgid "Replace"
 msgstr "Substitueix"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace and import"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace icon fonts with plain text, then re-export."
 msgstr "Substitueix els tipus de lletra d'icones per text pla i torna a exportar."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace mine"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace tables with plain paragraphs and lists. Cells extract in storage order, not reading order."
 msgstr "Substitueix les taules per paràgrafs i llistes simples. Les cel·les s'extreuen en l'ordre d'emmagatzematge, no en l'ordre de lectura."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace what you have?"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
@@ -9900,6 +10097,10 @@ msgstr "Fitxer de currículum"
 msgid "Resume length"
 msgstr ""
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Resume length and reminders. Off keeps yours."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
 msgstr "pàgina de currículum"
@@ -9912,6 +10113,7 @@ msgstr "currículum enviat (opcional)"
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Resumes"
 msgstr "Currículums"
 
@@ -10288,6 +10490,10 @@ msgstr "Desat com a sol·licitud de feina i enllaçat"
 msgid "Saved description"
 msgstr "Descripció desada"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Saved items"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Saved just now"
 msgstr "Desat fa un moment"
@@ -10369,8 +10575,13 @@ msgid "Scheduled work isn't available on this server."
 msgstr "Les tasques programades no estan disponibles en aquest servidor."
 
 #: src/features/career/today.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Schedules"
 msgstr "Programacions"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Schedules came in switched off. Turn on the ones you want."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
@@ -10692,6 +10903,7 @@ msgid "Set up web search in Settings"
 msgstr "Configureu la cerca web a Configuració"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
@@ -11395,6 +11607,7 @@ msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "Històries"
@@ -11681,6 +11894,10 @@ msgstr "Tamil"
 msgid "Target roles"
 msgstr "Llocs objectiu"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Target roles, locations, pay and what matters to you. Off keeps yours."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Task"
@@ -11961,6 +12178,10 @@ msgstr "No s'ha pogut llegir el fitxer com a currículum."
 msgid "The greeting follows the name."
 msgstr "La salutació segueix el nom."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The import stopped. Try again."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "the key"
 msgstr "la clau"
@@ -12139,6 +12360,10 @@ msgstr "S'ha esgotat la quota de servei."
 msgid "The service rejected the credentials."
 msgstr "El servei va rebutjar les credencials."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The steps marked done were imported. Nothing from the failed step was saved."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "The test didn't run."
 msgstr "La prova no es va executar."
@@ -12174,6 +12399,10 @@ msgstr "No hi ha cap enllaç a un perfil, portafoli o repositori."
 #: src/features/ats-checker/messages.ts
 msgid "There is no summary paragraph."
 msgstr "No hi ha cap paràgraf de resum."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "These are deleted before the import, and can't be brought back:"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
@@ -12278,6 +12507,14 @@ msgstr "Aquest fitxer conté text dibuixat de manera invisible."
 msgid "This file contains white-on-white text."
 msgstr "Aquest fitxer conté text blanc sobre blanc."
 
+#: src/features/settings/account/import/archive.ts
+msgid "This file couldn't be read as a zip. Choose the zip that Export everything downloaded."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "This file couldn't be read."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file declares no language."
 msgstr "Aquest fitxer no declara cap idioma."
@@ -12313,6 +12550,10 @@ msgstr "Aquest fitxer utilitza tipus de lletra Type 3, que porten dibuixos en ll
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "Això és un PDF Portfolio: la pàgina visible només és una portada."
+
+#: src/features/resume/import/read-file.ts
+msgid "This is an account export. Import all of it in Settings, Your data, Import an export, or extract it and import a JSON file from its resumes or letters folder."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This is an XFA form, so most software reads only the empty shell."
@@ -12441,6 +12682,14 @@ msgstr "Aquesta setmana: feu que les vostres proves siguin més fàcils de segui
 #: src/features/career/workspace/shell.tsx
 msgid "This workspace couldn't be loaded."
 msgstr "No s'ha pogut carregar aquest espai de treball."
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip is too large to be an account export."
+msgstr ""
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip isn't an account export. Use the zip from Settings, Your data, Export everything, in Reactive Resume or {APP_NAME}."
+msgstr ""
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
@@ -12581,6 +12830,10 @@ msgstr "Transcrivint amb {model}…"
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "Transcripció copiada"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Transcripts"
+msgstr ""
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13353,6 +13606,10 @@ msgstr "Sospesant cada requisit"
 msgid "Went well"
 msgstr "Va anar bé"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "were already in your account"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
 msgstr "El que llegeix un analitzador"
@@ -13854,6 +14111,10 @@ msgstr "La vostra connexió d'IA"
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "La vostra resposta"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Your applications stay, but lose their linked resumes and letters."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 #: src/features/homepage/prepare.tsx

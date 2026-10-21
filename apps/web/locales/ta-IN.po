@@ -108,7 +108,10 @@ msgid "{0, plural, one {# application to export} other {# applications to export
 msgstr "{0, plural, one {ஏற்றுமதி செய்ய # விண்ணப்பம்} other {ஏற்றுமதி செய்ய # விண்ணப்பங்கள்}}"
 
 #. placeholder {0}: applications.length
+#. placeholder {0}: counts.applications.applications
+#. placeholder {0}: current.applications.applications
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# application} other {# applications}}"
 msgstr "{0, plural, one {# விண்ணப்பம்} other {# விண்ணப்பங்கள்}}"
 
@@ -121,6 +124,17 @@ msgstr "{0, plural, one {# எழுத்து} other {# எழுத்து
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# தொடர்பில் தவறான மின்னஞ்சல் உள்ளது அல்லது பெயர் இல்லை; அதன் வேலை விண்ணப்பம் இன்னும் இறக்குமதி செய்யப்படுகிறது.} other {# தொடர்புகள் தவறான மின்னஞ்சல் அல்லது பெயர் இல்லை; அவர்களின் வேலை விண்ணப்பங்கள் இன்னும் இறக்குமதி செய்யப்படுகின்றன.}}"
+
+#. placeholder {0}: summary.attachments
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation attachment wasn't imported: only its name is in the export.} other {# conversation attachments weren't imported: only their names are in the export.}}"
+msgstr ""
+
+#. placeholder {0}: counts.coach.threads
+#. placeholder {0}: current.coach.threads
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# conversation} other {# conversations}}"
+msgstr ""
 
 #. placeholder {0}: outcomes.medianDaysToReply
 #: src/features/applications/components/insights-view.tsx
@@ -144,23 +158,64 @@ msgstr "{0, plural, one {# திருத்தத்தை வைக்க ம
 msgid "{0, plural, one {# fact switched on} other {# facts switched on}} · {1} of {2} characters"
 msgstr ""
 
+#. placeholder {0}: current.applications.linked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# fact, story, saved item, schedule or conversation tied to one} other {# facts, stories, saved items, schedules and conversations tied to them}}"
+msgstr ""
+
+#. placeholder {0}: counts.knowledge.facts
+#. placeholder {0}: current.knowledge.facts
 #. placeholder {0}: knowledge.active.length
-#. placeholder {0}: used.facts.length
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# fact} other {# facts}}"
 msgstr "{0, plural, one {# உண்மை} other {# உண்மைகள்}}"
+
+#. placeholder {0}: counts.knowledge.groups
+#. placeholder {0}: current.knowledge.groups
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# group} other {# groups}}"
+msgstr ""
 
 #. placeholder {0}: report.ignored.length
 #: src/features/resume/editor/check/check-panel.tsx
 msgid "{0, plural, one {# issue is ignored.} other {# issues are ignored.}}"
 msgstr "{0, plural, one {# சிக்கல் புறக்கணிக்கப்பட்டது.} other {# சிக்கல்கள் புறக்கணிக்கப்பட்டன.}}"
 
+#. placeholder {0}: counts.documents.letters
+#. placeholder {0}: current.documents.letters
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# letter} other {# letters}}"
+msgstr ""
+
+#. placeholder {0}: current.documents.locked
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: counts.jobSearch.opportunities
+#. placeholder {0}: current.jobSearch.opportunities
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# posting found} other {# postings found}}"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/conversation.tsx
 #: src/features/resume/editor/proposals/proposal-list.tsx
 msgid "{0, plural, one {# proposed edit} other {# proposed edits}}"
 msgstr "{0, plural, one {# முன்மொழியப்பட்ட திருத்தம்} other {# முன்மொழியப்பட்ட திருத்தங்கள்}}"
+
+#. placeholder {0}: summary.madePrivate
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume was public and came in private. Share it again from the resume.} other {# resumes were public and came in private. Share them again from each resume.}}"
+msgstr ""
+
+#. placeholder {0}: counts.documents.resumes
+#. placeholder {0}: current.documents.resumes
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# resume} other {# resumes}}"
+msgstr ""
 
 #. placeholder {0}: result.skipped
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -174,13 +229,22 @@ msgstr "{0, plural, one {# வரிசையில் நிறுவனம் 
 msgid "{0, plural, one {# saved offer} other {# saved offers}}"
 msgstr "{0, plural, one {# சேமித்த சலுகை} other {# சேமித்த சலுகைகள்}}"
 
+#. placeholder {0}: counts.jobSearch.schedules
+#. placeholder {0}: current.jobSearch.schedules
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# schedule} other {# schedules}}"
+msgstr ""
+
 #. placeholder {0}: ids.length
 #: src/features/applications/components/list-view.tsx
 msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# தேர்ந்தெடுக்கப்பட்டது} other {# தேர்ந்தெடுக்கப்பட்டது}}"
 
+#. placeholder {0}: counts.knowledge.stories
+#. placeholder {0}: current.knowledge.stories
 #. placeholder {0}: used.stories.length
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# story} other {# stories}}"
 msgstr "{0, plural, one {# கதை} other {# கதைகள்}}"
 
@@ -671,6 +735,10 @@ msgstr "{name} பக்கம் 1 இல் சேர்க்கப்பட�
 #: src/features/career/hooks.ts
 msgid "{name} didn't respond. Nothing was changed; try again."
 msgstr "{name} பதிலளிக்கவில்லை. எதுவும் மாற்றப்படவில்லை; மீண்டும் முயற்சிக்கவும்."
+
+#: src/features/settings/account/import/archive.ts
+msgid "{name} in this zip isn't valid JSON."
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "{name} is split into {columns} columns"
@@ -1467,6 +1535,10 @@ msgstr "{domain}.com போன்ற டொமைன் முடிவைச்
 msgid "Add to calendar"
 msgstr "காலெண்டரில் சேர்க்கவும்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Add to mine"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Add to pipeline"
 msgstr "பைப்லைனில் சேர்க்கவும்"
@@ -1505,6 +1577,10 @@ msgstr "{1} இல் {0} சேர்க்கப்பட்டது"
 #: src/features/career/shared.tsx
 msgid "Added by you"
 msgstr "நீங்கள் சேர்த்தது"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Added records come in as new ones, so tidy up afterwards in Knowledge, Curate. Public resumes come in private, and schedules come in switched off."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Added to Knowledge as a preference."
@@ -1605,6 +1681,7 @@ msgstr "AI ஆல் விவரங்களை நிரப்ப முடி
 msgid "AI edit"
 msgstr "AI திருத்தம்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/ai-limits.tsx
 msgid "AI limits"
 msgstr ""
@@ -1958,11 +2035,16 @@ msgstr "விண்ணப்பம் புதுப்பிக்கப்�
 msgid "Application updated."
 msgstr "விண்ணப்பம் புதுப்பிக்கப்பட்டது."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Application workspaces"
+msgstr ""
+
 #: src/features/career/coach-thread.tsx
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -2246,6 +2328,7 @@ msgid "BA, Communication Design"
 msgstr "பி.ஏ., கம்யூனிகேஷன் டிசைன்"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Back"
 msgstr "மீண்டும்"
 
@@ -2334,6 +2417,10 @@ msgstr "சமர்ப்பிக்கும் முன்"
 msgid "Behavioral"
 msgstr "நடத்தை சார்ந்தது"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "belonged to something that wasn't imported"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Bengali"
 msgstr "பெங்காலி"
@@ -2417,6 +2504,14 @@ msgstr "சுருக்கக் குறிப்புப் புது�
 msgid "Briefing refresh paused"
 msgstr "சுருக்கக் குறிப்புப் புதுப்பிப்பு இடைநிறுத்தப்பட்டது"
 
+#: src/features/settings/account/data.tsx
+msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Bring in documents, applications and Knowledge from an Export everything zip, made in Reactive Resume or {APP_NAME}."
+msgstr ""
+
 #: src/features/homepage/ui.tsx
 msgid "Build your resume"
 msgstr "உங்கள் விண்ணப்பத்தை உருவாக்கவும்"
@@ -2498,6 +2593,7 @@ msgstr "மென்பொருள் உங்கள் விண்ணப்�
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/picture-settings.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 #: src/features/settings/ai/web-access.tsx
 #: src/hooks/use-confirm.tsx
@@ -2508,6 +2604,10 @@ msgstr "ரத்து செய்"
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
 msgstr "தொழில் வாழ்க்கை"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Career preferences"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Catalan"
@@ -2739,6 +2839,10 @@ msgstr "அதன் வடிவமைப்புடன் பொருந்�
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
 msgstr "2 MB வரையிலான WebM, MP4, MP3, WAV அல்லது Ogg கோப்பைத் தேர்ந்தெடுக்கவும்."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose an account export"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Choose an application…"
 msgstr "வேலைக்கான விண்ணப்பத்தைத் தேர்ந்தெடுங்கள்..."
@@ -2754,6 +2858,10 @@ msgstr "மற்றொரு கோப்பைத் தேர்ந்தெ�
 #: src/components/input/color-picker.tsx
 msgid "Choose color"
 msgstr "நிறத்தைத் தேர்ந்தெடுங்கள்"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Choose the zip"
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2817,6 +2925,7 @@ msgstr "வாடிக்கையாளர் ஐடி"
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/career/workspace/prepare.tsx
 #: src/features/resume/editor/check/page-layer.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/builder/$resumeId/-components/share-sheet.tsx
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Close"
@@ -2862,6 +2971,10 @@ msgstr "ஆலோசகர்"
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Coach and Assistant replies"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Coach conversations"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3149,12 +3262,17 @@ msgstr "உரையாடலின் பெயர்"
 #: src/features/career/coach.tsx
 #: src/features/career/workspace/coach-sheet.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Conversations"
 msgstr "உரையாடல்கள்"
 
 #: src/features/career/coach.tsx
 msgid "Conversations about one job live in its workspace."
 msgstr "ஒரு வேலை பற்றிய உரையாடல்கள் அதன் பணியிடத்தில் இருக்கும்."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Conversations continue with your own AI provider."
+msgstr ""
 
 #: src/features/career/shared.tsx
 msgid "Cooking"
@@ -3332,6 +3450,10 @@ msgstr ""
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't attach the file."
 msgstr "கோப்பை இணைக்க முடியவில்லை."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "couldn't be read"
+msgstr ""
 
 #: src/features/settings/ai/providers.tsx
 msgid "Couldn't change it."
@@ -4285,6 +4407,7 @@ msgstr "ஆவணங்கள்"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "Documents"
 msgstr "ஆவணங்கள்"
@@ -4312,6 +4435,7 @@ msgid "Donate"
 msgstr "நன்கொடை அளிக்கவும்"
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/ai/api-keys.tsx
 msgid "Done"
 msgstr "முடிந்தது"
@@ -4485,6 +4609,10 @@ msgstr "இங்கே PDF ஐ விடுங்கள் அல்லது �
 #: src/features/documents/documents-page.tsx
 msgid "Drop a PDF, Word or JSON file"
 msgstr "PDF, Word அல்லது JSON கோப்பை விடுங்கள்"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Drop the pronouns and start from the verb. That is the convention in most markets."
@@ -4961,10 +5089,6 @@ msgstr "ஏற்றுமதி செய்யப்பட்ட pipeline-flow
 msgid "Extra high"
 msgstr ""
 
-#: src/features/resume/import/read-file.ts
-msgid "Extract this account archive, then import a JSON file from its resumes or letters folder."
-msgstr "இந்தக் கணக்கு காப்பகத்தைப் பிரித்தெடுத்து, அதன் ரெஸ்யூம்கள் அல்லது கடிதங்கள் கோப்புறையிலிருந்து JSON கோப்பை இறக்குமதி செய்யவும்."
-
 #: src/features/resume/editor/check/parser-view.tsx
 msgid "Extracted from the PDF on the page · reading order"
 msgstr "பக்கத்தில் உள்ள PDF இலிருந்து பிரித்தெடுக்கப்பட்டது · வாசிப்பு வரிசை"
@@ -4981,6 +5105,10 @@ msgstr ""
 msgid "Fact forgotten"
 msgstr "உண்மை மறக்கப்பட்டது"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Fact groups"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Fact type"
 msgstr "உண்மையின் வகை"
@@ -4990,6 +5118,7 @@ msgid "facts"
 msgstr ""
 
 #: src/features/career/coach-thread.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Facts"
 msgstr "உண்மைகள்"
@@ -5434,6 +5563,14 @@ msgstr "பிரெஞ்சு"
 msgid "From"
 msgstr "இருந்து"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}, exported {exported}."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "From {from}."
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "From a debrief"
 msgstr "ஒரு மீளாய்விலிருந்து"
@@ -5786,6 +5923,11 @@ msgstr "முகப்பு"
 msgid "Horizontal line"
 msgstr "கிடைமட்டக் கோடு"
 
+#. placeholder {0}: labels[area]
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How {0} come in"
+msgstr ""
+
 #: src/features/career/workspace/prepare.tsx
 msgid "How did it go?"
 msgstr "எப்படி நடந்தது?"
@@ -5814,6 +5956,10 @@ msgstr "வாரத்தில் எத்தனை நாட்கள் அ
 #: src/features/career/offers.tsx
 msgid "How many days of leave come with it?"
 msgstr "எத்தனை நாட்கள் விடுப்பு கிடைக்கும்?"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "How much Knowledge the AI reads, and time limits. Off keeps yours."
+msgstr ""
 
 #: src/features/settings/ai/ai-limits.tsx
 msgid "How much of your switched-on Knowledge goes with each AI request, and how long a request may run. The defaults suit fast models with small context windows; raise them for models that can read more or need more time. Larger Knowledge limits send more of your Knowledge to your AI provider."
@@ -5910,6 +6056,7 @@ msgid "Images cover most of the page."
 msgstr "படங்கள் பெரும்பாலான பக்கத்தை மறைக்கின்றன."
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import"
 msgstr "இறக்குமதி செய்"
 
@@ -5921,9 +6068,18 @@ msgstr "ரெஸ்யூமேயை இறக்குமதி செய்�
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "ஒரு ரெஸ்யூமை இறக்குமதி செய்யவும், வேலைக்காக ஒன்றை நகலெடுக்கவும் அல்லது காலியாகத் தொடங்கவும்."
 
+#: src/features/settings/account/data.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import an export"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
 msgstr "இறக்குமதி தோல்வியடைந்தது. CSVஐச் சரிபார்த்து மீண்டும் முயலவும்."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Import finished"
+msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -5947,6 +6103,7 @@ msgid "Import progress"
 msgstr "இறக்குமதி முன்னேற்றம்"
 
 #: src/features/documents/new-document-dialog.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "இறக்குமதி படிகள்"
 
@@ -5957,6 +6114,10 @@ msgstr ""
 #: src/features/documents/documents-page.tsx
 msgid "Import your current resume and we'll lay out every section for you to refine. Or start fresh. Start with your name. Build from there."
 msgstr "உங்கள் தற்போதைய விண்ணப்பத்தை இறக்குமதி செய்யுங்கள், நீங்கள் செம்மைப்படுத்த ஒவ்வொரு பிரிவையும் நாங்கள் அமைப்போம். அல்லது புதிதாக தொடங்கவும். உங்கள் பெயருடன் தொடங்குங்கள். அங்கிருந்து கட்டவும்."
+
+#: src/features/settings/account/data.tsx
+msgid "Import…"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/share/format.ts
@@ -6288,6 +6449,10 @@ msgstr "வேலை அறிவிப்பு <0>· விருப்பத�
 msgid "Job posting link"
 msgstr "வேலை அறிவிப்பு இணைப்பு"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Job search"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Job search failed. Try again or paste a posting link."
 msgstr "வேலை தேடல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும் அல்லது வேலை இடுகையிடும் இணைப்பை ஒட்டவும்."
@@ -6459,6 +6624,7 @@ msgstr "கமெர்"
 msgid "Kind regards,"
 msgstr "அன்புடன்,"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Knowledge"
@@ -6466,6 +6632,10 @@ msgstr "அறிவுத் தளம்"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Knowledge budget"
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Knowledge choices for applications"
 msgstr ""
 
 #: src/features/career/coach.tsx
@@ -6688,11 +6858,16 @@ msgstr "கடித உடல்"
 msgid "Letter details"
 msgstr "கடித விவரங்கள்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Letter links"
+msgstr ""
+
 #: src/routes/builder/letter/-components/letter-page.tsx
 msgid "Letter page"
 msgstr "கடிதப் பக்கம்"
 
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Letters"
 msgstr "கடிதங்கள்"
 
@@ -7204,6 +7379,7 @@ msgstr "ஆலோசகருக்குச் செய்தி அனுப�
 
 #: src/features/career/shared.tsx
 #: src/features/homepage/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Messages"
 msgstr "செய்திகள்"
 
@@ -8264,6 +8440,10 @@ msgstr "ஒரே நேரத்தில் முதல் {MAX_IMPORT} வ�
 msgid "Only the first pages were checked."
 msgstr "முதல் பக்கங்கள் மட்டுமே சரிபார்க்கப்பட்டன."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "only their names are in the export"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Only this job's Fit, Apply, Prepare and coach use these. Nothing is copied."
 msgstr ""
@@ -8870,6 +9050,10 @@ msgstr "வேலை இடுகை ஆதாரம்"
 msgid "Posting terms in your resume"
 msgstr "உங்கள் ரெஸ்யூமில் வேலைக்கான விதிமுறைகள்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Postings found"
+msgstr ""
+
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/saved.tsx
 msgid "Practice"
@@ -8926,6 +9110,7 @@ msgstr "விருப்பம்"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/preferences/index.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/routes/dashboard/settings/route.tsx
 msgid "Preferences"
@@ -9735,13 +9920,25 @@ msgstr "அறிவிப்பே பயன்படுத்துவதை�
 msgid "Replace"
 msgstr "மாற்றவும்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace and import"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace icon fonts with plain text, then re-export."
 msgstr "ஐகான் எழுத்துருக்களை எளிய உரையாக மாற்றி, மீண்டும் ஏற்றுமதி செய்யவும்."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace mine"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Replace tables with plain paragraphs and lists. Cells extract in storage order, not reading order."
 msgstr "அட்டவணைகளை எளிய பத்திகள் மற்றும் பட்டியல்களாக மாற்றவும். செல்கள் படிக்கும் வரிசையில் அல்ல, சேமிப்பு வரிசையில்தான் பிரித்தெடுக்கப்படும்."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replace what you have?"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
@@ -9900,6 +10097,10 @@ msgstr "ரெஸ்யூம் கோப்பு"
 msgid "Resume length"
 msgstr ""
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Resume length and reminders. Off keeps yours."
+msgstr ""
+
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 msgid "Resume page"
 msgstr "ரெஸ்யூம் பக்கம்"
@@ -9912,6 +10113,7 @@ msgstr "ரெஸ்யூம் சமர்ப்பிக்கப்பட�
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
 #: src/features/documents/documents-page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Resumes"
 msgstr "வாழ்க்கைக் குறிப்புகள்"
 
@@ -10288,6 +10490,10 @@ msgstr "வேலை விண்ணப்பமாகச் சேமிக்�
 msgid "Saved description"
 msgstr "சேமிக்கப்பட்ட விளக்கம்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Saved items"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Saved just now"
 msgstr "இப்போதுதான் சேமிக்கப்பட்டது"
@@ -10369,8 +10575,13 @@ msgid "Scheduled work isn't available on this server."
 msgstr "அட்டவணையிட்ட பணிகள் இந்தச் சேவையகத்தில் கிடைக்காது."
 
 #: src/features/career/today.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Schedules"
 msgstr "அட்டவணைகள்"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Schedules came in switched off. Turn on the ones you want."
+msgstr ""
 
 #: src/features/resume/editor/write/entries.tsx
 msgid "School"
@@ -10692,6 +10903,7 @@ msgid "Set up web search in Settings"
 msgstr "அமைப்புகளில் இணையத் தேடலை அமைக்கவும்"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/features/settings/root.tsx
 #: src/features/user/dropdown-menu.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
@@ -11395,6 +11607,7 @@ msgstr ""
 
 #: src/features/career/coach-thread.tsx
 #: src/features/career/workspace/prepare.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Stories"
 msgstr "கதைகள்"
@@ -11681,6 +11894,10 @@ msgstr "தமிழ்"
 msgid "Target roles"
 msgstr "இலக்குப் பதவிகள்"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Target roles, locations, pay and what matters to you. Off keeps yours."
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 #: src/features/homepage/remember.tsx
 msgid "Task"
@@ -11961,6 +12178,10 @@ msgstr "கோப்பை ரெஸ்யூமாக படிக்க மு
 msgid "The greeting follows the name."
 msgstr "வாழ்த்து பெயரைப் பின்பற்றுகிறது."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The import stopped. Try again."
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "the key"
 msgstr "திறவுகோல்"
@@ -12139,6 +12360,10 @@ msgstr "சேவை ஒதுக்கீடு தீர்ந்துவி�
 msgid "The service rejected the credentials."
 msgstr "சேவை நற்சான்றிதழ்களை நிராகரித்தது."
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "The steps marked done were imported. Nothing from the failed step was saved."
+msgstr ""
+
 #: src/features/settings/ai/providers.tsx
 msgid "The test didn't run."
 msgstr "சோதனை ஓடவில்லை."
@@ -12174,6 +12399,10 @@ msgstr "சுயவிவரம், போர்ட்ஃபோலியோ அ
 #: src/features/ats-checker/messages.ts
 msgid "There is no summary paragraph."
 msgstr "சுருக்கப் பத்தி எதுவும் இல்லை."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "These are deleted before the import, and can't be brought back:"
+msgstr ""
 
 #: src/features/career/workspace/apply.tsx
 msgid "These are the answers saved when you applied."
@@ -12278,6 +12507,14 @@ msgstr "இந்தக் கோப்பில் கண்ணுக்கு�
 msgid "This file contains white-on-white text."
 msgstr "இந்தக் கோப்பில் வெள்ளையின் மேல் வெள்ளை உரை உள்ளது."
 
+#: src/features/settings/account/import/archive.ts
+msgid "This file couldn't be read as a zip. Choose the zip that Export everything downloaded."
+msgstr ""
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "This file couldn't be read."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file declares no language."
 msgstr "இந்தக் கோப்பு எந்த மொழியையும் குறிப்பிடவில்லை."
@@ -12313,6 +12550,10 @@ msgstr "இந்தக் கோப்பு Type 3 எழுத்துரு
 #: src/features/ats-checker/messages.ts
 msgid "This is a PDF Portfolio: the visible page is only a cover."
 msgstr "இது ஒரு PDF போர்ட்ஃபோலியோ: தெரியும் பக்கம் ஒரு அட்டை மட்டுமே."
+
+#: src/features/resume/import/read-file.ts
+msgid "This is an account export. Import all of it in Settings, Your data, Import an export, or extract it and import a JSON file from its resumes or letters folder."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This is an XFA form, so most software reads only the empty shell."
@@ -12441,6 +12682,14 @@ msgstr "இந்த வாரம்: உங்கள் சான்றுக�
 #: src/features/career/workspace/shell.tsx
 msgid "This workspace couldn't be loaded."
 msgstr "இந்தப் பணியிடத்தை ஏற்ற முடியவில்லை."
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip is too large to be an account export."
+msgstr ""
+
+#: src/features/settings/account/import/archive.ts
+msgid "This zip isn't an account export. Use the zip from Settings, Your data, Export everything, in Reactive Resume or {APP_NAME}."
+msgstr ""
 
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Threads"
@@ -12581,6 +12830,10 @@ msgstr "{model} மூலம் எழுத்தாக்குகிறது
 #: src/features/assistant/conversation.tsx
 msgid "Transcript copied"
 msgstr "டிரான்ஸ்கிரிப்ட் நகலெடுக்கப்பட்டது"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Transcripts"
+msgstr ""
 
 #: src/features/settings/ai/reasoning.tsx
 msgid "Translated for this provider. A model that doesn't support a setting fails its test."
@@ -13353,6 +13606,10 @@ msgstr "ஒவ்வொரு தேவையையும் மதிப்ப�
 msgid "Went well"
 msgstr "நன்றாக நடந்தது"
 
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "were already in your account"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "What a parser reads"
 msgstr "ஒரு பார்சர் என்ன படிக்கிறது"
@@ -13854,6 +14111,10 @@ msgstr "உங்கள் AI இணைப்பு"
 #: src/features/career/workspace/practise.tsx
 msgid "Your answer"
 msgstr "உங்கள் பதில்"
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Your applications stay, but lose their linked resumes and letters."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 #: src/features/homepage/prepare.tsx

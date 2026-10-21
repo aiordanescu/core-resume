@@ -4,11 +4,17 @@ import { createSelectSchema } from "drizzle-zod";
 import z from "zod";
 import { accountAuth, auth } from "@reactive-resume/auth/config";
 import * as schema from "@reactive-resume/db/schema";
-import { careerProfileDataSchema, careerWorkspaceSchema, knowledgeReviewSchema } from "@reactive-resume/schema/career";
+import {
+	aiLimitsSchema,
+	careerProfileDataSchema,
+	careerWorkspaceSchema,
+	knowledgeReviewSchema,
+} from "@reactive-resume/schema/career";
 import { coverLetterSchema } from "@reactive-resume/schema/cover-letter/data";
 import { APP_NAME } from "@reactive-resume/utils/brand";
 import { timezoneSchema } from "@reactive-resume/utils/timezone";
 import { protectedProcedure, publicProcedure } from "../../context";
+import { accountImportDto } from "../../dto/account-import";
 import { applicationDto } from "../../dto/application";
 import {
 	savedItemSchema,
@@ -19,6 +25,7 @@ import {
 } from "../../dto/career";
 import { resumeDto } from "../../dto/resume";
 import { accountRateLimit } from "../../middleware/rate-limit";
+import { accountImportService } from "../account-import/service";
 import { authService } from "./service";
 
 const accountProcedure = protectedProcedure.use(accountRateLimit).use(async ({ next }) => {
@@ -218,16 +225,24 @@ export const authRouter = {
 					username: true,
 					displayUsername: true,
 					image: true,
+					resumePages: true,
+					noReplyDays: true,
+					interviewReminders: true,
 					emailVerified: true,
 					createdAt: true,
 					updatedAt: true,
 				}),
-				resumes: z.array(resumeDto.getById.output.omit({ hasPassword: true, applicationId: true })),
+				resumes: z.array(
+					resumeDto.getById.output
+						.omit({ hasPassword: true, applicationId: true })
+						.extend({ slugChosen: z.boolean().describe("The owner chose the public address.") }),
+				),
 				coverLetters: z.array(coverLetterSchema),
 				applications: z.array(applicationDto.getById.output),
 				aiContentReports: z.array(createSelectSchema(schema.aiContentReport)),
 				career: z.object({
 					profile: careerProfileDataSchema,
+					aiLimits: aiLimitsSchema.partial().nullable().describe("Settings → AI limits; null uses the defaults."),
 					facts: z.array(careerFactSchema.omit({ usedBy: true, company: true })),
 					stories: z.array(careerStorySchema),
 					artifacts: z.array(savedItemSchema),
@@ -252,6 +267,38 @@ export const authRouter = {
 			}),
 		)
 		.handler(({ context }) => authService.exportData({ userId: context.user.id })),
+
+	importPreview: protectedProcedure
+		.use(accountRateLimit)
+		.route({
+			method: "GET",
+			path: "/auth/account/imports/preview",
+			tags: ["Authentication"],
+			operationId: "previewAccountImport",
+			summary: "Count what an account import could replace",
+			description:
+				"Returns how many records the authenticated user has in each import area, so a client can say what replacing an area deletes. Requires authentication.",
+			successDescription: "Counts per import area.",
+		})
+		.input(z.object({}).optional())
+		.output(accountImportDto.preview.output)
+		.handler(({ context }) => accountImportService.preview(context.user.id)),
+
+	importData: protectedProcedure
+		.use(accountRateLimit)
+		.route({
+			method: "POST",
+			path: "/auth/account/imports",
+			tags: ["Authentication"],
+			operationId: "importAccountData",
+			summary: "Import one area of an account export",
+			description:
+				'Imports one area (documents, applications, knowledge, jobSearch, coach or settings) of an "Export everything" archive from Reactive Resume or All That Work into the authenticated account. Send the areas in that order and pass the ids each one returns to the next. Records get new ids; public resumes come in private; schedules come in switched off. In replace mode the area\'s existing records are deleted first, in the same transaction. Requires authentication.',
+			successDescription: "What was added and skipped, and the new ids.",
+		})
+		.input(accountImportDto.run.input)
+		.output(accountImportDto.run.output)
+		.handler(({ context, input }) => accountImportService.run(context.user.id, input)),
 
 	deleteAccount: protectedProcedure
 		.route({
