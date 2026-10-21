@@ -16,8 +16,8 @@ const PREVIEWS = {
 		dark: { bg: "#0D1117", sunken: "#010409", line: "#30363D", ink: "#F0F6FC", ink3: "#9198A1", accent: "#1F6FEB" },
 	},
 	original: {
-		light: { bg: "#F8F7F3", sunken: "#F0EFEB", line: "#DFDEDA", ink: "#1C1B15", ink3: "#6D6C65", accent: "#337344" },
-		dark: { bg: "#100F0C", sunken: "#0B0A08", line: "#2C2B27", ink: "#EFEEEB", ink3: "#979590", accent: "#6FC082" },
+		light: { bg: "#F8F7F3", sunken: "#F0EFEB", line: "#DFDEDA", ink: "#1C1B15", ink3: "#6D6C65", accent: "#0067E0" },
+		dark: { bg: "#100F0C", sunken: "#0B0A08", line: "#2C2B27", ink: "#EFEEEB", ink3: "#979590", accent: "#4D9FFF" },
 	},
 } satisfies Record<Palette, Record<ResolvedTheme, PreviewColors>>;
 

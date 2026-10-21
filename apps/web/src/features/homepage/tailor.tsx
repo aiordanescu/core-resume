@@ -92,7 +92,7 @@ export function Tailor() {
 							d="M0 0"
 							pathLength={1}
 							fill="none"
-							stroke="oklch(0.55 0.12 150)"
+							stroke="oklch(0.54 0.201 258.2)"
 							strokeWidth={1.6}
 							strokeLinecap="round"
 							strokeDasharray={1}

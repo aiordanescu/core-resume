@@ -33,10 +33,10 @@ const nightPalette = {
 	"--night-ink": byNight("var(--ink)", "oklch(0.95 0.01 95)"),
 	"--night-ink-2": byNight("var(--ink-2)", "oklch(0.9 0.01 95)"),
 	"--night-on-ink": byNight("var(--bg)", "oklch(0.18 0.02 265)"),
-	"--night-accent": byNight("var(--accent-text)", "oklch(0.8 0.13 150)"),
-	"--night-label": byNight("var(--accent-text)", "oklch(0.75 0.09 150)"),
-	"--night-chip": byNight("var(--ink-2)", "oklch(0.9 0.05 150)"),
-	"--night-chip-line": byNight("var(--line-2)", "oklch(0.8 0.12 150)"),
+	"--night-accent": byNight("var(--accent-text)", "oklch(0.8 0.104 252.1)"),
+	"--night-label": byNight("var(--accent-text)", "oklch(0.747 0.104 254.7)"),
+	"--night-chip": byNight("var(--ink-2)", "oklch(0.91 0.044 256.8)"),
+	"--night-chip-line": byNight("var(--line-2)", "oklch(0.8 0.104 252.1)"),
 	"--night-line": byNight("var(--line)", "oklch(1 0 0 / .14)"),
 	"--night-fill": byNight("var(--hover)", "oklch(1 0 0 / .08)"),
 } as CSSProperties;
@@ -135,7 +135,7 @@ export function Share() {
 						d="M50 50 Q73 50 96 -20"
 						pathLength={1}
 						fill="none"
-						stroke="oklch(0.8 0.12 150)"
+						stroke="oklch(0.8 0.104 252.1)"
 						// Not non-scaling: that measures the dash in screen pixels, which breaks the pathLength-based draw.
 						strokeWidth={0.1}
 						strokeDasharray={1}

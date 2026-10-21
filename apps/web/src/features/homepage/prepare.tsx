@@ -166,7 +166,7 @@ function PencilTick({ tick }: { tick: string }) {
 				d="M6 12.5 L10.5 17 L22 2"
 				pathLength={1}
 				fill="none"
-				stroke="oklch(0.42 0.1 150)"
+				stroke="oklch(0.431 0.162 258.3)"
 				strokeWidth="2.6"
 				strokeLinecap="round"
 				strokeLinejoin="round"
