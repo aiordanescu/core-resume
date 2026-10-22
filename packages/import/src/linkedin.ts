@@ -1,4 +1,4 @@
-import type { ResumeData } from "@reactive-resume/schema/resume/data";
+import type { ExperienceItem, ResumeData } from "@reactive-resume/schema/resume/data";
 import type { ResumeDates } from "@reactive-resume/schema/resume/dates";
 import { unzipSync } from "fflate";
 import { resumeDataSchema } from "@reactive-resume/schema/resume/data";
@@ -45,8 +45,6 @@ const MONTHS: Record<string, string> = {
 	dec: "12",
 };
 
-// LinkedIn's "Started On" / "Finished On" cells are "Mon YYYY" (e.g. "Jan 2020") or a bare year.
-// Anything else is kept verbatim rather than dropped.
 // LinkedIn writes "Jan 2020" (or a bare year); anything else stays as written and asks for a review.
 function toLinkedInIsoDate(value = ""): string | null {
 	const trimmed = value.trim();
@@ -155,6 +153,93 @@ function findCsv(files: Record<string, Uint8Array>, fileName: string): Record<st
 const emptyWebsite = { url: "", label: "", inlineLink: false };
 const linkWebsite = (url?: string) => (url ? { url, label: url, inlineLink: false } : emptyWebsite);
 
+const normalizeSpace = (text: string) => text.trim().replace(/\s+/g, " ");
+
+function cleanCompany(company: string, location: string): { company: string; location: string } {
+	// Some exports append the location after tabs and leave the location column empty. Preserve that
+	// suffix as the location; don't guess at ordinary spaces/commas or discard a conflicting suffix.
+	const parts = company.split(/\t+/).map(normalizeSpace).filter(Boolean);
+	const suffix = parts.at(-1);
+	if (parts.length > 1 && suffix && (!location || normalizeSpace(location).toLowerCase() === suffix.toLowerCase())) {
+		parts.pop();
+		return { company: parts.join(" "), location: location || suffix };
+	}
+	return { company: parts.join(" "), location };
+}
+
+function companyPeriod(positions: Record<string, string>[]): Pick<ExperienceItem, "period" | "dates"> {
+	let earliest = "";
+	let latest = "";
+	let ongoing = false;
+
+	for (const position of positions) {
+		const start = toLinkedInIsoDate(position["Started On"]);
+		const end = toLinkedInIsoDate(position["Finished On"]);
+		// Unknown dates cannot establish total tenure. Individual roles still retain every original date.
+		if (!start || (position["Finished On"] && !end)) return { period: "" };
+		// Year-only boundaries are less precise: keep the year rather than implying a known month.
+		if (!earliest || start.padEnd(7, "-00") < earliest.padEnd(7, "-00")) earliest = start;
+		if (end && (!latest || end.padEnd(7, "-99") > latest.padEnd(7, "-99"))) latest = end;
+		if (!end) ongoing = true;
+	}
+
+	if (!earliest) return { period: "" };
+	return {
+		period: `${formatDate(earliest)} - ${ongoing ? "Present" : formatDate(latest)}`,
+		dates: toRangeDates(earliest, ongoing ? undefined : latest),
+	};
+}
+
+function readExperience(positions: Record<string, string>[]): ExperienceItem[] {
+	const companies = new Map<string, { company: string; positions: Record<string, string>[] }>();
+	for (const position of positions) {
+		const { company, location } = cleanCompany(position["Company Name"] ?? "", position.Location ?? "");
+		if (!company) continue;
+		const key = company.toLowerCase();
+		const group = companies.get(key);
+		const cleanedPosition = { ...position, Location: location };
+		if (group) group.positions.push(cleanedPosition);
+		else companies.set(key, { company, positions: [cleanedPosition] });
+	}
+
+	return Array.from(companies.values(), ({ company, positions: roles }) => {
+		const first = roles[0];
+		const item: ExperienceItem = {
+			id: generateId(),
+			hidden: false,
+			company,
+			position: first?.Title ?? "",
+			location: first?.Location ?? "",
+			period: formatLinkedInPeriod(first?.["Started On"], first?.["Finished On"]),
+			dates: linkedInPeriodDates(first?.["Started On"], first?.["Finished On"]),
+			website: emptyWebsite,
+			roles: [],
+			description: textToHtml(first?.Description),
+		};
+		if (roles.length === 1) return item;
+
+		const sameLocation = roles.every((role) => role.Location === first?.Location);
+		return {
+			...item,
+			position: "",
+			location: sameLocation ? item.location : "",
+			dates: undefined,
+			...companyPeriod(roles),
+			description: "",
+			roles: roles.map((role) => ({
+				id: generateId(),
+				position: role.Title || "[Job title missing]",
+				period: formatLinkedInPeriod(role["Started On"], role["Finished On"]),
+				dates: linkedInPeriodDates(role["Started On"], role["Finished On"]),
+				// Roles have no location field, so preserve differing locations alongside their descriptions.
+				description:
+					(!sameLocation && role.Location ? textToHtml(`Location: ${role.Location}`) : "") +
+					textToHtml(role.Description),
+			})),
+		};
+	});
+}
+
 /**
  * Converts LinkedIn's "Download your data" export (a ZIP of per-topic CSVs) into ResumeData.
  * Only the CSVs relevant to a resume are read; the rest of the export is ignored.
@@ -213,33 +298,24 @@ export function parseLinkedInExport(zipBytes: Uint8Array): ResumeData {
 		}
 	}
 
-	const companies = positions.filter((position) => position["Company Name"]);
-	if (companies.length > 0) {
+	const experience = readExperience(positions);
+	if (experience.length > 0) {
 		result.sections.experience = {
 			...defaultResumeData.sections.experience,
-			items: companies.map((position) => ({
-				id: generateId(),
-				hidden: false,
-				company: position["Company Name"] ?? "",
-				position: position.Title || "",
-				location: position.Location || "",
-				period: formatLinkedInPeriod(position["Started On"], position["Finished On"]),
-				dates: linkedInPeriodDates(position["Started On"], position["Finished On"]),
-				website: emptyWebsite,
-				roles: [],
-				description: textToHtml(position.Description),
-			})),
+			items: experience,
 		};
 	}
 
-	const schools = education.filter((edu) => edu["School Name"]);
+	const schools = education.filter((edu) =>
+		["School Name", "Degree Name", "Start Date", "End Date", "Notes", "Activities"].some((field) => edu[field]),
+	);
 	if (schools.length > 0) {
 		result.sections.education = {
 			...defaultResumeData.sections.education,
 			items: schools.map((edu) => ({
 				id: generateId(),
 				hidden: false,
-				school: edu["School Name"] ?? "",
+				school: edu["School Name"] || "[School name missing]",
 				degree: edu["Degree Name"] || "",
 				area: "",
 				grade: "",
@@ -247,7 +323,7 @@ export function parseLinkedInExport(zipBytes: Uint8Array): ResumeData {
 				period: formatLinkedInPeriod(edu["Start Date"], edu["End Date"]),
 				dates: linkedInPeriodDates(edu["Start Date"], edu["End Date"]),
 				website: emptyWebsite,
-				description: textToHtml(edu.Notes),
+				description: textToHtml(edu.Notes) + (edu.Activities ? textToHtml(`Activities: ${edu.Activities}`) : ""),
 			})),
 		};
 	}
@@ -295,7 +371,14 @@ export function parseLinkedInExport(zipBytes: Uint8Array): ResumeData {
 				date: formatLinkedInDate(cert["Started On"]),
 				dates: linkedInSingleDates(cert["Started On"]),
 				website: linkWebsite(cert.Url),
-				description: "",
+				description: textToHtml(
+					[
+						cert["Finished On"] ? `Expires: ${formatLinkedInDate(cert["Finished On"])}` : "",
+						cert["License Number"] ? `License number: ${cert["License Number"]}` : "",
+					]
+						.filter(Boolean)
+						.join("\n"),
+				),
 			})),
 		};
 	}

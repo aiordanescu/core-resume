@@ -56,6 +56,112 @@ describe("parseLinkedInExport", () => {
 		expect(result.sections.experience.items[0]!.dates).toEqual({ start: "2020-01", end: null, present: true });
 	});
 
+	it("groups company roles without duplicating titles or flattening their descriptions", () => {
+		const zip = makeZip({
+			"Positions.csv": [
+				"Company Name,Title,Description,Location,Started On,Finished On",
+				"Acme,Director,Led teams. Built tools. Shipped products.,Remote,Mar 2024,",
+				"Other Co,Advisor,Advised clients,Remote,2022,2023",
+				"Acme\tRemote,Manager,Managed <systems> & teams,Remote,Jan 2021,Feb 2024",
+				"ACME,Engineer,Built tools,Remote,May 2018,Dec 2020",
+			].join("\n"),
+		});
+
+		const result = parseLinkedInExport(zip);
+		expect(result.sections.experience.items).toHaveLength(2);
+		const [company, other] = result.sections.experience.items;
+		expect(company).toMatchObject({
+			company: "Acme",
+			position: "",
+			location: "Remote",
+			period: "May 2018 - Present",
+			dates: { start: "2018-05", end: null, present: true },
+			description: "",
+		});
+		expect(company!.roles.map(({ position, period, description }) => ({ position, period, description }))).toEqual([
+			{
+				position: "Director",
+				period: "March 2024 - Present",
+				description: "<p>Led teams. Built tools. Shipped products.</p>",
+			},
+			{
+				position: "Manager",
+				period: "January 2021 - February 2024",
+				description: "<p>Managed &lt;systems&gt; &amp; teams</p>",
+			},
+			{ position: "Engineer", period: "May 2018 - December 2020", description: "<p>Built tools</p>" },
+		]);
+		expect(new Set(company!.roles.map(({ id }) => id)).size).toBe(3);
+		expect(other).toMatchObject({ company: "Other Co", position: "Advisor", roles: [] });
+	});
+
+	it("keeps year-only boundaries when combining company dates", () => {
+		const zip = makeZip({
+			"Positions.csv": [
+				"Company Name,Title,Started On,Finished On",
+				"Acme,Lead,May 2019,Jan 2024",
+				"Acme,Engineer,2019,2024",
+			].join("\n"),
+		});
+
+		const [item] = parseLinkedInExport(zip).sections.experience.items;
+		expect(item!.period).toBe("2019 - 2024");
+		expect(item!.dates).toEqual({ start: "2019", end: "2024", present: false });
+	});
+
+	it.each([
+		["Summer 2018", "Dec 2020", "Summer 2018 - December 2020"],
+		["Jan 2018", "Unknown", "January 2018 - Unknown"],
+		["", "Dec 2020", "December 2020"],
+	])("doesn't invent company tenure when a role has dates %s to %s", (start, end, period) => {
+		const zip = makeZip({
+			"Positions.csv": [
+				"Company Name,Title,Started On,Finished On",
+				"Acme,Lead,Jan 2021,",
+				`Acme,Engineer,${start},${end}`,
+			].join("\n"),
+		});
+
+		const [item] = parseLinkedInExport(zip).sections.experience.items;
+		expect(item!.period).toBe("");
+		expect(item!.dates).toBeUndefined();
+		expect(item!.roles[1]!.period).toBe(period);
+		expect(item!.roles[1]!.dates).toBeUndefined();
+	});
+
+	it("recovers a tab-separated location and keeps differing locations attached to their roles", () => {
+		const zip = makeZip({
+			"Positions.csv": [
+				"Company Name,Title,Description,Location,Started On,Finished On",
+				'"Acme\tBerlin, Germany",Engineer,Built tools,,2019,2021',
+				'Acme,,Maintained tools,"Remote & <hybrid>",2021,2023',
+			].join("\n"),
+		});
+
+		const [item] = parseLinkedInExport(zip).sections.experience.items;
+		expect(item).toMatchObject({ company: "Acme", location: "", period: "2019 - 2023" });
+		expect(item!.roles[0]!.description).toBe("<p>Location: Berlin, Germany</p><p>Built tools</p>");
+		expect(item!.roles[1]).toMatchObject({
+			position: "[Job title missing]",
+			description: "<p>Location: Remote &amp; &lt;hybrid&gt;</p><p>Maintained tools</p>",
+		});
+	});
+
+	it("doesn't strip ordinary company-name words or conflicting tab-separated suffixes", () => {
+		const zip = makeZip({
+			"Positions.csv": [
+				"Company Name,Title,Location",
+				'"Acme Berlin, Germany",Engineer,"Berlin, Germany"',
+				'"Acme\tResearch",Engineer,"Berlin, Germany"',
+			].join("\n"),
+		});
+
+		expect(parseLinkedInExport(zip).sections.experience.items.map(({ company }) => company)).toEqual([
+			"Acme Berlin, Germany",
+			"Acme Research",
+		]);
+	});
+
 	it("skips positions without a company name", () => {
 		const zip = makeZip({
 			"Positions.csv": "Company Name,Title\n,Freelancer\n",
@@ -78,6 +184,25 @@ describe("parseLinkedInExport", () => {
 		expect(item.period).toBe("2016 - 2020");
 	});
 
+	it("retains education with a missing school and preserves notes and activities safely", () => {
+		const zip = makeZip({
+			"Education.csv": [
+				"School Name,Degree Name,Start Date,End Date,Notes,Activities,Other",
+				',BSc,2016,2020,"Studied <systems> & design","Robotics club\nVolunteer tutor",',
+				",,,,,,unused",
+			].join("\n"),
+		});
+
+		const result = parseLinkedInExport(zip);
+		expect(result.sections.education.items).toHaveLength(1);
+		expect(result.sections.education.items[0]).toMatchObject({
+			school: "[School name missing]",
+			degree: "BSc",
+			period: "2016 - 2020",
+			description: "<p>Studied &lt;systems&gt; &amp; design</p><p>Activities: Robotics club</p><p>Volunteer tutor</p>",
+		});
+	});
+
 	it("imports skills, languages, and certifications", () => {
 		const zip = makeZip({
 			"Education.csv": "School Name\nMIT\n",
@@ -92,6 +217,27 @@ describe("parseLinkedInExport", () => {
 		expect(result.sections.languages.items[0]!.level).toBe(5);
 		expect(result.sections.certifications.items[0]!.title).toBe("AWS Certified");
 		expect(result.sections.certifications.items[0]!.website.url).toBe("https://aws.amazon.com");
+	});
+
+	it("preserves certification expiry and license numbers without changing the issue date", () => {
+		const zip = makeZip({
+			"Profile.csv": "First Name\nJane\n",
+			"Certifications.csv": [
+				"Name,Authority,Started On,Finished On,License Number",
+				"Systems Certification,Example,Jun 2021,Jun 2024,<ID>&123",
+				"Renewal,Example,2024,After renewal,",
+				"Lifetime Certificate,Example,2020,,",
+			].join("\n"),
+		});
+
+		const items = parseLinkedInExport(zip).sections.certifications.items;
+		expect(items[0]).toMatchObject({
+			date: "June 2021",
+			dates: { start: "2021-06", end: null, present: false },
+			description: "<p>Expires: June 2024</p><p>License number: &lt;ID&gt;&amp;123</p>",
+		});
+		expect(items[1]!.description).toBe("<p>Expires: After renewal</p>");
+		expect(items[2]!.description).toBe("");
 	});
 
 	it("finds CSVs nested inside a folder in the ZIP", () => {
