@@ -13541,10 +13541,6 @@ msgstr "Utilizați detaliile de la „{0}”"
 msgid "Use for all applications"
 msgstr "Folosiți pentru toate candidaturile"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "Folosiți în coaching: {excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "Folosiți fusul orar al acestui dispozitiv ({device})"
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Utilizați acest furnizor"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

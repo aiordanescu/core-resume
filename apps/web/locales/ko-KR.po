@@ -13541,10 +13541,6 @@ msgstr "\"{0}\"의 세부정보를 사용하세요."
 msgid "Use for all applications"
 msgstr "모든 지원에 사용"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "코칭에 사용: {excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "이 기기의 시간대 사용({device})"
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "이 제공업체를 이용하세요"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

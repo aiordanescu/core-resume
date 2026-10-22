@@ -13541,10 +13541,6 @@ msgstr "ប្រើព័ត៌មានលម្អិតពី “{0}”"
 msgid "Use for all applications"
 msgstr "ប្រើសម្រាប់ពាក្យសុំទាំងអស់"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "ប្រើក្នុងការបង្វឹក៖ {excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "ប្រើតំបន់ពេលវេលារបស់ឧបករ
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "ប្រើអ្នកផ្តល់សេវានេះ។"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

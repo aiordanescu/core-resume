@@ -13541,10 +13541,6 @@ msgstr "Použiť podrobnosti z „{0}“"
 msgid "Use for all applications"
 msgstr "Použiť pre všetky žiadosti"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "Použiť v koučingu: {excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "Použiť časové pásmo tohto zariadenia ({device})"
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "Použite tohto poskytovateľa"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

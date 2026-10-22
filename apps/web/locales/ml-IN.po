@@ -13541,10 +13541,6 @@ msgstr "\"{0}\"-ൽ നിന്നുള്ള വിശദാംശങ്ങ�
 msgid "Use for all applications"
 msgstr "എല്ലാ അപേക്ഷകൾക്കും ഉപയോഗിക്കുക"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "കോച്ചിംഗിൽ ഉപയോഗിക്കുക: {excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "ഈ ഉപകരണത്തിന്റെ സമയമേഖല ഉപ
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "ഈ ദാതാവിനെ ഉപയോഗിക്കുക"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

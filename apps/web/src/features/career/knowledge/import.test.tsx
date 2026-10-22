@@ -246,20 +246,40 @@ it("retains a failed correction for retry and stops when the existing fact chang
 	expect(api.update).toHaveBeenCalledOnce();
 });
 
-it("stages imported wording as a correction before updating existing Knowledge", async () => {
-	api.facts = [known("Engineer at Example, 2020 - 2024, Remote, Platform team")];
+it("copies only the named imported fact into a correction when the comparison contains another file fact", async () => {
+	api.facts = [known("Engineer at Second Example, 2020 - 2024, Remote")];
+	const first = resumeData.sections.experience.items[0];
+	if (!first) throw new Error("Missing experience fixture");
+	first.description = "";
+	resumeData.sections.experience.items.push({ ...first, id: "second-role", company: "Second Example" });
 	mount();
 	upload();
-	const importedText = await screen.findByRole("textbox", { name: "Imported fact text" });
-	fireEvent.change(importedText, { target: { value: "Engineer at Example, Infrastructure team" } });
-	fireEvent.click(screen.getByRole("button", { name: "Use imported wording" }));
-	expect(screen.getByRole("textbox", { name: "Existing fact text" })).toHaveValue(
-		"Engineer at Example, Infrastructure team",
+	const heading = await screen.findByRole("heading", { name: "Second Example" });
+	const comparison = within(heading.closest("article") as HTMLElement);
+	const fileFacts = comparison.getByRole("region", { name: "From this file" });
+	const storedFacts = comparison.getByRole("region", { name: "In Knowledge" });
+	fireEvent.change(within(fileFacts).getByRole("textbox", { name: "Imported fact text" }), {
+		target: { value: "Engineer at Second Example, Infrastructure team" },
+	});
+	fireEvent.change(within(fileFacts).getByRole("textbox", { name: "Other imported fact text" }), {
+		target: { value: "Engineer at Example, Platform team" },
+	});
+	fireEvent.click(within(storedFacts).getByRole("button", { name: "Use wording from Second Example" }));
+	expect(comparison.getByRole("textbox", { name: "Existing fact text" })).toHaveValue(
+		"Engineer at Second Example, Infrastructure team",
 	);
 	expect(api.update).not.toHaveBeenCalled();
-	fireEvent.click(screen.getByRole("button", { name: "Save correction" }));
-	await screen.findByText("Correction saved");
-	expect(api.update).toHaveBeenCalledWith({ id: "existing", text: "Engineer at Example, Infrastructure team" });
+	expect(api.save).not.toHaveBeenCalled();
+	fireEvent.click(comparison.getByRole("button", { name: "Save correction" }));
+	await comparison.findByText("Correction saved");
+	expect(api.update).toHaveBeenCalledExactlyOnceWith({
+		id: "existing",
+		text: "Engineer at Second Example, Infrastructure team",
+	});
+	expect(within(fileFacts).getByRole("textbox", { name: "Other imported fact text" })).toHaveValue(
+		"Engineer at Example, Platform team",
+	);
+	expect(api.save).not.toHaveBeenCalled();
 });
 
 it("rechecks current Knowledge without losing edits or silently selecting new matches", async () => {

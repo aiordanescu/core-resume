@@ -13541,10 +13541,6 @@ msgstr "使用“{0}”中的詳細信息"
 msgid "Use for all applications"
 msgstr "用於所有應徵"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "用於輔導：{excerpt}"
@@ -13584,6 +13580,11 @@ msgstr "使用此裝置的時區（{device}）"
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "使用該提供者"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."

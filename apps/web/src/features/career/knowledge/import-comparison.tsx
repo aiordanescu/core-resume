@@ -6,6 +6,7 @@ import { Trans } from "@lingui/react/macro";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Textarea } from "@reactive-resume/ui/components/textarea";
 import { isPrivateGroup, normalizeFactText } from "@reactive-resume/utils/knowledge";
+import { cn } from "@reactive-resume/utils/style";
 import { ImportRow, rowLabel } from "./import-fact-row";
 
 export type ImportCorrection = { text: string; original: string; error: string; saving: boolean };
@@ -31,6 +32,7 @@ type ImportComparisonProps = {
 /** Keep comparisons in place while either side is edited so typing never moves the focused field. */
 export function ImportComparison(props: ImportComparisonProps) {
 	const { row, matches, known, imported, corrections, corrected, privateGroups, busy, included, canInclude } = props;
+	const knowledgeMatches = matches.filter((match) => match.target === "knowledge");
 	const originalSource = matches.some((match) => match.kind === "source");
 	const identical = matches.some(
 		(match) =>
@@ -53,8 +55,8 @@ export function ImportComparison(props: ImportComparisonProps) {
 					)}
 				</span>
 			</header>
-			<div className="grid min-w-0 gap-4 lg:grid-cols-2">
-				<div className="grid min-w-0 content-start gap-2">
+			<div className={cn("grid min-w-0 gap-4", knowledgeMatches.length > 0 && "lg:grid-cols-2")}>
+				<section aria-label={t`From this file`} className="grid min-w-0 content-start gap-3">
 					<p className="text-xs font-semibold text-ink-2">
 						<Trans>From this file</Trans>
 					</p>
@@ -67,10 +69,9 @@ export function ImportComparison(props: ImportComparisonProps) {
 							onChange={(change) => props.onChange(row.source.id, change)}
 						/>
 					</fieldset>
-				</div>
-				<div className="grid min-w-0 content-start gap-3">
-					{matches.map((match) => {
-						if (match.target === "import") {
+					{matches
+						.filter((match) => match.target === "import")
+						.map((match) => {
 							const other = imported.get(match.id);
 							return other ? (
 								<div key={`import/${match.id}`} className="grid min-w-0 gap-2">
@@ -88,94 +89,100 @@ export function ImportComparison(props: ImportComparisonProps) {
 									</fieldset>
 								</div>
 							) : null;
-						}
-						const fact = known.get(match.id);
-						if (!fact)
-							return (
-								<p key={match.id} className="text-sm text-ink-2">
-									<Trans>This fact is no longer available. Recheck matches before saving.</Trans>
-								</p>
-							);
-						const edit = corrections.get(fact.id);
-						return (
-							<section key={fact.id} className="grid min-w-0 gap-2">
-								<p className="text-xs font-semibold text-ink-2">
-									<Trans>In Knowledge</Trans>
-								</p>
-								<div className="grid min-w-0 gap-3 rounded-lg bg-sunken p-3">
-									<p className="text-xs text-ink-3">
-										{[
-											fact.group,
-											fact.status === "archived"
-												? t`Archived`
-												: fact.status === "excluded"
-													? t`Coaching off`
-													: t`Coaching on`,
-											isPrivateGroup(fact.group, privateGroups) ? t`Private` : null,
-										]
-											.filter(Boolean)
-											.join(" · ")}
+						})}
+				</section>
+				{knowledgeMatches.length > 0 && (
+					<section aria-label={t`In Knowledge`} className="grid min-w-0 content-start gap-3">
+						<p className="text-xs font-semibold text-ink-2">
+							<Trans>In Knowledge</Trans>
+						</p>
+						{knowledgeMatches.map((match) => {
+							const fact = known.get(match.id);
+							if (!fact)
+								return (
+									<p key={match.id} className="text-sm text-ink-2">
+										<Trans>This fact is no longer available. Recheck matches before saving.</Trans>
 									</p>
-									{edit ? (
-										<>
-											<Textarea
-												aria-label={t`Existing fact text`}
-												value={edit.text}
-												maxLength={2000}
-												disabled={busy}
-												onChange={(event) => props.onCorrect(fact.id, event.target.value)}
-											/>
-											{edit.error && (
-												<p role="alert" className="text-sm">
-													{edit.error}
-												</p>
-											)}
-											<p className="text-xs text-ink-3">
-												<Trans>Saving corrects the existing fact now. Linked stories may need review.</Trans>
-											</p>
-											<div className="flex flex-wrap gap-2">
-												<Button
-													size="sm"
-													variant="secondary"
-													loading={edit.saving}
-													disabled={busy || !edit.text.trim() || edit.text.trim() === fact.text}
-													onClick={() => props.onSave(fact.id)}
-												>
-													<Trans>Save correction</Trans>
-												</Button>
-												<Button size="sm" variant="ghost" disabled={busy} onClick={() => props.onCancel(fact.id)}>
-													<Trans>Cancel correction</Trans>
-												</Button>
-											</div>
-										</>
-									) : (
-										<>
-											<p className="text-sm leading-relaxed whitespace-pre-wrap">{fact.text}</p>
-											<div className="flex flex-wrap items-center gap-2">
-												<Button size="sm" variant="ghost" disabled={busy} onClick={() => props.onEdit(fact)}>
-													<Trans>Edit existing fact</Trans>
-												</Button>
-												<Button
-													size="sm"
-													variant="ghost"
-													disabled={busy || !row.text.trim() || row.text.trim() === fact.text}
-													onClick={() => props.onEdit(fact, row.text)}
-												>
-													<Trans>Use imported wording</Trans>
-												</Button>
-												{corrected.has(fact.id) && (
-													<span role="status" className="text-xs text-ink-2">
-														<Trans>Correction saved</Trans>
-													</span>
+								);
+							const edit = corrections.get(fact.id);
+							return (
+								<div key={fact.id} className="grid min-w-0 gap-2">
+									<div className="grid min-w-0 gap-3 rounded-lg bg-sunken p-3">
+										<p className="text-xs text-ink-3">
+											{[
+												fact.group,
+												fact.status === "archived"
+													? t`Archived`
+													: fact.status === "excluded"
+														? t`Coaching off`
+														: t`Coaching on`,
+												isPrivateGroup(fact.group, privateGroups) ? t`Private` : null,
+											]
+												.filter(Boolean)
+												.join(" · ")}
+										</p>
+										{edit ? (
+											<>
+												<Textarea
+													aria-label={t`Existing fact text`}
+													value={edit.text}
+													maxLength={2000}
+													disabled={busy}
+													onChange={(event) => props.onCorrect(fact.id, event.target.value)}
+												/>
+												{edit.error && (
+													<p role="alert" className="text-sm">
+														{edit.error}
+													</p>
 												)}
-											</div>
-										</>
-									)}
+												<p className="text-xs text-ink-3">
+													<Trans>Saving corrects the existing fact now. Linked stories may need review.</Trans>
+												</p>
+												<div className="flex flex-wrap gap-2">
+													<Button
+														size="sm"
+														variant="secondary"
+														loading={edit.saving}
+														disabled={busy || !edit.text.trim() || edit.text.trim() === fact.text}
+														onClick={() => props.onSave(fact.id)}
+													>
+														<Trans>Save correction</Trans>
+													</Button>
+													<Button size="sm" variant="ghost" disabled={busy} onClick={() => props.onCancel(fact.id)}>
+														<Trans>Cancel correction</Trans>
+													</Button>
+												</div>
+											</>
+										) : (
+											<>
+												<p className="text-sm leading-relaxed whitespace-pre-wrap">{fact.text}</p>
+												<div className="flex flex-wrap items-center gap-2">
+													<Button size="sm" variant="ghost" disabled={busy} onClick={() => props.onEdit(fact)}>
+														<Trans>Edit existing fact</Trans>
+													</Button>
+													<Button
+														size="sm"
+														variant="ghost"
+														className="h-auto max-w-full py-1 text-start whitespace-normal"
+														disabled={busy || !row.text.trim() || row.text.trim() === fact.text}
+														onClick={() => props.onEdit(fact, row.text)}
+													>
+														{t`Use wording from ${rowLabel(row)}`}
+													</Button>
+													{corrected.has(fact.id) && (
+														<span role="status" className="text-xs text-ink-2">
+															<Trans>Correction saved</Trans>
+														</span>
+													)}
+												</div>
+											</>
+										)}
+									</div>
 								</div>
-							</section>
-						);
-					})}
-				</div>
+							);
+						})}
+					</section>
+				)}
 			</div>
 			<footer className="flex flex-wrap items-center gap-2 border-t border-line pt-3">
 				<Button

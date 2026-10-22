@@ -13546,10 +13546,6 @@ msgstr "“{0}” ରୁ ବିବରଣୀ ବ୍ୟବହାର କରନ୍�
 msgid "Use for all applications"
 msgstr "ସମସ୍ତ ଆବେଦନ ପାଇଁ ବ୍ୟବହାର କରନ୍ତୁ"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Use imported wording"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "କୋଚିଂରେ ବ୍ୟବହାର କରନ୍ତୁ: {excerpt}"
@@ -13589,6 +13585,11 @@ msgstr "ଏହି ଡିଭାଇସର ସମୟ ଅଞ୍ଚଳ ବ୍ୟବ�
 #: src/features/settings/ai/providers.tsx
 msgid "Use this provider"
 msgstr "ଏହି ପ୍ରଦାନକାରୀକୁ ବ୍ୟବହାର କରନ୍ତୁ |"
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
