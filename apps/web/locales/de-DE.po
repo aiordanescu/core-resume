@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# Dokument in den Papierkorb verschoben} other {# Dokum
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {#-Bearbeitung konnte nicht platziert werden: Der Text wurde geändert. Bitten Sie noch einmal darum, es noch einmal zu machen.} other {#-Änderungen konnten nicht platziert werden: Ihr Text wurde geändert. Bitten Sie erneut, sie zu wiederholen.}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {# Fakt merken?} other {# Fakten merken?}}"
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -360,11 +370,6 @@ msgstr "{0} geschlossen"
 msgid "{0} days left"
 msgstr "{0} verbleibende Tage"
 
-#. placeholder {0}: result?.results.filter((row) => row.status !== "saved").length ?? 0
-#: src/features/career/knowledge/import.tsx
-msgid "{0} duplicates or previously removed facts skipped"
-msgstr ""
-
 #. placeholder {0}: proposals.length
 #: src/features/assistant/document.ts
 #: src/features/resume/editor/proposals/proposals.ts
@@ -376,14 +381,19 @@ msgstr "{0} Änderungen übernommen"
 msgid "{0} entries"
 msgstr "{0}-Einträge"
 
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
 #. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
 #: src/features/career/knowledge/import.tsx
 msgid "{0} facts saved"
-msgstr ""
-
-#. placeholder {0}: chosen.length
-#: src/features/career/knowledge/import.tsx
-msgid "{0} facts selected"
 msgstr ""
 
 #. placeholder {0}: step.flagged
@@ -1231,7 +1241,7 @@ msgid "Accessibility"
 msgstr "Barrierefreiheit"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "Erfolg"
 
@@ -1768,6 +1778,10 @@ msgstr "Alle Dokumente und Bewerbungen als JSON, in einer ZIP-Datei"
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "Zugriff erlauben"
@@ -1792,7 +1806,7 @@ msgstr "Bereits behandelt. Wählen Sie eines aus, um es auf der Seite zu finden"
 msgid "Already have an account? <0/>"
 msgstr "Sie haben bereits ein Konto? <0/>"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Already in Knowledge"
 msgstr ""
 
@@ -1860,6 +1874,10 @@ msgstr "und zählen"
 #: src/features/settings/account/data.tsx
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "und alle öffentlichen Links werden dauerhaft entfernt. Dies kann nicht rückgängig gemacht werden."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Another fact from this file"
+msgstr ""
 
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
@@ -2140,6 +2158,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Archiviert (schließt es)"
@@ -2332,7 +2354,7 @@ msgstr "Vermeiden Sie starke Laufweiten-Effekte und exportieren Sie erneut."
 msgid "Awarder"
 msgstr "Preisträger"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2626,6 +2648,10 @@ msgstr "Kann Software Ihren Lebenslauf lesen?"
 msgid "Cancel"
 msgstr "Abbrechen"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2639,7 +2665,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "Katalanisch"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -3012,8 +3038,13 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
 #: src/features/career/knowledge/import.tsx
 msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3075,6 +3106,10 @@ msgstr "Unternehmen"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "Vergleichen Sie Versuche, um zu sehen, was besser wurde. Übungsfragen sind simuliert und stammen nicht von {0}."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3423,6 +3458,10 @@ msgstr "Korrigiert: {correctedOn} · Original bleibt erhalten"
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "Diese Verbindung konnte nicht abgeschlossen werden. Starten Sie die Verbindung in Ihrem Client neu und versuchen Sie es erneut."
@@ -3693,6 +3732,10 @@ msgstr ""
 msgid "Couldn't read this page: {0}"
 msgstr "Diese Seite konnte nicht gelesen werden: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "Die Übermittlung konnte nicht aufgezeichnet werden. Versuchen Sie es erneut."
@@ -3793,6 +3836,10 @@ msgstr "Die Zeitzone konnte nicht gespeichert werden."
 
 #: src/features/career/knowledge/import.tsx
 msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr ""
 
 #: src/features/career/today.tsx
@@ -4695,6 +4742,7 @@ msgstr "Duplizieren Sie Ihren Lebenslauf, um einen neuen zu erstellen, genau wie
 msgid "Duplicated"
 msgstr "Dupliziert"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4766,6 +4814,10 @@ msgstr "Details bearbeiten…"
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "Eintrag bearbeiten"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4845,7 +4897,7 @@ msgstr "Editor-Ansichten"
 msgid "Editorial"
 msgstr "Leitartikel"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5063,12 +5115,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "Fokusmodus beenden"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5163,7 +5219,7 @@ msgstr "Fakt vergessen"
 msgid "Fact groups"
 msgstr ""
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Fact text"
 msgstr ""
 
@@ -5372,6 +5428,10 @@ msgstr "Abschnitte finden"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "Bewährtes wird gesucht"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5652,6 +5712,10 @@ msgstr "Aus „Passung“"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "vom Assistenten oder API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6081,6 +6145,10 @@ msgstr "Symbol…"
 msgid "Icons in contact line"
 msgstr "Symbole in der Kontaktlinie"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "Würde ich es noch einmal machen, würde ich die Messgröße vor dem ersten Prototyp vereinbaren."
@@ -6205,6 +6273,14 @@ msgstr "{0} Bewerbungen importiert."
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "{0} Bewerbungen importiert. {skipped} Zeilen hatten keine Firma oder Rolle und wurden übersprungen."
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "Importiert von {imported}."
@@ -6241,8 +6317,17 @@ msgstr ""
 msgid "In good company"
 msgstr "In guter Gesellschaft"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6282,7 +6367,7 @@ msgstr "Einblicke"
 msgid "Integrations"
 msgstr "Integrationen"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6585,6 +6670,10 @@ msgstr "Zugriff behalten, wenn Sie die Anwendung nicht verwenden."
 msgid "Keep account"
 msgstr "Konto behalten"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "Weiter bearbeiten"
@@ -6628,6 +6717,10 @@ msgstr "Belege präzise halten"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6760,7 +6853,7 @@ msgstr "Querformat"
 msgid "Language"
 msgstr "Sprache"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7831,6 +7924,10 @@ msgid "New fact"
 msgstr "Neuer Fakt"
 
 #: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
 msgstr ""
 
@@ -7983,6 +8080,7 @@ msgstr "Keine Korrekturen"
 msgid "No dates were found."
 msgstr "Es wurden keine Datumsangaben gefunden."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8724,12 +8822,12 @@ msgstr "Originalseite"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "Die ursprüngliche Tabellenformatierung bleibt erhalten. Dieser Inhalt ist schreibgeschützt, da er nicht sicher bearbeitet werden kann."
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Original text"
 msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "Sonstiges"
 
@@ -8745,6 +8843,10 @@ msgstr "Weitere Leistungen"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "Andere Dokumente · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -9134,6 +9236,10 @@ msgstr "Portugiesisch (Portugal)"
 msgid "Position"
 msgstr "Position"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "Stellenanzeige"
@@ -9211,7 +9317,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "Bevorzugen Sie eine einzelne Spalte, oder beschränken Sie die Seitenspalte auf kurze, in sich geschlossene Listen."
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "Präferenz"
 
@@ -9321,6 +9427,7 @@ msgid "Printing is turned off for this resume."
 msgstr "Für diesen Lebenslauf ist das Drucken deaktiviert."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 #: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
@@ -9385,7 +9492,7 @@ msgstr "Profile"
 msgid "Progress Bar"
 msgstr "Fortschrittsbalken"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9442,7 +9549,7 @@ msgstr "Öffentliche Profillinks sind optional und werden nur verwendet, wenn We
 msgid "Public, with a password"
 msgstr "Öffentlich, mit Passwort"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9737,6 +9844,10 @@ msgstr "Aus dem Interview"
 msgid "Recent"
 msgstr "Neueste"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Empfänger"
@@ -9801,7 +9912,7 @@ msgstr "Rot"
 msgid "Redo resume change"
 msgstr "Wiederholen Sie die Lebenslaufänderung"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10296,10 +10407,6 @@ msgstr "Entwurf prüfen"
 msgid "Review each section before using this resume."
 msgstr "Lesen Sie jeden Abschnitt durch, bevor Sie diesen Lebenslauf verwenden."
 
-#: src/features/career/knowledge/import.tsx
-msgid "Review every fact before saving. Hidden resume entries start unchecked. Existing facts are skipped; nothing is overwritten."
-msgstr ""
-
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
 msgstr "Meine Antwort prüfen"
@@ -10310,6 +10417,10 @@ msgstr "„Meine Antwort prüfen“ sendet die Frage, Ihre Worte, diese Stellena
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10459,6 +10570,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "Derselbe Mensch. Weniger von vorn anfangen."
@@ -10476,11 +10591,6 @@ msgstr "Beispiel-Lebenslauf hinzugefügt. Löschen Sie es jederzeit."
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "Speichern"
-
-#. placeholder {0}: chosen.length
-#: src/features/career/knowledge/import.tsx
-msgid "Save {0} facts"
-msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
@@ -10523,6 +10633,7 @@ msgid "Save connection"
 msgstr "Verbindung speichern"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "Korrektur speichern"
 
@@ -10542,6 +10653,10 @@ msgstr "Interview speichern"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "Job speichern"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10655,6 +10770,10 @@ msgstr "Unter „Gespeichert“ abgelegt · Übung"
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "Speichern von {0}/{username}/{slug}… Nach dem Speichern ist eine Kopie verfügbar."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -11368,11 +11487,11 @@ msgid "Size"
 msgstr "Größe"
 
 #: src/features/career/knowledge/facts.tsx
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "Fähigkeit"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11849,7 +11968,7 @@ msgstr "Schlägt Kürzungen vor, löscht niemals von alleine"
 msgid "Summaries of your open applications"
 msgstr "Zusammenfassungen Ihrer offenen Bewerbungen"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12547,6 +12666,10 @@ msgstr "Das sind die Antworten, die beim Bewerben gespeichert wurden."
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Sie und ihre Zeitleisten werden dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden."
@@ -12626,6 +12749,14 @@ msgstr "Dieses Dokument ist gesperrt. Schalten Sie es frei, um Vorschläge zu er
 msgid "This entry"
 msgstr "Dieser Eintrag"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "Diese Datei enthält Formularfelder."
@@ -12653,10 +12784,6 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "This file declares no language."
 msgstr "Diese Datei gibt keine Sprache an."
-
-#: src/features/career/knowledge/import.tsx
-msgid "This file has already been imported. Your existing facts are unchanged."
-msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "This file has no accessibility tags."
@@ -12801,6 +12928,10 @@ msgstr "Diese gespeicherte Version ist nicht mehr verfügbar."
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Dieser Anmeldeversuch ist abgelaufen oder wurde bereits verwendet. Bitte beginnen Sie von vorn."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -13410,6 +13541,10 @@ msgstr "Details aus „{0}“ verwenden"
 msgid "Use for all applications"
 msgstr "Für alle Bewerbungen verwenden"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use imported wording"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use in coaching: {excerpt}"
 msgstr "Im Coaching verwenden: {excerpt}"
@@ -13657,7 +13792,7 @@ msgstr "Spracheinstellungen"
 msgid "Volunteer"
 msgstr "Freiwillige Arbeit"
 
-#: src/features/career/knowledge/import.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Volunteering"
 msgstr ""
 

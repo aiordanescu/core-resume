@@ -1,6 +1,9 @@
+import type { Fact } from "../hooks";
+import type { ImportCorrection } from "./import-comparison";
+import type { ImportDuplicates } from "./import-duplicates";
 import type { ImportFactCandidate } from "@reactive-resume/import/facts";
 import type { CareerImportFactsResult } from "@reactive-resume/schema/career";
-import { t } from "@lingui/core/macro";
+import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
@@ -10,6 +13,9 @@ import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { isPrivateGroup, nearestGroupSetting, normalizeFactText } from "@reactive-resume/utils/knowledge";
+import { ImportComparison } from "./import-comparison";
+import { findImportDuplicates } from "./import-duplicates";
+import { ImportRow, rowLabel } from "./import-fact-row";
 import { detectImportKind, ImportError, readResumeFile } from "@/features/resume/import/read-file";
 import { AiProviderLoadState } from "@/features/settings/integrations/ai-provider-load-state";
 import { useHasUsableAiProvider } from "@/features/settings/integrations/hooks/use-has-usable-ai-provider";
@@ -20,25 +26,6 @@ const ACCEPT = ".pdf,.docx,.json,.zip,application/pdf,application/json,applicati
 type Step = "choose" | "reading" | "review" | "saving" | "done";
 type Draft = ImportFactCandidate & { selected: boolean };
 
-const rowLabel = (row: Draft) =>
-	row.label ||
-	(
-		{
-			summary: t`Summary`,
-			education: t`Education`,
-			certifications: t`Certifications`,
-			skills: t`Skills`,
-			languages: t`Languages`,
-			awards: t`Awards`,
-			projects: t`Projects`,
-			publications: t`Publications`,
-			volunteer: t`Volunteering`,
-			references: t`References`,
-			interests: t`Interests`,
-		} as Record<string, string>
-	)[row.group ?? ""] ||
-	t`Other`;
-
 /** Files are read into a review draft, then only selected facts are submitted to Knowledge. */
 export function KnowledgeImportPage() {
 	const queryClient = useQueryClient();
@@ -47,20 +34,34 @@ export function KnowledgeImportPage() {
 	const groups = useQuery(orpc.career.factGroups.queryOptions({ input: {} }));
 	const [step, setStep] = useState<Step>("choose");
 	const [rows, setRows] = useState<Draft[]>([]);
+	const [matches, setMatches] = useState<ImportDuplicates>(new Map());
+	const [corrections, setCorrections] = useState<Map<string, ImportCorrection>>(new Map());
+	const [corrected, setCorrected] = useState<Set<string>>(new Set());
+	const [checking, setChecking] = useState(false);
 	const [fileName, setFileName] = useState("");
 	const [error, setError] = useState("");
 	const [note, setNote] = useState("");
 	const [result, setResult] = useState<CareerImportFactsResult | null>(null);
 	const input = useRef<HTMLInputElement>(null);
 	const run = useRef(0);
-	const busy = step === "reading" || step === "saving";
+	const busy =
+		checking || step === "reading" || step === "saving" || [...corrections.values()].some((edit) => edit.saving);
 	const existing = facts.data ?? [];
+	const byId = new Map(existing.map((fact) => [fact.id, fact]));
+	const imported = new Map(rows.map((row) => [row.source.id, row]));
 	const sources = new Set(existing.filter((fact) => fact.source.kind === "import").map((fact) => fact.source.id));
 	const knownText = new Set(existing.map((fact) => normalizeFactText(fact.text)));
 	const duplicate = (row: Draft) => sources.has(row.source.id) || knownText.has(normalizeFactText(row.text));
-	const chosen = rows.filter((row) => row.selected && !duplicate(row));
+	const chosenTexts = new Set<string>();
+	const chosen = rows.filter((row) => {
+		const key = normalizeFactText(row.text);
+		if (!row.selected || duplicate(row) || chosenTexts.has(key)) return false;
+		chosenTexts.add(key);
+		return true;
+	});
+	const chosenIds = new Set(chosen.map((row) => row.source.id));
 	const valid =
-		chosen.length > 0 &&
+		rows.length > 0 &&
 		chosen.length <= 500 &&
 		chosen.every((row) => row.text.trim().length > 0 && row.text.length <= 2000);
 	const privateGroups = (groups.data ?? [])
@@ -74,6 +75,9 @@ export function KnowledgeImportPage() {
 		run.current++;
 		setStep("choose");
 		setRows([]);
+		setMatches(new Map());
+		setCorrections(new Map());
+		setCorrected(new Set());
 		setResult(null);
 		setError("");
 		setNote("");
@@ -107,12 +111,6 @@ export function KnowledgeImportPage() {
 			});
 			await queryClient.fetchQuery({ ...orpc.career.factGroups.queryOptions({ input: {} }), staleTime: 0 });
 			if (!current()) return;
-			if (known.some((fact) => fact.source.kind === "import" && fact.source.id.startsWith(`import:v1:${digest}:`))) {
-				setResult({ results: [] });
-				setNote(t`This file has already been imported. Your existing facts are unchanged.`);
-				setStep("done");
-				return;
-			}
 			let aiAvailable = provider.hasUsableProvider;
 			if ((kind === "pdf" || kind === "docx") && provider.isUnavailable) {
 				try {
@@ -131,16 +129,16 @@ export function KnowledgeImportPage() {
 				},
 			});
 			if (!current()) return;
-			const seen = new Set(known.map((fact) => normalizeFactText(fact.text)));
-			const draft = resumeToFactCandidates(data, digest).map((candidate) => {
-				const key = normalizeFactText(candidate.text);
-				const selected = candidate.selected && !seen.has(key);
-				if (selected) seen.add(key);
-				return { ...candidate, selected };
-			});
+			const candidates = resumeToFactCandidates(data, digest);
+			const comparisons = findImportDuplicates(candidates, known);
+			const draft = candidates.map((candidate) => ({
+				...candidate,
+				selected: candidate.selected && !comparisons.has(candidate.source.id),
+			}));
 			if (!draft.length)
 				throw new ImportError(t`No career facts were found. Try another file or add facts in Knowledge.`);
 			setRows(draft);
+			setMatches(comparisons);
 			setStep("review");
 			setNote("");
 		} catch (cause) {
@@ -154,13 +152,15 @@ export function KnowledgeImportPage() {
 		}
 	};
 	const save = async () => {
-		if (!valid || busy || facts.isError || groups.isError) return;
+		if (!valid || busy || corrections.size > 0 || facts.isError || groups.isError) return;
 		setStep("saving");
 		setError("");
 		try {
-			const saved = await client.career.importFacts({
-				facts: chosen.map(({ text, category, group, source }) => ({ text: text.trim(), category, group, source })),
-			});
+			const saved = chosen.length
+				? await client.career.importFacts({
+						facts: chosen.map(({ text, category, group, source }) => ({ text: text.trim(), category, group, source })),
+					})
+				: { results: [] };
 			setResult(saved);
 			setStep("done");
 			await queryClient.invalidateQueries({ queryKey: orpc.career.key() });
@@ -173,8 +173,87 @@ export function KnowledgeImportPage() {
 	};
 	const update = (id: string, change: Partial<Pick<Draft, "text" | "selected">>) =>
 		setRows((previous) => previous.map((row) => (row.source.id === id ? { ...row, ...change } : row)));
+	const editExisting = (fact: Fact, text = fact.text) =>
+		setCorrections((previous) =>
+			new Map(previous).set(fact.id, { text, original: fact.text, saving: false, error: "" }),
+		);
+	const changeCorrection = (id: string, change: Partial<ImportCorrection>) =>
+		setCorrections((previous) => {
+			const edit = previous.get(id);
+			return edit ? new Map(previous).set(id, { ...edit, ...change }) : previous;
+		});
+	const cancelCorrection = (id: string) =>
+		setCorrections((previous) => {
+			const next = new Map(previous);
+			next.delete(id);
+			return next;
+		});
+	const saveCorrection = async (id: string) => {
+		const edit = corrections.get(id);
+		if (!edit || busy || !edit.text.trim()) return;
+		changeCorrection(id, { saving: true, error: "" });
+		try {
+			const current = await queryClient.fetchQuery({
+				...orpc.career.facts.queryOptions({ input: { applicationId: null } }),
+				staleTime: 0,
+			});
+			const latest = current.find((fact) => fact.id === id);
+			if (!latest || latest.text !== edit.original)
+				throw new ImportError(
+					t`This fact changed while you were editing. Cancel this correction and check the latest text.`,
+				);
+			await client.career.updateFact({ id, text: edit.text.trim() });
+			queryClient.setQueryData<Fact[]>(orpc.career.facts.queryKey({ input: { applicationId: null } }), (previous) =>
+				previous?.map((fact) => (fact.id === id ? { ...fact, text: edit.text.trim() } : fact)),
+			);
+			setCorrected((previous) => new Set(previous).add(id));
+			cancelCorrection(id);
+			await queryClient.invalidateQueries({ queryKey: orpc.career.key() });
+		} catch (cause) {
+			changeCorrection(id, {
+				saving: false,
+				error:
+					cause instanceof ImportError
+						? cause.message
+						: getOrpcErrorMessage(cause, {
+								fallback: t`Couldn't save this correction. Your edit is still here; try again.`,
+							}),
+			});
+		}
+	};
+	const chooseDuplicate = (row: Draft, include: boolean) => {
+		update(row.source.id, { selected: include });
+		const other = matches.get(row.source.id)?.[0];
+		if (other?.target === "import") update(other.id, { selected: true });
+	};
+	const recheck = async () => {
+		if (busy || corrections.size > 0) return;
+		setChecking(true);
+		setError("");
+		try {
+			const current = await queryClient.fetchQuery({
+				...orpc.career.facts.queryOptions({ input: { applicationId: null } }),
+				staleTime: 0,
+			});
+			const next = findImportDuplicates(rows, current);
+			setRows((previous) =>
+				previous.map((row) =>
+					next.has(row.source.id) && !matches.has(row.source.id) ? { ...row, selected: false } : row,
+				),
+			);
+			setMatches(next);
+		} catch (cause) {
+			setError(
+				getOrpcErrorMessage(cause, { fallback: t`Couldn't recheck matches. Your review is still here; try again.` }),
+			);
+		} finally {
+			setChecking(false);
+		}
+	};
 	const grouped = new Map<string, Draft[]>();
+	const duplicateRows = rows.filter((row) => matches.has(row.source.id));
 	for (const row of rows) {
+		if (matches.has(row.source.id)) continue;
 		const group = row.group ?? "";
 		const entries = grouped.get(group);
 		if (entries) entries.push(row);
@@ -272,8 +351,8 @@ export function KnowledgeImportPage() {
 						<p className="text-sm font-medium break-all">{fileName}</p>
 						<p className="text-sm text-ink-2">
 							<Trans>
-								Review every fact before saving. Hidden resume entries start unchecked. Existing facts are skipped;
-								nothing is overwritten.
+								Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume
+								entries start unchecked.
 							</Trans>
 						</p>
 						<p className="text-sm text-ink-2">
@@ -290,7 +369,18 @@ export function KnowledgeImportPage() {
 							>
 								<Trans>Clear selection</Trans>
 							</Button>
-							<span className="text-sm" role="status">{t`${chosen.length} facts selected`}</span>
+							<Button
+								size="sm"
+								variant="ghost"
+								loading={checking}
+								disabled={busy || corrections.size > 0}
+								onClick={() => void recheck()}
+							>
+								<Trans>Recheck matches</Trans>
+							</Button>
+							<span className="text-sm" role="status">
+								{plural(chosen.length, { one: "# fact selected", other: "# facts selected" })}
+							</span>
 						</div>
 					</div>
 					{(facts.isError || groups.isError) && (
@@ -307,45 +397,117 @@ export function KnowledgeImportPage() {
 							</Button>
 						</div>
 					)}
-					{Array.from(grouped, ([group, entries]) => (
-						<fieldset key={group} className="grid min-w-0 gap-3" disabled={busy}>
-							<legend className="mb-3 flex flex-wrap items-center gap-2 text-sm font-semibold">
-								{entries[0] ? rowLabel(entries[0]) : group}
-								<span className="font-normal text-ink-3">{group}</span>
-								{isPrivateGroup(group, privateGroups) ? (
-									<span className="text-ink-2">
-										<Trans>Private</Trans>
-									</span>
-								) : nearestGroupSetting(group, settings) === "excluded" ? (
-									<span className="text-ink-2">
-										<Trans>Coaching off</Trans>
-									</span>
-								) : null}
-							</legend>
-							{entries.map((row) => (
-								<ImportRow
-									key={row.source.id}
-									row={row}
-									duplicate={duplicate(row)}
-									onChange={(change) => update(row.source.id, change)}
-								/>
-							))}
-						</fieldset>
-					))}
+					<section aria-labelledby="import-new-facts" className="grid min-w-0 gap-5">
+						<header className="grid gap-1">
+							<h2 id="import-new-facts" className="text-lg font-semibold">
+								<Trans>New facts</Trans>{" "}
+								<span className="text-sm font-normal text-ink-3">{rows.length - duplicateRows.length}</span>
+							</h2>
+							<p className="text-sm text-ink-2">
+								<Trans>
+									These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what
+									to save.
+								</Trans>
+							</p>
+						</header>
+						{grouped.size === 0 && (
+							<p className="rounded-lg bg-sunken p-4 text-sm text-ink-2">
+								<Trans>All proposed facts have matches. Review them in Duplicates below.</Trans>
+							</p>
+						)}
+						{Array.from(grouped, ([group, entries]) => (
+							<fieldset key={group} className="grid min-w-0 gap-3" disabled={busy}>
+								<legend className="mb-3 flex flex-wrap items-center gap-2 text-sm font-semibold">
+									{entries[0] ? rowLabel(entries[0]) : group}
+									<span className="font-normal text-ink-3">{group}</span>
+									{isPrivateGroup(group, privateGroups) ? (
+										<span className="text-ink-2">
+											<Trans>Private</Trans>
+										</span>
+									) : nearestGroupSetting(group, settings) === "excluded" ? (
+										<span className="text-ink-2">
+											<Trans>Coaching off</Trans>
+										</span>
+									) : null}
+								</legend>
+								{entries.map((row) => (
+									<ImportRow
+										key={row.source.id}
+										row={row}
+										duplicate={duplicate(row)}
+										onChange={(change) => update(row.source.id, change)}
+									/>
+								))}
+							</fieldset>
+						))}
+					</section>
+					<section aria-labelledby="import-duplicates" className="grid min-w-0 gap-4 border-t border-line pt-6">
+						<header className="grid gap-1">
+							<h2 id="import-duplicates" className="text-lg font-semibold">
+								<Trans>Duplicates</Trans> <span className="text-sm font-normal text-ink-3">{duplicateRows.length}</span>
+							</h2>
+							<p className="text-sm text-ink-2">
+								<Trans>
+									Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both
+									when they add different details.
+								</Trans>
+							</p>
+						</header>
+						{duplicateRows.length === 0 && (
+							<p className="rounded-lg bg-sunken p-4 text-sm text-ink-2">
+								<Trans>No duplicates found.</Trans>
+							</p>
+						)}
+						{duplicateRows.map((row) => (
+							<ImportComparison
+								key={row.source.id}
+								row={row}
+								matches={matches.get(row.source.id) ?? []}
+								known={byId}
+								imported={imported}
+								corrections={corrections}
+								corrected={corrected}
+								privateGroups={privateGroups}
+								busy={busy}
+								included={chosenIds.has(row.source.id)}
+								canInclude={
+									!duplicate(row) &&
+									!(matches.get(row.source.id) ?? []).some(
+										(match) =>
+											match.target === "import" &&
+											normalizeFactText(imported.get(match.id)?.text ?? "") === normalizeFactText(row.text),
+									)
+								}
+								onChange={update}
+								onChoose={(include) => chooseDuplicate(row, include)}
+								onEdit={editExisting}
+								onCorrect={(id, text) => changeCorrection(id, { text, error: "" })}
+								onSave={(id) => void saveCorrection(id)}
+								onCancel={cancelCorrection}
+							/>
+						))}
+					</section>
 					{chosen.length > 500 && (
 						<p role="alert" className="text-sm">
 							<Trans>Select up to 500 facts at a time.</Trans>
 						</p>
 					)}
-					<div className="sticky bottom-3 flex flex-wrap items-center gap-3 rounded-xl border border-line bg-raised p-3 shadow-e1">
+					<div className="sticky bottom-[calc(4.5rem+env(safe-area-inset-bottom))] flex flex-wrap items-center gap-3 rounded-xl border border-line bg-raised p-3 shadow-e1 sm:bottom-3">
 						<Button
-							disabled={!valid || busy || facts.isError || groups.isError}
+							disabled={!valid || busy || corrections.size > 0 || facts.isError || groups.isError}
 							loading={step === "saving"}
 							onClick={() => void save()}
-						>{t`Save ${chosen.length} facts`}</Button>
-						<Button variant="ghost" disabled={busy} onClick={reset}>
+						>
+							{chosen.length ? plural(chosen.length, { one: "Save # fact", other: "Save # facts" }) : t`Finish review`}
+						</Button>
+						<Button variant="ghost" disabled={busy || corrections.size > 0} onClick={reset}>
 							<Trans>Choose another file</Trans>
 						</Button>
+						{corrections.size > 0 && (
+							<p className="text-xs text-ink-3">
+								<Trans>Save or cancel your Knowledge corrections before finishing the review.</Trans>
+							</p>
+						)}
 					</div>
 				</>
 			)}
@@ -359,7 +521,10 @@ export function KnowledgeImportPage() {
 					) : (
 						<>
 							<p>{t`${result?.results.filter((row) => row.status === "saved").length ?? 0} facts saved`}</p>
-							<p className="text-sm text-ink-2">{t`${result?.results.filter((row) => row.status !== "saved").length ?? 0} duplicates or previously removed facts skipped`}</p>
+							<p className="text-sm text-ink-2">{t`${rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)} facts left out or already in Knowledge`}</p>
+							{corrected.size > 0 && (
+								<p className="text-sm text-ink-2">{t`${corrected.size} existing facts corrected`}</p>
+							)}
 						</>
 					)}
 					<Link to="/dashboard/career/knowledge/facts" className="text-sm underline">
@@ -371,50 +536,5 @@ export function KnowledgeImportPage() {
 				</div>
 			)}
 		</section>
-	);
-}
-
-type ImportRowProps = {
-	row: Draft;
-	duplicate: boolean;
-	onChange: (change: Partial<Pick<Draft, "text" | "selected">>) => void;
-};
-function ImportRow({ row, duplicate, onChange }: ImportRowProps) {
-	return (
-		<div className="grid min-w-0 gap-2 rounded-lg border border-line p-3">
-			<label className="flex items-center gap-2 text-sm">
-				<input
-					type="checkbox"
-					checked={row.selected && !duplicate}
-					disabled={duplicate}
-					onChange={(event) => onChange({ selected: event.target.checked })}
-				/>
-				{rowLabel(row)}{" "}
-				<span className="text-xs text-ink-3">
-					{duplicate
-						? t`Already in Knowledge`
-						: {
-								experience: t`Experience`,
-								accomplishment: t`Accomplishment`,
-								skill: t`Skill`,
-								preference: t`Preference`,
-							}[row.category]}
-				</span>
-			</label>
-			<textarea
-				aria-label={t`Fact text`}
-				value={row.text}
-				maxLength={2000}
-				rows={Math.min(8, Math.max(2, Math.ceil(row.text.length / 100)))}
-				className="bg-field w-full resize-y rounded-md border border-line p-2 text-sm"
-				onChange={(event) => onChange({ text: event.target.value })}
-			/>
-			<details className="text-xs text-ink-3">
-				<summary className="cursor-pointer">
-					<Trans>Original text</Trans>
-				</summary>
-				<p className="mt-2 whitespace-pre-wrap">{row.source.quote}</p>
-			</details>
-		</div>
 	);
 }

@@ -2,28 +2,38 @@
 import type { ReactNode } from "react";
 import { File as NodeFile } from "node:buffer";
 import { webcrypto } from "node:crypto";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { resumeToFactCandidates } from "@reactive-resume/import/facts";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 
 const api = vi.hoisted(() => ({
-	facts: [] as { text: string; source: { kind: string; id: string } }[],
+	facts: [] as {
+		id: string;
+		text: string;
+		applicationId: null;
+		status: string;
+		group: string | null;
+		source: { kind: string; id: string };
+	}[],
 	groups: [] as { group: string; status: string | null; private: boolean }[],
 	read: vi.fn(),
 	detect: vi.fn(),
 	save: vi.fn(),
+	update: vi.fn(),
 	resumeImport: vi.fn(),
 }));
 vi.mock("@/libs/orpc/client", () => {
 	const endpoint = (name: "facts" | "groups") => ({
 		queryOptions: () => ({ queryKey: [name], queryFn: () => Promise.resolve(api[name]), retry: false }),
+		queryKey: () => [name],
 	});
 	return {
 		orpc: { career: { key: () => ["career"], facts: endpoint("facts"), factGroups: endpoint("groups") } },
-		client: { career: { importFacts: api.save }, resume: { import: api.resumeImport } },
+		client: { career: { importFacts: api.save, updateFact: api.update }, resume: { import: api.resumeImport } },
 	};
 });
 vi.mock("@/features/resume/import/read-file", () => ({
@@ -47,6 +57,9 @@ vi.mock("@tanstack/react-router", () => ({
 import { KnowledgeImportPage } from "./import";
 
 let queryClient: QueryClient;
+let resumeData: typeof defaultResumeData;
+const known = (text: string, id = "existing") =>
+	({ id, text, applicationId: null, status: "active", group: "summary", source: { kind: "manual", id } }) as const;
 const mount = () =>
 	render(
 		<QueryClientProvider client={queryClient}>
@@ -68,6 +81,7 @@ beforeEach(() => {
 	api.facts = [];
 	api.groups = [];
 	const data = structuredClone(defaultResumeData);
+	resumeData = data;
 	data.basics.headline = "Platform engineer";
 	data.summary.content = "<p>Hidden summary detail</p>";
 	data.summary.hidden = true;
@@ -84,6 +98,10 @@ beforeEach(() => {
 			description: "<ul><li>Built a toolkit.</li><li>Improved service reliability.</li></ul>",
 		},
 	];
+	api.update.mockImplementation(({ id, text }: { id: string; text: string }) => {
+		api.facts = api.facts.map((fact) => (fact.id === id ? { ...fact, text } : fact));
+		return Promise.resolve();
+	});
 	api.detect.mockResolvedValue("linkedin");
 	api.read.mockResolvedValue(data);
 	api.save.mockImplementation(({ facts }: { facts: { source: { id: string } }[] }) =>
@@ -122,14 +140,15 @@ it("reviews before saving, keeps hidden entries unchecked and saves only selecte
 });
 
 it("marks normalized duplicates and displays private/excluded group settings", async () => {
-	api.facts = [{ text: "PLATFORM ENGINEER!", source: { kind: "manual", id: "existing" } }];
+	api.facts = [known("PLATFORM ENGINEER!")];
 	api.groups = [{ group: "experience", status: "excluded", private: true }];
 	mount();
 	upload();
 	await screen.findAllByRole("textbox", { name: "Fact text" });
-	expect(screen.getByText("Already in Knowledge")).toBeInTheDocument();
+	expect(screen.getByRole("region", { name: /Duplicates/ })).toBeInTheDocument();
+	expect(screen.getByText("Same text")).toBeInTheDocument();
 	expect(screen.getByText("Private")).toBeInTheDocument();
-	expect(screen.getAllByRole("checkbox")[0]).toBeDisabled();
+	expect(within(screen.getByRole("region", { name: /Duplicates/ })).queryByRole("checkbox")).toBeNull();
 	expect(screen.getByRole("button", { name: "Save 3 facts" })).toBeEnabled();
 });
 
@@ -147,14 +166,112 @@ it("keeps the review and edits after a failed save, then retries with the same s
 	expect(api.save.mock.calls[1]?.[0]).toEqual(api.save.mock.calls[0]?.[0]);
 });
 
-it("does not parse or save an already imported file again", async () => {
+it("reopens an already imported file for comparison and can finish without saving any copies", async () => {
 	const bytes = await new NodeFile(["synthetic file"], "LinkedIn.zip").arrayBuffer();
 	const digest = Buffer.from(await webcrypto.subtle.digest("SHA-256", bytes)).toString("hex");
-	api.facts = [{ text: "Previously imported", source: { kind: "import", id: `import:v1:${digest}:headline/0` } }];
+	api.facts = resumeToFactCandidates(resumeData, digest).map((fact, index) => ({
+		...known(fact.text, `saved-${index}`),
+		source: fact.source,
+	}));
 	mount();
 	upload();
-	await screen.findByText("This file has already been imported. Your existing facts are unchanged.");
-	expect(api.read).not.toHaveBeenCalled();
+	await screen.findAllByText("Imported before");
+	expect(api.read).toHaveBeenCalledOnce();
+	expect(screen.getByRole("region", { name: /New facts/ })).toHaveTextContent("All proposed facts have matches");
+	fireEvent.click(screen.getByRole("button", { name: "Finish review" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).not.toHaveBeenCalled();
+});
+
+it("leaves near duplicates out until Keep both is chosen, keeping comparisons in place during edits", async () => {
+	api.facts = [known("Engineer at Example, 2020 - 2024, Remote, Platform team")];
+	mount();
+	upload();
+	const importedText = await screen.findByRole("textbox", { name: "Imported fact text" });
+	expect(screen.getByText("Possible duplicate")).toBeInTheDocument();
+	expect(screen.getByRole("button", { name: "Save 3 facts" })).toBeEnabled();
+	importedText.focus();
+	fireEvent.change(importedText, {
+		target: { value: "Engineer at Example, 2020 - 2024, Remote, Infrastructure team" },
+	});
+	expect(document.activeElement).toBe(importedText);
+	fireEvent.click(screen.getByRole("button", { name: "Keep both" }));
+	fireEvent.click(screen.getByRole("button", { name: "Save 4 facts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save.mock.calls[0]?.[0].facts).toContainEqual(
+		expect.objectContaining({ text: "Engineer at Example, 2020 - 2024, Remote, Infrastructure team" }),
+	);
+});
+
+it("only corrects existing Knowledge on explicit Save correction and keeps import evidence separate", async () => {
+	api.facts = [known("PLATFORM ENGINEER!")];
+	mount();
+	upload();
+	fireEvent.click(await screen.findByRole("button", { name: "Edit existing fact" }));
+	fireEvent.change(screen.getByRole("textbox", { name: "Existing fact text" }), {
+		target: { value: "Senior platform engineer" },
+	});
+	expect(api.update).not.toHaveBeenCalled();
+	expect(screen.getByRole("button", { name: "Save 3 facts" })).toBeDisabled();
+	fireEvent.click(screen.getByRole("button", { name: "Cancel correction" }));
+	expect(api.update).not.toHaveBeenCalled();
+	fireEvent.click(screen.getByRole("button", { name: "Edit existing fact" }));
+	fireEvent.change(screen.getByRole("textbox", { name: "Existing fact text" }), {
+		target: { value: "Senior platform engineer" },
+	});
+	fireEvent.click(screen.getByRole("button", { name: "Save correction" }));
+	await screen.findByText("Correction saved");
+	expect(api.update).toHaveBeenCalledWith({ id: "existing", text: "Senior platform engineer" });
+	expect(api.save).not.toHaveBeenCalled();
+	expect(screen.getByRole("textbox", { name: "Imported fact text" })).toHaveValue("Platform engineer");
+});
+
+it("retains a failed correction for retry and stops when the existing fact changed elsewhere", async () => {
+	api.facts = [known("PLATFORM ENGINEER!")];
+	api.update.mockRejectedValueOnce(new Error("Offline"));
+	mount();
+	upload();
+	fireEvent.click(await screen.findByRole("button", { name: "Edit existing fact" }));
+	fireEvent.change(screen.getByRole("textbox", { name: "Existing fact text" }), {
+		target: { value: "Senior platform engineer" },
+	});
+	fireEvent.click(screen.getByRole("button", { name: "Save correction" }));
+	await screen.findByRole("alert");
+	expect(screen.getByRole("textbox", { name: "Existing fact text" })).toHaveValue("Senior platform engineer");
+	api.facts = [known("Updated in another window")];
+	fireEvent.click(screen.getByRole("button", { name: "Save correction" }));
+	await screen.findByText(
+		"This fact changed while you were editing. Cancel this correction and check the latest text.",
+	);
+	expect(api.update).toHaveBeenCalledOnce();
+});
+
+it("stages imported wording as a correction before updating existing Knowledge", async () => {
+	api.facts = [known("Engineer at Example, 2020 - 2024, Remote, Platform team")];
+	mount();
+	upload();
+	const importedText = await screen.findByRole("textbox", { name: "Imported fact text" });
+	fireEvent.change(importedText, { target: { value: "Engineer at Example, Infrastructure team" } });
+	fireEvent.click(screen.getByRole("button", { name: "Use imported wording" }));
+	expect(screen.getByRole("textbox", { name: "Existing fact text" })).toHaveValue(
+		"Engineer at Example, Infrastructure team",
+	);
+	expect(api.update).not.toHaveBeenCalled();
+	fireEvent.click(screen.getByRole("button", { name: "Save correction" }));
+	await screen.findByText("Correction saved");
+	expect(api.update).toHaveBeenCalledWith({ id: "existing", text: "Engineer at Example, Infrastructure team" });
+});
+
+it("rechecks current Knowledge without losing edits or silently selecting new matches", async () => {
+	mount();
+	upload();
+	const texts = await screen.findAllByRole("textbox", { name: "Fact text" });
+	fireEvent.change(texts[3] as HTMLElement, { target: { value: "Engineer at Example: Maintained a toolkit." } });
+	api.facts = [known("Platform engineer")];
+	fireEvent.click(screen.getByRole("button", { name: "Recheck matches" }));
+	await screen.findByText("Same text");
+	expect(screen.getByDisplayValue("Engineer at Example: Maintained a toolkit.")).toBeInTheDocument();
+	expect(screen.getByRole("button", { name: "Save 3 facts" })).toBeEnabled();
 	expect(api.save).not.toHaveBeenCalled();
 });
 

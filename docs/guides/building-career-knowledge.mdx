@@ -22,20 +22,33 @@ Use **Source** on a fact to see where it came from. Facts you add yourself are y
 
 Open **Knowledge → Import**, directly below Curate. Choose or drop a resume PDF, Word `.docx`, resume JSON (Reactive Resume v4, v5 or v6, or JSON Resume), or LinkedIn data export `.zip`. The same readers used by Documents turn the file into proposed facts. This flow creates Knowledge facts; use Documents when you want to create a resume.
 
-Review the proposed facts by section or company. Edit the text and uncheck anything you don't want saved, then select **Save facts** with the selected count. Work history keeps each role and its dates; descriptions become accomplishments with company and role context. Existing bullets stay separate, while LinkedIn's flattened descriptions stay together. Education, certifications, languages and other sections become experience facts, and skills are combined into a list. Long text is split to fit the 2,000-character fact limit. Hidden resume entries start unchecked, and contact fields are left out.
+Review **New facts** first, grouped by section or company. Edit the text and uncheck anything you don't want saved. **Duplicates** below compares proposed facts with matching facts in Knowledge or earlier in the file. Exact and possible duplicates start left out. Matching uses the same wording rules as Curate, without AI.
 
-<Frame caption="Review the grouped facts, edit their text and choose which ones to save. This example uses fictional career details.">
+<Frame caption="New facts appear first, with duplicate comparisons underneath. This example uses fictional career details.">
   <img
     src="/images/guides/career/import-review.png"
-    alt="Knowledge Import under Curate, showing a LinkedIn archive's selected summary and company facts with editable text, original-text controls and a Save 10 facts button"
+    alt="Knowledge Import showing one editable new fact above two side-by-side duplicate comparisons and a Save 1 fact button"
   />
 </Frame>
+
+In a comparison, edit the imported text, **Keep the other fact**, or **Keep both** if the wording adds different details. Identical copies cannot be saved twice. To correct a fact already in Knowledge, select **Edit existing fact**, or **Use imported wording** to start a correction with the imported text. Neither saves immediately. **Save correction** updates that existing fact and keeps its revision history and original source text; linked stories may need review. **Cancel correction** discards the draft. Save or cancel corrections before finishing the import.
+
+<Frame caption="Edit either side of a duplicate comparison. Corrections to Knowledge need their own Save correction action.">
+  <img
+    src="/images/guides/career/import-duplicates.png"
+    alt="A duplicate comparison with imported text on the left and an editable existing fact on the right, with Save correction and Cancel correction buttons"
+  />
+</Frame>
+
+Comparisons stay in place while you edit. **Recheck matches** compares your current text with the latest Knowledge without discarding your edits. Select **Save facts** with the selected count when ready, or **Finish review** if nothing new needs saving.
+
+Work history keeps each role and its dates; descriptions become accomplishments with company and role context. Existing bullets stay separate, while LinkedIn's flattened descriptions stay together. Education, certifications, languages and other sections become experience facts, and skills are combined into a list. Long text is split to fit the 2,000-character fact limit. Hidden resume entries start unchecked, and contact fields are left out.
 
 LinkedIn ZIPs and JSON are read in your browser. Only the profile CSVs are opened from a LinkedIn archive; messages and connections are ignored. The selected facts and their original text are saved to your account after review. PDFs use your AI connection when available and the browser reader otherwise. Word files need an AI connection. Resume files can be up to 10 MB; LinkedIn archives can be up to 100 MB, with a 5 MB limit on each profile CSV. See [Importing a resume](/guides/importing-resumes) for file requirements.
 
 New facts follow the destination group's coaching switch and privacy settings. A new group starts with coaching on. The review shows private groups and groups with coaching off. Saving doesn't run any coaching tools.
 
-The import skips existing facts with the same normalized text and never overwrites them. Importing a file already represented in Knowledge stops before reading it again. Retrying a save keeps the same source identities, so corrected, excluded, archived or forgotten facts from those sources stay as you left them. A different file can describe the same experience differently; use Curate to resolve those near matches.
+Reopening a file reads it into another review so you can compare it with Knowledge. Previously imported sources are marked **Imported before**; correct the existing fact rather than adding another copy. Saving new facts skips existing normalized text and never overwrites Knowledge. Retrying a save keeps the same source identities, so corrected, excluded, archived or forgotten facts from those sources stay as you left them.
 
 An **Export everything** account ZIP belongs in **Settings → Your data → Import an export**. Cover-letter JSON belongs in Documents.
 
