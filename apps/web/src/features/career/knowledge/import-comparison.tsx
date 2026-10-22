@@ -33,6 +33,13 @@ type ImportComparisonProps = {
 export function ImportComparison(props: ImportComparisonProps) {
 	const { row, matches, known, imported, corrections, corrected, privateGroups, busy, included, canInclude } = props;
 	const knowledgeMatches = matches.filter((match) => match.target === "knowledge");
+	const fileFacts = [
+		row,
+		...matches.flatMap((match) => {
+			const fact = match.target === "import" ? imported.get(match.id) : undefined;
+			return fact ? [fact] : [];
+		}),
+	];
 	const originalSource = matches.some((match) => match.kind === "source");
 	const identical = matches.some(
 		(match) =>
@@ -58,38 +65,19 @@ export function ImportComparison(props: ImportComparisonProps) {
 			<div className={cn("grid min-w-0 gap-4", knowledgeMatches.length > 0 && "lg:grid-cols-2")}>
 				<section aria-label={t`From this file`} className="grid min-w-0 content-start gap-3">
 					<p className="text-xs font-semibold text-ink-2">
-						<Trans>From this file</Trans>
+						<Trans>From this file</Trans> <span className="font-normal text-ink-3">({fileFacts.length})</span>
 					</p>
-					<fieldset disabled={busy} className="min-w-0">
-						<ImportRow
-							row={row}
-							duplicate={false}
-							showSelection={false}
-							textLabel={t`Imported fact text`}
-							onChange={(change) => props.onChange(row.source.id, change)}
-						/>
-					</fieldset>
-					{matches
-						.filter((match) => match.target === "import")
-						.map((match) => {
-							const other = imported.get(match.id);
-							return other ? (
-								<div key={`import/${match.id}`} className="grid min-w-0 gap-2">
-									<p className="text-xs font-semibold text-ink-2">
-										<Trans>Another fact from this file</Trans>
-									</p>
-									<fieldset disabled={busy} className="min-w-0">
-										<ImportRow
-											row={other}
-											duplicate={false}
-											showSelection={false}
-											textLabel={t`Other imported fact text`}
-											onChange={(change) => props.onChange(other.source.id, change)}
-										/>
-									</fieldset>
-								</div>
-							) : null;
-						})}
+					{fileFacts.map((fact, index) => (
+						<fieldset key={fact.source.id} disabled={busy} className="min-w-0">
+							<ImportRow
+								row={fact}
+								duplicate={false}
+								showSelection={false}
+								textLabel={index === 0 ? t`Imported fact text` : t`Other imported fact text`}
+								onChange={(change) => props.onChange(fact.source.id, change)}
+							/>
+						</fieldset>
+					))}
 				</section>
 				{knowledgeMatches.length > 0 && (
 					<section aria-label={t`In Knowledge`} className="grid min-w-0 content-start gap-3">

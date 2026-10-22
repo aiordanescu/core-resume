@@ -1875,10 +1875,6 @@ msgstr "மற்றும் எண்ணுதல்"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "மேலும் ஒவ்வொரு பொது இணைப்பும் நிரந்தரமாக அகற்றப்படும். இதை செயல்தவிர்க்க முடியாது."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

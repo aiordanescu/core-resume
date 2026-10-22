@@ -1875,10 +1875,6 @@ msgstr "ve sayıyorum"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "ve tüm genel bağlantılar kalıcı olarak kaldırılır. Bu geri alınamaz."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

@@ -1875,10 +1875,6 @@ msgstr "і підрахунок"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "і всі публічні посилання видаляються назавжди. Цю дію не можна скасувати."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

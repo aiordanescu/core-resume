@@ -1875,10 +1875,6 @@ msgstr "و شمارش"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "و هر پیوند عمومی برای همیشه حذف می شود. این قابل واگرد نیست."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

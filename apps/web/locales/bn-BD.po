@@ -1875,10 +1875,6 @@ msgstr "এবং গণনা"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "এবং প্রতিটি পাবলিক লিঙ্ক স্থায়ীভাবে মুছে ফেলা হয়। এটি পূর্বাবস্থায় ফেরানো যাবে না।"
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

@@ -1875,10 +1875,6 @@ msgstr "आणि मोजणी"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "आणि प्रत्येक सार्वजनिक दुवा कायमचा काढून टाकला जातो. हे पूर्ववत केले जाऊ शकत नाही."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

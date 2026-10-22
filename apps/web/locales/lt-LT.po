@@ -1875,10 +1875,6 @@ msgstr "ir skaičiuojant"
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr "ir kiekviena vieša nuoroda pašalinama visam laikui. To negalima anuliuoti."
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""

@@ -1870,10 +1870,6 @@ msgstr ""
 msgid "and every public link are removed permanently. This can't be undone."
 msgstr ""
 
-#: src/features/career/knowledge/import-comparison.tsx
-msgid "Another fact from this file"
-msgstr ""
-
 #: src/features/career/workspace/knowledge.tsx
 msgid "Another group"
 msgstr ""
