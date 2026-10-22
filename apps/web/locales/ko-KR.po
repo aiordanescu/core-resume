@@ -360,6 +360,11 @@ msgstr "{0} 폐쇄"
 msgid "{0} days left"
 msgstr "{0}일 남음"
 
+#. placeholder {0}: result?.results.filter((row) => row.status !== "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} duplicates or previously removed facts skipped"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/document.ts
 #: src/features/resume/editor/proposals/proposals.ts
@@ -370,6 +375,16 @@ msgstr "{0} 수정사항 적용됨"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} 항목"
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts selected"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1231,7 @@ msgid "Accessibility"
 msgstr "접근성"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Accomplishment"
 msgstr "성과"
 
@@ -1776,6 +1792,10 @@ msgstr "이미 다뤘습니다. 페이지에서 찾으려면 하나를 선택하
 msgid "Already have an account? <0/>"
 msgstr "이미 계정이 있으신가요? <0/>"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Already in Knowledge"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "이미 인터뷰 중"
@@ -2312,6 +2332,7 @@ msgstr "강한 자간 효과를 피한 뒤 다시 내보내세요."
 msgid "Awarder"
 msgstr "수상자"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2525,10 @@ msgstr "브리핑 새로 고침 켜짐 · {0}"
 msgid "Briefing refresh paused"
 msgstr "브리핑 새로 고침 일시 중지됨"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2611,7 @@ msgstr "소프트웨어가 이력서를 읽을 수 있나요?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2613,6 +2639,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "카탈루냐어"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2850,12 @@ msgstr "중국어(간체)"
 msgid "Chinese (Traditional)"
 msgstr "중국어(번체)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "파일을 선택하세요"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "가져올 파일을 선택하세요"
@@ -2834,6 +2863,10 @@ msgstr "가져올 파일을 선택하세요"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "디자인에 어울리는 이력서를 Write에서 선택하세요. 그때까지는 편지 자체가 있습니다."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2884,7 @@ msgstr "입사 지원서를 선택하세요…"
 msgid "Choose an offer"
 msgstr "오퍼 선택"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "다른 파일을 선택하세요"
@@ -2902,6 +2936,7 @@ msgid "Clear section"
 msgstr "섹션 지우기"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "선택 해제"
@@ -2975,6 +3010,10 @@ msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Coach conversations"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3579,6 +3618,7 @@ msgstr "파일을 가져올 수 없습니다. 문서에서 다시 시도하세�
 msgid "Couldn't link the application."
 msgstr "채용 지원서를 연결할 수 없습니다."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "AI 연결을 불러올 수 없습니다. 이 파일을 가져오기 전에 다시 시도하세요."
@@ -3644,6 +3684,10 @@ msgstr "AI 제공업체에 연결할 수 없습니다. 해당 키가 만료되�
 msgid "Couldn't read that file."
 msgstr "해당 파일을 읽을 수 없습니다."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
@@ -3652,6 +3696,10 @@ msgstr "이 페이지를 읽을 수 없습니다: {0}"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "제출을 기록할 수 없습니다. 다시 시도해 보세요."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3790,10 @@ msgstr "태그를 저장할 수 없습니다."
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "시간대를 저장할 수 없습니다."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4659,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "여기에 PDF를 놓거나 파일을 선택하세요"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "PDF, Word 또는 JSON 파일을 삭제하세요."
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4793,6 +4845,7 @@ msgstr "편집자 보기"
 msgid "Editorial"
 msgstr "사설"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5015,6 +5068,7 @@ msgid "Exit focus mode"
 msgstr "포커스 모드 종료"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5161,10 @@ msgstr "사실을 잊었습니다"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5578,6 +5636,10 @@ msgstr "회고에서"
 #: src/features/career/knowledge/facts.tsx
 msgid "From a document you attached"
 msgstr "첨부한 문서에서"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
@@ -6057,6 +6119,7 @@ msgstr "이미지가 페이지의 대부분을 차지하고 있습니다."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "가져오기"
 
@@ -6071,6 +6134,10 @@ msgstr "이력서를 가져오거나, 직업에 맞게 복사하거나, 공백�
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6156,10 @@ msgstr "CSV에서 가져오기"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "CSV에서 가져오기…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6145,6 +6216,10 @@ msgstr "가져오기"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "새 이력서로 가져오는 중…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6207,6 +6282,7 @@ msgstr "인사이트"
 msgid "Integrations"
 msgstr "통합"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6646,6 +6722,10 @@ msgstr "지식을 불러올 수 없습니다. 다시 시도하거나 보내기 �
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6760,7 @@ msgstr "가로"
 msgid "Language"
 msgstr "언어"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7085,10 @@ msgstr "연결됨. 이력서에 이름, 이메일, 전화번호, 도시가 업�
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7830,10 @@ msgstr "새 문서"
 msgid "New fact"
 msgstr "새 사실"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7856,6 +7945,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "글머리 기호 목록을 찾을 수 없습니다."
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
@@ -8631,7 +8724,12 @@ msgstr "원본 페이지"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "원본 표 서식이 유지됩니다. 안전하게 편집할 수 없어 이 콘텐츠는 읽기 전용입니다."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Other"
 msgstr "기타"
 
@@ -8892,9 +8990,17 @@ msgstr "PDF 스타일은 CSS의 하위 집합을 지원합니다. 회전, 파선
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown 그리고 JSON. 그만큼 JSON 수출 수입을 다시 어떤 국가로든 Reactive Resume, 귀하가 직접 호스팅하는 것을 포함하여 귀하의 데이터가 결코 잠겨 있지 않습니다."
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word 또는 JSON. 우리는 그것으로부터 이력서를 작성할 것입니다."
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9105,6 +9211,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "단일 열을 사용하거나, 사이드 열은 짧고 독립적인 목록으로만 유지하세요."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Preference"
 msgstr "선호 사항"
 
@@ -9214,6 +9321,7 @@ msgid "Printing is turned off for this resume."
 msgstr "이 이력서의 인쇄가 꺼졌습니다."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "비공개"
@@ -9277,6 +9385,7 @@ msgstr "프로필"
 msgid "Progress Bar"
 msgstr "진행률 바"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9442,7 @@ msgstr "공개 프로필 링크는 선택 사항이며 웹 리서치가 켜져 �
 msgid "Public, with a password"
 msgstr "공개, 비밀번호 포함"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9649,10 @@ msgstr "페이지를 읽는 중…"
 msgid "Reading the file"
 msgstr "파일 읽기"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "링크를 읽는 중…"
@@ -9687,6 +9801,7 @@ msgstr "빨간색"
 msgid "Redo resume change"
 msgstr "이력서 변경 다시 실행"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10208,10 @@ msgstr "이력서 세부정보"
 msgid "Resume file"
 msgstr "이력서 파일"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10176,6 +10295,10 @@ msgstr "초안 검토"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "이 이력서를 사용하기 전에 각 섹션을 검토하세요."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review every fact before saving. Hidden resume entries start unchecked. Existing facts are skipped; nothing is overwritten."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -10353,6 +10476,11 @@ msgstr "샘플 이력서가 추가되었습니다. 언제든지 삭제하세요.
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "저장"
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "Save {0} facts"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
@@ -10751,6 +10879,10 @@ msgstr "모두 선택"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "AI 제공업체를 선택하세요"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11368,11 @@ msgid "Size"
 msgstr "크기"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Skill"
 msgstr "기술"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11849,7 @@ msgstr "잘라내기를 제안하고 자체적으로 삭제하지 않습니다."
 msgid "Summaries of your open applications"
 msgstr "진행 중인 지원 요약"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12519,6 +12654,10 @@ msgstr ""
 msgid "This file declares no language."
 msgstr "이 파일에 지정된 언어가 없습니다."
 
+#: src/features/career/knowledge/import.tsx
+msgid "This file has already been imported. Your existing facts are unchanged."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file has no accessibility tags."
 msgstr "이 파일에 접근성 태그가 없습니다."
@@ -12534,6 +12673,10 @@ msgstr "이력서치고 파일 크기가 큽니다."
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "이 파일이 많은 지원서 양식이 허용하는 크기보다 큽니다."
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12872,6 +13015,7 @@ msgstr "샘플을 사용해 보세요"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13461,6 +13605,10 @@ msgstr "보다"
 msgid "View application"
 msgstr "지원서 보기"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13656,10 @@ msgstr "음성 설정"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "봉사"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

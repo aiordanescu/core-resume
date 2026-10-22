@@ -360,6 +360,11 @@ msgstr "{0} ปิดแล้ว"
 msgid "{0} days left"
 msgstr "{0} เหลืออีกวัน"
 
+#. placeholder {0}: result?.results.filter((row) => row.status !== "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} duplicates or previously removed facts skipped"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/document.ts
 #: src/features/resume/editor/proposals/proposals.ts
@@ -370,6 +375,16 @@ msgstr "ปรับใช้การแก้ไข {0} รายการแ�
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "รายการ {0}"
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts selected"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1231,7 @@ msgid "Accessibility"
 msgstr "การเข้าถึง"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Accomplishment"
 msgstr "ความสำเร็จ"
 
@@ -1776,6 +1792,10 @@ msgstr "ครอบคลุมแล้ว · เลือกหนึ่ง�
 msgid "Already have an account? <0/>"
 msgstr "มีบัญชีอยู่แล้ว? <0/>"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Already in Knowledge"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "กำลังสัมภาษณ์อยู่ครับ"
@@ -2312,6 +2332,7 @@ msgstr "หลีกเลี่ยงเอฟเฟกต์ระยะห่
 msgid "Awarder"
 msgstr "ผู้ได้รับรางวัล"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2525,10 @@ msgstr "เปิดการรีเฟรชสรุปย่อแล้ว
 msgid "Briefing refresh paused"
 msgstr "หยุดการรีเฟรชสรุปย่อชั่วคราว"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2611,7 @@ msgstr "ซอฟต์แวร์สามารถอ่านเรซูเ
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2613,6 +2639,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "คาตาลัน"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2850,12 @@ msgstr "จีน (ตัวย่อ)"
 msgid "Chinese (Traditional)"
 msgstr "จีน (ตัวเต็ม)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "เลือกไฟล์"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "เลือกไฟล์ที่จะนำเข้า"
@@ -2834,6 +2863,10 @@ msgstr "เลือกไฟล์ที่จะนำเข้า"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "เลือกเรซูเม่ใน Write เพื่อให้ตรงกับดีไซน์ จนกระทั่งถึงตอนนั้นจดหมายก็มีเป็นของตัวเอง"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2884,7 @@ msgstr "เลือกสมัครงาน..."
 msgid "Choose an offer"
 msgstr "เลือกข้อเสนอ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "เลือกไฟล์อื่น"
@@ -2902,6 +2936,7 @@ msgid "Clear section"
 msgstr "ล้างส่วน"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "การเลือกที่ชัดเจน"
@@ -2975,6 +3010,10 @@ msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Coach conversations"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3579,6 +3618,7 @@ msgstr "ไม่สามารถนำเข้าไฟล์ได้ ล�
 msgid "Couldn't link the application."
 msgstr "ไม่สามารถเชื่อมโยงการสมัครงานได้"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "โหลดการเชื่อมต่อ AI ไม่ได้ ลองอีกครั้งก่อนนำเข้าไฟล์นี้"
@@ -3644,6 +3684,10 @@ msgstr "ไม่สามารถติดต่อผู้ให้บริ
 msgid "Couldn't read that file."
 msgstr "ไม่สามารถอ่านไฟล์นั้นได้"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
@@ -3652,6 +3696,10 @@ msgstr "ไม่สามารถอ่านหน้านี้ได้: {
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "ไม่สามารถบันทึกการส่งได้ ลองอีกครั้ง"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3790,10 @@ msgstr "ไม่สามารถบันทึกแท็กได้"
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "บันทึกเขตเวลาไม่ได้"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4659,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "วาง PDF ที่นี่หรือเลือกไฟล์"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "วางไฟล์ PDF, Word หรือ JSON"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4793,6 +4845,7 @@ msgstr "มุมมองบรรณาธิการ"
 msgid "Editorial"
 msgstr "บทบรรณาธิการ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5015,6 +5068,7 @@ msgid "Exit focus mode"
 msgstr "ออกจากโหมดโฟกัส"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5161,10 @@ msgstr "ลืมข้อเท็จจริงแล้ว"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5578,6 +5636,10 @@ msgstr "จากการสรุปผล"
 #: src/features/career/knowledge/facts.tsx
 msgid "From a document you attached"
 msgstr "จากเอกสารที่คุณแนบ"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
@@ -6057,6 +6119,7 @@ msgstr "รูปภาพครอบคลุมพื้นที่ส่ว
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "นำเข้า"
 
@@ -6071,6 +6134,10 @@ msgstr "นำเข้าเรซูเม่ คัดลอกงาน ห�
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6156,10 @@ msgstr "นำเข้าจาก CSV"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "นำเข้าจาก CSV..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6145,6 +6216,10 @@ msgstr "กำลังนำเข้า"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "กำลังนำเข้าสู่เรซูเม่ใหม่ของคุณ..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6207,6 +6282,7 @@ msgstr "ข้อมูลเชิงลึก"
 msgid "Integrations"
 msgstr "การผสานรวม"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6646,6 +6722,10 @@ msgstr "โหลดคลังความรู้ไม่ได้ ลอ�
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6760,7 @@ msgstr "แนวนอน"
 msgid "Language"
 msgstr "ภาษา"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7085,10 @@ msgstr "เชื่อมโยงแล้ว อัปเดตชื่อ �
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7830,10 @@ msgstr "เอกสารใหม่"
 msgid "New fact"
 msgstr "ข้อเท็จจริงใหม่"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7856,6 +7945,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "ไม่พบรายการหัวข้อย่อย"
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
@@ -8631,7 +8724,12 @@ msgstr "หน้าเดิม"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "การจัดรูปแบบตารางดั้งเดิมจะยังคงอยู่ เนื้อหานี้เป็นแบบอ่านอย่างเดียวเนื่องจากไม่สามารถแก้ไขได้อย่างปลอดภัย"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Other"
 msgstr "อื่นๆ"
 
@@ -8892,9 +8990,17 @@ msgstr "สไตล์ PDF รองรับชุดย่อยของ CSS
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown และ JSON การส่งออก JSON จะนำเข้ากลับไปยัง Reactive Resume ใดๆ รวมถึงที่โฮสต์ด้วยตัวคุณเอง ดังนั้นข้อมูลของคุณจะไม่ถูกล็อค"
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word หรือ JSON เราจะสร้างเรซูเม่จากมัน"
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9105,6 +9211,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "ควรใช้คอลัมน์เดียว หรือให้คอลัมน์ด้านข้างมีเพียงรายการสั้น ๆ ที่สมบูรณ์ในตัวเอง"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Preference"
 msgstr "ความต้องการ"
 
@@ -9214,6 +9321,7 @@ msgid "Printing is turned off for this resume."
 msgstr "การพิมพ์ถูกปิดสำหรับประวัติย่อนี้"
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "ส่วนตัว"
@@ -9277,6 +9385,7 @@ msgstr "โปรไฟล์"
 msgid "Progress Bar"
 msgstr "แถบความคืบหน้า"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9442,7 @@ msgstr "ลิงก์โปรไฟล์สาธารณะไม่บั
 msgid "Public, with a password"
 msgstr "สาธารณะด้วยรหัสผ่าน"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9649,10 @@ msgstr "กำลังอ่านหน้า..."
 msgid "Reading the file"
 msgstr "กำลังอ่านไฟล์"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "กำลังอ่านลิงก์..."
@@ -9687,6 +9801,7 @@ msgstr "แดง"
 msgid "Redo resume change"
 msgstr "ทำซ้ำการเปลี่ยนแปลงประวัติย่อ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10208,10 @@ msgstr "รายละเอียดประวัติย่อ"
 msgid "Resume file"
 msgstr "ไฟล์เรซูเม่"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10176,6 +10295,10 @@ msgstr "ตรวจทานร่าง"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "ทบทวนแต่ละส่วนก่อนใช้เรซูเม่นี้"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review every fact before saving. Hidden resume entries start unchecked. Existing facts are skipped; nothing is overwritten."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -10353,6 +10476,11 @@ msgstr "เพิ่มตัวอย่างประวัติย่อแ
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "บันทึก"
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "Save {0} facts"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
@@ -10751,6 +10879,10 @@ msgstr "เลือกทั้งหมด"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "เลือกผู้ให้บริการ AI"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11368,11 @@ msgid "Size"
 msgstr "ขนาด"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Skill"
 msgstr "ทักษะ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11849,7 @@ msgstr "แนะนำการตัดไม่เคยลบด้วยต
 msgid "Summaries of your open applications"
 msgstr "สรุปใบสมัครที่ยังเปิดอยู่ของคุณ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12519,6 +12654,10 @@ msgstr ""
 msgid "This file declares no language."
 msgstr "ไฟล์นี้ไม่ได้ระบุภาษา"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This file has already been imported. Your existing facts are unchanged."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file has no accessibility tags."
 msgstr "ไฟล์นี้ไม่มีแท็กการช่วยการเข้าถึง"
@@ -12534,6 +12673,10 @@ msgstr "ไฟล์นี้มีขนาดใหญ่สำหรับเ
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "ไฟล์นี้มีขนาดใหญ่กว่าที่แบบฟอร์มสมัครงานหลายแห่งยอมรับ"
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12872,6 +13015,7 @@ msgstr "ลองตัวอย่าง"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13461,6 +13605,10 @@ msgstr "ดู"
 msgid "View application"
 msgstr "ดูการสมัครงาน"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13656,10 @@ msgstr "การตั้งค่าเสียง"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "อาสาสมัคร"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

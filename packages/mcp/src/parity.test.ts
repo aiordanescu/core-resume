@@ -20,6 +20,7 @@ import { registerTools } from "./tools";
 let client: Client;
 let server: McpServer;
 const calls = {
+	career: { importFacts: vi.fn() },
 	auth: { deleteAccount: vi.fn() },
 	resume: { listVersions: vi.fn(), getById: vi.fn() },
 	rest: { fileUpload: vi.fn(), documentExports: { resume: vi.fn() } },
@@ -58,6 +59,26 @@ beforeEach(async () => {
 afterEach(async () => {
 	await client?.close();
 	await server?.close();
+});
+
+it("exposes reviewed fact imports through the API-derived MCP contract", async () => {
+	const fact = {
+		text: "Engineer at Example",
+		category: "experience",
+		group: "experience/example",
+		source: {
+			kind: "import",
+			id: `import:v1:${"a".repeat(64)}:experience/0/header/0`,
+			quote: "Engineer at Example",
+		},
+	};
+	calls.career.importFacts.mockResolvedValueOnce({
+		results: [{ sourceId: fact.source.id, status: "saved", factId: "new-fact" }],
+	});
+	const result = await client.callTool({ name: "api_career_import_facts", arguments: { facts: [fact] } });
+	expect(result.isError).not.toBe(true);
+	expect(calls.career.importFacts).toHaveBeenCalledWith({ facts: [fact] });
+	expect(result.structuredContent).toMatchObject({ results: [{ status: "saved", factId: "new-fact" }] });
 });
 
 it("hands account deletion to browser settings without invoking the API", async () => {

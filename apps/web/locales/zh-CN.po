@@ -360,6 +360,11 @@ msgstr "{0} 已关闭"
 msgid "{0} days left"
 msgstr "{0} 剩余天数"
 
+#. placeholder {0}: result?.results.filter((row) => row.status !== "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} duplicates or previously removed facts skipped"
+msgstr ""
+
 #. placeholder {0}: proposals.length
 #: src/features/assistant/document.ts
 #: src/features/resume/editor/proposals/proposals.ts
@@ -370,6 +375,16 @@ msgstr "{0} 编辑已应用"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} 条目"
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts selected"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1231,7 @@ msgid "Accessibility"
 msgstr "无障碍设计"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Accomplishment"
 msgstr "成就"
 
@@ -1776,6 +1792,10 @@ msgstr "已经涵盖·选择一个在页面上找到它"
 msgid "Already have an account? <0/>"
 msgstr "已有账户？<0/>"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Already in Knowledge"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
 msgstr "已经面试了"
@@ -2312,6 +2332,7 @@ msgstr "避免使用过大的字距效果，然后重新导出。"
 msgid "Awarder"
 msgstr "颁奖者"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2525,10 @@ msgstr "简报自动刷新已开启 · {0}"
 msgid "Briefing refresh paused"
 msgstr "简报自动刷新已暂停"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2611,7 @@ msgstr "软件可以读取您的简历吗？"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2613,6 +2639,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "加泰罗尼亚语"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2850,12 @@ msgstr "中文（简体）"
 msgid "Chinese (Traditional)"
 msgstr "中文（繁体）"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "选择一个文件"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "选择要导入的文件"
@@ -2834,6 +2863,10 @@ msgstr "选择要导入的文件"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "在 Write 中选择一份与其设计相匹配的简历。到那时，这封信就有了它自己的。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2884,7 @@ msgstr "选择工作申请..."
 msgid "Choose an offer"
 msgstr "选择一份录用通知"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "选择另一个文件"
@@ -2902,6 +2936,7 @@ msgid "Clear section"
 msgstr "清除部分"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "清除选择"
@@ -2975,6 +3010,10 @@ msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Coach conversations"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
 msgstr ""
 
 #: src/libs/theme.ts
@@ -3579,6 +3618,7 @@ msgstr "无法导入文件。从文档中重试。"
 msgid "Couldn't link the application."
 msgstr "无法链接职位申请。"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "无法加载 AI 连接。请重试后再导入此文件。"
@@ -3644,6 +3684,10 @@ msgstr "无法联系您的 AI 提供商。其密钥可能已过期。"
 msgid "Couldn't read that file."
 msgstr "无法读取该文件。"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
@@ -3652,6 +3696,10 @@ msgstr "无法阅读此页：{0}"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "无法记录提交。再试一次。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3790,10 @@ msgstr "无法保存标签。"
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "无法保存时区。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4659,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "将 PDF 拖放到此处或选择一个文件"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "删除 PDF、Word 或 JSON 文件"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4793,6 +4845,7 @@ msgstr "编辑观点"
 msgid "Editorial"
 msgstr "社论"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5015,6 +5068,7 @@ msgid "Exit focus mode"
 msgstr "退出对焦模式"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5161,10 @@ msgstr "事实已忘记"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5578,6 +5636,10 @@ msgstr "来自复盘"
 #: src/features/career/knowledge/facts.tsx
 msgid "From a document you attached"
 msgstr "来自您附加的文档"
+
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
@@ -6057,6 +6119,7 @@ msgstr "图片占据了页面的大部分空间。"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "导入"
 
@@ -6071,6 +6134,10 @@ msgstr "导入简历、复制一份工作简历或从空白开始。"
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6156,10 @@ msgstr "从 CSV 导入"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "从 CSV 导入..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6145,6 +6216,10 @@ msgstr "输入"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "将其导入您的新简历中..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6207,6 +6282,7 @@ msgstr "洞察"
 msgid "Integrations"
 msgstr "集成"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6646,6 +6722,10 @@ msgstr "知识库无法加载。请重试，或在发送前关闭知识库。"
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6760,7 @@ msgstr "横向"
 msgid "Language"
 msgstr "语言"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7085,10 @@ msgstr "已链接。姓名、电子邮件、电话和城市会随着简历的更
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7830,10 @@ msgstr "新文件"
 msgid "New fact"
 msgstr "新事实"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7856,6 +7945,10 @@ msgstr ""
 #: src/features/ats-checker/messages.ts
 msgid "No bullet lists were found."
 msgstr "未找到项目符号列表。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
@@ -8631,7 +8724,12 @@ msgstr "原页"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "原始表格格式已保留。由于无法安全编辑，此内容为只读。"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Other"
 msgstr "其他"
 
@@ -8892,9 +8990,17 @@ msgstr "PDF 样式支持 CSS 的子集。旋转、虚线和点线边框以及某
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word （DOCX), Markdown 和 JSON。这 JSON 出口进口回到任何 Reactive Resume，包括您自己托管的数据，因此您的数据永远不会被锁定。"
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF、Word 或 JSON。我们将根据它构建一份简历。"
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9105,6 +9211,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "优先使用单栏布局，或让侧栏只放简短、独立的列表。"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Preference"
 msgstr "偏好"
 
@@ -9214,6 +9321,7 @@ msgid "Printing is turned off for this resume."
 msgstr "此简历的打印已关闭。"
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "私密"
@@ -9277,6 +9385,7 @@ msgstr "个人资料"
 msgid "Progress Bar"
 msgstr "进度条"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9442,7 @@ msgstr "公开个人主页链接为可选项，仅在开启网络调研时使用
 msgid "Public, with a password"
 msgstr "公开，有密码"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9649,10 @@ msgstr "正在阅读页面..."
 msgid "Reading the file"
 msgstr "读取文件"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "阅读链接..."
@@ -9687,6 +9801,7 @@ msgstr "红色"
 msgid "Redo resume change"
 msgstr "重做简历更改"
 
+#: src/features/career/knowledge/import.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10208,10 @@ msgstr "简历详情"
 msgid "Resume file"
 msgstr "简历文件"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10176,6 +10295,10 @@ msgstr "查看草稿"
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Review each section before using this resume."
 msgstr "使用此简历之前请先查看每个部分。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review every fact before saving. Hidden resume entries start unchecked. Existing facts are skipped; nothing is overwritten."
+msgstr ""
 
 #: src/features/career/workspace/debrief.tsx
 msgid "Review my answer"
@@ -10353,6 +10476,11 @@ msgstr "添加了简历样本。随时删除。"
 #: src/features/settings/ai/ai-limits.tsx
 msgid "Save"
 msgstr "保存"
+
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "Save {0} facts"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Save a job"
@@ -10751,6 +10879,10 @@ msgstr "全选"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "选择一家人工智能提供商"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11368,11 @@ msgid "Size"
 msgstr "大小"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Skill"
 msgstr "技能"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11849,7 @@ msgstr "建议剪切，切勿自行删除"
 msgid "Summaries of your open applications"
 msgstr "您进行中申请的摘要"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12519,6 +12654,10 @@ msgstr ""
 msgid "This file declares no language."
 msgstr "该文件未声明语言。"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This file has already been imported. Your existing facts are unchanged."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file has no accessibility tags."
 msgstr "该文件没有无障碍标签。"
@@ -12534,6 +12673,10 @@ msgstr "作为一份简历来说，这个文件偏大。"
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "该文件的大小超过了许多申请表单允许的上限。"
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12872,6 +13015,7 @@ msgstr "尝试样品"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13461,6 +13605,10 @@ msgstr "看法"
 msgid "View application"
 msgstr "查看职位申请"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13656,10 @@ msgstr "语音设置"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "志愿者经历"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

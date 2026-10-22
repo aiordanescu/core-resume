@@ -74,6 +74,7 @@ const PARITY_PROCEDURES = {
 	"career.saveProfile": router.career.saveProfile,
 	"career.facts": router.career.facts,
 	"career.saveFact": router.career.saveFact,
+	"career.importFacts": router.career.importFacts,
 	"career.updateFact": router.career.updateFact,
 	"career.updateFacts": router.career.updateFacts,
 	"career.factGroups": router.career.factGroups,
@@ -341,7 +342,8 @@ export const PARITY_TOOL_META: Record<
 							(route.method === "DELETE" ||
 								destructiveWrites.has(path) ||
 								/update|delete|purge|remove|restore|password|trash|set/i.test(path)),
-						idempotentHint: readOnly && !/draft|parse|test|search|improve|review/i.test(path),
+						idempotentHint:
+							path === "career.importFacts" || (readOnly && !/draft|parse|test|search|improve|review/i.test(path)),
 						openWorldHint:
 							openWorldPaths.has(path) || /ai|webAccess|storage|attachments|Exports|importResumeFile/i.test(path),
 					},

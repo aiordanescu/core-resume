@@ -32,6 +32,8 @@ export const PARITY_TOOL_DESCRIPTIONS: Record<string, string> = {
 		"List career facts with their source and status. A null applicationId selects shared career memory; an applicationId selects that application's available memory. Optionally filter by query.",
 	"career.saveFact":
 		"Save an evidence-backed career fact with its original source and quote. Use applicationId for application-specific memory or null for shared career memory. Source ownership and scope are validated by the service.",
+	"career.importFacts":
+		"Save reviewed facts from an imported file as shared Knowledge, up to 500 at once. Use stable import:v1:<file SHA-256>:<section/item path> source IDs and preserve original quotes when editing proposed text. Repeated sources and normalized duplicates are skipped. Archived, forgotten, excluded or corrected sources stay as the user left them. Never creates a resume or starts AI work.",
 	"career.updateFact":
 		"Correct a saved fact's text (the original is kept in its revisions), switch whether the coach uses it, or explicitly share it across the user's applications.",
 	"career.forgetFact":

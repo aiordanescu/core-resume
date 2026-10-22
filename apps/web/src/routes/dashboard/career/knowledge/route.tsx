@@ -18,7 +18,8 @@ type Section = {
 		| "/dashboard/career/knowledge/facts"
 		| "/dashboard/career/knowledge/stories/{-$storyId}"
 		| "/dashboard/career/knowledge/preferences"
-		| "/dashboard/career/knowledge/curate";
+		| "/dashboard/career/knowledge/curate"
+		| "/dashboard/career/knowledge/import";
 	match: string;
 	icon: IconName;
 	label: string;
@@ -60,6 +61,12 @@ function KnowledgeLayout() {
 			icon: "gauge",
 			label: t({ message: "Curate", context: "Knowledge: choose what the AI sees and keep facts and stories tidy" }),
 		},
+		{
+			to: "/dashboard/career/knowledge/import",
+			match: "/dashboard/career/knowledge/import",
+			icon: "upload-simple",
+			label: t`Import`,
+		},
 	];
 
 	return (
@@ -67,7 +74,7 @@ function KnowledgeLayout() {
 			<aside className="grid gap-5 [view-transition-name:knowledge-nav] md:sticky md:top-6">
 				<nav
 					aria-label={t`Knowledge`}
-					className="flex gap-0.5 rounded-[9px] bg-sunken p-[3px] md:grid md:bg-transparent md:p-0"
+					className="flex gap-0.5 overflow-x-auto rounded-[9px] bg-sunken p-[3px] md:grid md:overflow-visible md:bg-transparent md:p-0"
 				>
 					{sections.map((section) => {
 						const selected = Boolean(matchRoute({ to: section.match, fuzzy: true }));
@@ -77,7 +84,7 @@ function KnowledgeLayout() {
 								to={section.to}
 								aria-current={selected ? "page" : undefined}
 								className={cn(
-									"touch-target relative flex h-[30px] flex-1 items-center justify-center gap-2.5 rounded-sm px-3 text-[13px] font-medium transition-colors duration-quick md:h-9 md:justify-start md:rounded-lg md:text-sm",
+									"touch-target relative flex h-[30px] flex-none items-center justify-center gap-2.5 rounded-sm px-2 text-[13px] font-medium whitespace-nowrap transition-colors duration-quick md:h-9 md:justify-start md:rounded-lg md:px-3 md:text-sm",
 									selected ? "text-ink" : "text-ink-2 hover:bg-hover hover:text-ink",
 								)}
 							>
