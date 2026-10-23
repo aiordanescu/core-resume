@@ -1,4 +1,4 @@
-import type { CareerSource } from "@reactive-resume/schema/career";
+import type { CareerImportFact, CareerSource } from "@reactive-resume/schema/career";
 import { randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
@@ -276,6 +276,117 @@ describe.skipIf(!databaseUrl)("career knowledge, context and data lifecycle", ()
 					uiMessage: { role: "user", parts: [{ type: "text", text: "Bob private accomplishment." }] },
 				},
 			]);
+	});
+
+	const imported = (
+		key: string,
+		text = "Engineer at Example, 2020 - 2024",
+		group = "experience/example",
+	): CareerImportFact => ({
+		text,
+		category: "experience",
+		group,
+		source: { kind: "import", id: `import:v1:${"a".repeat(64)}:${key}`, quote: text },
+	});
+
+	it("imports a reviewed batch once, keeps original quotes through edits, and creates no resume", async () => {
+		const resumesBefore = await getDb().select().from(tables.resume);
+		const candidate = imported("experience/0/header/0");
+		const first = await service.importFacts("alice", {
+			facts: [
+				{ ...candidate, text: "Senior engineer at Example, 2020 - 2024" },
+				imported("skills/0", "TypeScript and Go", "skills"),
+			],
+		});
+		expect(first.results.map((row) => row.status)).toEqual(["saved", "saved"]);
+		const saved = await service.facts({ userId: "alice" });
+		expect(saved).toHaveLength(2);
+		expect(saved.find((row) => row.source.id === candidate.source.id)?.source.quote).toBe(candidate.source.quote);
+		expect(saved.every((row) => row.applicationId === null)).toBe(true);
+		const retry = await service.importFacts("alice", {
+			facts: [
+				candidate,
+				{
+					...candidate,
+					text: "A different extraction",
+					source: { ...candidate.source, quote: "Changed extraction quote" },
+				},
+			],
+		});
+		expect(retry.results.map((row) => row.status)).toEqual(["duplicate", "duplicate"]);
+		expect(await service.facts({ userId: "alice" })).toHaveLength(2);
+		expect(await getDb().select().from(tables.resume)).toHaveLength(resumesBefore.length);
+		const otherAccount = await service.importFacts("bob", { facts: [candidate] });
+		expect(otherAccount.results[0]?.status).toBe("saved");
+	});
+
+	it.each(["corrected", "excluded", "archived", "forgotten"] as const)(
+		"does not recreate an imported source after it is %s",
+		async (change) => {
+			const candidate = imported("experience/0/header/0");
+			const first = await service.importFacts("alice", { facts: [candidate] });
+			const id = first.results[0]?.factId;
+			if (!id) throw new Error("Expected imported fact");
+			if (change === "forgotten") await service.forgetFact("alice", id);
+			else if (change === "corrected") await service.updateFact("alice", { id, text: "Corrected by the user" });
+			else await service.updateFact("alice", { id, status: change });
+			const retry = await service.importFacts("alice", {
+				facts: [
+					{ ...candidate, text: "AI rephrased this on retry", source: { ...candidate.source, quote: "Changed quote" } },
+				],
+			});
+			expect(retry.results).toEqual([{ sourceId: candidate.source.id, status: "suppressed", factId: null }]);
+			const rows = await getDb().select().from(tables.careerFact).where(eq(tables.careerFact.userId, "alice"));
+			expect(rows).toHaveLength(1);
+			expect(rows[0]?.text).toBe(
+				change === "forgotten" ? "" : change === "corrected" ? "Corrected by the user" : candidate.text,
+			);
+		},
+	);
+
+	it("skips normalized shared duplicates and keeps archived facts retired", async () => {
+		await fact("alice", "I built reliable services.");
+		const retired = await fact("alice", "I maintained legacy software.");
+		await service.updateFact("alice", { id: retired.id, status: "archived" });
+		const result = await service.importFacts("alice", {
+			facts: [
+				imported("a/0", "I BUILT reliable services!"),
+				imported("a/1", "I maintained legacy software."),
+				imported("a/2", "I shipped a new tool."),
+				imported("a/3", "I shipped a new tool!"),
+			],
+		});
+		expect(result.results.map((row) => row.status)).toEqual(["duplicate", "suppressed", "saved", "duplicate"]);
+		expect(await service.facts({ userId: "alice" })).toHaveLength(3);
+	});
+
+	it("inherits parent group switches and preserves private-group protections", async () => {
+		await service.setFactGroupStatus("alice", { group: "experience", status: "excluded", subgroups: true });
+		await service.saveFactGroup("alice", { group: "skills", private: true });
+		await service.importFacts("alice", {
+			facts: [imported("a/0"), imported("a/1", "Sensitive specialist skill", "skills")],
+		});
+		const rows = await service.facts({ userId: "alice" });
+		expect(rows.find((row) => row.group === "experience/example")?.status).toBe("excluded");
+		expect(rows.find((row) => row.group === "skills")?.status).toBe("active");
+		expect((await service.context({ userId: "alice" })).facts).toEqual([]);
+	});
+
+	it("serializes simultaneous imports and rejects invalid batches before saving any facts", async () => {
+		const candidate = imported("a/0");
+		expect(() => service.importFacts("alice", { facts: [candidate, { ...imported("a/1"), text: "" }] })).toThrow();
+		expect(await service.facts({ userId: "alice" })).toEqual([]);
+		const results = await Promise.all([
+			service.importFacts("alice", { facts: [candidate] }),
+			service.importFacts("alice", { facts: [candidate] }),
+		]);
+		expect(
+			results
+				.flatMap((result) => result.results)
+				.map((row) => row.status)
+				.sort(),
+		).toEqual(["duplicate", "saved"]);
+		expect(await service.facts({ userId: "alice" })).toHaveLength(1);
 	});
 
 	it("isolates accounts and application-private evidence until its owner explicitly shares it", async () => {

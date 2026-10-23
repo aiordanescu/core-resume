@@ -4,6 +4,7 @@
 	"type": "module",
 	"private": true,
 	"exports": {
+		"./facts": "./src/facts.ts",
 		"./json-resume": "./src/json-resume.tsx",
 		"./linkedin": "./src/linkedin.ts",
 		"./pdf-lines": "./src/pdf-lines.ts",

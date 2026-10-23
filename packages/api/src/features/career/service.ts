@@ -9,6 +9,8 @@ import * as tables from "@reactive-resume/db/schema";
 import { buildMarkdown } from "@reactive-resume/resume/markdown";
 import {
 	careerProfileDataSchema,
+	careerImportFactsInputSchema,
+	type CareerImportFactsResult,
 	careerWorkspaceSchema,
 	EMPTY_WORKSPACE,
 	aiLimitsSchema,
@@ -124,7 +126,7 @@ export async function requireCareerApplication(input: Owned & { interviewId?: st
 
 async function sourceText(userId: string, source: CareerSource, applicationId: string | null) {
 	// Typed or confirmed by the user in the app.
-	if (source.kind === "manual" || source.kind === "debrief") return source.quote;
+	if (source.kind === "manual" || source.kind === "debrief" || source.kind === "import") return source.quote;
 	if (source.kind === "user-message") {
 		const [row] = await db
 			.select({
@@ -540,7 +542,71 @@ export const careerService = {
 			usedBy: { stories, savedItems },
 		}));
 	},
+	/** User-reviewed file facts are shared, atomic, and never overwrite or reactivate existing Knowledge. */
+	importFacts: (
+		userId: string,
+		input: z.infer<typeof careerImportFactsInputSchema>,
+	): Promise<CareerImportFactsResult> => {
+		const { facts } = careerImportFactsInputSchema.parse(input);
+		return db.transaction(async (tx) => {
+			await lockCareerUser(tx, userId);
+			const previous = await tx.select().from(tables.careerFact).where(eq(tables.careerFact.userId, userId));
+			const sources = new Map(
+				previous.filter((fact) => fact.source.kind === "import").map((fact) => [fact.source.id, fact]),
+			);
+			const texts = new Map(
+				previous
+					.filter((fact) => fact.applicationId === null && fact.status !== "forgotten")
+					.map((fact) => [normalizeFactText(fact.text), fact]),
+			);
+			const groups = await tx.select().from(tables.careerFactGroup).where(eq(tables.careerFactGroup.userId, userId));
+			const settings = new Map(groups.flatMap((group) => (group.status ? [[group.group, group.status] as const] : [])));
+			const results: CareerImportFactsResult["results"] = [];
+			for (const inputFact of facts) {
+				const original = sources.get(inputFact.source.id);
+				const twin = texts.get(normalizeFactText(inputFact.text));
+				const existing = original ?? twin;
+				if (existing) {
+					const suppressed =
+						existing.status === "forgotten" ||
+						existing.status === "archived" ||
+						(Boolean(original) && (existing.status === "excluded" || existing.revisions.length > 0));
+					results.push({
+						sourceId: inputFact.source.id,
+						status: suppressed ? "suppressed" : "duplicate",
+						factId: suppressed ? null : existing.id,
+					});
+					continue;
+				}
+				const sourceKey = hash(`import:${inputFact.source.id}:${inputFact.source.quote.trim().toLocaleLowerCase()}`);
+				const status = nearestGroupSetting(inputFact.group, settings) === "excluded" ? "excluded" : "active";
+				const [fact] = await tx
+					.insert(tables.careerFact)
+					.values({ userId, ...inputFact, applicationId: null, group: inputFact.group ?? null, sourceKey, status })
+					.onConflictDoNothing()
+					.returning();
+				if (!fact) {
+					results.push({ sourceId: inputFact.source.id, status: "duplicate", factId: null });
+					continue;
+				}
+				sources.set(inputFact.source.id, fact);
+				texts.set(normalizeFactText(fact.text), fact);
+				results.push({ sourceId: inputFact.source.id, status: "saved", factId: fact.id });
+			}
+			return { results };
+		});
+	},
 	saveFact: async (userId: string, input: FactInput, automatic = false) => {
+		if (input.source.kind === "import" && !automatic) {
+			if (input.applicationId) throw new ORPCError("BAD_REQUEST", { message: "File imports create shared facts." });
+			const { results } = await careerService.importFacts(userId, {
+				facts: [{ ...input, source: { ...input.source, kind: "import" } }],
+			});
+			const result = results[0];
+			if (result?.status !== "saved" || !result.factId) return null;
+			const [fact] = await db.select().from(tables.careerFact).where(ownedFact(result.factId, userId));
+			return fact ?? null;
+		}
 		await requireCareerApplication({ userId, applicationId: input.applicationId });
 		if (automatic && (input.source.kind !== "user-message" || input.text !== input.source.quote))
 			throw new ORPCError("BAD_REQUEST", { message: "Automatic memory must quote the user's own words exactly." });

@@ -18,6 +18,40 @@ A useful fact names what you did: “I created a weekly review with sales and su
 
 Use **Source** on a fact to see where it came from. Facts you add yourself are your statements; the app does not independently verify them.
 
+## Import facts from a file
+
+Open **Knowledge → Import**, directly below Curate. Choose or drop a resume PDF, Word `.docx`, resume JSON (Reactive Resume v4, v5 or v6, or JSON Resume), or LinkedIn data export `.zip`. The same readers used by Documents turn the file into proposed facts. This flow creates Knowledge facts; use Documents when you want to create a resume.
+
+Review **New facts** first, grouped by section or company. Edit the text and uncheck anything you don't want saved. **Duplicates** below compares proposed facts with matching facts in Knowledge or earlier in the file. Exact and possible duplicates start left out. Matching uses the same wording rules as Curate, without AI.
+
+<Frame caption="New facts appear first, with duplicate comparisons underneath. This example uses fictional career details.">
+  <img
+    src="/images/guides/career/import-review.png"
+    alt="Knowledge Import showing editable new facts above duplicate comparisons, with file facts stacked on the left and Knowledge on the right"
+  />
+</Frame>
+
+In a comparison, facts from the file are stacked under one **From this file** heading with a count on the left, with existing Knowledge on the right. Edit the imported text, **Keep the other fact**, or **Keep both** if the wording adds different details. Identical copies cannot be saved twice. To correct a fact already in Knowledge, select **Edit existing fact**, or **Use wording from [fact label]** to start a correction with that named fact’s current text, including your edits. It copies only the main file fact at the top of that comparison, not any other matching file facts. Neither saves immediately or selects file facts for import. **Save correction** updates that existing fact and keeps its revision history and original source text; linked stories may need review. **Cancel correction** discards the draft. Save or cancel corrections before finishing the import.
+
+<Frame caption="Edit either side of a duplicate comparison. Corrections to Knowledge need their own Save correction action.">
+  <img
+    src="/images/guides/career/import-duplicates.png"
+    alt="A duplicate comparison with imported text on the left and an editable existing fact on the right, with Save correction and Cancel correction buttons"
+  />
+</Frame>
+
+Comparisons stay in place while you edit. **Recheck matches** compares your current text with the latest Knowledge without discarding your edits. Select **Save facts** with the selected count when ready, or **Finish review** if nothing new needs saving.
+
+Work history keeps each role and its dates; descriptions become accomplishments with company and role context. Existing bullets stay separate, while LinkedIn's flattened descriptions stay together. Education, certifications, languages and other sections become experience facts, and skills are combined into a list. Long text is split to fit the 2,000-character fact limit. Hidden resume entries start unchecked, and contact fields are left out.
+
+LinkedIn ZIPs and JSON are read in your browser. Only the profile CSVs are opened from a LinkedIn archive; messages and connections are ignored. The selected facts and their original text are saved to your account after review. PDFs use your AI connection when available and the browser reader otherwise. Word files need an AI connection. Resume files can be up to 10 MB; LinkedIn archives can be up to 100 MB, with a 5 MB limit on each profile CSV. See [Importing a resume](/guides/importing-resumes) for file requirements.
+
+New facts follow the destination group's coaching switch and privacy settings. A new group starts with coaching on. The review shows private groups and groups with coaching off. Saving doesn't run any coaching tools.
+
+Reopening a file reads it into another review so you can compare it with Knowledge. Previously imported sources are marked **Imported before**; correct the existing fact rather than adding another copy. Saving new facts skips existing normalized text and never overwrites Knowledge. Retrying a save keeps the same source identities, so corrected, excluded, archived or forgotten facts from those sources stay as you left them.
+
+An **Export everything** account ZIP belongs in **Settings → Your data → Import an export**. Cover-letter JSON belongs in Documents.
+
 ## Write a five-part story
 
 Open **Knowledge → Stories → Add a story**. Give the story a clear title, add optional tags, and fill in the five parts.

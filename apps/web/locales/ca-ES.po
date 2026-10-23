@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# document mogut a la paperera} other {# documents mogu
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {No s'ha pogut fer l'edició de #: el seu text ha canviat. Torna a demanar que ho torni a fer.} other {No s'han pogut fer edicions de #: el seu text ha canviat. Torna a demanar que les torni a fer.}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {Voleu recordar # fet?} other {Voleu recordar # fets?}}"
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "S'han aplicat {0} edicions"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} entrades"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "Accessibilitat"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "Assoliment"
 
@@ -1752,6 +1778,10 @@ msgstr "Tots els documents i sol·licituds de feina com a JSON, en un sol zip"
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "Permet l'accés"
@@ -1775,6 +1805,10 @@ msgstr "Ja està cobert · trieu-ne un per trobar-lo a la pàgina"
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "Ja teniu un compte? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Arxivat (el tanca)"
@@ -2312,6 +2350,7 @@ msgstr "Evita efectes pesants d'espaiat entre lletres i torna a exportar."
 msgid "Awarder"
 msgstr "Adjudicatari"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "L'actualització del dossier està activada · {0}"
 msgid "Briefing refresh paused"
 msgstr "Actualització del dossier en pausa"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "El programari pot llegir el vostre currículum?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "El programari pot llegir el vostre currículum?"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "Català"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "Xinès (simplificat)"
 msgid "Chinese (Traditional)"
 msgstr "Xinès (tradicional)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "Trieu un fitxer"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "Trieu un fitxer per importar"
@@ -2834,6 +2885,10 @@ msgstr "Trieu un fitxer per importar"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "Trieu un currículum a Write que coincideixi amb el seu disseny. Fins aleshores, la carta té la seva."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "Trieu una sol·licitud de feina..."
 msgid "Choose an offer"
 msgstr "Trieu una oferta"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "Trieu un altre fitxer"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "Esborra la secció"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "Esborra la selecció"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "Empresa"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "Compareu els intents per veure què ha millorat. Les preguntes d'assaig són simulades, no provenen de {0}."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "Corregit el {correctedOn} · es conserva l'original"
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "No s'ha pogut completar aquesta connexió. Reinicia la connexió des del teu client i torna-ho a provar."
@@ -3579,6 +3653,7 @@ msgstr "No s'ha pogut importar el fitxer. Torna-ho a provar des de Documents."
 msgid "Couldn't link the application."
 msgstr "No s'ha pogut enllaçar la sol·licitud de feina."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "No s'han pogut carregar les connexions d'IA. Torneu-ho a provar abans d'importar aquest fitxer."
@@ -3644,14 +3719,26 @@ msgstr "No s'ha pogut contactar amb el vostre proveïdor d'IA. És possible que 
 msgid "Couldn't read that file."
 msgstr "No s'ha pogut llegir aquest fitxer."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "No s'ha pogut llegir aquesta pàgina: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "No s'ha pogut gravar l'enviament. Torna-ho a provar."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "No s'han pogut desar les etiquetes."
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "No s'ha pogut desar el fus horari."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "Deixeu un PDF aquí o trieu un fitxer"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "Deixa anar un fitxer PDF, Word o JSON"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "Duplica el currículum per crear-ne un de nou, igual que l’original."
 msgid "Duplicated"
 msgstr "Duplicat"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "Edita els detalls..."
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "Edita l'entrada"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "Visualitzacions de l'editor"
 msgid "Editorial"
 msgstr "Editorial"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "Surt del mode d'enfocament"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "S'ha oblidat el fet"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "Trobar seccions"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "Buscant què funciona"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "D'un balanç"
 msgid "From a document you attached"
 msgstr "D'un document que vau adjuntar"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "de desenvolupadors que li donen suport"
@@ -5590,6 +5708,10 @@ msgstr "D'Encaix"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "de l'assistent o API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "Icona…"
 msgid "Icons in contact line"
 msgstr "Icones a la línia de contacte"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "Si ho tornés a fer, acordaria la mètrica abans del primer prototip."
@@ -6057,6 +6183,7 @@ msgstr "Les imatges cobreixen la major part de la pàgina."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "Importa"
 
@@ -6071,6 +6198,10 @@ msgstr "Importeu un currículum, copieu-ne un per a una feina o comenceu en blan
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "Importa des de CSV"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "Importa des de CSV..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "S'han importat {0} candidatures."
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "S'han importat {0} candidatures. {skipped} files no tenien empresa ni lloc de treball i s'han omès."
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "Importat de {imported}."
@@ -6145,6 +6288,10 @@ msgstr "Importació"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "Important-lo al teu nou currículum..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "En bona companyia"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "Perspectives"
 msgid "Integrations"
 msgstr "Integracions"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "Mantenir l'accés quan no estiguis utilitzant l'aplicació."
 msgid "Keep account"
 msgstr "Mantenir el compte"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "Continua editant"
@@ -6552,6 +6713,10 @@ msgstr "Mantingueu les proves precises"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "No s'han pogut carregar els Coneixements. Torneu-ho a provar o desactive
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "Apaïsat"
 msgid "Language"
 msgstr "Idioma"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "Enllaçat. Actualització de nom, correu electrònic, telèfon i ciutat 
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "Nou document"
 msgid "New fact"
 msgstr "Fet nou"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "No s'ha trobat cap llista de vinyetes."
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "No cal cap canvi. Ja és a {stage}."
@@ -7890,6 +8076,7 @@ msgstr "Sense correccions"
 msgid "No dates were found."
 msgstr "No s'ha trobat cap data."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "Pàgina original"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "Es conserva el format original de la taula. Aquest contingut és només de lectura perquè no es pot editar amb seguretat."
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "Altres"
 
@@ -8647,6 +8839,10 @@ msgstr "Altres beneficis"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "Altres documents · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "Els estils PDF admeten un subconjunt de CSS. S'ignoren la rotació, les 
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown i JSON. L'exportació JSON torna a importar a qualsevol Reactive Resume, inclòs un que allotjeu vosaltres mateixos, de manera que les vostres dades no es tanquen mai."
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word o JSON. Construirem un currículum a partir d'ell."
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "Portuguès (Portugal)"
 msgid "Position"
 msgstr "Càrrec"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "l'anunci"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "Prefereix una sola columna, o limita la columna lateral a llistes curtes i autònomes."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "Preferència"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "La impressió està desactivada per a aquest currículum."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Privat"
@@ -9277,6 +9488,7 @@ msgstr "Perfils"
 msgid "Progress Bar"
 msgstr "Barra de progrés"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "Els enllaços de perfil públics són opcionals i només s'utilitzen si 
 msgid "Public, with a password"
 msgstr "Públic, amb contrasenya"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "S'està llegint la pàgina..."
 msgid "Reading the file"
 msgstr "Lectura del fitxer"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "Llegint l'enllaç..."
@@ -9623,6 +9840,10 @@ msgstr "De memòria"
 msgid "Recent"
 msgstr "Recents"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Destinatari"
@@ -9687,6 +9908,7 @@ msgstr "Vermell"
 msgid "Redo resume change"
 msgstr "Refer el canvi de currículum"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "detalls del currículum"
 msgid "Resume file"
 msgstr "Fitxer de currículum"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "«Revisa la meva resposta» envia la pregunta, el que heu dit, aquest an
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "La mateixa persona. Menys començar de zero."
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "Desa la connexió"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "Desa la correcció"
 
@@ -10414,6 +10649,10 @@ msgstr "Desa l'entrevista"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "Guarda feina"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "S'ha desat a Desats · Assaig"
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "S'està desant {0}/{username}/{slug}... La còpia està disponible després de desar-la."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "Selecciona-ho tot"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Seleccioneu un proveïdor d'IA"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "Mida"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "Habilitat"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "Suggereix talls, mai s'elimina per si sol"
 msgid "Summaries of your open applications"
 msgstr "Resums de les vostres candidatures obertes"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "Aquestes són les respostes desades quan vau enviar la candidatura."
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Ells i les seves cronologies se suprimeixen permanentment. Això no es pot desfer."
@@ -12491,6 +12745,14 @@ msgstr "Aquest document està bloquejat. Desbloqueja'l per rebre suggeriments."
 msgid "This entry"
 msgstr "Aquesta entrada"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "Aquest fitxer conté camps de formulari."
@@ -12534,6 +12796,10 @@ msgstr "Aquest fitxer és gran per a un currículum."
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "Aquest fitxer és més gran del que accepten molts formularis de sol·licitud."
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "Aquesta versió desada ja no està disponible."
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Aquest intent d'inici de sessió ha caducat o ja s'ha utilitzat. Torna a començar."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "Proveu una mostra"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "Utilitza el fus horari d'aquest dispositiu ({device})"
 msgid "Use this provider"
 msgstr "Utilitzeu aquest proveïdor"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Utilitza la llista de vinyetes normal del teu editor, perquè no apareguin glifs perduts enmig d'una frase."
@@ -13461,6 +13737,10 @@ msgstr "Veure"
 msgid "View application"
 msgstr "Veure sol·licitud de feina"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "Configuració de veu"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Voluntariat"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

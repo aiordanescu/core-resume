@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# कागजात रद्दीटोकरीम�
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# सम्पादन राख्न सकिएन: यसको पाठ परिवर्तन भयो। यसलाई पुन: गर्न सोध्नुहोस्।} other {# सम्पादनहरू राख्न सकिएन: तिनीहरूको पाठ परिवर्तन भयो। तिनीहरूलाई पुन: गर्न सोध्नुहोस्।}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {# तथ्य सम्झने?} other {# तथ्�
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "{0} सम्पादनहरू लागू गरियो"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} प्रविष्टिहरू"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "पहुँचयोग्यता"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "उपलब्धि"
 
@@ -1752,6 +1778,10 @@ msgstr "JSON को रूपमा सबै कागजातहरू र �
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "पहुँच अनुमति दिनुहोस्"
@@ -1775,6 +1805,10 @@ msgstr "पहिले नै कभर गरिएको · पृष्ठ�
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "पहिले नै खाता छ? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "अभिलेख (यसलाई बन्द गर्दछ)"
@@ -2312,6 +2350,7 @@ msgstr "धेरै अक्षर-स्पेसिङ प्रभावब
 msgid "Awarder"
 msgstr "पुरस्कार दिने"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "ब्रिफिङ रिफ्रेस खुला छ · {0}"
 msgid "Briefing refresh paused"
 msgstr "ब्रिफिङ रिफ्रेस रोकिएको छ"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "के सफ्टवेयरले तपाइँको रिजु
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "के सफ्टवेयरले तपाइँको रिजु
 msgid "Cancel"
 msgstr "रद्द गर्नुहोस्"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "क्याटालान"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "चिनियाँ (सरल)"
 msgid "Chinese (Traditional)"
 msgstr "चिनियाँ (परम्परागत)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "एउटा फाइल छान्नुहोस्"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "आयात गर्न फाइल छान्नुहोस्"
@@ -2834,6 +2885,10 @@ msgstr "आयात गर्न फाइल छान्नुहोस्"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "यसको डिजाइन मिलाउन Write मा रिज्युम छान्नुहोस्। त्यतिन्जेल, पत्रको आफ्नै हुन्छ।"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "जागिरको आवेदन छान्नुहोस्..."
 msgid "Choose an offer"
 msgstr "प्रस्ताव छान्नुहोस्"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "अर्को फाइल छान्नुहोस्"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "खण्ड खाली गर्नुहोस्"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "चयन खाली गर्नुहोस्"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "कम्पनी"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "के सुध्रियो हेर्न प्रयासहरू तुलना गर्नुहोस्। अभ्यास प्रश्नहरू सिमुलेट गरिएका हुन्, {0} बाट होइनन्।"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "{correctedOn} मा सच्याइयो · मूल राखि�
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "यो जडान पूरा गर्न सकिएन। आफ्नो क्लाइन्टबाट जडान पुनः सुरु गरी फेरि प्रयास गर्नुहोस्।"
@@ -3579,6 +3653,7 @@ msgstr "फाइल आयात गर्न सकिएन। कागज�
 msgid "Couldn't link the application."
 msgstr "जागिरको आवेदन लिङ्क गर्न सकिएन।"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "AI जडानहरू लोड गर्न सकिएन। यो फाइल आयात गर्नुअघि फेरि प्रयास गर्नुहोस्।"
@@ -3644,14 +3719,26 @@ msgstr "तपाईंको AI प्रदायकमा पुग्न स
 msgid "Couldn't read that file."
 msgstr "त्यो फाइल पढ्न सकिएन।"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "यो पृष्ठ पढ्न सकिएन: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "सबमिशन रेकर्ड गर्न सकिएन। पुन: प्रयास गर्नुहोस्।"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "ट्यागहरू बचत गर्न सकिएन।"
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "समय क्षेत्र सुरक्षित गर्न सकिएन।"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "यहाँ PDF ड्रप गर्नुहोस् वा फाइल छान्नुहोस्"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "PDF, Word वा JSON फाइल छोड्नुहोस्"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "मौलिक प्रतिलिपाजस्तै, नक्क
 msgid "Duplicated"
 msgstr "नक्कल"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "विवरणहरू सम्पादन गर्नुहोस�
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "प्रविष्टि सम्पादन गर्नुहोस्"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "सम्पादक दृश्यहरू"
 msgid "Editorial"
 msgstr "सम्पादकीय"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "फोकस मोडबाट बाहिर निस्कनुहोस्"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "तथ्य बिर्साइयो"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "खण्डहरू खोज्दै"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "के काम गर्छ खोज्दै"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "समीक्षाबाट"
 msgid "From a document you attached"
 msgstr "तपाईंले संलग्न गरेको कागजातबाट"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "यसलाई समर्थन गर्ने डेभलपरहरूबाट"
@@ -5590,6 +5708,10 @@ msgstr "उपयुक्तताबाट"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "सहायक वा API बाट"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "आइकन…"
 msgid "Icons in contact line"
 msgstr "सम्पर्क लाइनमा आइकनहरू"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "फेरि गर्ने हो भने, पहिलो प्रोटोटाइपअघि नै मापनमा सहमति गर्थेँ।"
@@ -6057,6 +6183,7 @@ msgstr "तस्बिरहरूले धेरैजसो पृष्ठ 
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "आयात गर्नुहोस्"
 
@@ -6071,6 +6198,10 @@ msgstr "रिजुमे आयात गर्नुहोस्, एउट�
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "CSV बाट आयात गर्नुहोस्"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "CSV बाट आयात गर्नुहोस्..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "आयातित {0} रोजगार आवेदनहरू।"
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "आयातित {0} रोजगार आवेदनहरू। {skipped} पङ्क्तिहरूमा कुनै कम्पनी वा भूमिका थिएन र छोडियो।"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "{imported} बाट आयात गरिएको।"
@@ -6145,6 +6288,10 @@ msgstr "आयात गर्दै"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "यसलाई तपाईंको नयाँ रिजुमेमा आयात गर्दै..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "राम्रो संगत मा"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "अन्तर्दृष्टिहरू"
 msgid "Integrations"
 msgstr "एकीकरणहरू"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "तपाईंले एप प्रयोग नगर्दा प�
 msgid "Keep account"
 msgstr "खाता राख्नुहोस्"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "सम्पादन जारी राख्नुहोस्"
@@ -6552,6 +6713,10 @@ msgstr "प्रमाण सटीक राख्नुहोस्"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "ज्ञानभण्डार लोड भएन। पठाउन
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "ल्यान्डस्केप"
 msgid "Language"
 msgstr "भाषा"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "लिङ्क गरिएको। नाम, इमेल, फोन
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "लिङ्क्डइन"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "नयाँ कागजात"
 msgid "New fact"
 msgstr "नयाँ तथ्य"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "कुनै बुलेट सूची फेला परेन।"
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "परिवर्तन आवश्यक छैन। यो पहिले नै {stage} मा छ।"
@@ -7890,6 +8076,7 @@ msgstr "कुनै सच्याइ छैन"
 msgid "No dates were found."
 msgstr "कुनै मिति फेला परेन।"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "मूल पृष्ठ"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "मूल तालिका ढाँचा सुरक्षित छ। यो सामग्री पढ्ने मात्र हो किनभने यसलाई सुरक्षित रूपमा सम्पादन गर्न सकिँदैन।"
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "अन्य"
 
@@ -8647,6 +8839,10 @@ msgstr "अन्य सुविधाहरू"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "अन्य कागजातहरू · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "PDF शैलीहरूले CSS को एक उपसेट सम
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown र JSON। JSON निर्यातले कुनै पनि Reactive Resume मा फिर्ता आयात गर्दछ, जसमा तपाईले आफैंलाई होस्ट गर्नु भएको छ, त्यसैले तपाईको डेटा कहिल्यै बन्द हुँदैन।"
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word वा JSON। हामी त्यसबाट रिजुमे निर्माण गर्नेछौं।"
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "पोर्चुगाली (पोर्चुगल)"
 msgid "Position"
 msgstr "पद"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "जागिर पोस्टिङ"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "एकल स्तम्भ रोज्नुहोस्, वा छेउको स्तम्भलाई छोटो, स्वतन्त्र सूचीहरूमा सीमित राख्नुहोस्।"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "प्राथमिकता"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "यस रिजुमेको लागि मुद्रण बन्द गरिएको छ।"
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "निजी"
@@ -9277,6 +9488,7 @@ msgstr "प्रोफाइलहरू"
 msgid "Progress Bar"
 msgstr "प्रगति बार (Progress Bar)"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "सार्वजनिक प्रोफाइल लिङ्कह�
 msgid "Public, with a password"
 msgstr "सार्वजनिक, पासवर्डको साथ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "पृष्ठ पढ्दै…"
 msgid "Reading the file"
 msgstr "फाइल पढ्दै"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "लिङ्क पढ्दै…"
@@ -9623,6 +9840,10 @@ msgstr "सम्झिएको"
 msgid "Recent"
 msgstr "हालैका"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "प्राप्तकर्ता"
@@ -9687,6 +9908,7 @@ msgstr "रातो"
 msgid "Redo resume change"
 msgstr "पुनःसुरु परिवर्तन पुन: गर्नुहोस्"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "पुन: सुरु विवरण"
 msgid "Resume file"
 msgstr "रेजुमे फाइल"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "\"मेरो जवाफ समीक्षा गर्नुहो�
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "उही तपाईं। कम पटक सुरुबाट।"
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "जडान बचत गर्नुहोस्"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "सच्याइ सुरक्षित गर्नुहोस्"
 
@@ -10414,6 +10649,10 @@ msgstr "अन्तर्वार्ता सुरक्षित गर्�
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "जागिर बचाउनुहोस्"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "\"सुरक्षित गरिएका · अभ्यास\" �
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "{0}/{username}/{slug}... बचत गरिसकेपछि प्रतिलिपि उपलब्ध हुन्छ।"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "सबै चयन गर्नुहोस्"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "एआई प्रदायक छान्नुहोस्"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "आकार"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "सीप"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "कटौतीको सुझाव दिन्छ, आफैले �
 msgid "Summaries of your open applications"
 msgstr "तपाईंका खुला आवेदनहरूको सारांश"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "तपाईंले आवेदन गर्दा सुरक्ष
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "तिनीहरू र तिनीहरूको टाइमलाइनहरू स्थायी रूपमा मेटाइएका छन्। यसलाई अन्डू गर्न सकिँदैन।"
@@ -12491,6 +12745,14 @@ msgstr "यो कागजात बन्द छ। सुझावहरू �
 msgid "This entry"
 msgstr "यो प्रविष्टि"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "यो फाइलमा फाराम फिल्डहरू छन्।"
@@ -12534,6 +12796,10 @@ msgstr "बायोडाटाका लागि यो फाइल ठू�
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "यो फाइल धेरै आवेदन फारामले स्वीकार गर्नेभन्दा ठूलो छ।"
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "यो सुरक्षित संस्करण अब उपल�
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "यो साइन-इन प्रयासको म्याद सकियो वा पहिले नै प्रयोग भइसक्यो। कृपया फेरि सुरु गर्नुहोस्।"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "एउटा नमूना प्रयास गर्नुहोस
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "यो उपकरणको समय क्षेत्र प्र�
 msgid "Use this provider"
 msgstr "यो प्रदायक प्रयोग गर्नुहोस्"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "आफ्नो सम्पादकको सामान्य बुलेट सूची प्रयोग गर्नुहोस्, ताकि भड्किएका ग्लिफ वाक्यको बीचमा नआऊन्।"
@@ -13461,6 +13737,10 @@ msgstr "हेर्नुहोस्"
 msgid "View application"
 msgstr "जागिरको आवेदन हेर्नुहोस्"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "आवाज सेटिङहरू"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "स्वयंसेवक"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

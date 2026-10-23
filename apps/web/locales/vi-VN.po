@@ -151,6 +151,11 @@ msgstr "{0, plural, one {Đã chuyển # tài liệu vào Thùng rác} other {Đ
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {Không thể đặt bản chỉnh sửa #: văn bản của nó đã thay đổi. Yêu cầu làm lại lần nữa.} other {Không thể đặt các chỉnh sửa #: văn bản của chúng đã thay đổi. Yêu cầu một lần nữa để làm lại chúng.}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, other {Ghi nhớ # dữ kiện?}}"
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "Đã áp dụng {0} chỉnh sửa"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "Các mục {0}"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "Khả năng tiếp cận"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "Thành tích"
 
@@ -1752,6 +1778,10 @@ msgstr "Tất cả các tài liệu và đơn xin việc dưới dạng JSON, tr
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "Cho phép truy cập"
@@ -1775,6 +1805,10 @@ msgstr "Đã được bảo hiểm · chọn một cái để tìm nó trên tra
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "Đã có tài khoản? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Đã lưu trữ (đóng nó lại)"
@@ -2312,6 +2350,7 @@ msgstr "Tránh hiệu ứng giãn cách chữ quá mức, sau đó xuất lại.
 msgid "Awarder"
 msgstr "Người trao giải"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "Đang bật làm mới bản tóm tắt · {0}"
 msgid "Briefing refresh paused"
 msgstr "Đã tạm dừng làm mới bản tóm tắt"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 msgid "Cancel"
 msgstr "Hủy"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "Tiếng Catalan"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "Tiếng Trung (Giản thể)"
 msgid "Chinese (Traditional)"
 msgstr "Tiếng Trung (Phồn thể)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "Chọn một tập tin"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "Chọn một tập tin để nhập"
@@ -2834,6 +2885,10 @@ msgstr "Chọn một tập tin để nhập"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "Chọn một bản lý lịch trong Viết để phù hợp với thiết kế của nó. Cho đến lúc đó, bức thư có cái riêng của nó."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "Chọn hồ sơ xin việc…"
 msgid "Choose an offer"
 msgstr "Chọn một lời đề nghị"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "Chọn một tập tin khác"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "Xóa phần"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "Xóa lựa chọn"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "Công ty"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "So sánh các lần thử để thấy điều gì đã tiến bộ. Câu hỏi luyện tập là mô phỏng, không phải từ {0}."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "Đã sửa {correctedOn} · giữ bản gốc"
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "Không thể hoàn thành kết nối này. Khởi động lại kết nối từ máy khách của bạn và thử lại."
@@ -3579,6 +3653,7 @@ msgstr "Không thể nhập tệp. Hãy thử lại từ Tài liệu."
 msgid "Couldn't link the application."
 msgstr "Không thể liên kết đơn xin việc."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "Không thể tải kết nối AI. Hãy thử lại trước khi nhập tệp này."
@@ -3644,14 +3719,26 @@ msgstr "Không thể liên hệ với nhà cung cấp AI của bạn. Chìa khó
 msgid "Couldn't read that file."
 msgstr "Không thể đọc tập tin đó."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "Không thể đọc được trang này: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "Không thể ghi lại bài gửi. Hãy thử lại."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "Không thể lưu thẻ."
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "Không thể lưu múi giờ."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "Thả PDF vào đây hoặc chọn một tệp"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "Thả tệp PDF, Word hoặc JSON"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "Tạo bản sao bản lý lịch của bạn để tạo một bản m�
 msgid "Duplicated"
 msgstr "trùng lặp"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "Chỉnh sửa chi tiết…"
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "Chỉnh sửa mục nhập"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "Chế độ xem của người chỉnh sửa"
 msgid "Editorial"
 msgstr "biên tập"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "Thoát chế độ lấy nét"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "Đã quên dữ kiện"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "Tìm phần"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "Đang tìm điều hiệu quả"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "Từ một buổi tổng kết"
 msgid "From a document you attached"
 msgstr "Từ tài liệu bạn đã đính kèm"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "từ các nhà phát triển ủng hộ dự án"
@@ -5590,6 +5708,10 @@ msgstr "Từ Phù hợp"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "từ trợ lý hoặc API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "Biểu tượng…"
 msgid "Icons in contact line"
 msgstr "Biểu tượng trong dòng liên lạc"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "Nếu làm lại, tôi sẽ thống nhất thước đo trước nguyên mẫu đầu tiên."
@@ -6057,6 +6183,7 @@ msgstr "Hình ảnh chiếm phần lớn trang."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "Nhập"
 
@@ -6071,6 +6198,10 @@ msgstr "Nhập sơ yếu lý lịch, sao chép sơ yếu lý lịch cho công vi
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "Nhập từ CSV"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "Nhập từ CSV…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "Đã nhập {0} hồ sơ ứng tuyển."
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "Đã nhập {0} hồ sơ ứng tuyển. {skipped} hàng không có công ty hoặc vị trí nên đã bị bỏ qua."
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "Được nhập khẩu từ {imported}."
@@ -6145,6 +6288,10 @@ msgstr "Nhập khẩu"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "Nhập nó vào sơ yếu lý lịch mới của bạn…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "Ở công ty tốt"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "Thông tin chi tiết"
 msgid "Integrations"
 msgstr "Tích hợp"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "Giữ quyền truy cập khi bạn không sử dụng ứng dụng."
 msgid "Keep account"
 msgstr "Giữ tài khoản"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "Tiếp tục chỉnh sửa"
@@ -6552,6 +6713,10 @@ msgstr "Giữ bằng chứng chính xác"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "Không thể tải Kiến thức. Hãy thử lại hoặc tắt Kiến t
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "Ngang"
 msgid "Language"
 msgstr "Ngôn ngữ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "Đã liên kết. Cập nhật tên, email, số điện thoại và th�
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "Tài liệu mới"
 msgid "New fact"
 msgstr "Dữ kiện mới"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "Không tìm thấy danh sách gạch đầu dòng nào."
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "Không cần thay đổi. Hồ sơ đã ở {stage}."
@@ -7890,6 +8076,7 @@ msgstr "Không có chỉnh sửa"
 msgid "No dates were found."
 msgstr "Không tìm thấy ngày tháng nào."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "Trang gốc"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "Định dạng bảng gốc được giữ nguyên. Nội dung này ở chế độ chỉ đọc vì không thể chỉnh sửa một cách an toàn."
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "Khác"
 
@@ -8647,6 +8839,10 @@ msgstr "Phúc lợi khác"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "Các tài liệu khác · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "Các kiểu PDF hỗ trợ một tập hợp con của CSS. Các đườ
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown Và JSON. các JSON xuất khẩu nhập khẩu trở lại bất kỳ Reactive Resume, bao gồm cả máy chủ do bạn tự lưu trữ nên dữ liệu của bạn không bao giờ bị khóa."
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word hoặc JSON. Chúng ta sẽ xây dựng một bản lý lịch từ đó."
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "Bồ Đào Nha (Bồ Đào Nha)"
 msgid "Position"
 msgstr "Vị trí"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "tin tuyển dụng"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "Ưu tiên bố cục một cột, hoặc chỉ dùng cột bên để chứa các danh sách ngắn, độc lập."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "Mong muốn"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "Việc in ấn bị tắt đối với bản lý lịch này."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Riêng tư"
@@ -9277,6 +9488,7 @@ msgstr "Hồ sơ"
 msgid "Progress Bar"
 msgstr "Thanh tiến trình"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "Liên kết hồ sơ công khai là tùy chọn và chỉ được dùng
 msgid "Public, with a password"
 msgstr "Công khai, có mật khẩu"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "Đang đọc trang…"
 msgid "Reading the file"
 msgstr "Đọc tập tin"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "Đang đọc liên kết…"
@@ -9623,6 +9840,10 @@ msgstr "Nhớ lại"
 msgid "Recent"
 msgstr "Gần đây"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Người nhận"
@@ -9687,6 +9908,7 @@ msgstr "Đỏ"
 msgid "Redo resume change"
 msgstr "Làm lại thay đổi sơ yếu lý lịch"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "chi tiết sơ yếu lý lịch"
 msgid "Resume file"
 msgstr "Tệp CV"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "“Đánh giá câu trả lời của tôi” sẽ gửi câu hỏi, nh�
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "Vẫn là bạn. Ít phải làm lại từ đầu hơn."
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "Lưu kết nối"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "Lưu chỉnh sửa"
 
@@ -10414,6 +10649,10 @@ msgstr "Lưu buổi phỏng vấn"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "Lưu công việc"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "Đã lưu vào Đã lưu · Luyện tập"
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "Đang lưu {0}/{username}/{slug}… Bản sao sẽ có sẵn sau khi lưu."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "Chọn tất cả"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Chọn nhà cung cấp AI"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "Kích thước"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "Kỹ năng"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "Đề xuất cắt giảm, không bao giờ tự xóa"
 msgid "Summaries of your open applications"
 msgstr "Tóm tắt các hồ sơ ứng tuyển đang mở của bạn"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "Đây là các câu trả lời được lưu khi bạn ứng tuyển."
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Họ và dòng thời gian của họ sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này."
@@ -12491,6 +12745,14 @@ msgstr "Tài liệu này đã bị khóa. Mở khóa nó để nhận được �
 msgid "This entry"
 msgstr "Mục nhập này"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "Tệp này chứa các trường biểu mẫu."
@@ -12534,6 +12796,10 @@ msgstr "Tệp này khá lớn đối với một sơ yếu lý lịch."
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "Tệp này lớn hơn mức mà nhiều biểu mẫu ứng tuyển cho phép."
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "Phiên bản đã lưu này không còn nữa."
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Lần đăng nhập này đã hết hạn hoặc đã được sử dụng. Vui lòng bắt đầu lại."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "Hãy thử một mẫu"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "Dùng múi giờ của thiết bị này ({device})"
 msgid "Use this provider"
 msgstr "Sử dụng nhà cung cấp này"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Sử dụng chức năng danh sách gạch đầu dòng thông thường của trình soạn thảo, để không có ký hiệu lạ xuất hiện giữa câu."
@@ -13461,6 +13737,10 @@ msgstr "Xem"
 msgid "View application"
 msgstr "Xem đơn xin việc"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "Cài đặt giọng nói"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Tình nguyện viên"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

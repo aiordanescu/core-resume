@@ -352,7 +352,7 @@ function FirstRun({ onChooseFile }: { onChooseFile: () => void }) {
 			<div className="flex flex-wrap items-center gap-3 rounded-xl border-[1.5px] border-dashed border-line-2 p-5">
 				<Icon name="file-arrow-up" size={24} className="text-ink-2" />
 				<span className="flex-1 text-sm text-ink-2">
-					<Trans>Drop a PDF, Word or JSON file</Trans>
+					<Trans>Drop a PDF, Word, resume JSON or LinkedIn export</Trans>
 				</span>
 				<Button onClick={onChooseFile}>
 					<Trans>Choose a file</Trans>
@@ -610,7 +610,7 @@ function DropToImport() {
 					<Trans>Drop to import</Trans>
 				</p>
 				<p className="text-sm text-ink-2">
-					<Trans>PDF, Word or JSON. We'll build a resume from it.</Trans>
+					<Trans>PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it.</Trans>
 				</p>
 			</div>
 		</div>

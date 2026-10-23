@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# document naar de prullenbak verplaatst} other {# docu
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {#-bewerking kan niet worden geplaatst: de tekst is gewijzigd. Vraag opnieuw om het opnieuw te doen.} other {#-bewerkingen konden niet worden geplaatst: de tekst ervan is gewijzigd. Vraag opnieuw om ze opnieuw uit te voeren.}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {# feit onthouden?} other {# feiten onthouden?}}"
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "{0} bewerkingen toegepast"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0}-invoer"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "Toegankelijkheid"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "Prestatie"
 
@@ -1752,6 +1778,10 @@ msgstr "Alle documenten en sollicitaties als JSON, in één zip"
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "Toegang toestaan"
@@ -1775,6 +1805,10 @@ msgstr "Al behandeld · kies er een om deze op de pagina te vinden"
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "Heb je al een account? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "Gearchiveerd (sluit het)"
@@ -2312,6 +2350,7 @@ msgstr "Vermijd zware letterspatiëring en exporteer opnieuw."
 msgid "Awarder"
 msgstr "Prijswinnaar"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "Briefing verversen staat aan · {0}"
 msgid "Briefing refresh paused"
 msgstr "Briefing verversen gepauzeerd"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "Kan software uw cv lezen?"
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "Kan software uw cv lezen?"
 msgid "Cancel"
 msgstr "Annuleren"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "Catalaans"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "Chinees (vereenvoudigd)"
 msgid "Chinese (Traditional)"
 msgstr "Chinees (traditioneel)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "Kies een bestand"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "Kies een bestand om te importeren"
@@ -2834,6 +2885,10 @@ msgstr "Kies een bestand om te importeren"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "Kies een cv in Write dat bij het ontwerp past. Tot die tijd heeft de brief zijn eigen brief."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "Kies een sollicitatie..."
 msgid "Choose an offer"
 msgstr "Kies een aanbod"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "Kies een ander bestand"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "Duidelijk gedeelte"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "Selectie wissen"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "Bedrijf"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "Vergelijk pogingen om te zien wat er beter ging. Oefenvragen zijn gesimuleerd, niet afkomstig van {0}."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "Gecorrigeerd op {correctedOn} · origineel bewaard"
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "Deze koppeling kon niet worden voltooid. Start de koppeling opnieuw vanuit je client en probeer het nog eens."
@@ -3579,6 +3653,7 @@ msgstr "Kan het bestand niet importeren. Probeer het opnieuw vanuit Documenten."
 msgid "Couldn't link the application."
 msgstr "Kan de sollicitatie niet koppelen."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "Kan AI-verbindingen niet laden. Probeer het opnieuw voordat u dit bestand importeert."
@@ -3644,14 +3719,26 @@ msgstr "Kan uw AI-provider niet bereiken. De sleutel is mogelijk verlopen."
 msgid "Couldn't read that file."
 msgstr "Kan dat bestand niet lezen."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "Kan deze pagina niet lezen: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "Kan inzending niet opnemen. Probeer het opnieuw."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "Kan de tags niet opslaan."
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "Kan de tijdzone niet opslaan."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "Zet hier een PDF neer of kies een bestand"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "Zet een PDF-, Word- of JSON-bestand neer"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "Dupliceer uw cv om een nieuwe te maken, precies zoals het origineel."
 msgid "Duplicated"
 msgstr "Gedupliceerd"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "Gegevens bewerken…"
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "Invoer bewerken"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "Editor-weergaven"
 msgid "Editorial"
 msgstr "Redactie"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "Focusmodus verlaten"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "Feit vergeten"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "Secties zoeken"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "Uitzoeken wat werkt"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "Uit een nabespreking"
 msgid "From a document you attached"
 msgstr "Uit een document dat u hebt bijgevoegd"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "van ontwikkelaars die erachter staan"
@@ -5590,6 +5708,10 @@ msgstr "Uit Match"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "van de assistent of API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "Pictogram…"
 msgid "Icons in contact line"
 msgstr "Pictogrammen in contactlijn"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "Als ik het opnieuw deed, zou ik vóór het eerste prototype afspreken hoe we meten."
@@ -6057,6 +6183,7 @@ msgstr "Afbeeldingen bedekken het grootste deel van de pagina."
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "Importeren"
 
@@ -6071,6 +6198,10 @@ msgstr "Importeer een cv, kopieer er een voor een baan of begin blanco."
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "Importeren uit CSV"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "Importeren uit CSV…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "Geïmporteerde {0}-vacatures."
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "Geïmporteerde {0}-vacatures. {skipped}-rijen hadden geen bedrijf of rol en werden overgeslagen."
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "Geïmporteerd uit {imported}."
@@ -6145,6 +6288,10 @@ msgstr "Importeren"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "Importeren in je nieuwe CV..."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "In goed gezelschap"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "Inzichten"
 msgid "Integrations"
 msgstr "Integraties"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "Toegang behouden wanneer je de applicatie niet gebruikt."
 msgid "Keep account"
 msgstr "Houd rekening"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "Verder bewerken"
@@ -6552,6 +6713,10 @@ msgstr "Houd het bewijs precies"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "Kennis kon niet worden geladen. Probeer het opnieuw of zet Kennis uit vo
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "Liggend"
 msgid "Language"
 msgstr "Taal"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "Gekoppeld. Naam, e-mailadres, telefoon en stad worden bijgewerkt wanneer
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "Nieuw document"
 msgid "New fact"
 msgstr "Nieuw feit"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "Er zijn geen opsommingslijsten gevonden."
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "Geen wijziging nodig. Het staat al op {stage}."
@@ -7890,6 +8076,7 @@ msgstr "Geen correcties"
 msgid "No dates were found."
 msgstr "Er zijn geen data gevonden."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "Originele pagina"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "De oorspronkelijke tabelopmaak blijft behouden. Deze inhoud is alleen-lezen omdat die niet veilig bewerkt kan worden."
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "Anders"
 
@@ -8647,6 +8839,10 @@ msgstr "Overige voordelen"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "Overige documenten · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "PDF-stijlen ondersteunen een subset van CSS. Rotatie, stippellijnen en g
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown En JSON. De JSON importeer de import terug naar wat dan ook Reactive Resume, inclusief een die u zelf host, zodat uw gegevens nooit vergrendeld zijn."
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word of JSON. We zullen er een CV van maken."
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "Portugees (Portugal)"
 msgid "Position"
 msgstr "Positie"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "vacature"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "Geef de voorkeur aan één kolom, of beperk de zijkolom tot korte, op zichzelf staande lijsten."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "Voorkeur"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "Het afdrukken van dit cv is uitgeschakeld."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "Privé"
@@ -9277,6 +9488,7 @@ msgstr "Profielen"
 msgid "Progress Bar"
 msgstr "Voortgangsbalk"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "Openbare profiellinks zijn optioneel en worden alleen gebruikt als Webon
 msgid "Public, with a password"
 msgstr "Openbaar, met een wachtwoord"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "Pagina lezen…"
 msgid "Reading the file"
 msgstr "Het bestand lezen"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "Het lezen van de link…"
@@ -9623,6 +9840,10 @@ msgstr "Herinnerd"
 msgid "Recent"
 msgstr "Recent"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "Ontvanger"
@@ -9687,6 +9908,7 @@ msgstr "Rood"
 msgid "Redo resume change"
 msgstr "CV-wijziging opnieuw uitvoeren"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "CV-details"
 msgid "Resume file"
 msgstr "Cv-bestand"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "Mijn antwoord beoordelen stuurt de vraag, wat u zei, deze vacature en uw
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "Dezelfde persoon. Minder vaak opnieuw beginnen."
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "Verbinding opslaan"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "Correctie opslaan"
 
@@ -10414,6 +10649,10 @@ msgstr "Gesprek opslaan"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "Baan opslaan"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "Opgeslagen in Opgeslagen · Oefening"
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "{0}/{username}/{slug} opslaan… Kopiëren is mogelijk na het opslaan."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "Alles selecteren"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Selecteer een AI-aanbieder"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "Grootte"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "Vaardigheid"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "Stelt bezuinigingen voor, verwijdert nooit vanzelf"
 msgid "Summaries of your open applications"
 msgstr "Samenvattingen van uw openstaande sollicitaties"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "Dit zijn de antwoorden die zijn opgeslagen toen u solliciteerde."
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "Zij en hun tijdlijnen worden permanent verwijderd. Dit kan niet ongedaan worden gemaakt."
@@ -12491,6 +12745,14 @@ msgstr "Dit document is vergrendeld. Ontgrendel het om suggesties te krijgen."
 msgid "This entry"
 msgstr "Deze invoer"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "Dit bestand bevat formuliervelden."
@@ -12534,6 +12796,10 @@ msgstr "Dit bestand is groot voor een cv."
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "Dit bestand is groter dan veel sollicitatieformulieren accepteren."
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "Deze opgeslagen versie is niet meer beschikbaar."
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "Deze inlogpoging is verlopen of al gebruikt. Begin opnieuw."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "Probeer een monster"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "Tijdzone van dit apparaat gebruiken ({device})"
 msgid "Use this provider"
 msgstr "Maak gebruik van deze aanbieder"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "Gebruik de normale opsommingslijst van je editor, zodat er geen losse glyphs midden in een zin terechtkomen."
@@ -13461,6 +13737,10 @@ msgstr "Weergave"
 msgid "View application"
 msgstr "Bekijk sollicitatie"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "Steminstellingen"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "Vrijwilliger"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

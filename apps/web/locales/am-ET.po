@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# ሰነድ ወደ መጣያ ተወስዷል} other {# 
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# አርትዖት ሊቀመጥ አልቻለም፡ ጽሑፉ ተቀይሯል። እንደገና እንዲሰራው ጠይቅ።} other {# አርትዖቶች ሊቀመጡ አልቻሉም፡ ጽሑፋቸው ተቀይሯል። እንደገና እንዲሰራቸው ጠይቅ።}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {# እውነታ ይታወስ?} other {# እውነታዎ�
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "{0} አርትዖቶች ተተግብረዋል።"
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} ግቤቶች"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "ተደራሽነት"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "ስኬት"
 
@@ -1752,6 +1778,10 @@ msgstr "ሁሉም ሰነዶች እና የስራ ማመልከቻዎች እንደ 
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "መዳረሻ ፍቀድ"
@@ -1775,6 +1805,10 @@ msgstr "አስቀድሞ የተሸፈነ · በገጹ ላይ ለማግኘት አ�
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "ቀድሞ መለያ አለዎት? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "በማህደር የተቀመጠ (ይዘጋዋል)"
@@ -2312,6 +2350,7 @@ msgstr "ከባድ የፊደላት-ክፍተት ተጽዕኖዎችን ያስወ�
 msgid "Awarder"
 msgstr "ተሸላሚ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "የአጭር መግለጫ ማደሻ በርቷል · {0}"
 msgid "Briefing refresh paused"
 msgstr "የአጭር መግለጫ ማደሻ ቆሟል"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "ሶፍትዌር የእርስዎን የስራ ልምድ ማንበብ ይ�
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "ሶፍትዌር የእርስዎን የስራ ልምድ ማንበብ ይ�
 msgid "Cancel"
 msgstr "ሰርዝ"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "ካታላንኛ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "ቻይንኛ (ቀለል ያለ)"
 msgid "Chinese (Traditional)"
 msgstr "ቻይንኛ (ባለባለት)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "ፋይል ይምረጡ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "ለማስመጣት ፋይል ይምረጡ"
@@ -2834,6 +2885,10 @@ msgstr "ለማስመጣት ፋይል ይምረጡ"
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "ከዲዛይኑ ጋር ለማዛመድ በጻፍ ውስጥ የመማሪያ መጽሐፍ ምረጥ። እስከዚያ ድረስ ደብዳቤው የራሱ አለው."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "የሥራ ማመልከቻ ይምረጡ…"
 msgid "Choose an offer"
 msgstr "ቅናሽ ይምረጡ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "ሌላ ፋይል ይምረጡ"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "ክፍል አጽዳ"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "ምርጫን አጽዳ"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "ኩባንያ"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "ምን እንደተሻሻለ ለማየት ሙከራዎችን ያነጻጽሩ። የልምምድ ጥያቄዎች የተመሰሉ ናቸው እንጂ ከ{0} የመጡ አይደሉም።"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "{correctedOn} ተስተካክሏል · የመጀመሪያው ተጠብ�
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "ይህን ግንኙነት ማጠናቀቅ አልተቻለም። ግንኙነቱን ከደንበኛዎ እንደገና ያስጀምሩትና እንደገና ይሞክሩ።"
@@ -3579,6 +3653,7 @@ msgstr "ፋይሉን ማስመጣት አልተቻለም። ከሰነዶች እ�
 msgid "Couldn't link the application."
 msgstr "የሥራ ማመልከቻውን ማገናኘት አልተቻለም።"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "AI ግንኙነቶችን መጫን አልተቻለም። ይህን ፋይል ከማስመጣትዎ በፊት እንደገና ይሞክሩ።"
@@ -3644,14 +3719,26 @@ msgstr "የእርስዎን AI አቅራቢ ማግኘት አልተቻለም። �
 msgid "Couldn't read that file."
 msgstr "ያንን ፋይል ማንበብ አልተቻለም።"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "ይህን ገጽ፡ {0} ማንበብ አልተቻለም"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "ማስገባትን መመዝገብ አልተቻለም። እንደገና ይሞክሩ።"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "መለያዎቹን ማስቀመጥ አልተቻለም።"
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "የሰዓት ሰቁን ማስቀመጥ አልተቻለም።"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "PDF እዚህ ጣል ያድርጉ ወይም ፋይል ይምረጡ"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "PDF፣ Word ወይም JSON ፋይል ጣል ያድርጉ"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "ተመሳሳይ አዲስ የታሪክ ማቅረቢያ ለመፍጠር �
 msgid "Duplicated"
 msgstr "የተባዛ"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "ዝርዝሮችን አርትዕ…"
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "ግቤትን ያርትዑ"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "የአርታዒ እይታዎች"
 msgid "Editorial"
 msgstr "ኤዲቶሪያል"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "ከትኩረት ሁነታ ውጣ"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "እውነታው ተረስቷል"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "ክፍሎችን ማግኘት"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "የሚሠራውን በመፈለግ ላይ"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "ከድኅረ ግምገማ"
 msgid "From a document you attached"
 msgstr "ካያያዙት ሰነድ"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "ከሚደግፉት ገንቢዎች"
@@ -5590,6 +5708,10 @@ msgstr "ከተስማሚነት"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "ከረዳት ወይም API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "አዶ…"
 msgid "Icons in contact line"
 msgstr "በእውቂያ መስመር ውስጥ ያሉ አዶዎች"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "እንደገና ብሠራው፣ ከመጀመሪያው ፕሮቶታይፕ በፊት በመለኪያው ላይ እስማማ ነበር።"
@@ -6057,6 +6183,7 @@ msgstr "ምስሎች አብዛኛውን ገጽ ይሸፍናሉ።"
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "አስመጣ"
 
@@ -6071,6 +6198,10 @@ msgstr "የትምህርት ማስረጃ ያስመጡ፣ አንዱን ለስራ �
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "ከCSV አስመጣ"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "ከCSV አስመጣ…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "{0} የሥራ ማመልከቻዎች ገብተዋል።"
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "{0} የሥራ ማመልከቻዎች ገብተዋል። ኩባንያ ወይም ሚና ያልነበራቸው {skipped} ረድፎች ተዘለዋል።"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "ከ{imported} የመጣ።"
@@ -6145,6 +6288,10 @@ msgstr "በማስመጣት ላይ"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "ወደ አዲሱ የትምህርት ማስረጃዎ በማስመጣት ላይ…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "በጥሩ ኩባንያ ውስጥ"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "ግንዛቤዎች"
 msgid "Integrations"
 msgstr "ውህደቶች"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "መተግበሪያውን በማይጠቀሙበት ጊዜ መዳረሻዎ
 msgid "Keep account"
 msgstr "መለያ አቆይ"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "ማርትዕ ቀጥል"
@@ -6552,6 +6713,10 @@ msgstr "ማስረጃውን ትክክለኛ ያድርጉ"
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "እውቀት መጫን አልቻለም። ከመላክዎ በፊት እ�
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "መሬት አቀማመጥ"
 msgid "Language"
 msgstr "ቋንቋ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "ተያይዟል። የመመዝገቢያ ፅሁፉ ሲሰራ ስም፣ �
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "LinkedIn"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "አዲስ ሰነድ"
 msgid "New fact"
 msgstr "አዲስ እውነታ"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "ምንም የነጥብ ዝርዝሮች አልተገኙም።"
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "ለውጥ አያስፈልግም። አስቀድሞ በ{stage} ላይ ነው።"
@@ -7890,6 +8076,7 @@ msgstr "ምንም እርማቶች የሉም"
 msgid "No dates were found."
 msgstr "ምንም ቀናት አልተገኙም።"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "ኦሪጅናል ገጽ"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "ኦሪጅናል የጠረጴዛ ቅርጸት ተጠብቆ ይቆያል። ይህ ይዘት ደህንነቱ በተጠበቀ ሁኔታ ሊስተካከል ስለማይችል ተነባቢ-ብቻ ነው።"
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "ሌላ"
 
@@ -8647,6 +8839,10 @@ msgstr "ሌሎች ጥቅማ ጥቅሞች"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "ሌሎች ሰነዶች · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "PDF ቅጦች የ CSS ንዑስ ስብስብን ይደግፋሉ። ማ�
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF፣ Word (DOCX)፣ Markdown እና JSON። የJSON ወደ ውጭ መላኪያ ወደ ማንኛውም Reactive Resume ያስመጣል፣ እርስዎ እራስዎ የሚያስተናግዱትን ጨምሮ፣ ስለዚህ የእርስዎ ውሂብ በጭራሽ አይቆለፍም።"
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF፣ Word ወይም JSON። ከእሱ የመማሪያ መጽሐፍ እንገነባለን።"
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "ፖርቹጋልኛ (ፖርቱጋል)"
 msgid "Position"
 msgstr "አቀማመጥ"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "የሥራ ማስታወቂያ"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "ነጠላ አምድን ይምረጡ፣ ወይም የጎን አምዱን ለአጫጭር፣ ራሳቸውን ለቻሉ ዝርዝሮች ብቻ ያድርጉት።"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "ምርጫ"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "ለዚህ የትምህርት ማስረጃ ማተም ጠፍቷል።"
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "የግል"
@@ -9277,6 +9488,7 @@ msgstr "ፕሮፋይሎች"
 msgid "Progress Bar"
 msgstr "የሂደት አሰሳ ማስመሪያ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "ይፋዊ የመገለጫ አገናኞች አማራጭ ናቸው፣ ጥ�
 msgid "Public, with a password"
 msgstr "ይፋዊ፣ በይለፍ ቃል"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "የንባብ ገጽ…"
 msgid "Reading the file"
 msgstr "ፋይሉን በማንበብ ላይ"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "ሊንኩን በማንበብ…"
@@ -9623,6 +9840,10 @@ msgstr "ከትውስታ"
 msgid "Recent"
 msgstr "የቅርብ ጊዜ"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "ተቀባይ"
@@ -9687,6 +9908,7 @@ msgstr "ቀይ"
 msgid "Redo resume change"
 msgstr "የሥራ ልምድ ለውጥን ድገም።"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "የሲቪ ዝርዝሮች"
 msgid "Resume file"
 msgstr "የሪዙሜ ፋይል"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "«መልሴን ገምግም» ጥያቄውን፣ ያሉትን፣ ይህ�
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "ያው እርስዎ። ከዜሮ መጀመር ይቀንሳል።"
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "ግንኙነት አስቀምጥ"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "እርማቱን አስቀምጥ"
 
@@ -10414,6 +10649,10 @@ msgstr "ቃለ መጠይቁን አስቀምጥ"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "ሥራ አስቀምጥ"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "ወደ «ተቀምጧል» ተቀምጧል · ልምምድ"
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "{0}/{username}/{slug} በማስቀመጥ ላይ… ኮፒ ከተቀመጠ በኋላ ይገኛል።"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "ሁሉንም ይምረጡ"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "የAI አቅራቢ ይምረጡ"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "መጠን"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "ችሎታ"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "መቁረጥን ይጠቁማል፣ በራሱ አይሰርዝም"
 msgid "Summaries of your open applications"
 msgstr "የክፍት ማመልከቻዎችዎ ማጠቃለያዎች"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "እነዚህ ሲያመለክቱ የተቀመጡ መልሶች ናቸው�
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "እነሱ እና የጊዜ መስመሮቻቸው እስከመጨረሻው ይሰረዛሉ። ይህ ሊቀለበስ አይችልም።"
@@ -12491,6 +12745,14 @@ msgstr "ይህ ሰነድ ተቆልፏል። የአስተያየት ጥቆማዎ�
 msgid "This entry"
 msgstr "ይህ ግቤት"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "ይህ ፋይል የቅጽ መስኮችን ይይዛል።"
@@ -12534,6 +12796,10 @@ msgstr "ይህ ፋይል ለስራ ልምድ ማስረጃ በጣም ትልቅ �
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "ይህ ፋይል ብዙ የማመልከቻ ቅጾች ከሚቀበሉት ይበልጣል።"
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "ይህ የተቀመጠ ስሪት ከአሁን በኋላ አይገኝም�
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "ይህ የመግቢያ ሙከራ ጊዜው አልፎበታል ወይም አስቀድሞ ጥቅም ላይ ውሏል። እባክዎ እንደገና ይጀምሩ።"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "ናሙና ይሞክሩ"
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "የዚህን መሣሪያ የሰዓት ሰቅ ተጠቀም ({device})"
 msgid "Use this provider"
 msgstr "ይህንን አቅራቢ ይጠቀሙ"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "የተውጣጣ ፊደላት በአረፍተ ነገር መሃል እንዳይወድቁ የአርታዒዎን መደበኛ የነጥብ ዝርዝር ይጠቀሙ።"
@@ -13461,6 +13737,10 @@ msgstr "ይመልከቱ"
 msgid "View application"
 msgstr "የሥራ ማመልከቻ ይመልከቱ"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "የድምፅ ቅንብሮች"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "በጎ ፈቃደኝነት"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

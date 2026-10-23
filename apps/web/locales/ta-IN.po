@@ -151,6 +151,11 @@ msgstr "{0, plural, one {# ஆவணம் குப்பைக்கு நக
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# திருத்தத்தை வைக்க முடியவில்லை: அதன் உரை மாற்றப்பட்டது. அதை மீண்டும் செய்ய மீண்டும் கேளுங்கள்.} other {# திருத்தங்களைச் செய்ய முடியவில்லை: அவற்றின் உரை மாற்றப்பட்டது. அவற்றை மீண்டும் செய்ய மீண்டும் கேளுங்கள்.}}"
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# fact selected} other {# facts selected}}"
+msgstr ""
+
 #. placeholder {0}: budget.facts.count
 #. placeholder {1}: n(budget.facts.chars)
 #. placeholder {2}: n(budget.facts.budget)
@@ -315,6 +320,11 @@ msgstr "{0, plural, one {# உண்மையை நினைவில் வை
 msgid "{0, plural, one {Removed # copy.} other {Removed # copies.}}"
 msgstr ""
 
+#. placeholder {0}: chosen.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {Save # fact} other {Save # facts}}"
+msgstr ""
+
 #. placeholder {0}: -minutes
 #: src/features/career/workspace/prepare.tsx
 msgid "{0, plural, one {Started # minute ago} other {Started # minutes ago}}"
@@ -370,6 +380,21 @@ msgstr "{0} திருத்தங்கள் பயன்படுத்த�
 #: src/features/documents/new-document-dialog.tsx
 msgid "{0} entries"
 msgstr "{0} உள்ளீடுகள்"
+
+#. placeholder {0}: corrected.size
+#: src/features/career/knowledge/import.tsx
+msgid "{0} existing facts corrected"
+msgstr ""
+
+#. placeholder {0}: rows.length - (result?.results.filter((row) => row.status === "saved").length ?? 0)
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts left out or already in Knowledge"
+msgstr ""
+
+#. placeholder {0}: result?.results.filter((row) => row.status === "saved").length ?? 0
+#: src/features/career/knowledge/import.tsx
+msgid "{0} facts saved"
+msgstr ""
 
 #. placeholder {0}: step.flagged
 #: src/features/documents/new-document-dialog.tsx
@@ -1216,6 +1241,7 @@ msgid "Accessibility"
 msgstr "அணுகல்தன்மை"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Accomplishment"
 msgstr "சாதனை"
 
@@ -1752,6 +1778,10 @@ msgstr "JSON என அனைத்து ஆவணங்களும் வே�
 msgid "All groups"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "All proposed facts have matches. Review them in Duplicates below."
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Allow access"
 msgstr "அணுகலை அனுமதிக்கவும்"
@@ -1775,6 +1805,10 @@ msgstr "ஏற்கனவே உள்ளது · பக்கத்தில�
 #: src/features/auth/pages/register.tsx
 msgid "Already have an account? <0/>"
 msgstr "ஏற்கனவே கணக்கு உள்ளதா? <0/>"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Already in Knowledge"
+msgstr ""
 
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Already interviewing"
@@ -2120,6 +2154,10 @@ msgstr ""
 msgid "Archive this one"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Archived"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Archived (closes it)"
 msgstr "காப்பகப்படுத்தப்பட்டது (அதை மூடுகிறது)"
@@ -2312,6 +2350,7 @@ msgstr "கனமான எழுத்திடைவெளி விளைவ�
 msgid "Awarder"
 msgstr "விருது வழங்குபவர்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Awards"
@@ -2504,6 +2543,10 @@ msgstr "சுருக்கக் குறிப்புப் புது�
 msgid "Briefing refresh paused"
 msgstr "சுருக்கக் குறிப்புப் புதுப்பிப்பு இடைநிறுத்தப்பட்டது"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Bring in a resume or LinkedIn data export, then choose and edit the facts you want to keep."
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 msgid "Bring in an Export everything zip from Reactive Resume or {APP_NAME}"
 msgstr ""
@@ -2586,6 +2629,7 @@ msgstr "மென்பொருள் உங்கள் விண்ணப்�
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/career/knowledge/budget.tsx
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
@@ -2600,6 +2644,10 @@ msgstr "மென்பொருள் உங்கள் விண்ணப்�
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Cancel correction"
+msgstr ""
+
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/career/route.tsx
 msgid "Career"
@@ -2613,6 +2661,7 @@ msgstr ""
 msgid "Catalan"
 msgstr "கட்டலான்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Certifications"
@@ -2823,10 +2872,12 @@ msgstr "சீனம் (எளிய)"
 msgid "Chinese (Traditional)"
 msgstr "சீனம் (சம்பிரதாய)"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Choose a file"
 msgstr "ஒரு கோப்பைத் தேர்ந்தெடுக்கவும்"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose a file to import"
 msgstr "இறக்குமதி செய்ய கோப்பைத் தேர்ந்தெடுக்கவும்"
@@ -2834,6 +2885,10 @@ msgstr "இறக்குமதி செய்ய கோப்பைத் த
 #: src/routes/builder/letter/-components/design-panel.tsx
 msgid "Choose a resume in Write to match its design. Until then, the letter has its own."
 msgstr "அதன் வடிவமைப்புடன் பொருந்த, எழுதுதலில் ஒரு ரெஸ்யூமே தேர்வு செய்யவும். அதுவரை, கடிதம் சொந்தமாக உள்ளது."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP."
+msgstr ""
 
 #: src/features/career/workspace/practise.tsx
 msgid "Choose a WebM, MP4, MP3, WAV or Ogg file up to 2 MB."
@@ -2851,6 +2906,7 @@ msgstr "வேலைக்கான விண்ணப்பத்தைத் �
 msgid "Choose an offer"
 msgstr "ஒரு சலுகையைத் தேர்ந்தெடு"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Choose another file"
 msgstr "மற்றொரு கோப்பைத் தேர்ந்தெடுக்கவும்"
@@ -2902,6 +2958,7 @@ msgid "Clear section"
 msgstr "பகுதியை அழி"
 
 #: src/components/ui/combobox.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Clear selection"
 msgstr "தெளிவான தேர்வு"
@@ -2977,6 +3034,15 @@ msgstr ""
 msgid "Coach conversations"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
+msgid "Coaching off"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Coaching on"
+msgstr ""
+
 #: src/libs/theme.ts
 msgid "Cobalt"
 msgstr ""
@@ -3036,6 +3102,10 @@ msgstr "நிறுவனம்"
 #: src/features/career/workspace/practise.tsx
 msgid "Compare attempts to see what improved. Practice questions are simulated, not from {0}."
 msgstr "என்ன மேம்பட்டது என்பதைக் காண முயற்சிகளை ஒப்பிடுங்கள். பயிற்சிக் கேள்விகள் உருவகப்படுத்தப்பட்டவை, {0}-இடமிருந்து வந்தவை அல்ல."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Compare facts with the same or similar wording. Edit either side, keep the other fact, or keep both when they add different details."
+msgstr ""
 
 #: src/features/career/workspace/shell.tsx
 msgid "Compare offers"
@@ -3384,6 +3454,10 @@ msgstr "{correctedOn} அன்று சரிசெய்யப்பட்ட
 msgid "Corrected after the story was saved:"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Correction saved"
+msgstr ""
+
 #: src/features/auth/pages/consent.tsx
 msgid "Could not complete this connection. Restart the connection from your client and try again."
 msgstr "இந்த இணைப்பை முடிக்க முடியவில்லை. உங்கள் கிளையண்டிலிருந்து இணைப்பை மறுதொடக்கம் செய்து மீண்டும் முயற்சிக்கவும்."
@@ -3579,6 +3653,7 @@ msgstr "கோப்பை இறக்குமதி செய்ய முட
 msgid "Couldn't link the application."
 msgstr "வேலை விண்ணப்பத்தை இணைக்க முடியவில்லை."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/documents/new-document-dialog.tsx
 msgid "Couldn't load AI connections. Try again before importing this file."
 msgstr "AI இணைப்புகளை ஏற்ற முடியவில்லை. இந்தக் கோப்பை இறக்குமதி செய்யும் முன் மீண்டும் முயற்சிக்கவும்."
@@ -3644,14 +3719,26 @@ msgstr "உங்கள் AI வழங்குநரைத் தொடர்�
 msgid "Couldn't read that file."
 msgstr "அந்தக் கோப்பைப் படிக்க முடியவில்லை."
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't read this file. Try again or choose another file."
+msgstr ""
+
 #. placeholder {0}: part.errorText
 #: src/features/assistant/conversation.tsx
 msgid "Couldn't read this page: {0}"
 msgstr "இந்தப் பக்கத்தைப் படிக்க முடியவில்லை: {0}"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't recheck matches. Your review is still here; try again."
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Couldn't record submission. Try again."
 msgstr "சமர்ப்பிப்பைப் பதிவுசெய்ய முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't refresh Knowledge. Try again before saving."
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Couldn't remember that. Try again."
@@ -3742,6 +3829,14 @@ msgstr "குறிச்சொற்களைச் சேமிக்க ம�
 #: src/features/settings/preferences.tsx
 msgid "Couldn't save the timezone."
 msgstr "நேர மண்டலத்தைச் சேமிக்க முடியவில்லை."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save these facts. Your review is still here; try again."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Couldn't save this correction. Your edit is still here; try again."
+msgstr ""
 
 #: src/features/career/today.tsx
 msgid "Couldn't save this role to Applications."
@@ -4607,8 +4702,8 @@ msgid "Drop a PDF here or choose a file"
 msgstr "இங்கே PDF ஐ விடுங்கள் அல்லது கோப்பைத் தேர்வுசெய்யவும்"
 
 #: src/features/documents/documents-page.tsx
-msgid "Drop a PDF, Word or JSON file"
-msgstr "PDF, Word அல்லது JSON கோப்பை விடுங்கள்"
+msgid "Drop a PDF, Word, resume JSON or LinkedIn export"
+msgstr ""
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Drop it here or browse. It's read in your browser first, so you can pick what to import before anything is saved."
@@ -4643,6 +4738,7 @@ msgstr "அசலுக்குப் போலவே ஒரு புதிய
 msgid "Duplicated"
 msgstr "நகலெடுக்கப்பட்டது"
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "Duplicates"
 msgstr ""
@@ -4714,6 +4810,10 @@ msgstr "விவரங்களைத் திருத்தவும்…"
 #: src/routes/builder/$resumeId/-components/editor-shell.tsx
 msgid "Edit entry"
 msgstr "உள்ளீட்டைத் திருத்து"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Edit existing fact"
+msgstr ""
 
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Edit interview"
@@ -4793,6 +4893,7 @@ msgstr "எடிட்டர் பார்வைகள்"
 msgid "Editorial"
 msgstr "தலையங்கம்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -5010,11 +5111,16 @@ msgstr ""
 msgid "Evolved from Reactive Resume"
 msgstr ""
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Existing fact text"
+msgstr ""
+
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
 msgstr "கவனப் பயன்முறையிலிருந்து வெளியேறு"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/features/homepage/write.tsx
@@ -5107,6 +5213,10 @@ msgstr "உண்மை மறக்கப்பட்டது"
 
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Fact groups"
+msgstr ""
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Fact text"
 msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
@@ -5314,6 +5424,10 @@ msgstr "பிரிவுகளைக் கண்டறிதல்"
 #: src/features/career/shared.tsx
 msgid "Finding what works"
 msgstr "எது பயனளிக்கிறது எனக் கண்டறிகிறது"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Finish review"
+msgstr ""
 
 #: src/libs/locale.ts
 msgid "Finnish"
@@ -5579,6 +5693,10 @@ msgstr "ஒரு மீளாய்விலிருந்து"
 msgid "From a document you attached"
 msgstr "நீங்கள் இணைத்த ஆவணத்திலிருந்து"
 
+#: src/features/career/knowledge/facts.tsx
+msgid "From an imported file"
+msgstr ""
+
 #: src/features/homepage/sections.tsx
 msgid "from developers who back it"
 msgstr "இதை ஆதரிக்கும் டெவலப்பர்களிடமிருந்து"
@@ -5590,6 +5708,10 @@ msgstr "பொருத்தம் தாவலிலிருந்து"
 #: src/features/resume/share/format.ts
 msgid "from the assistant or API"
 msgstr "உதவியாளரிடமிருந்து அல்லது API"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "From this file"
+msgstr ""
 
 #: src/features/career/knowledge/facts.tsx
 msgid "From your cover letter"
@@ -6019,6 +6141,10 @@ msgstr "ஐகான்…"
 msgid "Icons in contact line"
 msgstr "தொடர்பு வரிசையில் உள்ள சின்னங்கள்"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Identical copies are skipped. Edit the imported text to keep a distinct fact."
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "If I did it again, I’d agree on the measure before the first prototype."
 msgstr "மீண்டும் செய்தால், முதல் முன்மாதிரிக்கு முன்பே அளவீட்டில் ஒப்புக்கொள்வேன்."
@@ -6057,6 +6183,7 @@ msgstr "படங்கள் பெரும்பாலான பக்கத�
 
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/career/knowledge/route.tsx
 msgid "Import"
 msgstr "இறக்குமதி செய்"
 
@@ -6071,6 +6198,10 @@ msgstr "ஒரு ரெஸ்யூமை இறக்குமதி செய
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import another file"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6089,6 +6220,10 @@ msgstr "CSV இலிருந்து இறக்குமதி செய்
 #: src/routes/dashboard/applications/index.tsx
 msgid "Import from CSV…"
 msgstr "CSV இலிருந்து இறக்குமதி செய்…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import into Knowledge"
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import or create a resume"
@@ -6134,6 +6269,14 @@ msgstr "இறக்குமதி செய்யப்பட்ட {0} வே
 msgid "Imported {0} applications. {skipped} rows had no company or role and were skipped."
 msgstr "இறக்குமதி செய்யப்பட்ட {0} வேலை விண்ணப்பங்கள். {skipped} வரிசைகளில் நிறுவனம் அல்லது பங்கு இல்லை மற்றும் தவிர்க்கப்பட்டது."
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported before"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Imported fact text"
+msgstr ""
+
 #: src/features/resume/editor/write/write-panel.tsx
 msgid "Imported from {imported}."
 msgstr "{imported} இலிருந்து இறக்குமதி செய்யப்பட்டது."
@@ -6145,6 +6288,10 @@ msgstr "இறக்குமதி செய்கிறது"
 #: src/features/ats-checker/checker.tsx
 msgid "Importing it into your new resume…"
 msgstr "உங்கள் புதிய ரெஸ்யூமில் அதை இறக்குமதி செய்கிறது…"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Importing saves facts. To make a resume, use Documents."
+msgstr ""
 
 #: src/features/resume/editor/write/rich-text-editor.tsx
 msgid "Improve"
@@ -6166,8 +6313,17 @@ msgstr ""
 msgid "In good company"
 msgstr "நல்ல நிறுவனத்தில்"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "In Knowledge"
+msgstr ""
+
 #: src/features/career/workspace/knowledge.tsx
 msgid "Include"
+msgstr ""
+
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Include {0}"
 msgstr ""
 
 #. placeholder {0}: node.path
@@ -6207,6 +6363,7 @@ msgstr "நுண்ணறிவு"
 msgid "Integrations"
 msgstr "ஒருங்கிணைப்புகள்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Interests"
@@ -6509,6 +6666,10 @@ msgstr "நீங்கள் பயன்பாட்டைப் பயன்�
 msgid "Keep account"
 msgstr "கணக்கு வைத்துக் கொள்ளுங்கள்"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep both"
+msgstr ""
+
 #: src/features/career/schedule-sheet.tsx
 msgid "Keep editing"
 msgstr "தொடர்ந்து திருத்து"
@@ -6552,6 +6713,10 @@ msgstr "சான்றுகளைத் துல்லியமாக வை�
 
 #: src/features/career/knowledge/review.tsx
 msgid "Keep the newer one"
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Keep the other fact"
 msgstr ""
 
 #: src/features/resume/editor/chrome.tsx
@@ -6646,6 +6811,10 @@ msgstr "அறிவுத் தளத்தை ஏற்ற முடியவ
 msgid "Knowledge for this job"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "Knowledge import complete"
+msgstr ""
+
 #: src/features/career/knowledge/review.tsx
 msgid "Knowledge review"
 msgstr ""
@@ -6680,6 +6849,7 @@ msgstr "கிடைமட்டப் படலம்"
 msgid "Language"
 msgstr "மொழி"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -7004,6 +7174,10 @@ msgstr "இணைக்கப்பட்டது. ரெஸ்யூம் ச
 #: src/features/settings/account/auth-hooks.ts
 msgid "LinkedIn"
 msgstr "லிங்க்ட்இன்"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7745,6 +7919,14 @@ msgstr "புதிய ஆவணம்"
 msgid "New fact"
 msgstr "புதிய உண்மை"
 
+#: src/features/career/knowledge/import.tsx
+msgid "New facts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "New facts follow their group's coaching and privacy settings. New groups start with coaching on."
+msgstr ""
+
 #: src/features/career/knowledge/groups.tsx
 msgid "new facts start off"
 msgstr ""
@@ -7857,6 +8039,10 @@ msgstr ""
 msgid "No bullet lists were found."
 msgstr "எந்த புல்லட் பட்டியலும் காணப்படவில்லை."
 
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found. Try another file or add facts in Knowledge."
+msgstr ""
+
 #: src/features/career/workspace/messages.tsx
 msgid "No change needed. It's already at {stage}."
 msgstr "மாற்றம் தேவையில்லை. இது ஏற்கனவே {stage} நிலையில் உள்ளது."
@@ -7890,6 +8076,7 @@ msgstr "திருத்தங்கள் இல்லை"
 msgid "No dates were found."
 msgstr "தேதிகள் எதுவும் காணப்படவில்லை."
 
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/knowledge/upkeep.tsx
 msgid "No duplicates found."
 msgstr ""
@@ -8631,7 +8818,12 @@ msgstr "அசல் பக்கம்"
 msgid "Original table formatting is preserved. This content is read-only because it cannot be edited safely."
 msgstr "அசல் அட்டவணை வடிவமைப்பு பாதுகாக்கப்படுகிறது. இந்த உள்ளடக்கம் பாதுகாப்பாகத் திருத்த முடியாததால், இது படிக்க-மட்டும் என அமைக்கப்பட்டுள்ளது."
 
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Original text"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Other"
 msgstr "மற்றவை"
 
@@ -8647,6 +8839,10 @@ msgstr "பிற நன்மைகள்"
 #: src/features/assistant/assistant-panel.tsx
 msgid "Other documents · {0}"
 msgstr "பிற ஆவணங்கள் · {0}"
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Other imported fact text"
+msgstr ""
 
 #: src/features/ats-checker/report/score-header.tsx
 msgid "out of 100"
@@ -8892,9 +9088,17 @@ msgstr "PDF பாணிகள் CSS இன் துணைக்குழு�
 msgid "PDF, Word (DOCX), Markdown and JSON. The JSON export imports back into any Reactive Resume, including one you host yourself, so your data is never locked in."
 msgstr "PDF, Word (DOCX), Markdown மற்றும் JSON. JSON ஏற்றுமதியானது எந்த Reactive Resume க்கும் மீண்டும் இறக்குமதி செய்யப்படுகிறது, இதில் நீங்களே ஹோஸ்ட் செய்யும் ஒன்று உட்பட, உங்கள் தரவு ஒருபோதும் பூட்டப்படாது."
 
+#: src/features/career/knowledge/import.tsx
+msgid "PDF, Word, resume JSON or LinkedIn export (.zip)"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
-msgid "PDF, Word or JSON. We'll build a resume from it."
-msgstr "PDF, Word அல்லது JSON. அதிலிருந்து ரெஸ்யூம் ஒன்றை உருவாக்குவோம்."
+msgid "PDF, Word, resume JSON or LinkedIn export. We'll build a resume from it."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "PDFs use your AI connection when available, or the browser reader otherwise. Word files need an AI connection."
+msgstr ""
 
 #: src/features/homepage/sections.tsx
 msgid "People using it"
@@ -9028,6 +9232,10 @@ msgstr "போர்ச்சுகீஸ் (போர்ச்சுகல்)
 msgid "Position"
 msgstr "பதவி"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Possible duplicate"
+msgstr ""
+
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
 msgstr "வேலை அறிவிப்பு"
@@ -9105,6 +9313,7 @@ msgid "Prefer a single column, or keep the side column to short, self-contained 
 msgstr "ஒற்றை நெடுவரிசையை விரும்பவும், அல்லது பக்க நெடுவரிசையை குறுகிய, தன்னிறைவான பட்டியல்களுக்கு மட்டும் வைத்திருங்கள்."
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Preference"
 msgstr "விருப்பம்"
 
@@ -9214,6 +9423,8 @@ msgid "Printing is turned off for this resume."
 msgstr "இந்த ரெஸ்யூமிற்கு அச்சிடுதல் முடக்கப்பட்டுள்ளது."
 
 #: src/features/career/knowledge/groups.tsx
+#: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/homepage/share.tsx
 msgid "Private"
 msgstr "தனிப்பட்டது"
@@ -9277,6 +9488,7 @@ msgstr "சுயவிவரங்கள்"
 msgid "Progress Bar"
 msgstr "முன்னேற்ற பட்டை"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Projects"
@@ -9333,6 +9545,7 @@ msgstr "பொதுச் சுயவிவர இணைப்புகள் 
 msgid "Public, with a password"
 msgstr "பொது, கடவுச்சொல்லுடன்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Publications"
@@ -9539,6 +9752,10 @@ msgstr "படிக்கும் பக்கம்…"
 msgid "Reading the file"
 msgstr "கோப்பைப் படித்தல்"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Reading the file…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 msgid "Reading the link…"
 msgstr "இணைப்பைப் படிக்கிறது…"
@@ -9623,6 +9840,10 @@ msgstr "நினைவிலிருந்து"
 msgid "Recent"
 msgstr "சமீபத்தியவை"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Recheck matches"
+msgstr ""
+
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Recipient"
 msgstr "பெறுநர்"
@@ -9687,6 +9908,7 @@ msgstr "சிவப்பு"
 msgid "Redo resume change"
 msgstr "ரெஸ்யூம் மாற்றத்தை மீண்டும் செய்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "References"
@@ -10093,6 +10315,10 @@ msgstr "ரெஸ்யூம் விவரங்கள்"
 msgid "Resume file"
 msgstr "ரெஸ்யூம் கோப்பு"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Resume files must be smaller than 10 MB."
+msgstr ""
+
 #: src/features/settings/resume-length.tsx
 msgid "Resume length"
 msgstr ""
@@ -10187,6 +10413,10 @@ msgstr "‘என் பதிலை மதிப்பாய்வு செய
 
 #: src/features/career/knowledge/review.tsx
 msgid "Review my Knowledge"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Review new facts first, then compare duplicates below. Possible duplicates start left out. Hidden resume entries start unchecked."
 msgstr ""
 
 #: src/features/career/workspace/apply.tsx
@@ -10336,6 +10566,10 @@ msgstr "Sam"
 msgid "Sam, Fieldnote"
 msgstr "Sam, Fieldnote"
 
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Same text"
+msgstr ""
+
 #: src/features/homepage/remember.tsx
 msgid "Same you. Less starting over."
 msgstr "அதே நீங்கள். மீண்டும் தொடங்குவது குறைவு."
@@ -10395,6 +10629,7 @@ msgid "Save connection"
 msgstr "இணைப்பைச் சேமிக்கவும்"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-comparison.tsx
 msgid "Save correction"
 msgstr "திருத்தத்தைச் சேமி"
 
@@ -10414,6 +10649,10 @@ msgstr "நேர்காணலைச் சேமி"
 #: src/routes/dashboard/applications/index.tsx
 msgid "Save job"
 msgstr "வேலையை காப்பாற்றுங்கள்"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Save or cancel your Knowledge corrections before finishing the review."
+msgstr ""
 
 #: src/features/career/schedule-sheet.tsx
 msgid "Save schedule"
@@ -10527,6 +10766,10 @@ msgstr "‘சேமிக்கப்பட்டது’ · பயிற்�
 #: src/features/resume/share/link-tab.tsx
 msgid "Saving {0}/{username}/{slug}… Copy is available after saving."
 msgstr "சேமித்தல் {0}/{username}/{slug}... சேமித்த பிறகு நகல் கிடைக்கும்."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Saving corrects the existing fact now. Linked stories may need review."
+msgstr ""
 
 #: src/features/resume/builder/draft.ts
 msgid "Saving is taking longer than expected. Your changes are still open."
@@ -10751,6 +10994,10 @@ msgstr "அனைத்தையும் தேர்ந்தெடு"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "ஒரு AI வழங்குநரைத் தேர்ந்தெடுக்கவும்"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Select up to 500 facts at a time."
+msgstr ""
 
 #: src/components/ui/combobox.tsx
 msgid "Select..."
@@ -11236,9 +11483,11 @@ msgid "Size"
 msgstr "அளவு"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-fact-row.tsx
 msgid "Skill"
 msgstr "திறன்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/homepage/check.tsx
 #: src/features/homepage/sheet.tsx
 #: src/libs/resume/section-title.ts
@@ -11715,6 +11964,7 @@ msgstr "வெட்டுக்களை பரிந்துரைக்க�
 msgid "Summaries of your open applications"
 msgstr "உங்கள் திறந்த விண்ணப்பங்களின் சுருக்கங்கள்"
 
+#: src/features/career/knowledge/import-fact-row.tsx
 #: src/features/resume/editor/write/summary-editor.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -12412,6 +12662,10 @@ msgstr "நீங்கள் விண்ணப்பித்தபோது �
 msgid "These disagree"
 msgstr ""
 
+#: src/features/career/knowledge/import.tsx
+msgid "These facts have no close matches in Knowledge or earlier in this file. Edit the text and choose what to save."
+msgstr ""
+
 #: src/features/applications/components/list-view.tsx
 msgid "They and their timelines are deleted permanently. This can't be undone."
 msgstr "அவைகளும் அவற்றின் காலவரிசைகளும் நிரந்தரமாக நீக்கப்படும். இதை செயல்தவிர்க்க முடியாது."
@@ -12491,6 +12745,14 @@ msgstr "இந்த ஆவணம் பூட்டப்பட்டுள்�
 msgid "This entry"
 msgstr "இந்த நுழைவு"
 
+#: src/features/career/knowledge/import.tsx
+msgid "This fact changed while you were editing. Cancel this correction and check the latest text."
+msgstr ""
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This fact is no longer available. Recheck matches before saving."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "This file contains form fields."
 msgstr "இந்தக் கோப்பில் படிவப் புலங்கள் உள்ளன."
@@ -12534,6 +12796,10 @@ msgstr "இது ஒரு ரெஸ்யூமிற்கு பெரிய
 #: src/features/ats-checker/messages.ts
 msgid "This file is larger than many application forms accept."
 msgstr "இந்தக் கோப்பு பல விண்ணப்பப் படிவங்கள் ஏற்கும் அளவை விட பெரியது."
+
+#: src/features/career/knowledge/import.tsx
+msgid "This file is too large. Use a file smaller than 100 MB."
+msgstr ""
 
 #: src/features/documents/new-document-dialog.tsx
 msgid "This file type can't be imported. Use a PDF, Word, Reactive Resume or JSON Resume file, or a LinkedIn export (.zip)."
@@ -12658,6 +12924,10 @@ msgstr "இந்தச் சேமித்த பதிப்பு இனி
 #: src/features/auth/pages/error.tsx
 msgid "This sign-in attempt expired or was already used. Please start again."
 msgstr "இந்த உள்நுழைவு முயற்சி காலாவதியானது அல்லது ஏற்கனவே பயன்படுத்தப்பட்டது. மீண்டும் தொடங்கவும்."
+
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "This source was already imported. Edit the fact in Knowledge to correct it."
+msgstr ""
 
 #: src/features/auth/pages/register.tsx
 msgid "This step is optional, but recommended."
@@ -12872,6 +13142,7 @@ msgstr "ஒரு மாதிரியை முயற்சிக்கவு�
 
 #: src/components/layout/error-screen.tsx
 #: src/features/career/coach-thread.tsx
+#: src/features/career/knowledge/import.tsx
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
@@ -13306,6 +13577,11 @@ msgstr "இந்தச் சாதனத்தின் நேர மண்ட
 msgid "Use this provider"
 msgstr "இந்த வழங்குநரைப் பயன்படுத்தவும்"
 
+#. placeholder {0}: rowLabel(row)
+#: src/features/career/knowledge/import-comparison.tsx
+msgid "Use wording from {0}"
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Use your editor's normal bullet list, so stray glyphs do not land mid-sentence."
 msgstr "பிசகான எழுத்துருக் குறியீடுகள் வாக்கியத்தின் நடுவில் வராமல் இருக்க, உங்கள் எடிட்டரின் வழக்கமான புல்லட் பட்டியலைப் பயன்படுத்தவும்."
@@ -13461,6 +13737,10 @@ msgstr "காண்க"
 msgid "View application"
 msgstr "வேலை விண்ணப்பத்தைப் பார்க்கவும்"
 
+#: src/features/career/knowledge/import.tsx
+msgid "View facts"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/posting-dialog.tsx
 msgid "View posting"
@@ -13508,6 +13788,10 @@ msgstr "குரல் அமைப்புகள்"
 #: src/libs/resume/section.tsx
 msgid "Volunteer"
 msgstr "தன்னார்வம்"
+
+#: src/features/career/knowledge/import-fact-row.tsx
+msgid "Volunteering"
+msgstr ""
 
 #: src/features/career/workspace/messages.tsx
 msgid "Waiting for you"

@@ -1,6 +1,8 @@
 import z from "zod";
 import {
 	careerFactInputSchema,
+	careerImportFactsInputSchema,
+	careerImportFactsResultSchema,
 	careerProfileDataSchema,
 	careerScheduleInputSchema,
 	careerScopeSchema,
@@ -210,6 +212,19 @@ export const careerRouter = {
 		)
 		.output(z.array(careerFactSchema))
 		.handler(({ context, input }) => careerService.facts({ userId: context.user.id, ...input })),
+	importFacts: protectedProcedure
+		.route({
+			method: "POST",
+			path: "/career/facts/imports",
+			tags: ["Career"],
+			operationId: "importCareerFacts",
+			summary: "Import reviewed facts from a file",
+			description:
+				"Saves up to 500 user-reviewed shared facts in one transaction. Repeated sources and normalized duplicates are skipped; corrected, excluded, archived and forgotten sources are never recreated. Group switches and privacy still apply. No resume is created.",
+		})
+		.input(careerImportFactsInputSchema)
+		.output(careerImportFactsResultSchema)
+		.handler(({ context, input }) => careerService.importFacts(context.user.id, input)),
 	saveFact: protectedProcedure
 		.route({
 			method: "POST",

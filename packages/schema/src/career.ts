@@ -18,6 +18,7 @@ export const careerSourceSchema = z.object({
 		"attachment",
 		"manual",
 		"debrief",
+		"import",
 	]),
 	id: z.string().max(255),
 	quote: z.string().max(4000),
@@ -143,6 +144,34 @@ export const careerFactInputSchema = careerScopeSchema.extend({
 	/** New facts in a group start switched on or off as the group was last switched. */
 	group: factGroupSchema.nullable().optional(),
 });
+
+/** Reviewed facts from a file read by the client. The original quote survives edits to the proposed text. */
+export const careerImportFactInputSchema = careerFactInputSchema.omit({ applicationId: true }).extend({
+	source: careerSourceSchema.extend({
+		kind: z.literal("import"),
+		id: z
+			.string()
+			.max(255)
+			.regex(/^import:v1:[a-f0-9]{64}:[a-z0-9/.-]+$/),
+		quote: z.string().trim().min(1).max(4000),
+	}),
+});
+
+export const careerImportFactsInputSchema = z.object({
+	facts: z.array(careerImportFactInputSchema).min(1).max(500),
+});
+
+export const careerImportFactsResultSchema = z.object({
+	results: z.array(
+		z.object({
+			sourceId: z.string(),
+			status: z.enum(["saved", "duplicate", "suppressed"]),
+			factId: z.string().nullable(),
+		}),
+	),
+});
+export type CareerImportFact = z.infer<typeof careerImportFactInputSchema>;
+export type CareerImportFactsResult = z.infer<typeof careerImportFactsResultSchema>;
 
 export const careerStoryInputSchema = careerScopeSchema.extend({
 	title: z.string().trim().min(1).max(200),

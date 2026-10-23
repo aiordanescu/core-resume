@@ -35165,7 +35165,8 @@
 																			"letter-version",
 																			"attachment",
 																			"manual",
-																			"debrief"
+																			"debrief",
+																			"import"
 																		],
 																		"type": "string"
 																	},
@@ -41600,7 +41601,8 @@
 															"letter-version",
 															"attachment",
 															"manual",
-															"debrief"
+															"debrief",
+															"import"
 														],
 														"type": "string"
 													},
@@ -41802,7 +41804,8 @@
 													"letter-version",
 													"attachment",
 													"manual",
-													"debrief"
+													"debrief",
+													"import"
 												],
 												"type": "string"
 											},
@@ -41896,7 +41899,8 @@
 																"letter-version",
 																"attachment",
 																"manual",
-																"debrief"
+																"debrief",
+																"import"
 															],
 															"type": "string"
 														},
@@ -42145,6 +42149,194 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request PATCH \"https://allthat.work/api/openapi/career/facts\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"ids\": [\n    \"<string>\"\n  ]\n}'"
+					}
+				]
+			}
+		},
+		"/career/facts/imports": {
+			"post": {
+				"operationId": "importCareerFacts",
+				"summary": "Import reviewed facts from a file",
+				"description": "Saves up to 500 user-reviewed shared facts in one transaction. Repeated sources and normalized duplicates are skipped; corrected, excluded, archived and forgotten sources are never recreated. Group switches and privacy still apply. No resume is created.",
+				"tags": [
+					"Career"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"facts": {
+										"type": "array",
+										"minItems": 1,
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"text": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 2000
+												},
+												"category": {
+													"enum": [
+														"accomplishment",
+														"experience",
+														"skill",
+														"preference"
+													],
+													"type": "string"
+												},
+												"source": {
+													"type": "object",
+													"properties": {
+														"kind": {
+															"const": "import"
+														},
+														"id": {
+															"type": "string",
+															"maxLength": 255,
+															"pattern": "^import:v1:[a-f0-9]{64}:[a-z0-9/.-]+$"
+														},
+														"quote": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 4000
+														}
+													},
+													"required": [
+														"kind",
+														"id",
+														"quote"
+													]
+												},
+												"group": {
+													"anyOf": [
+														{
+															"type": "string",
+															"maxLength": 200
+														},
+														{
+															"type": "null"
+														}
+													]
+												}
+											},
+											"required": [
+												"text",
+												"category",
+												"source"
+											]
+										}
+									}
+								},
+								"required": [
+									"facts"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"results": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"sourceId": {
+														"type": "string"
+													},
+													"status": {
+														"enum": [
+															"saved",
+															"duplicate",
+															"suppressed"
+														],
+														"type": "string"
+													},
+													"factId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"sourceId",
+													"status",
+													"factId"
+												]
+											}
+										}
+									},
+									"required": [
+										"results"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/career/facts/imports\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"facts\": [\n    {\n      \"text\": \"<string>\",\n      \"category\": \"accomplishment\",\n      \"source\": {\n        \"kind\": \"import\",\n        \"id\": \"<string>\",\n        \"quote\": \"<string>\"\n      }\n    }\n  ]\n}'"
 					}
 				]
 			}

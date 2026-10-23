@@ -411,6 +411,8 @@ function sourceLabel(fact: Fact) {
 	switch (fact.source.kind) {
 		case "manual":
 			return t`Added by you`;
+		case "import":
+			return t`From an imported file`;
 		case "user-message":
 			return t`From your message`;
 		case "resume":
