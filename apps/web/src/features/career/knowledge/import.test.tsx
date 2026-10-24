@@ -26,7 +26,14 @@ const api = vi.hoisted(() => ({
 	save: vi.fn(),
 	update: vi.fn(),
 	resumeImport: vi.fn(),
-	contacts: [],
+	contacts: [] as {
+		id: string;
+		name: string;
+		updatedAt: Date;
+		companyId: string | null;
+		profileLinks: string[];
+		sources: { kind: string; id: string }[];
+	}[],
 	companies: [],
 	importContacts: vi.fn(),
 }));
@@ -358,35 +365,36 @@ it("uses one archive for facts and optional contacts, leaving contact import off
 	expect(api.importContacts).not.toHaveBeenCalled();
 	expect(api.read.mock.calls[0]?.[2].bytes).toBeInstanceOf(Uint8Array);
 });
-it("reviews contacts from the same file and strips emails before submitting when email import is off", async () => {
+it("reviews contacts from the same file and includes available emails with selected contacts", async () => {
 	mount();
 	uploadArchive();
 	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
 	await screen.findByText("1 contact selected");
-	expect(screen.getByRole("checkbox", { name: "Also import email addresses" })).not.toBeChecked();
+	expect(screen.queryByRole("checkbox", { name: "Also import email addresses" })).not.toBeInTheDocument();
+	expect(screen.getByRole("checkbox", { name: "Import Casey Nguyen" })).toBeChecked();
+	expect(screen.queryByRole("combobox", { name: "Import action for Casey Nguyen" })).not.toBeInTheDocument();
 	expect(api.importContacts).not.toHaveBeenCalled();
 	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
 	await screen.findByText("Knowledge import complete");
 	expect(api.save).toHaveBeenCalledOnce();
 	expect(api.importContacts).toHaveBeenCalledWith(
 		expect.objectContaining({
-			importEmails: false,
+			importEmails: true,
 			rows: [
 				expect.objectContaining({
 					action: "create",
-					connection: expect.objectContaining({ email: "", name: "Casey Nguyen" }),
+					connection: expect.objectContaining({ email: "casey@example.test", name: "Casey Nguyen" }),
 				}),
 			],
 		}),
 	);
 	expect(screen.getByRole("link", { name: "View contacts" })).toBeInTheDocument();
 });
-it("supports a connections-only archive and imports email only by explicit choice", async () => {
+it("supports a connections-only archive and includes available email", async () => {
 	api.read.mockRejectedValue(new Error("No profile"));
 	mount();
 	uploadArchive();
 	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Also import email addresses" }));
 	await screen.findByText("1 contact selected");
 	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
 	await screen.findByText("Knowledge import complete");
@@ -406,4 +414,51 @@ it("keeps saved facts after a contact failure and allows retry without resubmitt
 	await screen.findByText("Knowledge import complete");
 	expect(api.save).toHaveBeenCalledOnce();
 	expect(api.importContacts).toHaveBeenCalledTimes(2);
+});
+
+it("uses checkboxes to exclude and restore a contact while retaining its email", async () => {
+	mount();
+	uploadArchive();
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	const checkbox = await screen.findByRole("checkbox", { name: "Import Casey Nguyen" });
+	fireEvent.click(checkbox);
+	await screen.findByText("0 contacts selected");
+	fireEvent.click(checkbox);
+	await screen.findByText("1 contact selected");
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.importContacts.mock.calls[0]?.[0].rows[0].connection.email).toBe("casey@example.test");
+});
+it("requires a deliberate match for possible duplicates and remembers it across checkbox changes", async () => {
+	api.contacts = [
+		{
+			id: "existing-casey",
+			name: "Casey Nguyen",
+			updatedAt: new Date("2026-10-23T18:00:00Z"),
+			companyId: null,
+			profileLinks: [],
+			sources: [],
+		},
+	];
+	mount();
+	uploadArchive();
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	const checkbox = await screen.findByRole("checkbox", { name: "Import Casey Nguyen" });
+	expect(checkbox).not.toBeChecked();
+	fireEvent.click(checkbox);
+	await waitFor(() =>
+		expect(screen.getByRole("button", { name: "Import selected facts and contacts" })).toBeDisabled(),
+	);
+	fireEvent.click(screen.getByRole("radio", { name: "Update Casey Nguyen" }));
+	await screen.findByText("1 contact selected");
+	fireEvent.click(checkbox);
+	fireEvent.click(checkbox);
+	expect(screen.getByRole("radio", { name: "Update Casey Nguyen" })).toBeChecked();
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.importContacts.mock.calls[0]?.[0].rows[0]).toMatchObject({
+		action: "update",
+		contactId: "existing-casey",
+		duplicateDecision: "merge",
+	});
 });

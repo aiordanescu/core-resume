@@ -12,6 +12,7 @@ import {
 } from "@reactive-resume/schema/directory-import";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Input } from "@reactive-resume/ui/components/input";
+import { cn } from "@reactive-resume/utils/style";
 import { client, orpc } from "@/libs/orpc/client";
 
 export type ContactsImportSelection = LinkedInImport;
@@ -24,17 +25,14 @@ export const emptyContactsResult = (): ContactsImportResult => ({
 	companiesCreated: 0,
 });
 
-/** The source file and excluded emails never enter a request. A retried batch cannot create URL duplicates. */
+/** Only selected contacts leave the browser. A retried batch cannot create URL duplicates. */
 export async function saveReviewedContacts(
 	selection: ContactsImportSelection,
 	onProgress: (result: ContactsImportResult, completed: string[]) => void,
 ) {
 	const total = emptyContactsResult();
 	for (let start = 0; start < selection.rows.length; start += 500) {
-		const rows = selection.rows.slice(start, start + 500).map((row) => ({
-			...row,
-			connection: { ...row.connection, email: selection.importEmails ? row.connection.email : "" },
-		}));
+		const rows = selection.rows.slice(start, start + 500);
 		const needed = new Set(rows.map((row) => directoryKey(row.connection.company)));
 		const saved = await client.directory.importLinkedIn({
 			...selection,
@@ -62,7 +60,7 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	const companies = useQuery(orpc.directory.companies.queryOptions({ input: {}, staleTime: 0 }));
 	const [choices, setChoices] = useState<Record<string, string>>({});
 	const [companyEdits, setCompanyEdits] = useState<Record<string, LinkedInCompanyChoice>>({});
-	const [importEmails, setImportEmails] = useState(false);
+	const [included, setIncluded] = useState<Record<string, boolean>>({});
 	const [filter, setFilter] = useState("all");
 	const [page, setPage] = useState(0);
 	const [companyPage, setCompanyPage] = useState(0);
@@ -94,12 +92,13 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 		() =>
 			file.connections.map((connection) => {
 				const match = matchLinkedInContact(connection, contactIndex);
-				const action =
+				const target =
 					choices[connection.profileUrl] ??
-					(match.kind === "update" ? (match.contact?.id ?? "skip") : match.kind === "duplicate" ? "skip" : "create");
-				return { connection, match, action };
+					(match.kind === "update" ? (match.contact?.id ?? "") : match.kind === "new" ? "create" : "");
+				const checked = included[connection.profileUrl] ?? match.kind !== "duplicate";
+				return { connection, match, target, checked, action: checked ? target : "skip" };
 			}),
-		[file, contactIndex, choices],
+		[file, contactIndex, choices, included],
 	);
 	const contactsById = useMemo(() => new Map(contacts.data?.map((contact) => [contact.id, contact])), [contacts.data]);
 	const selected = useMemo(
@@ -131,10 +130,11 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 			contacts.isError ||
 			companies.isPending ||
 			companies.isError ||
+			rows.some((row) => row.checked && !row.target) ||
 			mappings.some((mapping) => !mapping.choice.name.trim())
 				? null
-				: { rows: selected, companies: mappings.map((mapping) => mapping.choice), importEmails },
-		[selected, mappings, importEmails, contacts.isPending, contacts.isError, companies.isPending, companies.isError],
+				: { rows: selected, companies: mappings.map((mapping) => mapping.choice), importEmails: true },
+		[selected, mappings, rows, contacts.isPending, contacts.isError, companies.isPending, companies.isError],
 	);
 	useEffect(() => {
 		onChange(selection);
@@ -202,18 +202,7 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 					})}
 				</span>
 			</div>
-			<label className="flex items-center gap-2 text-sm">
-				<input
-					type="checkbox"
-					checked={importEmails}
-					disabled={disabled}
-					onChange={(event) => setImportEmails(event.target.checked)}
-				/>
-				<Trans>Also import email addresses</Trans>
-			</label>
-			<p className="text-xs text-ink-3">
-				<Trans>Email addresses stay in your browser unless you select this option.</Trans>
-			</p>
+
 			{mappings.length > 0 && (
 				<details className="rounded-lg border border-line p-3" open>
 					<summary className="cursor-pointer font-semibold">
@@ -302,87 +291,125 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 						<option value="duplicate">{t`Possible duplicates`}</option>
 					</select>
 				</label>
-				<Button variant="ghost" size="sm" disabled={disabled} onClick={() => setChoices({})}>
+				<Button variant="ghost" size="sm" disabled={disabled} onClick={() => setIncluded({})}>
 					<Trans>Select new and matched contacts</Trans>
 				</Button>
 				<Button
 					variant="ghost"
 					size="sm"
 					disabled={disabled}
-					onClick={() => setChoices(Object.fromEntries(rows.map((row) => [row.connection.profileUrl, "skip"])))}
+					onClick={() => setIncluded(Object.fromEntries(rows.map((row) => [row.connection.profileUrl, false])))}
 				>
 					<Trans>Skip all contacts</Trans>
 				</Button>
 			</div>
-			<div className="overflow-x-auto">
-				<table className="w-full text-start text-sm">
-					<thead>
-						<tr className="border-b border-line">
-							<th className="p-2 text-start">
-								<Trans>Contact from file</Trans>
-							</th>
-							<th className="p-2 text-start">
-								<Trans>Import action</Trans>
-							</th>
-							{importEmails && (
-								<th className="p-2 text-start">
-									<Trans>Email address</Trans>
-								</th>
+			<div className="grid gap-3 md:grid-cols-2">
+				{visible.slice(page * 50, (page + 1) * 50).map(({ connection, match, target, checked }) => (
+					<article
+						key={connection.profileUrl}
+						className={cn(
+							"grid content-start gap-3 rounded-lg border p-4",
+							checked ? "border-accent/30 bg-raised" : "border-line",
+						)}
+					>
+						<label htmlFor={`${listId}-${connection.profileUrl}`} className="flex cursor-pointer items-start gap-3">
+							<input
+								type="checkbox"
+								id={`${listId}-${connection.profileUrl}`}
+								aria-label={t`Import ${connection.name}`}
+								checked={checked}
+								disabled={disabled}
+								className="mt-0.5 size-4 shrink-0 accent-accent"
+								onChange={(event) =>
+									setIncluded((previous) => ({ ...previous, [connection.profileUrl]: event.target.checked }))
+								}
+							/>
+							<span className="grid min-w-0 gap-1">
+								<span className="font-medium">{connection.name}</span>
+								<span className="text-xs text-ink-3">
+									{match.kind === "new"
+										? t`New contact`
+										: match.kind === "update"
+											? t`Update existing contact`
+											: t`Possible duplicate`}
+								</span>
+							</span>
+						</label>
+						<div className="grid min-w-0 gap-1 ps-7.5 text-sm">
+							{(connection.position || connection.company) && (
+								<p className="text-ink-2">{[connection.position, connection.company].filter(Boolean).join(" · ")}</p>
 							)}
-						</tr>
-					</thead>
-					<tbody>
-						{visible.slice(page * 50, (page + 1) * 50).map(({ connection, match, action }) => (
-							<tr key={connection.profileUrl} className="border-b border-line align-top">
-								<td className="grid gap-1 p-2">
-									<span className="font-medium">{connection.name}</span>
-									<span className="text-xs text-ink-2">
-										{[connection.position, connection.company].filter(Boolean).join(" · ")}
-									</span>
-									<a
-										href={connection.profileUrl}
-										target="_blank"
-										rel="noreferrer"
-										className="text-xs text-accent-text hover:underline"
-									>
-										<Trans>Open LinkedIn profile</Trans>
-									</a>
-									{match.contact && <span className="text-xs text-ink-3">{t`Existing: ${match.contact.name}`}</span>}
-									{connection.connectedOn && (
-										<span className="text-xs text-ink-3">{t`Connected: ${connection.connectedOn}`}</span>
-									)}
-								</td>
-								<td className="p-2">
-									<select
-										aria-label={t`Import action for ${connection.name}`}
-										className="max-w-72 rounded-md border border-line bg-surface p-2"
-										disabled={disabled}
-										value={action}
-										onChange={(event) =>
-											setChoices((previous) => ({ ...previous, [connection.profileUrl]: event.target.value }))
-										}
-									>
-										<option value="skip">{t`Skip`}</option>
-										{match.identities.length === 0 && (
-											<option value="create">
-												{match.kind === "duplicate" ? t`Create separate contact` : t`Create contact`}
-											</option>
-										)}
-										{match.candidates.map((candidate) => (
-											<option key={candidate.id} value={candidate.id}>
+							{connection.email && <p className="break-all text-ink-2">{connection.email}</p>}
+							<div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
+								<a
+									href={connection.profileUrl}
+									target="_blank"
+									rel="noreferrer"
+									className="text-accent-text hover:underline"
+								>
+									<Trans>Open LinkedIn profile</Trans>
+								</a>
+								{connection.connectedOn && (
+									<span className="text-ink-3">{t`Connected: ${connection.connectedOn}`}</span>
+								)}
+							</div>
+						</div>
+						{match.kind === "duplicate" && checked && (
+							<div className="grid gap-2 border-t border-line pt-3 text-sm">
+								<p className="text-xs text-ink-2">
+									<Trans>Choose an existing contact to update or create a separate person.</Trans>
+								</p>
+								<fieldset disabled={disabled} className="grid gap-2">
+									<legend className="sr-only">{t`Match for ${connection.name}`}</legend>
+									{match.candidates.map((candidate) => (
+										<label
+											key={candidate.id}
+											htmlFor={`${listId}-${connection.profileUrl}-${candidate.id}`}
+											className="flex cursor-pointer items-start gap-2"
+										>
+											<input
+												type="radio"
+												id={`${listId}-${connection.profileUrl}-${candidate.id}`}
+												name={`${listId}-${connection.profileUrl}-match`}
+												value={candidate.id}
+												checked={target === candidate.id}
+												className="mt-0.5 size-4 shrink-0 accent-accent"
+												onChange={() =>
+													setChoices((previous) => ({ ...previous, [connection.profileUrl]: candidate.id }))
+												}
+											/>
+											<span>
 												{t`Update ${candidate.name}`}
-												{"companyId" in candidate && typeof candidate.companyId === "string"
-													? ` · ${names.get(candidate.companyId) ?? ""}`
+												{"companyId" in candidate &&
+												typeof candidate.companyId === "string" &&
+												names.get(candidate.companyId)
+													? ` · ${names.get(candidate.companyId)}`
 													: ""}
-											</option>
-										))}
-									</select>
-								</td>
-								{importEmails && <td className="p-2">{connection.email || "—"}</td>}
-							</tr>
-						))}
-					</tbody>
-				</table>
+											</span>
+										</label>
+									))}
+									{match.identities.length === 0 && (
+										<label
+											htmlFor={`${listId}-${connection.profileUrl}-create`}
+											className="flex cursor-pointer items-center gap-2"
+										>
+											<input
+												type="radio"
+												id={`${listId}-${connection.profileUrl}-create`}
+												name={`${listId}-${connection.profileUrl}-match`}
+												value="create"
+												checked={target === "create"}
+												className="size-4 shrink-0 accent-accent"
+												onChange={() => setChoices((previous) => ({ ...previous, [connection.profileUrl]: "create" }))}
+											/>
+											<span>{t`Create separate contact`}</span>
+										</label>
+									)}
+								</fieldset>
+							</div>
+						)}
+					</article>
+				))}
 			</div>
 			{visible.length > 50 && (
 				<Pagination page={page} total={visible.length} size={50} disabled={disabled} onChange={setPage} />

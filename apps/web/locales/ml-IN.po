@@ -1892,10 +1892,6 @@ msgstr "{0} കവർ ലെറ്ററും ഡൗൺലോഡ് ചെയ�
 msgid "Also email {0}"
 msgstr "{0} എന്ന വിലാസത്തിലേക്കും ഇമെയിൽ അയയ്ക്കുക"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Also import email addresses"
-msgstr ""
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "കഴിവുകൾ, പ്രൊഫൈലുകൾ, താൽപ്പര്യങ്ങൾ എന്നിവയിലെ ഐക്കണുകളും കാണിക്കുന്നു."
@@ -2976,6 +2972,10 @@ msgstr "ഒരു തൊഴിൽ അപേക്ഷ തിരഞ്ഞെടു
 msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 msgstr ""
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing contact to update or create a separate person."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "ഒരു ഓഫർ തിരഞ്ഞെടുക്കുക"
@@ -3355,10 +3355,6 @@ msgstr "ബന്ധപ്പെടാനുള്ള വിശദാംശങ�
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact email"
 msgstr "ബന്ധപ്പെടാനുള്ള ഇമെയിൽ"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Contact from file"
-msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
@@ -4140,10 +4136,6 @@ msgstr "നിങ്ങളുടെ ഡോക്യുമെൻ്റുകള�
 #: src/features/documents/new-document-dialog.tsx
 msgid "Create and open"
 msgstr "സൃഷ്ടിച്ച് തുറക്കുക"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Create contact"
-msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
@@ -5074,10 +5066,6 @@ msgstr "ഇമെയിൽ"
 msgid "Email (optional)"
 msgstr "ഇമെയിൽ (ഓപ്ഷണൽ)"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email address"
-msgstr ""
-
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -5093,10 +5081,6 @@ msgstr "ഇമെയിൽ വിലാസം തിരിച്ചറിയപ�
 
 #: src/features/directory/page.tsx
 msgid "Email addresses"
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email addresses stay in your browser unless you select this option."
 msgstr ""
 
 #: src/features/settings/account/profile.tsx
@@ -5284,11 +5268,6 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
-msgstr ""
-
-#. placeholder {0}: match.contact.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -6371,6 +6350,11 @@ msgstr "ചിത്രങ്ങൾ പേജിന്റെ ഭൂരിഭാ�
 msgid "Import"
 msgstr "ഇംപോർട്ട്"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume"
 msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ്യുക"
@@ -6378,15 +6362,6 @@ msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ്യുക, ജോലിക്കായി ഒരെണ്ണം പകർത്തുക, അല്ലെങ്കിൽ ശൂന്യമായി തുടങ്ങുക."
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action"
-msgstr ""
-
-#. placeholder {0}: connection.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action for {0}"
-msgstr ""
 
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -7720,6 +7695,11 @@ msgstr "“{0}” പൊരുത്തപ്പെടുത്തുക"
 msgid "Match against a job"
 msgstr "ഒരു ജോലിയുമായി പൊരുത്തപ്പെടുക"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Match for {0}"
+msgstr ""
+
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
 msgstr "സിസ്റ്റം തീം പൊരുത്തപ്പെടുത്തുക"
@@ -8126,6 +8106,10 @@ msgstr "പുതിയ API കീ"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New Application"
 msgstr "പുതിയ അപേക്ഷ"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "New contact"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -9521,6 +9505,7 @@ msgid "Position"
 msgstr "പദവി"
 
 #: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 msgid "Possible duplicate"
 msgstr ""
 
@@ -11837,7 +11822,6 @@ msgstr "സ്കിൽ"
 msgid "Skills"
 msgstr "സ്കിൽസ്"
 
-#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "ഒഴിവാക്കുക"
@@ -13773,6 +13757,10 @@ msgstr "വരാനിരിക്കുന്ന അഭിമുഖങ്ങ�
 #. placeholder {0}: candidate.name
 #: src/features/career/knowledge/import-contacts.tsx
 msgid "Update {0}"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update existing contact"
 msgstr ""
 
 #. Primary action button to submit changed password
