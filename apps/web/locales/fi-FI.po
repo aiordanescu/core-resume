@@ -1892,10 +1892,6 @@ msgstr "Lataa myös {0} saatekirje"
 msgid "Also email {0}"
 msgstr "Lähetä myös sähköpostiin {0}"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Also import email addresses"
-msgstr ""
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "Näyttää myös taitojen, profiilien ja kiinnostuksen kohteiden kuvakkeet."
@@ -2976,6 +2972,10 @@ msgstr "Valitse työhakemus…"
 msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 msgstr ""
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing contact to update or create a separate person."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Valitse tarjous"
@@ -3355,10 +3355,6 @@ msgstr "Yhteystiedot löytyivät"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact email"
 msgstr "Yhteydenotto sähköposti"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Contact from file"
-msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
@@ -4140,10 +4136,6 @@ msgstr "Luo ja muuta asiakirjojasi ja työhakemuksiasi."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Create and open"
 msgstr "Luo ja avaa"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Create contact"
-msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
@@ -5074,10 +5066,6 @@ msgstr "Sähköposti"
 msgid "Email (optional)"
 msgstr "Sähköposti (valinnainen)"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email address"
-msgstr ""
-
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -5093,10 +5081,6 @@ msgstr "Sähköpostiosoitetta ei tunnisteta"
 
 #: src/features/directory/page.tsx
 msgid "Email addresses"
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email addresses stay in your browser unless you select this option."
 msgstr ""
 
 #: src/features/settings/account/profile.tsx
@@ -5284,11 +5268,6 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
-msgstr ""
-
-#. placeholder {0}: match.contact.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -6371,6 +6350,11 @@ msgstr "Kuvat peittävät suurimman osan sivusta."
 msgid "Import"
 msgstr "Tuo"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume"
 msgstr "Tuo ansioluettelo"
@@ -6378,15 +6362,6 @@ msgstr "Tuo ansioluettelo"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Tuo ansioluettelo, kopioi se työtä varten tai aloita tyhjänä."
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action"
-msgstr ""
-
-#. placeholder {0}: connection.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action for {0}"
-msgstr ""
 
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -7720,6 +7695,11 @@ msgstr "Vastaa \"{0}\""
 msgid "Match against a job"
 msgstr "Ottelu työpaikkaa vastaan"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Match for {0}"
+msgstr ""
+
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
 msgstr "Yhdistä järjestelmän teema"
@@ -8126,6 +8106,10 @@ msgstr "Uusi API avain"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New Application"
 msgstr "Uusi hakemus"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "New contact"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -9521,6 +9505,7 @@ msgid "Position"
 msgstr "Tehtävänimike"
 
 #: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 msgid "Possible duplicate"
 msgstr ""
 
@@ -11837,7 +11822,6 @@ msgstr "Taito"
 msgid "Skills"
 msgstr "Taidot"
 
-#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "Ohita"
@@ -13773,6 +13757,10 @@ msgstr "Tulevia haastatteluja"
 #. placeholder {0}: candidate.name
 #: src/features/career/knowledge/import-contacts.tsx
 msgid "Update {0}"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update existing contact"
 msgstr ""
 
 #. Primary action button to submit changed password

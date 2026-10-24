@@ -1892,10 +1892,6 @@ msgstr "Also download the {0} cover letter"
 msgid "Also email {0}"
 msgstr "Also email {0}"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Also import email addresses"
-msgstr "Also import email addresses"
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "Also shows the icons on skills, profiles and interests."
@@ -2976,6 +2972,10 @@ msgstr "Choose an application…"
 msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 msgstr "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing contact to update or create a separate person."
+msgstr "Choose an existing contact to update or create a separate person."
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Choose an offer"
@@ -3355,10 +3355,6 @@ msgstr "Contact details found"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact email"
 msgstr "Contact email"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Contact from file"
-msgstr "Contact from file"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
@@ -4140,10 +4136,6 @@ msgstr "Create and change your documents and job applications."
 #: src/features/documents/new-document-dialog.tsx
 msgid "Create and open"
 msgstr "Create and open"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Create contact"
-msgstr "Create contact"
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
@@ -5074,10 +5066,6 @@ msgstr "Email"
 msgid "Email (optional)"
 msgstr "Email (optional)"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email address"
-msgstr "Email address"
-
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -5094,10 +5082,6 @@ msgstr "Email address won't be recognised"
 #: src/features/directory/page.tsx
 msgid "Email addresses"
 msgstr "Email addresses"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email addresses stay in your browser unless you select this option."
-msgstr "Email addresses stay in your browser unless you select this option."
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5285,11 +5269,6 @@ msgstr "Evolved from Reactive Resume"
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
 msgstr "Existing fact text"
-
-#. placeholder {0}: match.contact.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Existing: {0}"
-msgstr "Existing: {0}"
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -6371,6 +6350,11 @@ msgstr "Images cover most of the page."
 msgid "Import"
 msgstr "Import"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import {0}"
+msgstr "Import {0}"
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume"
 msgstr "Import a resume"
@@ -6378,15 +6362,6 @@ msgstr "Import a resume"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Import a resume, copy one for a job, or start blank."
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action"
-msgstr "Import action"
-
-#. placeholder {0}: connection.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action for {0}"
-msgstr "Import action for {0}"
 
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -7720,6 +7695,11 @@ msgstr "Match “{0}”"
 msgid "Match against a job"
 msgstr "Match against a job"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Match for {0}"
+msgstr "Match for {0}"
+
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
 msgstr "Match system theme"
@@ -8126,6 +8106,10 @@ msgstr "New API key"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New Application"
 msgstr "New Application"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "New contact"
+msgstr "New contact"
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -9521,6 +9505,7 @@ msgid "Position"
 msgstr "Position"
 
 #: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 msgid "Possible duplicate"
 msgstr "Possible duplicate"
 
@@ -11837,7 +11822,6 @@ msgstr "Skill"
 msgid "Skills"
 msgstr "Skills"
 
-#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "Skip"
@@ -13774,6 +13758,10 @@ msgstr "Upcoming interviews"
 #: src/features/career/knowledge/import-contacts.tsx
 msgid "Update {0}"
 msgstr "Update {0}"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update existing contact"
+msgstr "Update existing contact"
 
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx

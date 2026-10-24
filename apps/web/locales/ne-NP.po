@@ -1892,10 +1892,6 @@ msgstr "{0} कभर लेटर पनि डाउनलोड गर्न�
 msgid "Also email {0}"
 msgstr "{0} मा पनि इमेल पठाउनुहोस्"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Also import email addresses"
-msgstr ""
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "साथै कौशल, प्रोफाइल र रुचि मा आइकनहरू देखाउँछ।"
@@ -2976,6 +2972,10 @@ msgstr "जागिरको आवेदन छान्नुहोस्..."
 msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 msgstr ""
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing contact to update or create a separate person."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "प्रस्ताव छान्नुहोस्"
@@ -3355,10 +3355,6 @@ msgstr "सम्पर्क विवरण फेला पर्यो"
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact email"
 msgstr "सम्पर्क इमेल"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Contact from file"
-msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
@@ -4140,10 +4136,6 @@ msgstr "तपाईंको कागजातहरू र जागिरक
 #: src/features/documents/new-document-dialog.tsx
 msgid "Create and open"
 msgstr "सिर्जना गर्नुहोस् र खोल्नुहोस्"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Create contact"
-msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
@@ -5074,10 +5066,6 @@ msgstr "इमेल"
 msgid "Email (optional)"
 msgstr "इमेल (ऐच्छिक)"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email address"
-msgstr ""
-
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -5093,10 +5081,6 @@ msgstr "इमेल ठेगाना पहिचान गरिने छ�
 
 #: src/features/directory/page.tsx
 msgid "Email addresses"
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email addresses stay in your browser unless you select this option."
 msgstr ""
 
 #: src/features/settings/account/profile.tsx
@@ -5284,11 +5268,6 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
-msgstr ""
-
-#. placeholder {0}: match.contact.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -6371,6 +6350,11 @@ msgstr "तस्बिरहरूले धेरैजसो पृष्ठ 
 msgid "Import"
 msgstr "आयात गर्नुहोस्"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume"
 msgstr "बायोडाटा आयात गर्नुहोस्"
@@ -6378,15 +6362,6 @@ msgstr "बायोडाटा आयात गर्नुहोस्"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "रिजुमे आयात गर्नुहोस्, एउटा कामको लागि प्रतिलिपि गर्नुहोस्, वा खाली सुरु गर्नुहोस्।"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action"
-msgstr ""
-
-#. placeholder {0}: connection.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action for {0}"
-msgstr ""
 
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -7720,6 +7695,11 @@ msgstr "\"{0}\" मिलाउनुहोस्"
 msgid "Match against a job"
 msgstr "काम विरुद्ध मिलान"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Match for {0}"
+msgstr ""
+
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
 msgstr "प्रणाली विषयवस्तु मिलाउनुहोस्"
@@ -8126,6 +8106,10 @@ msgstr "नयाँ API कुञ्जी"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New Application"
 msgstr "नयाँ आवेदन"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "New contact"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -9521,6 +9505,7 @@ msgid "Position"
 msgstr "पद"
 
 #: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 msgid "Possible duplicate"
 msgstr ""
 
@@ -11837,7 +11822,6 @@ msgstr "सीप"
 msgid "Skills"
 msgstr "सीपहरू"
 
-#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "छोड्नुहोस्"
@@ -13773,6 +13757,10 @@ msgstr "आगामी अन्तर्वार्ताहरू"
 #. placeholder {0}: candidate.name
 #: src/features/career/knowledge/import-contacts.tsx
 msgid "Update {0}"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update existing contact"
 msgstr ""
 
 #. Primary action button to submit changed password

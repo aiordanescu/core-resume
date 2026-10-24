@@ -1892,10 +1892,6 @@ msgstr "{0} కవర్ లెటర్‌ను కూడా డౌన్‌�
 msgid "Also email {0}"
 msgstr "{0}కి కూడా ఇమెయిల్ పంపు"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Also import email addresses"
-msgstr ""
-
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
 msgstr "నైపుణ్యాలు, ప్రొఫైల్‌లు మరియు ఆసక్తులపై చిహ్నాలను కూడా చూపుతుంది."
@@ -2976,6 +2972,10 @@ msgstr "ఉద్యోగ దరఖాస్తును ఎంచుకోం�
 msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
 msgstr ""
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing contact to update or create a separate person."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "ఒక ఆఫర్‌ను ఎంచుకో"
@@ -3355,10 +3355,6 @@ msgstr "సంప్రదింపు వివరాలు కనుగొన�
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact email"
 msgstr "సంప్రదింపు ఇమెయిల్"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Contact from file"
-msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
@@ -4140,10 +4136,6 @@ msgstr "మీ పత్రాలు మరియు ఉద్యోగ దర�
 #: src/features/documents/new-document-dialog.tsx
 msgid "Create and open"
 msgstr "సృష్టించండి మరియు తెరవండి"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Create contact"
-msgstr ""
 
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
@@ -5074,10 +5066,6 @@ msgstr "ఇమెయిల్"
 msgid "Email (optional)"
 msgstr "ఇమెయిల్ (ఐచ్ఛికం)"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email address"
-msgstr ""
-
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -5093,10 +5081,6 @@ msgstr "ఇమెయిల్ చిరునామా గుర్తించ�
 
 #: src/features/directory/page.tsx
 msgid "Email addresses"
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Email addresses stay in your browser unless you select this option."
 msgstr ""
 
 #: src/features/settings/account/profile.tsx
@@ -5284,11 +5268,6 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
-msgstr ""
-
-#. placeholder {0}: match.contact.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -6371,6 +6350,11 @@ msgstr "చిత్రాలు పేజీలో ఎక్కువ భాగ
 msgid "Import"
 msgstr "ఇంపోర్ట్"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import {0}"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume"
 msgstr "రెజ్యూమెను దిగుమతి చేయండి"
@@ -6378,15 +6362,6 @@ msgstr "రెజ్యూమెను దిగుమతి చేయండి"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "రెజ్యూమ్‌ని దిగుమతి చేయండి, ఉద్యోగం కోసం ఒకదాన్ని కాపీ చేయండి లేదా ఖాళీగా ప్రారంభించండి."
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action"
-msgstr ""
-
-#. placeholder {0}: connection.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Import action for {0}"
-msgstr ""
 
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -7720,6 +7695,11 @@ msgstr "“{0}”ని సరిపోల్చండి"
 msgid "Match against a job"
 msgstr "ఉద్యోగంతో మ్యాచ్"
 
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Match for {0}"
+msgstr ""
+
 #: src/features/command-palette/pages/preferences/theme.tsx
 msgid "Match system theme"
 msgstr "సిస్టమ్ థీమ్‌ను సరిపోల్చండి"
@@ -8126,6 +8106,10 @@ msgstr "కొత్త API కీ"
 #: src/features/command-palette/pages/resumes.tsx
 msgid "New Application"
 msgstr "కొత్త దరఖాస్తు"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "New contact"
+msgstr ""
 
 #: src/features/assistant/assistant-panel.tsx
 #: src/features/career/coach-thread.tsx
@@ -9521,6 +9505,7 @@ msgid "Position"
 msgstr "పాజిషన్"
 
 #: src/features/career/knowledge/import-comparison.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 msgid "Possible duplicate"
 msgstr ""
 
@@ -11837,7 +11822,6 @@ msgstr "స్కిల్"
 msgid "Skills"
 msgstr "స్కిల్స్"
 
-#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "దాటవేయి"
@@ -13773,6 +13757,10 @@ msgstr "రాబోయే ఇంటర్వ్యూలు"
 #. placeholder {0}: candidate.name
 #: src/features/career/knowledge/import-contacts.tsx
 msgid "Update {0}"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update existing contact"
 msgstr ""
 
 #. Primary action button to submit changed password
