@@ -104,9 +104,15 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 	await page
 		.getByLabel("Choose a file to import")
 		.setInputFiles({ name: "LinkedIn.zip", mimeType: "application/zip", buffer: archive("Engineer") });
-	const include = page.getByRole("checkbox", { name: "Import contacts from this export", exact: true });
+	const options = page.getByRole("dialog", { name: "LinkedIn export detected" });
+	await expect(options.getByRole("checkbox", { name: "Import facts", exact: true })).toBeChecked();
+	const include = options.getByRole("checkbox", { name: "Import contacts", exact: true });
 	await expect(include).not.toBeChecked();
+	await expect(page.getByRole("checkbox", { name: "Import Casey Nguyen", exact: true })).toHaveCount(0);
+	if (process.env.UPDATE_GUIDE_SCREENSHOTS === "true")
+		await page.screenshot({ path: "docs/images/guides/directory/linkedin-options.png", animations: "disabled" });
 	await include.check();
+	await options.getByRole("button", { name: "Continue", exact: true }).click();
 	await expect(page.getByText("1 contact selected", { exact: true })).toBeVisible();
 	await expect(page.getByRole("checkbox", { name: "Import Sam Patel", exact: true })).not.toBeChecked();
 	await page.getByRole("checkbox", { name: "Import Sam Patel", exact: true }).check();
@@ -155,7 +161,14 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 	await page
 		.getByLabel("Choose a file to import")
 		.setInputFiles({ name: "LinkedIn.zip", mimeType: "application/zip", buffer: archive("Staff Engineer") });
-	await page.getByRole("checkbox", { name: "Import contacts from this export", exact: true }).check();
+	await page
+		.getByRole("dialog", { name: "LinkedIn export detected" })
+		.getByRole("checkbox", { name: "Import contacts", exact: true })
+		.check();
+	await page
+		.getByRole("dialog", { name: "LinkedIn export detected" })
+		.getByRole("button", { name: "Continue", exact: true })
+		.click();
 	await expect(page.getByRole("checkbox", { name: "Import Casey Nguyen", exact: true })).toBeChecked();
 	await expect(page.getByLabel("Company for Lumen Inc.")).toHaveValue("Lumen");
 	await page.getByRole("button", { name: "Import selected facts and contacts", exact: true }).click();
@@ -167,4 +180,41 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 		emails: ["casey@example.test"],
 	});
 	expect(errors).toEqual([]);
+});
+
+test("chooses contacts before reading profile data and groups the review alphabetically", async ({
+	authPage: page,
+}) => {
+	const { zipSync, strToU8 } = await import("fflate");
+	const bytes = Buffer.from(
+		zipSync({
+			"Profile.csv": new Uint8Array([255]),
+			"Connections.csv": strToU8(
+				"First Name,Last Name,URL,Email Address,Company,Position,Connected On\nZoe,Example,https://linkedin.com/in/zoe-example,zoe@example.test,Zebra,Lead,\nZed,Example,https://linkedin.com/in/zed-example,,Acme,Engineer,\nAmy,Example,https://linkedin.com/in/amy-example,amy@example.test,Acme,Lead,",
+			),
+		}),
+	);
+	await page.goto("/dashboard/career/knowledge/import");
+	await page
+		.getByLabel("Choose a file to import")
+		.setInputFiles({ name: "LinkedIn.zip", mimeType: "application/zip", buffer: bytes });
+	const options = page.getByRole("dialog", { name: "LinkedIn export detected" });
+	await options.getByRole("checkbox", { name: "Import facts", exact: true }).uncheck();
+	await expect(options.getByRole("button", { name: "Continue" })).toBeDisabled();
+	await options.getByRole("checkbox", { name: "Import contacts", exact: true }).check();
+	await options.getByRole("button", { name: "Continue" }).click();
+	await expect(page.getByText("3 contacts selected", { exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: /New facts/ })).toHaveCount(0);
+	const contacts = page.getByRole("region", { name: "LinkedIn contacts", exact: true });
+	await expect(contacts.getByRole("heading", { level: 3 })).toHaveText(["Acme", "Zebra"]);
+	expect(
+		await contacts
+			.getByRole("checkbox")
+			.evaluateAll((elements) => elements.map((element) => element.getAttribute("aria-label"))),
+	).toEqual(["Import Amy Example", "Import Zed Example", "Import Zoe Example"]);
+	await page.getByRole("button", { name: "Import selected contacts", exact: true }).click();
+	await expect(page.getByText("Knowledge import complete", { exact: true })).toBeVisible();
+	const people = await (await page.request.get("/api/openapi/directory/contacts")).json();
+	expect(people).toHaveLength(3);
+	expect(people.find((person: { name: string }) => person.name === "Amy Example").emails).toEqual(["amy@example.test"]);
 });

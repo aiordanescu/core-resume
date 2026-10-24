@@ -3396,6 +3396,7 @@ msgstr "Context window of {model}"
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Continue"
 msgstr "Continue"
 
@@ -3587,8 +3588,8 @@ msgid "Could not load contacts."
 msgstr "Could not load contacts."
 
 #: src/features/career/knowledge/import-contacts.tsx
-msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
-msgstr "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgid "Could not load Directory. Retry to review contacts, or choose another file."
+msgstr "Could not load Directory. Retry to review contacts, or choose another file."
 
 #: src/features/directory/page.tsx
 msgid "Could not load the directory."
@@ -6368,8 +6369,12 @@ msgid "Import another file"
 msgstr "Import another file"
 
 #: src/features/career/knowledge/import.tsx
-msgid "Import contacts from this export"
-msgstr "Import contacts from this export"
+msgid "Import contacts"
+msgstr "Import contacts"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import facts"
+msgstr "Import facts"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
@@ -6403,6 +6408,10 @@ msgstr "Import or export CSV"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import progress"
 msgstr "Import progress"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected contacts"
+msgstr "Import selected contacts"
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import selected facts and contacts"
@@ -7360,6 +7369,10 @@ msgid "LinkedIn contacts"
 msgstr "LinkedIn contacts"
 
 #: src/features/career/knowledge/import.tsx
+msgid "LinkedIn export detected"
+msgstr "LinkedIn export detected"
+
+#: src/features/career/knowledge/import.tsx
 msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 
@@ -8279,6 +8292,7 @@ msgstr "No commands match that search."
 msgid "No companies found. Add a company or track an application to get started."
 msgstr "No companies found. Add a company or track an application to get started."
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/directory/page.tsx
 msgid "No company"
 msgstr "No company"
@@ -8365,6 +8379,10 @@ msgstr "No group"
 #: src/features/career/knowledge/groups.tsx
 msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
 msgstr "No groups yet. Give a fact a group in Facts, or set one through the API."
+
+#: src/features/career/knowledge/import.tsx
+msgid "No importable contacts were found in this export."
+msgstr "No importable contacts were found in this export."
 
 #: src/features/applications/components/calendar-view.tsx
 msgid "No interviews"
@@ -14377,6 +14395,10 @@ msgstr "What works"
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "What would you do differently?"
+
+#: src/features/career/knowledge/import.tsx
+msgid "What would you like to import?"
+msgstr "What would you like to import?"
 
 #. placeholder {0}: requirement.text
 #: src/features/career/workspace/fit.tsx

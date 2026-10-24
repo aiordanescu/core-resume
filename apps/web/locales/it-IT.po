@@ -3401,6 +3401,7 @@ msgstr ""
 #: src/dialogs/auth/enable-two-factor.tsx
 #: src/features/assistant/conversation.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/career/knowledge/import.tsx
 msgid "Continue"
 msgstr "Continua"
 
@@ -3592,7 +3593,7 @@ msgid "Could not load contacts."
 msgstr ""
 
 #: src/features/career/knowledge/import-contacts.tsx
-msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgid "Could not load Directory. Retry to review contacts, or choose another file."
 msgstr ""
 
 #: src/features/directory/page.tsx
@@ -6373,7 +6374,11 @@ msgid "Import another file"
 msgstr ""
 
 #: src/features/career/knowledge/import.tsx
-msgid "Import contacts from this export"
+msgid "Import contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import facts"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6408,6 +6413,10 @@ msgstr "Importa o esporta CSV"
 #: src/features/documents/new-document-dialog.tsx
 msgid "Import progress"
 msgstr "Importa i progressi"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected contacts"
+msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import selected facts and contacts"
@@ -7365,6 +7374,10 @@ msgid "LinkedIn contacts"
 msgstr ""
 
 #: src/features/career/knowledge/import.tsx
+msgid "LinkedIn export detected"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr ""
 
@@ -8284,6 +8297,7 @@ msgstr "Nessun comando corrisponde a questa ricerca."
 msgid "No companies found. Add a company or track an application to get started."
 msgstr ""
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/directory/page.tsx
 msgid "No company"
 msgstr ""
@@ -8369,6 +8383,10 @@ msgstr ""
 
 #: src/features/career/knowledge/groups.tsx
 msgid "No groups yet. Give a fact a group in Facts, or set one through the API."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "No importable contacts were found in this export."
 msgstr ""
 
 #: src/features/applications/components/calendar-view.tsx
@@ -14382,6 +14400,10 @@ msgstr "Cosa funziona"
 #: src/features/career/knowledge/stories.tsx
 msgid "What would you do differently?"
 msgstr "Cosa faresti diversamente?"
+
+#: src/features/career/knowledge/import.tsx
+msgid "What would you like to import?"
+msgstr ""
 
 #. placeholder {0}: requirement.text
 #: src/features/career/workspace/fit.tsx

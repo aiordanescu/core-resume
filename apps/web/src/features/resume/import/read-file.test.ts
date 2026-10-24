@@ -1,5 +1,6 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { i18n } from "@lingui/core";
+import { strToU8, zipSync } from "fflate";
 import { sampleResumeData } from "@reactive-resume/schema/resume/sample";
 import { detectImportKind, detectJsonImportKind, parseResumeJson } from "./read-file";
 
@@ -37,6 +38,10 @@ describe("detectImportKind", () => {
 		const zip = new Uint8Array([0x50, 0x4b, 0x03, 0x04]);
 		expect(await detectImportKind(file(zip, "Basic_LinkedInDataExport.zip"))).toBe("linkedin");
 		expect(await detectImportKind(file(zip, "resume.docx"))).toBe("docx");
+	});
+	it("recognizes an account archive from its filenames without parsing its contents", async () => {
+		const bytes = zipSync({ "account.json": new Uint8Array([255]), "Profile.csv": strToU8("invalid profile") });
+		await expect(detectImportKind(file(bytes, "account.zip"))).rejects.toThrow(/This is an account export/);
 	});
 });
 

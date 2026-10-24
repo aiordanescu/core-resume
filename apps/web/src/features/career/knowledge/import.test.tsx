@@ -9,6 +9,7 @@ import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { strToU8, zipSync } from "fflate";
 import { resumeToFactCandidates } from "@reactive-resume/import/facts";
+import { readLinkedInConnections } from "@reactive-resume/import/linkedin-connections";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 
 const api = vi.hoisted(() => ({
@@ -54,6 +55,10 @@ vi.mock("@/libs/orpc/client", () => {
 		},
 	};
 });
+vi.mock("@reactive-resume/import/linkedin-connections", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("@reactive-resume/import/linkedin-connections")>();
+	return { ...actual, readLinkedInConnections: vi.fn(actual.readLinkedInConnections) };
+});
 vi.mock("@/features/resume/import/read-file", () => ({
 	detectImportKind: api.detect,
 	readResumeFile: api.read,
@@ -86,10 +91,22 @@ const mount = () =>
 			</I18nProvider>
 		</QueryClientProvider>,
 	);
-const upload = () =>
+const chooseImport = async ({ facts = true, contacts = true } = {}) => {
+	const dialog = await screen.findByRole("dialog", { name: "LinkedIn export detected" });
+	const factOption = within(dialog).getByRole("checkbox", { name: "Import facts" }) as HTMLInputElement;
+	const contactOption = within(dialog).getByRole("checkbox", {
+		name: "Import contacts",
+	}) as HTMLInputElement;
+	if (factOption.checked !== facts) fireEvent.click(factOption);
+	if (contactOption.checked !== contacts) fireEvent.click(contactOption);
+	fireEvent.click(within(dialog).getByRole("button", { name: "Continue" }));
+};
+const upload = async () => {
 	fireEvent.change(screen.getByLabelText("Choose a file to import"), {
 		target: { files: [new NodeFile(["synthetic file"], "LinkedIn.zip", { type: "application/zip" })] },
 	});
+	await chooseImport({ contacts: false });
+};
 
 beforeEach(() => {
 	vi.clearAllMocks();
@@ -139,7 +156,7 @@ afterEach(() => {
 
 it("reviews before saving, keeps hidden entries unchecked and saves only selected edited text with original evidence", async () => {
 	mount();
-	upload();
+	await upload();
 	const texts = await screen.findAllByRole("textbox", { name: "Fact text" });
 	expect(api.save).not.toHaveBeenCalled();
 	const checkboxes = screen.getAllByRole("checkbox") as HTMLInputElement[];
@@ -164,7 +181,7 @@ it("marks normalized duplicates and displays private/excluded group settings", a
 	api.facts = [known("PLATFORM ENGINEER!")];
 	api.groups = [{ group: "experience", status: "excluded", private: true }];
 	mount();
-	upload();
+	await upload();
 	await screen.findAllByRole("textbox", { name: "Fact text" });
 	expect(screen.getByRole("region", { name: /Duplicates/ })).toBeInTheDocument();
 	expect(screen.getByText("Same text")).toBeInTheDocument();
@@ -176,7 +193,7 @@ it("marks normalized duplicates and displays private/excluded group settings", a
 it("keeps the review and edits after a failed save, then retries with the same source identity", async () => {
 	api.save.mockRejectedValueOnce(new Error("Offline"));
 	mount();
-	upload();
+	await upload();
 	const texts = await screen.findAllByRole("textbox", { name: "Fact text" });
 	fireEvent.change(texts[0] as HTMLElement, { target: { value: "Senior platform engineer" } });
 	fireEvent.click(screen.getByRole("button", { name: "Save 4 facts" }));
@@ -195,7 +212,7 @@ it("reopens an already imported file for comparison and can finish without savin
 		source: fact.source,
 	}));
 	mount();
-	upload();
+	await upload();
 	await screen.findAllByText("Imported before");
 	expect(api.read).toHaveBeenCalledOnce();
 	expect(screen.getByRole("region", { name: /New facts/ })).toHaveTextContent("All proposed facts have matches");
@@ -207,7 +224,7 @@ it("reopens an already imported file for comparison and can finish without savin
 it("leaves near duplicates out until Keep both is chosen, keeping comparisons in place during edits", async () => {
 	api.facts = [known("Engineer at Example, 2020 - 2024, Remote, Platform team")];
 	mount();
-	upload();
+	await upload();
 	const importedText = await screen.findByRole("textbox", { name: "Imported fact text" });
 	expect(screen.getByText("Possible duplicate")).toBeInTheDocument();
 	expect(screen.getByRole("button", { name: "Save 3 facts" })).toBeEnabled();
@@ -227,7 +244,7 @@ it("leaves near duplicates out until Keep both is chosen, keeping comparisons in
 it("only corrects existing Knowledge on explicit Save correction and keeps import evidence separate", async () => {
 	api.facts = [known("PLATFORM ENGINEER!")];
 	mount();
-	upload();
+	await upload();
 	fireEvent.click(await screen.findByRole("button", { name: "Edit existing fact" }));
 	fireEvent.change(screen.getByRole("textbox", { name: "Existing fact text" }), {
 		target: { value: "Senior platform engineer" },
@@ -251,7 +268,7 @@ it("retains a failed correction for retry and stops when the existing fact chang
 	api.facts = [known("PLATFORM ENGINEER!")];
 	api.update.mockRejectedValueOnce(new Error("Offline"));
 	mount();
-	upload();
+	await upload();
 	fireEvent.click(await screen.findByRole("button", { name: "Edit existing fact" }));
 	fireEvent.change(screen.getByRole("textbox", { name: "Existing fact text" }), {
 		target: { value: "Senior platform engineer" },
@@ -274,7 +291,7 @@ it("copies only the named imported fact into a correction when the comparison co
 	first.description = "";
 	resumeData.sections.experience.items.push({ ...first, id: "second-role", company: "Second Example" });
 	mount();
-	upload();
+	await upload();
 	const heading = await screen.findByRole("heading", { name: "Second Example" });
 	const comparison = within(heading.closest("article") as HTMLElement);
 	const fileFacts = comparison.getByRole("region", { name: "From this file" });
@@ -305,7 +322,7 @@ it("copies only the named imported fact into a correction when the comparison co
 
 it("rechecks current Knowledge without losing edits or silently selecting new matches", async () => {
 	mount();
-	upload();
+	await upload();
 	const texts = await screen.findAllByRole("textbox", { name: "Fact text" });
 	fireEvent.change(texts[3] as HTMLElement, { target: { value: "Engineer at Example: Maintained a toolkit." } });
 	api.facts = [known("Platform engineer")];
@@ -325,7 +342,7 @@ it("cancels an in-flight read without showing its late result", async () => {
 			}),
 	);
 	mount();
-	upload();
+	await upload();
 	await waitFor(() => expect(api.read).toHaveBeenCalled());
 	fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
 	resolveRead?.(structuredClone(defaultResumeData));
@@ -333,7 +350,9 @@ it("cancels an in-flight read without showing its late result", async () => {
 	expect(screen.queryByRole("textbox", { name: "Fact text" })).toBeNull();
 });
 
-const uploadArchive = () =>
+const uploadArchive = (
+	connectionsCsv = "First Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey,casey@example.test,Lumen,Engineer,13 Aug 2026",
+) =>
 	fireEvent.change(screen.getByLabelText("Choose a file to import"), {
 		target: {
 			files: [
@@ -341,9 +360,7 @@ const uploadArchive = () =>
 					[
 						zipSync({
 							"Profile.csv": strToU8("profile"),
-							"Connections.csv": strToU8(
-								"First Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey,casey@example.test,Lumen,Engineer,13 Aug 2026",
-							),
+							"Connections.csv": strToU8(connectionsCsv),
 						}),
 					],
 					"LinkedIn.zip",
@@ -356,19 +373,24 @@ const uploadArchive = () =>
 it("uses one archive for facts and optional contacts, leaving contact import off by default", async () => {
 	mount();
 	uploadArchive();
-	const contacts = await screen.findByRole("checkbox", { name: "Import contacts from this export" });
-	expect(contacts).not.toBeChecked();
+	const dialog = await screen.findByRole("dialog", { name: "LinkedIn export detected" });
+	expect(within(dialog).getByRole("checkbox", { name: "Import contacts" })).not.toBeChecked();
+	expect(api.read).not.toHaveBeenCalled();
+	expect(readLinkedInConnections).not.toHaveBeenCalled();
+	await chooseImport({ contacts: false });
+	await screen.findAllByRole("textbox", { name: "Fact text" });
 	expect(screen.queryByRole("checkbox", { name: "Also import email addresses" })).not.toBeInTheDocument();
 	fireEvent.click(screen.getByRole("button", { name: "Save 4 facts" }));
 	await screen.findByText("Knowledge import complete");
 	expect(api.save).toHaveBeenCalledOnce();
 	expect(api.importContacts).not.toHaveBeenCalled();
+	expect(readLinkedInConnections).not.toHaveBeenCalled();
 	expect(api.read.mock.calls[0]?.[2].bytes).toBeInstanceOf(Uint8Array);
 });
 it("reviews contacts from the same file and includes available emails with selected contacts", async () => {
 	mount();
 	uploadArchive();
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await chooseImport();
 	await screen.findByText("1 contact selected");
 	expect(screen.queryByRole("checkbox", { name: "Also import email addresses" })).not.toBeInTheDocument();
 	expect(screen.getByRole("checkbox", { name: "Import Casey Nguyen" })).toBeChecked();
@@ -394,18 +416,20 @@ it("supports a connections-only archive and includes available email", async () 
 	api.read.mockRejectedValue(new Error("No profile"));
 	mount();
 	uploadArchive();
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await chooseImport({ facts: false });
 	await screen.findByText("1 contact selected");
-	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	fireEvent.click(screen.getByRole("button", { name: "Import selected contacts" }));
 	await screen.findByText("Knowledge import complete");
 	expect(api.save).not.toHaveBeenCalled();
+	expect(api.read).not.toHaveBeenCalled();
+	expect(readLinkedInConnections).toHaveBeenCalledOnce();
 	expect(api.importContacts.mock.calls[0]?.[0].rows[0].connection.email).toBe("casey@example.test");
 });
 it("keeps saved facts after a contact failure and allows retry without resubmitting facts", async () => {
 	api.importContacts.mockRejectedValueOnce(new Error("Network interrupted"));
 	mount();
 	uploadArchive();
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await chooseImport();
 	await screen.findByText("1 contact selected");
 	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
 	await waitFor(() => expect(screen.getByRole("button", { name: "Import selected facts and contacts" })).toBeEnabled());
@@ -419,7 +443,7 @@ it("keeps saved facts after a contact failure and allows retry without resubmitt
 it("uses checkboxes to exclude and restore a contact while retaining its email", async () => {
 	mount();
 	uploadArchive();
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await chooseImport();
 	const checkbox = await screen.findByRole("checkbox", { name: "Import Casey Nguyen" });
 	fireEvent.click(checkbox);
 	await screen.findByText("0 contacts selected");
@@ -442,7 +466,7 @@ it("requires a deliberate match for possible duplicates and remembers it across 
 	];
 	mount();
 	uploadArchive();
-	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await chooseImport();
 	const checkbox = await screen.findByRole("checkbox", { name: "Import Casey Nguyen" });
 	expect(checkbox).not.toBeChecked();
 	fireEvent.click(checkbox);
@@ -461,4 +485,57 @@ it("requires a deliberate match for possible duplicates and remembers it across 
 		contactId: "existing-casey",
 		duplicateDecision: "merge",
 	});
+});
+
+it("opens the chooser without parsing data, prevents an empty choice, and cancels without importing", async () => {
+	mount();
+	uploadArchive();
+	const dialog = await screen.findByRole("dialog", { name: "LinkedIn export detected" });
+	expect(api.read).not.toHaveBeenCalled();
+	expect(readLinkedInConnections).not.toHaveBeenCalled();
+	fireEvent.click(within(dialog).getByRole("checkbox", { name: "Import facts" }));
+	expect(within(dialog).getByRole("button", { name: "Continue" })).toBeDisabled();
+	fireEvent.click(within(dialog).getByRole("button", { name: "Cancel" }));
+	await screen.findByRole("button", { name: "Choose a file" });
+	expect(api.read).not.toHaveBeenCalled();
+	expect(readLinkedInConnections).not.toHaveBeenCalled();
+	expect(api.save).not.toHaveBeenCalled();
+	expect(api.importContacts).not.toHaveBeenCalled();
+});
+it("groups companies and contacts alphabetically", async () => {
+	mount();
+	uploadArchive(
+		"First Name,Last Name,URL,Email Address,Company,Position,Connected On\nZoe,Example,https://linkedin.com/in/zoe,,Zebra,Lead,\nZed,Example,https://linkedin.com/in/zed,,Acme,Engineer,\nAmy,Example,https://linkedin.com/in/amy,,Acme,Lead,",
+	);
+	await chooseImport({ facts: false });
+	await screen.findByText("3 contacts selected");
+	const contacts = screen.getByRole("region", { name: "LinkedIn contacts" });
+	expect(
+		within(contacts)
+			.getAllByRole("heading", { level: 3 })
+			.map((heading) => heading.textContent),
+	).toEqual(["Acme", "Zebra"]);
+	expect(
+		within(contacts)
+			.getAllByRole("checkbox")
+			.map((input) => input.getAttribute("aria-label")),
+	).toEqual(["Import Amy Example", "Import Zed Example", "Import Zoe Example"]);
+	expect(screen.queryByRole("heading", { name: /New facts/ })).not.toBeInTheDocument();
+	expect(api.read).not.toHaveBeenCalled();
+});
+
+it("can still save facts when both were selected but Connections.csv cannot be read", async () => {
+	vi.mocked(readLinkedInConnections).mockImplementationOnce(() => {
+		throw new Error("Connections.csv is unavailable");
+	});
+	mount();
+	uploadArchive();
+	await chooseImport();
+	await screen.findByText("Connections.csv is unavailable");
+	const save = screen.getByRole("button", { name: "Import selected facts and contacts" });
+	expect(save).toBeEnabled();
+	fireEvent.click(save);
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).toHaveBeenCalledOnce();
+	expect(api.importContacts).not.toHaveBeenCalled();
 });

@@ -15,6 +15,8 @@ import { Input } from "@reactive-resume/ui/components/input";
 import { cn } from "@reactive-resume/utils/style";
 import { client, orpc } from "@/libs/orpc/client";
 
+const alphabetical = new Intl.Collator(undefined, { sensitivity: "base", numeric: true }).compare;
+
 export type ContactsImportSelection = LinkedInImport;
 export type ContactsImportResult = Awaited<ReturnType<typeof client.directory.importLinkedIn>>;
 export const emptyContactsResult = (): ContactsImportResult => ({
@@ -67,11 +69,12 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	const listId = useId();
 	const contactIndex = useMemo(() => indexLinkedInContacts(contacts.data ?? []), [contacts.data]);
 	const companyNames = useMemo(
-		() => [
-			...new Map(
-				file.connections.filter((row) => row.company).map((row) => [directoryKey(row.company), row.company]),
-			).values(),
-		],
+		() =>
+			[
+				...new Map(
+					file.connections.filter((row) => row.company).map((row) => [directoryKey(row.company), row.company]),
+				).values(),
+			].sort(alphabetical),
 		[file],
 	);
 	const mappings = useMemo(
@@ -141,7 +144,25 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	}, [selection, onChange]);
 	useEffect(() => () => onChange(null), [onChange]);
 	const names = new Map(companies.data?.map((company) => [company.id, company.name]));
-	const visible = rows.filter((row) => filter === "all" || row.match.kind === filter);
+	const companyLabels = new Map(
+		mappings.map((mapping) => [directoryKey(mapping.choice.sourceName), mapping.choice.name]),
+	);
+	const groupName = (company: string) => companyLabels.get(directoryKey(company)) || company || t`No company`;
+	const visible = rows
+		.filter((row) => filter === "all" || row.match.kind === filter)
+		.sort(
+			(a, b) =>
+				alphabetical(groupName(a.connection.company), groupName(b.connection.company)) ||
+				alphabetical(a.connection.name, b.connection.name),
+		);
+	const grouped = new Map<string, { name: string; rows: typeof rows }>();
+	for (const row of visible.slice(page * 50, (page + 1) * 50)) {
+		const name = groupName(row.connection.company);
+		const key = directoryKey(name);
+		const group = grouped.get(key);
+		if (group) group.rows.push(row);
+		else grouped.set(key, { name, rows: [row] });
+	}
 	const editCompany = (sourceName: string, name: string) => {
 		const existing = companies.data?.find((company) => directoryKey(company.name) === directoryKey(name));
 		setCompanyEdits((previous) => ({
@@ -153,7 +174,7 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 		return (
 			<div role="alert" className="grid justify-items-start gap-2">
 				<p>
-					<Trans>Could not load Directory. Retry to review contacts, or leave contact import unchecked.</Trans>
+					<Trans>Could not load Directory. Retry to review contacts, or choose another file.</Trans>
 				</p>
 				<Button
 					variant="secondary"
@@ -303,112 +324,126 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 					<Trans>Skip all contacts</Trans>
 				</Button>
 			</div>
-			<div className="grid gap-3 md:grid-cols-2">
-				{visible.slice(page * 50, (page + 1) * 50).map(({ connection, match, target, checked }) => (
-					<article
-						key={connection.profileUrl}
-						className={cn(
-							"grid content-start gap-3 rounded-lg border p-4",
-							checked ? "border-accent/30 bg-raised" : "border-line",
-						)}
-					>
-						<label htmlFor={`${listId}-${connection.profileUrl}`} className="flex cursor-pointer items-start gap-3">
-							<input
-								type="checkbox"
-								id={`${listId}-${connection.profileUrl}`}
-								aria-label={t`Import ${connection.name}`}
-								checked={checked}
-								disabled={disabled}
-								className="mt-0.5 size-4 shrink-0 accent-accent"
-								onChange={(event) =>
-									setIncluded((previous) => ({ ...previous, [connection.profileUrl]: event.target.checked }))
-								}
-							/>
-							<span className="grid min-w-0 gap-1">
-								<span className="font-medium">{connection.name}</span>
-								<span className="text-xs text-ink-3">
-									{match.kind === "new"
-										? t`New contact`
-										: match.kind === "update"
-											? t`Update existing contact`
-											: t`Possible duplicate`}
-								</span>
-							</span>
-						</label>
-						<div className="grid min-w-0 gap-1 ps-7.5 text-sm">
-							{(connection.position || connection.company) && (
-								<p className="text-ink-2">{[connection.position, connection.company].filter(Boolean).join(" · ")}</p>
-							)}
-							{connection.email && <p className="break-all text-ink-2">{connection.email}</p>}
-							<div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
-								<a
-									href={connection.profileUrl}
-									target="_blank"
-									rel="noreferrer"
-									className="text-accent-text hover:underline"
-								>
-									<Trans>Open LinkedIn profile</Trans>
-								</a>
-								{connection.connectedOn && (
-									<span className="text-ink-3">{t`Connected: ${connection.connectedOn}`}</span>
-								)}
-							</div>
-						</div>
-						{match.kind === "duplicate" && checked && (
-							<div className="grid gap-2 border-t border-line pt-3 text-sm">
-								<p className="text-xs text-ink-2">
-									<Trans>Choose an existing contact to update or create a separate person.</Trans>
-								</p>
-								<fieldset disabled={disabled} className="grid gap-2">
-									<legend className="sr-only">{t`Match for ${connection.name}`}</legend>
-									{match.candidates.map((candidate) => (
-										<label
-											key={candidate.id}
-											htmlFor={`${listId}-${connection.profileUrl}-${candidate.id}`}
-											className="flex cursor-pointer items-start gap-2"
-										>
-											<input
-												type="radio"
-												id={`${listId}-${connection.profileUrl}-${candidate.id}`}
-												name={`${listId}-${connection.profileUrl}-match`}
-												value={candidate.id}
-												checked={target === candidate.id}
-												className="mt-0.5 size-4 shrink-0 accent-accent"
-												onChange={() =>
-													setChoices((previous) => ({ ...previous, [connection.profileUrl]: candidate.id }))
-												}
-											/>
-											<span>
-												{t`Update ${candidate.name}`}
-												{"companyId" in candidate &&
-												typeof candidate.companyId === "string" &&
-												names.get(candidate.companyId)
-													? ` · ${names.get(candidate.companyId)}`
-													: ""}
-											</span>
-										</label>
-									))}
-									{match.identities.length === 0 && (
-										<label
-											htmlFor={`${listId}-${connection.profileUrl}-create`}
-											className="flex cursor-pointer items-center gap-2"
-										>
-											<input
-												type="radio"
-												id={`${listId}-${connection.profileUrl}-create`}
-												name={`${listId}-${connection.profileUrl}-match`}
-												value="create"
-												checked={target === "create"}
-												className="size-4 shrink-0 accent-accent"
-												onChange={() => setChoices((previous) => ({ ...previous, [connection.profileUrl]: "create" }))}
-											/>
-											<span>{t`Create separate contact`}</span>
-										</label>
+			<div className="grid gap-5">
+				{Array.from(grouped, ([key, group]) => (
+					<section key={key} aria-label={group.name} className="grid gap-2">
+						<h3 className="text-sm font-semibold">{group.name}</h3>
+						<div className="grid gap-3 md:grid-cols-2">
+							{group.rows.map(({ connection, match, target, checked }) => (
+								<article
+									key={connection.profileUrl}
+									className={cn(
+										"grid content-start gap-3 rounded-lg border p-4",
+										checked ? "border-accent/30 bg-raised" : "border-line",
 									)}
-								</fieldset>
-							</div>
-						)}
-					</article>
+								>
+									<label
+										htmlFor={`${listId}-${connection.profileUrl}`}
+										className="flex cursor-pointer items-start gap-3"
+									>
+										<input
+											type="checkbox"
+											id={`${listId}-${connection.profileUrl}`}
+											aria-label={t`Import ${connection.name}`}
+											checked={checked}
+											disabled={disabled}
+											className="mt-0.5 size-4 shrink-0 accent-accent"
+											onChange={(event) =>
+												setIncluded((previous) => ({ ...previous, [connection.profileUrl]: event.target.checked }))
+											}
+										/>
+										<span className="grid min-w-0 gap-1">
+											<span className="font-medium">{connection.name}</span>
+											<span className="text-xs text-ink-3">
+												{match.kind === "new"
+													? t`New contact`
+													: match.kind === "update"
+														? t`Update existing contact`
+														: t`Possible duplicate`}
+											</span>
+										</span>
+									</label>
+									<div className="grid min-w-0 gap-1 ps-7.5 text-sm">
+										{(connection.position || connection.company) && (
+											<p className="text-ink-2">
+												{[connection.position, connection.company].filter(Boolean).join(" · ")}
+											</p>
+										)}
+										{connection.email && <p className="break-all text-ink-2">{connection.email}</p>}
+										<div className="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs">
+											<a
+												href={connection.profileUrl}
+												target="_blank"
+												rel="noreferrer"
+												className="text-accent-text hover:underline"
+											>
+												<Trans>Open LinkedIn profile</Trans>
+											</a>
+											{connection.connectedOn && (
+												<span className="text-ink-3">{t`Connected: ${connection.connectedOn}`}</span>
+											)}
+										</div>
+									</div>
+									{match.kind === "duplicate" && checked && (
+										<div className="grid gap-2 border-t border-line pt-3 text-sm">
+											<p className="text-xs text-ink-2">
+												<Trans>Choose an existing contact to update or create a separate person.</Trans>
+											</p>
+											<fieldset disabled={disabled} className="grid gap-2">
+												<legend className="sr-only">{t`Match for ${connection.name}`}</legend>
+												{match.candidates.map((candidate) => (
+													<label
+														key={candidate.id}
+														htmlFor={`${listId}-${connection.profileUrl}-${candidate.id}`}
+														className="flex cursor-pointer items-start gap-2"
+													>
+														<input
+															type="radio"
+															id={`${listId}-${connection.profileUrl}-${candidate.id}`}
+															name={`${listId}-${connection.profileUrl}-match`}
+															value={candidate.id}
+															checked={target === candidate.id}
+															className="mt-0.5 size-4 shrink-0 accent-accent"
+															onChange={() =>
+																setChoices((previous) => ({ ...previous, [connection.profileUrl]: candidate.id }))
+															}
+														/>
+														<span>
+															{t`Update ${candidate.name}`}
+															{"companyId" in candidate &&
+															typeof candidate.companyId === "string" &&
+															names.get(candidate.companyId)
+																? ` · ${names.get(candidate.companyId)}`
+																: ""}
+														</span>
+													</label>
+												))}
+												{match.identities.length === 0 && (
+													<label
+														htmlFor={`${listId}-${connection.profileUrl}-create`}
+														className="flex cursor-pointer items-center gap-2"
+													>
+														<input
+															type="radio"
+															id={`${listId}-${connection.profileUrl}-create`}
+															name={`${listId}-${connection.profileUrl}-match`}
+															value="create"
+															checked={target === "create"}
+															className="size-4 shrink-0 accent-accent"
+															onChange={() =>
+																setChoices((previous) => ({ ...previous, [connection.profileUrl]: "create" }))
+															}
+														/>
+														<span>{t`Create separate contact`}</span>
+													</label>
+												)}
+											</fieldset>
+										</div>
+									)}
+								</article>
+							))}
+						</div>{" "}
+					</section>
 				))}
 			</div>
 			{visible.length > 50 && (
