@@ -11,6 +11,7 @@ import * as pg from "drizzle-orm/pg-core";
 import { generateId } from "@reactive-resume/utils/string";
 import { user } from "./auth";
 import { coverLetter, coverLetterVersion } from "./cover-letter";
+import { company } from "./directory";
 import { resume, resumeVersion } from "./resume";
 
 // A tracked job application. Points at the live Reactive Resume that was sent (resumeId),
@@ -28,6 +29,7 @@ export const application = pg.pgTable(
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		company: pg.text("company").notNull(),
+		companyId: pg.text("company_id").references(() => company.id, { onDelete: "set null" }),
 		role: pg.text("role").notNull(),
 		location: pg.text("location"),
 		salary: pg.text("salary"),

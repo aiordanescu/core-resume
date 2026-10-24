@@ -29,6 +29,7 @@ You can download a copy of everything you have stored in Reactive Resume in one 
 | File                | Contents                                                                                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `account.json`      | Your name, email, username, photo address, resume length and reminder settings, whether your email is verified, and when the account was created and last updated. |
+| `directory.json`    | Companies, contacts, past positions, manual notes and their links.                                                                                                 |
 | `applications.json` | Every job application with its status, job details, notes, contacts, follow-ups and activity.                                                                      |
 | `resumes/`          | One JSON file per resume, including those in the trash. Each holds the resume's name, public address, tags, sharing settings and the full resume content.          |
 | `letters/`          | One JSON file per cover letter.                                                                                                                                    |
@@ -49,10 +50,12 @@ You can bring a whole export back in, into this account or another one. It works
   </Step>
 
   <Step title="Choose what to bring in">
-    Each area has a switch: **Documents**, **Applications**, **Knowledge**, **Job search** and **Coach conversations**. For each one you choose:
+    Each area has a switch: **Documents**, **Directory**, **Applications**, **Knowledge**, **Job search** and **Coach conversations**. For each one you choose:
 
     - **Add to mine**: everything comes in as new records next to what you have. Tidy up duplicates afterwards in **Knowledge**, **Curate**. A fact you already have from the same source is skipped.
     - **Replace mine**: everything you have in that area is deleted first. You confirm this, and the confirmation lists what will be deleted. Replacing **Applications** also deletes the facts, stories, saved items, schedules and conversations tied to them.
+
+    **Directory** imports before applications so their company and contact links can be restored. Existing companies with the same normalized name are reused; contacts are added as new records. Replacing Directory deletes its people and their details from existing applications and interviews, while keeping those applications.
 
     **Preferences**, **AI limits** and **Career preferences** keep yours unless you switch them on.
 

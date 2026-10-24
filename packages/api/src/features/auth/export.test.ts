@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({
 	predicates: [] as unknown[],
 	getLetter: vi.fn(),
 	exportCareer: vi.fn(),
+	exportDirectory: vi.fn().mockResolvedValue({ companies: [], contacts: [], employment: [], notes: [] }),
 }));
 vi.mock("@reactive-resume/db/client", () => ({ db: { select: mocks.select } }));
 vi.mock("@reactive-resume/db/schema", () => ({
@@ -22,6 +23,7 @@ vi.mock("@reactive-resume/auth/config", () => ({ isCustomOAuthProviderEnabled: (
 vi.mock("../storage/service", () => ({ getStorageService: vi.fn() }));
 vi.mock("../cover-letters/service", () => ({ coverLetterService: { getById: mocks.getLetter } }));
 vi.mock("../career/service", () => ({ careerService: { exportData: mocks.exportCareer } }));
+vi.mock("../directory/service", () => ({ directoryService: { exportData: mocks.exportDirectory } }));
 const { authService } = await import("./service");
 
 describe("account backup", () => {
@@ -100,6 +102,8 @@ describe("account backup", () => {
 			expect(mocks.predicates).toContainEqual({ column: "coverLetter.userId", value: "owner" });
 			expect(mocks.exportCareer).toHaveBeenCalledExactlyOnceWith("owner");
 			expect(exported.career).toEqual(career);
+			expect(mocks.exportDirectory).toHaveBeenCalledExactlyOnceWith("owner");
+			expect(exported.directory).toEqual({ companies: [], contacts: [], employment: [], notes: [] });
 			expect(exported.aiContentReports).toEqual([{ id: "report", userId: "owner", content: "Reported output" }]);
 			expect(mocks.predicates).toContainEqual({ column: "aiContentReport.userId", value: "owner" });
 			// The fork's own settings come along, so an import can restore them.

@@ -120,10 +120,32 @@ msgstr "{0, plural, one {# ta ariza} other {# ta ariza}}"
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# belgisi} other {# belgilar}}"
 
+#. placeholder {0}: counts.directory.companies
+#. placeholder {0}: current.directory.companies
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# company} other {# companies}}"
+msgstr ""
+
+#. placeholder {0}: connections.connections.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+msgstr ""
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# kontaktining e-pochta manzili yaroqsiz yoki ismi yo‘q; uning ishga arizasi hali ham import qilinadi.} other {# kontaktlari noto‘g‘ri elektron pochta manziliga ega yoki nomi yo‘q; ularning ish arizalari hali ham import qilinadi.}}"
+
+#. placeholder {0}: selected.length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# contact selected} other {# contacts selected}}"
+msgstr ""
+
+#. placeholder {0}: counts.directory.contacts
+#. placeholder {0}: current.directory.contacts
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# contact} other {# contacts}}"
+msgstr ""
 
 #. placeholder {0}: summary.attachments
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -150,6 +172,11 @@ msgstr "{0, plural, one {# ta hujjat chiqindiga o‘tkazildi} other {# ta hujjat
 #: src/features/assistant/conversation.tsx
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# tahririni joylab boʻlmadi: uning matni oʻzgartirildi. Buni qayta bajarishni so'rang.} other {# tahrirlarini joylashtirib boʻlmadi: ularning matni oʻzgartirildi. Ularni qayta tiklashni so'rang.}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "update").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
+msgstr ""
 
 #. placeholder {0}: chosen.length
 #: src/features/career/knowledge/import.tsx
@@ -197,6 +224,16 @@ msgstr ""
 #. placeholder {0}: current.documents.locked
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "new").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# new contact} other {# new contacts}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "duplicate").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
 msgstr ""
 
 #. placeholder {0}: counts.jobSearch.opportunities
@@ -365,6 +402,14 @@ msgstr "{0} faol ishga arizalar"
 msgid "{0} closed"
 msgstr "{0} yopildi"
 
+#. placeholder {0}: contactsResult.created
+#. placeholder {1}: contactsResult.updated
+#. placeholder {2}: contactsResult.unchanged
+#. placeholder {3}: contactsResult.skipped
+#: src/features/career/knowledge/import.tsx
+msgid "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+msgstr ""
+
 #. placeholder {0}: daysLeftInTrash(document.trashedAt)
 #: src/features/documents/document-card.tsx
 msgid "{0} days left"
@@ -429,6 +474,14 @@ msgstr "{1} bo'yicha {0} — sizning vaqt mintaqangizda ({preferredZone}) {2}."
 #: src/features/career/workspace/shell.tsx
 msgid "{0} interview"
 msgstr "{0} intervyu"
+
+#. placeholder {0}: connections.skipped
+#. placeholder {1}: connections.duplicateRows
+#. placeholder {2}: connections.invalidEmails
+#. placeholder {3}: connections.invalidDates
+#: src/features/career/knowledge/import.tsx
+msgid "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
+msgstr ""
 
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
@@ -1321,6 +1374,7 @@ msgid "Add a location"
 msgstr "Joy qo'shing"
 
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/directory/page.tsx
 msgid "Add a note"
 msgstr "Eslatma qo'shing"
 
@@ -1430,7 +1484,12 @@ msgstr "Mukofot qo'shing"
 msgid "Add certification"
 msgstr "Sertifikatlash qo'shing"
 
+#: src/features/directory/page.tsx
+msgid "Add company"
+msgstr ""
+
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/directory/page.tsx
 msgid "Add contact"
 msgstr "Kontakt qo'shish"
 
@@ -1482,6 +1541,10 @@ msgstr "Kalit so'zni qo'shing"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Til qo'shing"
+
+#: src/features/directory/page.tsx
+msgid "Add note"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1755,6 +1818,7 @@ msgid "Align right"
 msgstr "O‘ngga tekislash"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/editor/design/template-group.tsx
@@ -1827,6 +1891,10 @@ msgstr "Shuningdek, {0} muqova xatini yuklab oling"
 #: src/features/career/schedule-sheet.tsx
 msgid "Also email {0}"
 msgstr "{0} manziliga ham yuborish"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Also import email addresses"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
@@ -2078,6 +2146,7 @@ msgstr ""
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/directory/page.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -2633,6 +2702,7 @@ msgstr "Dasturiy ta'minot sizning rezyumeingizni o'qiy oladimi?"
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
@@ -2902,6 +2972,10 @@ msgstr ""
 msgid "Choose an application…"
 msgstr "Ishga arizani tanlang…"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Taklifni tanlang"
@@ -3089,14 +3163,33 @@ msgstr "Buyruqlar palitrasi - {currentPage}"
 msgid "Compact"
 msgstr "Qisqa"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+msgid "Companies"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Company"
 msgstr "Tashkilot"
+
+#. placeholder {0}: choice.sourceName
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company for {0}"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Company history"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company matching"
+msgstr ""
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -3221,6 +3314,15 @@ msgstr "Ulangan"
 msgid "Connected applications"
 msgstr "Ulangan ilovalar"
 
+#: src/features/directory/page.tsx
+msgid "Connected on"
+msgstr ""
+
+#. placeholder {0}: connection.connectedOn
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Connected: {0}"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
 msgstr "Bog'liqliklar topilmoqda"
@@ -3254,6 +3356,10 @@ msgstr "Aloqa ma'lumotlari topildi"
 msgid "Contact email"
 msgstr "Aloqa elektron pochtasi"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Contact from file"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
 msgstr "Kontakt yorlig'i"
@@ -3272,6 +3378,8 @@ msgstr "Aloqa roli"
 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
 msgid "Contacts"
 msgstr "Kontaktlar"
 
@@ -3483,9 +3591,25 @@ msgstr "PDF faylini yaratib bo'lmadi. Iltimos, qayta urinib ko'ring."
 msgid "Could not load connected applications."
 msgstr "Ulangan ilovalarni yuklab bo‘lmadi."
 
+#: src/features/directory/contact-picker.tsx
+msgid "Could not load contacts."
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Could not load the directory."
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Rezyumengizni chop etishga tayyorlab bo'lmadi. Iltimos, qayta urinib ko'ring."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Could not read contacts from this export."
+msgstr ""
 
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Could not revoke this connection. Try again."
@@ -3831,10 +3955,6 @@ msgid "Couldn't save the timezone."
 msgstr "Vaqt mintaqasini saqlab bo'lmadi."
 
 #: src/features/career/knowledge/import.tsx
-msgid "Couldn't save these facts. Your review is still here; try again."
-msgstr ""
-
-#: src/features/career/knowledge/import.tsx
 msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr ""
 
@@ -4021,6 +4141,10 @@ msgstr "Hujjatlaringizni va ish arizalaringizni yarating va o'zgartiring."
 msgid "Create and open"
 msgstr "Yarating va oching"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create contact"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
 msgstr "Kalit yaratish"
@@ -4029,6 +4153,10 @@ msgstr "Kalit yaratish"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Hozir birini yarating"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create separate contact"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4260,6 +4388,18 @@ msgstr "Hisobni o'chirish"
 msgid "Delete Account"
 msgstr "Hisobni o‘chirish"
 
+#: src/features/directory/page.tsx
+msgid "Delete all contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete contact"
+msgstr ""
+
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Delete entry"
 msgstr "Kirishni o'chirish"
@@ -4267,6 +4407,10 @@ msgstr "Kirishni o'chirish"
 #: src/features/ats-checker/messages.ts
 msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
 msgstr "Uni oʻchiring. Yashirin kalit soʻzlar qidiruvni chalgʻitishga qasddan urinish sifatida qaraladi."
+
+#: src/features/directory/page.tsx
+msgid "Delete note"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Delete now"
@@ -4451,6 +4595,13 @@ msgstr "Boshqa valyuta, solishtirilmaydi"
 #: src/features/career/offers.tsx
 msgid "Different pay period, not compared"
 msgstr "Boshqa to'lov davri, solishtirilmaydi"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Directory"
+msgstr ""
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -4799,6 +4950,14 @@ msgstr "Tahrirlash qo'llanildi"
 msgid "Edit color {0}"
 msgstr "{0} rangini tahrirlash"
 
+#: src/features/directory/page.tsx
+msgid "Edit company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Edit contact"
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit date"
 msgstr "Sanani tahrirlash"
@@ -4915,6 +5074,10 @@ msgstr "Elektron pochta"
 msgid "Email (optional)"
 msgstr "Elektron pochta (ixtiyoriy)"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email address"
+msgstr ""
+
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -4927,6 +5090,14 @@ msgstr "Email manzili"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Elektron pochta manzili aniqlanmaydi"
+
+#: src/features/directory/page.tsx
+msgid "Email addresses"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email addresses stay in your browser unless you select this option."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5113,6 +5284,11 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
+msgstr ""
+
+#. placeholder {0}: match.contact.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -5404,6 +5580,10 @@ msgstr "Yozuvlarni to'ldirish"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Teg bo'yicha filtrlash"
+
+#: src/features/directory/contact-picker.tsx
+msgid "Find a directory contact"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -6099,6 +6279,10 @@ msgstr "Faylni qanday ko'rsatish kerak"
 msgid "How well do I fit this role?"
 msgstr "Men bu rolga qanchalik mos kelyapman?"
 
+#: src/features/directory/page.tsx
+msgid "How you know them"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Venger tili"
@@ -6195,6 +6379,15 @@ msgstr "Rezyumeni import qiling"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Rezyumeni import qiling, ish uchun nusxa ko'chiring yoki bo'sh boshlang."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action"
+msgstr ""
+
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action for {0}"
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
@@ -6202,6 +6395,10 @@ msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import another file"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import contacts from this export"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6237,10 +6434,18 @@ msgstr "CSV import yoki eksport"
 msgid "Import progress"
 msgstr "Import jarayoni"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected facts and contacts"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "Import qadamlari"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
@@ -6379,6 +6584,7 @@ msgstr "Faqat interfeys. Har bir rezyume Dizaynda o'z tilini belgilaydi."
 
 #: src/features/applications/stages.ts
 #: src/features/career/schedule-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
@@ -6862,6 +7068,10 @@ msgstr "Tillar"
 msgid "Last changed in {0}"
 msgstr "Oxirgi marta {0} da oʻzgartirilgan"
 
+#: src/features/directory/page.tsx
+msgid "Last contacted"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
@@ -7176,7 +7386,11 @@ msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: src/features/career/knowledge/import.tsx
-msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgid "LinkedIn contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
@@ -7254,6 +7468,10 @@ msgstr "Ulanish yuklanmoqda…"
 msgid "Loading connections..."
 msgstr "Ulanishlar yuklanmoqda..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Loading contacts and companies…"
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
 msgstr "Suhbatlar yuklanmoqda…"
@@ -7295,6 +7513,10 @@ msgstr "Jami yuklanmoqda"
 msgid "Loading workspace…"
 msgstr "Ish maydoni yuklanmoqda…"
 
+#: src/features/directory/page.tsx
+msgid "Loading…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7334,6 +7556,10 @@ msgstr "Nimani qidirish"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Look it up instead"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Looking for work"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
@@ -7779,6 +8005,7 @@ msgstr "Mening vazifam qo'llab-quvvatlash ishini ko'paytirmasdan sababini aniqla
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -7873,6 +8100,7 @@ msgstr "Tarmoq"
 msgid "Never"
 msgstr "Hech qachon"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7973,6 +8201,10 @@ msgstr "Yangi bo'lim"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind kompaniyasidagi yangi jamoalar sozlashda to'xtab qolardi; ko'pchiligi oxiriga yetmasdi."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Next"
+msgstr ""
+
 #: src/features/settings/reminders.tsx
 msgid "Next interview"
 msgstr ""
@@ -8017,6 +8249,10 @@ msgstr "Faol ish arizalari mavjud emas."
 msgid "No application"
 msgstr "Ishga ariza yo'q"
 
+#: src/features/directory/page.tsx
+msgid "No applications at this company yet."
+msgstr ""
+
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match “{0}”."
@@ -8040,6 +8276,14 @@ msgid "No bullet lists were found."
 msgstr "Nuqtali roʻyxatlar topilmadi."
 
 #: src/features/career/knowledge/import.tsx
+msgid "No career facts could be read. You can still review and import contacts from this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found in this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "No career facts were found. Try another file or add facts in Knowledge."
 msgstr ""
 
@@ -8052,9 +8296,25 @@ msgstr "O'zgartirish shart emas. U allaqachon “{stage}” bosqichida."
 msgid "No commands match that search."
 msgstr "Bu qidiruvga mos buyruq topilmadi."
 
+#: src/features/directory/page.tsx
+msgid "No companies found. Add a company or track an application to get started."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No company"
+msgstr ""
+
 #: src/features/settings/ai/connected-apps.tsx
 msgid "No connected applications."
 msgstr "Ulangan ilovalar yo‘q."
+
+#: src/features/directory/page.tsx
+msgid "No contacts at this company yet."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No contacts found. People added from applications and interviews also appear here."
+msgstr ""
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -8344,6 +8604,10 @@ msgstr "Rezyumeda yo'q · agar rost bo'lsa, qo'shing"
 msgid "Not now"
 msgstr "Hozir emas"
 
+#: src/features/directory/page.tsx
+msgid "Not recorded"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
 msgstr "Hali yozilmagan. Tasdiqlay olmaguningizcha bo'sh qoldiring."
@@ -8405,11 +8669,16 @@ msgstr "Ma'lumot"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/application-notes.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Eslatmalar"
+
+#: src/features/directory/page.tsx
+msgid "Notes, linked applications, and interviews will appear here."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -8576,6 +8845,10 @@ msgstr "Bir ustun"
 msgid "one format"
 msgstr "bitta format"
 
+#: src/features/directory/page.tsx
+msgid "One per line"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "One scheduled discovery run"
 msgstr ""
@@ -8692,6 +8965,10 @@ msgstr "Takliflarda ochish"
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "open issues"
 msgstr "ochiq masalalar"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Open LinkedIn profile"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
@@ -8881,6 +9158,12 @@ msgstr "Sahifa"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "{0} sahifa"
+
+#. placeholder {0}: page + 1
+#. placeholder {1}: Math.ceil(total / size)
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Page {0} of {1}"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -9122,6 +9405,10 @@ msgstr "Telefon"
 msgid "Phone (optional)"
 msgstr "Telefon (ixtiyoriy)"
 
+#: src/features/directory/page.tsx
+msgid "Phone numbers"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Photo hidden"
 msgstr "Surat yashirin"
@@ -9228,12 +9515,17 @@ msgstr "Portugal (mahalliy)"
 msgid "Portuguese (Portugal)"
 msgstr "Portugalcha (Portugaliya)"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Lavozim"
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Possible duplicate"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Possible duplicates"
 msgstr ""
 
 #: src/features/career/workspace/saved.tsx
@@ -9394,6 +9686,10 @@ msgstr "Ochish uchun <0>Enter tugmasini</0> bosing"
 msgid "Previewing {0} · click to apply"
 msgstr "{0} ko'rib chiqilmoqda · qo'llash uchun bosing"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Previous"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Previous issue"
 msgstr "Oldingi son"
@@ -9475,9 +9771,17 @@ msgstr "Profil havolasi (ixtiyoriy)"
 msgid "Profile link of person {0}"
 msgstr "{0}-shaxs profil havolasi"
 
+#: src/features/directory/page.tsx
+msgid "Profile links"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Profil havolalari ochiq HTTPS manzillari bo'lishi kerak."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -9884,6 +10188,10 @@ msgstr "Ishga qabul qiluvchi"
 msgid "Recruiter reply"
 msgstr "Rekruterga javob"
 
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Recruiter, referral, hiring manager…"
+msgstr ""
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Recruiters see this name. Your name plus “Cover Letter” works well."
 msgstr "Ishga qabul qiluvchilar bu nomni ko'rishadi. Sizning ismingiz va \"Muqova maktubi\" yaxshi ishlaydi."
@@ -9926,6 +10234,10 @@ msgstr "Tavsiya qilgan…, ta'kidlash kerak bo'lgan jihatlar va h.k."
 #: src/features/homepage/remember.tsx
 msgid "Reflection"
 msgstr "Mulohaza"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Refresh contact review"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing 2 hours before"
@@ -10165,6 +10477,10 @@ msgstr ""
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
 msgstr "Arizadagi “{current}” o'rnini egallaydi."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
@@ -10485,6 +10801,11 @@ msgstr "Rol {0}"
 msgid "Role / title"
 msgstr "Lavozim / nom"
 
+#. placeholder {0}: contact.name
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Role in this application for {0}"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Role of person {0}"
@@ -10581,6 +10902,7 @@ msgstr "Namuna rezyume qo'shildi. Uni istalgan vaqtda oʻchirib tashlang."
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/budget.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10858,6 +11180,18 @@ msgstr "Ishga arizalarni qidirish"
 msgid "Search commands"
 msgstr "Qidiruv buyruqlari"
 
+#: src/features/directory/page.tsx
+msgid "Search companies"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts, companies, or tags"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Search covers titles, tags and linked applications."
 msgstr "Qidiruv sarlavhalar, teglar va bog'langan arizalarni qamrab oladi."
@@ -10994,6 +11328,10 @@ msgstr "Hammasini tanlash"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Sun'iy intellekt provayderini tanlang"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Select new and matched contacts"
+msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Select up to 500 facts at a time."
@@ -11278,6 +11616,10 @@ msgstr "Barcha turlarni ko'rsatish"
 msgid "Show closed"
 msgstr "Ko'rgazma yopildi"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Show contacts"
+msgstr ""
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
 msgstr "Sarlavhani ko'rsatish"
@@ -11495,9 +11837,14 @@ msgstr "Ko'nikma"
 msgid "Skills"
 msgstr "Koʻnikmalar"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "O'tkazib yuborish"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Skip all contacts"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and Upload"
@@ -12092,6 +12439,7 @@ msgstr "teg"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Tags"
@@ -12877,6 +13225,10 @@ msgstr "Bu PDF skanerlangan tasvirdir. O'qish uchun matn yo'q. Word versiyasini 
 msgid "This PDF is password protected. Save an unprotected copy and try again."
 msgstr "Bu PDF parol bilan himoyalangan. Himoyalanmagan nusxa saqlab, qayta urinib koʻring."
 
+#: src/features/directory/page.tsx
+msgid "This permanently deletes the selected records."
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Ushbu rezyume bloklangan va yangilab boʻlmaydi."
@@ -13018,6 +13370,10 @@ msgstr ""
 msgid "Time, link, who, what you sent"
 msgstr "Vaqt, havola, kim, nima yubordingiz"
 
+#: src/features/directory/page.tsx
+msgid "Timeline"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Times are shown in {timeZone}."
 msgstr "Vaqtlar {timeZone} bo'yicha ko'rsatiladi."
@@ -13146,6 +13502,7 @@ msgstr "Namunani sinab ko'ring"
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/library-error.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
@@ -13413,6 +13770,11 @@ msgstr "25 tagacha MB · brauzeringizda tekshirilgan, hech qachon yuklanmagan"
 msgid "Upcoming interviews"
 msgstr "Kelgusi suhbatlar"
 
+#. placeholder {0}: candidate.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update {0}"
+msgstr ""
+
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx
 msgid "Update Password"
@@ -13443,6 +13805,10 @@ msgstr "Yangilangan {0}"
 msgid "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 msgstr "{total} tadan {done} tasi yangilandi. Qulflangan hujjatlar va umumiy havolalar uchun xatlar o‘tkazib yuborildi."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Updates"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "Parolingiz yangilanmoqda..."
@@ -13470,6 +13836,11 @@ msgstr "Rasm yuklanmoqda…"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
 msgstr "URL"
+
+#. placeholder {0}: company.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use {0}"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
@@ -13533,6 +13904,10 @@ msgstr "Standartdan foydalanish"
 msgid "Use details from “{0}”"
 msgstr "“{0}” maʼlumotlaridan foydalaning"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use existing company"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Barcha arizalar uchun foydalanish"
@@ -13568,6 +13943,10 @@ msgstr "Standart sarlavhadan foydalaning"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Bu javoblardan foydalanish"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use this company name"
+msgstr ""
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
@@ -13738,6 +14117,10 @@ msgid "View application"
 msgstr "Ishga arizani ko'rish"
 
 #: src/features/career/knowledge/import.tsx
+msgid "View contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "View facts"
 msgstr ""
 
@@ -13869,6 +14252,7 @@ msgstr "Veb-qidiruv tugamadi."
 msgid "Web search failed: {0}"
 msgstr "Veb-qidiruv amalga oshmadi: {0}"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Veb-sayt"
@@ -14445,6 +14829,10 @@ msgstr "Nuqtalaringiz odatiy boʻlmagan belgilar bilan chizilgan."
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "O'zgartirishlaringiz avtomatik tarzda saqlanadi."
+
+#: src/features/directory/page.tsx
+msgid "Your companies and contacts, across every application."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."

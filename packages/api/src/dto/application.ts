@@ -92,6 +92,7 @@ const applicationSchema = createSelectSchema(schema.application, {
 // addNote, and AI fields are written only by the (reserved) AI procedures.
 const editableSchema = applicationSchema.pick({
 	company: true,
+	companyId: true,
 	role: true,
 	location: true,
 	salary: true,

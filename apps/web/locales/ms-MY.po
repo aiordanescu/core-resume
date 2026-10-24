@@ -120,10 +120,32 @@ msgstr "{0, plural, other {# permohonan}}"
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# watak} other {aksara #}}"
 
+#. placeholder {0}: counts.directory.companies
+#. placeholder {0}: current.directory.companies
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# company} other {# companies}}"
+msgstr ""
+
+#. placeholder {0}: connections.connections.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+msgstr ""
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {Kenalan # mempunyai e-mel yang tidak sah atau tiada nama; permohonan kerjanya masih mengimport.} other {Kenalan # mempunyai e-mel yang tidak sah atau tiada nama; permohonan kerja mereka masih mengimport.}}"
+
+#. placeholder {0}: selected.length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# contact selected} other {# contacts selected}}"
+msgstr ""
+
+#. placeholder {0}: counts.directory.contacts
+#. placeholder {0}: current.directory.contacts
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# contact} other {# contacts}}"
+msgstr ""
 
 #. placeholder {0}: summary.attachments
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -150,6 +172,11 @@ msgstr "{0, plural, one {# dokumen dialihkan ke Sampah} other {# dokumen dialihk
 #: src/features/assistant/conversation.tsx
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {Suntingan # tidak dapat diletakkan: teksnya berubah. Minta lagi untuk buat semula.} other {Suntingan # tidak dapat diletakkan: teksnya berubah. Minta lagi untuk membuat semula mereka.}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "update").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
+msgstr ""
 
 #. placeholder {0}: chosen.length
 #: src/features/career/knowledge/import.tsx
@@ -197,6 +224,16 @@ msgstr ""
 #. placeholder {0}: current.documents.locked
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "new").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# new contact} other {# new contacts}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "duplicate").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
 msgstr ""
 
 #. placeholder {0}: counts.jobSearch.opportunities
@@ -365,6 +402,14 @@ msgstr "{0} permohonan kerja aktif"
 msgid "{0} closed"
 msgstr "{0} ditutup"
 
+#. placeholder {0}: contactsResult.created
+#. placeholder {1}: contactsResult.updated
+#. placeholder {2}: contactsResult.unchanged
+#. placeholder {3}: contactsResult.skipped
+#: src/features/career/knowledge/import.tsx
+msgid "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+msgstr ""
+
 #. placeholder {0}: daysLeftInTrash(document.trashedAt)
 #: src/features/documents/document-card.tsx
 msgid "{0} days left"
@@ -429,6 +474,14 @@ msgstr "{0} di {1} ialah {2} dalam zon waktu anda ({preferredZone})."
 #: src/features/career/workspace/shell.tsx
 msgid "{0} interview"
 msgstr "Temu bual {0}"
+
+#. placeholder {0}: connections.skipped
+#. placeholder {1}: connections.duplicateRows
+#. placeholder {2}: connections.invalidEmails
+#. placeholder {3}: connections.invalidDates
+#: src/features/career/knowledge/import.tsx
+msgid "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
+msgstr ""
 
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
@@ -1321,6 +1374,7 @@ msgid "Add a location"
 msgstr "Tambah lokasi"
 
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/directory/page.tsx
 msgid "Add a note"
 msgstr "Tambah nota"
 
@@ -1430,7 +1484,12 @@ msgstr "Tambah anugerah"
 msgid "Add certification"
 msgstr "Tambah pensijilan"
 
+#: src/features/directory/page.tsx
+msgid "Add company"
+msgstr ""
+
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/directory/page.tsx
 msgid "Add contact"
 msgstr "Tambah kenalan"
 
@@ -1482,6 +1541,10 @@ msgstr "Tambah kata kunci"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Tambah bahasa"
+
+#: src/features/directory/page.tsx
+msgid "Add note"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1755,6 +1818,7 @@ msgid "Align right"
 msgstr "Jajar kanan"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/editor/design/template-group.tsx
@@ -1827,6 +1891,10 @@ msgstr "Muat turun juga surat iringan {0}"
 #: src/features/career/schedule-sheet.tsx
 msgid "Also email {0}"
 msgstr "Turut e-mel ke {0}"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Also import email addresses"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
@@ -2078,6 +2146,7 @@ msgstr ""
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/directory/page.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -2633,6 +2702,7 @@ msgstr "Bolehkah perisian membaca resume anda?"
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
@@ -2902,6 +2972,10 @@ msgstr ""
 msgid "Choose an application…"
 msgstr "Pilih permohonan kerja…"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Pilih tawaran"
@@ -3089,14 +3163,33 @@ msgstr "Palet Perintah - {currentPage}"
 msgid "Compact"
 msgstr "Padat"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+msgid "Companies"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Company"
 msgstr "Syarikat"
+
+#. placeholder {0}: choice.sourceName
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company for {0}"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Company history"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company matching"
+msgstr ""
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -3221,6 +3314,15 @@ msgstr "Bersambung"
 msgid "Connected applications"
 msgstr "Aplikasi yang disambungkan"
 
+#: src/features/directory/page.tsx
+msgid "Connected on"
+msgstr ""
+
+#. placeholder {0}: connection.connectedOn
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Connected: {0}"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
 msgstr "Menghubungkan titik-titik"
@@ -3254,6 +3356,10 @@ msgstr "Butiran hubungan ditemui"
 msgid "Contact email"
 msgstr "E-mel hubungan"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Contact from file"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
 msgstr "Label kenalan"
@@ -3272,6 +3378,8 @@ msgstr "Peranan kenalan"
 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
 msgid "Contacts"
 msgstr "Kenalan"
 
@@ -3483,9 +3591,25 @@ msgstr "Tidak dapat menjana PDF. Sila cuba lagi."
 msgid "Could not load connected applications."
 msgstr "Tidak dapat memuatkan aplikasi yang disambungkan."
 
+#: src/features/directory/contact-picker.tsx
+msgid "Could not load contacts."
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Could not load the directory."
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Tidak dapat menyediakan resume anda untuk dicetak. Sila cuba lagi."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Could not read contacts from this export."
+msgstr ""
 
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Could not revoke this connection. Try again."
@@ -3831,10 +3955,6 @@ msgid "Couldn't save the timezone."
 msgstr "Tidak dapat menyimpan zon waktu."
 
 #: src/features/career/knowledge/import.tsx
-msgid "Couldn't save these facts. Your review is still here; try again."
-msgstr ""
-
-#: src/features/career/knowledge/import.tsx
 msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr ""
 
@@ -4021,6 +4141,10 @@ msgstr "Buat dan tukar dokumen dan permohonan kerja anda."
 msgid "Create and open"
 msgstr "Buat dan buka"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create contact"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
 msgstr "Cipta kunci"
@@ -4029,6 +4153,10 @@ msgstr "Cipta kunci"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Buat satu sekarang"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create separate contact"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4260,6 +4388,18 @@ msgstr "Padam akaun"
 msgid "Delete Account"
 msgstr "Padam Akaun"
 
+#: src/features/directory/page.tsx
+msgid "Delete all contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete contact"
+msgstr ""
+
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Delete entry"
 msgstr "Padam entri"
@@ -4267,6 +4407,10 @@ msgstr "Padam entri"
 #: src/features/ats-checker/messages.ts
 msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
 msgstr "Padamkannya. Kata kunci tersembunyi dianggap sebagai percubaan sengaja untuk memanipulasi carian."
+
+#: src/features/directory/page.tsx
+msgid "Delete note"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Delete now"
@@ -4451,6 +4595,13 @@ msgstr "Mata wang berbeza, tidak dibandingkan"
 #: src/features/career/offers.tsx
 msgid "Different pay period, not compared"
 msgstr "Tempoh bayaran berbeza, tidak dibandingkan"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Directory"
+msgstr ""
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -4799,6 +4950,14 @@ msgstr "Edit digunakan"
 msgid "Edit color {0}"
 msgstr "Sunting warna {0}"
 
+#: src/features/directory/page.tsx
+msgid "Edit company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Edit contact"
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit date"
 msgstr "Edit tarikh"
@@ -4915,6 +5074,10 @@ msgstr "E-mel"
 msgid "Email (optional)"
 msgstr "E-mel (pilihan)"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email address"
+msgstr ""
+
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -4927,6 +5090,14 @@ msgstr "Alamat E-mel"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Alamat e-mel tidak akan dikenali"
+
+#: src/features/directory/page.tsx
+msgid "Email addresses"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email addresses stay in your browser unless you select this option."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5113,6 +5284,11 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
+msgstr ""
+
+#. placeholder {0}: match.contact.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -5404,6 +5580,10 @@ msgstr "Pengisian entri"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Tapis mengikut teg"
+
+#: src/features/directory/contact-picker.tsx
+msgid "Find a directory contact"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -6099,6 +6279,10 @@ msgstr "Bagaimana untuk menunjukkan fail"
 msgid "How well do I fit this role?"
 msgstr "Sejauh manakah saya sesuai dengan peranan ini?"
 
+#: src/features/directory/page.tsx
+msgid "How you know them"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Hungary"
@@ -6195,6 +6379,15 @@ msgstr "Import resume"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Import resume, salin satu untuk kerja, atau mulakan kosong."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action"
+msgstr ""
+
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action for {0}"
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
@@ -6202,6 +6395,10 @@ msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import another file"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import contacts from this export"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6237,10 +6434,18 @@ msgstr "Import atau eksport CSV"
 msgid "Import progress"
 msgstr "Kemajuan import"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected facts and contacts"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "Langkah import"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
@@ -6379,6 +6584,7 @@ msgstr "Antara muka sahaja. Setiap resume menetapkan bahasanya sendiri dalam Rek
 
 #: src/features/applications/stages.ts
 #: src/features/career/schedule-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
@@ -6862,6 +7068,10 @@ msgstr "Bahasa"
 msgid "Last changed in {0}"
 msgstr "Terakhir ditukar dalam {0}"
 
+#: src/features/directory/page.tsx
+msgid "Last contacted"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
@@ -7176,7 +7386,11 @@ msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: src/features/career/knowledge/import.tsx
-msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgid "LinkedIn contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
@@ -7254,6 +7468,10 @@ msgstr "Memuatkan sambungan…"
 msgid "Loading connections..."
 msgstr "Memuatkan sambungan..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Loading contacts and companies…"
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
 msgstr "Memuatkan perbualan…"
@@ -7295,6 +7513,10 @@ msgstr "Memuatkan jumlah"
 msgid "Loading workspace…"
 msgstr "Memuatkan ruang kerja…"
 
+#: src/features/directory/page.tsx
+msgid "Loading…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7334,6 +7556,10 @@ msgstr "Cari"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Look it up instead"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Looking for work"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
@@ -7779,6 +8005,7 @@ msgstr "Tugas saya ialah mengetahui sebabnya, tanpa menambah kerja sokongan."
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -7873,6 +8100,7 @@ msgstr "Rangkaian"
 msgid "Never"
 msgstr "tidak pernah"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7973,6 +8201,10 @@ msgstr "Bahagian baharu"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Pasukan baharu di Northwind tersekat dalam persediaan; kebanyakannya tidak pernah berjaya melepasinya."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Next"
+msgstr ""
+
 #: src/features/settings/reminders.tsx
 msgid "Next interview"
 msgstr ""
@@ -8017,6 +8249,10 @@ msgstr "Tiada permohonan kerja aktif."
 msgid "No application"
 msgstr "Tiada permohonan kerja"
 
+#: src/features/directory/page.tsx
+msgid "No applications at this company yet."
+msgstr ""
+
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match “{0}”."
@@ -8040,6 +8276,14 @@ msgid "No bullet lists were found."
 msgstr "Tiada senarai bulet ditemui."
 
 #: src/features/career/knowledge/import.tsx
+msgid "No career facts could be read. You can still review and import contacts from this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found in this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "No career facts were found. Try another file or add facts in Knowledge."
 msgstr ""
 
@@ -8052,9 +8296,25 @@ msgstr "Tiada perubahan diperlukan. Ia sudah berada di {stage}."
 msgid "No commands match that search."
 msgstr "Tiada arahan yang sepadan dengan carian itu."
 
+#: src/features/directory/page.tsx
+msgid "No companies found. Add a company or track an application to get started."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No company"
+msgstr ""
+
 #: src/features/settings/ai/connected-apps.tsx
 msgid "No connected applications."
 msgstr "Tiada aplikasi bersambung."
+
+#: src/features/directory/page.tsx
+msgid "No contacts at this company yet."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No contacts found. People added from applications and interviews also appear here."
+msgstr ""
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -8344,6 +8604,10 @@ msgstr "Tiada dalam resume anda · tambah hanya jika benar"
 msgid "Not now"
 msgstr "Bukan sekarang"
 
+#: src/features/directory/page.tsx
+msgid "Not recorded"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
 msgstr "Belum direkodkan. Biarkan kosong sehingga anda dapat menyokongnya."
@@ -8405,11 +8669,16 @@ msgstr "Maklumat"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/application-notes.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Nota"
+
+#: src/features/directory/page.tsx
+msgid "Notes, linked applications, and interviews will appear here."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -8576,6 +8845,10 @@ msgstr "Satu lajur"
 msgid "one format"
 msgstr "satu format"
 
+#: src/features/directory/page.tsx
+msgid "One per line"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "One scheduled discovery run"
 msgstr ""
@@ -8692,6 +8965,10 @@ msgstr "Buka dalam Tawaran"
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "open issues"
 msgstr "isu terbuka"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Open LinkedIn profile"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
@@ -8881,6 +9158,12 @@ msgstr "Halaman"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "Halaman {0}"
+
+#. placeholder {0}: page + 1
+#. placeholder {1}: Math.ceil(total / size)
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Page {0} of {1}"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -9122,6 +9405,10 @@ msgstr "Telefon"
 msgid "Phone (optional)"
 msgstr "Telefon (pilihan)"
 
+#: src/features/directory/page.tsx
+msgid "Phone numbers"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Photo hidden"
 msgstr "Foto disembunyikan"
@@ -9228,12 +9515,17 @@ msgstr "Portugis (asli)"
 msgid "Portuguese (Portugal)"
 msgstr "Portugis (Portugal)"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Kedudukan"
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Possible duplicate"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Possible duplicates"
 msgstr ""
 
 #: src/features/career/workspace/saved.tsx
@@ -9394,6 +9686,10 @@ msgstr "Tekan <0>Enter</0> untuk membuka"
 msgid "Previewing {0} · click to apply"
 msgstr "Mempratonton {0} · klik untuk menggunakan"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Previous"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Previous issue"
 msgstr "Isu sebelumnya"
@@ -9475,9 +9771,17 @@ msgstr "Pautan profil (pilihan)"
 msgid "Profile link of person {0}"
 msgstr "Pautan profil orang {0}"
 
+#: src/features/directory/page.tsx
+msgid "Profile links"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Pautan profil mestilah alamat HTTPS awam."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -9884,6 +10188,10 @@ msgstr "Perekrut"
 msgid "Recruiter reply"
 msgstr "Balasan kepada perekrut"
 
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Recruiter, referral, hiring manager…"
+msgstr ""
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Recruiters see this name. Your name plus “Cover Letter” works well."
 msgstr "Perekrut melihat nama ini. Nama anda serta \"Surat Sampul\" berfungsi dengan baik."
@@ -9926,6 +10234,10 @@ msgstr "Dirujuk oleh…, perkara yang perlu ditekankan, dsb."
 #: src/features/homepage/remember.tsx
 msgid "Reflection"
 msgstr "Refleksi"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Refresh contact review"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing 2 hours before"
@@ -10165,6 +10477,10 @@ msgstr ""
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
 msgstr "Menggantikan “{current}” pada permohonan."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
@@ -10485,6 +10801,11 @@ msgstr "Peranan {0}"
 msgid "Role / title"
 msgstr "Peranan / tajuk"
 
+#. placeholder {0}: contact.name
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Role in this application for {0}"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Role of person {0}"
@@ -10581,6 +10902,7 @@ msgstr "Contoh resume ditambah. Padamkannya pada bila-bila masa."
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/budget.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10858,6 +11180,18 @@ msgstr "Cari permohonan kerja"
 msgid "Search commands"
 msgstr "Perintah carian"
 
+#: src/features/directory/page.tsx
+msgid "Search companies"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts, companies, or tags"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Search covers titles, tags and linked applications."
 msgstr "Carian meliputi tajuk, teg dan permohonan pekerjaan yang dipautkan."
@@ -10994,6 +11328,10 @@ msgstr "Pilih semua"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Pilih penyedia AI"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Select new and matched contacts"
+msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Select up to 500 facts at a time."
@@ -11278,6 +11616,10 @@ msgstr "Tunjukkan semua jenis"
 msgid "Show closed"
 msgstr "Tunjukkan ditutup"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Show contacts"
+msgstr ""
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
 msgstr "Tunjukkan tajuk"
@@ -11495,9 +11837,14 @@ msgstr "Kemahiran"
 msgid "Skills"
 msgstr "Kemahiran"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "Langkau"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Skip all contacts"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and Upload"
@@ -12092,6 +12439,7 @@ msgstr "Label"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Tags"
@@ -12877,6 +13225,10 @@ msgstr "PDF ini ialah imej yang diimbas. Tiada teks untuk dibaca. Cuba versi Wor
 msgid "This PDF is password protected. Save an unprotected copy and try again."
 msgstr "PDF ini dilindungi kata laluan. Simpan salinan tidak dilindungi dan cuba lagi."
 
+#: src/features/directory/page.tsx
+msgid "This permanently deletes the selected records."
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Resume ini dikunci dan tidak boleh dikemas kini."
@@ -13018,6 +13370,10 @@ msgstr ""
 msgid "Time, link, who, what you sent"
 msgstr "Masa, pautan, siapa, apa yang anda hantar"
 
+#: src/features/directory/page.tsx
+msgid "Timeline"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Times are shown in {timeZone}."
 msgstr "Masa ditunjukkan dalam {timeZone}."
@@ -13146,6 +13502,7 @@ msgstr "Cuba sampel"
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/library-error.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
@@ -13413,6 +13770,11 @@ msgstr "Sehingga 25 MB · diperiksa dalam penyemak imbas anda, tidak pernah dimu
 msgid "Upcoming interviews"
 msgstr "Temuduga akan datang"
 
+#. placeholder {0}: candidate.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update {0}"
+msgstr ""
+
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx
 msgid "Update Password"
@@ -13443,6 +13805,10 @@ msgstr "{0} dikemas kini"
 msgid "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 msgstr "{done} daripada {total} dikemas kini. Dokumen terkunci, dan surat untuk pautan awam, dilangkau."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Updates"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "Mengemas kini kata laluan anda..."
@@ -13470,6 +13836,11 @@ msgstr "Memuat naik gambar…"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
 msgstr "URL"
+
+#. placeholder {0}: company.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use {0}"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
@@ -13533,6 +13904,10 @@ msgstr "Guna lalai"
 msgid "Use details from “{0}”"
 msgstr "Gunakan butiran daripada \"{0}\""
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use existing company"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Gunakan untuk semua permohonan"
@@ -13568,6 +13943,10 @@ msgstr "Gunakan tajuk standard"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Gunakan jawapan ini"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use this company name"
+msgstr ""
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
@@ -13738,6 +14117,10 @@ msgid "View application"
 msgstr "Lihat permohonan kerja"
 
 #: src/features/career/knowledge/import.tsx
+msgid "View contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "View facts"
 msgstr ""
 
@@ -13869,6 +14252,7 @@ msgstr "Carian web tidak selesai."
 msgid "Web search failed: {0}"
 msgstr "Carian web gagal: {0}"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Laman web"
@@ -14445,6 +14829,10 @@ msgstr "Bulet anda dilukis dengan aksara yang luar biasa."
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "Perubahan anda disimpan secara automatik."
+
+#: src/features/directory/page.tsx
+msgid "Your companies and contacts, across every application."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."

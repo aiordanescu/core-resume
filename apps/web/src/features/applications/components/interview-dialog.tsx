@@ -5,7 +5,7 @@ import { Trans } from "@lingui/react/macro";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { m } from "motion/react";
 import { useId, useMemo, useState } from "react";
-import { interviewDetailsSchema } from "@reactive-resume/schema/applications/data";
+import { interviewDetailsSchema, interviewParticipantSchema } from "@reactive-resume/schema/applications/data";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@reactive-resume/ui/components/dialog";
 import { Icon } from "@reactive-resume/ui/components/icon";
@@ -22,6 +22,7 @@ import { dayKey } from "../interviews";
 import { applicationsListQueryKey } from "../queries";
 import { Combobox } from "@/components/ui/combobox";
 import { useCareerTime, withUndo } from "@/features/career/shared";
+import { ContactPicker } from "@/features/directory/contact-picker";
 import { useClosingValue } from "@/hooks/use-closing-value";
 import { D2, EASE } from "@/libs/motion";
 import { orpc } from "@/libs/orpc/client";
@@ -82,7 +83,7 @@ type Draft = {
 	/** Not shown any more; kept so saving doesn't reset it. */
 	audience: InterviewTimelineEntry["audience"];
 	timezone: string;
-	participants: { id: string; name: string; role: string; profileUrl: string }[];
+	participants: { id: string; contactId?: string | undefined; name: string; role: string; profileUrl: string }[];
 };
 
 // New interviews default to the given day (or tomorrow) at 09:00 in the timezone, or the next full hour if that's past.
@@ -117,6 +118,7 @@ const draftFrom = (applicationId: string, interview: InterviewTimelineEntry, fal
 		timezone,
 		participants: (interview.participants ?? []).map((participant) => ({
 			id: generateId(),
+			contactId: participant.contactId,
 			name: participant.name,
 			role: participant.role,
 			profileUrl: participant.profileUrl ?? "",
@@ -217,7 +219,8 @@ export function InterviewDialog({
 		...draft,
 		participants: draft.participants
 			.filter(({ name }) => name.trim())
-			.map(({ name, role, profileUrl }) => ({
+			.map(({ contactId, name, role, profileUrl }) => ({
+				contactId,
 				name,
 				role,
 				...(profileUrl.trim() ? { profileUrl: profileUrl.trim() } : {}),
@@ -429,6 +432,25 @@ export function InterviewDialog({
 						<legend className="mb-1.5 text-xs font-medium text-ink-2">
 							<Trans>Who you'll meet</Trans>
 						</legend>
+						<ContactPicker
+							disabled={draft.participants.length >= 20}
+							onSelect={(person) => {
+								if (draft.participants.some((link) => link.contactId === person.id)) return;
+								set("participants", [
+									...draft.participants,
+									{
+										id: generateId(),
+										contactId: person.id,
+										name: person.name,
+										role: "",
+										profileUrl:
+											person.profileLinks.find(
+												(profileUrl) => interviewParticipantSchema.safeParse({ name: person.name, profileUrl }).success,
+											) ?? "",
+									},
+								]);
+							}}
+						/>
 						{draft.participants.map((participant, index) => (
 							<div key={participant.id} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_32px] gap-2">
 								<Input
@@ -436,6 +458,7 @@ export function InterviewDialog({
 									placeholder={t`Name`}
 									value={participant.name}
 									maxLength={200}
+									readOnly={!!participant.contactId}
 									onChange={(event) => setParticipant(participant.id, { name: event.target.value })}
 								/>
 								<Input
@@ -463,6 +486,7 @@ export function InterviewDialog({
 									placeholder={t`Profile link (optional)`}
 									className="col-span-2"
 									value={participant.profileUrl}
+									readOnly={!!participant.contactId}
 									maxLength={2048}
 									onChange={(event) => setParticipant(participant.id, { profileUrl: event.target.value })}
 								/>

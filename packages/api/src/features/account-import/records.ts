@@ -61,6 +61,7 @@ export const letterRecord = coverLetterContentSchema.extend({
 });
 
 export const applicationRecord = z.object({
+	companyId: z.string().nullable().optional(),
 	id,
 	company: z.string().trim().min(1).max(500),
 	role: z.string().trim().min(1).max(500),

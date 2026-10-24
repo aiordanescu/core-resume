@@ -7,6 +7,7 @@ import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { strToU8, zipSync } from "fflate";
 import { resumeToFactCandidates } from "@reactive-resume/import/facts";
 import { defaultResumeData } from "@reactive-resume/schema/resume/default";
 
@@ -25,15 +26,25 @@ const api = vi.hoisted(() => ({
 	save: vi.fn(),
 	update: vi.fn(),
 	resumeImport: vi.fn(),
+	contacts: [],
+	companies: [],
+	importContacts: vi.fn(),
 }));
 vi.mock("@/libs/orpc/client", () => {
-	const endpoint = (name: "facts" | "groups") => ({
+	const endpoint = (name: "facts" | "groups" | "contacts" | "companies") => ({
 		queryOptions: () => ({ queryKey: [name], queryFn: () => Promise.resolve(api[name]), retry: false }),
 		queryKey: () => [name],
 	});
 	return {
-		orpc: { career: { key: () => ["career"], facts: endpoint("facts"), factGroups: endpoint("groups") } },
-		client: { career: { importFacts: api.save, updateFact: api.update }, resume: { import: api.resumeImport } },
+		orpc: {
+			directory: { key: () => ["directory"], contacts: endpoint("contacts"), companies: endpoint("companies") },
+			career: { key: () => ["career"], facts: endpoint("facts"), factGroups: endpoint("groups") },
+		},
+		client: {
+			directory: { importLinkedIn: api.importContacts },
+			career: { importFacts: api.save, updateFact: api.update },
+			resume: { import: api.resumeImport },
+		},
 	};
 });
 vi.mock("@/features/resume/import/read-file", () => ({
@@ -80,6 +91,9 @@ beforeEach(() => {
 	queryClient = new QueryClient({ defaultOptions: { queries: { retry: false }, mutations: { retry: false } } });
 	api.facts = [];
 	api.groups = [];
+	api.contacts = [];
+	api.companies = [];
+	api.importContacts.mockResolvedValue({ created: 1, updated: 0, unchanged: 0, skipped: 0, companiesCreated: 1 });
 	const data = structuredClone(defaultResumeData);
 	resumeData = data;
 	data.basics.headline = "Platform engineer";
@@ -310,4 +324,86 @@ it("cancels an in-flight read without showing its late result", async () => {
 	resolveRead?.(structuredClone(defaultResumeData));
 	await waitFor(() => expect(screen.getByRole("button", { name: "Choose a file" })).toBeInTheDocument());
 	expect(screen.queryByRole("textbox", { name: "Fact text" })).toBeNull();
+});
+
+const uploadArchive = () =>
+	fireEvent.change(screen.getByLabelText("Choose a file to import"), {
+		target: {
+			files: [
+				new NodeFile(
+					[
+						zipSync({
+							"Profile.csv": strToU8("profile"),
+							"Connections.csv": strToU8(
+								"First Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey,casey@example.test,Lumen,Engineer,13 Aug 2026",
+							),
+						}),
+					],
+					"LinkedIn.zip",
+					{ type: "application/zip" },
+				),
+			],
+		},
+	});
+
+it("uses one archive for facts and optional contacts, leaving contact import off by default", async () => {
+	mount();
+	uploadArchive();
+	const contacts = await screen.findByRole("checkbox", { name: "Import contacts from this export" });
+	expect(contacts).not.toBeChecked();
+	expect(screen.queryByRole("checkbox", { name: "Also import email addresses" })).not.toBeInTheDocument();
+	fireEvent.click(screen.getByRole("button", { name: "Save 4 facts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).toHaveBeenCalledOnce();
+	expect(api.importContacts).not.toHaveBeenCalled();
+	expect(api.read.mock.calls[0]?.[2].bytes).toBeInstanceOf(Uint8Array);
+});
+it("reviews contacts from the same file and strips emails before submitting when email import is off", async () => {
+	mount();
+	uploadArchive();
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await screen.findByText("1 contact selected");
+	expect(screen.getByRole("checkbox", { name: "Also import email addresses" })).not.toBeChecked();
+	expect(api.importContacts).not.toHaveBeenCalled();
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).toHaveBeenCalledOnce();
+	expect(api.importContacts).toHaveBeenCalledWith(
+		expect.objectContaining({
+			importEmails: false,
+			rows: [
+				expect.objectContaining({
+					action: "create",
+					connection: expect.objectContaining({ email: "", name: "Casey Nguyen" }),
+				}),
+			],
+		}),
+	);
+	expect(screen.getByRole("link", { name: "View contacts" })).toBeInTheDocument();
+});
+it("supports a connections-only archive and imports email only by explicit choice", async () => {
+	api.read.mockRejectedValue(new Error("No profile"));
+	mount();
+	uploadArchive();
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Also import email addresses" }));
+	await screen.findByText("1 contact selected");
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).not.toHaveBeenCalled();
+	expect(api.importContacts.mock.calls[0]?.[0].rows[0].connection.email).toBe("casey@example.test");
+});
+it("keeps saved facts after a contact failure and allows retry without resubmitting facts", async () => {
+	api.importContacts.mockRejectedValueOnce(new Error("Network interrupted"));
+	mount();
+	uploadArchive();
+	fireEvent.click(await screen.findByRole("checkbox", { name: "Import contacts from this export" }));
+	await screen.findByText("1 contact selected");
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await waitFor(() => expect(screen.getByRole("button", { name: "Import selected facts and contacts" })).toBeEnabled());
+	expect(api.save).toHaveBeenCalledOnce();
+	fireEvent.click(screen.getByRole("button", { name: "Import selected facts and contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.save).toHaveBeenCalledOnce();
+	expect(api.importContacts).toHaveBeenCalledTimes(2);
 });

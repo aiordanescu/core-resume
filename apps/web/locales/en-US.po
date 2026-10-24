@@ -115,10 +115,32 @@ msgstr "{0, plural, one {# application} other {# applications}}"
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# character} other {# characters}}"
 
+#. placeholder {0}: counts.directory.companies
+#. placeholder {0}: current.directory.companies
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# company} other {# companies}}"
+msgstr "{0, plural, one {# company} other {# companies}}"
+
+#. placeholder {0}: connections.connections.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+msgstr "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
+
+#. placeholder {0}: selected.length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# contact selected} other {# contacts selected}}"
+msgstr "{0, plural, one {# contact selected} other {# contacts selected}}"
+
+#. placeholder {0}: counts.directory.contacts
+#. placeholder {0}: current.directory.contacts
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# contact} other {# contacts}}"
+msgstr "{0, plural, one {# contact} other {# contacts}}"
 
 #. placeholder {0}: summary.attachments
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -145,6 +167,11 @@ msgstr "{0, plural, one {# document moved to Trash} other {# documents moved to 
 #: src/features/assistant/conversation.tsx
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "update").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
+msgstr "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
 
 #. placeholder {0}: chosen.length
 #: src/features/career/knowledge/import.tsx
@@ -193,6 +220,16 @@ msgstr "{0, plural, one {# letter} other {# letters}}"
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
 msgstr "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "new").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# new contact} other {# new contacts}}"
+msgstr "{0, plural, one {# new contact} other {# new contacts}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "duplicate").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
+msgstr "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
 
 #. placeholder {0}: counts.jobSearch.opportunities
 #. placeholder {0}: current.jobSearch.opportunities
@@ -360,6 +397,14 @@ msgstr "{0} active applications"
 msgid "{0} closed"
 msgstr "{0} closed"
 
+#. placeholder {0}: contactsResult.created
+#. placeholder {1}: contactsResult.updated
+#. placeholder {2}: contactsResult.unchanged
+#. placeholder {3}: contactsResult.skipped
+#: src/features/career/knowledge/import.tsx
+msgid "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+msgstr "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+
 #. placeholder {0}: daysLeftInTrash(document.trashedAt)
 #: src/features/documents/document-card.tsx
 msgid "{0} days left"
@@ -424,6 +469,14 @@ msgstr "{0} in {1} is {2} in your timezone ({preferredZone})."
 #: src/features/career/workspace/shell.tsx
 msgid "{0} interview"
 msgstr "{0} interview"
+
+#. placeholder {0}: connections.skipped
+#. placeholder {1}: connections.duplicateRows
+#. placeholder {2}: connections.invalidEmails
+#. placeholder {3}: connections.invalidDates
+#: src/features/career/knowledge/import.tsx
+msgid "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
+msgstr "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
 
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
@@ -1316,6 +1369,7 @@ msgid "Add a location"
 msgstr "Add a location"
 
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/directory/page.tsx
 msgid "Add a note"
 msgstr "Add a note"
 
@@ -1425,7 +1479,12 @@ msgstr "Add award"
 msgid "Add certification"
 msgstr "Add certification"
 
+#: src/features/directory/page.tsx
+msgid "Add company"
+msgstr "Add company"
+
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/directory/page.tsx
 msgid "Add contact"
 msgstr "Add contact"
 
@@ -1477,6 +1536,10 @@ msgstr "Add keyword"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Add language"
+
+#: src/features/directory/page.tsx
+msgid "Add note"
+msgstr "Add note"
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1750,6 +1813,7 @@ msgid "Align right"
 msgstr "Align right"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/editor/design/template-group.tsx
@@ -1822,6 +1886,10 @@ msgstr "Also download the {0} cover letter"
 #: src/features/career/schedule-sheet.tsx
 msgid "Also email {0}"
 msgstr "Also email {0}"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Also import email addresses"
+msgstr "Also import email addresses"
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
@@ -2073,6 +2141,7 @@ msgstr "Application workspaces"
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/directory/page.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -2628,6 +2697,7 @@ msgstr "Can software read your resume?"
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
@@ -2897,6 +2967,10 @@ msgstr "Choose an account export"
 msgid "Choose an application…"
 msgstr "Choose an application…"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+msgstr "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Choose an offer"
@@ -3084,14 +3158,33 @@ msgstr "Command Palette - {currentPage}"
 msgid "Compact"
 msgstr "Compact"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+msgid "Companies"
+msgstr "Companies"
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Company"
 msgstr "Company"
+
+#. placeholder {0}: choice.sourceName
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company for {0}"
+msgstr "Company for {0}"
+
+#: src/features/directory/page.tsx
+msgid "Company history"
+msgstr "Company history"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company matching"
+msgstr "Company matching"
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -3216,6 +3309,15 @@ msgstr "Connected"
 msgid "Connected applications"
 msgstr "Connected applications"
 
+#: src/features/directory/page.tsx
+msgid "Connected on"
+msgstr "Connected on"
+
+#. placeholder {0}: connection.connectedOn
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Connected: {0}"
+msgstr "Connected: {0}"
+
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
 msgstr "Connecting the dots"
@@ -3249,6 +3351,10 @@ msgstr "Contact details found"
 msgid "Contact email"
 msgstr "Contact email"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Contact from file"
+msgstr "Contact from file"
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
 msgstr "Contact label"
@@ -3267,6 +3373,8 @@ msgstr "Contact role"
 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
 msgid "Contacts"
 msgstr "Contacts"
 
@@ -3478,9 +3586,25 @@ msgstr "Could not generate the PDF. Please try again."
 msgid "Could not load connected applications."
 msgstr "Could not load connected applications."
 
+#: src/features/directory/contact-picker.tsx
+msgid "Could not load contacts."
+msgstr "Could not load contacts."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgstr "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+
+#: src/features/directory/page.tsx
+msgid "Could not load the directory."
+msgstr "Could not load the directory."
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Could not prepare your resume for printing. Please try again."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Could not read contacts from this export."
+msgstr "Could not read contacts from this export."
 
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Could not revoke this connection. Try again."
@@ -3826,10 +3950,6 @@ msgid "Couldn't save the timezone."
 msgstr "Couldn't save the timezone."
 
 #: src/features/career/knowledge/import.tsx
-msgid "Couldn't save these facts. Your review is still here; try again."
-msgstr "Couldn't save these facts. Your review is still here; try again."
-
-#: src/features/career/knowledge/import.tsx
 msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr "Couldn't save this correction. Your edit is still here; try again."
 
@@ -4016,6 +4136,10 @@ msgstr "Create and change your documents and job applications."
 msgid "Create and open"
 msgstr "Create and open"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create contact"
+msgstr "Create contact"
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
 msgstr "Create key"
@@ -4024,6 +4148,10 @@ msgstr "Create key"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Create one now"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create separate contact"
+msgstr "Create separate contact"
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4255,6 +4383,18 @@ msgstr "Delete account"
 msgid "Delete Account"
 msgstr "Delete Account"
 
+#: src/features/directory/page.tsx
+msgid "Delete all contacts"
+msgstr "Delete all contacts"
+
+#: src/features/directory/page.tsx
+msgid "Delete company"
+msgstr "Delete company"
+
+#: src/features/directory/page.tsx
+msgid "Delete contact"
+msgstr "Delete contact"
+
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Delete entry"
 msgstr "Delete entry"
@@ -4262,6 +4402,10 @@ msgstr "Delete entry"
 #: src/features/ats-checker/messages.ts
 msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
 msgstr "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
+
+#: src/features/directory/page.tsx
+msgid "Delete note"
+msgstr "Delete note"
 
 #: src/features/documents/document-actions.tsx
 msgid "Delete now"
@@ -4446,6 +4590,13 @@ msgstr "Different currency, not compared"
 #: src/features/career/offers.tsx
 msgid "Different pay period, not compared"
 msgstr "Different pay period, not compared"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Directory"
+msgstr "Directory"
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -4794,6 +4945,14 @@ msgstr "Edit applied"
 msgid "Edit color {0}"
 msgstr "Edit color {0}"
 
+#: src/features/directory/page.tsx
+msgid "Edit company"
+msgstr "Edit company"
+
+#: src/features/directory/page.tsx
+msgid "Edit contact"
+msgstr "Edit contact"
+
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit date"
 msgstr "Edit date"
@@ -4910,6 +5069,10 @@ msgstr "Email"
 msgid "Email (optional)"
 msgstr "Email (optional)"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email address"
+msgstr "Email address"
+
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -4922,6 +5085,14 @@ msgstr "Email Address"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Email address won't be recognized"
+
+#: src/features/directory/page.tsx
+msgid "Email addresses"
+msgstr "Email addresses"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email addresses stay in your browser unless you select this option."
+msgstr "Email addresses stay in your browser unless you select this option."
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5109,6 +5280,11 @@ msgstr "Evolved from Reactive Resume"
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
 msgstr "Existing fact text"
+
+#. placeholder {0}: match.contact.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Existing: {0}"
+msgstr "Existing: {0}"
 
 #: src/features/resume/stylesheet/toolbar.tsx
 msgid "Exit focus mode"
@@ -5399,6 +5575,10 @@ msgstr "Filling in entries"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Filter by tag"
+
+#: src/features/directory/contact-picker.tsx
+msgid "Find a directory contact"
+msgstr "Find a directory contact"
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -6094,6 +6274,10 @@ msgstr "How to show the file"
 msgid "How well do I fit this role?"
 msgstr "How well do I fit this role?"
 
+#: src/features/directory/page.tsx
+msgid "How you know them"
+msgstr "How you know them"
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Hungarian"
@@ -6190,6 +6374,15 @@ msgstr "Import a resume"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Import a resume, copy one for a job, or start blank."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action"
+msgstr "Import action"
+
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action for {0}"
+msgstr "Import action for {0}"
+
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
@@ -6198,6 +6391,10 @@ msgstr "Import an export"
 #: src/features/career/knowledge/import.tsx
 msgid "Import another file"
 msgstr "Import another file"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import contacts from this export"
+msgstr "Import contacts from this export"
 
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Import failed. Check the CSV and try again."
@@ -6232,10 +6429,18 @@ msgstr "Import or export CSV"
 msgid "Import progress"
 msgstr "Import progress"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected facts and contacts"
+msgstr "Import selected facts and contacts"
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "Import steps"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
+msgstr "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
@@ -6374,6 +6579,7 @@ msgstr "Interface only. Each resume sets its own language in Design."
 
 #: src/features/applications/stages.ts
 #: src/features/career/schedule-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
@@ -6857,6 +7063,10 @@ msgstr "Languages"
 msgid "Last changed in {0}"
 msgstr "Last changed in {0}"
 
+#: src/features/directory/page.tsx
+msgid "Last contacted"
+msgstr "Last contacted"
+
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
@@ -7171,8 +7381,12 @@ msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: src/features/career/knowledge/import.tsx
-msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
-msgstr "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgid "LinkedIn contacts"
+msgstr "LinkedIn contacts"
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
+msgstr "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "LinkedIn, Referral…"
@@ -7249,6 +7463,10 @@ msgstr "Loading connection…"
 msgid "Loading connections..."
 msgstr "Loading connections..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Loading contacts and companies…"
+msgstr "Loading contacts and companies…"
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
 msgstr "Loading conversations…"
@@ -7290,6 +7508,10 @@ msgstr "Loading the total"
 msgid "Loading workspace…"
 msgstr "Loading workspace…"
 
+#: src/features/directory/page.tsx
+msgid "Loading…"
+msgstr "Loading…"
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7330,6 +7552,10 @@ msgstr "Look for"
 #: src/features/career/knowledge/budget.tsx
 msgid "Look it up instead"
 msgstr "Look it up instead"
+
+#: src/features/directory/page.tsx
+msgid "Looking for work"
+msgstr "Looking for work"
 
 #: src/features/resume/share/download-tab.tsx
 msgid "Looks exactly like the page. Use it for applications and email."
@@ -7774,6 +8000,7 @@ msgstr "My job was to find out why, without adding support work."
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -7868,6 +8095,7 @@ msgstr "Network"
 msgid "Never"
 msgstr "Never"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7968,6 +8196,10 @@ msgstr "New section"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "New teams at Northwind were stalling in setup; most never got through."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Next"
+msgstr "Next"
+
 #: src/features/settings/reminders.tsx
 msgid "Next interview"
 msgstr "Next interview"
@@ -8012,6 +8244,10 @@ msgstr "No active applications."
 msgid "No application"
 msgstr "No application"
 
+#: src/features/directory/page.tsx
+msgid "No applications at this company yet."
+msgstr "No applications at this company yet."
+
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match “{0}”."
@@ -8035,6 +8271,14 @@ msgid "No bullet lists were found."
 msgstr "No bullet lists were found."
 
 #: src/features/career/knowledge/import.tsx
+msgid "No career facts could be read. You can still review and import contacts from this export."
+msgstr "No career facts could be read. You can still review and import contacts from this export."
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found in this export."
+msgstr "No career facts were found in this export."
+
+#: src/features/career/knowledge/import.tsx
 msgid "No career facts were found. Try another file or add facts in Knowledge."
 msgstr "No career facts were found. Try another file or add facts in Knowledge."
 
@@ -8047,9 +8291,25 @@ msgstr "No change needed. It's already at {stage}."
 msgid "No commands match that search."
 msgstr "No commands match that search."
 
+#: src/features/directory/page.tsx
+msgid "No companies found. Add a company or track an application to get started."
+msgstr "No companies found. Add a company or track an application to get started."
+
+#: src/features/directory/page.tsx
+msgid "No company"
+msgstr "No company"
+
 #: src/features/settings/ai/connected-apps.tsx
 msgid "No connected applications."
 msgstr "No connected applications."
+
+#: src/features/directory/page.tsx
+msgid "No contacts at this company yet."
+msgstr "No contacts at this company yet."
+
+#: src/features/directory/page.tsx
+msgid "No contacts found. People added from applications and interviews also appear here."
+msgstr "No contacts found. People added from applications and interviews also appear here."
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -8339,6 +8599,10 @@ msgstr "Not in your resume · add only if true"
 msgid "Not now"
 msgstr "Not now"
 
+#: src/features/directory/page.tsx
+msgid "Not recorded"
+msgstr "Not recorded"
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
 msgstr "Not recorded yet. Leave it blank until you can support it."
@@ -8400,11 +8664,16 @@ msgstr "Note"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/application-notes.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Notes"
+
+#: src/features/directory/page.tsx
+msgid "Notes, linked applications, and interviews will appear here."
+msgstr "Notes, linked applications, and interviews will appear here."
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -8571,6 +8840,10 @@ msgstr "One column"
 msgid "one format"
 msgstr "one format"
 
+#: src/features/directory/page.tsx
+msgid "One per line"
+msgstr "One per line"
+
 #: src/features/settings/ai/web-access.tsx
 msgid "One scheduled discovery run"
 msgstr "One scheduled discovery run"
@@ -8687,6 +8960,10 @@ msgstr "Open in Offers"
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "open issues"
 msgstr "open issues"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Open LinkedIn profile"
+msgstr "Open LinkedIn profile"
 
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
@@ -8876,6 +9153,12 @@ msgstr "Page"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "Page {0}"
+
+#. placeholder {0}: page + 1
+#. placeholder {1}: Math.ceil(total / size)
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Page {0} of {1}"
+msgstr "Page {0} of {1}"
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -9117,6 +9400,10 @@ msgstr "Phone"
 msgid "Phone (optional)"
 msgstr "Phone (optional)"
 
+#: src/features/directory/page.tsx
+msgid "Phone numbers"
+msgstr "Phone numbers"
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Photo hidden"
 msgstr "Photo hidden"
@@ -9223,6 +9510,7 @@ msgstr "Portuguese (native)"
 msgid "Portuguese (Portugal)"
 msgstr "Portuguese (Portugal)"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Position"
@@ -9230,6 +9518,10 @@ msgstr "Position"
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Possible duplicate"
 msgstr "Possible duplicate"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Possible duplicates"
+msgstr "Possible duplicates"
 
 #: src/features/career/workspace/saved.tsx
 msgid "posting"
@@ -9389,6 +9681,10 @@ msgstr "Press <0>Enter</0> to open"
 msgid "Previewing {0} · click to apply"
 msgstr "Previewing {0} · click to apply"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Previous"
+msgstr "Previous"
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Previous issue"
 msgstr "Previous issue"
@@ -9470,9 +9766,17 @@ msgstr "Profile link (optional)"
 msgid "Profile link of person {0}"
 msgstr "Profile link of person {0}"
 
+#: src/features/directory/page.tsx
+msgid "Profile links"
+msgstr "Profile links"
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Profile links must be public HTTPS addresses."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
+msgstr "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -9879,6 +10183,10 @@ msgstr "Recruiter"
 msgid "Recruiter reply"
 msgstr "Recruiter reply"
 
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Recruiter, referral, hiring manager…"
+msgstr "Recruiter, referral, hiring manager…"
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Recruiters see this name. Your name plus “Cover Letter” works well."
 msgstr "Recruiters see this name. Your name plus “Cover Letter” works well."
@@ -9921,6 +10229,10 @@ msgstr "Referred by…, things to emphasize, etc."
 #: src/features/homepage/remember.tsx
 msgid "Reflection"
 msgstr "Reflection"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Refresh contact review"
+msgstr "Refresh contact review"
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing 2 hours before"
@@ -10160,6 +10472,10 @@ msgstr "Replace what you have?"
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
 msgstr "Replaces “{current}” on the application."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
+msgstr "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
 
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
@@ -10480,6 +10796,11 @@ msgstr "Role {0}"
 msgid "Role / title"
 msgstr "Role / title"
 
+#. placeholder {0}: contact.name
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Role in this application for {0}"
+msgstr "Role in this application for {0}"
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Role of person {0}"
@@ -10576,6 +10897,7 @@ msgstr "Sample resume added. Delete it anytime."
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/budget.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10853,6 +11175,18 @@ msgstr "Search applications"
 msgid "Search commands"
 msgstr "Search commands"
 
+#: src/features/directory/page.tsx
+msgid "Search companies"
+msgstr "Search companies"
+
+#: src/features/directory/page.tsx
+msgid "Search contacts"
+msgstr "Search contacts"
+
+#: src/features/directory/page.tsx
+msgid "Search contacts, companies, or tags"
+msgstr "Search contacts, companies, or tags"
+
 #: src/features/documents/documents-page.tsx
 msgid "Search covers titles, tags and linked applications."
 msgstr "Search covers titles, tags and linked applications."
@@ -10989,6 +11323,10 @@ msgstr "Select all"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Select an AI provider"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Select new and matched contacts"
+msgstr "Select new and matched contacts"
 
 #: src/features/career/knowledge/import.tsx
 msgid "Select up to 500 facts at a time."
@@ -11273,6 +11611,10 @@ msgstr "Show all types"
 msgid "Show closed"
 msgstr "Show closed"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Show contacts"
+msgstr "Show contacts"
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
 msgstr "Show heading"
@@ -11490,9 +11832,14 @@ msgstr "Skill"
 msgid "Skills"
 msgstr "Skills"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "Skip"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Skip all contacts"
+msgstr "Skip all contacts"
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and Upload"
@@ -12087,6 +12434,7 @@ msgstr "Tag"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Tags"
@@ -12872,6 +13220,10 @@ msgstr "This PDF is a scanned image. There's no text to read. Try the Word versi
 msgid "This PDF is password protected. Save an unprotected copy and try again."
 msgstr "This PDF is password protected. Save an unprotected copy and try again."
 
+#: src/features/directory/page.tsx
+msgid "This permanently deletes the selected records."
+msgstr "This permanently deletes the selected records."
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "This resume is locked and cannot be updated."
@@ -13013,6 +13365,10 @@ msgstr "Time limits"
 msgid "Time, link, who, what you sent"
 msgstr "Time, link, who, what you sent"
 
+#: src/features/directory/page.tsx
+msgid "Timeline"
+msgstr "Timeline"
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Times are shown in {timeZone}."
 msgstr "Times are shown in {timeZone}."
@@ -13141,6 +13497,7 @@ msgstr "Try a sample"
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/library-error.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
@@ -13408,6 +13765,11 @@ msgstr "Up to 25 MB · checked in your browser, never uploaded"
 msgid "Upcoming interviews"
 msgstr "Upcoming interviews"
 
+#. placeholder {0}: candidate.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update {0}"
+msgstr "Update {0}"
+
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx
 msgid "Update Password"
@@ -13438,6 +13800,10 @@ msgstr "Updated {0}"
 msgid "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 msgstr "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Updates"
+msgstr "Updates"
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "Updating your password..."
@@ -13465,6 +13831,11 @@ msgstr "Uploading picture…"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
 msgstr "URL"
+
+#. placeholder {0}: company.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use {0}"
+msgstr "Use {0}"
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
@@ -13528,6 +13899,10 @@ msgstr "Use default"
 msgid "Use details from “{0}”"
 msgstr "Use details from “{0}”"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use existing company"
+msgstr "Use existing company"
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Use for all applications"
@@ -13563,6 +13938,10 @@ msgstr "Use the standard heading"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Use these answers"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use this company name"
+msgstr "Use this company name"
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
@@ -13733,6 +14112,10 @@ msgid "View application"
 msgstr "View application"
 
 #: src/features/career/knowledge/import.tsx
+msgid "View contacts"
+msgstr "View contacts"
+
+#: src/features/career/knowledge/import.tsx
 msgid "View facts"
 msgstr "View facts"
 
@@ -13864,6 +14247,7 @@ msgstr "Web search didn't finish."
 msgid "Web search failed: {0}"
 msgstr "Web search failed: {0}"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Website"
@@ -14440,6 +14824,10 @@ msgstr "Your bullets are drawn with unusual characters."
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "Your changes are saved automatically."
+
+#: src/features/directory/page.tsx
+msgid "Your companies and contacts, across every application."
+msgstr "Your companies and contacts, across every application."
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."

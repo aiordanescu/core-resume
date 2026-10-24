@@ -20,6 +20,7 @@ import { requestRunCancellation } from "../agent/cancellation";
 import { prepareRunAt } from "../career/scheduling";
 import { coverLetterService } from "../cover-letters/service";
 import { writeLetterVersion } from "../cover-letters/versions";
+import { linkApplicationDirectory, lockDirectoryOwner } from "../directory/links";
 import { resumeService } from "../resume/service";
 import { writeVersion } from "../resume/version-history";
 import { getStorageService, uploadFile } from "../storage/service";
@@ -107,6 +108,7 @@ function appliedAtFromTimeline(activity: ApplicationTimelineEntry[], fallback: D
 // `T | undefined` and the repo compiles with exactOptionalPropertyTypes.
 type EditableFields = {
 	company?: string | undefined;
+	companyId?: string | null | undefined;
 	role?: string | undefined;
 	location?: string | null | undefined;
 	salary?: string | null | undefined;
@@ -494,7 +496,7 @@ export const applicationService = {
 					})
 					.returning();
 
-				if (row) await recordSentResume(row, tx);
+				if (row) await recordSentResume(await linkApplicationDirectory(tx, row), tx);
 				return id;
 			}),
 		);
@@ -529,8 +531,12 @@ export const applicationService = {
 			};
 		});
 
-		const rows = await db.insert(schema.application).values(values).returning({ id: schema.application.id });
-		return { imported: rows.length };
+		return db.transaction(async (tx) => {
+			await lockDirectoryOwner(tx, input.userId);
+			const rows = await tx.insert(schema.application).values(values).returning();
+			for (const row of rows) await linkApplicationDirectory(tx, row);
+			return { imported: rows.length };
+		});
 	},
 
 	update: async (
@@ -598,6 +604,9 @@ export const applicationService = {
 					.update(schema.application)
 					.set({
 						...fields,
+						...(fields.company !== undefined && fields.company !== current.company && fields.companyId === undefined
+							? { companyId: null }
+							: {}),
 						...uploadedFields,
 						...(status !== undefined ? { status } : {}),
 						...(appliedAtExpr ? { appliedAt: appliedAtExpr } : {}),
@@ -608,7 +617,7 @@ export const applicationService = {
 					.returning();
 
 				if (!updated) throw new ORPCError("NOT_FOUND");
-				return stripUserId(await recordSentResume(updated, tx));
+				return stripUserId(await recordSentResume(await linkApplicationDirectory(tx, updated), tx));
 			});
 			if (fields.resumeFileUrl !== undefined || fields.coverLetterUrl !== undefined || resumeFile || coverLetterFile) {
 				await deleteApplicationAttachments(userId, [existing]).catch(() => {});
@@ -662,18 +671,19 @@ export const applicationService = {
 		return stripUserId(updated);
 	},
 
-	addInterview: async (input: InterviewDetails & { id: string; userId: string; at: string }) => {
+	addInterview: (input: InterviewDetails & { id: string; userId: string; at: string }) => {
 		const { id, userId, at, ...details } = input;
 		const event = interviewEntry(at, details);
-		// Same atomic append as addNote so a concurrent note/stage move can't be dropped.
-		const [updated] = await db
-			.update(schema.application)
-			.set({ activity: sql`${schema.application.activity} || ${JSON.stringify([event])}::jsonb` })
-			.where(and(eq(schema.application.id, id), eq(schema.application.userId, userId)))
-			.returning();
-
-		if (!updated) throw new ORPCError("NOT_FOUND");
-		return stripUserId(updated);
+		return db.transaction(async (tx) => {
+			await lockDirectoryOwner(tx, userId);
+			const [updated] = await tx
+				.update(schema.application)
+				.set({ activity: sql`${schema.application.activity} || ${JSON.stringify([event])}::jsonb` })
+				.where(and(eq(schema.application.id, id), eq(schema.application.userId, userId)))
+				.returning();
+			if (!updated) throw new ORPCError("NOT_FOUND");
+			return stripUserId(await linkApplicationDirectory(tx, updated));
+		});
 	},
 
 	updateInterview: (
@@ -688,6 +698,7 @@ export const applicationService = {
 		const patch = Object.fromEntries(Object.entries(details).filter(([, value]) => value !== undefined));
 
 		return db.transaction(async (tx) => {
+			await lockDirectoryOwner(tx, input.userId);
 			const [existing] = await tx
 				.select()
 				.from(schema.application)
@@ -715,7 +726,7 @@ export const applicationService = {
 			// Only a new time moves briefings; re-saving the same time would cancel a briefing that's running.
 			const moved = at !== undefined && interviewAt(at).getTime() !== new Date(target.at).getTime();
 			if (moved) await followInterviewSchedules(tx, userId, id, entryId, interviewAt(at));
-			return stripUserId(updated);
+			return stripUserId(await linkApplicationDirectory(tx, updated));
 		});
 	},
 
@@ -727,6 +738,7 @@ export const applicationService = {
 		text?: string | undefined;
 	}) => {
 		return db.transaction(async (tx) => {
+			await lockDirectoryOwner(tx, input.userId);
 			const [existing] = await tx
 				.select()
 				.from(schema.application)
@@ -774,6 +786,7 @@ export const applicationService = {
 
 	deleteTimelineEntry: (input: { id: string; userId: string; entryId: string }) => {
 		return db.transaction(async (tx) => {
+			await lockDirectoryOwner(tx, input.userId);
 			const [existing] = await tx
 				.select()
 				.from(schema.application)

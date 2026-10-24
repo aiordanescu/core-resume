@@ -23,6 +23,7 @@ import {
 	careerScheduleSchema,
 	careerStorySchema,
 } from "../../dto/career";
+import { directoryDto } from "../../dto/directory";
 import { resumeDto } from "../../dto/resume";
 import { accountRateLimit } from "../../middleware/rate-limit";
 import { accountImportService } from "../account-import/service";
@@ -239,6 +240,12 @@ export const authRouter = {
 				),
 				coverLetters: z.array(coverLetterSchema),
 				applications: z.array(applicationDto.getById.output),
+				directory: z.object({
+					companies: directoryDto.companies.output,
+					contacts: directoryDto.contacts.output,
+					employment: directoryDto.contact.output.shape.employment,
+					notes: directoryDto.contact.output.shape.notes,
+				}),
 				aiContentReports: z.array(createSelectSchema(schema.aiContentReport)),
 				career: z.object({
 					profile: careerProfileDataSchema,

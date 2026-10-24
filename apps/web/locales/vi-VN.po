@@ -120,10 +120,32 @@ msgstr "{0, plural, other {# hồ sơ ứng tuyển}}"
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {Ký tự #} other {Ký tự #}}"
 
+#. placeholder {0}: counts.directory.companies
+#. placeholder {0}: current.directory.companies
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# company} other {# companies}}"
+msgstr ""
+
+#. placeholder {0}: connections.connections.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+msgstr ""
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {Liên hệ # có email không hợp lệ hoặc không có tên; Đơn xin việc của nó vẫn được nhập khẩu.} other {Danh bạ # có email không hợp lệ hoặc không có tên; đơn xin việc của họ vẫn được nhập khẩu.}}"
+
+#. placeholder {0}: selected.length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# contact selected} other {# contacts selected}}"
+msgstr ""
+
+#. placeholder {0}: counts.directory.contacts
+#. placeholder {0}: current.directory.contacts
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# contact} other {# contacts}}"
+msgstr ""
 
 #. placeholder {0}: summary.attachments
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -150,6 +172,11 @@ msgstr "{0, plural, one {Đã chuyển # tài liệu vào Thùng rác} other {Đ
 #: src/features/assistant/conversation.tsx
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {Không thể đặt bản chỉnh sửa #: văn bản của nó đã thay đổi. Yêu cầu làm lại lần nữa.} other {Không thể đặt các chỉnh sửa #: văn bản của chúng đã thay đổi. Yêu cầu một lần nữa để làm lại chúng.}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "update").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
+msgstr ""
 
 #. placeholder {0}: chosen.length
 #: src/features/career/knowledge/import.tsx
@@ -197,6 +224,16 @@ msgstr ""
 #. placeholder {0}: current.documents.locked
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "new").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# new contact} other {# new contacts}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "duplicate").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
 msgstr ""
 
 #. placeholder {0}: counts.jobSearch.opportunities
@@ -365,6 +402,14 @@ msgstr "{0} đơn xin việc đang hoạt động"
 msgid "{0} closed"
 msgstr "{0} đã đóng"
 
+#. placeholder {0}: contactsResult.created
+#. placeholder {1}: contactsResult.updated
+#. placeholder {2}: contactsResult.unchanged
+#. placeholder {3}: contactsResult.skipped
+#: src/features/career/knowledge/import.tsx
+msgid "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+msgstr ""
+
 #. placeholder {0}: daysLeftInTrash(document.trashedAt)
 #: src/features/documents/document-card.tsx
 msgid "{0} days left"
@@ -429,6 +474,14 @@ msgstr "{0} tại {1} là {2} theo múi giờ của bạn ({preferredZone})."
 #: src/features/career/workspace/shell.tsx
 msgid "{0} interview"
 msgstr "Phỏng vấn {0}"
+
+#. placeholder {0}: connections.skipped
+#. placeholder {1}: connections.duplicateRows
+#. placeholder {2}: connections.invalidEmails
+#. placeholder {3}: connections.invalidDates
+#: src/features/career/knowledge/import.tsx
+msgid "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
+msgstr ""
 
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
@@ -1321,6 +1374,7 @@ msgid "Add a location"
 msgstr "Thêm vị trí"
 
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/directory/page.tsx
 msgid "Add a note"
 msgstr "Thêm ghi chú"
 
@@ -1430,7 +1484,12 @@ msgstr "Thêm giải thưởng"
 msgid "Add certification"
 msgstr "Thêm chứng nhận"
 
+#: src/features/directory/page.tsx
+msgid "Add company"
+msgstr ""
+
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/directory/page.tsx
 msgid "Add contact"
 msgstr "Thêm liên hệ"
 
@@ -1482,6 +1541,10 @@ msgstr "Thêm từ khóa"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "Thêm ngôn ngữ"
+
+#: src/features/directory/page.tsx
+msgid "Add note"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1755,6 +1818,7 @@ msgid "Align right"
 msgstr "Căn phải"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/editor/design/template-group.tsx
@@ -1827,6 +1891,10 @@ msgstr "Đồng thời tải xuống thư xin việc {0}"
 #: src/features/career/schedule-sheet.tsx
 msgid "Also email {0}"
 msgstr "Gửi thêm email tới {0}"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Also import email addresses"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
@@ -2078,6 +2146,7 @@ msgstr ""
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/directory/page.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -2633,6 +2702,7 @@ msgstr "Phần mềm có đọc được sơ yếu lý lịch của bạn không
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
@@ -2902,6 +2972,10 @@ msgstr ""
 msgid "Choose an application…"
 msgstr "Chọn hồ sơ xin việc…"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "Chọn một lời đề nghị"
@@ -3089,14 +3163,33 @@ msgstr "Bảng lệnh - {currentPage}"
 msgid "Compact"
 msgstr "Nhỏ gọn"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+msgid "Companies"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Company"
 msgstr "Công ty"
+
+#. placeholder {0}: choice.sourceName
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company for {0}"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Company history"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company matching"
+msgstr ""
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -3221,6 +3314,15 @@ msgstr "Đã kết nối"
 msgid "Connected applications"
 msgstr "Ứng dụng được kết nối"
 
+#: src/features/directory/page.tsx
+msgid "Connected on"
+msgstr ""
+
+#. placeholder {0}: connection.connectedOn
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Connected: {0}"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
 msgstr "Đang xâu chuỗi"
@@ -3254,6 +3356,10 @@ msgstr "Đã tìm thấy chi tiết liên hệ"
 msgid "Contact email"
 msgstr "Email liên hệ"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Contact from file"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
 msgstr "Nhãn liên hệ"
@@ -3272,6 +3378,8 @@ msgstr "Vai trò liên hệ"
 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
 msgid "Contacts"
 msgstr "Liên hệ"
 
@@ -3483,9 +3591,25 @@ msgstr "Không thể tạo tệp PDF. Vui lòng thử lại."
 msgid "Could not load connected applications."
 msgstr "Không thể tải các ứng dụng được kết nối."
 
+#: src/features/directory/contact-picker.tsx
+msgid "Could not load contacts."
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Could not load the directory."
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "Không thể chuẩn bị sơ yếu lý lịch của bạn để in. Vui lòng thử lại."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Could not read contacts from this export."
+msgstr ""
 
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Could not revoke this connection. Try again."
@@ -3831,10 +3955,6 @@ msgid "Couldn't save the timezone."
 msgstr "Không thể lưu múi giờ."
 
 #: src/features/career/knowledge/import.tsx
-msgid "Couldn't save these facts. Your review is still here; try again."
-msgstr ""
-
-#: src/features/career/knowledge/import.tsx
 msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr ""
 
@@ -4021,6 +4141,10 @@ msgstr "Tạo và thay đổi tài liệu và đơn xin việc của bạn."
 msgid "Create and open"
 msgstr "Tạo và mở"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create contact"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
 msgstr "Tạo khóa"
@@ -4029,6 +4153,10 @@ msgstr "Tạo khóa"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "Tạo ngay bây giờ"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create separate contact"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4260,6 +4388,18 @@ msgstr "Xóa tài khoản"
 msgid "Delete Account"
 msgstr "Xóa tài khoản"
 
+#: src/features/directory/page.tsx
+msgid "Delete all contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete contact"
+msgstr ""
+
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Delete entry"
 msgstr "Xóa mục nhập"
@@ -4267,6 +4407,10 @@ msgstr "Xóa mục nhập"
 #: src/features/ats-checker/messages.ts
 msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
 msgstr "Xóa nó đi. Từ khóa ẩn bị coi là hành vi cố ý gian lận trong tìm kiếm."
+
+#: src/features/directory/page.tsx
+msgid "Delete note"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Delete now"
@@ -4451,6 +4595,13 @@ msgstr "Khác tiền tệ, không so sánh"
 #: src/features/career/offers.tsx
 msgid "Different pay period, not compared"
 msgstr "Khác kỳ trả lương, không so sánh"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Directory"
+msgstr ""
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -4799,6 +4950,14 @@ msgstr "Đã áp dụng chỉnh sửa"
 msgid "Edit color {0}"
 msgstr "Chỉnh sửa màu {0}"
 
+#: src/features/directory/page.tsx
+msgid "Edit company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Edit contact"
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit date"
 msgstr "Sửa ngày"
@@ -4915,6 +5074,10 @@ msgstr "Email"
 msgid "Email (optional)"
 msgstr "Email (tùy chọn)"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email address"
+msgstr ""
+
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -4927,6 +5090,14 @@ msgstr "Địa chỉ Email"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "Địa chỉ email sẽ không được công nhận"
+
+#: src/features/directory/page.tsx
+msgid "Email addresses"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email addresses stay in your browser unless you select this option."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5113,6 +5284,11 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
+msgstr ""
+
+#. placeholder {0}: match.contact.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -5404,6 +5580,10 @@ msgstr "Điền vào các mục"
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "Lọc theo thẻ"
+
+#: src/features/directory/contact-picker.tsx
+msgid "Find a directory contact"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -6099,6 +6279,10 @@ msgstr "Cách hiển thị tập tin"
 msgid "How well do I fit this role?"
 msgstr "Tôi phù hợp với vai trò này đến mức nào?"
 
+#: src/features/directory/page.tsx
+msgid "How you know them"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Tiếng Hungary"
@@ -6195,6 +6379,15 @@ msgstr "Nhập sơ yếu lý lịch"
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "Nhập sơ yếu lý lịch, sao chép sơ yếu lý lịch cho công việc hoặc bắt đầu để trống."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action"
+msgstr ""
+
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action for {0}"
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
@@ -6202,6 +6395,10 @@ msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import another file"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import contacts from this export"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6237,10 +6434,18 @@ msgstr "Nhập hoặc xuất CSV"
 msgid "Import progress"
 msgstr "Tiến độ nhập"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected facts and contacts"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "Các bước nhập"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
@@ -6379,6 +6584,7 @@ msgstr "Chỉ giao diện. Mỗi sơ yếu lý lịch đặt ngôn ngữ riêng 
 
 #: src/features/applications/stages.ts
 #: src/features/career/schedule-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
@@ -6862,6 +7068,10 @@ msgstr "Ngôn ngữ"
 msgid "Last changed in {0}"
 msgstr "Thay đổi lần cuối trong {0}"
 
+#: src/features/directory/page.tsx
+msgid "Last contacted"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
@@ -7176,7 +7386,11 @@ msgid "LinkedIn"
 msgstr "LinkedIn"
 
 #: src/features/career/knowledge/import.tsx
-msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgid "LinkedIn contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
@@ -7254,6 +7468,10 @@ msgstr "Đang tải kết nối…"
 msgid "Loading connections..."
 msgstr "Đang tải kết nối..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Loading contacts and companies…"
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
 msgstr "Đang tải cuộc trò chuyện…"
@@ -7295,6 +7513,10 @@ msgstr "Đang tải tổng số"
 msgid "Loading workspace…"
 msgstr "Đang tải không gian làm việc…"
 
+#: src/features/directory/page.tsx
+msgid "Loading…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7334,6 +7556,10 @@ msgstr "Tìm gì"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Look it up instead"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Looking for work"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
@@ -7779,6 +8005,7 @@ msgstr "Nhiệm vụ của tôi là tìm ra nguyên nhân mà không làm tăng 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -7873,6 +8100,7 @@ msgstr "Mạng"
 msgid "Never"
 msgstr "Không bao giờ"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7973,6 +8201,10 @@ msgstr "Phần mới"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Các nhóm mới tại Northwind bị kẹt ở bước thiết lập; hầu hết không vượt qua được."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Next"
+msgstr ""
+
 #: src/features/settings/reminders.tsx
 msgid "Next interview"
 msgstr ""
@@ -8017,6 +8249,10 @@ msgstr "Không có đơn xin việc đang hoạt động."
 msgid "No application"
 msgstr "Không có đơn xin việc"
 
+#: src/features/directory/page.tsx
+msgid "No applications at this company yet."
+msgstr ""
+
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match “{0}”."
@@ -8040,6 +8276,14 @@ msgid "No bullet lists were found."
 msgstr "Không tìm thấy danh sách gạch đầu dòng nào."
 
 #: src/features/career/knowledge/import.tsx
+msgid "No career facts could be read. You can still review and import contacts from this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found in this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "No career facts were found. Try another file or add facts in Knowledge."
 msgstr ""
 
@@ -8052,9 +8296,25 @@ msgstr "Không cần thay đổi. Hồ sơ đã ở {stage}."
 msgid "No commands match that search."
 msgstr "Không có lệnh nào khớp với tìm kiếm đó."
 
+#: src/features/directory/page.tsx
+msgid "No companies found. Add a company or track an application to get started."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No company"
+msgstr ""
+
 #: src/features/settings/ai/connected-apps.tsx
 msgid "No connected applications."
 msgstr "Không có ứng dụng được kết nối."
+
+#: src/features/directory/page.tsx
+msgid "No contacts at this company yet."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No contacts found. People added from applications and interviews also appear here."
+msgstr ""
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -8344,6 +8604,10 @@ msgstr "Không có trong lý lịch của bạn · chỉ thêm nếu đúng"
 msgid "Not now"
 msgstr "Để sau"
 
+#: src/features/directory/page.tsx
+msgid "Not recorded"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
 msgstr "Chưa ghi nhận. Để trống cho đến khi bạn có thể chứng minh."
@@ -8405,11 +8669,16 @@ msgstr "Thông tin"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/application-notes.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "Ghi chú"
+
+#: src/features/directory/page.tsx
+msgid "Notes, linked applications, and interviews will appear here."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -8576,6 +8845,10 @@ msgstr "Một cột"
 msgid "one format"
 msgstr "một định dạng"
 
+#: src/features/directory/page.tsx
+msgid "One per line"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "One scheduled discovery run"
 msgstr ""
@@ -8692,6 +8965,10 @@ msgstr "Mở trong Lời đề nghị"
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "open issues"
 msgstr "vấn đề mở"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Open LinkedIn profile"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
@@ -8881,6 +9158,12 @@ msgstr "Trang"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "Trang {0}"
+
+#. placeholder {0}: page + 1
+#. placeholder {1}: Math.ceil(total / size)
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Page {0} of {1}"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -9122,6 +9405,10 @@ msgstr "Điện thoại"
 msgid "Phone (optional)"
 msgstr "Điện thoại (tùy chọn)"
 
+#: src/features/directory/page.tsx
+msgid "Phone numbers"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Photo hidden"
 msgstr "Đã ẩn ảnh"
@@ -9228,12 +9515,17 @@ msgstr "Tiếng Bồ Đào Nha (bản xứ)"
 msgid "Portuguese (Portugal)"
 msgstr "Bồ Đào Nha (Bồ Đào Nha)"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "Vị trí"
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Possible duplicate"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Possible duplicates"
 msgstr ""
 
 #: src/features/career/workspace/saved.tsx
@@ -9394,6 +9686,10 @@ msgstr "Nhấn <0>phím Enter</0> để mở"
 msgid "Previewing {0} · click to apply"
 msgstr "Đang xem trước {0} · nhấp để áp dụng"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Previous"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Previous issue"
 msgstr "Số trước"
@@ -9475,9 +9771,17 @@ msgstr "Liên kết hồ sơ cá nhân (không bắt buộc)"
 msgid "Profile link of person {0}"
 msgstr "Liên kết hồ sơ cá nhân của người {0}"
 
+#: src/features/directory/page.tsx
+msgid "Profile links"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Liên kết hồ sơ phải là địa chỉ HTTPS công khai."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -9884,6 +10188,10 @@ msgstr "Nhà tuyển dụng"
 msgid "Recruiter reply"
 msgstr "Trả lời nhà tuyển dụng"
 
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Recruiter, referral, hiring manager…"
+msgstr ""
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Recruiters see this name. Your name plus “Cover Letter” works well."
 msgstr "Nhà tuyển dụng nhìn thấy tên này. Tên của bạn cộng với “Thư xin việc” hoạt động tốt."
@@ -9926,6 +10234,10 @@ msgstr "Người giới thiệu…, những điểm cần nhấn mạnh, v.v."
 #: src/features/homepage/remember.tsx
 msgid "Reflection"
 msgstr "Suy ngẫm"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Refresh contact review"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing 2 hours before"
@@ -10165,6 +10477,10 @@ msgstr ""
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
 msgstr "Thay thế “{current}” trong hồ sơ ứng tuyển."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
@@ -10485,6 +10801,11 @@ msgstr "Vai trò {0}"
 msgid "Role / title"
 msgstr "Vai trò / chức danh"
 
+#. placeholder {0}: contact.name
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Role in this application for {0}"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Role of person {0}"
@@ -10581,6 +10902,7 @@ msgstr "Sơ yếu lý lịch mẫu đã được thêm vào. Xóa nó bất cứ
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/budget.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10858,6 +11180,18 @@ msgstr "Tìm kiếm đơn xin việc"
 msgid "Search commands"
 msgstr "Lệnh tìm kiếm"
 
+#: src/features/directory/page.tsx
+msgid "Search companies"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts, companies, or tags"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Search covers titles, tags and linked applications."
 msgstr "Tìm kiếm bao gồm các tiêu đề, thẻ và đơn xin việc được liên kết."
@@ -10994,6 +11328,10 @@ msgstr "Chọn tất cả"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "Chọn nhà cung cấp AI"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Select new and matched contacts"
+msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Select up to 500 facts at a time."
@@ -11278,6 +11616,10 @@ msgstr "Hiện mọi loại"
 msgid "Show closed"
 msgstr "Hiển thị đã đóng"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Show contacts"
+msgstr ""
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
 msgstr "Hiển thị tiêu đề"
@@ -11495,9 +11837,14 @@ msgstr "Kỹ năng"
 msgid "Skills"
 msgstr "Kỹ năng"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "Bỏ qua"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Skip all contacts"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and Upload"
@@ -12092,6 +12439,7 @@ msgstr "Nhãn"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Tags"
@@ -12877,6 +13225,10 @@ msgstr "PDF này là hình ảnh được quét. Không có văn bản để đ�
 msgid "This PDF is password protected. Save an unprotected copy and try again."
 msgstr "PDF này được bảo vệ bằng mật khẩu. Hãy lưu một bản không bảo vệ rồi thử lại."
 
+#: src/features/directory/page.tsx
+msgid "This permanently deletes the selected records."
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Hồ sơ này đã bị khóa và không thể cập nhật."
@@ -13018,6 +13370,10 @@ msgstr ""
 msgid "Time, link, who, what you sent"
 msgstr "Thời gian, liên kết, người gặp, những gì bạn đã gửi"
 
+#: src/features/directory/page.tsx
+msgid "Timeline"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Times are shown in {timeZone}."
 msgstr "Thời gian được hiển thị theo {timeZone}."
@@ -13146,6 +13502,7 @@ msgstr "Hãy thử một mẫu"
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/library-error.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
@@ -13413,6 +13770,11 @@ msgstr "Lên đến 25 MB · đã được kiểm tra trong trình duyệt của
 msgid "Upcoming interviews"
 msgstr "Cuộc phỏng vấn sắp tới"
 
+#. placeholder {0}: candidate.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update {0}"
+msgstr ""
+
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx
 msgid "Update Password"
@@ -13443,6 +13805,10 @@ msgstr "Đã cập nhật {0}"
 msgid "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 msgstr "Đã cập nhật {done} trên {total}. Đã bỏ qua các tài liệu bị khóa và thư xin việc đối với liên kết công khai."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Updates"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "Đang cập nhật mật khẩu của bạn..."
@@ -13470,6 +13836,11 @@ msgstr "Đang tải ảnh lên…"
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
 msgstr "URL"
+
+#. placeholder {0}: company.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use {0}"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
@@ -13533,6 +13904,10 @@ msgstr "Dùng mặc định"
 msgid "Use details from “{0}”"
 msgstr "Sử dụng thông tin chi tiết từ “{0}”"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use existing company"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Dùng cho mọi hồ sơ ứng tuyển"
@@ -13568,6 +13943,10 @@ msgstr "Sử dụng tiêu đề tiêu chuẩn"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Dùng các câu trả lời này"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use this company name"
+msgstr ""
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
@@ -13738,6 +14117,10 @@ msgid "View application"
 msgstr "Xem đơn xin việc"
 
 #: src/features/career/knowledge/import.tsx
+msgid "View contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "View facts"
 msgstr ""
 
@@ -13869,6 +14252,7 @@ msgstr "Tìm kiếm trên web chưa kết thúc."
 msgid "Web search failed: {0}"
 msgstr "Tìm kiếm trên web không thành công: {0}"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "Trang web"
@@ -14445,6 +14829,10 @@ msgstr "Các gạch đầu dòng của bạn được tạo bằng những ký t
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "Thay đổi của bạn được lưu tự động."
+
+#: src/features/directory/page.tsx
+msgid "Your companies and contacts, across every application."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."

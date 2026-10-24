@@ -21,6 +21,7 @@ let client: Client;
 let server: McpServer;
 const calls = {
 	career: { importFacts: vi.fn() },
+	directory: { companies: vi.fn() },
 	auth: { deleteAccount: vi.fn() },
 	resume: { listVersions: vi.fn(), getById: vi.fn() },
 	rest: { fileUpload: vi.fn(), documentExports: { resume: vi.fn() } },
@@ -199,4 +200,16 @@ it("embeds actual resume JSON in prompts and propagates inaccessible-document er
 	await expect(client.getPrompt({ name: "review_resume", arguments: { id: "resume-1" } })).rejects.not.toThrow(
 		"credential secret",
 	);
+});
+
+it("exposes account-owned Directory reads and marks erasure as destructive", async () => {
+	calls.directory.companies.mockResolvedValueOnce([]);
+	const result = await client.callTool({ name: "api_directory_companies", arguments: {} });
+	expect(result.isError).not.toBe(true);
+	expect(calls.directory.companies).toHaveBeenCalledWith({});
+	const tools = await client.listTools();
+	expect(tools.tools.find((tool) => tool.name === "api_directory_delete_all_contacts")?.annotations).toMatchObject({
+		readOnlyHint: false,
+		destructiveHint: true,
+	});
 });

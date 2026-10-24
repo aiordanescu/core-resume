@@ -120,10 +120,32 @@ msgstr "{0, plural, one {# അപേക്ഷ} other {# അപേക്ഷകൾ
 msgid "{0, plural, one {# character} other {# characters}}"
 msgstr "{0, plural, one {# പ്രതീകം} other {# പ്രതീകങ്ങൾ}}"
 
+#. placeholder {0}: counts.directory.companies
+#. placeholder {0}: current.directory.companies
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# company} other {# companies}}"
+msgstr ""
+
+#. placeholder {0}: connections.connections.length
+#: src/features/career/knowledge/import.tsx
+msgid "{0, plural, one {# connection found in this export} other {# connections found in this export}}"
+msgstr ""
+
 #. placeholder {0}: result.contactsSkipped
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "{0, plural, one {# contact has an invalid email or no name; its application still imports.} other {# contacts have an invalid email or no name; their applications still import.}}"
 msgstr "{0, plural, one {# കോൺടാക്‌റ്റിന് ഒരു അസാധുവായ ഇമെയിൽ ഉണ്ട് അല്ലെങ്കിൽ പേരില്ല; അതിൻ്റെ തൊഴിൽ അപേക്ഷ ഇപ്പോഴും ഇറക്കുമതി ചെയ്യുന്നു.} other {# കോൺടാക്റ്റുകൾക്ക് ഒരു അസാധുവായ ഇമെയിൽ ഉണ്ട് അല്ലെങ്കിൽ പേരില്ല; അവരുടെ തൊഴിൽ അപേക്ഷകൾ ഇപ്പോഴും ഇറക്കുമതി ചെയ്യുന്നു.}}"
+
+#. placeholder {0}: selected.length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# contact selected} other {# contacts selected}}"
+msgstr ""
+
+#. placeholder {0}: counts.directory.contacts
+#. placeholder {0}: current.directory.contacts
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "{0, plural, one {# contact} other {# contacts}}"
+msgstr ""
 
 #. placeholder {0}: summary.attachments
 #: src/features/settings/account/import/import-account-dialog.tsx
@@ -150,6 +172,11 @@ msgstr "{0, plural, one {# പ്രമാണം ട്രാഷിലേക്�
 #: src/features/assistant/conversation.tsx
 msgid "{0, plural, one {# edit couldn't be placed: its text changed. Ask again to redo it.} other {# edits couldn't be placed: their text changed. Ask again to redo them.}}"
 msgstr "{0, plural, one {# എഡിറ്റ് സ്ഥാപിക്കാൻ കഴിഞ്ഞില്ല: അതിൻ്റെ വാചകം മാറി. അത് വീണ്ടും ചെയ്യാൻ വീണ്ടും ആവശ്യപ്പെടുക.} other {# എഡിറ്റുകൾ സ്ഥാപിക്കാൻ കഴിഞ്ഞില്ല: അവയുടെ വാചകം മാറി. അവ വീണ്ടും ചെയ്യാൻ വീണ്ടും ആവശ്യപ്പെടുക.}}"
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "update").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# existing contact to update} other {# existing contacts to update}}"
+msgstr ""
 
 #. placeholder {0}: chosen.length
 #: src/features/career/knowledge/import.tsx
@@ -197,6 +224,16 @@ msgstr ""
 #. placeholder {0}: current.documents.locked
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "{0, plural, one {# locked resume among them} other {# locked resumes among them}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "new").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# new contact} other {# new contacts}}"
+msgstr ""
+
+#. placeholder {0}: rows.filter((row) => row.match.kind === "duplicate").length
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "{0, plural, one {# possible duplicate} other {# possible duplicates}}"
 msgstr ""
 
 #. placeholder {0}: counts.jobSearch.opportunities
@@ -365,6 +402,14 @@ msgstr "{0} സജീവമായ തൊഴിൽ അപേക്ഷകൾ"
 msgid "{0} closed"
 msgstr "{0} അടച്ചു"
 
+#. placeholder {0}: contactsResult.created
+#. placeholder {1}: contactsResult.updated
+#. placeholder {2}: contactsResult.unchanged
+#. placeholder {3}: contactsResult.skipped
+#: src/features/career/knowledge/import.tsx
+msgid "{0} contacts created; {1} updated; {2} unchanged; {3} skipped."
+msgstr ""
+
 #. placeholder {0}: daysLeftInTrash(document.trashedAt)
 #: src/features/documents/document-card.tsx
 msgid "{0} days left"
@@ -429,6 +474,14 @@ msgstr "{1}-ലെ {0} എന്നത് നിങ്ങളുടെ സമയ�
 #: src/features/career/workspace/shell.tsx
 msgid "{0} interview"
 msgstr "{0} അഭിമുഖം"
+
+#. placeholder {0}: connections.skipped
+#. placeholder {1}: connections.duplicateRows
+#. placeholder {2}: connections.invalidEmails
+#. placeholder {3}: connections.invalidDates
+#: src/features/career/knowledge/import.tsx
+msgid "{0} invalid rows skipped; {1} repeated profiles removed; {2} invalid emails and {3} invalid connection dates left blank."
+msgstr ""
 
 #. placeholder {0}: i18n.number(row.minutes)
 #. placeholder {0}: row.minutes
@@ -1321,6 +1374,7 @@ msgid "Add a location"
 msgstr "ഒരു ലൊക്കേഷൻ ചേർക്കുക"
 
 #: src/features/applications/components/detail/activity.tsx
+#: src/features/directory/page.tsx
 msgid "Add a note"
 msgstr "ഒരു കുറിപ്പ് ചേർക്കുക"
 
@@ -1430,7 +1484,12 @@ msgstr "അവാർഡ് ചേർക്കുക"
 msgid "Add certification"
 msgstr "സർട്ടിഫിക്കേഷൻ ചേർക്കുക"
 
+#: src/features/directory/page.tsx
+msgid "Add company"
+msgstr ""
+
 #: src/features/applications/components/detail/contacts.tsx
+#: src/features/directory/page.tsx
 msgid "Add contact"
 msgstr "കോൺടാക്റ്റ് ചേർക്കുക"
 
@@ -1482,6 +1541,10 @@ msgstr "കീവേഡ് ചേർക്കുക"
 #: src/features/resume/editor/write/outline.tsx
 msgid "Add language"
 msgstr "ഭാഷ ചേർക്കുക"
+
+#: src/features/directory/page.tsx
+msgid "Add note"
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Add one link that shows your work."
@@ -1755,6 +1818,7 @@ msgid "Align right"
 msgstr "വലത്തേക്ക് വിന്യസിക്കുക"
 
 #: src/features/career/knowledge/facts.tsx
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/saved.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/editor/design/template-group.tsx
@@ -1827,6 +1891,10 @@ msgstr "{0} കവർ ലെറ്ററും ഡൗൺലോഡ് ചെയ�
 #: src/features/career/schedule-sheet.tsx
 msgid "Also email {0}"
 msgstr "{0} എന്ന വിലാസത്തിലേക്കും ഇമെയിൽ അയയ്ക്കുക"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Also import email addresses"
+msgstr ""
 
 #: src/features/resume/editor/design/style-groups.tsx
 msgid "Also shows the icons on skills, profiles and interests."
@@ -2078,6 +2146,7 @@ msgstr ""
 #: src/features/career/workspace/shell.tsx
 #: src/features/command-palette/pages/navigation.tsx
 #: src/features/command-palette/pages/resumes.tsx
+#: src/features/directory/page.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 #: src/routes/dashboard/applications/index.tsx
@@ -2633,6 +2702,7 @@ msgstr "സോഫ്റ്റ്‌വെയറിന് നിങ്ങളു�
 #: src/features/career/knowledge/stories.tsx
 #: src/features/career/schedule-sheet.tsx
 #: src/features/career/workspace/fit.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/resume/editor/check/job-match.tsx
@@ -2902,6 +2972,10 @@ msgstr ""
 msgid "Choose an application…"
 msgstr "ഒരു തൊഴിൽ അപേക്ഷ തിരഞ്ഞെടുക്കുക..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
+msgstr ""
+
 #: src/features/career/offers.tsx
 msgid "Choose an offer"
 msgstr "ഒരു ഓഫർ തിരഞ്ഞെടുക്കുക"
@@ -3089,14 +3163,33 @@ msgstr "കമാൻഡ് പാലറ്റ് - {currentPage}"
 msgid "Compact"
 msgstr "സംക്ഷിപ്തമായ"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+msgid "Companies"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/check/job-match.tsx
 #: src/features/resume/editor/write/entries.tsx
 #: src/routes/builder/letter/-components/write-panel.tsx
 msgid "Company"
 msgstr "കമ്പനി"
+
+#. placeholder {0}: choice.sourceName
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company for {0}"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Company history"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Company matching"
+msgstr ""
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -3221,6 +3314,15 @@ msgstr "ബന്ധിപ്പിച്ചു"
 msgid "Connected applications"
 msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ"
 
+#: src/features/directory/page.tsx
+msgid "Connected on"
+msgstr ""
+
+#. placeholder {0}: connection.connectedOn
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Connected: {0}"
+msgstr ""
+
 #: src/features/career/shared.tsx
 msgid "Connecting the dots"
 msgstr "കണ്ണികൾ ചേർക്കുന്നു"
@@ -3254,6 +3356,10 @@ msgstr "ബന്ധപ്പെടാനുള്ള വിശദാംശങ�
 msgid "Contact email"
 msgstr "ബന്ധപ്പെടാനുള്ള ഇമെയിൽ"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Contact from file"
+msgstr ""
+
 #: src/features/applications/components/import-applications-sheet.tsx
 msgid "Contact label"
 msgstr "കോൺടാക്റ്റ് ലേബൽ"
@@ -3272,6 +3378,8 @@ msgstr "കോൺടാക്റ്റ് റോൾ"
 
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
 msgid "Contacts"
 msgstr "ബന്ധങ്ങൾ"
 
@@ -3483,9 +3591,25 @@ msgstr "PDF ഉണ്ടാക്കാനായില്ല. ദയവായി
 msgid "Could not load connected applications."
 msgstr "ബന്ധിപ്പിച്ച ആപ്ലിക്കേഷനുകൾ ലോഡ് ചെയ്യാനായില്ല."
 
+#: src/features/directory/contact-picker.tsx
+msgid "Could not load contacts."
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Could not load Directory. Retry to review contacts, or leave contact import unchecked."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Could not load the directory."
+msgstr ""
+
 #: src/features/resume/export/use-resume-export.ts
 msgid "Could not prepare your resume for printing. Please try again."
 msgstr "പ്രിന്റിംഗിനായി നിങ്ങളുടെ റിസ്യൂം തയ്യാറാക്കാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക."
+
+#: src/features/career/knowledge/import.tsx
+msgid "Could not read contacts from this export."
+msgstr ""
 
 #: src/features/settings/ai/connected-apps.tsx
 msgid "Could not revoke this connection. Try again."
@@ -3831,10 +3955,6 @@ msgid "Couldn't save the timezone."
 msgstr "സമയമേഖല സേവ് ചെയ്യാനായില്ല."
 
 #: src/features/career/knowledge/import.tsx
-msgid "Couldn't save these facts. Your review is still here; try again."
-msgstr ""
-
-#: src/features/career/knowledge/import.tsx
 msgid "Couldn't save this correction. Your edit is still here; try again."
 msgstr ""
 
@@ -4021,6 +4141,10 @@ msgstr "നിങ്ങളുടെ ഡോക്യുമെൻ്റുകള�
 msgid "Create and open"
 msgstr "സൃഷ്ടിച്ച് തുറക്കുക"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create contact"
+msgstr ""
+
 #: src/features/settings/ai/api-keys.tsx
 msgid "Create key"
 msgstr "കീ സൃഷ്ടിക്കുക"
@@ -4029,6 +4153,10 @@ msgstr "കീ സൃഷ്ടിക്കുക"
 #: src/features/auth/pages/login.tsx
 msgid "Create one now"
 msgstr "ഇപ്പോൾ ഒരെണ്ണം ഉണ്ടാക്കുക"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Create separate contact"
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 #: src/features/resume/share/format.ts
@@ -4260,6 +4388,18 @@ msgstr "അക്കൗണ്ട് ഇല്ലാതാക്കുക"
 msgid "Delete Account"
 msgstr "അക്കൗണ്ട് ഡിലീറ്റ് ചെയ്യുക"
 
+#: src/features/directory/page.tsx
+msgid "Delete all contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Delete contact"
+msgstr ""
+
 #: src/features/resume/editor/write/entry-card.tsx
 msgid "Delete entry"
 msgstr "എൻട്രി ഇല്ലാതാക്കുക"
@@ -4267,6 +4407,10 @@ msgstr "എൻട്രി ഇല്ലാതാക്കുക"
 #: src/features/ats-checker/messages.ts
 msgid "Delete it. Hidden keywords are treated as a deliberate attempt to game the search."
 msgstr "അത് ഡിലീറ്റ് ചെയ്യുക. മറഞ്ഞിരിക്കുന്ന കീവേഡുകൾ തിരയൽ കബളിപ്പിക്കാനുള്ള ബോധപൂർവമായ ശ്രമമായി കണക്കാക്കുന്നു."
+
+#: src/features/directory/page.tsx
+msgid "Delete note"
+msgstr ""
 
 #: src/features/documents/document-actions.tsx
 msgid "Delete now"
@@ -4451,6 +4595,13 @@ msgstr "വ്യത്യസ്ത കറൻസി, താരതമ്യം �
 #: src/features/career/offers.tsx
 msgid "Different pay period, not compared"
 msgstr "വ്യത്യസ്ത ശമ്പള കാലയളവ്, താരതമ്യം ചെയ്തിട്ടില്ല"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/directory/page.tsx
+#: src/features/settings/account/import/import-account-dialog.tsx
+#: src/routes/dashboard/-components/app-shell.tsx
+msgid "Directory"
+msgstr ""
 
 #. Destructive action button to turn off two-factor authentication
 #: src/dialogs/auth/disable-two-factor.tsx
@@ -4799,6 +4950,14 @@ msgstr "എഡിറ്റ് പ്രയോഗിച്ചു"
 msgid "Edit color {0}"
 msgstr "നിറം എഡിറ്റ് ചെയ്യുക {0}"
 
+#: src/features/directory/page.tsx
+msgid "Edit company"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Edit contact"
+msgstr ""
+
 #: src/features/applications/components/detail/activity.tsx
 msgid "Edit date"
 msgstr "തീയതി തിരുത്തുക"
@@ -4915,6 +5074,10 @@ msgstr "ഇമെയിൽ"
 msgid "Email (optional)"
 msgstr "ഇമെയിൽ (ഓപ്ഷണൽ)"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email address"
+msgstr ""
+
 #. Label for email input on forgot-password form
 #. Label for email input on registration form
 #. Label for login identifier input that accepts email or username
@@ -4927,6 +5090,14 @@ msgstr "ഇമെയിൽ വിലാസം"
 #: src/features/resume/editor/check/issues.ts
 msgid "Email address won't be recognised"
 msgstr "ഇമെയിൽ വിലാസം തിരിച്ചറിയപ്പെടില്ല"
+
+#: src/features/directory/page.tsx
+msgid "Email addresses"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Email addresses stay in your browser unless you select this option."
+msgstr ""
 
 #: src/features/settings/account/profile.tsx
 msgid "Email delivery isn't set up on this server, so the address isn't verified."
@@ -5113,6 +5284,11 @@ msgstr ""
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Existing fact text"
+msgstr ""
+
+#. placeholder {0}: match.contact.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Existing: {0}"
 msgstr ""
 
 #: src/features/resume/stylesheet/toolbar.tsx
@@ -5404,6 +5580,10 @@ msgstr "എൻട്രികൾ പൂരിപ്പിക്കുന്ന�
 #: src/features/documents/documents-page.tsx
 msgid "Filter by tag"
 msgstr "ടാഗ് പ്രകാരം ഫിൽട്ടർ ചെയ്യുക"
+
+#: src/features/directory/contact-picker.tsx
+msgid "Find a directory contact"
+msgstr ""
 
 #: src/features/homepage/remember.tsx
 msgid "Find out why, and shorten setup without adding support work."
@@ -6099,6 +6279,10 @@ msgstr "ഫയൽ എങ്ങനെ കാണിക്കും"
 msgid "How well do I fit this role?"
 msgstr "ഈ റോളിൽ ഞാൻ എത്രത്തോളം യോജിക്കും?"
 
+#: src/features/directory/page.tsx
+msgid "How you know them"
+msgstr ""
+
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "ഹംഗേറിയൻ"
@@ -6195,6 +6379,15 @@ msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ
 msgid "Import a resume, copy one for a job, or start blank."
 msgstr "ഒരു റെസ്യൂമെ ഇറക്കുമതി ചെയ്യുക, ജോലിക്കായി ഒരെണ്ണം പകർത്തുക, അല്ലെങ്കിൽ ശൂന്യമായി തുടങ്ങുക."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action"
+msgstr ""
+
+#. placeholder {0}: connection.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Import action for {0}"
+msgstr ""
+
 #: src/features/settings/account/data.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import an export"
@@ -6202,6 +6395,10 @@ msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Import another file"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import contacts from this export"
 msgstr ""
 
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -6237,10 +6434,18 @@ msgstr "CSV ഇറക്കുമതി ചെയ്യുക അല്ലെങ
 msgid "Import progress"
 msgstr "ഇറക്കുമതി പുരോഗതി"
 
+#: src/features/career/knowledge/import.tsx
+msgid "Import selected facts and contacts"
+msgstr ""
+
 #: src/features/documents/new-document-dialog.tsx
 #: src/features/settings/account/import/import-account-dialog.tsx
 msgid "Import steps"
 msgstr "ഇറക്കുമതി ഘട്ടങ്ങൾ"
+
+#: src/features/career/knowledge/import.tsx
+msgid "Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Import this file into {APP_NAME}. Every issue is waiting for you in Check."
@@ -6379,6 +6584,7 @@ msgstr "ഇൻ്റർഫേസ് മാത്രം. ഓരോ റെസ്�
 
 #: src/features/applications/stages.ts
 #: src/features/career/schedule-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/features/homepage/prepare.tsx
 #: src/features/homepage/sections.tsx
 #: src/features/homepage/tailor.tsx
@@ -6862,6 +7068,10 @@ msgstr "ഭാഷകൾ"
 msgid "Last changed in {0}"
 msgstr "{0}-ൽ അവസാനം മാറ്റി"
 
+#: src/features/directory/page.tsx
+msgid "Last contacted"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 #: src/routes/builder/$resumeId/-components/document-details.tsx
 msgid "Last edited"
@@ -7176,7 +7386,11 @@ msgid "LinkedIn"
 msgstr "ലിങ്ക്ഡ്ഇൻ"
 
 #: src/features/career/knowledge/import.tsx
-msgid "LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and connections are ignored. Selected facts are saved to your account."
+msgid "LinkedIn contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are saved to your account."
 msgstr ""
 
 #: src/features/applications/components/application-form-sheet.tsx
@@ -7254,6 +7468,10 @@ msgstr "കണക്ഷൻ ലോഡ് ചെയ്യുന്നു..."
 msgid "Loading connections..."
 msgstr "കണക്ഷനുകൾ ലോഡ് ചെയ്യുന്നു..."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Loading contacts and companies…"
+msgstr ""
+
 #: src/features/command-palette/pages/resumes.tsx
 msgid "Loading conversations…"
 msgstr "സംഭാഷണങ്ങൾ ലോഡുചെയ്യുന്നു..."
@@ -7295,6 +7513,10 @@ msgstr "ആകെ ലോഡ് ചെയ്യുന്നു"
 msgid "Loading workspace…"
 msgstr "വർക്ക്‌സ്‌പേസ് ലോഡ് ചെയ്യുന്നു…"
 
+#: src/features/directory/page.tsx
+msgid "Loading…"
+msgstr ""
+
 #: src/features/applications/components/add-application-dialog.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
@@ -7334,6 +7556,10 @@ msgstr "തിരയേണ്ടത്"
 
 #: src/features/career/knowledge/budget.tsx
 msgid "Look it up instead"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Looking for work"
 msgstr ""
 
 #: src/features/resume/share/download-tab.tsx
@@ -7779,6 +8005,7 @@ msgstr "സപ്പോർട്ട് ജോലി കൂട്ടാതെ ക
 #: src/features/applications/components/detail/contacts.tsx
 #: src/features/applications/components/interview-dialog.tsx
 #: src/features/auth/pages/register.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-card.tsx
 #: src/features/documents/documents-page.tsx
 #: src/features/documents/new-document-dialog.tsx
@@ -7873,6 +8100,7 @@ msgstr "നെറ്റ്‌വർക്ക്"
 msgid "Never"
 msgstr "ഒരിക്കലുമില്ല"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/documents/document-card.tsx
 #: src/routes/dashboard/-components/app-shell.tsx
 msgid "New"
@@ -7973,6 +8201,10 @@ msgstr "പുതിയ വിഭാഗം"
 msgid "New teams at Northwind were stalling in setup; most never got through."
 msgstr "Northwind-ലെ പുതിയ ടീമുകൾ സെറ്റപ്പിൽ കുടുങ്ങിയിരുന്നു; മിക്കവരും പൂർത്തിയാക്കിയില്ല."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Next"
+msgstr ""
+
 #: src/features/settings/reminders.tsx
 msgid "Next interview"
 msgstr ""
@@ -8017,6 +8249,10 @@ msgstr "സജീവമായ തൊഴിൽ അപേക്ഷകളൊന്�
 msgid "No application"
 msgstr "ജോലി അപേക്ഷയില്ല"
 
+#: src/features/directory/page.tsx
+msgid "No applications at this company yet."
+msgstr ""
+
 #. placeholder {0}: query.trim()
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match “{0}”."
@@ -8040,6 +8276,14 @@ msgid "No bullet lists were found."
 msgstr "ബുള്ളറ്റ് ലിസ്റ്റുകളൊന്നും കണ്ടെത്തിയില്ല."
 
 #: src/features/career/knowledge/import.tsx
+msgid "No career facts could be read. You can still review and import contacts from this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
+msgid "No career facts were found in this export."
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "No career facts were found. Try another file or add facts in Knowledge."
 msgstr ""
 
@@ -8052,9 +8296,25 @@ msgstr "മാറ്റം ആവശ്യമില്ല. ഇത് ഇതി�
 msgid "No commands match that search."
 msgstr "ആ തിരയലിന് ചേരുന്ന കമാൻഡുകളൊന്നുമില്ല."
 
+#: src/features/directory/page.tsx
+msgid "No companies found. Add a company or track an application to get started."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No company"
+msgstr ""
+
 #: src/features/settings/ai/connected-apps.tsx
 msgid "No connected applications."
 msgstr "ബന്ധിപ്പിച്ച അപ്ലിക്കേഷനുകളൊന്നുമില്ല."
+
+#: src/features/directory/page.tsx
+msgid "No contacts at this company yet."
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "No contacts found. People added from applications and interviews also appear here."
+msgstr ""
 
 #: src/features/applications/components/detail/contacts.tsx
 msgid "No contacts yet."
@@ -8344,6 +8604,10 @@ msgstr "നിങ്ങളുടെ റെസ്യൂമെയിൽ ഇല്�
 msgid "Not now"
 msgstr "ഇപ്പോൾ വേണ്ട"
 
+#: src/features/directory/page.tsx
+msgid "Not recorded"
+msgstr ""
+
 #: src/features/career/knowledge/stories.tsx
 msgid "Not recorded yet. Leave it blank until you can support it."
 msgstr "ഇതുവരെ രേഖപ്പെടുത്തിയിട്ടില്ല. പിന്തുണയ്ക്കാൻ കഴിയുന്നത് വരെ ഇത് ശൂന്യമായി വിടുക."
@@ -8405,11 +8669,16 @@ msgstr "വിവരങ്ങൾ"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/application-notes.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/directory/page.tsx
 #: src/libs/resume/section.tsx
 #: src/routes/builder/$resumeId/-components/document-menu.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "Notes"
 msgstr "കുറിപ്പുകൾ"
+
+#: src/features/directory/page.tsx
+msgid "Notes, linked applications, and interviews will appear here."
+msgstr ""
 
 #: src/features/ats-checker/checker.tsx
 msgid "Nothing here should cost you a match."
@@ -8576,6 +8845,10 @@ msgstr "ഒരു കോളം"
 msgid "one format"
 msgstr "ഒരേ ഫോർമാറ്റ്"
 
+#: src/features/directory/page.tsx
+msgid "One per line"
+msgstr ""
+
 #: src/features/settings/ai/web-access.tsx
 msgid "One scheduled discovery run"
 msgstr ""
@@ -8692,6 +8965,10 @@ msgstr "ഓഫറുകളിൽ തുറക്കുക"
 #: src/routes/builder/$resumeId/-components/editor-bar.tsx
 msgid "open issues"
 msgstr "തുറന്ന പ്രശ്നങ്ങൾ"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Open LinkedIn profile"
+msgstr ""
 
 #: src/features/career/coach-thread.tsx
 msgid "Open Preferences"
@@ -8881,6 +9158,12 @@ msgstr "പേജ്"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "പേജ് {0}"
+
+#. placeholder {0}: page + 1
+#. placeholder {1}: Math.ceil(total / size)
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Page {0} of {1}"
+msgstr ""
 
 #: src/routes/builder/$resumeId/-components/page-canvas.tsx
 #: src/routes/builder/letter/-components/letter-page.tsx
@@ -9122,6 +9405,10 @@ msgstr "ഫോൺ"
 msgid "Phone (optional)"
 msgstr "ഫോൺ (ഓപ്ഷണൽ)"
 
+#: src/features/directory/page.tsx
+msgid "Phone numbers"
+msgstr ""
+
 #: src/features/resume/editor/check/issues.ts
 msgid "Photo hidden"
 msgstr "ഫോട്ടോ മറച്ചിരിക്കുന്നു"
@@ -9228,12 +9515,17 @@ msgstr "പോർച്ചുഗീസ് (സ്വദേശി)"
 msgid "Portuguese (Portugal)"
 msgstr "പോർച്ചുഗീസ് (പോർച്ചുഗൽ)"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/entries.tsx
 msgid "Position"
 msgstr "പദവി"
 
 #: src/features/career/knowledge/import-comparison.tsx
 msgid "Possible duplicate"
+msgstr ""
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Possible duplicates"
 msgstr ""
 
 #: src/features/career/workspace/saved.tsx
@@ -9394,6 +9686,10 @@ msgstr "തുറക്കാൻ <0>എന്റർ</0> അമർത്തുക
 msgid "Previewing {0} · click to apply"
 msgstr "{0} പ്രിവ്യൂ ചെയ്യുന്നു · പ്രയോഗിക്കാൻ ക്ലിക്ക് ചെയ്യുക"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Previous"
+msgstr ""
+
 #: src/features/resume/editor/check/page-layer.tsx
 msgid "Previous issue"
 msgstr "മുൻ പ്രശ്നം"
@@ -9475,9 +9771,17 @@ msgstr "പ്രൊഫൈൽ ലിങ്ക് (ഓപ്ഷണൽ)"
 msgid "Profile link of person {0}"
 msgstr "വ്യക്തി {0}-ന്റെ പ്രൊഫൈൽ ലിങ്ക്"
 
+#: src/features/directory/page.tsx
+msgid "Profile links"
+msgstr ""
+
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Profile links must be public HTTPS addresses."
 msgstr "പ്രൊഫൈൽ ലിങ്കുകൾ പൊതു HTTPS വിലാസങ്ങളായിരിക്കണം."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
+msgstr ""
 
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -9884,6 +10188,10 @@ msgstr "റിക്രൂട്ടർ"
 msgid "Recruiter reply"
 msgstr "റിക്രൂട്ടർക്കുള്ള മറുപടി"
 
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Recruiter, referral, hiring manager…"
+msgstr ""
+
 #: src/routes/builder/letter/-components/share-sheet.tsx
 msgid "Recruiters see this name. Your name plus “Cover Letter” works well."
 msgstr "റിക്രൂട്ടർമാർ ഈ പേര് കാണുന്നു. നിങ്ങളുടെ പേരും \"കവർ ലെറ്ററും\" നന്നായി പ്രവർത്തിക്കുന്നു."
@@ -9926,6 +10234,10 @@ msgstr "പരാമർശിക്കുന്നത്..., ഊന്നിപ�
 #: src/features/homepage/remember.tsx
 msgid "Reflection"
 msgstr "പ്രതിഫലനം"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Refresh contact review"
+msgstr ""
 
 #: src/features/career/workspace/prepare.tsx
 msgid "Refresh the briefing 2 hours before"
@@ -10165,6 +10477,10 @@ msgstr ""
 #: src/features/career/workspace/messages.tsx
 msgid "Replaces “{current}” on the application."
 msgstr "അപേക്ഷയിലെ “{current}” മാറ്റിസ്ഥാപിക്കുന്നു."
+
+#: src/features/settings/account/import/import-account-dialog.tsx
+msgid "Replacing Directory also removes contact details from existing applications and interviews. The applications remain."
+msgstr ""
 
 #: src/features/career/workspace/saved.tsx
 #: src/features/homepage/remember.tsx
@@ -10485,6 +10801,11 @@ msgstr "റോൾ {0}"
 msgid "Role / title"
 msgstr "റോൾ / തലക്കെട്ട്"
 
+#. placeholder {0}: contact.name
+#: src/features/applications/components/detail/contacts.tsx
+msgid "Role in this application for {0}"
+msgstr ""
+
 #. placeholder {0}: index + 1
 #: src/features/applications/components/interview-dialog.tsx
 msgid "Role of person {0}"
@@ -10581,6 +10902,7 @@ msgstr "സാമ്പിൾ റെസ്യൂമെ ചേർത്തു. �
 #: src/features/applications/components/detail/activity.tsx
 #: src/features/applications/components/detail/next-step-card.tsx
 #: src/features/career/knowledge/budget.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/resume/share/history-tab.tsx
 #: src/features/settings/account/security.tsx
@@ -10858,6 +11180,18 @@ msgstr "ജോലി അപേക്ഷകൾ തിരയുക"
 msgid "Search commands"
 msgstr "തിരയൽ നിർദ്ദേശങ്ങൾ"
 
+#: src/features/directory/page.tsx
+msgid "Search companies"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts"
+msgstr ""
+
+#: src/features/directory/page.tsx
+msgid "Search contacts, companies, or tags"
+msgstr ""
+
 #: src/features/documents/documents-page.tsx
 msgid "Search covers titles, tags and linked applications."
 msgstr "തിരയലിൽ ശീർഷകങ്ങൾ, ടാഗുകൾ, ലിങ്ക് ചെയ്‌ത ജോലി അപേക്ഷകൾ എന്നിവ ഉൾപ്പെടുന്നു."
@@ -10994,6 +11328,10 @@ msgstr "എല്ലാം തിരഞ്ഞെടുക്കുക"
 #: src/features/settings/integrations/components/ai-provider-picker.tsx
 msgid "Select an AI provider"
 msgstr "ഒരു AI ദാതാവിനെ തിരഞ്ഞെടുക്കുക"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Select new and matched contacts"
+msgstr ""
 
 #: src/features/career/knowledge/import.tsx
 msgid "Select up to 500 facts at a time."
@@ -11278,6 +11616,10 @@ msgstr "എല്ലാ തരങ്ങളും കാണിക്കുക"
 msgid "Show closed"
 msgstr "ഷോ അടച്ചു"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Show contacts"
+msgstr ""
+
 #: src/features/resume/editor/write/section-row.tsx
 msgid "Show heading"
 msgstr "തലക്കെട്ട് കാണിക്കുക"
@@ -11495,9 +11837,14 @@ msgstr "സ്കിൽ"
 msgid "Skills"
 msgstr "സ്കിൽസ്"
 
+#: src/features/career/knowledge/import-contacts.tsx
 #: src/features/career/workspace/apply.tsx
 msgid "Skip"
 msgstr "ഒഴിവാക്കുക"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Skip all contacts"
+msgstr ""
 
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "Skip and Upload"
@@ -12092,6 +12439,7 @@ msgstr "ടാഗ് ചെയ്യുക"
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/career/knowledge/stories.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/document-actions.tsx
 #: src/features/documents/documents-page.tsx
 msgid "Tags"
@@ -12877,6 +13225,10 @@ msgstr "ഈ PDF ഒരു സ്കാൻ ചെയ്ത ചിത്രമാ�
 msgid "This PDF is password protected. Save an unprotected copy and try again."
 msgstr "ഈ PDF പാസ്‌വേഡ് സംരക്ഷിതമാണ്. സംരക്ഷിക്കപ്പെടാത്ത ഒരു പകർപ്പ് സേവ് ചെയ്ത് വീണ്ടും ശ്രമിക്കുക."
 
+#: src/features/directory/page.tsx
+msgid "This permanently deletes the selected records."
+msgstr ""
+
 #: src/features/resume/builder/draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "ഈ റിസ്യൂം ലോക്ക് ചെയ്തതിനാൽ ഇതിനെ അപ്‌ഡേറ്റ് ചെയ്യാനോ ഡിലീറ്റ് ചെയ്യാനോ കഴിയില്ല."
@@ -13018,6 +13370,10 @@ msgstr ""
 msgid "Time, link, who, what you sent"
 msgstr "സമയം, ലിങ്ക്, ആരെ കാണും, നിങ്ങൾ അയച്ചത്"
 
+#: src/features/directory/page.tsx
+msgid "Timeline"
+msgstr ""
+
 #: src/features/career/knowledge/preferences.tsx
 msgid "Times are shown in {timeZone}."
 msgstr "സമയങ്ങൾ {timeZone}-ൽ കാണിക്കുന്നു."
@@ -13146,6 +13502,7 @@ msgstr "ഒരു സാമ്പിൾ പരീക്ഷിക്കുക"
 #: src/features/career/load-state.tsx
 #: src/features/career/workspace/practise.tsx
 #: src/features/career/workspace/shell.tsx
+#: src/features/directory/page.tsx
 #: src/features/documents/library-error.tsx
 #: src/features/resume/editor/write/improve.tsx
 #: src/features/resume/preview/preview.browser.tsx
@@ -13413,6 +13770,11 @@ msgstr "25 MB വരെ · നിങ്ങളുടെ ബ്രൗസറിൽ 
 msgid "Upcoming interviews"
 msgstr "വരാനിരിക്കുന്ന അഭിമുഖങ്ങൾ"
 
+#. placeholder {0}: candidate.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Update {0}"
+msgstr ""
+
 #. Primary action button to submit changed password
 #: src/dialogs/auth/change-password.tsx
 msgid "Update Password"
@@ -13443,6 +13805,10 @@ msgstr "{0} അപ്ഡേറ്റ് ചെയ്തു"
 msgid "Updated {done} of {total}. Locked documents, and letters for public links, were skipped."
 msgstr "{total}-ൽ {done} എണ്ണം അപ്ഡേറ്റ് ചെയ്തു. ലോക്ക് ചെയ്ത പ്രമാണങ്ങളും, പൊതു ലിങ്കുകൾക്കായി ലെറ്ററുകളും ഒഴിവാക്കി."
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Updates"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
 msgstr "നിങ്ങളുടെ പാസ്‌വേഡ് അപ്‌ഡേറ്റ് ചെയ്യുന്നു..."
@@ -13470,6 +13836,11 @@ msgstr "… ചിത്രം അപ്‌ലോഡ് ചെയ്യുന്
 #: src/features/resume/editor/write/picture-settings.tsx
 msgid "URL"
 msgstr "URL"
+
+#. placeholder {0}: company.name
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use {0}"
+msgstr ""
 
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
@@ -13533,6 +13904,10 @@ msgstr "സ്ഥിരസ്ഥിതി ഉപയോഗിക്കുക"
 msgid "Use details from “{0}”"
 msgstr "\"{0}\"-ൽ നിന്നുള്ള വിശദാംശങ്ങൾ ഉപയോഗിക്കുക"
 
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use existing company"
+msgstr ""
+
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "എല്ലാ അപേക്ഷകൾക്കും ഉപയോഗിക്കുക"
@@ -13568,6 +13943,10 @@ msgstr "സാധാരണ തലക്കെട്ട് ഉപയോഗിക�
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "ഈ ഉത്തരങ്ങൾ ഉപയോഗിക്കുക"
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Use this company name"
+msgstr ""
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
@@ -13738,6 +14117,10 @@ msgid "View application"
 msgstr "ജോലി അപേക്ഷ കാണുക"
 
 #: src/features/career/knowledge/import.tsx
+msgid "View contacts"
+msgstr ""
+
+#: src/features/career/knowledge/import.tsx
 msgid "View facts"
 msgstr ""
 
@@ -13869,6 +14252,7 @@ msgstr "വെബ് തിരയൽ പൂർത്തിയായില്ല.
 msgid "Web search failed: {0}"
 msgstr "വെബ് തിരയൽ പരാജയപ്പെട്ടു: {0}"
 
+#: src/features/directory/page.tsx
 #: src/features/resume/editor/write/basics-card.tsx
 msgid "Website"
 msgstr "വെബ്സൈറ്റ്"
@@ -14445,6 +14829,10 @@ msgstr "നിങ്ങളുടെ ബുള്ളറ്റുകൾ അസാ�
 #: src/routes/builder/letter/-components/letter-shell.tsx
 msgid "Your changes are saved automatically."
 msgstr "നിങ്ങളുടെ മാറ്റങ്ങൾ സ്വയം സേവ് ചെയ്യപ്പെടുന്നു."
+
+#: src/features/directory/page.tsx
+msgid "Your companies and contacts, across every application."
+msgstr ""
 
 #: src/features/ats-checker/messages.ts
 msgid "Your contact details are not on the first page."

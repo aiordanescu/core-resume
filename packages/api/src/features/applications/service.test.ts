@@ -63,6 +63,11 @@ vi.mock("../storage/service", () => ({
 	uploadFile: uploadFileMock,
 }));
 
+vi.mock("../directory/links", () => ({
+	linkApplicationDirectory: async (_tx: unknown, row: unknown) => row,
+	lockDirectoryOwner: async () => {},
+}));
+
 const { applicationService } = await import("./service");
 
 const existing = {

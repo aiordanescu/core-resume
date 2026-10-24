@@ -66,6 +66,7 @@ vi.mock("@reactive-resume/ui/components/toast", () => ({ toast: { add: vi.fn() }
 const application: Application = {
 	id: "shell-application",
 	company: "Harbor",
+	companyId: null,
 	role: "Engineer",
 	status: "saved",
 	closedReason: null,

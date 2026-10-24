@@ -4,6 +4,8 @@
 	"type": "module",
 	"private": true,
 	"exports": {
+		"./directory-import": "./src/directory-import.ts",
+		"./directory": "./src/directory.ts",
 		"./career": "./src/career.ts",
 		"./cover-letter/data": "./src/cover-letter/data.ts",
 		"./applications/*": "./src/applications/*.ts",

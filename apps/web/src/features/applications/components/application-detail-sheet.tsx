@@ -4,6 +4,7 @@ import { t } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Plural, Trans } from "@lingui/react/macro";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import { Button } from "@reactive-resume/ui/components/button";
@@ -131,7 +132,18 @@ function Detail({ application, onEditDetails, onDeleted }: DetailProps) {
 						<div className="grid min-w-0 flex-1 gap-0.5">
 							<SheetTitle className="font-display text-[22px] leading-7 font-medium">{application.role}</SheetTitle>
 							<SheetDescription className="text-sm text-ink-2">
-								{[application.company, application.location].filter(Boolean).join(" · ")}
+								{application.companyId ? (
+									<Link
+										to="/dashboard/directory"
+										search={{ tab: "companies", company: application.companyId }}
+										className="hover:underline"
+									>
+										{application.company}
+									</Link>
+								) : (
+									application.company
+								)}
+								{application.location && ` · ${application.location}`}
 							</SheetDescription>
 							<ViewPostingButton application={application} size="sm" className="mt-1.5 w-fit" />
 						</div>

@@ -5,6 +5,7 @@ import { applicationsRouter } from "../features/applications/router";
 import { authRouter } from "../features/auth/router";
 import { careerRouter } from "../features/career/router";
 import { coverLettersRouter } from "../features/cover-letters/router";
+import { directoryRouter } from "../features/directory/router";
 import { documentsRouter } from "../features/documents/router";
 import { flagsRouter } from "../features/flags/router";
 import { resumeRouter } from "../features/resume/router";
@@ -21,6 +22,7 @@ export default {
 	career: careerRouter,
 	coverLetters: coverLettersRouter,
 	documents: documentsRouter,
+	directory: directoryRouter,
 	flags: flagsRouter,
 	resume: resumeRouter,
 	statistics: statisticsRouter,

@@ -1,0 +1,63 @@
+---
+title: "Companies and contacts"
+description: "Keep companies and people in one private Directory, and link the same contact to applications and interviews."
+---
+
+Open **Directory** in the sidebar to see **Companies** and **Contacts**. These records belong to your account and stay available across devices.
+
+<Frame caption="Contacts can work at an employer, an agency, or have no current company. These examples use fictional people.">
+  <img
+    src="/images/guides/directory/contacts.png"
+    alt="Directory Contacts tab with Avery Chen at Atlas Recruiting, Casey Nguyen at Lumen Labs, and Morgan Lee marked Looking for work"
+  />
+</Frame>
+
+## Companies
+
+A company is created when you track an application. Names that differ only in capitalization or spacing use the same company. You can also select **Add company** to keep a company before applying there.
+
+Open a company to see its applications and contacts. **Edit company** lets you change its name, website and notes. A website's icon appears as its logo when available. Renaming a company also updates the company name on its linked applications.
+
+<Frame caption="A company page brings its tracked applications and contacts together.">
+  <img
+    src="/images/guides/directory/company.png"
+    alt="Lumen Labs company page with Contacts and Applications sections and a Staff Platform Engineer application"
+  />
+</Frame>
+
+## Contacts
+
+Select **Add contact** to save a name, position, optional company, profile links, email addresses, phone numbers, tags, notes, and how you know them. Use one line per email, phone number, profile link or tag.
+
+A contact's company is where they work. Keep an agency recruiter under their agency, even when they help with an application at another company. **No company** is available for people between jobs or other personal contacts. **Looking for work** is a separate choice.
+
+A contact page shows linked applications and interviews together with manual notes. You can also record **Connected on** and **Last contacted**. Changing their company or position keeps the previous company and position under **Company history**. Dates stay unknown when they haven't been provided; changing a company doesn't invent a start or end date.
+
+<Frame caption="One contact's timeline combines notes, applications and interviews.">
+  <img
+    src="/images/guides/directory/contact.png"
+    alt="Casey Nguyen contact page with last contacted date, a note about the platform team, a linked application and an interview"
+  />
+</Frame>
+
+## Import LinkedIn contacts
+
+Open **Knowledge → Import** and upload your LinkedIn export ZIP. Select **Import contacts from this export** to review its `Connections.csv` together with any career facts, so the archive only needs uploading once. Email addresses require the separate **Also import email addresses** option. Both options start unchecked.
+
+Review possible duplicates and company names before saving. Returning profile URLs update the same people; reviewed company aliases are remembered for later imports. See [Import facts from a file](/guides/building-career-knowledge#import-facts-from-a-file) for the combined workflow. Standalone CSV upload in Directory is deferred.
+
+## Link people to applications and interviews
+
+In an application's **Contacts** cell, search **Find a directory contact** to pick an existing person. Set their role in that application, such as Recruiter or Referral. **Add contact** also creates a central record under the application's company.
+
+In the interview dialog, **Who you'll meet** has the same search. Choose an existing person and enter their role for that interview. **Add a person** creates a central contact when the interview is saved. One person can be a referral on an application and an interviewer in a particular round.
+
+Names edited in Directory update the linked application and interview records. Removing a person from an application or interview leaves their Directory record available.
+
+## Existing records, export and deletion
+
+The first migration creates companies from existing applications and brings application contacts and interview participants into Directory. It merges matching names within the same company and account, preserving email addresses, phone numbers, profile links and source references. People in different accounts remain separate.
+
+[Export everything](/guides/exporting-your-data) includes `directory.json` with companies, contacts, past positions and notes. Account import restores them with new IDs and reconnects imported applications and interviews when both areas are selected.
+
+**Delete contact** removes the person, their notes and company history, and their details from linked applications and interviews. **Delete all contacts** does this for every contact in your account. Companies and applications remain. **Delete company** keeps its contacts and applications but clears their company links; application company names remain in their history.

@@ -93,6 +93,16 @@ export function NavigationCommandGroup() {
 
 				<CommandItem
 					disabled={!session}
+					keywords={[t`Directory`, t`Companies`, t`Contacts`]}
+					value="navigation.directory"
+					onSelect={() => onNavigate("/dashboard/directory")}
+				>
+					<Icon name="book-open" size={16} />
+					<Trans>Directory</Trans>
+				</CommandItem>
+
+				<CommandItem
+					disabled={!session}
 					keywords={[t`Settings`]}
 					value="navigation.settings"
 					onSelect={() => pushPage("settings")}

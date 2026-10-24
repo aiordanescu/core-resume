@@ -60,6 +60,7 @@ import { ApplicationList } from "./list-view";
 const application = (id: string, status: Application["status"]): Application => ({
 	id,
 	company: id === "closed" ? "Closed Co" : "Open Co",
+	companyId: null,
 	role: "Engineer",
 	status,
 	closedReason: status === "closed" ? "not-selected" : null,
