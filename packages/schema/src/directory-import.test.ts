@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+	hasLinkedInProfile,
 	indexLinkedInContacts,
 	linkedInConnectionSchema,
 	linkedInProfileKey,
@@ -36,6 +37,13 @@ describe("LinkedIn matching", () => {
 			kind: "duplicate",
 			contact: null,
 		});
+	});
+	it("tells contacts identified by a LinkedIn profile from hand-made ones", () => {
+		expect(hasLinkedInProfile(person)).toBe(true);
+		expect(
+			hasLinkedInProfile({ ...person, profileLinks: [], sources: [{ kind: "linkedin", id: connection.profileUrl }] }),
+		).toBe(true);
+		expect(hasLinkedInProfile({ ...person, profileLinks: ["https://example.com/casey"], sources: [] })).toBe(false);
 	});
 	it("maintains identity indexes across updates and imports", () => {
 		const index = indexLinkedInContacts([person]);

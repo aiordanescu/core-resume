@@ -441,6 +441,30 @@ suite("Directory migration and account boundaries", () => {
 			}),
 		).toMatchObject({ created: 1 });
 	});
+	it("creates same-name people with their own LinkedIn profiles, within a batch and across batches", async () => {
+		const { importLinkedInContacts } = await import("./linkedin");
+		const { linkedInConnectionSchema } = await import("@reactive-resume/schema/directory-import");
+		const twin = (slug: string) => ({
+			connection: linkedInConnectionSchema.parse({
+				name: "Jordan Twin",
+				profileUrl: `https://www.linkedin.com/in/${slug}`,
+			}),
+			action: "create" as const,
+		});
+		expect(
+			await importLinkedInContacts(userId, {
+				importEmails: false,
+				companies: [],
+				rows: [twin("jordan-a"), twin("jordan-b")],
+			}),
+		).toMatchObject({ created: 2 });
+		// The next batch of the same review only knew the Directory from before the first batch.
+		expect(
+			await importLinkedInContacts(userId, { importEmails: false, companies: [], rows: [twin("jordan-c")] }),
+		).toMatchObject({ created: 1 });
+		expect(await service.contacts({ userId, query: "Jordan Twin" })).toHaveLength(3);
+	});
+
 	it("deletes all contacts only for the current account and keeps its applications and companies", async () => {
 		const othersBefore = await service.contacts({ userId: otherId });
 		const companiesBefore = await service.companies({ userId });

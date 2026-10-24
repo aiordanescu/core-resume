@@ -5,6 +5,7 @@ import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
 import { directoryKey } from "@reactive-resume/schema/directory";
 import {
+	hasLinkedInProfile,
 	indexLinkedInContacts,
 	matchLinkedInContact,
 	updateLinkedInContactIndex,
@@ -65,7 +66,13 @@ export function importLinkedInContacts(userId: string, input: LinkedInImport) {
 					result.skipped++;
 					continue;
 				}
-				if (match.kind === "duplicate" && (row.duplicateDecision !== "separate" || match.identities.length > 0))
+				// The review decided every same-name contact it saw. Same-name people saved since then with their own LinkedIn
+				// profile (earlier rows or batches of this file) are someone else; anyone else needs the review again.
+				if (
+					match.kind === "duplicate" &&
+					(match.identities.length > 0 ||
+						(row.duplicateDecision !== "separate" && !match.candidates.every(hasLinkedInProfile)))
+				)
 					throw changedReview();
 			}
 
