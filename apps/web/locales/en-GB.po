@@ -14251,8 +14251,8 @@ msgid "Written offer"
 msgstr "Written offer"
 
 #: src/features/homepage/faq.tsx
-msgid "Yes. {APP_NAME} is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
-msgstr "Yes. {APP_NAME} is open source under the MIT License and ships as a Docker image, so it runs on your own server with your own database and storage."
+msgid "Yes. {APP_NAME} is open source under the MIT License, so it runs on your own server with your own database and storage."
+msgstr "Yes. {APP_NAME} is open source under the MIT License, so it runs on your own server with your own database and storage."
 
 #: src/features/homepage/faq.tsx
 msgid "Yes. Every feature is free: all {templates} templates, PDF and Word downloads, the ATS checker, cover letters and the job tracker. There are no ads, no tracking and no paid tier. {APP_NAME} is a fork of Reactive Resume, which is funded by donations."
