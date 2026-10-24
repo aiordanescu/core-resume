@@ -39,6 +39,15 @@ function request(archive: AccountArchive, area: ImportStep, mode: ImportMode, id
 	switch (area) {
 		case "documents":
 			return { area, mode, resumes: archive.resumes, letters: archive.letters };
+		case "directory":
+			return {
+				area,
+				mode,
+				companies: archive.directory?.companies ?? [],
+				contacts: archive.directory?.contacts ?? [],
+				employment: archive.directory?.employment ?? [],
+				notes: archive.directory?.notes ?? [],
+			};
 		case "applications":
 			return {
 				area,
@@ -74,7 +83,7 @@ function request(archive: AccountArchive, area: ImportStep, mode: ImportMode, id
 
 /** The areas that will run, in the order their records depend on each other. */
 export function importSteps(choices: ImportChoices): ImportStep[] {
-	const order: ImportListArea[] = ["documents", "applications", "knowledge", "jobSearch", "coach"];
+	const order: ImportListArea[] = ["documents", "directory", "applications", "knowledge", "jobSearch", "coach"];
 	const steps: ImportStep[] = order.filter((area) => choices.areas[area]);
 	if (Object.values(choices.settings).some(Boolean)) steps.push("settings");
 	return steps;

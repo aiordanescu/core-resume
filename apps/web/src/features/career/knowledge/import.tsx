@@ -1,7 +1,9 @@
 import type { Fact } from "../hooks";
 import type { ImportCorrection } from "./import-comparison";
+import type { ContactsImportSelection, ContactsImportResult } from "./import-contacts";
 import type { ImportDuplicates } from "./import-duplicates";
 import type { ImportFactCandidate } from "@reactive-resume/import/facts";
+import type { LinkedInConnectionsFile } from "@reactive-resume/import/linkedin-connections";
 import type { CareerImportFactsResult } from "@reactive-resume/schema/career";
 import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
@@ -9,11 +11,13 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { resumeToFactCandidates } from "@reactive-resume/import/facts";
+import { readLinkedInConnections, LinkedInConnectionsError } from "@reactive-resume/import/linkedin-connections";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Spinner } from "@reactive-resume/ui/components/spinner";
 import { isPrivateGroup, nearestGroupSetting, normalizeFactText } from "@reactive-resume/utils/knowledge";
 import { ImportComparison } from "./import-comparison";
+import { ContactsImportReview, emptyContactsResult, saveReviewedContacts } from "./import-contacts";
 import { findImportDuplicates } from "./import-duplicates";
 import { ImportRow, rowLabel } from "./import-fact-row";
 import { detectImportKind, ImportError, readResumeFile } from "@/features/resume/import/read-file";
@@ -26,7 +30,7 @@ const ACCEPT = ".pdf,.docx,.json,.zip,application/pdf,application/json,applicati
 type Step = "choose" | "reading" | "review" | "saving" | "done";
 type Draft = ImportFactCandidate & { selected: boolean };
 
-/** Files are read into a review draft, then only selected facts are submitted to Knowledge. */
+/** One local file supplies reviewed career facts and, optionally, Directory contacts. */
 export function KnowledgeImportPage() {
 	const queryClient = useQueryClient();
 	const provider = useHasUsableAiProvider();
@@ -42,6 +46,13 @@ export function KnowledgeImportPage() {
 	const [error, setError] = useState("");
 	const [note, setNote] = useState("");
 	const [result, setResult] = useState<CareerImportFactsResult | null>(null);
+	const [connections, setConnections] = useState<LinkedInConnectionsFile | null>(null);
+	const [connectionsWarning, setConnectionsWarning] = useState("");
+	const [careerWarning, setCareerWarning] = useState("");
+	const [importContacts, setImportContacts] = useState(false);
+	const [contactsSelection, setContactsSelection] = useState<ContactsImportSelection | null>(null);
+	const [contactsResult, setContactsResult] = useState<ContactsImportResult>(emptyContactsResult);
+	const savedProfiles = useRef(new Set<string>());
 	const input = useRef<HTMLInputElement>(null);
 	const run = useRef(0);
 	const busy =
@@ -55,13 +66,20 @@ export function KnowledgeImportPage() {
 	const chosenTexts = new Set<string>();
 	const chosen = rows.filter((row) => {
 		const key = normalizeFactText(row.text);
-		if (!row.selected || duplicate(row) || chosenTexts.has(key)) return false;
+		if (
+			!row.selected ||
+			duplicate(row) ||
+			result?.results.some((saved) => saved.sourceId === row.source.id && saved.status === "saved") ||
+			chosenTexts.has(key)
+		)
+			return false;
 		chosenTexts.add(key);
 		return true;
 	});
 	const chosenIds = new Set(chosen.map((row) => row.source.id));
 	const valid =
-		rows.length > 0 &&
+		(rows.length > 0 || !!connections?.connections.length) &&
+		(!importContacts || contactsSelection !== null) &&
 		chosen.length <= 500 &&
 		chosen.every((row) => row.text.trim().length > 0 && row.text.length <= 2000);
 	const privateGroups = (groups.data ?? [])
@@ -79,6 +97,13 @@ export function KnowledgeImportPage() {
 		setCorrections(new Map());
 		setCorrected(new Set());
 		setResult(null);
+		setConnections(null);
+		setConnectionsWarning("");
+		setCareerWarning("");
+		setImportContacts(false);
+		setContactsSelection(null);
+		setContactsResult(emptyContactsResult());
+		savedProfiles.current.clear();
 		setError("");
 		setNote("");
 		if (input.current) input.current.value = "";
@@ -90,19 +115,26 @@ export function KnowledgeImportPage() {
 		setError("");
 		setRows([]);
 		setResult(null);
+		setConnections(null);
+		setConnectionsWarning("");
+		setCareerWarning("");
+		setImportContacts(false);
+		setContactsSelection(null);
+		setContactsResult(emptyContactsResult());
+		savedProfiles.current.clear();
 		setFileName(file.name);
 		setNote(t`Reading the file…`);
 		try {
 			if (file.size > 100 * 1024 * 1024)
 				throw new ImportError(t`This file is too large. Use a file smaller than 100 MB.`);
-			const kind = await detectImportKind(file);
+			const bytes = new Uint8Array(await file.arrayBuffer());
+			const kind = await detectImportKind(file, bytes);
 			if (!kind || kind === "cover-letter-json")
 				throw new ImportError(t`Choose a resume PDF, Word file, resume JSON or LinkedIn data export ZIP.`);
 			if (kind !== "linkedin" && file.size > 10 * 1024 * 1024)
 				throw new ImportError(t`Resume files must be smaller than 10 MB.`);
-			const digest = Array.from(
-				new Uint8Array(await crypto.subtle.digest("SHA-256", await file.arrayBuffer())),
-				(byte) => byte.toString(16).padStart(2, "0"),
+			const digest = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)), (byte) =>
+				byte.toString(16).padStart(2, "0"),
 			).join("");
 			// Reload Knowledge before reviewing. Failed reads must not look like an empty account.
 			const known = await queryClient.fetchQuery({
@@ -122,20 +154,41 @@ export function KnowledgeImportPage() {
 					aiAvailable = false;
 				}
 			}
-			const data = await readResumeFile(file, kind, {
-				aiAvailable,
-				onRead: (message) => {
-					if (current()) setNote(message);
-				},
-			});
+			let parsedConnections: LinkedInConnectionsFile | null = null;
+			if (kind === "linkedin") {
+				try {
+					parsedConnections = readLinkedInConnections(bytes, file.name);
+					setConnections(parsedConnections);
+				} catch (cause) {
+					if (!(cause instanceof LinkedInConnectionsError && cause.code === "not-found"))
+						setConnectionsWarning(
+							cause instanceof Error ? cause.message : t`Could not read contacts from this export.`,
+						);
+				}
+			}
+			let candidates: ImportFactCandidate[] = [];
+			try {
+				const data = await readResumeFile(file, kind, {
+					bytes,
+					aiAvailable,
+					onRead: (message) => {
+						if (current()) setNote(message);
+					},
+				});
+				if (!current()) return;
+				candidates = resumeToFactCandidates(data, digest);
+			} catch (cause) {
+				if (!current()) return;
+				if (!parsedConnections?.connections.length) throw cause;
+				setCareerWarning(t`No career facts could be read. You can still review and import contacts from this export.`);
+			}
 			if (!current()) return;
-			const candidates = resumeToFactCandidates(data, digest);
 			const comparisons = findImportDuplicates(candidates, known);
 			const draft = candidates.map((candidate) => ({
 				...candidate,
 				selected: candidate.selected && !comparisons.has(candidate.source.id),
 			}));
-			if (!draft.length)
+			if (!draft.length && !parsedConnections?.connections.length)
 				throw new ImportError(t`No career facts were found. Try another file or add facts in Knowledge.`);
 			setRows(draft);
 			setMatches(comparisons);
@@ -161,12 +214,35 @@ export function KnowledgeImportPage() {
 						facts: chosen.map(({ text, category, group, source }) => ({ text: text.trim(), category, group, source })),
 					})
 				: { results: [] };
-			setResult(saved);
-			setStep("done");
+			setResult((previous) => ({
+				results: [
+					...(previous?.results ?? []).filter((row) => !saved.results.some((next) => next.sourceId === row.sourceId)),
+					...saved.results,
+				],
+			}));
 			await queryClient.invalidateQueries({ queryKey: orpc.career.key() });
+			if (importContacts && contactsSelection) {
+				const prior = contactsResult;
+				await saveReviewedContacts(
+					{
+						...contactsSelection,
+						rows: contactsSelection.rows.filter((row) => !savedProfiles.current.has(row.connection.profileUrl)),
+					},
+					(progress, completed) => {
+						for (const profile of completed) savedProfiles.current.add(profile);
+						const next = { ...prior };
+						for (const key of Object.keys(next) as (keyof ContactsImportResult)[]) next[key] += progress[key];
+						setContactsResult(next);
+					},
+				);
+				await queryClient.invalidateQueries({ queryKey: orpc.directory.key() });
+			}
+			setStep("done");
 		} catch (cause) {
 			setError(
-				getOrpcErrorMessage(cause, { fallback: t`Couldn't save these facts. Your review is still here; try again.` }),
+				getOrpcErrorMessage(cause, {
+					fallback: t`Import stopped. Any saved facts or contacts are kept. Your review is still here; use Refresh contact review before retrying.`,
+				}),
 			);
 			setStep("review");
 		}
@@ -328,8 +404,9 @@ export function KnowledgeImportPage() {
 					<div className="grid gap-2 text-sm text-ink-2">
 						<p>
 							<Trans>
-								LinkedIn exports and JSON are read in your browser. We only open LinkedIn's profile files; messages and
-								connections are ignored. Selected facts are saved to your account.
+								LinkedIn exports and JSON are read in your browser. We read LinkedIn's profile files, and connections
+								can optionally be imported into Directory. Messages are ignored. Only selected facts and contacts are
+								saved to your account.
 							</Trans>
 						</p>
 						<p>
@@ -383,6 +460,49 @@ export function KnowledgeImportPage() {
 							</span>
 						</div>
 					</div>
+					{careerWarning && (
+						<p role="status" className="text-sm text-ink-2">
+							{careerWarning}
+						</p>
+					)}
+					{connectionsWarning && (
+						<p role="alert" className="text-sm">
+							{connectionsWarning}
+						</p>
+					)}
+					{connections && (
+						<section aria-labelledby="import-contacts" className="grid min-w-0 gap-4 rounded-xl border border-line p-4">
+							<h2 id="import-contacts" className="text-lg font-semibold">
+								<Trans>LinkedIn contacts</Trans>
+							</h2>
+							<p className="text-sm text-ink-2">
+								{plural(connections.connections.length, {
+									one: "# connection found in this export",
+									other: "# connections found in this export",
+								})}
+							</p>
+							<label className="flex items-center gap-2 text-sm">
+								<input
+									type="checkbox"
+									checked={importContacts}
+									disabled={busy || !connections.connections.length}
+									onChange={(event) => setImportContacts(event.target.checked)}
+								/>
+								<Trans>Import contacts from this export</Trans>
+							</label>
+							{!!(
+								connections.skipped +
+								connections.duplicateRows +
+								connections.invalidEmails +
+								connections.invalidDates
+							) && (
+								<p className="text-xs text-ink-3">{t`${connections.skipped} invalid rows skipped; ${connections.duplicateRows} repeated profiles removed; ${connections.invalidEmails} invalid emails and ${connections.invalidDates} invalid connection dates left blank.`}</p>
+							)}
+							{importContacts && (
+								<ContactsImportReview file={connections} disabled={busy} onChange={setContactsSelection} />
+							)}
+						</section>
+					)}
 					{(facts.isError || groups.isError) && (
 						<div role="alert" className="text-sm">
 							<Trans>Couldn't refresh Knowledge. Try again before saving.</Trans>
@@ -412,7 +532,11 @@ export function KnowledgeImportPage() {
 						</header>
 						{grouped.size === 0 && (
 							<p className="rounded-lg bg-sunken p-4 text-sm text-ink-2">
-								<Trans>All proposed facts have matches. Review them in Duplicates below.</Trans>
+								{rows.length ? (
+									<Trans>All proposed facts have matches. Review them in Duplicates below.</Trans>
+								) : (
+									<Trans>No career facts were found in this export.</Trans>
+								)}
 							</p>
 						)}
 						{Array.from(grouped, ([group, entries]) => (
@@ -498,7 +622,11 @@ export function KnowledgeImportPage() {
 							loading={step === "saving"}
 							onClick={() => void save()}
 						>
-							{chosen.length ? plural(chosen.length, { one: "Save # fact", other: "Save # facts" }) : t`Finish review`}
+							{importContacts
+								? t`Import selected facts and contacts`
+								: chosen.length
+									? plural(chosen.length, { one: "Save # fact", other: "Save # facts" })
+									: t`Finish review`}
 						</Button>
 						<Button variant="ghost" disabled={busy || corrections.size > 0} onClick={reset}>
 							<Trans>Choose another file</Trans>
@@ -525,6 +653,14 @@ export function KnowledgeImportPage() {
 							{corrected.size > 0 && (
 								<p className="text-sm text-ink-2">{t`${corrected.size} existing facts corrected`}</p>
 							)}
+						</>
+					)}
+					{importContacts && (
+						<>
+							<p className="text-sm">{t`${contactsResult.created} contacts created; ${contactsResult.updated} updated; ${contactsResult.unchanged} unchanged; ${contactsResult.skipped} skipped.`}</p>
+							<Link to="/dashboard/directory" search={{ tab: "contacts" }} className="text-sm underline">
+								<Trans>View contacts</Trans>
+							</Link>
 						</>
 					)}
 					<Link to="/dashboard/career/knowledge/facts" className="text-sm underline">

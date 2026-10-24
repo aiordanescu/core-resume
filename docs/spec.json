@@ -14710,6 +14710,16 @@
 												"minLength": 1,
 												"description": "The company applied to."
 											},
+											"companyId": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
 											"role": {
 												"type": "string",
 												"minLength": 1,
@@ -15048,6 +15058,10 @@
 												"items": {
 													"type": "object",
 													"properties": {
+														"contactId": {
+															"type": "string",
+															"minLength": 1
+														},
 														"name": {
 															"type": "string",
 															"minLength": 1
@@ -15186,6 +15200,10 @@
 																	"items": {
 																		"type": "object",
 																		"properties": {
+																			"contactId": {
+																				"type": "string",
+																				"minLength": 1
+																			},
 																			"name": {
 																				"type": "string",
 																				"minLength": 1,
@@ -15255,6 +15273,7 @@
 										"required": [
 											"id",
 											"company",
+											"companyId",
 											"role",
 											"location",
 											"salary",
@@ -15381,6 +15400,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -15592,6 +15621,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -15701,6 +15734,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -15912,6 +15955,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -16356,6 +16403,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -16694,6 +16751,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -16832,6 +16893,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -16901,6 +16966,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -17016,6 +17082,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -17227,6 +17303,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -17333,6 +17413,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -17544,6 +17634,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -17668,6 +17762,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -18006,6 +18110,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -18144,6 +18252,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -18213,6 +18325,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -18401,6 +18514,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -18612,6 +18735,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -18718,6 +18845,16 @@
 										"minLength": 1,
 										"description": "The company applied to."
 									},
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string"
+											},
+											{
+												"type": "null"
+											}
+										]
+									},
 									"role": {
 										"type": "string",
 										"minLength": 1,
@@ -18929,6 +19066,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1
@@ -19052,6 +19193,16 @@
 											"type": "string",
 											"minLength": 1,
 											"description": "The company applied to."
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
 										},
 										"role": {
 											"type": "string",
@@ -19391,6 +19542,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -19529,6 +19684,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -19598,6 +19757,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -19711,6 +19871,16 @@
 													"type": "string",
 													"minLength": 1,
 													"description": "The company applied to."
+												},
+												"companyId": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
 												},
 												"role": {
 													"type": "string",
@@ -19923,6 +20093,10 @@
 													"items": {
 														"type": "object",
 														"properties": {
+															"contactId": {
+																"type": "string",
+																"minLength": 1
+															},
 															"name": {
 																"type": "string",
 																"minLength": 1
@@ -20168,6 +20342,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -20506,6 +20690,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -20644,6 +20832,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -20713,6 +20905,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -20834,6 +21027,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -21172,6 +21375,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -21310,6 +21517,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -21379,6 +21590,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -21524,6 +21736,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -21862,6 +22084,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -22000,6 +22226,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -22069,6 +22299,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -22213,6 +22444,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1,
@@ -22282,6 +22517,16 @@
 											"type": "string",
 											"minLength": 1,
 											"description": "The company applied to."
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
 										},
 										"role": {
 											"type": "string",
@@ -22621,6 +22866,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -22759,6 +23008,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -22828,6 +23081,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -22982,6 +23236,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1,
@@ -23039,6 +23297,16 @@
 											"type": "string",
 											"minLength": 1,
 											"description": "The company applied to."
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
 										},
 										"role": {
 											"type": "string",
@@ -23378,6 +23646,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -23516,6 +23788,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -23585,6 +23861,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -23737,6 +24014,10 @@
 										"items": {
 											"type": "object",
 											"properties": {
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
 												"name": {
 													"type": "string",
 													"minLength": 1,
@@ -23794,6 +24075,16 @@
 											"type": "string",
 											"minLength": 1,
 											"description": "The company applied to."
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
 										},
 										"role": {
 											"type": "string",
@@ -24133,6 +24424,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -24271,6 +24566,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -24340,6 +24639,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -24490,6 +24790,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -24828,6 +25138,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -24966,6 +25280,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -25035,6 +25353,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -25163,6 +25482,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -25501,6 +25830,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -25639,6 +25972,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -25708,6 +26045,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -25856,6 +26194,16 @@
 											"minLength": 1,
 											"description": "The company applied to."
 										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
 										"role": {
 											"type": "string",
 											"minLength": 1,
@@ -26194,6 +26542,10 @@
 											"items": {
 												"type": "object",
 												"properties": {
+													"contactId": {
+														"type": "string",
+														"minLength": 1
+													},
 													"name": {
 														"type": "string",
 														"minLength": 1
@@ -26332,6 +26684,10 @@
 																"items": {
 																	"type": "object",
 																	"properties": {
+																		"contactId": {
+																			"type": "string",
+																			"minLength": 1
+																		},
 																		"name": {
 																			"type": "string",
 																			"minLength": 1,
@@ -26401,6 +26757,7 @@
 									"required": [
 										"id",
 										"company",
+										"companyId",
 										"role",
 										"location",
 										"salary",
@@ -34288,6 +34645,16 @@
 														"minLength": 1,
 														"description": "The company applied to."
 													},
+													"companyId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
 													"role": {
 														"type": "string",
 														"minLength": 1,
@@ -34626,6 +34993,10 @@
 														"items": {
 															"type": "object",
 															"properties": {
+																"contactId": {
+																	"type": "string",
+																	"minLength": 1
+																},
 																"name": {
 																	"type": "string",
 																	"minLength": 1
@@ -34764,6 +35135,10 @@
 																			"items": {
 																				"type": "object",
 																				"properties": {
+																					"contactId": {
+																						"type": "string",
+																						"minLength": 1
+																					},
 																					"name": {
 																						"type": "string",
 																						"minLength": 1,
@@ -34833,6 +35208,7 @@
 												"required": [
 													"id",
 													"company",
+													"companyId",
 													"role",
 													"location",
 													"salary",
@@ -34865,6 +35241,335 @@
 													"updatedAt"
 												]
 											}
+										},
+										"directory": {
+											"type": "object",
+											"properties": {
+												"companies": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"name": {
+																"type": "string"
+															},
+															"normalizedKey": {
+																"type": "string"
+															},
+															"website": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"notes": {
+																"type": "string"
+															},
+															"sources": {
+																"type": "array",
+																"items": {
+																	"type": "object",
+																	"properties": {
+																		"kind": {
+																			"enum": [
+																				"manual",
+																				"application",
+																				"interview",
+																				"linkedin",
+																				"import"
+																			],
+																			"type": "string"
+																		},
+																		"id": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 2048
+																		}
+																	},
+																	"required": [
+																		"kind",
+																		"id"
+																	]
+																}
+															},
+															"createdAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															},
+															"updatedAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															}
+														},
+														"required": [
+															"id",
+															"name",
+															"normalizedKey",
+															"website",
+															"notes",
+															"sources",
+															"createdAt",
+															"updatedAt"
+														]
+													}
+												},
+												"contacts": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"companyId": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"name": {
+																"type": "string"
+															},
+															"normalizedKey": {
+																"type": "string"
+															},
+															"position": {
+																"type": "string"
+															},
+															"profileLinks": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															},
+															"emails": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															},
+															"phones": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															},
+															"notes": {
+																"type": "string"
+															},
+															"tags": {
+																"type": "array",
+																"items": {
+																	"type": "string"
+																}
+															},
+															"relationship": {
+																"type": "string"
+															},
+															"lookingForWork": {
+																"type": "boolean"
+															},
+															"connectedOn": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"sources": {
+																"type": "array",
+																"items": {
+																	"type": "object",
+																	"properties": {
+																		"kind": {
+																			"enum": [
+																				"manual",
+																				"application",
+																				"interview",
+																				"linkedin",
+																				"import"
+																			],
+																			"type": "string"
+																		},
+																		"id": {
+																			"type": "string",
+																			"minLength": 1,
+																			"maxLength": 2048
+																		}
+																	},
+																	"required": [
+																		"kind",
+																		"id"
+																	]
+																}
+															},
+															"lastImportedAt": {
+																"anyOf": [
+																	{
+																		"type": "string",
+																		"format": "date-time",
+																		"x-native-type": "date"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"lastContactedAt": {
+																"anyOf": [
+																	{
+																		"type": "string",
+																		"format": "date-time",
+																		"x-native-type": "date"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"createdAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															},
+															"updatedAt": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															}
+														},
+														"required": [
+															"id",
+															"companyId",
+															"name",
+															"normalizedKey",
+															"position",
+															"profileLinks",
+															"emails",
+															"phones",
+															"notes",
+															"tags",
+															"relationship",
+															"lookingForWork",
+															"connectedOn",
+															"sources",
+															"lastImportedAt",
+															"lastContactedAt",
+															"createdAt",
+															"updatedAt"
+														]
+													}
+												},
+												"employment": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"contactId": {
+																"type": "string"
+															},
+															"companyId": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"companyName": {
+																"type": "string"
+															},
+															"position": {
+																"type": "string"
+															},
+															"startedOn": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															},
+															"endedOn": {
+																"anyOf": [
+																	{
+																		"type": "string"
+																	},
+																	{
+																		"type": "null"
+																	}
+																]
+															}
+														},
+														"required": [
+															"id",
+															"contactId",
+															"companyId",
+															"companyName",
+															"position",
+															"startedOn",
+															"endedOn"
+														]
+													}
+												},
+												"notes": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"id": {
+																"type": "string"
+															},
+															"contactId": {
+																"type": "string"
+															},
+															"text": {
+																"type": "string"
+															},
+															"at": {
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															}
+														},
+														"required": [
+															"id",
+															"contactId",
+															"text",
+															"at"
+														]
+													}
+												}
+											},
+											"required": [
+												"companies",
+												"contacts",
+												"employment",
+												"notes"
+											]
 										},
 										"aiContentReports": {
 											"type": "array",
@@ -37556,6 +38261,7 @@
 										"resumes",
 										"coverLetters",
 										"applications",
+										"directory",
 										"aiContentReports",
 										"career"
 									]
@@ -37632,6 +38338,21 @@
 								"schema": {
 									"type": "object",
 									"properties": {
+										"directory": {
+											"type": "object",
+											"properties": {
+												"companies": {
+													"type": "number"
+												},
+												"contacts": {
+													"type": "number"
+												}
+											},
+											"required": [
+												"companies",
+												"contacts"
+											]
+										},
 										"documents": {
 											"type": "object",
 											"properties": {
@@ -37714,6 +38435,7 @@
 										}
 									},
 									"required": [
+										"directory",
 										"documents",
 										"applications",
 										"knowledge",
@@ -37840,6 +38562,78 @@
 										"type": "object",
 										"properties": {
 											"area": {
+												"const": "directory"
+											},
+											"mode": {
+												"enum": [
+													"append",
+													"replace"
+												],
+												"type": "string",
+												"default": "append",
+												"description": "append adds everything as new records; replace first deletes everything the account has in this area."
+											},
+											"companies": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "directory.json companies."
+											},
+											"contacts": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "directory.json contacts."
+											},
+											"employment": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "directory.json employment."
+											},
+											"notes": {
+												"type": "array",
+												"maxItems": 50000,
+												"items": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string"
+													},
+													"additionalProperties": {}
+												},
+												"default": [],
+												"description": "directory.json notes."
+											}
+										},
+										"required": [
+											"area"
+										]
+									},
+									{
+										"type": "object",
+										"properties": {
+											"area": {
 												"const": "applications"
 											},
 											"mode": {
@@ -37855,6 +38649,28 @@
 												"type": "object",
 												"properties": {
 													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"company": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"contact": {
 														"type": "object",
 														"propertyNames": {
 															"type": "string",
@@ -38019,6 +38835,28 @@
 												"type": "object",
 												"properties": {
 													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"company": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"contact": {
 														"type": "object",
 														"propertyNames": {
 															"type": "string",
@@ -38209,6 +39047,28 @@
 															"maxLength": 64
 														}
 													},
+													"company": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"contact": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
 													"letter": {
 														"type": "object",
 														"propertyNames": {
@@ -38340,6 +39200,28 @@
 												"type": "object",
 												"properties": {
 													"resume": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"company": {
+														"type": "object",
+														"propertyNames": {
+															"type": "string",
+															"maxLength": 64
+														},
+														"additionalProperties": {
+															"type": "string",
+															"maxLength": 64
+														}
+													},
+													"contact": {
 														"type": "object",
 														"propertyNames": {
 															"type": "string",
@@ -38551,6 +39433,28 @@
 											"type": "object",
 											"properties": {
 												"resume": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"company": {
+													"type": "object",
+													"propertyNames": {
+														"type": "string",
+														"maxLength": 64
+													},
+													"additionalProperties": {
+														"type": "string",
+														"maxLength": 64
+													}
+												},
+												"contact": {
 													"type": "object",
 													"propertyNames": {
 														"type": "string",
@@ -59669,6 +60573,3103 @@
 						"lang": "bash",
 						"label": "cURL",
 						"source": "curl --request POST \"https://allthat.work/api/openapi/documents/copy-for-job\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"resumeId\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/directory/imports/linkedin": {
+			"post": {
+				"operationId": "importLinkedInContacts",
+				"summary": "Import reviewed LinkedIn connections",
+				"description": "Save up to 500 reviewed LinkedIn connections. Profile URLs identify re-imports. Explicitly resolve name duplicates and company mappings. Emails import only with importEmails=true. Updates require the reviewed contact's updatedAt; stale reviews fail atomically. Notes, tags, phone numbers, relationship and last-contacted dates are preserved. Employer or position changes retain the previous position with unknown dates.",
+				"tags": [
+					"Directory"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"importEmails": {
+										"type": "boolean",
+										"default": false
+									},
+									"companies": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"sourceName": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 300
+												},
+												"companyId": {
+													"anyOf": [
+														{
+															"type": "string",
+															"minLength": 1
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"name": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 300
+												}
+											},
+											"required": [
+												"sourceName",
+												"companyId",
+												"name"
+											]
+										},
+										"default": []
+									},
+									"rows": {
+										"type": "array",
+										"minItems": 1,
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"connection": {
+													"type": "object",
+													"properties": {
+														"name": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 200
+														},
+														"profileUrl": {
+															"type": "string",
+															"maxLength": 2048
+														},
+														"company": {
+															"type": "string",
+															"maxLength": 300,
+															"default": ""
+														},
+														"position": {
+															"type": "string",
+															"maxLength": 300,
+															"default": ""
+														},
+														"email": {
+															"anyOf": [
+																{
+																	"const": ""
+																},
+																{
+																	"type": "string",
+																	"maxLength": 320,
+																	"format": "email"
+																}
+															],
+															"default": ""
+														},
+														"connectedOn": {
+															"anyOf": [
+																{
+																	"type": "string",
+																	"format": "date"
+																},
+																{
+																	"type": "null"
+																}
+															],
+															"default": null
+														}
+													},
+													"required": [
+														"name",
+														"profileUrl"
+													]
+												},
+												"action": {
+													"enum": [
+														"create",
+														"update"
+													],
+													"type": "string"
+												},
+												"contactId": {
+													"type": "string",
+													"minLength": 1
+												},
+												"expectedUpdatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"duplicateDecision": {
+													"enum": [
+														"separate",
+														"merge"
+													],
+													"type": "string"
+												}
+											},
+											"required": [
+												"connection",
+												"action"
+											]
+										}
+									}
+								},
+								"required": [
+									"rows"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"created": {
+											"type": "number"
+										},
+										"updated": {
+											"type": "number"
+										},
+										"unchanged": {
+											"type": "number"
+										},
+										"skipped": {
+											"type": "number"
+										},
+										"companiesCreated": {
+											"type": "number"
+										}
+									},
+									"required": [
+										"created",
+										"updated",
+										"unchanged",
+										"skipped",
+										"companiesCreated"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/directory/imports/linkedin\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"rows\": [\n    {\n      \"connection\": {\n        \"name\": \"<string>\",\n        \"profileUrl\": \"<string>\"\n      },\n      \"action\": \"create\"\n    }\n  ]\n}'"
+					}
+				]
+			}
+		},
+		"/directory/companies": {
+			"get": {
+				"operationId": "directoryCompanies",
+				"summary": "List companies",
+				"description": "List companies in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "query",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					},
+					{
+						"name": "companyId",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string"
+											},
+											"name": {
+												"type": "string"
+											},
+											"normalizedKey": {
+												"type": "string"
+											},
+											"website": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"notes": {
+												"type": "string"
+											},
+											"sources": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"kind": {
+															"enum": [
+																"manual",
+																"application",
+																"interview",
+																"linkedin",
+																"import"
+															],
+															"type": "string"
+														},
+														"id": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 2048
+														}
+													},
+													"required": [
+														"kind",
+														"id"
+													]
+												}
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											"updatedAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											}
+										},
+										"required": [
+											"id",
+											"name",
+											"normalizedKey",
+											"website",
+											"notes",
+											"sources",
+											"createdAt",
+											"updatedAt"
+										]
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://allthat.work/api/openapi/directory/companies\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"post": {
+				"operationId": "directoryCreateCompany",
+				"summary": "Create company",
+				"description": "Create company in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 300
+									},
+									"website": {
+										"anyOf": [
+											{
+												"type": "string",
+												"maxLength": 2048,
+												"format": "uri"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 20000,
+										"default": ""
+									},
+									"sources": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"kind": {
+													"enum": [
+														"manual",
+														"application",
+														"interview",
+														"linkedin",
+														"import"
+													],
+													"type": "string"
+												},
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 2048
+												}
+											},
+											"required": [
+												"kind",
+												"id"
+											]
+										},
+										"default": []
+									}
+								},
+								"required": [
+									"name"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"name": {
+											"type": "string"
+										},
+										"normalizedKey": {
+											"type": "string"
+										},
+										"website": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"notes": {
+											"type": "string"
+										},
+										"sources": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"kind": {
+														"enum": [
+															"manual",
+															"application",
+															"interview",
+															"linkedin",
+															"import"
+														],
+														"type": "string"
+													},
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 2048
+													}
+												},
+												"required": [
+													"kind",
+													"id"
+												]
+											}
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										},
+										"updatedAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"name",
+										"normalizedKey",
+										"website",
+										"notes",
+										"sources",
+										"createdAt",
+										"updatedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/directory/companies\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"name\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/directory/companies/{id}": {
+			"get": {
+				"operationId": "directoryCompany",
+				"summary": "Read company",
+				"description": "Read company in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"company": {
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												},
+												"normalizedKey": {
+													"type": "string"
+												},
+												"website": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"notes": {
+													"type": "string"
+												},
+												"sources": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"kind": {
+																"enum": [
+																	"manual",
+																	"application",
+																	"interview",
+																	"linkedin",
+																	"import"
+																],
+																"type": "string"
+															},
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 2048
+															}
+														},
+														"required": [
+															"kind",
+															"id"
+														]
+													}
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												}
+											},
+											"required": [
+												"id",
+												"name",
+												"normalizedKey",
+												"website",
+												"notes",
+												"sources",
+												"createdAt",
+												"updatedAt"
+											]
+										},
+										"contacts": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"companyId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"name": {
+														"type": "string"
+													},
+													"normalizedKey": {
+														"type": "string"
+													},
+													"position": {
+														"type": "string"
+													},
+													"profileLinks": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"emails": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"phones": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"notes": {
+														"type": "string"
+													},
+													"tags": {
+														"type": "array",
+														"items": {
+															"type": "string"
+														}
+													},
+													"relationship": {
+														"type": "string"
+													},
+													"lookingForWork": {
+														"type": "boolean"
+													},
+													"connectedOn": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"sources": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"kind": {
+																	"enum": [
+																		"manual",
+																		"application",
+																		"interview",
+																		"linkedin",
+																		"import"
+																	],
+																	"type": "string"
+																},
+																"id": {
+																	"type": "string",
+																	"minLength": 1,
+																	"maxLength": 2048
+																}
+															},
+															"required": [
+																"kind",
+																"id"
+															]
+														}
+													},
+													"lastImportedAt": {
+														"anyOf": [
+															{
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"lastContactedAt": {
+														"anyOf": [
+															{
+																"type": "string",
+																"format": "date-time",
+																"x-native-type": "date"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"createdAt": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													},
+													"updatedAt": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													}
+												},
+												"required": [
+													"id",
+													"companyId",
+													"name",
+													"normalizedKey",
+													"position",
+													"profileLinks",
+													"emails",
+													"phones",
+													"notes",
+													"tags",
+													"relationship",
+													"lookingForWork",
+													"connectedOn",
+													"sources",
+													"lastImportedAt",
+													"lastContactedAt",
+													"createdAt",
+													"updatedAt"
+												]
+											}
+										},
+										"applications": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"company": {
+														"type": "string"
+													},
+													"role": {
+														"type": "string"
+													},
+													"status": {
+														"type": "string"
+													},
+													"at": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													}
+												},
+												"required": [
+													"id",
+													"company",
+													"role",
+													"status",
+													"at"
+												]
+											}
+										}
+									},
+									"required": [
+										"company",
+										"contacts",
+										"applications"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://allthat.work/api/openapi/directory/companies/<id>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "directoryUpdateCompany",
+				"summary": "Update company",
+				"description": "Update company in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 300
+									},
+									"website": {
+										"anyOf": [
+											{
+												"type": "string",
+												"maxLength": 2048,
+												"format": "uri"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 20000,
+										"default": ""
+									},
+									"sources": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"kind": {
+													"enum": [
+														"manual",
+														"application",
+														"interview",
+														"linkedin",
+														"import"
+													],
+													"type": "string"
+												},
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 2048
+												}
+											},
+											"required": [
+												"kind",
+												"id"
+											]
+										},
+										"default": []
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"name": {
+											"type": "string"
+										},
+										"normalizedKey": {
+											"type": "string"
+										},
+										"website": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"notes": {
+											"type": "string"
+										},
+										"sources": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"kind": {
+														"enum": [
+															"manual",
+															"application",
+															"interview",
+															"linkedin",
+															"import"
+														],
+														"type": "string"
+													},
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 2048
+													}
+												},
+												"required": [
+													"kind",
+													"id"
+												]
+											}
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										},
+										"updatedAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"name",
+										"normalizedKey",
+										"website",
+										"notes",
+										"sources",
+										"createdAt",
+										"updatedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://allthat.work/api/openapi/directory/companies/<id>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "directoryDeleteCompany",
+				"summary": "Delete company",
+				"description": "Delete company in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request DELETE \"https://allthat.work/api/openapi/directory/companies/<id>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/directory/contacts": {
+			"get": {
+				"operationId": "directoryContacts",
+				"summary": "List contacts",
+				"description": "List contacts in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "query",
+						"in": "query",
+						"schema": {
+							"type": "string",
+							"maxLength": 300
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					},
+					{
+						"name": "companyId",
+						"in": "query",
+						"schema": {
+							"type": "string"
+						},
+						"allowEmptyValue": true,
+						"allowReserved": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string"
+											},
+											"companyId": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"name": {
+												"type": "string"
+											},
+											"normalizedKey": {
+												"type": "string"
+											},
+											"position": {
+												"type": "string"
+											},
+											"profileLinks": {
+												"type": "array",
+												"items": {
+													"type": "string"
+												}
+											},
+											"emails": {
+												"type": "array",
+												"items": {
+													"type": "string"
+												}
+											},
+											"phones": {
+												"type": "array",
+												"items": {
+													"type": "string"
+												}
+											},
+											"notes": {
+												"type": "string"
+											},
+											"tags": {
+												"type": "array",
+												"items": {
+													"type": "string"
+												}
+											},
+											"relationship": {
+												"type": "string"
+											},
+											"lookingForWork": {
+												"type": "boolean"
+											},
+											"connectedOn": {
+												"anyOf": [
+													{
+														"type": "string"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"sources": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"kind": {
+															"enum": [
+																"manual",
+																"application",
+																"interview",
+																"linkedin",
+																"import"
+															],
+															"type": "string"
+														},
+														"id": {
+															"type": "string",
+															"minLength": 1,
+															"maxLength": 2048
+														}
+													},
+													"required": [
+														"kind",
+														"id"
+													]
+												}
+											},
+											"lastImportedAt": {
+												"anyOf": [
+													{
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"lastContactedAt": {
+												"anyOf": [
+													{
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													},
+													{
+														"type": "null"
+													}
+												]
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											"updatedAt": {
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											}
+										},
+										"required": [
+											"id",
+											"companyId",
+											"name",
+											"normalizedKey",
+											"position",
+											"profileLinks",
+											"emails",
+											"phones",
+											"notes",
+											"tags",
+											"relationship",
+											"lookingForWork",
+											"connectedOn",
+											"sources",
+											"lastImportedAt",
+											"lastContactedAt",
+											"createdAt",
+											"updatedAt"
+										]
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://allthat.work/api/openapi/directory/contacts\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"post": {
+				"operationId": "directoryCreateContact",
+				"summary": "Create contact",
+				"description": "Create contact in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string",
+												"minLength": 1
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"name": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 200
+									},
+									"position": {
+										"type": "string",
+										"maxLength": 300,
+										"default": ""
+									},
+									"profileLinks": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"maxLength": 2048,
+											"format": "uri"
+										},
+										"default": []
+									},
+									"emails": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"maxLength": 320,
+											"format": "email"
+										},
+										"default": []
+									},
+									"phones": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 100
+										},
+										"default": []
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 20000,
+										"default": ""
+									},
+									"tags": {
+										"type": "array",
+										"maxItems": 100,
+										"items": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 100
+										},
+										"default": []
+									},
+									"relationship": {
+										"type": "string",
+										"maxLength": 2000,
+										"default": ""
+									},
+									"lookingForWork": {
+										"type": "boolean",
+										"default": false
+									},
+									"connectedOn": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"sources": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"kind": {
+													"enum": [
+														"manual",
+														"application",
+														"interview",
+														"linkedin",
+														"import"
+													],
+													"type": "string"
+												},
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 2048
+												}
+											},
+											"required": [
+												"kind",
+												"id"
+											]
+										},
+										"default": []
+									},
+									"lastImportedAt": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"lastContactedAt": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									}
+								},
+								"required": [
+									"name"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"name": {
+											"type": "string"
+										},
+										"normalizedKey": {
+											"type": "string"
+										},
+										"position": {
+											"type": "string"
+										},
+										"profileLinks": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"emails": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"phones": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"notes": {
+											"type": "string"
+										},
+										"tags": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"relationship": {
+											"type": "string"
+										},
+										"lookingForWork": {
+											"type": "boolean"
+										},
+										"connectedOn": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"sources": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"kind": {
+														"enum": [
+															"manual",
+															"application",
+															"interview",
+															"linkedin",
+															"import"
+														],
+														"type": "string"
+													},
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 2048
+													}
+												},
+												"required": [
+													"kind",
+													"id"
+												]
+											}
+										},
+										"lastImportedAt": {
+											"anyOf": [
+												{
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"lastContactedAt": {
+											"anyOf": [
+												{
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										},
+										"updatedAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"companyId",
+										"name",
+										"normalizedKey",
+										"position",
+										"profileLinks",
+										"emails",
+										"phones",
+										"notes",
+										"tags",
+										"relationship",
+										"lookingForWork",
+										"connectedOn",
+										"sources",
+										"lastImportedAt",
+										"lastContactedAt",
+										"createdAt",
+										"updatedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/directory/contacts\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"name\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/directory/contacts/{id}": {
+			"get": {
+				"operationId": "directoryContact",
+				"summary": "Read contact",
+				"description": "Read contact in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"contact": {
+											"type": "object",
+											"properties": {
+												"id": {
+													"type": "string"
+												},
+												"companyId": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"name": {
+													"type": "string"
+												},
+												"normalizedKey": {
+													"type": "string"
+												},
+												"position": {
+													"type": "string"
+												},
+												"profileLinks": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												},
+												"emails": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												},
+												"phones": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												},
+												"notes": {
+													"type": "string"
+												},
+												"tags": {
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												},
+												"relationship": {
+													"type": "string"
+												},
+												"lookingForWork": {
+													"type": "boolean"
+												},
+												"connectedOn": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"sources": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"kind": {
+																"enum": [
+																	"manual",
+																	"application",
+																	"interview",
+																	"linkedin",
+																	"import"
+																],
+																"type": "string"
+															},
+															"id": {
+																"type": "string",
+																"minLength": 1,
+																"maxLength": 2048
+															}
+														},
+														"required": [
+															"kind",
+															"id"
+														]
+													}
+												},
+												"lastImportedAt": {
+													"anyOf": [
+														{
+															"type": "string",
+															"format": "date-time",
+															"x-native-type": "date"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"lastContactedAt": {
+													"anyOf": [
+														{
+															"type": "string",
+															"format": "date-time",
+															"x-native-type": "date"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												}
+											},
+											"required": [
+												"id",
+												"companyId",
+												"name",
+												"normalizedKey",
+												"position",
+												"profileLinks",
+												"emails",
+												"phones",
+												"notes",
+												"tags",
+												"relationship",
+												"lookingForWork",
+												"connectedOn",
+												"sources",
+												"lastImportedAt",
+												"lastContactedAt",
+												"createdAt",
+												"updatedAt"
+											]
+										},
+										"company": {
+											"anyOf": [
+												{
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string"
+														},
+														"name": {
+															"type": "string"
+														},
+														"normalizedKey": {
+															"type": "string"
+														},
+														"website": {
+															"anyOf": [
+																{
+																	"type": "string"
+																},
+																{
+																	"type": "null"
+																}
+															]
+														},
+														"notes": {
+															"type": "string"
+														},
+														"sources": {
+															"type": "array",
+															"items": {
+																"type": "object",
+																"properties": {
+																	"kind": {
+																		"enum": [
+																			"manual",
+																			"application",
+																			"interview",
+																			"linkedin",
+																			"import"
+																		],
+																		"type": "string"
+																	},
+																	"id": {
+																		"type": "string",
+																		"minLength": 1,
+																		"maxLength": 2048
+																	}
+																},
+																"required": [
+																	"kind",
+																	"id"
+																]
+															}
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time",
+															"x-native-type": "date"
+														},
+														"updatedAt": {
+															"type": "string",
+															"format": "date-time",
+															"x-native-type": "date"
+														}
+													},
+													"required": [
+														"id",
+														"name",
+														"normalizedKey",
+														"website",
+														"notes",
+														"sources",
+														"createdAt",
+														"updatedAt"
+													]
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"employment": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"contactId": {
+														"type": "string"
+													},
+													"companyId": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"companyName": {
+														"type": "string"
+													},
+													"position": {
+														"type": "string"
+													},
+													"startedOn": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													},
+													"endedOn": {
+														"anyOf": [
+															{
+																"type": "string"
+															},
+															{
+																"type": "null"
+															}
+														]
+													}
+												},
+												"required": [
+													"id",
+													"contactId",
+													"companyId",
+													"companyName",
+													"position",
+													"startedOn",
+													"endedOn"
+												]
+											}
+										},
+										"notes": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"contactId": {
+														"type": "string"
+													},
+													"text": {
+														"type": "string"
+													},
+													"at": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													}
+												},
+												"required": [
+													"id",
+													"contactId",
+													"text",
+													"at"
+												]
+											}
+										},
+										"applications": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"company": {
+														"type": "string"
+													},
+													"role": {
+														"type": "string"
+													},
+													"status": {
+														"type": "string"
+													},
+													"at": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													}
+												},
+												"required": [
+													"id",
+													"company",
+													"role",
+													"status",
+													"at"
+												]
+											}
+										},
+										"interviews": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"id": {
+														"type": "string"
+													},
+													"company": {
+														"type": "string"
+													},
+													"role": {
+														"type": "string"
+													},
+													"status": {
+														"type": "string"
+													},
+													"at": {
+														"type": "string",
+														"format": "date-time",
+														"x-native-type": "date"
+													},
+													"entryId": {
+														"type": "string"
+													},
+													"contextRole": {
+														"type": "string"
+													},
+													"kind": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"id",
+													"company",
+													"role",
+													"status",
+													"at",
+													"entryId",
+													"contextRole",
+													"kind"
+												]
+											}
+										}
+									},
+									"required": [
+										"contact",
+										"company",
+										"employment",
+										"notes",
+										"applications",
+										"interviews"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl \"https://allthat.work/api/openapi/directory/contacts/<id>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			},
+			"put": {
+				"operationId": "directoryUpdateContact",
+				"summary": "Update contact",
+				"description": "Update contact in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"companyId": {
+										"anyOf": [
+											{
+												"type": "string",
+												"minLength": 1
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"name": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 200
+									},
+									"position": {
+										"type": "string",
+										"maxLength": 300,
+										"default": ""
+									},
+									"profileLinks": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"maxLength": 2048,
+											"format": "uri"
+										},
+										"default": []
+									},
+									"emails": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"maxLength": 320,
+											"format": "email"
+										},
+										"default": []
+									},
+									"phones": {
+										"type": "array",
+										"maxItems": 20,
+										"items": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 100
+										},
+										"default": []
+									},
+									"notes": {
+										"type": "string",
+										"maxLength": 20000,
+										"default": ""
+									},
+									"tags": {
+										"type": "array",
+										"maxItems": 100,
+										"items": {
+											"type": "string",
+											"minLength": 1,
+											"maxLength": 100
+										},
+										"default": []
+									},
+									"relationship": {
+										"type": "string",
+										"maxLength": 2000,
+										"default": ""
+									},
+									"lookingForWork": {
+										"type": "boolean",
+										"default": false
+									},
+									"connectedOn": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"sources": {
+										"type": "array",
+										"maxItems": 500,
+										"items": {
+											"type": "object",
+											"properties": {
+												"kind": {
+													"enum": [
+														"manual",
+														"application",
+														"interview",
+														"linkedin",
+														"import"
+													],
+													"type": "string"
+												},
+												"id": {
+													"type": "string",
+													"minLength": 1,
+													"maxLength": 2048
+												}
+											},
+											"required": [
+												"kind",
+												"id"
+											]
+										},
+										"default": []
+									},
+									"lastImportedAt": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									},
+									"lastContactedAt": {
+										"anyOf": [
+											{
+												"type": "string",
+												"format": "date-time",
+												"x-native-type": "date"
+											},
+											{
+												"type": "null"
+											}
+										],
+										"default": null
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"companyId": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"name": {
+											"type": "string"
+										},
+										"normalizedKey": {
+											"type": "string"
+										},
+										"position": {
+											"type": "string"
+										},
+										"profileLinks": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"emails": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"phones": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"notes": {
+											"type": "string"
+										},
+										"tags": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											}
+										},
+										"relationship": {
+											"type": "string"
+										},
+										"lookingForWork": {
+											"type": "boolean"
+										},
+										"connectedOn": {
+											"anyOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"sources": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"kind": {
+														"enum": [
+															"manual",
+															"application",
+															"interview",
+															"linkedin",
+															"import"
+														],
+														"type": "string"
+													},
+													"id": {
+														"type": "string",
+														"minLength": 1,
+														"maxLength": 2048
+													}
+												},
+												"required": [
+													"kind",
+													"id"
+												]
+											}
+										},
+										"lastImportedAt": {
+											"anyOf": [
+												{
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"lastContactedAt": {
+											"anyOf": [
+												{
+													"type": "string",
+													"format": "date-time",
+													"x-native-type": "date"
+												},
+												{
+													"type": "null"
+												}
+											]
+										},
+										"createdAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										},
+										"updatedAt": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"companyId",
+										"name",
+										"normalizedKey",
+										"position",
+										"profileLinks",
+										"emails",
+										"phones",
+										"notes",
+										"tags",
+										"relationship",
+										"lookingForWork",
+										"connectedOn",
+										"sources",
+										"lastImportedAt",
+										"lastContactedAt",
+										"createdAt",
+										"updatedAt"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request PUT \"https://allthat.work/api/openapi/directory/contacts/<id>\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{}'"
+					}
+				]
+			},
+			"delete": {
+				"operationId": "directoryDeleteContact",
+				"summary": "Delete contact",
+				"description": "Delete contact in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request DELETE \"https://allthat.work/api/openapi/directory/contacts/<id>\" --header \"x-api-key: <api-key>\""
+					}
+				]
+			}
+		},
+		"/directory/contacts/erase": {
+			"post": {
+				"operationId": "bulkDeleteDirectoryContacts",
+				"summary": "Delete all contacts",
+				"description": "Delete all contacts in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"confirm": {
+										"const": true
+									}
+								},
+								"required": [
+									"confirm"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/directory/contacts/erase\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"confirm\": true\n}'"
+					}
+				]
+			}
+		},
+		"/directory/contacts/{id}/notes": {
+			"post": {
+				"operationId": "directoryAddNote",
+				"summary": "Add contact note",
+				"description": "Add contact note in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"text": {
+										"type": "string",
+										"minLength": 1,
+										"maxLength": 20000
+									},
+									"at": {
+										"type": "string",
+										"format": "date-time",
+										"x-native-type": "date"
+									}
+								},
+								"required": [
+									"text"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"contactId": {
+											"type": "string"
+										},
+										"text": {
+											"type": "string"
+										},
+										"at": {
+											"type": "string",
+											"format": "date-time",
+											"x-native-type": "date"
+										}
+									},
+									"required": [
+										"id",
+										"contactId",
+										"text",
+										"at"
+									]
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request POST \"https://allthat.work/api/openapi/directory/contacts/<id>/notes\" --header \"x-api-key: <api-key>\" --header \"Content-Type: application/json\" --data '{\n  \"text\": \"<string>\"\n}'"
+					}
+				]
+			}
+		},
+		"/directory/notes/{id}": {
+			"delete": {
+				"operationId": "directoryDeleteNote",
+				"summary": "Delete contact note",
+				"description": "Delete contact note in the authenticated account's private directory.",
+				"tags": [
+					"Directory"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"minLength": 1
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"default": {
+						"description": "Structured API error. See status and code; do not branch on message text.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"required": [
+										"defined",
+										"code",
+										"status",
+										"message"
+									],
+									"properties": {
+										"defined": {
+											"type": "boolean"
+										},
+										"code": {
+											"type": "string"
+										},
+										"status": {
+											"type": "integer"
+										},
+										"message": {
+											"type": "string"
+										},
+										"data": {}
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"apiKey": []
+					},
+					{
+						"bearerAuth": []
+					},
+					{
+						"cookieAuth": []
+					}
+				],
+				"x-codeSamples": [
+					{
+						"lang": "bash",
+						"label": "cURL",
+						"source": "curl --request DELETE \"https://allthat.work/api/openapi/directory/notes/<id>\" --header \"x-api-key: <api-key>\""
 					}
 				]
 			}
@@ -107822,6 +111823,16 @@
 													"minLength": 1,
 													"description": "The company applied to."
 												},
+												"companyId": {
+													"anyOf": [
+														{
+															"type": "string"
+														},
+														{
+															"type": "null"
+														}
+													]
+												},
 												"role": {
 													"type": "string",
 													"minLength": 1,
@@ -108033,6 +112044,10 @@
 													"items": {
 														"type": "object",
 														"properties": {
+															"contactId": {
+																"type": "string",
+																"minLength": 1
+															},
 															"name": {
 																"type": "string",
 																"minLength": 1

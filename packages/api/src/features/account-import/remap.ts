@@ -1,5 +1,16 @@
 /** Kinds of record an import gives new ids, and that later records point at. */
-export const ID_KINDS = ["resume", "letter", "application", "fact", "story", "artifact", "schedule", "thread"] as const;
+export const ID_KINDS = [
+	"resume",
+	"company",
+	"contact",
+	"letter",
+	"application",
+	"fact",
+	"story",
+	"artifact",
+	"schedule",
+	"thread",
+] as const;
 export type IdKind = (typeof ID_KINDS)[number];
 
 /** Old id → new id, per kind. */

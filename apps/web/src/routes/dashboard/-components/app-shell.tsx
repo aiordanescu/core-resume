@@ -25,7 +25,13 @@ import { UserDropdownMenu } from "@/features/user/dropdown-menu";
 import { orpc } from "@/libs/orpc/client";
 
 type NavItem = {
-	to: "/dashboard" | "/dashboard/applications" | "/dashboard/career" | "/dashboard/trash" | "/dashboard/settings";
+	to:
+		| "/dashboard"
+		| "/dashboard/applications"
+		| "/dashboard/career"
+		| "/dashboard/trash"
+		| "/dashboard/settings"
+		| "/dashboard/directory";
 	icon: IconName;
 	label: string;
 	count?: number;
@@ -50,6 +56,7 @@ function useNavItems() {
 			...(applications ? { count: applications.filter((application) => application.status !== "closed").length } : {}),
 		},
 	];
+	items.push({ to: "/dashboard/directory", icon: "book-open", label: t`Directory` });
 	const unread = notifications?.filter((notification) => !notification.readAt).length ?? 0;
 	// Career counts what's waiting for the user (unread notifications), so nothing shows at zero.
 	items.push({ to: "/dashboard/career", icon: "compass", label: t`Career`, ...(unread ? { count: unread } : {}) });
@@ -312,7 +319,7 @@ function MobileTabs() {
 	return (
 		<nav
 			aria-label={t`App`}
-			className="sticky bottom-0 z-30 grid grid-cols-5 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
+			className="sticky bottom-0 z-30 grid grid-cols-6 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] [view-transition-name:app-nav]"
 		>
 			<Link
 				to="/dashboard"
@@ -349,6 +356,14 @@ function MobileTabs() {
 				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5 transition-[scale] duration-quick ease-enter active:scale-[0.97]"
 			>
 				{tab("compass", t`Career`, isCurrent("/dashboard/career"))}
+			</Link>
+			<Link
+				to="/dashboard/directory"
+				aria-current={isCurrent("/dashboard/directory") ? "page" : undefined}
+				viewTransition={false}
+				className="relative flex min-h-[52px] flex-col items-center justify-center gap-0.5"
+			>
+				{tab("book-open", t`Directory`, isCurrent("/dashboard/directory"))}
 			</Link>
 			<Link
 				to="/dashboard/settings"

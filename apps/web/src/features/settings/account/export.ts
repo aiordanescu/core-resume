@@ -17,6 +17,7 @@ export function buildAccountZip(data: AccountExport): Uint8Array {
 	const files: Record<string, Uint8Array> = {
 		"account.json": json({ exportedAt: data.exportedAt, user: data.user }),
 		"applications.json": json(data.applications),
+		"directory.json": json(data.directory ?? { companies: [], contacts: [], employment: [], notes: [] }),
 		"career.json": json(data.career),
 		"ai-content-reports.json": json(data.aiContentReports),
 	};

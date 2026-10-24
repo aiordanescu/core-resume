@@ -48,6 +48,7 @@ type AreaChoice = { on: boolean; mode: ImportMode };
 const STEP_LABELS = (): Record<ImportStep, string> => ({
 	documents: t`Documents`,
 	applications: t`Applications`,
+	directory: t`Directory`,
 	knowledge: t`Knowledge`,
 	jobSearch: t`Job search`,
 	coach: t`Coach conversations`,
@@ -298,6 +299,10 @@ function ImportOptions({
 			plural(counts.documents.resumes, { one: "# resume", other: "# resumes" }),
 			plural(counts.documents.letters, { one: "# letter", other: "# letters" }),
 		].join(", "),
+		directory: [
+			plural(counts.directory.companies, { one: "# company", other: "# companies" }),
+			plural(counts.directory.contacts, { one: "# contact", other: "# contacts" }),
+		].join(", "),
 		applications: plural(counts.applications.applications, { one: "# application", other: "# applications" }),
 		knowledge: [
 			plural(counts.knowledge.facts, { one: "# fact", other: "# facts" }),
@@ -433,6 +438,10 @@ function ReplaceConfirmation({ open, onOpenChange, areas, onConfirm }: ReplaceCo
 							]
 						: []),
 				].join(", "),
+				directory: [
+					plural(current.directory.companies, { one: "# company", other: "# companies" }),
+					plural(current.directory.contacts, { one: "# contact", other: "# contacts" }),
+				].join(", "),
 				applications: [
 					plural(current.applications.applications, { one: "# application", other: "# applications" }),
 					...(current.applications.linked > 0
@@ -455,7 +464,7 @@ function ReplaceConfirmation({ open, onOpenChange, areas, onConfirm }: ReplaceCo
 				].join(", "),
 				coach: plural(current.coach.threads, { one: "# conversation", other: "# conversations" }),
 			}
-		: { documents: "", applications: "", knowledge: "", jobSearch: "", coach: "" };
+		: { documents: "", directory: "", applications: "", knowledge: "", jobSearch: "", coach: "" };
 
 	return (
 		<AlertDialog open={open} onOpenChange={onOpenChange}>
@@ -479,6 +488,14 @@ function ReplaceConfirmation({ open, onOpenChange, areas, onConfirm }: ReplaceCo
 				) : (
 					<Spinner decorative className="size-5" />
 				)}
+				{areas.directory?.on && areas.directory.mode === "replace" && (
+					<p className="text-sm text-ink-2">
+						<Trans>
+							Replacing Directory also removes contact details from existing applications and interviews. The
+							applications remain.
+						</Trans>
+					</p>
+				)}
 				{areas.documents?.on && areas.documents.mode === "replace" && !areas.applications?.on && (
 					<p className="text-[13px] text-ink-2">
 						<Trans>Your applications stay, but lose their linked resumes and letters.</Trans>
@@ -501,6 +518,7 @@ const KIND_LABELS = (): Record<string, string> => ({
 	resumes: t`Resumes`,
 	letters: t`Letters`,
 	applications: t`Applications`,
+	directory: t`Directory`,
 	workspaces: t`Application workspaces`,
 	letterLinks: t`Letter links`,
 	facts: t`Facts`,

@@ -4,6 +4,7 @@
 	"type": "module",
 	"private": true,
 	"exports": {
+		"./linkedin-connections": "./src/linkedin-connections.ts",
 		"./facts": "./src/facts.ts",
 		"./json-resume": "./src/json-resume.tsx",
 		"./linkedin": "./src/linkedin.ts",

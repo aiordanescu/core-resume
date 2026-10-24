@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Toaster } from "@reactive-resume/ui/components/toast";
 
 const api = vi.hoisted(() => ({ add: vi.fn(), update: vi.fn(), remove: vi.fn(), read: vi.fn() }));
+vi.mock("@/features/directory/contact-picker", () => ({ ContactPicker: () => null }));
 vi.mock("@/libs/orpc/client", () => ({
 	orpc: {
 		applications: {
@@ -43,6 +44,7 @@ const interview: InterviewTimelineEntry = {
 const application: Application = {
 	id: "application",
 	company: "Example Co",
+	companyId: null,
 	role: "Engineer",
 	status: "interview",
 	closedReason: null,

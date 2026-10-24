@@ -10,6 +10,8 @@ const idMap = z.record(z.string().max(64), z.string().max(64));
 export const importIdsSchema = z
 	.object({
 		resume: idMap.optional(),
+		company: idMap.optional(),
+		contact: idMap.optional(),
 		letter: idMap.optional(),
 		application: idMap.optional(),
 		fact: idMap.optional(),
@@ -28,12 +30,21 @@ const modeSchema = z
 	.default("append")
 	.describe("append adds everything as new records; replace first deletes everything the account has in this area.");
 
-export const importAreaSchema = z.enum(["documents", "applications", "knowledge", "jobSearch", "coach", "settings"]);
+export const importAreaSchema = z.enum([
+	"documents",
+	"directory",
+	"applications",
+	"knowledge",
+	"jobSearch",
+	"coach",
+	"settings",
+]);
 export type ImportArea = z.infer<typeof importAreaSchema>;
 
 export const accountImportDto = {
 	preview: {
 		output: z.object({
+			directory: z.object({ companies: z.number(), contacts: z.number() }),
 			documents: z.object({ resumes: z.number(), letters: z.number(), locked: z.number() }),
 			applications: z.object({
 				applications: z.number(),
@@ -52,6 +63,14 @@ export const accountImportDto = {
 				mode: modeSchema,
 				resumes: records("Resume files from resumes/ in the archive."),
 				letters: records("Letter files from letters/ in the archive."),
+			}),
+			z.object({
+				area: z.literal("directory"),
+				mode: modeSchema,
+				companies: records("directory.json companies."),
+				contacts: records("directory.json contacts."),
+				employment: records("directory.json employment."),
+				notes: records("directory.json notes."),
 			}),
 			z.object({
 				area: z.literal("applications"),

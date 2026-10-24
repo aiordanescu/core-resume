@@ -30,6 +30,7 @@ describe("buildAccountZip", () => {
 			user: {},
 			resumes: [],
 			coverLetters: [],
+			directory: { companies: [], contacts: [], employment: [], notes: [] },
 			applications: [],
 			career: emptyCareer,
 			aiContentReports: [],
@@ -43,6 +44,7 @@ describe("buildAccountZip", () => {
 			buildAccountZip({
 				exportedAt: "2026-09-30T00:00:00.000Z",
 				user: {},
+				directory: { companies: [], contacts: [], employment: [], notes: [] },
 				applications: [],
 				career: emptyCareer,
 				aiContentReports: [],
@@ -75,6 +77,12 @@ describe("buildAccountZip", () => {
 				{ id: "01a0ec71-32c8-728b-b43b-b760a673b825", name: "Product Designer" },
 			],
 			coverLetters: [{ id: "01a0ec71-a410-71da-9156-b347210cf72b", name: "Product Designer" }],
+			directory: {
+				companies: [{ id: "company-1", name: "Lumen" }],
+				contacts: [{ id: "contact-1", name: "Sam", companyId: "company-1" }],
+				employment: [],
+				notes: [],
+			},
 			applications: [{ id: "app-1", company: "Lumen", role: "Designer" }],
 			aiContentReports: [{ id: "report-1", content: "Unsafe generated content", reason: "dangerous" }],
 			career: {
@@ -109,11 +117,15 @@ describe("buildAccountZip", () => {
 		} as never);
 
 		const files = unzipSync(zip);
+		expect(JSON.parse(strFromU8(files["directory.json"] as Uint8Array))).toMatchObject({
+			contacts: [{ id: "contact-1", companyId: "company-1" }],
+		});
 		expect(Object.keys(files).sort()).toEqual([
 			"account.json",
 			"ai-content-reports.json",
 			"applications.json",
 			"career.json",
+			"directory.json",
 			"letters/product-designer-01a0ec71-a410-71da-9156-b347210cf72b.json",
 			"resumes/product-designer-01a0ec71-03e8-77b1-a5e4-ce04be126204.json",
 			"resumes/product-designer-01a0ec71-32c8-728b-b43b-b760a673b825.json",

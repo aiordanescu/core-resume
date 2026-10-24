@@ -55,11 +55,11 @@ export function detectJsonImportKind(parsed: unknown): ImportKind | null {
 }
 
 /** Sniffs the format from magic bytes and JSON shape: several resume formats share the .json extension. */
-export async function detectImportKind(file: File): Promise<ImportKind | null> {
+export async function detectImportKind(file: File, bytes?: Uint8Array): Promise<ImportKind | null> {
 	const name = file.name.toLowerCase();
 	const mime = file.type;
 
-	const header = new Uint8Array(await file.slice(0, 4).arrayBuffer());
+	const header = bytes?.subarray(0, 4) ?? new Uint8Array(await file.slice(0, 4).arrayBuffer());
 	const isPdf = header[0] === 0x25 && header[1] === 0x50 && header[2] === 0x44 && header[3] === 0x46; // "%PDF"
 	const isZip = header[0] === 0x50 && header[1] === 0x4b && header[2] === 0x03 && header[3] === 0x04; // "PK\x03\x04"
 
@@ -74,7 +74,7 @@ export async function detectImportKind(file: File): Promise<ImportKind | null> {
 		const { unzipSync } = await import("fflate");
 		let accountArchive = false;
 		try {
-			const files = unzipSync(new Uint8Array(await file.arrayBuffer()), {
+			const files = unzipSync(bytes ?? new Uint8Array(await file.arrayBuffer()), {
 				filter: (entry) => entry.name === "account.json",
 			});
 			accountArchive = "account.json" in files;
@@ -136,7 +136,7 @@ function fileToBase64(file: File): Promise<string> {
 export async function readResumeFile(
 	file: File,
 	kind: Exclude<ImportKind, "cover-letter-json">,
-	options: { aiAvailable: boolean; onRead?: (note: string) => void },
+	options: { aiAvailable: boolean; onRead?: (note: string) => void; bytes?: Uint8Array },
 ): Promise<ResumeData> {
 	if (kind === "reactive-resume-json" || kind === "reactive-resume-v4-json" || kind === "json-resume-json") {
 		const text = await file.text();
@@ -146,7 +146,7 @@ export async function readResumeFile(
 
 	if (kind === "linkedin") {
 		const { parseLinkedInExport } = await import("@reactive-resume/import/linkedin");
-		const bytes = new Uint8Array(await file.arrayBuffer());
+		const bytes = options.bytes ?? new Uint8Array(await file.arrayBuffer());
 		options.onRead?.(t`export opened`);
 		return parseLinkedInExport(bytes);
 	}

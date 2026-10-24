@@ -3,18 +3,20 @@ import type { accountImportDto } from "../../dto/account-import";
 import type { IdKind, IdMaps } from "./remap";
 import type { DbOrTx } from "@reactive-resume/db/client";
 import type { PgTable } from "drizzle-orm/pg-core";
-import type z from "zod";
 import { and, count, eq, inArray, isNotNull, isNull, ne } from "drizzle-orm";
+import z from "zod";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
 import { aiLimitsSchema, careerProfileDataSchema } from "@reactive-resume/schema/career";
 import { coverLetterSchema } from "@reactive-resume/schema/cover-letter/data";
+import { companyFieldsSchema, contactFieldsSchema, directoryKey } from "@reactive-resume/schema/directory";
 import { noReplyDaysSchema } from "@reactive-resume/utils/reminders";
 import { resumePagesSchema } from "@reactive-resume/utils/resume-pages";
 import { generateId } from "@reactive-resume/utils/string";
 import { careerService } from "../career/service";
 import { sanitizeCoverLetterHtml } from "../cover-letters/html";
 import { writeLetterVersion } from "../cover-letters/versions";
+import { ensureCompany, linkApplicationDirectory } from "../directory/links";
 import { lockDocumentOwner } from "../documents/ownership";
 import { parseWritableResumeData } from "../resume/resume-data-validation";
 import { findFreeRandomSlug, findFreeSlug, SLUG_PATTERN } from "../resume/slugs";
@@ -77,6 +79,8 @@ function readAll<S extends z.ZodType>(report: Report, kind: string, schemaFor: S
 }
 
 const OWNED = {
+	company: { table: schema.company, id: schema.company.id, userId: schema.company.userId },
+	contact: { table: schema.contact, id: schema.contact.id, userId: schema.contact.userId },
 	resume: { table: schema.resume, id: schema.resume.id, userId: schema.resume.userId },
 	letter: { table: schema.coverLetter, id: schema.coverLetter.id, userId: schema.coverLetter.userId },
 	application: { table: schema.application, id: schema.application.id, userId: schema.application.userId },
@@ -230,6 +234,111 @@ async function importDocuments(userId: string, input: AreaInput<"documents">) {
 	return report.result();
 }
 
+async function importDirectory(userId: string, input: AreaInput<"directory">) {
+	const report = new Report();
+	const idFields = {
+		id: z.string().min(1),
+		createdAt: z.coerce.date().optional(),
+		updatedAt: z.coerce.date().optional(),
+	};
+	const companies = readAll(report, "companies", companyFieldsSchema.extend(idFields), input.companies);
+	const contacts = readAll(report, "contacts", contactFieldsSchema.extend(idFields), input.contacts);
+	await db.transaction(async (tx) => {
+		await lockDocumentOwner(tx, userId);
+		if (input.mode === "replace") {
+			const applications = await tx
+				.select()
+				.from(schema.application)
+				.where(eq(schema.application.userId, userId))
+				.orderBy(schema.application.id)
+				.for("update");
+			for (const row of applications)
+				await tx
+					.update(schema.application)
+					.set({
+						contacts: [],
+						activity: row.activity.map((entry) =>
+							entry.type === "interview" ? { ...entry, participants: [] } : entry,
+						),
+					})
+					.where(eq(schema.application.id, row.id));
+			await tx.delete(schema.contact).where(eq(schema.contact.userId, userId));
+			await tx.delete(schema.company).where(eq(schema.company.userId, userId));
+		}
+		for (const { id: oldId, ...fields } of companies) {
+			const [existing] = await tx
+				.select()
+				.from(schema.company)
+				.where(and(eq(schema.company.userId, userId), eq(schema.company.normalizedKey, directoryKey(fields.name))));
+			const row = existing ?? (await ensureCompany(tx, userId, fields.name));
+			if (!existing) {
+				await tx.update(schema.company).set(defined(fields)).where(eq(schema.company.id, row.id));
+				report.add("companies");
+			} else report.skip("companies", "exists");
+			report.map("company", oldId, row.id);
+		}
+		for (const { id: oldId, companyId, ...fields } of contacts) {
+			const [row] = await tx
+				.insert(schema.contact)
+				.values(
+					defined({
+						...fields,
+						userId,
+						companyId: companyId ? (report.ids.company?.[companyId] ?? null) : null,
+						normalizedKey: directoryKey(fields.name),
+					}),
+				)
+				.returning();
+			if (!row) continue;
+			report.map("contact", oldId, row.id);
+			report.add("contacts");
+		}
+		const employment = readAll(
+			report,
+			"employment",
+			z.object({
+				contactId: z.string(),
+				companyId: z.string().nullable().optional(),
+				companyName: z.string().max(300),
+				position: z.string().max(300).default(""),
+				startedOn: z.iso.date().nullable().default(null),
+				endedOn: z.iso.date().nullable().default(null),
+			}),
+			input.employment,
+		);
+		for (const { contactId, companyId, ...fields } of employment) {
+			const mapped = report.ids.contact?.[contactId];
+			if (!mapped) {
+				report.skip("employment", "unlinked");
+				continue;
+			}
+			await tx.insert(schema.contactEmployment).values({
+				...fields,
+				userId,
+				contactId: mapped,
+				companyId: companyId ? (report.ids.company?.[companyId] ?? null) : null,
+			});
+			report.add("employment");
+		}
+		const notes = readAll(
+			report,
+			"contactNotes",
+			z.object({ contactId: z.string(), text: z.string().trim().min(1).max(20_000), at: z.coerce.date() }),
+			input.notes,
+		);
+		for (const { contactId, ...fields } of notes) {
+			const mapped = report.ids.contact?.[contactId];
+			if (!mapped) {
+				report.skip("contactNotes", "unlinked");
+				continue;
+			}
+			await tx.insert(schema.contactNote).values({ ...fields, userId, contactId: mapped });
+			report.add("contactNotes");
+		}
+	});
+	return report.result();
+}
+
 async function importApplications(userId: string, input: AreaInput<"applications">) {
 	const report = new Report();
 	const applications = readAll(report, "applications", records.applicationRecord, input.applications);
@@ -241,12 +350,28 @@ async function importApplications(userId: string, input: AreaInput<"applications
 		// Everything tied to an application goes with it (facts, stories, saved items, conversations...).
 		if (input.mode === "replace") await tx.delete(schema.application).where(eq(schema.application.userId, userId));
 
-		const known = flattenIds(await verifiedIds(tx, userId, input.ids, ["resume", "letter"]));
-		const rows = applications.map(({ id: oldId, resumeId, coverLetterId, ...application }) => {
+		const known = flattenIds(await verifiedIds(tx, userId, input.ids, ["resume", "letter", "company", "contact"]));
+		const rows = applications.map(({ id: oldId, resumeId, coverLetterId, companyId, ...application }) => {
 			const id = generateId();
 			report.map("application", oldId, id);
 			return defined({
 				...application,
+				companyId: companyId ? (known.get(companyId) ?? null) : null,
+				contacts: application.contacts?.map(({ contactId, ...link }) => ({
+					...link,
+					...(contactId && known.has(contactId) ? { contactId: known.get(contactId) } : {}),
+				})),
+				activity: application.activity?.map((entry) =>
+					entry.type !== "interview"
+						? entry
+						: {
+								...entry,
+								participants: entry.participants.map(({ contactId, ...link }) => ({
+									...link,
+									...(contactId && known.has(contactId) ? { contactId: known.get(contactId) } : {}),
+								})),
+							},
+				),
 				id,
 				userId,
 				resumeId: resumeId ? (known.get(resumeId) ?? null) : null,
@@ -256,7 +381,10 @@ async function importApplications(userId: string, input: AreaInput<"applications
 				sentCoverLetterVersionId: null,
 			});
 		});
-		for (const part of chunks(rows)) await tx.insert(schema.application).values(part);
+		for (const part of chunks(rows)) {
+			const inserted = await tx.insert(schema.application).values(part).returning();
+			for (const row of inserted) await linkApplicationDirectory(tx, row);
+		}
 		report.add("applications", rows.length);
 
 		const applicationIds = flattenIds({ application: report.ids.application ?? {} });
@@ -693,7 +821,12 @@ export const accountImportService = {
 				.from(schema.careerArtifact)
 				.where(and(owned(schema.careerArtifact.userId), isNotNull(schema.careerArtifact.applicationId))),
 		]);
+		const [companies, contacts] = await Promise.all([
+			db.select({ value: count() }).from(schema.company).where(owned(schema.company.userId)),
+			db.select({ value: count() }).from(schema.contact).where(owned(schema.contact.userId)),
+		]);
 		return {
+			directory: { companies: total(companies), contacts: total(contacts) },
 			documents: { resumes: total(resumes), letters: total(letters), locked: total(locked) },
 			applications: {
 				applications: total(applications),
@@ -714,6 +847,8 @@ export const accountImportService = {
 		switch (input.area) {
 			case "documents":
 				return importDocuments(userId, input);
+			case "directory":
+				return importDirectory(userId, input);
 			case "applications":
 				return importApplications(userId, input);
 			case "knowledge":

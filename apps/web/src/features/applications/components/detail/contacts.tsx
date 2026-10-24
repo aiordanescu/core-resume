@@ -1,12 +1,14 @@
 import type { Contact } from "@reactive-resume/schema/applications/data";
 import { t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
+import { Link } from "@tanstack/react-router";
 import { useId, useState } from "react";
 import { contactSchema } from "@reactive-resume/schema/applications/data";
 import { Button } from "@reactive-resume/ui/components/button";
 import { Icon } from "@reactive-resume/ui/components/icon";
 import { Input } from "@reactive-resume/ui/components/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@reactive-resume/ui/components/popover";
+import { ContactPicker } from "@/features/directory/contact-picker";
 
 const EMPTY_CONTACT = { name: "", role: "", type: "", email: "", phone: "" };
 
@@ -18,7 +20,7 @@ export function Contacts({ contacts, disabled, onChange }: ContactsProps) {
 
 	return (
 		<Popover>
-			<PopoverTrigger className="grid min-w-0 rounded-md text-start hover:underline">
+			<PopoverTrigger aria-label={t`Contacts`} className="grid min-w-0 rounded-md text-start hover:underline">
 				<span className="truncate text-sm font-medium">{primary ? primary.name : "—"}</span>
 				{others.length > 0 && <span className="text-xs text-ink-3">{t`and ${others.length} more`}</span>}
 			</PopoverTrigger>
@@ -64,6 +66,23 @@ function ContactList({ contacts, disabled, onChange }: ContactsProps) {
 
 	return (
 		<div className="grid gap-2">
+			<ContactPicker
+				disabled={disabled}
+				onSelect={(person) => {
+					if (contacts.some((link) => link.contactId === person.id)) return;
+					onChange([
+						...contacts,
+						{
+							contactId: person.id,
+							name: person.name,
+							role: person.position,
+							type: "",
+							email: person.emails[0] ?? "",
+							phone: person.phones[0] ?? "",
+						},
+					]);
+				}}
+			/>
 			{contacts.length === 0 && !adding && (
 				<p className="text-sm text-ink-3">
 					<Trans>No contacts yet.</Trans>
@@ -73,9 +92,29 @@ function ContactList({ contacts, disabled, onChange }: ContactsProps) {
 				<div key={`${contact.name}-${index}`} className="flex items-start gap-2.5 text-sm">
 					<div className="grid min-w-0 flex-1">
 						<span className="truncate font-medium">
-							{contact.name}
+							{contact.contactId ? (
+								<Link
+									to="/dashboard/directory"
+									search={{ tab: "contacts", contact: contact.contactId }}
+									className="hover:underline"
+								>
+									{contact.name}
+								</Link>
+							) : (
+								contact.name
+							)}
 							{contact.type && <span className="font-normal text-ink-3"> · {contact.type}</span>}
 						</span>
+						<Input
+							aria-label={t`Role in this application for ${contact.name}`}
+							placeholder={t`Recruiter, referral, hiring manager…`}
+							value={contact.type}
+							disabled={disabled}
+							onChange={(event) =>
+								onChange(contacts.map((item, i) => (i === index ? { ...item, type: event.target.value } : item)))
+							}
+							className="my-1 h-7 text-xs"
+						/>
 						{contact.role && <span className="truncate text-xs text-ink-3">{contact.role}</span>}
 						{contact.email && (
 							<a href={`mailto:${contact.email}`} className="truncate text-xs text-accent-text hover:underline">

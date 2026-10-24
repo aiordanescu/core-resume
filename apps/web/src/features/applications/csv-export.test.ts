@@ -4,6 +4,7 @@ import { exportApplicationsCsv, mapCsvToApplications, parseCsv, selectApplicatio
 
 const application: Application = {
 	id: "application",
+	companyId: null,
 	company: 'Müller, "Partners"',
 	role: "Engineer",
 	status: "interview",

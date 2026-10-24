@@ -59,6 +59,7 @@ export const STAGES = [
 ] as const satisfies ReadonlyArray<{ value: ApplicationStatus; label: string; color: string }>;
 
 export const contactSchema = z.object({
+	contactId: z.string().min(1).optional(),
 	name: z.string().trim().min(1),
 	role: z.string().trim().default(""),
 	// Free-form label shown as a pill: "Recruiter", "Referral", "Hiring Manager"…
@@ -91,6 +92,7 @@ export const INTERVIEW_KINDS = [
 ] as const satisfies ReadonlyArray<{ value: InterviewKind; label: string; color: string }>;
 
 export const interviewParticipantSchema = z.object({
+	contactId: z.string().min(1).optional(),
 	name: z.string().trim().min(1).max(200),
 	role: z.string().trim().max(200).default(""),
 	profileUrl: z

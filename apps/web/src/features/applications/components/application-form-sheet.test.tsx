@@ -49,6 +49,7 @@ const NEW_KEY = "uploads/user-1/pictures/new.pdf";
 const application: Application = {
 	id: "app-1",
 	company: "Example",
+	companyId: null,
 	role: "Engineer",
 	location: null,
 	salary: null,

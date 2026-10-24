@@ -46,6 +46,7 @@ describe("readAccountArchive", () => {
 		expect(archive.resumes).toHaveLength(1);
 		expect(archiveCounts(archive)).toEqual({
 			documents: { resumes: 1, letters: 0 },
+			directory: { companies: 0, contacts: 0 },
 			applications: { applications: 1 },
 			knowledge: { facts: 1, stories: 0, groups: 1 },
 			jobSearch: { opportunities: 0, schedules: 0 },

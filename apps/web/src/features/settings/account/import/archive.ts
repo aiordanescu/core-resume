@@ -13,6 +13,7 @@ export type AccountArchive = {
 	resumes: Rows;
 	letters: Rows;
 	applications: Rows;
+	directory?: { companies: Rows; contacts: Rows; employment: Rows; notes: Rows };
 	career: {
 		profile: Record<string, unknown> | null;
 		aiLimits: Record<string, unknown> | null;
@@ -40,6 +41,7 @@ const wanted = (name: string) =>
 	name === "account.json" ||
 	name === "applications.json" ||
 	name === "career.json" ||
+	name === "directory.json" ||
 	/^(resumes|letters)\/[^/]+\.json$/.test(name);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
@@ -81,6 +83,7 @@ export function readAccountArchive(bytes: Uint8Array): AccountArchive {
 
 	const account = json("account.json");
 	const career = json("career.json");
+	const directory = json("directory.json");
 	if (!isRecord(account) || !isRecord(career)) {
 		throw new ArchiveError(
 			t`This zip isn't an account export. Use the zip from Settings, Your data, Export everything, in Reactive Resume or ${APP_NAME}.`,
@@ -102,6 +105,12 @@ export function readAccountArchive(bytes: Uint8Array): AccountArchive {
 		resumes: documents("resumes"),
 		letters: documents("letters"),
 		applications: rows(json("applications.json")),
+		directory: {
+			companies: rows(isRecord(directory) ? directory.companies : []),
+			contacts: rows(isRecord(directory) ? directory.contacts : []),
+			employment: rows(isRecord(directory) ? directory.employment : []),
+			notes: rows(isRecord(directory) ? directory.notes : []),
+		},
 		career: {
 			profile: isRecord(career.profile) ? career.profile : null,
 			aiLimits: isRecord(career.aiLimits) ? career.aiLimits : null,
@@ -121,7 +130,7 @@ export function readAccountArchive(bytes: Uint8Array): AccountArchive {
 	};
 }
 
-export const IMPORT_AREAS = ["documents", "applications", "knowledge", "jobSearch", "coach"] as const;
+export const IMPORT_AREAS = ["documents", "directory", "applications", "knowledge", "jobSearch", "coach"] as const;
 export type ImportListArea = (typeof IMPORT_AREAS)[number];
 
 const live = (list: Rows) => list.filter((row) => !row.deletedAt && row.status !== "deleted");
@@ -130,6 +139,10 @@ const live = (list: Rows) => list.filter((row) => !row.deletedAt && row.status !
 export function archiveCounts(archive: AccountArchive) {
 	const { career } = archive;
 	return {
+		directory: {
+			companies: archive.directory?.companies.length ?? 0,
+			contacts: archive.directory?.contacts.length ?? 0,
+		},
 		documents: { resumes: archive.resumes.length, letters: archive.letters.length },
 		applications: { applications: archive.applications.length },
 		knowledge: {

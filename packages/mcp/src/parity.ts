@@ -16,6 +16,21 @@ export const MCP_ROUTER = { ...router, rest: restAliases };
 
 // Explicit allowlist: adding an API procedure never silently grants MCP access.
 const PARITY_PROCEDURES = {
+	"directory.importLinkedIn": router.directory.importLinkedIn,
+	"directory.companies": router.directory.companies,
+	"directory.company": router.directory.company,
+	"directory.createCompany": router.directory.createCompany,
+	"directory.updateCompany": router.directory.updateCompany,
+	"directory.deleteCompany": router.directory.deleteCompany,
+	"directory.contacts": router.directory.contacts,
+	"directory.contact": router.directory.contact,
+	"directory.createContact": router.directory.createContact,
+	"directory.updateContact": router.directory.updateContact,
+	"directory.deleteContact": router.directory.deleteContact,
+	"directory.deleteAllContacts": router.directory.deleteAllContacts,
+	"directory.addNote": router.directory.addNote,
+	"directory.deleteNote": router.directory.deleteNote,
+
 	"resume.listVersions": router.resume.listVersions,
 	"resume.getVersion": router.resume.getVersion,
 	"resume.createVersion": router.resume.createVersion,
@@ -144,6 +159,7 @@ const readOnlyPosts = new Set([
 ]);
 const exportPaths = new Set(["rest.documentExports.resume", "rest.documentExports.letter"]);
 const destructiveWrites = new Set([
+	"directory.importLinkedIn",
 	"career.saveProfile",
 	"career.saveStory",
 	"career.saveSchedule",
