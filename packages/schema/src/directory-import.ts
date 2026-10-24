@@ -100,6 +100,8 @@ const profileKeys = (contact: MatchableContact) =>
 			.map(linkedInProfileKey)
 			.filter((key): key is string => key !== null),
 	);
+/** A contact with a LinkedIn profile is identified by it, so a same-name connection with another profile is someone else. */
+export const hasLinkedInProfile = (contact: MatchableContact) => profileKeys(contact).size > 0;
 export function updateLinkedInContactIndex(
 	index: LinkedInContactIndex,
 	contact: MatchableContact,
