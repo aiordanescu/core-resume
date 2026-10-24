@@ -44,7 +44,7 @@ Comparisons stay in place while you edit. **Recheck matches** compares your curr
 
 Work history keeps each role and its dates; descriptions become accomplishments with company and role context. Existing bullets stay separate, while LinkedIn's flattened descriptions stay together. Education, certifications, languages and other sections become experience facts, and skills are combined into a list. Long text is split to fit the 2,000-character fact limit. Hidden resume entries start unchecked, and contact fields are left out.
 
-LinkedIn ZIPs and JSON are read in your browser. Profile CSVs supply career facts. When the same archive contains `Connections.csv`, **Import contacts from this export** optionally saves contacts into [Directory](/guides/directory). It starts unchecked. Messages are ignored. The selected facts and their original text are saved to your account after review. PDFs use your AI connection when available and the browser reader otherwise. Word files need an AI connection. Resume files can be up to 10 MB; LinkedIn archives can be up to 100 MB, with a 5 MB limit on each profile CSV and a 20 MB limit on `Connections.csv` (up to 30,000 rows). See [Importing a resume](/guides/importing-resumes) for file requirements.
+LinkedIn ZIPs and JSON are read in your browser. Profile CSVs supply career facts. After a ZIP is detected, a small **LinkedIn export detected** window offers **Import facts** and **Import contacts**. Choose one or both, then select **Continue**. Only the selected CSV files are read. Contacts go into [Directory](/guides/directory). Messages are ignored. The selected facts and their original text are saved to your account after review. PDFs use your AI connection when available and the browser reader otherwise. Word files need an AI connection. Resume files can be up to 10 MB; LinkedIn archives can be up to 100 MB, with a 5 MB limit on each profile CSV and a 20 MB limit on `Connections.csv` (up to 30,000 rows). See [Importing a resume](/guides/importing-resumes) for file requirements.
 
 New facts follow the destination group's coaching switch and privacy settings. A new group starts with coaching on. The review shows private groups and groups with coaching off. Saving doesn't run any coaching tools.
 
@@ -52,11 +52,18 @@ Reopening a file reads it into another review so you can compare it with Knowled
 
 ### Contacts from the same LinkedIn export
 
-Upload the ZIP once. Select **Import contacts from this export** to review new contacts, existing contacts to update, and possible duplicates alongside your career facts. Contact import starts off. Available email addresses are included with each selected contact. Use the checkbox on a contact card to include or leave out that person. Cards appear in two columns when space allows and one column on smaller screens.
+Upload the ZIP once. Choose **Import facts**, **Import contacts**, or both in the detection window before the import readers run. Facts start selected and contacts start unchecked. Contacts-only imports skip profile files and the facts review. LinkedIn ZIP imports run locally in your browser and do not call an AI provider. Available email addresses are included with each selected contact. Use the checkbox on a contact card to include or leave out that person. Cards appear in two columns when space allows and one column on smaller screens. Contacts are grouped by the reviewed company name, with company groups and names sorted alphabetically. Company matching is alphabetical too.
 
 Profile URLs identify returning contacts even if their names or employers change. Possible name duplicates start unchecked. Select a duplicate to review it, then choose an existing contact to update or **Create separate contact**. A selected duplicate needs a match decision before you can save. Under **Company matching**, choose an existing company or type a name. Give company variants the same name to combine them; suggestions require your choice.
 
-**Import selected facts and contacts** saves both selections. Blank employer or position cells preserve existing values; manual notes, tags, phone numbers and last-contacted dates remain. Employer or position changes preserve the previous position with unknown dates. **Refresh contact review** reloads matches if another edit changed Directory while you were reviewing. A ZIP containing only connections also works. Standalone CSV import in Directory is deferred.
+**Import selected facts and contacts** saves both selections. Contacts-only mode uses **Import selected contacts**. Blank employer or position cells preserve existing values; manual notes, tags, phone numbers and last-contacted dates remain. Employer or position changes preserve the previous position with unknown dates. **Refresh contact review** reloads matches if another edit changed Directory while you were reviewing. A ZIP containing only connections also works. Standalone CSV import in Directory is deferred.
+
+<Frame caption="Choose what to read before the LinkedIn import begins.">
+  <img
+    src="/images/guides/directory/linkedin-options.png"
+    alt="LinkedIn export detected dialog with Import facts and Import contacts checkboxes and a Continue button"
+  />
+</Frame>
 
 <Frame caption="Review contacts and company matches alongside career facts from one LinkedIn archive.">
   <img
