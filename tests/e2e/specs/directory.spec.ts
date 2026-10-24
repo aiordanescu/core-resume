@@ -95,7 +95,7 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 			zipSync({
 				"Profile.csv": strToU8("First Name,Last Name,Headline\nTaylor,Morgan,Platform engineering leader"),
 				"Connections.csv": strToU8(
-					`Notes:\nExported connections\n\nFirst Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey-nguyen,casey@example.test,Lumen Inc.,${position},13 Aug 2026\nSam,Patel,https://linkedin.com/in/sam-patel,sam@example.test,Lumen,Recruiter,12 Sep 2025`,
+					`Notes:\nExported connections\n\nFirst Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey-nguyen,casey@example.test,LUMEN,${position},13 Aug 2026\nSam,Patel,https://linkedin.com/in/sam-patel,sam@example.test,Lumen,Recruiter,12 Sep 2025`,
 				),
 				"messages.csv": strToU8("Private messages are ignored"),
 			}),
@@ -118,7 +118,7 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 	await page.getByRole("checkbox", { name: "Import Sam Patel", exact: true }).check();
 	await expect(page.getByRole("button", { name: "Import selected facts and contacts" })).toBeDisabled();
 	await page.getByRole("radio", { name: "Update Sam Patel" }).check();
-	await page.getByRole("button", { name: "Use Lumen", exact: true }).click();
+	await expect(page.getByText("Company matching", { exact: true })).toHaveCount(0);
 	await expect(page.getByRole("checkbox", { name: "Also import email addresses" })).toHaveCount(0);
 	await page.getByRole("checkbox", { name: "Import Casey Nguyen", exact: true }).uncheck();
 	await expect(page.getByText("1 contact selected", { exact: true })).toBeVisible();
@@ -130,11 +130,13 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 		firstCard && secondCard && Math.abs(firstCard.y - secondCard.y) < 2 && secondCard.x > firstCard.x,
 	).toBeTruthy();
 	await page.setViewportSize({ width: 390, height: 844 });
-	const mobileFirst = await cards.nth(0).boundingBox();
-	const mobileSecond = await cards.nth(1).boundingBox();
-	expect(
-		mobileFirst && mobileSecond && Math.abs(mobileFirst.x - mobileSecond.x) < 2 && mobileSecond.y > mobileFirst.y,
-	).toBeTruthy();
+	await expect
+		.poll(async () => {
+			const first = await cards.nth(0).boundingBox();
+			const second = await cards.nth(1).boundingBox();
+			return first && second && Math.abs(first.x - second.x) < 2 && second.y > first.y;
+		})
+		.toBeTruthy();
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 	await page.setViewportSize({ width: 1280, height: 720 });
 	if (process.env.UPDATE_GUIDE_SCREENSHOTS === "true") {
@@ -170,13 +172,14 @@ test("imports career facts and optional contacts from one LinkedIn archive and m
 		.getByRole("button", { name: "Continue", exact: true })
 		.click();
 	await expect(page.getByRole("checkbox", { name: "Import Casey Nguyen", exact: true })).toBeChecked();
-	await expect(page.getByLabel("Company for Lumen Inc.")).toHaveValue("Lumen");
+	await expect(page.getByRole("heading", { name: "Lumen", exact: true })).toBeVisible();
 	await page.getByRole("button", { name: "Import selected facts and contacts", exact: true }).click();
 	await expect(page.getByText("Knowledge import complete", { exact: true })).toBeVisible();
 	people = await (await page.request.get("/api/openapi/directory/contacts")).json();
 	expect(people).toHaveLength(2);
 	expect(people.find((person: { id: string }) => person.id === casey.id)).toMatchObject({
 		position: "Staff Engineer",
+		companyId: company.id,
 		emails: ["casey@example.test"],
 	});
 	expect(errors).toEqual([]);

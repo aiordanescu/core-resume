@@ -2969,10 +2969,6 @@ msgid "Choose an application…"
 msgstr "Choose an application…"
 
 #: src/features/career/knowledge/import-contacts.tsx
-msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
-msgstr "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
-
-#: src/features/career/knowledge/import-contacts.tsx
 msgid "Choose an existing contact to update or create a separate person."
 msgstr "Choose an existing contact to update or create a separate person."
 
@@ -3178,18 +3174,9 @@ msgstr "Companies"
 msgid "Company"
 msgstr "Company"
 
-#. placeholder {0}: choice.sourceName
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Company for {0}"
-msgstr "Company for {0}"
-
 #: src/features/directory/page.tsx
 msgid "Company history"
 msgstr "Company history"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Company matching"
-msgstr "Company matching"
 
 #. placeholder {0}: application.company
 #: src/features/career/workspace/practise.tsx
@@ -9782,10 +9769,6 @@ msgstr "Profile links"
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Profile links must be public HTTPS addresses."
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
-msgstr "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -11343,6 +11326,10 @@ msgstr "Select up to 500 facts at a time."
 #: src/components/ui/combobox.tsx
 msgid "Select..."
 msgstr "Select..."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Selected contacts bring in their companies and available email addresses. Existing companies are reused by name. Possible duplicates start unchecked."
+msgstr "Selected contacts bring in their companies and available email addresses. Existing companies are reused by name. Possible duplicates start unchecked."
 
 #: src/features/documents/documents-page.tsx
 msgid "Selected documents"
@@ -13843,11 +13830,6 @@ msgstr "Uploading picture…"
 msgid "URL"
 msgstr "URL"
 
-#. placeholder {0}: company.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use {0}"
-msgstr "Use {0}"
-
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
 msgstr "Use {minimum}"
@@ -13910,10 +13892,6 @@ msgstr "Use default"
 msgid "Use details from “{0}”"
 msgstr "Use details from “{0}”"
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use existing company"
-msgstr "Use existing company"
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Use for all applications"
@@ -13949,10 +13927,6 @@ msgstr "Use the standard heading"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Use these answers"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use this company name"
-msgstr "Use this company name"
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"

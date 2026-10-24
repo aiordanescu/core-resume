@@ -52,9 +52,9 @@ Reopening a file reads it into another review so you can compare it with Knowled
 
 ### Contacts from the same LinkedIn export
 
-Upload the ZIP once. Choose **Import facts**, **Import contacts**, or both in the detection window before the import readers run. Facts start selected and contacts start unchecked. Contacts-only imports skip profile files and the facts review. LinkedIn ZIP imports run locally in your browser and do not call an AI provider. Available email addresses are included with each selected contact. Use the checkbox on a contact card to include or leave out that person. Cards appear in two columns when space allows and one column on smaller screens. Contacts are grouped by the reviewed company name, with company groups and names sorted alphabetically. Company matching is alphabetical too.
+Upload the ZIP once. Choose **Import facts**, **Import contacts**, or both in the detection window before the import readers run. Facts start selected and contacts start unchecked. Contacts-only imports skip profile files and the facts review. LinkedIn ZIP imports run locally in your browser and do not call an AI provider. Available email addresses are included with each selected contact. Use the checkbox on a contact card to include or leave out that person. Cards appear in two columns when space allows and one column on smaller screens. Contacts are grouped by company, with company groups and names sorted alphabetically.
 
-Profile URLs identify returning contacts even if their names or employers change. Possible name duplicates start unchecked. Select a duplicate to review it, then choose an existing contact to update or **Create separate contact**. A selected duplicate needs a match decision before you can save. Under **Company matching**, choose an existing company or type a name. Give company variants the same name to combine them; suggestions require your choice.
+Profile URLs identify returning contacts even if their names or employers change. Possible name duplicates start unchecked. Select a duplicate to review it, then choose an existing contact to update or **Create separate contact**. A selected duplicate needs a match decision before you can save. Selected contacts automatically bring in their companies using the names in the export. Existing companies are reused when names match, ignoring capitalization and spacing. Companies belonging only to unchecked contacts are left out.
 
 **Import selected facts and contacts** saves both selections. Contacts-only mode uses **Import selected contacts**. Blank employer or position cells preserve existing values; manual notes, tags, phone numbers and last-contacted dates remain. Employer or position changes preserve the previous position with unknown dates. **Refresh contact review** reloads matches if another edit changed Directory while you were reviewing. A ZIP containing only connections also works. Standalone CSV import in Directory is deferred.
 
@@ -65,7 +65,7 @@ Profile URLs identify returning contacts even if their names or employers change
   />
 </Frame>
 
-<Frame caption="Review contacts and company matches alongside career facts from one LinkedIn archive.">
+<Frame caption="Review contacts alongside career facts from one LinkedIn archive.">
   <img
     src="/images/guides/directory/linkedin-import.png"
     alt="Knowledge import with contacts selected using checkboxes in two columns, available emails, and a reviewed match for a Lumen contact"

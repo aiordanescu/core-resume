@@ -1,5 +1,5 @@
 import type { LinkedInConnectionsFile } from "@reactive-resume/import/linkedin-connections";
-import type { LinkedInCompanyChoice, LinkedInImport } from "@reactive-resume/schema/directory-import";
+import type { LinkedInImport } from "@reactive-resume/schema/directory-import";
 import { plural, t } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 import { useQuery } from "@tanstack/react-query";
@@ -11,7 +11,6 @@ import {
 	matchLinkedInContact,
 } from "@reactive-resume/schema/directory-import";
 import { Button } from "@reactive-resume/ui/components/button";
-import { Input } from "@reactive-resume/ui/components/input";
 import { cn } from "@reactive-resume/utils/style";
 import { client, orpc } from "@/libs/orpc/client";
 
@@ -61,11 +60,9 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	const contacts = useQuery(orpc.directory.contacts.queryOptions({ input: {}, staleTime: 0 }));
 	const companies = useQuery(orpc.directory.companies.queryOptions({ input: {}, staleTime: 0 }));
 	const [choices, setChoices] = useState<Record<string, string>>({});
-	const [companyEdits, setCompanyEdits] = useState<Record<string, LinkedInCompanyChoice>>({});
 	const [included, setIncluded] = useState<Record<string, boolean>>({});
 	const [filter, setFilter] = useState("all");
 	const [page, setPage] = useState(0);
-	const [companyPage, setCompanyPage] = useState(0);
 	const listId = useId();
 	const contactIndex = useMemo(() => indexLinkedInContacts(contacts.data ?? []), [contacts.data]);
 	const companyNames = useMemo(
@@ -80,16 +77,10 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	const mappings = useMemo(
 		() =>
 			companyNames.map((sourceName) => {
-				const edited = Object.hasOwn(companyEdits, directoryKey(sourceName))
-					? companyEdits[directoryKey(sourceName)]
-					: undefined;
-				const match = matchLinkedInCompany(sourceName, companies.data ?? []);
-				return {
-					choice: edited ?? { sourceName, companyId: match.exact?.id ?? null, name: match.exact?.name ?? sourceName },
-					suggestions: match.suggestions,
-				};
+				const { exact } = matchLinkedInCompany(sourceName, companies.data ?? []);
+				return { sourceName, companyId: exact?.id ?? null, name: exact?.name ?? sourceName };
 			}),
-		[companyNames, companyEdits, companies.data],
+		[companyNames, companies.data],
 	);
 	const rows = useMemo(
 		() =>
@@ -133,10 +124,15 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 			contacts.isError ||
 			companies.isPending ||
 			companies.isError ||
-			rows.some((row) => row.checked && !row.target) ||
-			mappings.some((mapping) => !mapping.choice.name.trim())
+			rows.some((row) => row.checked && !row.target)
 				? null
-				: { rows: selected, companies: mappings.map((mapping) => mapping.choice), importEmails: true },
+				: {
+						rows: selected,
+						companies: mappings.filter((mapping) =>
+							selected.some((row) => directoryKey(row.connection.company) === directoryKey(mapping.sourceName)),
+						),
+						importEmails: true,
+					},
 		[selected, mappings, rows, contacts.isPending, contacts.isError, companies.isPending, companies.isError],
 	);
 	useEffect(() => {
@@ -144,9 +140,7 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 	}, [selection, onChange]);
 	useEffect(() => () => onChange(null), [onChange]);
 	const names = new Map(companies.data?.map((company) => [company.id, company.name]));
-	const companyLabels = new Map(
-		mappings.map((mapping) => [directoryKey(mapping.choice.sourceName), mapping.choice.name]),
-	);
+	const companyLabels = new Map(mappings.map((mapping) => [directoryKey(mapping.sourceName), mapping.name]));
 	const groupName = (company: string) => companyLabels.get(directoryKey(company)) || company || t`No company`;
 	const visible = rows
 		.filter((row) => filter === "all" || row.match.kind === filter)
@@ -163,13 +157,6 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 		if (group) group.rows.push(row);
 		else grouped.set(key, { name, rows: [row] });
 	}
-	const editCompany = (sourceName: string, name: string) => {
-		const existing = companies.data?.find((company) => directoryKey(company.name) === directoryKey(name));
-		setCompanyEdits((previous) => ({
-			...previous,
-			[directoryKey(sourceName)]: { sourceName, name, companyId: existing?.id ?? null },
-		}));
-	};
 	if (contacts.isError || companies.isError)
 		return (
 			<div role="alert" className="grid justify-items-start gap-2">
@@ -198,9 +185,8 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 		<div className="grid min-w-0 gap-5">
 			<p className="text-sm text-ink-2">
 				<Trans>
-					Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before
-					saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted
-					dates stay as you set them.
+					Selected contacts bring in their companies and available email addresses. Existing companies are reused by
+					name. Possible duplicates start unchecked.
 				</Trans>
 			</p>
 			<div className="flex flex-wrap gap-3 text-sm">
@@ -224,65 +210,6 @@ export function ContactsImportReview({ file, disabled, onChange }: ContactsImpor
 				</span>
 			</div>
 
-			{mappings.length > 0 && (
-				<details className="rounded-lg border border-line p-3" open>
-					<summary className="cursor-pointer font-semibold">
-						<Trans>Company matching</Trans> ({mappings.length})
-					</summary>
-					<p className="my-2 text-xs text-ink-2">
-						<Trans>
-							Choose an existing company or type a new name. Give variants the same company name to combine them.
-							Suggested matches are not applied automatically.
-						</Trans>
-					</p>
-					<datalist id={listId}>
-						{companies.data?.map((company) => (
-							<option key={company.id} value={company.name} />
-						))}
-					</datalist>
-					<div className="grid gap-3">
-						{mappings.slice(companyPage * 25, (companyPage + 1) * 25).map(({ choice, suggestions }) => (
-							<div key={choice.sourceName} className="grid gap-1 sm:grid-cols-2">
-								<span className="self-center text-sm">{choice.sourceName}</span>
-								<div className="grid gap-1">
-									<Input
-										aria-label={t`Company for ${choice.sourceName}`}
-										value={choice.name}
-										list={listId}
-										maxLength={300}
-										disabled={disabled}
-										onChange={(event) => editCompany(choice.sourceName, event.target.value)}
-									/>
-									<span className="text-xs text-ink-3">
-										{choice.companyId ? t`Use existing company` : t`Use this company name`}
-									</span>
-									{!choice.companyId &&
-										suggestions.map((company) => (
-											<Button
-												key={company.id}
-												type="button"
-												variant="ghost"
-												size="sm"
-												className="justify-start"
-												disabled={disabled}
-												onClick={() => editCompany(choice.sourceName, company.name)}
-											>{t`Use ${company.name}`}</Button>
-										))}
-								</div>
-							</div>
-						))}
-					</div>
-					{mappings.length > 25 && (
-						<Pagination
-							page={companyPage}
-							total={mappings.length}
-							size={25}
-							disabled={disabled}
-							onChange={setCompanyPage}
-						/>
-					)}
-				</details>
-			)}
 			<div className="flex flex-wrap items-center gap-2">
 				<Button
 					variant="ghost"

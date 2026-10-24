@@ -35,7 +35,7 @@ const api = vi.hoisted(() => ({
 		profileLinks: string[];
 		sources: { kind: string; id: string }[];
 	}[],
-	companies: [],
+	companies: [] as { id: string; name: string; sources: { kind: string; id: string }[] }[],
 	importContacts: vi.fn(),
 }));
 vi.mock("@/libs/orpc/client", () => {
@@ -411,6 +411,33 @@ it("reviews contacts from the same file and includes available emails with selec
 		}),
 	);
 	expect(screen.getByRole("link", { name: "View contacts" })).toBeInTheDocument();
+});
+it("imports companies automatically only for selected contacts and reuses matching names", async () => {
+	api.companies = [{ id: "existing-lumen", name: "Lumen", sources: [] }];
+	mount();
+	uploadArchive(
+		"First Name,Last Name,URL,Email Address,Company,Position,Connected On\nCasey,Nguyen,https://linkedin.com/in/casey,,LUMEN,Engineer,\nAmy,Example,https://linkedin.com/in/amy,,Acme Inc.,Lead,\nZoe,Example,https://linkedin.com/in/zoe,,Zebra,Lead,",
+	);
+	await chooseImport({ facts: false });
+	await screen.findByText("3 contacts selected");
+	expect(screen.queryByText("Company matching")).not.toBeInTheDocument();
+	expect(screen.queryByRole("textbox", { name: /Company for/ })).not.toBeInTheDocument();
+	fireEvent.click(screen.getByRole("checkbox", { name: "Import Zoe Example" }));
+	await screen.findByText("2 contacts selected");
+	fireEvent.click(screen.getByRole("button", { name: "Import selected contacts" }));
+	await screen.findByText("Knowledge import complete");
+	expect(api.importContacts).toHaveBeenCalledWith(
+		expect.objectContaining({
+			companies: [
+				{ sourceName: "Acme Inc.", companyId: null, name: "Acme Inc." },
+				{ sourceName: "LUMEN", companyId: "existing-lumen", name: "Lumen" },
+			],
+			rows: [
+				expect.objectContaining({ connection: expect.objectContaining({ name: "Casey Nguyen" }) }),
+				expect.objectContaining({ connection: expect.objectContaining({ name: "Amy Example" }) }),
+			],
+		}),
+	);
 });
 it("supports a connections-only archive and includes available email", async () => {
 	api.read.mockRejectedValue(new Error("No profile"));

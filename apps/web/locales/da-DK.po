@@ -2969,10 +2969,6 @@ msgid "Choose an application…"
 msgstr "Vælg en jobansøgning..."
 
 #: src/features/career/knowledge/import-contacts.tsx
-msgid "Choose an existing company or type a new name. Give variants the same company name to combine them. Suggested matches are not applied automatically."
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
 msgid "Choose an existing contact to update or create a separate person."
 msgstr ""
 
@@ -3178,17 +3174,8 @@ msgstr ""
 msgid "Company"
 msgstr "Virksomhed"
 
-#. placeholder {0}: choice.sourceName
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Company for {0}"
-msgstr ""
-
 #: src/features/directory/page.tsx
 msgid "Company history"
-msgstr ""
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Company matching"
 msgstr ""
 
 #. placeholder {0}: application.company
@@ -9782,10 +9769,6 @@ msgstr ""
 msgid "Profile links must be public HTTPS addresses."
 msgstr "Profillinks skal være offentlige HTTPS-adresser."
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Profile URLs match existing contacts. Possible name duplicates start skipped. Review company names before saving. Blank company or position fields keep existing values; notes, tags, phone numbers, and last-contacted dates stay as you set them."
-msgstr ""
-
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
 msgid "Profiles"
@@ -11343,6 +11326,10 @@ msgstr ""
 #: src/components/ui/combobox.tsx
 msgid "Select..."
 msgstr "Vælg..."
+
+#: src/features/career/knowledge/import-contacts.tsx
+msgid "Selected contacts bring in their companies and available email addresses. Existing companies are reused by name. Possible duplicates start unchecked."
+msgstr ""
 
 #: src/features/documents/documents-page.tsx
 msgid "Selected documents"
@@ -13843,11 +13830,6 @@ msgstr "Uploader billede…"
 msgid "URL"
 msgstr "URL"
 
-#. placeholder {0}: company.name
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use {0}"
-msgstr ""
-
 #: src/features/resume/editor/check/issues.ts
 msgid "Use {minimum}"
 msgstr "Brug {minimum}"
@@ -13910,10 +13892,6 @@ msgstr "Brug standard"
 msgid "Use details from “{0}”"
 msgstr "Brug detaljer fra \"{0}\""
 
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use existing company"
-msgstr ""
-
 #: src/features/career/knowledge/facts.tsx
 msgid "Use for all applications"
 msgstr "Brug til alle ansøgninger"
@@ -13949,10 +13927,6 @@ msgstr "Brug standardoverskriften"
 #: src/features/career/workspace/apply.tsx
 msgid "Use these answers"
 msgstr "Brug disse svar"
-
-#: src/features/career/knowledge/import-contacts.tsx
-msgid "Use this company name"
-msgstr ""
 
 #: src/features/settings/preferences.tsx
 msgid "Use this device's timezone ({device})"
