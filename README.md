@@ -99,6 +99,4 @@ You can use or self-host the software without joining the GitHub organization. O
 
 ## Credits and license
 
-Reactive Resume was created by [Amruth Pillai](https://github.com/AmruthPillai) and its contributors. Their work provides most of this codebase. You can [support Reactive Resume](https://opencollective.com/reactive-resume) directly.
-
-All That Work is independently maintained and is not affiliated with or endorsed by Reactive Resume. The code is available under the [MIT license](LICENSE); upstream copyright notices are preserved.
+Built on [Reactive Resume](https://github.com/reactive-resume/reactive-resume) by Amruth Pillai. All That Work is independent and not affiliated with or endorsed by Reactive Resume. MIT licensed; see [LICENSE](LICENSE).
